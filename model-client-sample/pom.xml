@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2013 Evolveum                             -->
+<!--                                                         -->
+<!-- The contents of this file are subject to the terms      -->
+<!-- of the Common Development and Distribution License      -->
+<!-- (the License). You may not use this file except in      -->
+<!-- compliance with the License.                            -->
+<!--                                                         -->
+<!-- You can obtain a copy of the License at                 -->
+<!-- http://www.opensource.org/licenses/cddl1 or             -->
+<!-- CDDLv1.0.txt file in the source code distribution.      -->
+<!-- See the License for the specific language governing     -->
+<!-- permission and limitations under the License.           -->
+<!--                                                         -->
+<!-- If applicable, add the following below the CDDL Header, -->
+<!-- with the fields enclosed by brackets [] replaced by     -->
+<!-- your own identifying information:                       -->
+<!--                                                         -->
+<!-- Portions Copyrighted 2013 [name of copyright owner]     -->
+<!--                                                         -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<name>midPoint Samples - Model client sample</name>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.evolveum.midpoint.samples</groupId>
+	<artifactId>model-client-sample</artifactId>
+	<!-- NOTE: no parent. We want this to be completely stand-alone. -->
+	<version>2.1.1-SNAPSHOT</version>
+	<properties>
+		<project.source.version>1.6</project.source.version>
+	</properties>
+	<organization>
+		<name>Evolveum</name>
+		<url>http://www.evolveum.com</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>CDDL v1.0</name>
+			<url>http://www.sun.com/cddl/cddl.html</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
+	<issueManagement>
+		<system>Atlassian JIRA</system>
+		<url>http://jira.evolveum.com/</url>
+	</issueManagement>
+	<build>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>2.3.2</version>
+			<configuration>
+				<source>${project.source.version}</source>
+				<target>${project.source.version}</target>
+				<fork>true</fork>
+				<meminitial>128m</meminitial>
+				<maxmem>768m</maxmem>
+				<showDeprecation>true</showDeprecation>
+				<showWarnings>true</showWarnings>
+				<!--verbose>true</verbose> <showWarnings>false</showWarnings -->
+			</configuration>
+		</plugin>
+<!-- 		<plugin>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<configuration>
+				<descriptorRefs>
+					<descriptorRef>jar-with-dependencies</descriptorRef>
+				</descriptorRefs>
+				<archive>
+					<manifest>
+						<mainClass>com.evolveum.midpoint.testing.model.client.sample.Main</mainClass>
+					</manifest>
+				</archive>
+			</configuration>
+			<executions>
+				<execution>
+					<phase>package</phase>
+					<goals>
+						<goal>single</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>  -->
+	</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>com.evolveum.midpoint.model</groupId>
+			<artifactId>model-client</artifactId>
+			<version>2.1.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+            <version>2.4.3</version>
+        </dependency>
+        <dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-transports-http</artifactId>
+			<version>2.4.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-ws-security</artifactId>
+			<version>2.4.3</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+	</dependencies>
+</project>
