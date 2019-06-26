@@ -23,7 +23,7 @@
     
 	<audit>
 		<eventRecording>
-			<storeResourceOids>true</storeResourceOids>
+			<recordResourceOids>true</recordResourceOids>
 			<property>
 				<name>foo</name>
 				<expression>
