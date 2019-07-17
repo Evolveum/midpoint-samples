@@ -1,0 +1,33 @@
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" oid="b2b8fde7-6371-42ae-a234-16475a8c5468" version="6">
+    <name>
+      Mandatory for Microsoft Azure AD user 
+   </name>
+     <item id="1">
+        <c:ref>c:extension/mailNickname</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <minOccurs>1</minOccurs>
+        </limitations>
+    </item>
+    <item id="2">
+        <c:ref>c:fullName</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <minOccurs>1</minOccurs>
+        </limitations>
+    </item>
+    <item id="3">
+        <c:ref>c:activation/administrativeStatus</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <minOccurs>1</minOccurs>
+        </limitations>
+    </item>
+    <item id="4">
+        <c:ref>c:credentials/password/value</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <minOccurs>1</minOccurs>
+        </limitations>
+    </item>
+</objectTemplate>
