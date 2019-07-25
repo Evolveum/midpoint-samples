@@ -109,6 +109,22 @@
                     <color>#dd4b39</color>
                 </display>
             </variation>
+            <view>
+            	<!-- EXPERIMENTAL -->
+            	<column>
+            		<name>delta</name>
+            		<path>delta</path>
+            		<display>
+            			<label>Delta</label>
+            		</display>
+            		<previousColumn>outcome</previousColumn>
+            		<expression>
+            			<script>
+            				<code>ReportUtils.printDelta(....)</code>
+            			</script>
+            		</expression>
+            	</column>
+            </view>
         </presentation>
     </widget>
     <widget>
