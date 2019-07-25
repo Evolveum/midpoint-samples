@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<xsd:schema elementFormDefault="qualified"
+            targetNamespace="http://midpoint.evolveum.com/xml/ns/story/orgsync/ext"
+            xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+            xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <!-- user extension -->
+<xsd:complexType name="UserTypeExtensionType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <a:extension ref="c:UserType"/>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="mailNickname" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The mail alias for the user. This property must be specified when a user is created. 
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="onPremisesImmutableId" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							 	This property is used to associate an on-premises Active Directory user account to their Azure AD user object.
+								This property must be specified when creating a new user account in the Graph if you are using a federated domain for the user’s userPrincipalName (UPN) property.
+								Important: The $ and _ characters cannot be used when specifying this property.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="forceChangePasswordNextSignInWithMfa" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							If true, at next sign-in, the user must perform a multi-factor authentication (MFA) before being forced to change their password. 
+							The behavior is identical to forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before password change. 
+							After a password change, this property will be automatically reset to false. If not set, default is false.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ageGroup" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							Sets the age group of the user. Allowed values: null, minor, notAdult and adult. 
+							Refer to the legal age group property definitions for further information.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="businessPhones" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The telephone numbers for the user.
+							NOTE: Although this is a string collection, only one number can be set for this property.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="city" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The city in which the user is located.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="companyName" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The company name which the user is associated. 
+							This property can be useful for describing the company that an external user comes from.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="country" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The country/region in which the user is located; for example, “US” or “UK”
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="consentProvidedForMinor" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							Sets whether consent has been obtained for minors.
+							Allowed values: null, granted, denied and notRequired.
+							Refer to the legal age group property definitions for further information.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="department" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The name for the department in which the user works.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="faxNumber" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The fax number of the user.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="legalAgeGroupClassification" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							Used by enterprise applications to determine the legal age group of the user. 
+							This property is read-only and calculated based on ageGroup and consentProvidedForMinor properties.
+							Allowed values: null, minorWithOutParentalConsent, minorWithParentalConsent, minorNoParentalConsentRequired, notAdult and adult.
+							Refer to the legal age group property definitions for further information.)
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="mail" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The SMTP address for the user, for example, "jeff@contoso.onmicrosoft.com". Read-Only.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="otherMails" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							A list of additional email addresses for the user; for example: 
+							["bob@contoso.com", "Robert@fabrikam.com"].
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="passwordPolicies" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							Specifies password policies for the user. 
+							This value is an enumeration with one possible value being “DisableStrongPassword”, which allows weaker passwords than the default policy to be specified.
+							“DisablePasswordExpiration” can also be specified. 
+							The two may be specified together; for example: "DisablePasswordExpiration, DisableStrongPassword".
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="postalCode" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The postal code for the user's postal address. 
+							The postal code is specific to the user's country/region. 
+							In the United States of America, this attribute contains the ZIP code.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="showInAddressList" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							true if the Outlook global address list should contain this user, otherwise false.
+							If not set, this will be treated as true. 
+							For users invited through the invitation manager, this property will be set to false.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="state" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The state or province in the user's address. 
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="streetAddress" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The street address of the user's place of business.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			
+			
+        </xsd:sequence>
+    </xsd:complexType>
+	
+	<xsd:complexType name="OrgTypeExtensionType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <a:extension ref="c:OrgType"/>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+			<xsd:element name="mailEnabled" type="xsd:boolean" minOccurs="0"  maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							Specifies whether the group is mail-enabled. 
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+            <xsd:element name="mailNickname" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The mail alias for the group, unique in the organization. 
+							This property must be specified when a group is created. 
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="securityEnabled" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							Specifies whether the group is a security group. 
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="allowExternalSenders" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							Indicates if people external to the organization can send messages to the group.
+							Default value is false. 
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="autoSubscribeNewMembers" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							 	Indicates if new members added to the group will be auto-subscribed to receive email notifications. 
+								Default value is false.  
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="classification" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							Describes a classification for the group (such as low, medium or high business impact). 
+							Valid values for this property are defined by creating a ClassificationList setting value, based on the template definition.
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="groupTypes" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							Specifies the group type and its membership.
+							If the collection contains Unified then the group is an Office 365 group; otherwise it's a security group.
+							If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static. 
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="isSubscribedByMail" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							Indicates whether the signed-in user is subscribed to receive email conversations.
+							Default value is true. 
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="mail" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The SMTP address for the group, for example, "serviceadmins@contoso.onmicrosoft.com".
+							Read-only.  
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="preferredDataLocation" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							The preferred data location for the group. 
+							For more information, see OneDrive Online Multi-Geo.  
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="proxyAddresses" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							Email addresses for the group that direct to the same group mailbox.
+							For example: ["SMTP: bob@contoso.com", "smtp: bob@sales.contoso.com"].
+							The any operator is required to filter expressions on multi-valued properties. Read-only. 
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+			<xsd:element name="visibility" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                        <xsd:appinfo>
+                                <a:indexed>false</a:indexed>
+                        </xsd:appinfo>
+						<xsd:documentation>
+							 	Specifies the visibility of an Office 365 group. Possible values are: private, public, or hiddenmembership; blank values are treated as public. See group visibility options to learn more.
+								Visibility can be set only when a group is created; it is not editable.
+								Visibility is supported only for unified groups; it is not supported for security groups.  
+						</xsd:documentation>
+                </xsd:annotation>
+			</xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+  
+</xsd:schema>
+
