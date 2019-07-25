@@ -110,12 +110,18 @@
                 </display>
             </variation>
             <view>
-            	<!-- EXPERIMENTAL -->
+            	<!-- This will be used when the list of audit entries is displayed. -->
+            	<!-- EXPERIMENTAL: do not rely on this. Functionality is very limited. And it is likely to change. -->
+            	<display>
+            		<!-- Custom CSS class/style for the entire table can be here. -->
+            	</display>
             	<column>
+            		<!-- TODO: decide if we use name or path. The names may be hardcoded. -->
             		<name>delta</name>
             		<path>delta</path>
             		<display>
             			<label>Delta</label>
+            			<!-- CSS class/style for the column may be here -->
             		</display>
             		<previousColumn>outcome</previousColumn>
             		<expression>
