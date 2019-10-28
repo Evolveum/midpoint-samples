@@ -1,0 +1,180 @@
+<!--
+  ~ Copyright (c) 2019 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<securityPolicy oid="6276728e-f98c-11e9-90ba-0785c1563bb1"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+        xmlns:piracy="http://midpoint.evolveum.com/xml/ns/samples/piracy">
+	<name>System security policy</name>
+
+	<description>
+		Final version of authentication/credentials configuration.
+		Planned for 4.x-5.x sometime in the future.
+	</description>
+
+	<authentication>
+		<!-- Definition of AUTHENTICATION methods that midPoint supports.
+		     Credentials in this section are considered to be read-only. -->
+		<modules>
+			<!-- Definition and configuration of all authentication modules that can be used in the system -->
+			<internal>
+				<name>internal</name>
+				<description>Internal username/password authentication</description>
+				<!-- Password validation config. E.g. whether to accept empty password. -->
+			</internal>
+			<saml2>
+				<name>federation</name>
+				<description>SAML-based federation authentication (e.g. eduGAIN-like)</description>
+				<network>
+					<readTimeout>10000</readTimeout>
+				</network>
+				<serviceProvider>
+					<entityId>mynode</entityId>
+				</serviceProvider>
+				<!-- ... -->
+			</saml2>
+			<saml2>
+				<name>mySso</name>
+				<description>My internal enterprise SAML-based SSO system.</description>
+				<serviceProvider>
+					<entityId>midpoint</entityId>
+				</serviceProvider>
+				<!-- ... -->
+			</saml2>
+			<oidc>
+				<name>apiGw</name>
+				<description>API-GW-like authentication using company OpenID Connect authorization server.</description>
+				<!-- TODO -->
+			</oidc>
+			<resource>
+				<name>ldapPassword</name>
+				<description>Password-based authentication using LDAP connector.</description>
+				<resourceRef oid="11123444445"/> <!-- LDAP resource -->
+			</resource>
+			<resource>
+				<name>adPassword</name>
+				<description>Password-based authentication using AD connector.</description>
+				<resourceRef oid="12345666"/> <!-- AD resource -->
+			</resource>
+			<mailNonce>
+				<name>registrationMail</name>
+				<description>Authentication based on mail message with a nonce. Used for user registration.</description>
+				<nonceCredentialPolicyName>mailNonce</nonceCredentialPolicyName>
+				<!-- no emailAddressItem specified, therefore the default emailAddreess item will be used -->
+			</mailNonce>
+			<smsNonce>
+				<name>passwordResetSms</name>
+				<description>Authentication based on SMS message with a nonce. Used for password resets.</description>
+				<nonceCredentialPolicyName>smsNonce</nonceCredentialPolicyName>
+				<mobileTelephoneNumberItemPath>extension/mobile</mobileTelephoneNumberItemPath>
+			</smsNonce>
+			<securityQuestions>
+				<name>SecQ</name>
+				<!-- Define security question validation.
+				     E.g. how many questions to present, how many need to be answered successfuly, randomize order, etc.  -->
+			</securityQuestions>
+		</modules>
+		<sequence>
+			<name>default</name>
+			<description>
+				Default GUI authentication sequence.
+				We want to try company SSO, federation and internal. In that order.
+				Just one of then need to be successful to let user in.
+			</description>
+			<module>
+				<name>mySso</name>
+				<order>10</order>
+				<necessity>sufficient</necessity>
+			</module>
+			<module>
+				<name>federation</name>
+				<order>20</order>
+				<necessity>sufficient</necessity>
+			</module>
+			<module>
+				<name>internal</name>
+				<order>30</order>
+				<necessity>sufficient</necessity>
+			</module>
+			<!-- TODO: global sequence settings.
+			           e.g. whether to display info that account is locked or whether to be show just generic "access denied" message. -->
+		</sequence>
+		<sequence>
+			<name>rest</name>
+			<description>
+				Authentication sequence for REST service.
+				We want just OIDC auth here.
+			</description>
+			<module>
+				<name>apiGw</name>
+				<order>10</order>
+				<necessity>required</necessity>
+			</module>
+		</sequence>
+		<sequence>
+			<name>globalPasswordReset</name>
+			<description>
+				We want combination of SMS nonce auth and security questions.
+				Both must be successful for authentication to pass.
+			</description>
+			<module>
+				<name>passwordResetSms</name>
+				<order>10</order>
+				<necessity>required</necessity>
+			</module>
+			<module>
+				<name>SecQ</name>
+				<order>20</order>
+				<necessity>required</necessity>
+			</module>
+		</sequence>
+	</authentication>
+
+	<credentials>
+		<!-- Definition of user credentials that midPoint can MANAGE. Which means writing/changing them.
+		     This has nothing to do with authentication or credential reset. Not directly.
+		     But there may be dependencies. E.g. password reset may use password policy to generate/validate new password. -->
+		<password>
+			<name>globalPassword</name>
+			<!-- Ordinary password policy. -->
+		</password>
+		<securityQuestions>
+			<name>SecQ</name>
+			<!-- Define credential management,
+				e.g. how many questions to set up. Allow user-provided questions or pre-defined questions only. -->
+		</securityQuestions>
+		<nonce>
+			<name>mailNonce</name>
+			<valuePolicyRef oid="12345"/> <!-- 30-char alphanumeric -->
+		</nonce>
+		<nonce>
+			<name>smsNonce</name>
+			<valuePolicyRef oid="43421233"/> <!-- 6-char alphanumeric (lowercase letters only) -->
+		</nonce>
+	</credentials>
+
+	<flow>
+		<!-- TODO -->
+	</flow>
+
+	<credentialsReset>
+		<!-- Definition of credential reset procedures -->
+		<name>globalPassword</name> <!-- IS THIS OK? -->
+		<!-- should it be <credentialName>globalPassword</credentialName>? -->
+		<sequenceName>globalPasswordReset</sequenceName>
+		<!-- LEGACY: <smsReset>smsNonce</smsReset> -->
+	</credentialsReset>
+</securityPolicy>
