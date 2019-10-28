@@ -16,8 +16,8 @@
   -->
 
 <resource oid="04afeda6-394b-11e6-8cbe-abf7ff430056"
-    xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+    xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
@@ -27,7 +27,7 @@
 	xmlns:my="http://myself.me/schemas/whatever">
 
    	<name>CRM</name>
-    
+
 	<connectorRef type="ConnectorType">
 		<filter>
 	        <q:equal>
@@ -56,7 +56,7 @@
 			<icscdbtable:nativeTimestamps>false</icscdbtable:nativeTimestamps>
 			<icscdbtable:allNative>false</icscdbtable:allNative>
 		</icfc:configurationProperties>
-	
+
 	</connectorConfiguration>
 
 	<schemaHandling>
@@ -100,7 +100,7 @@
 						<path>$user/givenName</path>
 					</source>
 				</outbound>
-						
+
 			</attribute>
 			<attribute>
 				<ref>ri:lastname</ref>
@@ -110,7 +110,7 @@
 						<path>$user/familyName</path>
 					</source>
 				</outbound>
-						
+
 			</attribute>
 			<attribute>
 				<ref>ri:fullname</ref>
@@ -121,19 +121,19 @@
 					</source>
 				</outbound>
 			</attribute>
-			
+
 			<activation>
 				<administrativeStatus>
 					<outbound/>
 				</administrativeStatus>
 			</activation>
-			
+
 			<credentials>
 				<password>
 					<outbound/>
 				</password>
 			</credentials>
-			
+
 		</objectType>
 	</schemaHandling>
 
