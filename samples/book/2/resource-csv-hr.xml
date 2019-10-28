@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2017 Evolveum
+  ~ Copyright (c) 2010-2019 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@
 This file is an example of Resource definition. It defines CSV resource.
 
 -->
-<c:resource oid="03c3ceea-78e2-11e6-954d-dfdfa9ace0cf"
+<resource oid="03c3ceea-78e2-11e6-954d-dfdfa9ace0cf"
 			xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
 			xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
 			xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
@@ -32,7 +32,7 @@ This file is an example of Resource definition. It defines CSV resource.
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 			xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
 
-	<c:name>HR System</c:name>
+	<name>HR System</name>
 
 	<connectorRef type="ConnectorType">
 		<filter>
@@ -43,12 +43,12 @@ This file is an example of Resource definition. It defines CSV resource.
 		</filter>
 	</connectorRef>
 
-	<c:connectorConfiguration>
+	<connectorConfiguration>
 
 		<!-- Configuration specific for the CSVfile connector -->
 		<icfc:configurationProperties
 					xmlns:icfccsvfile="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
-			<icfccsvfile:filePath>/var/opt/midpoint-book/resources/hr.csv</icfccsvfile:filePath>
+			<icfccsvfile:filePath>/opt/midpoint/var/resources/hr.csv</icfccsvfile:filePath>
 			<icfccsvfile:encoding>utf-8</icfccsvfile:encoding>
 			<icfccsvfile:fieldDelimiter>,</icfccsvfile:fieldDelimiter>
 			<icfccsvfile:multivalueDelimiter>;</icfccsvfile:multivalueDelimiter>
@@ -56,7 +56,7 @@ This file is an example of Resource definition. It defines CSV resource.
 			<icfccsvfile:passwordAttribute>password</icfccsvfile:passwordAttribute>
 		</icfc:configurationProperties>
 
-	</c:connectorConfiguration>
+	</connectorConfiguration>
 
 	<schemaHandling>
 
@@ -77,7 +77,7 @@ This file is an example of Resource definition. It defines CSV resource.
 				</limitations>
 				<inbound>
 					<target>
-						<path>$user/name</path>
+						<path>name</path>
 					</target>
 				</inbound>
 			</attribute>
@@ -86,7 +86,7 @@ This file is an example of Resource definition. It defines CSV resource.
 				<displayName>First name</displayName>
 				<inbound>
 					<target>
-						<path>$user/givenName</path>
+						<path>givenName</path>
 					</target>
 				</inbound>
 
@@ -96,7 +96,7 @@ This file is an example of Resource definition. It defines CSV resource.
 				<displayName>Last name</displayName>
 				<inbound>
 					<target>
-						<path>$user/familyName</path>
+						<path>familyName</path>
 					</target>
 				</inbound>
 			</attribute>
@@ -132,7 +132,7 @@ This file is an example of Resource definition. It defines CSV resource.
 				<q:equal>
 					<q:path>c:name</q:path>
 					<expression>
-						<path>$account/attributes/empno</path>
+						<path>$projection/attributes/empno</path>
 					</expression>
 				</q:equal>
 			</correlation>
@@ -163,5 +163,4 @@ This file is an example of Resource definition. It defines CSV resource.
 			</reaction>
 		</objectSynchronization>
 	</synchronization>
-</c:resource>
-
+</resource>

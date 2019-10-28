@@ -88,7 +88,7 @@
 				</limitations>
 				<outbound>
 					<source>
-						<path>$user/name</path>
+						<path>name</path>
 					</source>
 					<expression>
 						<script>
@@ -121,17 +121,12 @@
 						<modify>true</modify>
 					</access>
 				</limitations>
-
 				<outbound>
+					<!-- We do not have user fullName populated yet. Use name in the meantime. -->
 					<source>
-						<path>fullName</path>
+						<path>name</path>
 					</source>
 				</outbound>
-				<inbound>
-					<target>
-						<path>fullName</path>
-					</target>
-				</inbound>
 			</attribute>
 			<attribute>
 				<ref>ri:sn</ref>
@@ -246,16 +241,6 @@
 				<valueAttribute>ri:dn</valueAttribute>
 			</association>
 
-			<association>
-				<ref>ri:posixGroup</ref>
-				<displayName>POSIX Group Membership</displayName>
-				<kind>entitlement</kind>
-				<intent>posixGroup</intent>
-				<direction>objectToSubject</direction>
-				<associationAttribute>ri:memberUid</associationAttribute>
-				<valueAttribute>ri:uid</valueAttribute>
-			</association>
-
 			<iteration>
 				<maxIterations>5</maxIterations>
 			</iteration>
@@ -340,52 +325,6 @@
 					<strength>weak</strength>
 					<expression>
 						<value>cn=fake,dc=example,dc=com</value>
-					</expression>
-				</outbound>
-			</attribute>
-			<attribute>
-				<ref>ri:cn</ref>
-				<outbound>
-					<strength>weak</strength>
-					<source>
-						<path>name</path>
-					</source>
-				</outbound>
-			</attribute>
-			<configuredCapabilities>
-				<cap:pagedSearch>
-					<cap:defaultSortField>ri:cn</cap:defaultSortField>
-				</cap:pagedSearch>
-			</configuredCapabilities>
-		</objectType>
-
-		<objectType>
-			<kind>entitlement</kind>
-			<intent>posixGroup</intent>
-			<displayName>POSIX Group</displayName>
-			<objectClass>ri:posixGroup</objectClass>
-			<baseContext>
-				<objectClass>ri:organizationalUnit</objectClass>
-				<filter>
-					<q:equal>
-						<q:path>attributes/dn</q:path>
-						<q:value>ou=posixgroups,dc=example,dc=com</q:value>
-					</q:equal>
-				</filter>
-			</baseContext>
-
-			<attribute>
-				<ref>ri:dn</ref>
-				<outbound>
-					<source>
-						<path>name</path>
-					</source>
-					<expression>
-						<script>
-							<code>
-								basic.composeDnWithSuffix('cn', name, 'ou=posixgroups,dc=example,dc=com');
-							</code>
-						</script>
 					</expression>
 				</outbound>
 			</attribute>
@@ -497,7 +436,7 @@
 				<q:equal>
 					<q:path>name</q:path>
 					<expression>
-						<path>$account/attributes/cn</path>
+						<path>$projection/attributes/cn</path>
 					</expression>
 				</q:equal>
 			</correlation>
@@ -511,20 +450,17 @@
 				<situation>deleted</situation>
 				<synchronize>true</synchronize>
 				<action>
-					<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlink
-					</handlerUri>
+					<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlink</handlerUri>
 				</action>
 			</reaction>
 			<reaction>
 				<situation>unlinked</situation>
 				<synchronize>true</synchronize>
 				<action>
-					<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link
-					</handlerUri>
+					<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
 				</action>
 			</reaction>
 		</objectSynchronization>
-
 
 	</synchronization>
 
