@@ -141,6 +141,17 @@
 				<necessity>required</necessity>
 			</module>
 		</sequence>
+		<sequence>
+			<name>selfRegistrationAuth</name>
+			<description>
+				Just a nonce mail to validate e-mail address.
+			</description>
+			<module>
+				<name>registrationMail</name>
+				<order>10</order>
+				<necessity>required</necessity>
+			</module>
+		</sequence>
 	</authentication>
 
 	<credentials>
@@ -167,10 +178,22 @@
 	</credentials>
 
 	<flow>
-		<!-- TODO -->
+		<!-- User interface "flows" such as self-service registration -->
+		<selfRegistration>
+			<name>selfRegistration</name>
+			<initialLifecycleState>draft</initialLifecycleState>
+			<displayName>Self Registration</displayName>
+			<additionalAuthenticationName>selfRegistrationAuth</additionalAuthenticationName>
+			<defaultRole oid="00000000-0000-0000-0000-000000000008" type="c:RoleType"/>
+		</selfRegistration>
+		<postAuthentication>
+			<!-- TODO -->
+			<formRef oid="23423535653"/>
+		</postAuthentication>
 	</flow>
 
 	<credentialsReset>
+		<!-- TODO: this needs to be improved -->
 		<!-- Definition of credential reset procedures -->
 		<name>globalPassword</name> <!-- IS THIS OK? -->
 		<!-- should it be <credentialName>globalPassword</credentialName>? -->
