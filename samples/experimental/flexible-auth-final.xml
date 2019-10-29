@@ -105,9 +105,24 @@
             </smsNonce>
             <securityQuestions>
                 <name>SecQ</name>
+                <description>
+                    This is interactive, form-based authentication by using security questions.
+                </description>
+                <!-- No credentialName here. Looks for default security questions credentials. -->
                 <!-- Define security question validation.
                      E.g. how many questions to present, how many need to be answered successfuly, randomize order, etc.  -->
             </securityQuestions>
+            <httpSecQ>
+                <name>httpSecQ</name>
+                <description>
+                    Special "HTTP SecQ" authentication based on security question answers.
+                    It is used for REST service.
+                </description>
+                <!-- No credentialName here. Looks for default security questions credentials. -->
+                <!-- Define security question validation.
+                     E.g. how many questions to present, how many need to be answered successfuly, randomize order, etc.  -->
+            </httpSecQ>
+
         </modules>
 
         <sequence>
@@ -254,7 +269,9 @@
             <description>
                 Authentication sequence for REST service.
                 We want just OIDC auth here, HTTP basic as fallback.
-                Both modules have the same order. Therefore they are both advertised in HTTP WWW-Authentication
+                There is also HTTP SecQ authorization used by custom GUI front end. However, that SecQ
+                authorization can be used only to reset a password.
+                All modules have the same order. Therefore they are both advertised in HTTP WWW-Authentication
                 header. The client can decide which one to use.
             </description>
             <channel>
@@ -273,7 +290,14 @@
                 <order>10</order>
                 <necessity>sufficient</necessity>
             </module>
+            <module>
+                <name>httpSecQ</name>
+                <order>10</order>
+                <necessity>sufficient</necessity>
+                <!-- TODO: reduce authorizations, allow password reset only -->
+            </module>
         </sequence>
+
         <sequence>
             <name>userPasswordResetAuth</name>
             <description>
