@@ -39,6 +39,11 @@
 	    <description>
 	    	Archetype for policy metaroles, e.g. metaroles that specify role approval policies
 	    </description>
+		<assignment>
+			<assignmentRelation>
+				<holderType>RoleType</holderType>
+			</assignmentRelation>
+		</assignment>
 	    <archetypePolicy>
 	    	<display>
 	    		<label>Policy Metarole</label>
@@ -48,11 +53,6 @@
 	    		</icon>
 	    	</display>
 	    </archetypePolicy>
-	    <assignment>
-	    	<assignmentRelation>
-	    		<holderType>RoleType</holderType>
-	    	</assignmentRelation>
-	    </assignment>
 	</archetype>
 
 	<org oid="c3497d6e-787b-11e9-b5ff-43355735d822">
@@ -83,9 +83,9 @@
 	    <inducement>
 	        <policyRule>
 	            <policyConstraints>
-	                <assignment>
+	                <c:assignment> <!-- No idea why the "c" prefix has to be here, but if it is not there then schema validation complaints -->
 	                	<operation>add</operation>
-	                </assignment>
+	                </c:assignment>
 	            </policyConstraints>
 	            <policyActions>
 	                <approval>
