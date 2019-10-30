@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2018 Evolveum
+  ~ Copyright (c) 2018-2019 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -39,12 +39,12 @@
                         <order>200</order>
                     </compositionStrategy>
                     <approvalSchema>
-                        <level>
+                        <stage>
                             <name>Role approvers</name>
                             <approverRelation>approver</approverRelation>
                             <evaluationStrategy>firstDecides</evaluationStrategy>
                             <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
-                        </level>
+                        </stage>
                     </approvalSchema>
                 </approval>
             </policyActions>

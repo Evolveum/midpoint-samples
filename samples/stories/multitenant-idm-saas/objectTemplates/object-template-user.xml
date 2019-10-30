@@ -171,21 +171,23 @@
             <assignmentTargetSearch>
             	<targetType>c:OrgType</targetType>
         		<filter>
-				<q:equal>
-					<q:path>c:name</q:path>
-<!--                                                <q:path>c:displayName</q:path>-->
-					<expression>
-						<script>
-							<code>
-							log.info("XXXXXX USER TEMPLATE assignmentTargetSearch, organizationalUnit {}", organizationalUnit);
-							return organizationalUnit
-							</code>
-						</script>
-					</expression>
-				</q:equal>
-			</filter>
-			<relation>org:manager</relation>
-            </assignmentTargetSearch>    	
+					<q:equal>
+						<q:path>c:name</q:path>
+		<!--                                                <q:path>c:displayName</q:path>-->
+						<expression>
+							<script>
+								<code>
+								log.info("XXXXXX USER TEMPLATE assignmentTargetSearch, organizationalUnit {}", organizationalUnit);
+								return organizationalUnit
+								</code>
+							</script>
+						</expression>
+					</q:equal>
+				</filter>
+				<assignmentProperties>
+					<relation>org:manager</relation>
+				</assignmentProperties>
+            </assignmentTargetSearch>
     	</expression>
     	<target>
     		<path>assignment</path>

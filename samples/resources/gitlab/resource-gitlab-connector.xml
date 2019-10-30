@@ -1734,9 +1734,9 @@
             <situation>unmatched</situation>
             <synchronize>true</synchronize>
             <reconcile>false</reconcile>
+            <objectTemplateRef oid="99cc8d77-dedc-1144-a081-b006821a9c79"/>
             <action>
                <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-               <objectTemplateRef oid="99cc8d77-dedc-1144-a081-b006821a9c79"/>
             </action>
          </reaction>
       </objectSynchronization>

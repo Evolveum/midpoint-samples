@@ -93,16 +93,16 @@
 	                        <order>100</order>
 	                    </compositionStrategy>
 	                    <approvalSchema>
-	                        <level>
-	                            <name>User's manager</name>
-	                            <approverExpression>
-	                                <script>
-	                                    <code>midpoint.getManagersOidsExceptUser(object)</code>
-	                                </script>
-	                            </approverExpression>
-	                            <evaluationStrategy>firstDecides</evaluationStrategy>
-	                            <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
-	                        </level>
+							<stage>
+								<name>User's manager</name>
+								<approverExpression>
+									<script>
+										<code>midpoint.getManagersOidsExceptUser(object)</code>
+									</script>
+								</approverExpression>
+								<evaluationStrategy>firstDecides</evaluationStrategy>
+								<outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
+							</stage>
 	                    </approvalSchema>
 	                </approval>
 	            </policyActions>
@@ -133,12 +133,12 @@
 	                        <order>200</order>
 	                    </compositionStrategy>
 	                    <approvalSchema>
-	                        <level>
+	                        <stage>
 	                            <name>Role approver</name>
 	                            <approverRelation>approver</approverRelation>
 	                            <evaluationStrategy>firstDecides</evaluationStrategy>
 	                            <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
-	                        </level>
+	                        </stage>
 	                    </approvalSchema>
 	                </approval>
 	            </policyActions>
@@ -169,12 +169,12 @@
 	                        <order>300</order>
 	                    </compositionStrategy>
 	                    <approvalSchema>
-	                        <level>
+	                        <stage>
 	                            <name>Role owners (all)</name>
 	                            <approverRelation>owner</approverRelation>
 	                            <evaluationStrategy>allMustApprove</evaluationStrategy>
 	                            <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
-	                        </level>
+	                        </stage>
 	                    </approvalSchema>
 	                </approval>
 	            </policyActions>

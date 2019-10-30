@@ -241,13 +241,6 @@ icfs:name = icfs:uid so this not yet possible -->
 	<name>Numeric PIN Policy - first character not zero</name>
 	<description>A policy useful for generating PIN. The first character
 is not zero to avoid string to integer conversion losing the first character.</description>
-	<lifetime>
-		<expiration>999</expiration>
-		<warnBeforeExpiration>9</warnBeforeExpiration>
-		<lockAfterExpiration>0</lockAfterExpiration>
-		<minPasswordAge>0</minPasswordAge>
-		<passwordHistoryLength>0</passwordHistoryLength>
-	</lifetime>
 	<stringPolicy>
 		<description>String validation policy</description>
 		<limitations>

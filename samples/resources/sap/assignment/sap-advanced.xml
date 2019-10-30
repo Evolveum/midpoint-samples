@@ -319,7 +319,15 @@
 
             <!-- TODO -->
             <protected>
-                <icfs:name>IDMTUSAPR3</icfs:name>
+                <filter>
+                    <q:equal>
+                        <q:path>
+                            declare namespace icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3";
+                            attributes/icfs:name
+                        </q:path>
+                        <q:value>IDMTUSAPR3</q:value>
+                    </q:equal>
+                </filter>
             </protected>
             <!-- TODO need it? -->
             <activation>

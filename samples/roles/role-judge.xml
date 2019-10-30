@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2010-2017 Evolveum
+  ~ Copyright (c) 2010-2019 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -16,16 +16,24 @@
 <role oid="12345111-1111-2222-1111-121212111111"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
-    <name>Judge</name>    
+    <name>Judge</name>
+	<assignment>
+		<policyRule>
+			<policyConstraints>
+				<exclusion>
+					<description>A judge cannot be a pirate at the same time. At least not openly.</description>
+					<targetRef oid="12345678-d34d-b33f-f00d-987987987988" type="c:RoleType"/>
+				</exclusion>
+			</policyConstraints>
+			<policyActions>
+				<enforcement/>
+			</policyActions>
+		</policyRule>
+	</assignment>
     <inducement>
     	<construction>
     		<!-- The c: prefix in type must be there due to a JAXB bug -->
     		<resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="c:ResourceType"/>
     	</construction>
     </inducement>
-    <exclusion>
-    	<description>A judge cannot be a pirate at the same time. At least not openly.</description>
-    	<targetRef oid="12345678-d34d-b33f-f00d-987987987988" type="c:RoleType"/>
-    	<policy>enforce</policy>
-    </exclusion>
 </role>

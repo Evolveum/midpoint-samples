@@ -45,8 +45,8 @@
          <c:path>$user/honorificSuffix</c:path>
       </c:source>
       <c:expression>
+		  <allowEmptyValues>true</allowEmptyValues>		<!--  null zda sa ze nefunguje riadne -->
          <c:script>
-            <allowEmptyValues>true</allowEmptyValues>		<!--  null zda sa ze nefunguje riadne -->
             <c:code>name = (basic.stringify(familyName) + ' ' + basic.stringify(givenName) + ' ' + basic.stringify(honorificPrefix) + ' ' + basic.stringify(honorificSuffix)).trim()
             </c:code>
          </c:script>

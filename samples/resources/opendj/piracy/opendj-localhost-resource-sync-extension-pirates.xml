@@ -504,12 +504,12 @@ This resource definition contains also definition to enable synchronization.
 	            </reaction>
 	            <reaction>
 	                <situation>unmatched</situation>
+                    <objectTemplateRef oid="c0c010c0-d34d-b33f-f00d-777111111111"/>
 	                <action>
 	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addUser</handlerUri>
 	                    <!-- Reference to the User Template is here. If the user would be
 	                         created as a result of this action, it will be created according
 	                         to this template. -->
-	                    <objectTemplateRef oid="c0c010c0-d34d-b33f-f00d-777111111111"/>
 	                </action>
 	                <action>
 	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>

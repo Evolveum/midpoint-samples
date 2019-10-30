@@ -168,10 +168,26 @@
             <valueAttribute>icfs:name</valueAttribute>
          </association>
          <protected>
-            <icfs:name>midpoint</icfs:name>
+            <filter>
+               <q:equal>
+                  <q:path>
+                     declare namespace icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3";
+                     attributes/icfs:name
+                  </q:path>
+                  <q:value>midpoint</q:value>
+               </q:equal>
+            </filter>
          </protected>
          <protected>
-            <icfs:name>root</icfs:name>
+            <filter>
+               <q:equal>
+                  <q:path>
+                     declare namespace icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3";
+                     attributes/icfs:name
+                  </q:path>
+                  <q:value>root</q:value>
+               </q:equal>
+            </filter>
          </protected>
          <activation>
             <administrativeStatus>
