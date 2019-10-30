@@ -64,7 +64,7 @@
             </smsNonce>
 
             <!-- Nice to have. Rework of security questions will be really nice thing to do. -->
-            <securityQuestions>
+            <securityQuestionsForm>
                 <name>SecQ</name>
                 <description>
                     This is interactive, form-based authentication by using security questions.
@@ -72,7 +72,7 @@
                 <!-- No credentialName here. Looks for default security questions credentials. -->
                 <!-- Define security question validation.
                      E.g. how many questions to present, how many need to be answered successfuly, randomize order, etc.  -->
-            </securityQuestions>
+            </securityQuestionsForm>
             <httpSecQ>
                 <name>httpSecQ</name>
                 <description>
@@ -206,7 +206,6 @@
         <password>
             <name>userPassword</name>
             <description>Ordinary midPoint password (internal)</description>
-            <default>true</default>
             <!-- Default password policy. -->
         </password>
         <securityQuestions>
