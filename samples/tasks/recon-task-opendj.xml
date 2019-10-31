@@ -18,32 +18,32 @@
 <!--Reconciliation task definition for OpenDJ resource -->
 
 <task oid="91919191-76e0-59e2-86d6-3d4f02d30000"
-	xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns:my="http://whatever.com/my"
-  	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-	xsi:schemaLocation="http://midpoint.evolveum.com/xml/ns/public/common/common-3 ../../../../../../infra/schema/src/main/resources/xml/ns/public/common/common-3.xsd
-							  http://www.w3.org/2001/XMLSchema ../../../../../../infra/schema/src/test/resources/standard/XMLSchema.xsd">
-								  
-	<!-- Resource printable name -->
-	<name>Reconciliation: OpenDJ</name>
+    xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:my="http://whatever.com/my"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+    xsi:schemaLocation="http://midpoint.evolveum.com/xml/ns/public/common/common-3 ../../../../../../infra/schema/src/main/resources/xml/ns/public/common/common-3.xsd
+                              http://www.w3.org/2001/XMLSchema ../../../../../../infra/schema/src/test/resources/standard/XMLSchema.xsd">
 
-	<extension xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">
-		<mext:objectclass>ri:inetOrgPerson</mext:objectclass>
-	</extension>
-	
-	<taskIdentifier>91919191-76e0-59e2-86d6-3d4f02d30000</taskIdentifier>
-	<ownerRef oid="00000000-0000-0000-0000-000000000002"/>
-	<executionStatus>runnable</executionStatus>
+    <!-- Resource printable name -->
+    <name>Reconciliation: OpenDJ</name>
+
+    <extension xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">
+        <mext:objectclass>ri:inetOrgPerson</mext:objectclass>
+    </extension>
+
+    <taskIdentifier>91919191-76e0-59e2-86d6-3d4f02d30000</taskIdentifier>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
+    <executionStatus>runnable</executionStatus>
 
     <category>Reconciliation</category>
-	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/reconciliation/handler-3</handlerUri>
-	<objectRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="ResourceType"/>
-	<recurrence>recurring</recurrence>
-	<binding>loose</binding>
-	<schedule>
-		<interval>3600</interval>
-	</schedule>
+    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/reconciliation/handler-3</handlerUri>
+    <objectRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="ResourceType"/>
+    <recurrence>recurring</recurrence>
+    <binding>loose</binding>
+    <schedule>
+        <interval>3600</interval>
+    </schedule>
 
 </task>

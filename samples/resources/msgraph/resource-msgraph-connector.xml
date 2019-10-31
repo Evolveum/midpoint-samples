@@ -1,24 +1,24 @@
-<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
 xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
  xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
- xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
+ xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
  xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
  xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
  oid="9a68292e-9ea7-4b74-8190-f3ae4a9b6926"
  version="6">
     <name>Microsoft Azure AD</name>
-   
+
     <connectorRef type="ConnectorType">
-	    <filter>
-			<q:and>
-				<q:equal>
-					<q:path>c:connectorType</q:path>
-					<q:value>com.evolveum.polygon.connector.msconnector.rest.MSGraphConnector</q:value>
-				</q:equal>
-			</q:and>
-		</filter>
-   </connectorRef>   
+        <filter>
+            <q:and>
+                <q:equal>
+                    <q:path>c:connectorType</q:path>
+                    <q:value>com.evolveum.polygon.connector.msconnector.rest.MSGraphConnector</q:value>
+                </q:equal>
+            </q:and>
+        </filter>
+   </connectorRef>
    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
         <icfc:configurationProperties xmlns:gen298="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-microsoft-graph-api/com.evolveum.polygon.connector.msconnector.rest.MSGraphConnector">
             <gen298:clientId>clientId</gen298:clientId>
@@ -29,15 +29,15 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
         </icfc:configurationProperties>
     </connectorConfiguration>
 
-    
-	  <schemaHandling>
-    
+
+      <schemaHandling>
+
  <objectType>
             <kind>account</kind>
             <intent>default</intent>
             <default>true</default>
             <objectClass>ri:AccountObjectClass</objectClass>
-			<attribute>
+            <attribute>
                 <c:ref>icfs:name</c:ref>
                 <displayName>Login</displayName>
                 <outbound>
@@ -71,8 +71,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                         <c:path>$user/name</c:path>
                     </target>
                 </inbound>
-			</attribute>
-			<attribute>
+            </attribute>
+            <attribute>
                 <c:ref>ri:mailNickname</c:ref>
                 <outbound>
                     <source>
@@ -85,7 +85,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:displayName</c:ref>
                 <outbound>
                     <source>
@@ -98,7 +98,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:givenName</c:ref>
                 <outbound>
                     <source>
@@ -111,7 +111,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:onPremisesImmutableId</c:ref>
                 <outbound>
                     <source>
@@ -124,7 +124,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:passwordProfile.forceChangePasswordNextSignInWithMfa</c:ref>
                 <outbound>
                     <source>
@@ -137,7 +137,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:ageGroup</c:ref>
                 <outbound>
                     <source>
@@ -150,7 +150,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:businessPhones</c:ref>
                 <outbound>
                     <source>
@@ -163,7 +163,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:city</c:ref>
                 <outbound>
                     <source>
@@ -176,7 +176,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:companyName</c:ref>
                 <outbound>
                     <source>
@@ -189,7 +189,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:country</c:ref>
                 <outbound>
                     <source>
@@ -202,7 +202,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:consentProvidedForMinor</c:ref>
                 <outbound>
                     <source>
@@ -215,7 +215,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:department</c:ref>
                 <outbound>
                     <source>
@@ -228,7 +228,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:employeeId</c:ref>
                 <outbound>
                     <source>
@@ -241,7 +241,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:faxNumber</c:ref>
                 <outbound>
                     <source>
@@ -254,7 +254,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:jobTitle</c:ref>
                 <outbound>
                     <source>
@@ -267,7 +267,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:mail</c:ref>
                 <inbound>
                     <target>
@@ -275,7 +275,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:mobilePhone</c:ref>
                 <outbound>
                     <source>
@@ -288,7 +288,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:officeLocation</c:ref>
                 <outbound>
                     <source>
@@ -301,21 +301,21 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:otherMails</c:ref>
                 <outbound>
                     <source>
                         <c:path>$user/extension/otherMails</c:path>
                     </source>
                 </outbound>
-				
+
                 <inbound>
                     <target>
                         <c:path>$user/extension/otherMails</c:path>
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:passwordPolicies</c:ref>
                 <outbound>
                     <source>
@@ -328,7 +328,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:postalCode</c:ref>
                 <outbound>
                     <source>
@@ -341,7 +341,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:preferredLanguage</c:ref>
                 <outbound>
                     <source>
@@ -354,7 +354,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:showInAddressList</c:ref>
                 <outbound>
                     <source>
@@ -367,7 +367,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:state</c:ref>
                 <outbound>
                     <source>
@@ -380,7 +380,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:streetAddress</c:ref>
                 <outbound>
                     <source>
@@ -393,7 +393,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:surname</c:ref>
                 <outbound>
                     <source>
@@ -406,7 +406,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:usageLocation</c:ref>
                 <outbound>
                     <source>
@@ -419,7 +419,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:userType</c:ref>
                 <outbound>
                     <source>
@@ -432,8 +432,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			
-			<association>
+
+            <association>
                 <c:ref>ri:user_in_groups</c:ref>
                 <displayName>User in groups</displayName>
                 <kind>entitlement</kind>
@@ -442,9 +442,9 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                 <associationAttribute>ri:userDirectoryObjectMember</associationAttribute>
                 <valueAttribute>icfs:uid</valueAttribute>
                 <explicitReferentialIntegrity>false</explicitReferentialIntegrity>
-			</association>
-			
-			<association>
+            </association>
+
+            <association>
                 <c:ref>ri:user_groups_owner</c:ref>
                 <displayName>User groups owner</displayName>
                 <kind>entitlement</kind>
@@ -453,8 +453,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                 <associationAttribute>ri:userDirectoryObjectOwner</associationAttribute>
                 <valueAttribute>icfs:uid</valueAttribute>
                 <explicitReferentialIntegrity>false</explicitReferentialIntegrity>
-			</association>
-			
+            </association>
+
             <protected>
                 <filter>
                     <q:equal>
@@ -464,7 +464,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </q:equal>
                 </filter>
             </protected>
-			<activation>
+            <activation>
                 <administrativeStatus>
                     <outbound>
                         <strength>strong</strength>
@@ -481,12 +481,12 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                             </script>
                         </expression>
                     </outbound>
-					 <inbound>
+                     <inbound>
                         <strength>weak</strength>
                         <expression>
                             <asIs/>
                         </expression>
-					</inbound>
+                    </inbound>
                 </administrativeStatus>
             </activation>
             <credentials>
@@ -499,8 +499,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                 </password>
             </credentials>
         </objectType>
-	
-		<objectType>
+
+        <objectType>
             <kind>entitlement</kind>
             <intent>Group</intent>
             <default>false</default>
@@ -542,7 +542,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
+            <attribute>
                 <c:ref>ri:description</c:ref>
                 <outbound>
                     <source>
@@ -555,8 +555,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
-				<c:ref>ri:mailEnabled</c:ref>
+            <attribute>
+                <c:ref>ri:mailEnabled</c:ref>
                 <outbound>
                     <source>
                         <c:path>$focus/extension/mailEnabled</c:path>
@@ -568,8 +568,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
-				<c:ref>ri:mailNickname</c:ref>
+            <attribute>
+                <c:ref>ri:mailNickname</c:ref>
                 <outbound>
                     <source>
                         <c:path>$focus/extension/mailNickname</c:path>
@@ -581,8 +581,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
-				<c:ref>ri:securityEnabled</c:ref>
+            <attribute>
+                <c:ref>ri:securityEnabled</c:ref>
                 <outbound>
                     <source>
                         <c:path>$focus/extension/securityEnabled</c:path>
@@ -594,8 +594,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
-				<c:ref>ri:allowExternalSenders</c:ref>
+            <attribute>
+                <c:ref>ri:allowExternalSenders</c:ref>
                 <outbound>
                     <source>
                         <c:path>$focus/extension/allowExternalSenders</c:path>
@@ -607,8 +607,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
-				<c:ref>ri:autoSubscribeNewMembers</c:ref>
+            <attribute>
+                <c:ref>ri:autoSubscribeNewMembers</c:ref>
                 <outbound>
                     <source>
                         <c:path>$focus/extension/autoSubscribeNewMembers</c:path>
@@ -620,8 +620,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
-				<c:ref>ri:classification</c:ref>                
+            <attribute>
+                <c:ref>ri:classification</c:ref>
                 <outbound>
                     <source>
                         <c:path>$focus/extension/classification</c:path>
@@ -633,9 +633,9 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
-				<c:ref>ri:groupTypes</c:ref>
-				<outbound>
+            <attribute>
+                <c:ref>ri:groupTypes</c:ref>
+                <outbound>
                     <source>
                         <c:path>$focus/extension/groupTypes</c:path>
                     </source>
@@ -646,8 +646,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
-				<c:ref>ri:isSubscribedByMail</c:ref>                
+            <attribute>
+                <c:ref>ri:isSubscribedByMail</c:ref>
                 <outbound>
                     <source>
                         <c:path>$focus/extension/isSubscribedByMail</c:path>
@@ -659,8 +659,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
-				<c:ref>ri:mail</c:ref>
+            <attribute>
+                <c:ref>ri:mail</c:ref>
                 <outbound>
                     <source>
                         <c:path>$focus/extension/mail</c:path>
@@ -672,8 +672,8 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
-				<c:ref>ri:preferredDataLocation</c:ref>                
+            <attribute>
+                <c:ref>ri:preferredDataLocation</c:ref>
                 <outbound>
                     <source>
                         <c:path>$focus/extension/preferredDataLocation</c:path>
@@ -685,16 +685,16 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
-				<c:ref>ri:proxyAddresses</c:ref>
+            <attribute>
+                <c:ref>ri:proxyAddresses</c:ref>
                 <inbound>
                     <target>
                         <c:path>$focus/extension/proxyAddresses</c:path>
                     </target>
                 </inbound>
             </attribute>
-			<attribute>
-				<c:ref>ri:visibility</c:ref>
+            <attribute>
+                <c:ref>ri:visibility</c:ref>
                 <outbound>
                     <source>
                         <c:path>$focus/extension/visibility</c:path>
@@ -706,7 +706,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </target>
                 </inbound>
             </attribute>
-			<association>
+            <association>
                 <c:ref>ri:group_members</c:ref>
                 <displayName>Group members</displayName>
                 <kind>account</kind>
@@ -715,9 +715,9 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                 <associationAttribute>ri:groupMembers</associationAttribute>
                 <valueAttribute>icfs:uid</valueAttribute>
                 <explicitReferentialIntegrity>false</explicitReferentialIntegrity>
-			</association>
-		
-			<association>
+            </association>
+
+            <association>
                 <c:ref>ri:group_owners</c:ref>
                 <displayName>Group owners</displayName>
                 <kind>account</kind>
@@ -726,12 +726,12 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                 <associationAttribute>ri:groupOwners</associationAttribute>
                 <valueAttribute>icfs:uid</valueAttribute>
                 <explicitReferentialIntegrity>false</explicitReferentialIntegrity>
-			</association>
+            </association>
         </objectType>
-		
-		
-       
-</schemaHandling> 
+
+
+
+</schemaHandling>
 
  <synchronization>
         <objectSynchronization>
@@ -772,7 +772,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
             <reaction>
                 <situation>unmatched</situation>
                 <synchronize>true</synchronize>
-				<reconcile>false</reconcile>
+                <reconcile>false</reconcile>
                 <action>
                     <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
                 </action>
@@ -792,7 +792,7 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                     </expression>
                 </q:equal>
             </correlation>
-			<objectTemplateRef oid="99cc8d77-dedc-4444-a081-b006821a9c80"/>
+            <objectTemplateRef oid="99cc8d77-dedc-4444-a081-b006821a9c80"/>
             <reconcile>false</reconcile>
             <reaction>
                 <situation>linked</situation>
@@ -825,5 +825,5 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
             </reaction>
         </objectSynchronization>
 </synchronization>
-	
+
 </resource>

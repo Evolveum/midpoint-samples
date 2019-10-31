@@ -16,36 +16,36 @@
 
 <role oid="12345678-d34d-b33f-f00d-98798798798b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+    xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Gold</name>
     <description>Gold Customer</description>
     <inducement>
-    	<construction>
-		<!-- OpenDJ -->
-    		<resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="c:ResourceType"/>
-		    		<attribute>
+        <construction>
+        <!-- OpenDJ -->
+            <resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="c:ResourceType"/>
+                    <attribute>
                     <ref>ri:title</ref>
                     <outbound>
-                    	<expression>
-				<value>Gold Customer</value>
-                    	</expression>
+                        <expression>
+                <value>Gold Customer</value>
+                        </expression>
                     </outbound>
-                </attribute>    		
-    	</construction>
-    </inducement>    
+                </attribute>
+        </construction>
+    </inducement>
     <inducement>
-    	<construction>
-		<!-- Target (CSV) -->
-    		<resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3f121" type="c:ResourceType"/>
-		    		<attribute>
+        <construction>
+        <!-- Target (CSV) -->
+            <resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3f121" type="c:ResourceType"/>
+                    <attribute>
                     <ref>ri:priv</ref>
                     <outbound>
-                    	<expression>
-				<value>gold</value>
-                    	</expression>
+                        <expression>
+                <value>gold</value>
+                        </expression>
                     </outbound>
-                </attribute>    		
-    	</construction>
-    </inducement>    
+                </attribute>
+        </construction>
+    </inducement>
 </role>

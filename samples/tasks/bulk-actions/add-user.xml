@@ -15,28 +15,28 @@
   -->
 
 <c:task xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-		xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<c:name>Create user</c:name>
-	<c:extension>
-		<scext:executeScript xmlns:scext="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3">
-			<s:action>
-				<s:type>add</s:type>
-			</s:action>
-			<s:input>
-				<s:value xsi:type="c:UserType">
-					<c:name>joe</c:name>
-					<c:givenName>Joe</c:givenName>
-					<c:familyName>Doe</c:familyName>
-				</s:value>
-			</s:input>
-		</scext:executeScript>
-	</c:extension>
-	<c:taskIdentifier>1507208317101:451769069</c:taskIdentifier>
-	<c:ownerRef oid="00000000-0000-0000-0000-000000000002"/>
-	<c:executionStatus>runnable</c:executionStatus>
-	<c:category>BulkActions</c:category>
-	<c:handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/scripting/handler-3</c:handlerUri>
-	<c:recurrence>single</c:recurrence>
+        xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <c:name>Create user</c:name>
+    <c:extension>
+        <scext:executeScript xmlns:scext="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3">
+            <s:action>
+                <s:type>add</s:type>
+            </s:action>
+            <s:input>
+                <s:value xsi:type="c:UserType">
+                    <c:name>joe</c:name>
+                    <c:givenName>Joe</c:givenName>
+                    <c:familyName>Doe</c:familyName>
+                </s:value>
+            </s:input>
+        </scext:executeScript>
+    </c:extension>
+    <c:taskIdentifier>1507208317101:451769069</c:taskIdentifier>
+    <c:ownerRef oid="00000000-0000-0000-0000-000000000002"/>
+    <c:executionStatus>runnable</c:executionStatus>
+    <c:category>BulkActions</c:category>
+    <c:handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/scripting/handler-3</c:handlerUri>
+    <c:recurrence>single</c:recurrence>
 </c:task>

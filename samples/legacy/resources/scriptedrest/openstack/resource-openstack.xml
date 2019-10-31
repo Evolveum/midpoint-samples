@@ -153,15 +153,15 @@
                      <code>
                            import com.evolveum.midpoint.xml.ns._public.common.common_3.*
                            import com.evolveum.midpoint.util.exception.*
-                           
+
                            parent = midpoint.getParentOrgByOrgType(focus, 'project')
-                           
+
                            if (parent == null) {
                                 throw new SchemaException("No Tenant/project defined");
                            }
-                           
+
                            return parent.getName().getOrig()
-                           
+
                        </code>
                   </script>
                </expression>

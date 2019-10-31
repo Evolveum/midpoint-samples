@@ -34,13 +34,13 @@ test initialization (creation of prism context). -->
         </xsd:annotation>
         <xsd:sequence>
             <xsd:element name="uidNumber" type="xsd:string" minOccurs="0" maxOccurs="1">
-            	<xsd:annotation>
-            		<xsd:appinfo>
-            			<a:indexed>true</a:indexed>
-            			<a:displayName>Unix UID number</a:displayName>
-		                <a:displayOrder>130</a:displayOrder>
-            		</xsd:appinfo>
-            	</xsd:annotation>
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Unix UID number</a:displayName>
+                        <a:displayOrder>130</a:displayOrder>
+                    </xsd:appinfo>
+                </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
@@ -53,11 +53,11 @@ test initialization (creation of prism context). -->
         </xsd:annotation>
         <xsd:sequence>
             <xsd:element name="gidNumber" type="xsd:string" minOccurs="0">
-            	<xsd:annotation>
-            		<xsd:appinfo>
-            			<a:indexed>true</a:indexed>
-            		</xsd:appinfo>
-            	</xsd:annotation>
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                    </xsd:appinfo>
+                </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>

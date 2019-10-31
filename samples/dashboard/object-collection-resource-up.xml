@@ -16,9 +16,9 @@
   -->
 
 <objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-				  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-				  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-				  oid="15de186e-1d8c-11e9-a469-8f5d9cfc0259">
+                  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  oid="15de186e-1d8c-11e9-a469-8f5d9cfc0259">
     <name>Resources Up</name>
     <assignment>
         <policyRule>

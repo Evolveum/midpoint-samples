@@ -47,11 +47,11 @@
                               <expression>
                                  <script>
                                     <code>
-    								if (!basic.isEmpty(parent)) {
-										org = midpoint.getOrgByOid(parent?.getOid())
-										org?.getName()?.getOrig()
-									}
-									</code>
+                                    if (!basic.isEmpty(parent)) {
+                                        org = midpoint.getOrgByOid(parent?.getOid())
+                                        org?.getName()?.getOrig()
+                                    }
+                                    </code>
                                  </script>
                               </expression>
                            </q:equal>

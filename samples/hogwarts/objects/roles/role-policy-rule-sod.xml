@@ -15,24 +15,24 @@
   -->
 
 <role oid="00000000-role-0000-0000-999111111112">
-    <name>Metarole exclude all</name>   
+    <name>Metarole exclude all</name>
     <inducement>
         <policyRule>
             <name>excluded-role</name>
             <policyConstraints>
-            	<or>
-	                <exclusion>
-	                    <targetRef oid="00000000-team-0org-0000-111111111115" type="OrgType"/>
-	                </exclusion>
-	                <exclusion>
-	                    <targetRef oid="00000000-team-0org-0000-111111111112" type="OrgType"/>
-	                </exclusion>
-	                <exclusion>
-	                    <targetRef oid="00000000-team-0org-0000-111111111113" type="OrgType"/>
-	                </exclusion>
-	                <exclusion>
-	                    <targetRef oid="00000000-team-0org-0000-111111111114" type="OrgType"/>
-	                </exclusion>
+                <or>
+                    <exclusion>
+                        <targetRef oid="00000000-team-0org-0000-111111111115" type="OrgType"/>
+                    </exclusion>
+                    <exclusion>
+                        <targetRef oid="00000000-team-0org-0000-111111111112" type="OrgType"/>
+                    </exclusion>
+                    <exclusion>
+                        <targetRef oid="00000000-team-0org-0000-111111111113" type="OrgType"/>
+                    </exclusion>
+                    <exclusion>
+                        <targetRef oid="00000000-team-0org-0000-111111111114" type="OrgType"/>
+                    </exclusion>
                 </or>
             </policyConstraints>
             <policyActions>

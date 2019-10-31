@@ -15,10 +15,10 @@
   -->
 
 <!-- This is a meta-role. A Role indented to be assigned to other roles.
-     I really mean assigned, not included or induced. 
-	 The projections are computed for an LDAP resource and they have a form of LDAP organizationalUnit objects. 
-	 This is defined in the schema handling part of LDAP resource definition. 
-	 The inducement specifies an (kind, intent) tuple which is used to locate a matching definition in the schemaHandling.-->
+     I really mean assigned, not included or induced.
+     The projections are computed for an LDAP resource and they have a form of LDAP organizationalUnit objects.
+     This is defined in the schema handling part of LDAP resource definition.
+     The inducement specifies an (kind, intent) tuple which is used to locate a matching definition in the schemaHandling.-->
 
 <role oid="10000000-0000-0000-0000-000000006601"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
@@ -27,14 +27,14 @@
         xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance/10000000-0000-0000-0000-000000000004"
         xmlns:piracy="http://midpoint.evolveum.com/xml/ns/samples/piracy">
     <name>Replicated Orgstruct Metarole OpenDJ</name>
-	<description>Metarole to create organization structure automatically.</description>
-    
+    <description>Metarole to create organization structure automatically.</description>
+
     <inducement>
-    	<construction>
-    		<!-- OpenDJ resource -->
-    		<resourceRef oid="12c78a70-76b7-11e2-9cb3-001e8c717e5b" type="c:ResourceType"/>
-    		<kind>generic</kind>
+        <construction>
+            <!-- OpenDJ resource -->
+            <resourceRef oid="12c78a70-76b7-11e2-9cb3-001e8c717e5b" type="c:ResourceType"/>
+            <kind>generic</kind>
             <intent>ou</intent>
-    	</construction>
-    </inducement>  
+        </construction>
+    </inducement>
 </role>

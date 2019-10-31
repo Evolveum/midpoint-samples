@@ -21,7 +21,7 @@
 <!--
 
 This file is an example of Resource definition. It defines an Office365 resource
-using an Identity Connector Framework Office365 connector. 
+using an Identity Connector Framework Office365 connector.
 
 This contains configuration for a managed (non federated) Office 365 domain
 
@@ -370,7 +370,7 @@ This contains configuration for a managed (non federated) Office 365 domain
                         <c:path>$user/organizationalUnit</c:path>
                     </source>
                 </outbound>
-            </attribute>   
+            </attribute>
             <attribute>
                 <c:ref>ri:mailNickname</c:ref>
                 <displayName>Mail Nickname</displayName>
@@ -481,17 +481,17 @@ This contains configuration for a managed (non federated) Office 365 domain
                                 <code>
                                     import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
                                     if (legal) {
-										if (admStatus?.value) {
-											if (admStatus.value.toUpperCase().equals('DISABLED')) {
-												ActivationStatusType.DISABLED;
-											} else {
-												input;
-											}
-										} else {
-											input;
-										}
+                                        if (admStatus?.value) {
+                                            if (admStatus.value.toUpperCase().equals('DISABLED')) {
+                                                ActivationStatusType.DISABLED;
+                                            } else {
+                                                input;
+                                            }
+                                        } else {
+                                            input;
+                                        }
                                     } else {
-										ActivationStatusType.DISABLED;
+                                        ActivationStatusType.DISABLED;
                                     }
                                 </code>
                             </script>

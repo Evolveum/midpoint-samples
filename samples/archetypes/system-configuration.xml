@@ -16,36 +16,36 @@
   -->
 
 <systemConfiguration oid="00000000-0000-0000-0000-000000000001" version="0"
-	xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+    xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
     <name>SystemConfiguration</name>
-    
+
     <!-- THIS IS NOT A COMPLETE EXAMPLE -->
     <!-- This is an object that has part that are supposed to be
          copied (added) into the default system configuration. -->
 
-	<adminGuiConfiguration>         
-    	<objectCollectionViews>
+    <adminGuiConfiguration>
+        <objectCollectionViews>
             <objectCollectionView>
-            	<identifier>employees</identifier>
+                <identifier>employees</identifier>
                 <display>
                     <label>Employee</label>
                     <pluralLabel>Employees</pluralLabel>
                 </display>
-            	<type>UserType</type>
+                <type>UserType</type>
                 <collection>
                     <collectionRef oid="7135e68c-ee53-11e8-8025-170b77da3fd6" type="ArchetypeType"/> <!-- Employee -->
                 </collection>
             </objectCollectionView>
             <objectCollectionView>
-            	<identifier>externs</identifier>
-            	<type>UserType</type>
+                <identifier>externs</identifier>
+                <type>UserType</type>
                 <collection>
                     <collectionRef oid="b97490e6-24aa-11e9-923a-cbe17394eff9" type="ArchetypeType"/> <!-- Externs -->
                 </collection>
             </objectCollectionView>
         </objectCollectionViews>
     </adminGuiConfiguration>
-    
+
 </systemConfiguration>

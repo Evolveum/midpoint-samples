@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    <objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                 xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
                 xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                 xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
@@ -38,9 +38,9 @@
    </mapping>
    <mapping>
       <name>Responsibility metarole assignment</name>
-	  <source>
-    		<path>$user/employeeType</path>
-    	</source>
+      <source>
+            <path>$user/employeeType</path>
+        </source>
       <expression>
          <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                                  xsi:type="c:SearchObjectRefExpressionEvaluatorType">
@@ -58,15 +58,15 @@
       <target>
          <c:path>assignment</c:path>
       </target>
-	  <condition>
-    		<script>
-    			<code>
-						if(employeeType.equals("employee")){
-							return true
-						}
-						return false
-				</code>
-    		</script>
-    	</condition>
+      <condition>
+            <script>
+                <code>
+                        if(employeeType.equals("employee")){
+                            return true
+                        }
+                        return false
+                </code>
+            </script>
+        </condition>
    </mapping>
 </objectTemplate>

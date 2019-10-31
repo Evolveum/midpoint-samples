@@ -17,11 +17,11 @@
 <role oid="d8606240-7aa2-11e2-af3a-001e8c717e5b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
-    <name>CSVFile Import</name>    
+    <name>CSVFile Import</name>
     <inducement>
-    	<construction>
-    		<!-- The c: prefix in type must be there due to a JAXB bug -->
-    		<resourceRef oid="4e2e5dee-7aa1-11e2-a914-001e8c717e5b" type="c:ResourceType"/>
-    	</construction>
-    </inducement>    
+        <construction>
+            <!-- The c: prefix in type must be there due to a JAXB bug -->
+            <resourceRef oid="4e2e5dee-7aa1-11e2-a914-001e8c717e5b" type="c:ResourceType"/>
+        </construction>
+    </inducement>
 </role>

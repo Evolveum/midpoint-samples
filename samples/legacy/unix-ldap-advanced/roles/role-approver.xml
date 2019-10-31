@@ -14,9 +14,9 @@
       <authorization id="1">
          <name>gui-approver-access</name>
          <description>
-    		Allow access to list of work items in GUI. Allow access to pages that show object details,
-    		so the approver may examine who is requesting and what is requesting.
-    	</description>
+            Allow access to list of work items in GUI. Allow access to pages that show object details,
+            so the approver may examine who is requesting and what is requesting.
+        </description>
          <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#workItem</action>
          <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#myWorkItems</action>
          <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#claimableWorkItems</action>
@@ -42,9 +42,9 @@
       <authorization id="3">
          <name>users-read</name>
          <description>
-    		Allow to read basic user properties to be able to display requestor details in the
-    		approval forms.
-    	</description>
+            Allow to read basic user properties to be able to display requestor details in the
+            approval forms.
+        </description>
          <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
          <object>
             <type>UserType</type>
@@ -59,8 +59,8 @@
       <authorization id="4">
          <name>roles-read</name>
          <description>
-    		Allow to read basic role properties to be able to display details of the requested role.
-    	</description>
+            Allow to read basic role properties to be able to display details of the requested role.
+        </description>
          <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
          <object>
             <type>RoleType</type>
@@ -75,8 +75,8 @@
       <authorization id="5">
          <name>orgs-read</name>
          <description>
-    		Allow to read basic org properties to be able to display details of the requested org.
-    	</description>
+            Allow to read basic org properties to be able to display details of the requested org.
+        </description>
          <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
          <object>
             <type>RoleType</type>
@@ -91,8 +91,8 @@
       <authorization id="6">
          <name>services-read</name>
          <description>
-    		Allow to read basic service properties to be able to display details of the requested service.
-    	</description>
+            Allow to read basic service properties to be able to display details of the requested service.
+        </description>
          <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
          <object>
             <type>ServiceType</type>

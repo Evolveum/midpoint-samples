@@ -30,9 +30,9 @@
                               <expression>
                                  <script>
                                     <code>
-            					    org = midpoint.getOrgByOid(parent.getOid());
+                                    org = midpoint.getOrgByOid(parent.getOid());
                                     return 'cn='+org.getIdentifier() + immediateRole.getName() +',ou=groups,dc=example,dc=com'
-							</code>
+                            </code>
                                  </script>
                               </expression>
                            </q:equal>
@@ -54,8 +54,8 @@
                      <returnMultiplicity>multi</returnMultiplicity>
                      <script>
                         <code>
-								return focusAssignment?.getOrgRef()?.getOid()
-						</code>
+                                return focusAssignment?.getOrgRef()?.getOid()
+                        </code>
                      </script>
                   </expression>
                </q:inOid>
@@ -72,8 +72,8 @@
                      <returnMultiplicity>multi</returnMultiplicity>
                      <script>
                         <code>
-								return focusAssignment?.getOrgRef()?.getOid()
-						</code>
+                                return focusAssignment?.getOrgRef()?.getOid()
+                        </code>
                      </script>
                   </expression>
                </q:inOid>

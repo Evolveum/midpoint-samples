@@ -21,12 +21,12 @@
     <name>User OpenDJ</name>
     <description>
      A basic role, that specifies account on OpenDJ resource
-     
+
     </description>
     <inducement>
-    	<construction>
-    		<resourceRef oid="2a7c7130-7a34-11e4-bdf6-001e8c717e5b" type="c:ResourceType"/>
-    	</construction>
+        <construction>
+            <resourceRef oid="2a7c7130-7a34-11e4-bdf6-001e8c717e5b" type="c:ResourceType"/>
+        </construction>
     </inducement>
     <requestable>true</requestable>
 </role>

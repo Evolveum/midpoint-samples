@@ -16,51 +16,51 @@
 
 <role oid="12345678-d34d-b33f-f00d-98798798798a" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+    xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Boss</name>
     <description>Big Boss role</description>
     <inducement>
-    	<construction>
-		<!-- OpenDJ -->
-    		<resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="c:ResourceType"/>
-		    		<attribute>
+        <construction>
+        <!-- OpenDJ -->
+            <resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="c:ResourceType"/>
+                    <attribute>
                     <ref>ri:title</ref>
                     <outbound>
-			<source>
-				<path>$user/givenName</path>
-			</source>
-                    	<expression>
-				<script>
-					<code>'His majesty king ' + givenName</code>
-				</script>
-                    	</expression>
+            <source>
+                <path>$user/givenName</path>
+            </source>
+                        <expression>
+                <script>
+                    <code>'His majesty king ' + givenName</code>
+                </script>
+                        </expression>
                     </outbound>
-                </attribute>    		
-		<!-- Example of specification of several values for a multi-valued attribute -->
-    		<attribute>
+                </attribute>
+        <!-- Example of specification of several values for a multi-valued attribute -->
+            <attribute>
                     <ref>ri:businessCategory</ref>
                     <outbound>
-                    	<expression>
-		                    <value>management</value>
+                        <expression>
+                            <value>management</value>
                                     <value>golf</value>
-	                </expression>
-	            </outbound>
+                    </expression>
+                </outbound>
             </attribute>
-    	</construction>
-    </inducement>    
+        </construction>
+    </inducement>
     <inducement>
-    	<construction>
-		<!-- Target (CSV) -->
-    		<resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3f121" type="c:ResourceType"/>
-		    		<attribute>
+        <construction>
+        <!-- Target (CSV) -->
+            <resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3f121" type="c:ResourceType"/>
+                    <attribute>
                     <ref>ri:priv</ref>
                     <outbound>
-                    	<expression>
-				<value>boss</value>
-                    	</expression>
+                        <expression>
+                <value>boss</value>
+                        </expression>
                     </outbound>
-                </attribute>    		
-    	</construction>
-    </inducement>    
+                </attribute>
+        </construction>
+    </inducement>
 </role>

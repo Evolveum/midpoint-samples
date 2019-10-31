@@ -14,7 +14,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-  
+
 <lookupTable oid="5783c174-d141-11e4-bb29-001e8c717e5b"
    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
    xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
@@ -23,23 +23,23 @@
    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
    xmlns:piracy='http://midpoint.evolveum.com/xml/ns/samples/piracy'>
 
-	<name>Emp type</name>
-	
-	<row>
-		<key>FTE</key>
-		<label>Full-time employee</label>
-	</row>
-	<row>
-		<key>PTE</key>
-		<label>Part-time employee</label>
-	</row>
-	<row>
-		<key>CONTRACTOR</key>
-		<label>Contractor</label>
-	</row>
-	<row>
-		<key>RETIRED</key>
-		<label>Retired</label>
-	</row>
+    <name>Emp type</name>
+
+    <row>
+        <key>FTE</key>
+        <label>Full-time employee</label>
+    </row>
+    <row>
+        <key>PTE</key>
+        <label>Part-time employee</label>
+    </row>
+    <row>
+        <key>CONTRACTOR</key>
+        <label>Contractor</label>
+    </row>
+    <row>
+        <key>RETIRED</key>
+        <label>Retired</label>
+    </row>
 
 </lookupTable>

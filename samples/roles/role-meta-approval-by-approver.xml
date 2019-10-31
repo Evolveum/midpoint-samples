@@ -25,12 +25,12 @@
         xmlns:piracy="http://midpoint.evolveum.com/xml/ns/samples/piracy">
     <name>Approval by Approver</name>
     <description>Meta-role that defines "approval by approver" policy. Any object that has this meta-role requires approval by the one of the approvers defined for that object.</description>
-    
+
     <inducement>
         <policyRule>
             <policyConstraints>
                 <assignment>
-                	<operation>add</operation>
+                    <operation>add</operation>
                 </assignment>
             </policyConstraints>
             <policyActions>

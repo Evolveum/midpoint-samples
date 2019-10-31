@@ -16,24 +16,24 @@
   -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<name>midPoint Samples</name>
-	<groupId>com.evolveum.midpoint</groupId>
-	<artifactId>midpoint-samples</artifactId>
-	<version>4.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<organization>
-		<name>Evolveum</name>
-		<url>http://www.evolveum.com</url>
-	</organization>
-	<licenses>
-		<license>
-			<name>Apache License v2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-	<distributionManagement>
+    <modelVersion>4.0.0</modelVersion>
+    <name>midPoint Samples</name>
+    <groupId>com.evolveum.midpoint</groupId>
+    <artifactId>midpoint-samples</artifactId>
+    <version>4.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <organization>
+        <name>Evolveum</name>
+        <url>http://www.evolveum.com</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>Apache License v2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <distributionManagement>
         <repository>
             <id>evolveum-nexus</id>
             <name>Internal Releases</name>
@@ -45,22 +45,22 @@
             <url>https://nexus.evolveum.com/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
-	<issueManagement>
-		<system>Atlassian JIRA</system>
-		<url>http://jira.evolveum.com/</url>
-	</issueManagement>
-	<scm>
-		<connection>https://github.com/Evolveum/midpoint-samples.git</connection>
-		<developerConnection>git@github.com:Evolveum/midpoint-samples.git</developerConnection>
-		<url>https://github.com/Evolveum/midpoint-samples</url>
-	</scm>
-	<build>
-	    <resources>
-	        <resource>
-	            <directory>samples</directory>
-	            <filtering>true</filtering>
-	        </resource>
-	    </resources>
-	</build>
+    <issueManagement>
+        <system>Atlassian JIRA</system>
+        <url>http://jira.evolveum.com/</url>
+    </issueManagement>
+    <scm>
+        <connection>https://github.com/Evolveum/midpoint-samples.git</connection>
+        <developerConnection>git@github.com:Evolveum/midpoint-samples.git</developerConnection>
+        <url>https://github.com/Evolveum/midpoint-samples</url>
+    </scm>
+    <build>
+        <resources>
+            <resource>
+                <directory>samples</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 
 </project>

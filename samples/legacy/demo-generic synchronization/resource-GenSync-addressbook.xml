@@ -15,145 +15,145 @@
   ~ limitations under the License.
   -->
 
-<resource oid="c1b8b075-8c45-4058-ba32-753b87ac2da0" 
-	xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+<resource oid="c1b8b075-8c45-4058-ba32-753b87ac2da0"
+    xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-	xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
-	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3">
-    
-	<name>Addressbook</name>
-	<description>
-		Simple database application that maintains addresses and telephone numbers of people.
-		It is authoritative only for telephone number. It also has postal address that no
-		other application has.
-	</description>
-     
-	<connectorRef type="ConnectorType">
-		<filter>
-	        <q:equal>
-			<q:path>c:connectorType</q:path>
-	          <q:value>org.identityconnectors.databasetable.DatabaseTableConnector</q:value>
-	        </q:equal>
-	      </filter>
-	</connectorRef>
+    xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+    xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
+    xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3">
 
-	<connectorConfiguration>
+    <name>Addressbook</name>
+    <description>
+        Simple database application that maintains addresses and telephone numbers of people.
+        It is authoritative only for telephone number. It also has postal address that no
+        other application has.
+    </description>
 
-		<icfc:configurationProperties
-				xmlns:icscdbtable="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-databasetable/org.identityconnectors.databasetable.DatabaseTableConnector">
-			<icscdbtable:port>5432</icscdbtable:port>
-			<icscdbtable:host>localhost</icscdbtable:host>
-			<icscdbtable:user>addressbook</icscdbtable:user>
-			<icscdbtable:password><clearValue>secret</clearValue></icscdbtable:password>
-			<icscdbtable:database>addressbook</icscdbtable:database>
-			<icscdbtable:table>people</icscdbtable:table>
-			<icscdbtable:keyColumn>username</icscdbtable:keyColumn>
-			<icscdbtable:passwordColumn>password</icscdbtable:passwordColumn>
-			<icscdbtable:jdbcDriver>org.postgresql.Driver</icscdbtable:jdbcDriver>
-			<icscdbtable:jdbcUrlTemplate>jdbc:postgresql://%h:%p/%d</icscdbtable:jdbcUrlTemplate>
-			<icscdbtable:enableEmptyString>false</icscdbtable:enableEmptyString>
-			<icscdbtable:rethrowAllSQLExceptions>true</icscdbtable:rethrowAllSQLExceptions>
-			<icscdbtable:nativeTimestamps>true</icscdbtable:nativeTimestamps>
-		</icfc:configurationProperties>
+    <connectorRef type="ConnectorType">
+        <filter>
+            <q:equal>
+            <q:path>c:connectorType</q:path>
+              <q:value>org.identityconnectors.databasetable.DatabaseTableConnector</q:value>
+            </q:equal>
+          </filter>
+    </connectorRef>
 
-	</connectorConfiguration>
+    <connectorConfiguration>
 
-		<schemaHandling>
+        <icfc:configurationProperties
+                xmlns:icscdbtable="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-databasetable/org.identityconnectors.databasetable.DatabaseTableConnector">
+            <icscdbtable:port>5432</icscdbtable:port>
+            <icscdbtable:host>localhost</icscdbtable:host>
+            <icscdbtable:user>addressbook</icscdbtable:user>
+            <icscdbtable:password><clearValue>secret</clearValue></icscdbtable:password>
+            <icscdbtable:database>addressbook</icscdbtable:database>
+            <icscdbtable:table>people</icscdbtable:table>
+            <icscdbtable:keyColumn>username</icscdbtable:keyColumn>
+            <icscdbtable:passwordColumn>password</icscdbtable:passwordColumn>
+            <icscdbtable:jdbcDriver>org.postgresql.Driver</icscdbtable:jdbcDriver>
+            <icscdbtable:jdbcUrlTemplate>jdbc:postgresql://%h:%p/%d</icscdbtable:jdbcUrlTemplate>
+            <icscdbtable:enableEmptyString>false</icscdbtable:enableEmptyString>
+            <icscdbtable:rethrowAllSQLExceptions>true</icscdbtable:rethrowAllSQLExceptions>
+            <icscdbtable:nativeTimestamps>true</icscdbtable:nativeTimestamps>
+        </icfc:configurationProperties>
 
-			<objectType>
-				<intent>default</intent>
-				<displayName>Default Account</displayName>
-				<default>true</default>
-				<objectClass>ri:AccountObjectClass</objectClass>
+    </connectorConfiguration>
 
-				<attribute>
-					<ref>icfs:uid</ref>
-					<displayName>Entry ID</displayName>
-				</attribute>
+        <schemaHandling>
 
-				<attribute>
-					<ref>icfs:name</ref>
-					<displayName>Username</displayName>
-					<limitations>
-						<minOccurs>0</minOccurs>
-					</limitations>
-					<outbound>
-						<strength>weak</strength>
-						<source>
-							<path>$user/name</path>
-						</source>
-					</outbound>
-				</attribute>
+            <objectType>
+                <intent>default</intent>
+                <displayName>Default Account</displayName>
+                <default>true</default>
+                <objectClass>ri:AccountObjectClass</objectClass>
 
-				<attribute>
-					<ref>ri:first_name</ref>
-					<displayName>First Name</displayName>
-					<outbound>
-						<source>
-							<path>$user/givenName</path>
-						</source>
-					</outbound>
-							
-				</attribute>
-				<attribute>
-					<ref>ri:last_name</ref>
-					<displayName>Last name</displayName>
-					<limitations>
-						<minOccurs>0</minOccurs>
-					</limitations>
-					<outbound>
-						<source>
-							<path>$user/familyName</path>
-						</source>
-					</outbound>
-							
-				</attribute>
-				<attribute>
-					<ref>ri:tel_number</ref>
-					<displayName>Telephone Number</displayName>
-					<outbound>
-						<source>
-							<path>$user/telephoneNumber</path>
-						</source>
-					</outbound>
-				</attribute>
-				<attribute>
-					<ref>ri:city</ref>
-					<displayName>City</displayName>
-					<outbound>
-						<source>
-							<path>$user/locality</path>
-						</source>
-					</outbound>
-				</attribute>
-				<activation>
-	                <administrativeStatus>
-	                    <outbound/>
-	                </administrativeStatus>
-            	</activation>
-				<credentials>
-					<password>
-						<outbound/>
-					</password>
-				</credentials>
-			</objectType>
-		</schemaHandling>
+                <attribute>
+                    <ref>icfs:uid</ref>
+                    <displayName>Entry ID</displayName>
+                </attribute>
+
+                <attribute>
+                    <ref>icfs:name</ref>
+                    <displayName>Username</displayName>
+                    <limitations>
+                        <minOccurs>0</minOccurs>
+                    </limitations>
+                    <outbound>
+                        <strength>weak</strength>
+                        <source>
+                            <path>$user/name</path>
+                        </source>
+                    </outbound>
+                </attribute>
+
+                <attribute>
+                    <ref>ri:first_name</ref>
+                    <displayName>First Name</displayName>
+                    <outbound>
+                        <source>
+                            <path>$user/givenName</path>
+                        </source>
+                    </outbound>
+
+                </attribute>
+                <attribute>
+                    <ref>ri:last_name</ref>
+                    <displayName>Last name</displayName>
+                    <limitations>
+                        <minOccurs>0</minOccurs>
+                    </limitations>
+                    <outbound>
+                        <source>
+                            <path>$user/familyName</path>
+                        </source>
+                    </outbound>
+
+                </attribute>
+                <attribute>
+                    <ref>ri:tel_number</ref>
+                    <displayName>Telephone Number</displayName>
+                    <outbound>
+                        <source>
+                            <path>$user/telephoneNumber</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute>
+                    <ref>ri:city</ref>
+                    <displayName>City</displayName>
+                    <outbound>
+                        <source>
+                            <path>$user/locality</path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <activation>
+                    <administrativeStatus>
+                        <outbound/>
+                    </administrativeStatus>
+                </activation>
+                <credentials>
+                    <password>
+                        <outbound/>
+                    </password>
+                </credentials>
+            </objectType>
+        </schemaHandling>
 
     <capabilities xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
-    	<configured>
+        <configured>
             <cap:activation>
                 <cap:status>
                     <cap:attribute>ri:validity</cap:attribute>
                     <cap:enableValue>true</cap:enableValue>
                     <cap:disableValue>false</cap:disableValue>
-		    <cap:disableValue/>
+            <cap:disableValue/>
                 </cap:status>
             </cap:activation>
-    	</configured>
+        </configured>
     </capabilities>
 
 </resource>

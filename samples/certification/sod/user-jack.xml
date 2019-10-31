@@ -20,7 +20,7 @@
       xmlns:t='http://prism.evolveum.com/xml/ns/public/types-3'>
     <name>jack</name>
     <assignment id="1">
-        <targetRef oid="00000000-0000-0000-0000-000000000004" type="c:RoleType"/>		<!-- Superuser -->
+        <targetRef oid="00000000-0000-0000-0000-000000000004" type="c:RoleType"/>        <!-- Superuser -->
     </assignment>
 
     <activation>

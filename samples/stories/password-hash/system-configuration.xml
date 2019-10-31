@@ -95,13 +95,13 @@
         </auditing>
     </logging>
     <notificationConfiguration>
-		<handler>
+        <handler>
             <accountActivationNotifier>
                 <recipientExpression>
-					<script>
-						<code>requestee.getEmailAddress()</code>
-					</script>
-				</recipientExpression>
+                    <script>
+                        <code>requestee.getEmailAddress()</code>
+                    </script>
+                </recipientExpression>
                 <transport>mail</transport>
                 <confirmationMethod>link</confirmationMethod>
             </accountActivationNotifier>

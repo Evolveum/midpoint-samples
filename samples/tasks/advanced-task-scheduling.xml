@@ -33,10 +33,10 @@ so please do not edit unless you know what you are doing.
 
     <task oid="00000005-0000-0000-0000-123450000001">
         <name>Task1: cron-like (every 5 seconds)</name>
-		<extension>
-			<noop:delay xsi:type="xsd:int">1000</noop:delay>	<!--  delay simulates a non-interruptible processing -->
-			<noop:steps xsi:type="xsd:int">4</noop:steps>		<!--  at the end of each step, the NoOp handler looks for shutdown signal -->
-		</extension>
+        <extension>
+            <noop:delay xsi:type="xsd:int">1000</noop:delay>    <!--  delay simulates a non-interruptible processing -->
+            <noop:steps xsi:type="xsd:int">4</noop:steps>        <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
+        </extension>
         <taskIdentifier>10000005-0000-0000-0000-123450000001</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
@@ -52,8 +52,8 @@ so please do not edit unless you know what you are doing.
     <task oid="00000005-0000-0000-0000-123450000002">
         <name>Task2: cron-like (every 5 minutes)</name>
         <extension>
-            <noop:delay xsi:type="xsd:int">1000</noop:delay>	<!--  delay simulates a non-interruptible processing -->
-            <noop:steps xsi:type="xsd:int">60</noop:steps>		<!--  at the end of each step, the NoOp handler looks for shutdown signal -->
+            <noop:delay xsi:type="xsd:int">1000</noop:delay>    <!--  delay simulates a non-interruptible processing -->
+            <noop:steps xsi:type="xsd:int">60</noop:steps>        <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
         </extension>
         <taskIdentifier>10000005-0000-0000-0000-123450000002</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
@@ -71,8 +71,8 @@ so please do not edit unless you know what you are doing.
     <task oid="00000005-0000-0000-0000-123450000003">
         <name>Task3: only in selected time interval</name>
         <extension>
-            <noop:delay xsi:type="xsd:int">1000</noop:delay>	<!--  delay simulates a non-interruptible processing -->
-            <noop:steps xsi:type="xsd:int">5</noop:steps>		<!--  at the end of each step, the NoOp handler looks for shutdown signal -->
+            <noop:delay xsi:type="xsd:int">1000</noop:delay>    <!--  delay simulates a non-interruptible processing -->
+            <noop:steps xsi:type="xsd:int">5</noop:steps>        <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
         </extension>
         <taskIdentifier>10000005-0000-0000-0000-123450000003</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
@@ -92,8 +92,8 @@ so please do not edit unless you know what you are doing.
     <task oid="00000005-0000-0000-0000-123450000004">
         <name>Task4: reschedule on misfire</name>
         <extension>
-            <noop:delay xsi:type="xsd:int">1000</noop:delay>	<!--  delay simulates a non-interruptible processing -->
-            <noop:steps xsi:type="xsd:int">60</noop:steps>		<!--  at the end of each step, the NoOp handler looks for shutdown signal -->
+            <noop:delay xsi:type="xsd:int">1000</noop:delay>    <!--  delay simulates a non-interruptible processing -->
+            <noop:steps xsi:type="xsd:int">60</noop:steps>        <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
         </extension>
         <taskIdentifier>10000005-0000-0000-0000-123450000004</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
@@ -112,8 +112,8 @@ so please do not edit unless you know what you are doing.
     <task oid="00000005-0000-0000-0000-123450000005">
         <name>Task5: execute immediately on misfire</name>
         <extension>
-            <noop:delay xsi:type="xsd:int">1000</noop:delay>	<!--  delay simulates a non-interruptible processing -->
-            <noop:steps xsi:type="xsd:int">60</noop:steps>		<!--  at the end of each step, the NoOp handler looks for shutdown signal -->
+            <noop:delay xsi:type="xsd:int">1000</noop:delay>    <!--  delay simulates a non-interruptible processing -->
+            <noop:steps xsi:type="xsd:int">60</noop:steps>        <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
         </extension>
         <taskIdentifier>10000005-0000-0000-0000-123450000005</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>

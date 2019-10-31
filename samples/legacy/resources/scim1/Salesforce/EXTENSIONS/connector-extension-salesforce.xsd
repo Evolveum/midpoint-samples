@@ -12,7 +12,7 @@
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:sequence>
-	
+
       <xsd:element name="salesForceGroups" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:appinfo>
@@ -25,8 +25,8 @@ SalesForce Groups
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-	  
-	  <xsd:element name="salesForceEntitlements" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+
+      <xsd:element name="salesForceEntitlements" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:appinfo>
             <a:indexed>false</a:indexed>
@@ -38,8 +38,8 @@ SalesForce Entitlements
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-	  
-	  <xsd:element name="entitlementValue" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+
+      <xsd:element name="entitlementValue" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:appinfo>
             <a:indexed>false</a:indexed>
@@ -53,7 +53,7 @@ SalesForce entitlement value
       </xsd:element>
 
 
-      
+
     </xsd:sequence>
     </xsd:complexType>
 

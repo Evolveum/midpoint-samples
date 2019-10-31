@@ -16,11 +16,11 @@
   -->
 
 <dashboard xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	   xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
-  	   xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+       xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>System Status Dashboard</name>
     <display>
-	<!-- May be also given by archetype ... and display may be part of ObjectType later. -->
+    <!-- May be also given by archetype ... and display may be part of ObjectType later. -->
         <label>System Status Dashboard</label>
     </display>
     <widget>
@@ -110,26 +110,26 @@
                 </display>
             </variation>
             <view>
-            	<!-- This will be used when the list of audit entries is displayed. -->
-            	<!-- EXPERIMENTAL: do not rely on this. Functionality is very limited. And it is likely to change. -->
-            	<display>
-            		<!-- Custom CSS class/style for the entire table can be here. -->
-            	</display>
-            	<column>
-            		<!-- TODO: decide if we use name or path. The names may be hardcoded. -->
-            		<name>delta</name>
-            		<path>delta</path>
-            		<display>
-            			<label>Delta</label>
-            			<!-- CSS class/style for the column may be here -->
-            		</display>
-            		<previousColumn>outcome</previousColumn>
-            		<expression>
-            			<script>
-            				<code>ReportUtils.printDelta(....)</code>
-            			</script>
-            		</expression>
-            	</column>
+                <!-- This will be used when the list of audit entries is displayed. -->
+                <!-- EXPERIMENTAL: do not rely on this. Functionality is very limited. And it is likely to change. -->
+                <display>
+                    <!-- Custom CSS class/style for the entire table can be here. -->
+                </display>
+                <column>
+                    <!-- TODO: decide if we use name or path. The names may be hardcoded. -->
+                    <name>delta</name>
+                    <path>delta</path>
+                    <display>
+                        <label>Delta</label>
+                        <!-- CSS class/style for the column may be here -->
+                    </display>
+                    <previousColumn>outcome</previousColumn>
+                    <expression>
+                        <script>
+                            <code>ReportUtils.printDelta(....)</code>
+                        </script>
+                    </expression>
+                </column>
             </view>
         </presentation>
     </widget>
@@ -159,7 +159,7 @@
                     <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
                         <code>
                            import com.evolveum.midpoint.xml.ns._public.common.common_3.TaskExecutionStatusType;
-                           
+
                            object.getExecutionStatus().equals(TaskExecutionStatusType.RUNNABLE)
                         </code>
                     </script>

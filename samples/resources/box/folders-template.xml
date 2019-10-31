@@ -54,13 +54,13 @@
                   <expression>
                      <script>
                         <code>
-									parent = hostname
-									if (parent.equals("All Files")) {
-										return "Folders";
-									} else {
-										return parent;
-									}
-								</code>
+                                    parent = hostname
+                                    if (parent.equals("All Files")) {
+                                        return "Folders";
+                                    } else {
+                                        return parent;
+                                    }
+                                </code>
                      </script>
                   </expression>
                </q:equal>
@@ -71,8 +71,8 @@
                   <expression>
                      <script xsi:type="c:ScriptExpressionEvaluatorType">
                         <code>
-									hostname
-								</code>
+                                    hostname
+                                </code>
                      </script>
                   </expression>
                   <target>

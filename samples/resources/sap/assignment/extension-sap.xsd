@@ -18,7 +18,7 @@ test initialization (creation of prism context). -->
       </xsd:appinfo>
     </xsd:annotation>
     <xsd:sequence>
-    
+
       <xsd:element name="sapRoles" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:appinfo>
@@ -67,7 +67,7 @@ SAP Groups
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      
+
     </xsd:sequence>
     </xsd:complexType>
 

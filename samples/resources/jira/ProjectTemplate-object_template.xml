@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-	<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                 xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
                 xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                 xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
@@ -80,21 +80,21 @@
                     import com.evolveum.midpoint.prism.delta.ObjectDelta;
                     import com.evolveum.midpoint.schema.util.ObjectTypeUtil
                     import java.util.*;
-                    
+
                     if(developerUsers!=null &amp;&amp; focus != null &amp;&amp; focus.getOid() != null){
                      for (developerUser in developerUsers){
                         user = midpoint.searchObjectByName(UserType.class, developerUser);
-                        
+
                         if(user!=null){
                             orgOrt = new ObjectReferenceType();
                             orgOrt.setOid(focus.getOid());
                             orgOrt.setType(OrgType.COMPLEX_TYPE);
-                    
+
                             AssignmentType assignment = new AssignmentType();
                             assignment.asPrismContainerValue()
                             assignment.setTargetRef(orgOrt);
-                        
-                        
+
+
                             delta = midpoint.prismContext.deltaFactory().object().createModificationAddContainer(UserType.class, user.getOid(), UserType.F_ASSIGNMENT, assignment);
 
                             midpoint.executeChanges(delta)
@@ -123,21 +123,21 @@
                     import com.evolveum.midpoint.prism.delta.ObjectDelta;
                     import com.evolveum.midpoint.schema.util.ObjectTypeUtil
                     import java.util.*;
-                    
+
                     if(developerGroups!=null &amp;&amp; focus != null &amp;&amp; focus.getOid() != null){
                      for (developerGroup in developerGroups){
                         group = midpoint.searchObjectByName(RoleType.class, developerGroup);
-                        
+
                         if(group!=null){
                             orgOrt = new ObjectReferenceType();
                             orgOrt.setOid(focus.getOid());
                             orgOrt.setType(OrgType.COMPLEX_TYPE);
-                    
+
                             AssignmentType assignment = new AssignmentType();
                             assignment.asPrismContainerValue()
                             assignment.setTargetRef(orgOrt);
-                        
-                        
+
+
                             delta = midpoint.prismContext.deltaFactory().object().createModificationAddContainer(RoleType.class, group.getOid(), RoleType.F_ASSIGNMENT, assignment);
 
                             midpoint.executeChanges(delta)
@@ -167,24 +167,24 @@
                     import com.evolveum.midpoint.prism.delta.ObjectDelta;
                     import com.evolveum.midpoint.schema.util.ObjectTypeUtil
                     import java.util.*;
-                    
+
                     if(administratorUsers!=null &amp;&amp; focus != null &amp;&amp; focus.getOid() != null){
                      for (administratorUser in administratorUsers){
                         user = midpoint.searchObjectByName(UserType.class, administratorUser);
-                        
+
                         if(user!=null){
-                        
+
                             //log.info('XXX User: '+ user.toString())
                             orgOrt = new ObjectReferenceType();
                             orgOrt.setOid(focus.getOid());
                             orgOrt.setType(OrgType.COMPLEX_TYPE);
                             orgOrt.setRelation(SchemaConstants.ORG_MANAGER);
-                    
+
                             AssignmentType assignment = new AssignmentType();
                             assignment.asPrismContainerValue()
                             assignment.setTargetRef(orgOrt);
-                        
-                        
+
+
                             delta = midpoint.prismContext.deltaFactory().object().createModificationAddContainer(UserType.class, user.getOid(), UserType.F_ASSIGNMENT, assignment);
 
                             midpoint.executeChanges(delta)
@@ -214,23 +214,23 @@
                     import com.evolveum.midpoint.prism.delta.ObjectDelta;
                     import com.evolveum.midpoint.schema.util.ObjectTypeUtil
                     import java.util.*;
-                    
+
                     if(administratorGroups!=null &amp;&amp; focus != null &amp;&amp; focus.getOid() != null){
                      for (administratorGroup in administratorGroups){
                         group = midpoint.searchObjectByName(RoleType.class, administratorGroup);
-                        
+
                         if(group!=null){
-                        
+
                             orgOrt = new ObjectReferenceType();
                             orgOrt.setOid(focus.getOid());
                             orgOrt.setType(OrgType.COMPLEX_TYPE);
                             orgOrt.setRelation(SchemaConstants.ORG_MANAGER);
-                    
+
                             AssignmentType assignment = new AssignmentType();
                             assignment.asPrismContainerValue()
                             assignment.setTargetRef(orgOrt);
-                        
-                        
+
+
                             delta = midpoint.prismContext.deltaFactory().object().createModificationAddContainer(RoleType.class, group.getOid(), RoleType.F_ASSIGNMENT, assignment);
 
                             midpoint.executeChanges(delta)

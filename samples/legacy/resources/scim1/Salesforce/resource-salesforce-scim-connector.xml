@@ -1214,17 +1214,17 @@
                         <code>
                                     import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
                                     if (legal) {
-                						if (admStatus?.value) {
-											if (admStatus.value.toUpperCase().equals('DISABLED')) {
-												ActivationStatusType.DISABLED;
-											} else {
-												input;
-											}
-										} else {
-											input;
-										}
+                                        if (admStatus?.value) {
+                                            if (admStatus.value.toUpperCase().equals('DISABLED')) {
+                                                ActivationStatusType.DISABLED;
+                                            } else {
+                                                input;
+                                            }
+                                        } else {
+                                            input;
+                                        }
                                     } else {
-										ActivationStatusType.DISABLED;
+                                        ActivationStatusType.DISABLED;
                                     }
                                 </code>
                      </script>
@@ -1300,28 +1300,28 @@
          <reaction>
             <situation>linked</situation>
             <synchronize>true</synchronize>
-			<action>
+            <action>
                <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser</handlerUri>
             </action>
          </reaction>
          <reaction>
             <situation>deleted</situation>
             <synchronize>true</synchronize>
-			<action>
+            <action>
                <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount</handlerUri>
             </action>
          </reaction>
          <reaction>
             <situation>unlinked</situation>
             <synchronize>true</synchronize>
-			<action>
+            <action>
                <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
             </action>
          </reaction>
          <reaction>
             <situation>unmatched</situation>
             <synchronize>true</synchronize>
-			<action>
+            <action>
                <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addUser</handlerUri>
             </action>
          </reaction>

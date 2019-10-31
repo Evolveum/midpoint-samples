@@ -40,7 +40,7 @@ It also contains inbound mappings and definition to enable synchronization.
          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
          xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3">
 
-		 
+
     <resource oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2">
 
         <!-- Resource name. It will be displayed in GUI.  -->
@@ -60,7 +60,7 @@ It also contains inbound mappings and definition to enable synchronization.
             </description>
             <filter>
                 <q:equal>
-				<q:path>c:connectorType</q:path>
+                <q:path>c:connectorType</q:path>
                     <q:value>com.evolveum.polygon.connector.ldap.LdapConnector</q:value>
                 </q:equal>
             </filter>
@@ -68,29 +68,29 @@ It also contains inbound mappings and definition to enable synchronization.
 
         <!-- Configuration section contains configuration of the connector,
              such as hostnames and passwords -->
-		<connectorConfiguration>
-			<icfc:configurationProperties
-				xmlns:icfcldap="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-ldap/com.evolveum.polygon.connector.ldap.LdapConnector">
-				<icfcldap:port>1389</icfcldap:port>
-				<icfcldap:host>localhost</icfcldap:host>
-				<icfcldap:baseContext>dc=example,dc=com</icfcldap:baseContext>
-				<icfcldap:bindDn>uid=idm,ou=Administrators,dc=example,dc=com</icfcldap:bindDn>
-				<icfcldap:bindPassword>
-	                    <t:clearValue>secret</t:clearValue>
-	            </icfcldap:bindPassword>
-	            <icfcldap:pagingStrategy>auto</icfcldap:pagingStrategy>
-	            <icfcldap:vlvSortAttribute>entryUUID</icfcldap:vlvSortAttribute>
+        <connectorConfiguration>
+            <icfc:configurationProperties
+                xmlns:icfcldap="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-ldap/com.evolveum.polygon.connector.ldap.LdapConnector">
+                <icfcldap:port>1389</icfcldap:port>
+                <icfcldap:host>localhost</icfcldap:host>
+                <icfcldap:baseContext>dc=example,dc=com</icfcldap:baseContext>
+                <icfcldap:bindDn>uid=idm,ou=Administrators,dc=example,dc=com</icfcldap:bindDn>
+                <icfcldap:bindPassword>
+                        <t:clearValue>secret</t:clearValue>
+                </icfcldap:bindPassword>
+                <icfcldap:pagingStrategy>auto</icfcldap:pagingStrategy>
+                <icfcldap:vlvSortAttribute>entryUUID</icfcldap:vlvSortAttribute>
 <!--                                <icfcldap:accountOperationalAttributes>ds-pwp-account-disabled</icfcldap:accountOperationalAttributes>-->
-				<icfcldap:operationalAttributes>ds-pwp-account-disabled</icfcldap:operationalAttributes>
-	 			<icfcldap:operationalAttributes>isMemberOf</icfcldap:operationalAttributes>
-			</icfc:configurationProperties>
+                <icfcldap:operationalAttributes>ds-pwp-account-disabled</icfcldap:operationalAttributes>
+                 <icfcldap:operationalAttributes>isMemberOf</icfcldap:operationalAttributes>
+            </icfc:configurationProperties>
             <icfc:resultsHandlerConfiguration>
-				<icfc:enableNormalizingResultsHandler>false</icfc:enableNormalizingResultsHandler>
-				<icfc:enableFilteredResultsHandler>false</icfc:enableFilteredResultsHandler>
-				<icfc:enableAttributesToGetSearchResultsHandler>false</icfc:enableAttributesToGetSearchResultsHandler>
-			</icfc:resultsHandlerConfiguration>
-		</connectorConfiguration>
-	
+                <icfc:enableNormalizingResultsHandler>false</icfc:enableNormalizingResultsHandler>
+                <icfc:enableFilteredResultsHandler>false</icfc:enableFilteredResultsHandler>
+                <icfc:enableAttributesToGetSearchResultsHandler>false</icfc:enableAttributesToGetSearchResultsHandler>
+            </icfc:resultsHandlerConfiguration>
+        </connectorConfiguration>
+
         <!-- Resource Schema Handling definition.
              This part defines how the schema defined above will be used by
              midPoint. It defines expressions and limitations for individual
@@ -101,206 +101,206 @@ It also contains inbound mappings and definition to enable synchronization.
 
              This is the part where most of the customization takes place.
         -->
-		<schema>
-			<!-- workaround to MID-2723 -->
-			<generationConstraints>
-				<generateObjectClass>ri:inetOrgPerson</generateObjectClass>
-				<generateObjectClass>ri:groupOfUniqueNames</generateObjectClass>
-				<generateObjectClass>ri:groupOfNames</generateObjectClass>
-				<generateObjectClass>ri:organizationalUnit</generateObjectClass>
-			</generationConstraints>
-		</schema>
-	
-	<schemaHandling>
-		<objectType>
-			<kind>account</kind>
-			<displayName>Normal Account</displayName>
-			<default>true</default>
-			<objectClass>ri:inetOrgPerson</objectClass>
-			<attribute>
-				<ref>ri:dn</ref>
-				<displayName>Distinguished Name</displayName>
-				<limitations>
-					<minOccurs>0</minOccurs>
-					<access>
-                        <read>true</read>
-						<add>true</add>
-						<modify>true</modify>
-					</access>
-				</limitations>
-				<matchingRule>mr:stringIgnoreCase</matchingRule>
-				<outbound>
-					<source>
-						<path>$user/name</path>
-					</source>
-					<expression>
-						<script>
-							<!-- No explicit script language was specified. It means that this is Groovy -->
-							<code>
-								'uid=' + name + iterationToken + ',ou=people,dc=example,dc=com'
-							</code>
-						</script>
-					</expression>
-				</outbound>
-			</attribute>
-			<attribute>
-				<ref>ri:entryUUID</ref>
-				<displayName>Entry UUID</displayName>
-				<limitations>
-					<access>
-                        <read>true</read>
-						<add>false</add>
-						<modify>true</modify>
-					</access>
-				</limitations>
-				<matchingRule>mr:stringIgnoreCase</matchingRule>
-			</attribute>
-			<attribute>
-				<ref>ri:cn</ref>
-				<displayName>Common Name</displayName>
-				<limitations>
-					<minOccurs>0</minOccurs>
-					<access>
-                        <read>true</read>
-						<add>true</add>
-						<modify>true</modify>
-					</access>
-				</limitations>
+        <schema>
+            <!-- workaround to MID-2723 -->
+            <generationConstraints>
+                <generateObjectClass>ri:inetOrgPerson</generateObjectClass>
+                <generateObjectClass>ri:groupOfUniqueNames</generateObjectClass>
+                <generateObjectClass>ri:groupOfNames</generateObjectClass>
+                <generateObjectClass>ri:organizationalUnit</generateObjectClass>
+            </generationConstraints>
+        </schema>
 
-				<outbound>
-					<source>
-						<path>$user/fullName</path>
-					</source>
-				</outbound>
-				<inbound>
-					<target>
-						<path>$user/fullName</path>
-					</target>
-				</inbound>
-			</attribute>
-			<attribute>
-				<ref>ri:sn</ref>
-				<displayName>Surname</displayName>
-				<limitations>
-					<minOccurs>0</minOccurs>
-				</limitations>
-				<outbound>
-					<source>
-						<!-- The path can be shorteden like this. $user is a default source "context" in outbound -->
-						<path>familyName</path>
-					</source>
-				</outbound>
-				<inbound>
-					<target>
-						<!-- The path can be shorteden like this. $user is a default target "context" in inbound -->
-						<path>familyName</path>
-					</target>
-				</inbound>
-			</attribute>
-			<attribute>
-				<ref>ri:givenName</ref>
-				<displayName>Given Name</displayName>
-				<outbound>
-					<source>
-						<!-- Full namespace prefixes can be used in the path -->
-						<path>$c:user/c:givenName</path>
-					</source>
-				</outbound>
-				<inbound>
-					<target>
-						<path>$c:user/c:givenName</path>
-					</target>
-				</inbound>
-			</attribute>
-			<attribute>
-				<ref>ri:uid</ref>
-				<displayName>Login Name</displayName>
-				<matchingRule>mr:stringIgnoreCase</matchingRule>
-				<outbound>
-					<strength>weak</strength>
-					<source>
-						<description>Source may have description</description>
-						<path>$user/name</path>
-					</source>
-					<!-- We need to put iterationToken here as well, otherwise effect described in MID-2139 occurs -->
-					<expression>
-						<script>
-							<code>name + iterationToken</code>
-						</script>
-					</expression>
-				</outbound>
-				<inbound>
-					<target>
-						<description>Targets may have description</description>
-						<path>$c:user/c:name</path>
+    <schemaHandling>
+        <objectType>
+            <kind>account</kind>
+            <displayName>Normal Account</displayName>
+            <default>true</default>
+            <objectClass>ri:inetOrgPerson</objectClass>
+            <attribute>
+                <ref>ri:dn</ref>
+                <displayName>Distinguished Name</displayName>
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                    <access>
+                        <read>true</read>
+                        <add>true</add>
+                        <modify>true</modify>
+                    </access>
+                </limitations>
+                <matchingRule>mr:stringIgnoreCase</matchingRule>
+                <outbound>
+                    <source>
+                        <path>$user/name</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <!-- No explicit script language was specified. It means that this is Groovy -->
+                            <code>
+                                'uid=' + name + iterationToken + ',ou=people,dc=example,dc=com'
+                            </code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:entryUUID</ref>
+                <displayName>Entry UUID</displayName>
+                <limitations>
+                    <access>
+                        <read>true</read>
+                        <add>false</add>
+                        <modify>true</modify>
+                    </access>
+                </limitations>
+                <matchingRule>mr:stringIgnoreCase</matchingRule>
+            </attribute>
+            <attribute>
+                <ref>ri:cn</ref>
+                <displayName>Common Name</displayName>
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                    <access>
+                        <read>true</read>
+                        <add>true</add>
+                        <modify>true</modify>
+                    </access>
+                </limitations>
+
+                <outbound>
+                    <source>
+                        <path>$user/fullName</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <target>
+                        <path>$user/fullName</path>
                     </target>
-				</inbound>
-			</attribute>
-			<attribute>
-				<ref>ri:description</ref>
-				<outbound>
-					<strength>weak</strength>
-					<expression>
-						<description>Expression that assigns a fixed value</description>
-						<value>Created by IDM</value>
-					</expression>
-				</outbound>
-			</attribute>
-			<attribute>
-				<ref>ri:l</ref>
-				<displayName>Location</displayName>
-				<outbound>
-					<source>
-						<path>$user/locality</path>
-					</source>
-				</outbound>
-			</attribute>
-			<attribute>
-				<ref>ri:employeeType</ref>
-				<displayName>Employee Type</displayName>
-				<tolerant>false</tolerant>
-				<outbound>
-					<source>
-						<path>$user/employeeType</path>
-					</source>
-				</outbound>
-			</attribute>
-			
-			<iteration>
-				<maxIterations>5</maxIterations>
-			</iteration>
-			
-			<protected>
-				<filter>
-					<q:equal>
-						<q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#distinguishedName</q:matching>
-						<q:path>attributes/ri:dn</q:path>
-						<q:value>uid=idm,ou=Administrators,dc=example,dc=com</q:value>
-					</q:equal>
-				</filter>
-			</protected>
-			
-			<activation>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:sn</ref>
+                <displayName>Surname</displayName>
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                </limitations>
+                <outbound>
+                    <source>
+                        <!-- The path can be shorteden like this. $user is a default source "context" in outbound -->
+                        <path>familyName</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <target>
+                        <!-- The path can be shorteden like this. $user is a default target "context" in inbound -->
+                        <path>familyName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:givenName</ref>
+                <displayName>Given Name</displayName>
+                <outbound>
+                    <source>
+                        <!-- Full namespace prefixes can be used in the path -->
+                        <path>$c:user/c:givenName</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <target>
+                        <path>$c:user/c:givenName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:uid</ref>
+                <displayName>Login Name</displayName>
+                <matchingRule>mr:stringIgnoreCase</matchingRule>
+                <outbound>
+                    <strength>weak</strength>
+                    <source>
+                        <description>Source may have description</description>
+                        <path>$user/name</path>
+                    </source>
+                    <!-- We need to put iterationToken here as well, otherwise effect described in MID-2139 occurs -->
+                    <expression>
+                        <script>
+                            <code>name + iterationToken</code>
+                        </script>
+                    </expression>
+                </outbound>
+                <inbound>
+                    <target>
+                        <description>Targets may have description</description>
+                        <path>$c:user/c:name</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:description</ref>
+                <outbound>
+                    <strength>weak</strength>
+                    <expression>
+                        <description>Expression that assigns a fixed value</description>
+                        <value>Created by IDM</value>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:l</ref>
+                <displayName>Location</displayName>
+                <outbound>
+                    <source>
+                        <path>$user/locality</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:employeeType</ref>
+                <displayName>Employee Type</displayName>
+                <tolerant>false</tolerant>
+                <outbound>
+                    <source>
+                        <path>$user/employeeType</path>
+                    </source>
+                </outbound>
+            </attribute>
+
+            <iteration>
+                <maxIterations>5</maxIterations>
+            </iteration>
+
+            <protected>
+                <filter>
+                    <q:equal>
+                        <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#distinguishedName</q:matching>
+                        <q:path>attributes/ri:dn</q:path>
+                        <q:value>uid=idm,ou=Administrators,dc=example,dc=com</q:value>
+                    </q:equal>
+                </filter>
+            </protected>
+
+            <activation>
                 <administrativeStatus>
                     <outbound/>
                     <inbound>
-                    	<strength>weak</strength>
+                        <strength>weak</strength>
                         <expression>
                             <asIs/>
                         </expression>
                     </inbound>
                 </administrativeStatus>
             </activation>
-			
+
             <credentials>
                 <password>
                     <outbound>
-                    	<expression>
-                        	<asIs/>
+                        <expression>
+                            <asIs/>
                         </expression>
                     </outbound>
                     <inbound>
-                    	<strength>weak</strength>
+                        <strength>weak</strength>
                         <expression>
                             <generate/>
                         </expression>
@@ -308,12 +308,12 @@ It also contains inbound mappings and definition to enable synchronization.
                 </password>
             </credentials>
 
-		</objectType>
-	</schemaHandling>
+        </objectType>
+    </schemaHandling>
 
 
     <capabilities xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
-    	<configured>
+        <configured>
             <cap:activation>
                 <cap:status>
                     <cap:attribute>ri:ds-pwp-account-disabled</cap:attribute>
@@ -321,7 +321,7 @@ It also contains inbound mappings and definition to enable synchronization.
                     <cap:disableValue>true</cap:disableValue>
                 </cap:status>
             </cap:activation>
-    	</configured>
+        </configured>
     </capabilities>
 
         <!--
@@ -329,70 +329,70 @@ It also contains inbound mappings and definition to enable synchronization.
             reactions and similar synchronization settings.
         -->
         <synchronization>
-        	<objectSynchronization>
-	            <!--
-	                The synchronization for this resource is enabled.
-	                It means that the synchronization will react to changes detected by
-	                the system (live sync task, discovery or reconciliation) -->
-	            <enabled>true</enabled>
-	
-	            <correlation>
-	                <q:description>
-	                    Correlation expression is a search query.
-	                    Following search query will look for users that have "name"
-	                    equal to the "uid" attribute of the account. Simply speaking,
-	                    it will look for match in usernames in the IDM and the resource.
-	                    The correlation rule always looks for users, so it will not match
-	                    any other object type.
-	                </q:description>
-	                <q:equal>
-	                    <q:path>name</q:path>
-	                    <expression>
-							<path>
-								declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3";
-								$account/attributes/ri:uid
-							</path>
-	                    </expression>
-	                </q:equal>
-	            </correlation>
-	
-	            <!-- Confirmation rule may be here, but as the search above will
-	                 always return at most one match, the confirmation rule is not needed. -->
-	
-	            <!-- Following section describes reactions to a situations.
-	                 The setting here assumes that this resource is authoritative,
-	                 therefore all accounts created on the resource should be
-	                 reflected as new users in IDM.
-	                 See http://wiki.evolveum.com/display/midPoint/Synchronization+Situations
-	             -->
-	
-	            <reaction>
-	                <situation>linked</situation>
-	                <synchronize>true</synchronize>
-	            </reaction>
-	            <reaction>
-	                <situation>deleted</situation>
-	                <synchronize>true</synchronize>
-		            <action>
-		            	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlink</handlerUri>
-		            </action>
-	            </reaction>
-	
-	            <reaction>
-	                <situation>unlinked</situation>
-	                <synchronize>true</synchronize>
-		            <action>
-		            	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
-		            </action>
-	            </reaction>
-	            <reaction>
-	                <situation>unmatched</situation>
-	                <synchronize>true</synchronize>
-		            <action>
-		            	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-		            </action>
-	            </reaction>
-			</objectSynchronization>
+            <objectSynchronization>
+                <!--
+                    The synchronization for this resource is enabled.
+                    It means that the synchronization will react to changes detected by
+                    the system (live sync task, discovery or reconciliation) -->
+                <enabled>true</enabled>
+
+                <correlation>
+                    <q:description>
+                        Correlation expression is a search query.
+                        Following search query will look for users that have "name"
+                        equal to the "uid" attribute of the account. Simply speaking,
+                        it will look for match in usernames in the IDM and the resource.
+                        The correlation rule always looks for users, so it will not match
+                        any other object type.
+                    </q:description>
+                    <q:equal>
+                        <q:path>name</q:path>
+                        <expression>
+                            <path>
+                                declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3";
+                                $account/attributes/ri:uid
+                            </path>
+                        </expression>
+                    </q:equal>
+                </correlation>
+
+                <!-- Confirmation rule may be here, but as the search above will
+                     always return at most one match, the confirmation rule is not needed. -->
+
+                <!-- Following section describes reactions to a situations.
+                     The setting here assumes that this resource is authoritative,
+                     therefore all accounts created on the resource should be
+                     reflected as new users in IDM.
+                     See http://wiki.evolveum.com/display/midPoint/Synchronization+Situations
+                 -->
+
+                <reaction>
+                    <situation>linked</situation>
+                    <synchronize>true</synchronize>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <synchronize>true</synchronize>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlink</handlerUri>
+                    </action>
+                </reaction>
+
+                <reaction>
+                    <situation>unlinked</situation>
+                    <synchronize>true</synchronize>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <synchronize>true</synchronize>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
+                    </action>
+                </reaction>
+            </objectSynchronization>
         </synchronization>
 
     </resource>

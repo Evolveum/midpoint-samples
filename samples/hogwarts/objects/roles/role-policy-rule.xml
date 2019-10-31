@@ -7,7 +7,7 @@
         <policyRule>
             <policyConstraints>
                 <assignment>
-                	<operation>add</operation>
+                    <operation>add</operation>
                 </assignment>
             </policyConstraints>
             <policyActions>
@@ -35,7 +35,7 @@
         <policyRule>
             <policyConstraints>
                 <assignment>
-                	<operation>add</operation>
+                    <operation>add</operation>
                 </assignment>
             </policyConstraints>
             <policyActions>

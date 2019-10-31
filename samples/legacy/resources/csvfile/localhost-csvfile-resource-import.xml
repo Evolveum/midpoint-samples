@@ -25,7 +25,7 @@ This definition is tailored for import from the CSV File.
 -->
 
 <c:objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	   xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
            xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
@@ -41,7 +41,7 @@ This definition is tailored for import from the CSV File.
         <connectorRef type="ConnectorType">
             <filter>
                 <q:equal>
-				<q:path>c:connectorType</q:path>
+                <q:path>c:connectorType</q:path>
                     <q:value>com.evolveum.polygon.csvfile.CSVFileConnector</q:value>
                 </q:equal>
             </filter>
@@ -49,7 +49,7 @@ This definition is tailored for import from the CSV File.
 
         <c:connectorConfiguration>
             <icfc:configurationProperties
-					xmlns:icfccsvfile="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csvfile/com.evolveum.polygon.csvfile.CSVFileConnector">
+                    xmlns:icfccsvfile="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csvfile/com.evolveum.polygon.csvfile.CSVFileConnector">
                 <icfccsvfile:filePath>/var/tmp/midpoint-import.csv</icfccsvfile:filePath>
                 <icfccsvfile:encoding>utf-8</icfccsvfile:encoding>
                 <icfccsvfile:valueQualifier>"</icfccsvfile:valueQualifier>
@@ -57,7 +57,7 @@ This definition is tailored for import from the CSV File.
                 <icfccsvfile:multivalueDelimiter>;</icfccsvfile:multivalueDelimiter>
                 <icfccsvfile:usingMultivalue>false</icfccsvfile:usingMultivalue>
                 <icfccsvfile:uniqueAttribute>id</icfccsvfile:uniqueAttribute>
-                <!--			<icfccsvfile:nameAttribute>id</icfccsvfile:nameAttribute> -->
+                <!--            <icfccsvfile:nameAttribute>id</icfccsvfile:nameAttribute> -->
                 <icfccsvfile:passwordAttribute>password</icfccsvfile:passwordAttribute>
             </icfc:configurationProperties>
         </c:connectorConfiguration>
@@ -72,12 +72,12 @@ This definition is tailored for import from the CSV File.
                     <outbound>
                         <strength>weak</strength>
                         <source>
-                        	<path>$user/name</path>
+                            <path>$user/name</path>
                         </source>
                     </outbound>
                     <inbound>
                         <target>
-                        	<path>$user/name</path>
+                            <path>$user/name</path>
                         </target>
                     </inbound>
                 </attribute>
@@ -88,7 +88,7 @@ This definition is tailored for import from the CSV File.
                     <outbound>
                         <strength>weak</strength>
                         <source>
-                        	<path>$user/givenName</path>
+                            <path>$user/givenName</path>
                         </source>
                     </outbound>
                     <inbound>
@@ -104,7 +104,7 @@ This definition is tailored for import from the CSV File.
                     <outbound>
                         <strength>weak</strength>
                         <source>
-                        	<path>$user/familyName</path>
+                            <path>$user/familyName</path>
                         </source>
                     </outbound>
                     <inbound>
@@ -113,82 +113,82 @@ This definition is tailored for import from the CSV File.
                         </target>
                     </inbound>
                 </attribute>
-                
+
                 <activation>
                     <administrativeStatus>
                         <outbound/>
                         <inbound>
-							<strength>weak</strength>
+                            <strength>weak</strength>
                         </inbound>
                     </administrativeStatus>
                 </activation>
-                
+
                 <credentials>
                     <password>
                         <outbound>
-							<expression>
-								<asIs/>
-							</expression>
-						</outbound>
+                            <expression>
+                                <asIs/>
+                            </expression>
+                        </outbound>
                         <inbound>
                             <strength>weak</strength>
                             <expression>
                                 <generate/>
                             </expression>
                         </inbound>
-	                </password>
+                    </password>
                 </credentials>
-                
+
             </objectType>
         </schemaHandling>
-     	<capabilities xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
+         <capabilities xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
             <configured>
-				<cap:activation>
-					<cap:status>
-						<cap:attribute>ri:disabled</cap:attribute>
-						<cap:enableValue>false</cap:enableValue>
-						<cap:disableValue>true</cap:disableValue>
-					</cap:status>
-				</cap:activation>
-			</configured>
+                <cap:activation>
+                    <cap:status>
+                        <cap:attribute>ri:disabled</cap:attribute>
+                        <cap:enableValue>false</cap:enableValue>
+                        <cap:disableValue>true</cap:disableValue>
+                    </cap:status>
+                </cap:activation>
+            </configured>
         </capabilities>
         <synchronization>
-        	<objectSynchronization>
-	            <enabled>true</enabled>	
-	            <correlation>
-	                <q:equal>
-	                    <q:path>c:name</q:path>
-	                    <expression>
-	                        <path>$account/attributes/icfs:name</path>
-	                    </expression>
-	                </q:equal>
-	            </correlation>
-	
-	            <reaction>
-	                <situation>linked</situation>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser</handlerUri>
-	                </action>
-	            </reaction>
-	            <reaction>
-	                <situation>deleted</situation>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount</handlerUri>
-	                </action>
-	            </reaction>
-	            <reaction>
-	                <situation>unlinked</situation>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
-	                </action>
-	            </reaction>
-	            <reaction>
-	                <situation>unmatched</situation>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addUser</handlerUri>
-	                </action>
-	            </reaction>
-			</objectSynchronization>
+            <objectSynchronization>
+                <enabled>true</enabled>
+                <correlation>
+                    <q:equal>
+                        <q:path>c:name</q:path>
+                        <expression>
+                            <path>$account/attributes/icfs:name</path>
+                        </expression>
+                    </q:equal>
+                </correlation>
+
+                <reaction>
+                    <situation>linked</situation>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addUser</handlerUri>
+                    </action>
+                </reaction>
+            </objectSynchronization>
         </synchronization>
     </c:resource>
 

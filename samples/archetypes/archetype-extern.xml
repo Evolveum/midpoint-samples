@@ -21,20 +21,20 @@
     <name>Extern</name>
     <description>External worker, e.g. contractor</description>
     <archetypePolicy>
-    	<display>
-    		<label>Extern</label>
-    		<pluralLabel>Externs</pluralLabel>
-    		<tooltip>External worker</tooltip>
-    		<icon>
-    			<cssClass>fa fa-male</cssClass>
-    			<!-- Same icon as employee, just different color. -->
-    			<color>teal</color>
-    		</icon>
-    	</display>
+        <display>
+            <label>Extern</label>
+            <pluralLabel>Externs</pluralLabel>
+            <tooltip>External worker</tooltip>
+            <icon>
+                <cssClass>fa fa-male</cssClass>
+                <!-- Same icon as employee, just different color. -->
+                <color>teal</color>
+            </icon>
+        </display>
     </archetypePolicy>
     <assignment>
-    	<assignmentRelation>
-    		<holderType>UserType</holderType>
-    	</assignmentRelation>
+        <assignmentRelation>
+            <holderType>UserType</holderType>
+        </assignmentRelation>
     </assignment>
 </archetype>

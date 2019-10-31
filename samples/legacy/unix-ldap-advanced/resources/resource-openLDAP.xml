@@ -80,13 +80,13 @@
                   <expression>
                      <script>
                         <code>
-								import javax.naming.ldap.Rdn
-								import javax.naming.ldap.LdapName
-								
-								dn = new LdapName('ou=Groups,dc=example,dc=com')
-								dn.add(new Rdn('cn', name.toString()))
-								return dn.toString()
-							</code>
+                                import javax.naming.ldap.Rdn
+                                import javax.naming.ldap.LdapName
+
+                                dn = new LdapName('ou=Groups,dc=example,dc=com')
+                                dn.add(new Rdn('cn', name.toString()))
+                                return dn.toString()
+                            </code>
                      </script>
                   </expression>
                </outbound>
@@ -112,14 +112,14 @@
                   <expression>
                      <script>
                         <code>
-	                        	import javax.naming.ldap.Rdn
-	                        	import javax.naming.ldap.LdapName
+                                import javax.naming.ldap.Rdn
+                                import javax.naming.ldap.LdapName
 
-	                        	memberAttr = new LdapName('ou=groups,dc=example,dc=com')
-	                        	memberAttr.add(new Rdn('uid', 'nobody'))
+                                memberAttr = new LdapName('ou=groups,dc=example,dc=com')
+                                memberAttr.add(new Rdn('uid', 'nobody'))
 
-	                        	return memberAttr.toString()
-	                        </code>
+                                return memberAttr.toString()
+                            </code>
                      </script>
                   </expression>
                </outbound>
@@ -182,13 +182,13 @@
                   <expression>
                      <script>
                         <code>
-								import javax.naming.ldap.Rdn
-								import javax.naming.ldap.LdapName
-								
-								dn = new LdapName('ou=Groups,dc=example,dc=com')
-								dn.add(new Rdn('cn', identifier.toString()+'admin'))
-								return dn.toString()
-							</code>
+                                import javax.naming.ldap.Rdn
+                                import javax.naming.ldap.LdapName
+
+                                dn = new LdapName('ou=Groups,dc=example,dc=com')
+                                dn.add(new Rdn('cn', identifier.toString()+'admin'))
+                                return dn.toString()
+                            </code>
                      </script>
                   </expression>
                </outbound>
@@ -214,14 +214,14 @@
                   <expression>
                      <script>
                         <code>
-	                        	import javax.naming.ldap.Rdn
-	                        	import javax.naming.ldap.LdapName
+                                import javax.naming.ldap.Rdn
+                                import javax.naming.ldap.LdapName
 
-	                        	memberAttr = new LdapName('ou=groups,dc=example,dc=com')
-	                        	memberAttr.add(new Rdn('uid', 'nobody'))
+                                memberAttr = new LdapName('ou=groups,dc=example,dc=com')
+                                memberAttr.add(new Rdn('uid', 'nobody'))
 
-	                        	return memberAttr.toString()
-	                        </code>
+                                return memberAttr.toString()
+                            </code>
                      </script>
                   </expression>
                </outbound>
@@ -273,13 +273,13 @@
                   <expression>
                      <script>
                         <code>
-								import javax.naming.ldap.Rdn
-								import javax.naming.ldap.LdapName
-								
-								dn = new LdapName('ou=Groups,dc=example,dc=com')
-								dn.add(new Rdn('cn', identifier.toString()+'auditor'))
-								return dn.toString()
-							</code>
+                                import javax.naming.ldap.Rdn
+                                import javax.naming.ldap.LdapName
+
+                                dn = new LdapName('ou=Groups,dc=example,dc=com')
+                                dn.add(new Rdn('cn', identifier.toString()+'auditor'))
+                                return dn.toString()
+                            </code>
                      </script>
                   </expression>
                </outbound>
@@ -305,14 +305,14 @@
                   <expression>
                      <script>
                         <code>
-	                        	import javax.naming.ldap.Rdn
-	                        	import javax.naming.ldap.LdapName
+                                import javax.naming.ldap.Rdn
+                                import javax.naming.ldap.LdapName
 
-	                        	memberAttr = new LdapName('ou=groups,dc=example,dc=com')
-	                        	memberAttr.add(new Rdn('uid', 'nobody'))
+                                memberAttr = new LdapName('ou=groups,dc=example,dc=com')
+                                memberAttr.add(new Rdn('uid', 'nobody'))
 
-	                        	return memberAttr.toString()
-	                        </code>
+                                return memberAttr.toString()
+                            </code>
                      </script>
                   </expression>
                </outbound>
@@ -364,13 +364,13 @@
                   <expression>
                      <script>
                         <code>
-								import javax.naming.ldap.Rdn
-								import javax.naming.ldap.LdapName
-								
-								dn = new LdapName('ou=Groups,dc=example,dc=com')
-								dn.add(new Rdn('cn', identifier.toString()+'user'))
-								return dn.toString()
-							</code>
+                                import javax.naming.ldap.Rdn
+                                import javax.naming.ldap.LdapName
+
+                                dn = new LdapName('ou=Groups,dc=example,dc=com')
+                                dn.add(new Rdn('cn', identifier.toString()+'user'))
+                                return dn.toString()
+                            </code>
                      </script>
                   </expression>
                </outbound>
@@ -396,14 +396,14 @@
                   <expression>
                      <script>
                         <code>
-	                        	import javax.naming.ldap.Rdn
-	                        	import javax.naming.ldap.LdapName
+                                import javax.naming.ldap.Rdn
+                                import javax.naming.ldap.LdapName
 
-	                        	memberAttr = new LdapName('ou=groups,dc=example,dc=com')
-	                        	memberAttr.add(new Rdn('uid', 'nobody'))
+                                memberAttr = new LdapName('ou=groups,dc=example,dc=com')
+                                memberAttr.add(new Rdn('uid', 'nobody'))
 
-	                        	return memberAttr.toString()
-	                        </code>
+                                return memberAttr.toString()
+                            </code>
                      </script>
                   </expression>
                </outbound>
@@ -454,8 +454,8 @@
                   <expression>
                      <script>
                         <code>
-								'uid=' + name + iterationToken + ',ou=people,dc=example,dc=com'
-							</code>
+                                'uid=' + name + iterationToken + ',ou=people,dc=example,dc=com'
+                            </code>
                      </script>
                   </expression>
                </outbound>
@@ -686,14 +686,14 @@
                   <expression>
                      <script>
                         <code>
-                            	import javax.naming.ldap.Rdn
-	                        	import javax.naming.ldap.LdapName
-	                        	
-	                        	dn = new LdapName('ou=groups,dc=example,dc=com')
-	                        	dn.add(new Rdn('cn', name.toString()))
+                                import javax.naming.ldap.Rdn
+                                import javax.naming.ldap.LdapName
 
-	                        	return dn.toString()
-	                        </code>
+                                dn = new LdapName('ou=groups,dc=example,dc=com')
+                                dn.add(new Rdn('cn', name.toString()))
+
+                                return dn.toString()
+                            </code>
                      </script>
                   </expression>
                </outbound>
@@ -709,14 +709,14 @@
                   <expression>
                      <script>
                         <code>
-	                        	import javax.naming.ldap.Rdn
-	                        	import javax.naming.ldap.LdapName
+                                import javax.naming.ldap.Rdn
+                                import javax.naming.ldap.LdapName
 
-	                        	memberAttr = new LdapName('ou=groups,dc=example,dc=com')
-	                        	memberAttr.add(new Rdn('uid', 'nobody'))
+                                memberAttr = new LdapName('ou=groups,dc=example,dc=com')
+                                memberAttr.add(new Rdn('uid', 'nobody'))
 
-	                        	return memberAttr.toString()
-	                        </code>
+                                return memberAttr.toString()
+                            </code>
                      </script>
                   </expression>
                </outbound>
@@ -799,13 +799,13 @@
             <enabled>true</enabled>
             <correlation>
                <q:description>
-	                    Correlation expression is a search query.
-	                    Following search query will look for users that have "name"
-	                    equal to the "uid" attribute of the account. Simply speaking,
-	                    it will look for match in usernames in the IDM and the resource.
-	                    The correlation rule always looks for users, so it will not match
-	                    any other object type.
-	                </q:description>
+                        Correlation expression is a search query.
+                        Following search query will look for users that have "name"
+                        equal to the "uid" attribute of the account. Simply speaking,
+                        it will look for match in usernames in the IDM and the resource.
+                        The correlation rule always looks for users, so it will not match
+                        any other object type.
+                    </q:description>
                <q:equal>
                   <q:path>name</q:path>
                   <expression>
@@ -850,19 +850,19 @@
                   <code>
                            dn = basic.getSecondaryIdentifierValue(shadow)
                            return !dn.contains('admin') &amp;&amp; !dn.contains('auditor') &amp;&amp; !dn.contains('user')
-                           
+
                        </code>
                </script>
             </condition>
             <correlation>
                <q:description>
                         Correlation expression is a search query.
-	                    Following search query will look for users that have "name"
-	                    equal to the "uid" attribute of the account. Simply speaking,
-	                    it will look for match in usernames in the IDM and the resource.
-	                    The correlation rule always looks for users, so it will not match
-	                    any other object type.
-	                </q:description>
+                        Following search query will look for users that have "name"
+                        equal to the "uid" attribute of the account. Simply speaking,
+                        it will look for match in usernames in the IDM and the resource.
+                        The correlation rule always looks for users, so it will not match
+                        any other object type.
+                    </q:description>
                <q:equal>
                   <q:path>name</q:path>
                   <expression>
@@ -906,19 +906,19 @@
                   <code>
                            dn = basic.getSecondaryIdentifierValue(shadow)
                            return dn.contains('admin')
-                           
+
                        </code>
                </script>
             </condition>
             <correlation>
                <q:description>
                         Correlation expression is a search query.
-	                    Following search query will look for users that have "name"
-	                    equal to the "uid" attribute of the account. Simply speaking,
-	                    it will look for match in usernames in the IDM and the resource.
-	                    The correlation rule always looks for users, so it will not match
-	                    any other object type.
-	                </q:description>
+                        Following search query will look for users that have "name"
+                        equal to the "uid" attribute of the account. Simply speaking,
+                        it will look for match in usernames in the IDM and the resource.
+                        The correlation rule always looks for users, so it will not match
+                        any other object type.
+                    </q:description>
                <q:equal>
                   <q:path>name</q:path>
                   <expression>
@@ -926,8 +926,8 @@
                         <code>
                            dn = basic.getSecondaryIdentifierValue(shadow)
                            return dn.replace('cn=','').replace('admin,ou=Groups,dc=example,dc=com','seta')
-                          
-                           
+
+
                        </code>
                      </script>
                   </expression>
@@ -969,19 +969,19 @@
                   <code>
                            dn = basic.getSecondaryIdentifierValue(shadow)
                            return dn.contains('auditor')
-                           
+
                        </code>
                </script>
             </condition>
             <correlation>
                <q:description>
                         Correlation expression is a search query.
-	                    Following search query will look for users that have "name"
-	                    equal to the "uid" attribute of the account. Simply speaking,
-	                    it will look for match in usernames in the IDM and the resource.
-	                    The correlation rule always looks for users, so it will not match
-	                    any other object type.
-	                </q:description>
+                        Following search query will look for users that have "name"
+                        equal to the "uid" attribute of the account. Simply speaking,
+                        it will look for match in usernames in the IDM and the resource.
+                        The correlation rule always looks for users, so it will not match
+                        any other object type.
+                    </q:description>
                <q:equal>
                   <q:path>name</q:path>
                   <expression>
@@ -989,7 +989,7 @@
                         <code>
                            dn = basic.getSecondaryIdentifierValue(shadow)
                            return dn.replace('cn=','').replace('auditor,ou=Groups,dc=example,dc=com','seta')
-                           
+
                        </code>
                      </script>
                   </expression>
@@ -1031,19 +1031,19 @@
                   <code>
                            dn = basic.getSecondaryIdentifierValue(shadow)
                            return dn.contains('user')
-                           
+
                        </code>
                </script>
             </condition>
             <correlation>
                <q:description>
                         Correlation expression is a search query.
-	                    Following search query will look for users that have "name"
-	                    equal to the "uid" attribute of the account. Simply speaking,
-	                    it will look for match in usernames in the IDM and the resource.
-	                    The correlation rule always looks for users, so it will not match
-	                    any other object type.
-	                </q:description>
+                        Following search query will look for users that have "name"
+                        equal to the "uid" attribute of the account. Simply speaking,
+                        it will look for match in usernames in the IDM and the resource.
+                        The correlation rule always looks for users, so it will not match
+                        any other object type.
+                    </q:description>
                <q:equal>
                   <q:path>name</q:path>
                   <expression>

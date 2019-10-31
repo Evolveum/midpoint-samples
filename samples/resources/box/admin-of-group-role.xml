@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-	<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
@@ -53,7 +53,7 @@
                            <expression>
                               <script xsi:type="c:ScriptExpressionEvaluatorType">
                                  <code>
-                                    org = midpoint.getOrgByOid(orgUnit.getOid());                                   
+                                    org = midpoint.getOrgByOid(orgUnit.getOid());
                                     return org.getName()
                                 </code>
                               </script>
@@ -76,8 +76,8 @@
                   <returnMultiplicity>multi</returnMultiplicity>
                   <script>
                      <code>
-								return focusAssignment?.getOrgRef()?.getOid()
-						</code>
+                                return focusAssignment?.getOrgRef()?.getOid()
+                        </code>
                   </script>
                </expression>
             </q:inOid>

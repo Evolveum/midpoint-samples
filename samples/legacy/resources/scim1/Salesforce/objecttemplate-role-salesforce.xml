@@ -9,7 +9,7 @@
    <name>Group and entitlement role template - Salesforce </name>
    <description>
             Template with the implementation of the automatic creation of roles while importing entitlement and role resource objects.
-    	</description>
+        </description>
    <metadata>
       <createTimestamp>2016-11-28T11:50:41.552+01:00</createTimestamp>
       <creatorRef oid="00000000-0000-0000-0000-000000000002" type="c:UserType"><!-- administrator --></creatorRef>

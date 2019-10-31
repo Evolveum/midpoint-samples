@@ -20,19 +20,19 @@
                      <script>
                         <code>
                             import com.evolveum.midpoint.prism.query.*
-                            	import com.evolveum.midpoint.prism.query.OrgFilter.Scope;
-								import com.evolveum.midpoint.xml.ns._public.common.common_3.*
-							
-								filter = prismContext.queryFactory().createOrg(source.getOid(), Scope.ONE_LEVEL)
-								
-								query = prismContext.queryFactory().createObjectQuery(filter)
-								objects = midpoint.searchObjects(ServiceType.class, query)
-								
-								resultSet = [];
-								for (org in objects) {
-									resultSet.add(org.getOid())
-								}
-								return resultSet
+                                import com.evolveum.midpoint.prism.query.OrgFilter.Scope;
+                                import com.evolveum.midpoint.xml.ns._public.common.common_3.*
+
+                                filter = prismContext.queryFactory().createOrg(source.getOid(), Scope.ONE_LEVEL)
+
+                                query = prismContext.queryFactory().createObjectQuery(filter)
+                                objects = midpoint.searchObjects(ServiceType.class, query)
+
+                                resultSet = [];
+                                for (org in objects) {
+                                    resultSet.add(org.getOid())
+                                }
+                                return resultSet
                        </code>
                      </script>
                   </expression>

@@ -18,12 +18,12 @@
 <objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
          xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
 
     <task>
         <name>Assign Enduser role to users starting with 'a'</name>
-		<extension>
+        <extension>
             <scext:executeScript xmlns:scext="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3">
                 <s:search xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
                     <s:type>c:UserType</s:type>
@@ -39,12 +39,12 @@
                         <s:type>assign</s:type>
                         <s:parameter>
                             <s:name>role</s:name>
-							<c:value xsi:type="xsd:string">00000000-0000-0000-0000-000000000008</c:value>
+                            <c:value xsi:type="xsd:string">00000000-0000-0000-0000-000000000008</c:value>
                         </s:parameter>
                     </s:action>
                 </s:search>
             </scext:executeScript>
-		</extension>
+        </extension>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 

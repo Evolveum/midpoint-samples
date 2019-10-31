@@ -14,9 +14,9 @@
       <authorization id="1">
          <name>gui-reviewer-access</name>
          <description>
-    		Allow access to list of certification cases in GUI. Allow access to pages that show object details,
-    		so the reviewer may examine data related to the request.
-    	</description>
+            Allow access to list of certification cases in GUI. Allow access to pages that show object details,
+            so the reviewer may examine data related to the request.
+        </description>
          <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#certificationDecisions</action>
          <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#userDetails</action>
          <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#roleDetails</action>

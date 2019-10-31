@@ -236,145 +236,145 @@
       </definition>
    </schema>
    <schemaHandling>
-		<objectType>
-			<kind>account</kind>
-			<displayName>Coupa Account</displayName>
-			<default>true</default>
-			<objectClass>ri:userObjectClass</objectClass>
-			<attribute>
-				<c:ref>icfs:uid</c:ref>
-				<displayName>ICF UID</displayName>
-				<limitations>
-					<layer>presentation</layer>
-					<ignore>true</ignore>
-				</limitations>
-			</attribute>
-			<attribute>
-				<c:ref>icfs:name</c:ref>
-				<displayName>Login</displayName>
-				<outbound>
-					<strength>normal</strength>
-					<source>
-						<c:path>$user/emailAddress</c:path>
-					</source>
-				</outbound>
-			</attribute>
-			<attribute>
-				<c:ref>ri:default-address_location-code</c:ref>
-				<outbound>
-					<strength>normal</strength>
-					<source>
-						<c:path>$user/locality</c:path>
-					</source>
-					<expression>
-						<script>
-							<code>
-								locationCode = null;
-								if(locality != null &amp;&amp; !basic.stringify(locality).isEmpty()){
-									locationCode = basic.stringify(locality).tokenize('-')[0];
-								}
-								return locationCode;
-							</code>
-						</script>
-					</expression>
-				</outbound>
-			</attribute>
-        	<attribute>
-				<c:ref>ri:authentication-method</c:ref>
-				<outbound>
-					<strength>normal</strength>
-					<expression>
-						<script>
-							<code>
-								return 'saml';
-							</code>
-						</script>
-					</expression>
-				</outbound>
-			</attribute>
-	        <attribute>
-				<c:ref>ri:default-locale</c:ref>
-				<outbound>
-					<strength>normal</strength>
-					<source>
-						<c:path>$user/locale</c:path>
-					</source>
-					<expression>
-						<script>
-							<code>
-								String coupaLocale = locale;
-								if(coupaLocale != null){
-									coupaLocale = coupaLocale.replaceFirst("_", "-");
-								}
-								return coupaLocale;
-							</code>
-						</script>
-					</expression>
-				</outbound>
-			</attribute>
-	        <attribute>
-				<c:ref>ri:email</c:ref>
-				<outbound>
-					<strength>normal</strength>
-					<source>
-						<c:path>$user/emailAddress</c:path>
-					</source>
-				</outbound>
-			</attribute>
-	        <attribute>
-				<c:ref>ri:firstname</c:ref>
-				<outbound>
-					<strength>normal</strength>
-					<source>
-						<c:path>$user/givenName</c:path>
-					</source>
-				</outbound>
-			</attribute>
-	        <attribute>
-				<c:ref>ri:lastname</c:ref>
-				<outbound>
-					<strength>normal</strength>
-					<source>
-						<c:path>$user/familyName</c:path>
-					</source>
-				</outbound>
-			</attribute>
-	        <attribute>
-				<c:ref>ri:purchasing-user</c:ref>
-				<outbound>
-					<strength>normal</strength>
-					<expression>
-						<script>
-							<code>
-								return 'true';
-							</code>
-						</script>
-					</expression>
-				</outbound>
-			</attribute>
-	        <attribute>
-				<c:ref>ri:sso-identifier</c:ref>
-				<outbound>
-					<strength>normal</strength>
-					<source>
-						<c:path>$user/emailAddress</c:path>
-					</source>
-				</outbound>
-			</attribute>
-			<association>
-				<c:ref>ri:roleObjectClass</c:ref>
-				<displayName>Coupa Group Membership</displayName>
-				<kind>entitlement</kind>
-				<intent>coupaRole</intent>
-				<direction>subjectToObject</direction>
-				<associationAttribute>ri:roles</associationAttribute>
-				<valueAttribute>icfs:name</valueAttribute>
-				<shortcutAssociationAttribute>ri:roles</shortcutAssociationAttribute>
-				<shortcutValueAttribute>icfs:name</shortcutValueAttribute>
-				<explicitReferentialIntegrity>false</explicitReferentialIntegrity>
-			 </association>
-			<activation>
-				<existence>
+        <objectType>
+            <kind>account</kind>
+            <displayName>Coupa Account</displayName>
+            <default>true</default>
+            <objectClass>ri:userObjectClass</objectClass>
+            <attribute>
+                <c:ref>icfs:uid</c:ref>
+                <displayName>ICF UID</displayName>
+                <limitations>
+                    <layer>presentation</layer>
+                    <ignore>true</ignore>
+                </limitations>
+            </attribute>
+            <attribute>
+                <c:ref>icfs:name</c:ref>
+                <displayName>Login</displayName>
+                <outbound>
+                    <strength>normal</strength>
+                    <source>
+                        <c:path>$user/emailAddress</c:path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <c:ref>ri:default-address_location-code</c:ref>
+                <outbound>
+                    <strength>normal</strength>
+                    <source>
+                        <c:path>$user/locality</c:path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>
+                                locationCode = null;
+                                if(locality != null &amp;&amp; !basic.stringify(locality).isEmpty()){
+                                    locationCode = basic.stringify(locality).tokenize('-')[0];
+                                }
+                                return locationCode;
+                            </code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <c:ref>ri:authentication-method</c:ref>
+                <outbound>
+                    <strength>normal</strength>
+                    <expression>
+                        <script>
+                            <code>
+                                return 'saml';
+                            </code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <c:ref>ri:default-locale</c:ref>
+                <outbound>
+                    <strength>normal</strength>
+                    <source>
+                        <c:path>$user/locale</c:path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>
+                                String coupaLocale = locale;
+                                if(coupaLocale != null){
+                                    coupaLocale = coupaLocale.replaceFirst("_", "-");
+                                }
+                                return coupaLocale;
+                            </code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <c:ref>ri:email</c:ref>
+                <outbound>
+                    <strength>normal</strength>
+                    <source>
+                        <c:path>$user/emailAddress</c:path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <c:ref>ri:firstname</c:ref>
+                <outbound>
+                    <strength>normal</strength>
+                    <source>
+                        <c:path>$user/givenName</c:path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <c:ref>ri:lastname</c:ref>
+                <outbound>
+                    <strength>normal</strength>
+                    <source>
+                        <c:path>$user/familyName</c:path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <c:ref>ri:purchasing-user</c:ref>
+                <outbound>
+                    <strength>normal</strength>
+                    <expression>
+                        <script>
+                            <code>
+                                return 'true';
+                            </code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <c:ref>ri:sso-identifier</c:ref>
+                <outbound>
+                    <strength>normal</strength>
+                    <source>
+                        <c:path>$user/emailAddress</c:path>
+                    </source>
+                </outbound>
+            </attribute>
+            <association>
+                <c:ref>ri:roleObjectClass</c:ref>
+                <displayName>Coupa Group Membership</displayName>
+                <kind>entitlement</kind>
+                <intent>coupaRole</intent>
+                <direction>subjectToObject</direction>
+                <associationAttribute>ri:roles</associationAttribute>
+                <valueAttribute>icfs:name</valueAttribute>
+                <shortcutAssociationAttribute>ri:roles</shortcutAssociationAttribute>
+                <shortcutValueAttribute>icfs:name</shortcutValueAttribute>
+                <explicitReferentialIntegrity>false</explicitReferentialIntegrity>
+             </association>
+            <activation>
+                <existence>
                     <outbound>
                         <strength>weak</strength>
                         <expression>
@@ -382,20 +382,20 @@
                         </expression>
                     </outbound>
                 </existence>
-				 <administrativeStatus>
-	                <outbound>
-	                    <asIs/>
-	                </outbound>               
-	            </administrativeStatus>
+                 <administrativeStatus>
+                    <outbound>
+                        <asIs/>
+                    </outbound>
+                </administrativeStatus>
             </activation>
-		</objectType>
-		<objectType>
-			<kind>entitlement</kind>
-			<intent>coupaRole</intent>
-			<displayName>Coupa Role</displayName>
-			<default>true</default>
-			<objectClass>ri:roleObjectClass</objectClass>
-			<attribute>
+        </objectType>
+        <objectType>
+            <kind>entitlement</kind>
+            <intent>coupaRole</intent>
+            <displayName>Coupa Role</displayName>
+            <default>true</default>
+            <objectClass>ri:roleObjectClass</objectClass>
+            <attribute>
             <c:ref>icfs:name</c:ref>
             <inbound>
                <strength>strong</strength>
@@ -413,8 +413,8 @@
                </target>
             </inbound>
          </attribute>
-		</objectType>
-	</schemaHandling>
+        </objectType>
+    </schemaHandling>
    <capabilities>
       <cachingMetadata>
          <retrievalTimestamp>2017-02-14T13:31:47.598+01:00</retrievalTimestamp>
@@ -436,127 +436,127 @@
          </cap:script>
       </native>
       <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
-			<cap:create>
-				<cap:enabled>true</cap:enabled>
-			</cap:create>
-			<cap:read>
-				<cap:enabled>true</cap:enabled>
-			</cap:read>
-			<cap:delete>
-				<cap:enabled>false</cap:enabled>
-			</cap:delete>
-			<cap:update>
-				<cap:enabled>true</cap:enabled>
-			</cap:update>
-			<cap:addRemoveAttributeValues>
-				<cap:enabled>false</cap:enabled>
-			</cap:addRemoveAttributeValues>
-			<cap:testConnection>
-				<cap:enabled>true</cap:enabled>
-			</cap:testConnection>
-			<cap:script>
-				<cap:enabled>true</cap:enabled>
-				<cap:host>
-					<cap:type>connector</cap:type>
-				</cap:host>
-			</cap:script>
-			<cap:activation>
-				<cap:status>
-					<cap:attribute>ri:active</cap:attribute>
-					<cap:enableValue>true</cap:enableValue>
-					<cap:disableValue>false</cap:disableValue>
-				</cap:status>
-			</cap:activation>
-		</configured>
+            <cap:create>
+                <cap:enabled>true</cap:enabled>
+            </cap:create>
+            <cap:read>
+                <cap:enabled>true</cap:enabled>
+            </cap:read>
+            <cap:delete>
+                <cap:enabled>false</cap:enabled>
+            </cap:delete>
+            <cap:update>
+                <cap:enabled>true</cap:enabled>
+            </cap:update>
+            <cap:addRemoveAttributeValues>
+                <cap:enabled>false</cap:enabled>
+            </cap:addRemoveAttributeValues>
+            <cap:testConnection>
+                <cap:enabled>true</cap:enabled>
+            </cap:testConnection>
+            <cap:script>
+                <cap:enabled>true</cap:enabled>
+                <cap:host>
+                    <cap:type>connector</cap:type>
+                </cap:host>
+            </cap:script>
+            <cap:activation>
+                <cap:status>
+                    <cap:attribute>ri:active</cap:attribute>
+                    <cap:enableValue>true</cap:enableValue>
+                    <cap:disableValue>false</cap:disableValue>
+                </cap:status>
+            </cap:activation>
+        </configured>
    </capabilities>
    <consistency>
       <c:connectorErrorCriticality>
-		<c:network>false</c:network>
-		<c:schema>false</c:schema>
-	</c:connectorErrorCriticality>
+        <c:network>false</c:network>
+        <c:schema>false</c:schema>
+    </c:connectorErrorCriticality>
    </consistency>
    <synchronization>
-		<objectSynchronization>
-			<objectClass>ri:userObjectClass</objectClass>
-			<enabled>true</enabled>
-			<correlation>
-				<q:or>
-					<q:equal>
-		               <q:path>emailAddress</q:path>
-		               <expression>
-		                  <c:path>$shadow/attributes/icfs:name</c:path>
-		               </expression>
-		            </q:equal>
-					<q:equal>
-		               <q:path>name</q:path>
-		               <expression>
-		                  <c:path>$shadow/attributes/icfs:name</c:path>
-		               </expression>
-		            </q:equal>
-	            </q:or>
-			</correlation>
-			<reaction>
-				<situation>linked</situation>
-				<synchronize>true</synchronize>
-				<action ref="http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser"/>
-			</reaction>
-			<reaction>
-				<situation>deleted</situation>
-				<synchronize>true</synchronize>
-				<action ref="http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount"/>
-			</reaction>
-			<reaction>
-				<situation>unlinked</situation>
-				<synchronize>true</synchronize>
-				<action ref="http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount"/>
-			</reaction>
-			<reaction>
-				<situation>unmatched</situation>
-			</reaction>
-		</objectSynchronization>
-		<objectSynchronization>
-			 <objectClass>ri:roleObjectClass</objectClass>
-			 <kind>entitlement</kind>
-	         <intent>coupaRole</intent>
-	         <focusType>c:RoleType</focusType>
-	         <enabled>true</enabled>
-	         <correlation>
-	         	<q:or>
-		            <q:equal>
-		               <q:matching>stringIgnoreCase</q:matching>
-		               <q:path>name</q:path>
-		               <expression>
-		                  <c:path>$shadow/attributes/icfs:name</c:path>
-		               </expression>
-		            </q:equal>
-	            </q:or>
-	         </correlation>
-			 <objectTemplateRef oid="Coupa-Role-template"/>
-	         <reaction>
-	            <situation>linked</situation>
-	            <synchronize>true</synchronize>
-	         </reaction>
-	         <reaction>
-	            <situation>deleted</situation>
-	            <synchronize>true</synchronize>
-	            <action>
-	               <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#deleteFocus</handlerUri>
-	            </action>
-	         </reaction>
-	         <reaction>
-	            <situation>unlinked</situation>
-	            <synchronize>true</synchronize>
-	            <action>
-	               <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
-	            </action>
-	         </reaction>
-	         <reaction>
-	            <situation>unmatched</situation>
-	            <synchronize>true</synchronize>
-	            <action>
-	               <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-	            </action>
-	         </reaction>
-	      </objectSynchronization>
-	</synchronization>
+        <objectSynchronization>
+            <objectClass>ri:userObjectClass</objectClass>
+            <enabled>true</enabled>
+            <correlation>
+                <q:or>
+                    <q:equal>
+                       <q:path>emailAddress</q:path>
+                       <expression>
+                          <c:path>$shadow/attributes/icfs:name</c:path>
+                       </expression>
+                    </q:equal>
+                    <q:equal>
+                       <q:path>name</q:path>
+                       <expression>
+                          <c:path>$shadow/attributes/icfs:name</c:path>
+                       </expression>
+                    </q:equal>
+                </q:or>
+            </correlation>
+            <reaction>
+                <situation>linked</situation>
+                <synchronize>true</synchronize>
+                <action ref="http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser"/>
+            </reaction>
+            <reaction>
+                <situation>deleted</situation>
+                <synchronize>true</synchronize>
+                <action ref="http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount"/>
+            </reaction>
+            <reaction>
+                <situation>unlinked</situation>
+                <synchronize>true</synchronize>
+                <action ref="http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount"/>
+            </reaction>
+            <reaction>
+                <situation>unmatched</situation>
+            </reaction>
+        </objectSynchronization>
+        <objectSynchronization>
+             <objectClass>ri:roleObjectClass</objectClass>
+             <kind>entitlement</kind>
+             <intent>coupaRole</intent>
+             <focusType>c:RoleType</focusType>
+             <enabled>true</enabled>
+             <correlation>
+                 <q:or>
+                    <q:equal>
+                       <q:matching>stringIgnoreCase</q:matching>
+                       <q:path>name</q:path>
+                       <expression>
+                          <c:path>$shadow/attributes/icfs:name</c:path>
+                       </expression>
+                    </q:equal>
+                </q:or>
+             </correlation>
+             <objectTemplateRef oid="Coupa-Role-template"/>
+             <reaction>
+                <situation>linked</situation>
+                <synchronize>true</synchronize>
+             </reaction>
+             <reaction>
+                <situation>deleted</situation>
+                <synchronize>true</synchronize>
+                <action>
+                   <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#deleteFocus</handlerUri>
+                </action>
+             </reaction>
+             <reaction>
+                <situation>unlinked</situation>
+                <synchronize>true</synchronize>
+                <action>
+                   <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
+                </action>
+             </reaction>
+             <reaction>
+                <situation>unmatched</situation>
+                <synchronize>true</synchronize>
+                <action>
+                   <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
+                </action>
+             </reaction>
+          </objectSynchronization>
+    </synchronization>
 </resource>

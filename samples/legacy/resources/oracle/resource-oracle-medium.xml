@@ -9,29 +9,29 @@
          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
          xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3">
 
-	<resource oid="b1a301fe-270a-11e6-91da-3c970e44b9e2">
+    <resource oid="b1a301fe-270a-11e6-91da-3c970e44b9e2">
 
-		<name>Localhost Oracle</name>
+        <name>Localhost Oracle</name>
 
-		<description>Oracle using OpenICF Oracle connector</description>
+        <description>Oracle using OpenICF Oracle connector</description>
 
-		<connectorRef type="ConnectorType">
-			<filter>
-				<q:equal>
-					<q:path>c:connectorType</q:path>
-					<q:value>org.identityconnectors.oracle.OracleConnector</q:value>
-				</q:equal>
-			</filter>
-		</connectorRef>
+        <connectorRef type="ConnectorType">
+            <filter>
+                <q:equal>
+                    <q:path>c:connectorType</q:path>
+                    <q:value>org.identityconnectors.oracle.OracleConnector</q:value>
+                </q:equal>
+            </filter>
+        </connectorRef>
 
-		<connectorConfiguration>
-			<icfc:resultsHandlerConfiguration>
-				<icfc:enableNormalizingResultsHandler>false</icfc:enableNormalizingResultsHandler>
-				<icfc:enableFilteredResultsHandler>false</icfc:enableFilteredResultsHandler>
-				<icfc:enableAttributesToGetSearchResultsHandler>false</icfc:enableAttributesToGetSearchResultsHandler>
-			</icfc:resultsHandlerConfiguration>
-			<icfc:configurationProperties
-			xmlns:icfcoracle="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/org.forgerock.openicf.connectors.oracle-connector/org.identityconnectors.oracle.OracleConnector">
+        <connectorConfiguration>
+            <icfc:resultsHandlerConfiguration>
+                <icfc:enableNormalizingResultsHandler>false</icfc:enableNormalizingResultsHandler>
+                <icfc:enableFilteredResultsHandler>false</icfc:enableFilteredResultsHandler>
+                <icfc:enableAttributesToGetSearchResultsHandler>false</icfc:enableAttributesToGetSearchResultsHandler>
+            </icfc:resultsHandlerConfiguration>
+            <icfc:configurationProperties
+            xmlns:icfcoracle="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/org.forgerock.openicf.connectors.oracle-connector/org.identityconnectors.oracle.OracleConnector">
                 <icfcoracle:url>jdbc:oracle:thin:@localhost:1521:myora</icfcoracle:url>
                 <icfcoracle:driver>oracle.jdbc.OracleDriver</icfcoracle:driver>
                 <icfcoracle:user>MPADMIN</icfcoracle:user>
@@ -39,8 +39,8 @@
                     <clearValue>secret</clearValue>
                 </icfcoracle:password>
                 <icfcoracle:sourceType>Custom Driver</icfcoracle:sourceType>
-			</icfc:configurationProperties>
-		</connectorConfiguration>
+            </icfc:configurationProperties>
+        </connectorConfiguration>
 
 
         <schemaHandling>

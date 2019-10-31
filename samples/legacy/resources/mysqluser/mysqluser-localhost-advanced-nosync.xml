@@ -28,44 +28,44 @@ This resource definition contains only the very basic definitions for midPoint t
 <objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
          xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
-	xmlns:my="http://myself.me/schemas/whatever"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+    xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+    xmlns:my="http://myself.me/schemas/whatever"
     xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
 
-	<resource oid='ef2bc95b-76e0-48e2-86d6-3d4f02d3e200'>
-    
-    	<!-- Resource name. It will be displayed in GUI.  -->
-		<name>Localhost MySQLUser</name>
-     
-     	<!-- Reference to the ICF LDAP connector. OID is "virtual" for now. -->
-		<connectorRef type="ConnectorType">
-			<filter>
-		        <q:equal>
-				<q:path>c:connectorType</q:path>
-		          <q:value>org.identityconnectors.mysqluser.MySQLUserConnector</q:value>
-		        </q:equal>
-		   </filter>
-		</connectorRef>
+    <resource oid='ef2bc95b-76e0-48e2-86d6-3d4f02d3e200'>
+
+        <!-- Resource name. It will be displayed in GUI.  -->
+        <name>Localhost MySQLUser</name>
+
+         <!-- Reference to the ICF LDAP connector. OID is "virtual" for now. -->
+        <connectorRef type="ConnectorType">
+            <filter>
+                <q:equal>
+                <q:path>c:connectorType</q:path>
+                  <q:value>org.identityconnectors.mysqluser.MySQLUserConnector</q:value>
+                </q:equal>
+           </filter>
+        </connectorRef>
 
         <!-- Configuration section contains configuration of the connector,
              such as hostnames and passwords -->
-		<connectorConfiguration
-			xmlns:icfi="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/org.forgerock.openicf.connectors.db.mysqluser/org.identityconnectors.mysqluser.MySQLUserConnector"
-	               xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+        <connectorConfiguration
+            xmlns:icfi="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/org.forgerock.openicf.connectors.db.mysqluser/org.identityconnectors.mysqluser.MySQLUserConnector"
+                   xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
 
             <!-- Configuration specific for the MySQL connector -->
-			<icfc:configurationProperties>
-				<icfi:driver>com.mysql.jdbc.Driver</icfi:driver>
-				<icfi:port>3306</icfi:port>
-				<icfi:host>localhost</icfi:host>
-				<icfi:user>midpointadmin</icfi:user>
-				<icfi:password><clearValue>secret</clearValue></icfi:password>
-				<icfi:usermodel>prototypeuser</icfi:usermodel>
-			</icfc:configurationProperties>
-		
-		</connectorConfiguration>
+            <icfc:configurationProperties>
+                <icfi:driver>com.mysql.jdbc.Driver</icfi:driver>
+                <icfi:port>3306</icfi:port>
+                <icfi:host>localhost</icfi:host>
+                <icfi:user>midpointadmin</icfi:user>
+                <icfi:password><clearValue>secret</clearValue></icfi:password>
+                <icfi:usermodel>prototypeuser</icfi:usermodel>
+            </icfc:configurationProperties>
+
+        </connectorConfiguration>
 
         <!-- Resource schema definition.
              It defines all the object classes that are available to midPoint
@@ -73,10 +73,10 @@ This resource definition contains only the very basic definitions for midPoint t
 
              This should be direct mapping of ICF schema (and therefore also
              MySQL schema). This is not supposed to be customized during deployment.
-			 
-			 The <schema> element is missing. That tells midPoint to generate it from
-			 the resource on the first use of this resource definition.
-		 -->
+
+             The <schema> element is missing. That tells midPoint to generate it from
+             the resource on the first use of this resource definition.
+         -->
 
         <!-- Resource Schema Handling definition.
              This part defines how the schema defined above will be used by
@@ -87,77 +87,77 @@ This resource definition contains only the very basic definitions for midPoint t
              the attributes are defined in this section.
 
              This is the part where most of the customization takes place.
-             
+
         -->
 
-	<schemaHandling>
-		<objectType>
-			<displayName>Default Account</displayName>
-			<default>true</default>
-			<objectClass>ri:AccountObjectClass</objectClass>
-			<attribute>
-				<ref>icfs:name</ref>
-				<displayName>MySQL username</displayName>
-				<limitations>
-					<minOccurs>0</minOccurs>
-					<access>
+    <schemaHandling>
+        <objectType>
+            <displayName>Default Account</displayName>
+            <default>true</default>
+            <objectClass>ri:AccountObjectClass</objectClass>
+            <attribute>
+                <ref>icfs:name</ref>
+                <displayName>MySQL username</displayName>
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                    <access>
                         <read>true</read>
-						<add>true</add>
-						<modify>true</modify>
-					</access>
-				</limitations>
-				<outbound>
-				    <source>
-				    	<path>$user/name</path>
-				    </source>
-					<expression>
-						<script>
-							<code>name + iterationToken</code>
-						</script>
-					</expression>
-				</outbound>
-			</attribute>
-			<attribute>
-				<ref>icfs:uid</ref>
-				<displayName>Entry UUID</displayName>
+                        <add>true</add>
+                        <modify>true</modify>
+                    </access>
+                </limitations>
+                <outbound>
+                    <source>
+                        <path>$user/name</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>name + iterationToken</code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>icfs:uid</ref>
+                <displayName>Entry UUID</displayName>
                 <limitations>
                     <access>
                         <read>true</read>
                     </access>
                 </limitations>
-			</attribute>
+            </attribute>
 
-			<iteration>
-				<maxIterations>5</maxIterations>
-			</iteration>
-			
-			<protected>
+            <iteration>
+                <maxIterations>5</maxIterations>
+            </iteration>
+
+            <protected>
                 <icfs:name>root</icfs:name>
             </protected>
-			
-			<activation>
+
+            <activation>
                     <administrativeStatus>
                         <outbound/>
                         <inbound>
-				<strength>weak</strength>
+                <strength>weak</strength>
                         </inbound>
                     </administrativeStatus>
                 </activation>
-                
+
                 <credentials>
                     <password>
                         <outbound/>
                         <inbound>
-							<strength>weak</strength>
+                            <strength>weak</strength>
                             <expression>
                                 <generate/>
                             </expression>
                         </inbound>
                     </password>
                 </credentials>
-        
-		</objectType>
-	</schemaHandling>
-	</resource>
+
+        </objectType>
+    </schemaHandling>
+    </resource>
 
 </objects>

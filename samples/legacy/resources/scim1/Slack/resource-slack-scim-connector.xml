@@ -24,7 +24,7 @@
                 <q:value>com.evolveum.polygon.scim.ScimConnector</q:value>
             </q:equal>
         </filter>
-</connectorRef>  
+</connectorRef>
    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
       <icfc:resultsHandlerConfiguration>
          <icfc:enableNormalizingResultsHandler>false</icfc:enableNormalizingResultsHandler>
@@ -458,17 +458,17 @@
                         <code>
                                     import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
                                     if (legal) {
-            							if (admStatus?.value) {
-											if (admStatus.value.toUpperCase().equals('DISABLED')) {
-												ActivationStatusType.DISABLED;
-											} else {
-												input;
-											}
-										} else {
-											input;
-										}
+                                        if (admStatus?.value) {
+                                            if (admStatus.value.toUpperCase().equals('DISABLED')) {
+                                                ActivationStatusType.DISABLED;
+                                            } else {
+                                                input;
+                                            }
+                                        } else {
+                                            input;
+                                        }
                                     } else {
-										ActivationStatusType.DISABLED;
+                                        ActivationStatusType.DISABLED;
                                     }
                                 </code>
                      </script>

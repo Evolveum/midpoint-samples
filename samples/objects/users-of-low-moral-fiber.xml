@@ -14,30 +14,30 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
- 
-<objects xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'>
-	<user>
-		<name>frank</name>
-		<description>Tall one with a pegleg</description>
-		<fullName>Frank of Low Moral Fiber</fullName>
-		<givenName>Frank</givenName>
-		<familyName>Low Moral Fiber</familyName>
-	</user>
-	
-	<user>
-		<name>fred</name>
-		<description>Silent balding one</description>
-		<fullName>Fred of Low Moral Fiber</fullName>
-		<givenName>Fred</givenName>
-		<familyName>Low Moral Fiber</familyName>
-	</user>
 
-	<user>
-		<name>fin</name>
-		<description>The rat-lover</description>
-		<fullName>Fin of Low Moral Fiber</fullName>
-		<givenName>Fin</givenName>
-		<familyName>Low Moral Fiber</familyName>
-	</user>
-	
+<objects xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'>
+    <user>
+        <name>frank</name>
+        <description>Tall one with a pegleg</description>
+        <fullName>Frank of Low Moral Fiber</fullName>
+        <givenName>Frank</givenName>
+        <familyName>Low Moral Fiber</familyName>
+    </user>
+
+    <user>
+        <name>fred</name>
+        <description>Silent balding one</description>
+        <fullName>Fred of Low Moral Fiber</fullName>
+        <givenName>Fred</givenName>
+        <familyName>Low Moral Fiber</familyName>
+    </user>
+
+    <user>
+        <name>fin</name>
+        <description>The rat-lover</description>
+        <fullName>Fin of Low Moral Fiber</fullName>
+        <givenName>Fin</givenName>
+        <familyName>Low Moral Fiber</familyName>
+    </user>
+
 </objects>

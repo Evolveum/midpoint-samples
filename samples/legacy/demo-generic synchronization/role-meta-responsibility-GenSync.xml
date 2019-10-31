@@ -25,41 +25,41 @@
         xmlns:piracy="http://midpoint.evolveum.com/xml/ns/samples/piracy">
     <name>Responsibility Metarole OpenDJ</name>
     <description>Metarole to create groups automatically.</description>
-	
+
     <inducement>
-    	<description>RM-I</description>
-    	<construction>
-    		<description>RM-I</description>
-    		<!-- OpenDJ resource -->
-    		<resourceRef oid="12c78a70-76b7-11e2-9cb3-001e8c717e5b" type="c:ResourceType"/>
-    		<kind>entitlement</kind>
+        <description>RM-I</description>
+        <construction>
+            <description>RM-I</description>
+            <!-- OpenDJ resource -->
+            <resourceRef oid="12c78a70-76b7-11e2-9cb3-001e8c717e5b" type="c:ResourceType"/>
+            <kind>entitlement</kind>
             <intent>ldapGroup</intent>
-			<!--<intent>ldapGroups</intent>-->
-    	</construction>
+            <!--<intent>ldapGroups</intent>-->
+        </construction>
     </inducement>
- 
+
     <inducement>
-    	<description>RM-I2</description>
-    	<construction>
-    		<description>RM-I2</description>
-    		<resourceRef oid="12c78a70-76b7-11e2-9cb3-001e8c717e5b" type="c:ResourceType"/>
-    		<kind>account</kind>
-    		<intent>default</intent>
-    		<association>
-            	<ref>ri:group</ref>
-            	<outbound>
-            		<expression>
-            			<associationFromLink>
-            				<projectionDiscriminator>
-	            				<kind>entitlement</kind>
-	            				<intent>ldapGroup</intent>
-								<!--<intent>ldapGroups</intent>-->
-            				</projectionDiscriminator>
-            			</associationFromLink>
-            		</expression>
-            	</outbound>
+        <description>RM-I2</description>
+        <construction>
+            <description>RM-I2</description>
+            <resourceRef oid="12c78a70-76b7-11e2-9cb3-001e8c717e5b" type="c:ResourceType"/>
+            <kind>account</kind>
+            <intent>default</intent>
+            <association>
+                <ref>ri:group</ref>
+                <outbound>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator>
+                                <kind>entitlement</kind>
+                                <intent>ldapGroup</intent>
+                                <!--<intent>ldapGroups</intent>-->
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
             </association>
-    	</construction>  
-    	<order>2</order>
+        </construction>
+        <order>2</order>
     </inducement>
 </role>

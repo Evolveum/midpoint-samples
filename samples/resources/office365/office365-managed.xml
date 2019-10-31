@@ -21,7 +21,7 @@
 <!--
 
 This file is an example of Resource definition. It defines an Office365 resource
-using an Identity Connector Framework Office365 connector. 
+using an Identity Connector Framework Office365 connector.
 
 This contains configuration for a managed (non federated) Office 365 domain
 
@@ -47,7 +47,7 @@ This contains configuration for a managed (non federated) Office 365 domain
                 </q:equal>
             </filter>
         </connectorRef>
-        
+
         <connectorConfiguration>
 
             <!-- Configuration specific for the Active Directory connector -->
@@ -66,17 +66,17 @@ This contains configuration for a managed (non federated) Office 365 domain
             </icfc:configurationProperties>
 
         </connectorConfiguration>
-        
-        
+
+
         <schemaHandling>
             <objectType>
-	        <kind>account</kind>
+            <kind>account</kind>
                 <intent>default</intent>
                 <displayName>Managed Account</displayName>
                 <default>true</default>
                 <objectClass>ri:AccountObjectClass</objectClass>
-                
-                
+
+
                 <attribute>
                     <!-- UPN -->
                     <ref>icfs:name</ref>
@@ -103,7 +103,7 @@ This contains configuration for a managed (non federated) Office 365 domain
                         </expression>
                     </outbound>
                 </attribute>
-                
+
                 <attribute>
                     <ref>ri:mailNickname</ref>
                     <displayName>Mail nickname</displayName>
@@ -113,7 +113,7 @@ This contains configuration for a managed (non federated) Office 365 domain
                         </source>
                     </outbound>
                 </attribute>
-                
+
                 <attribute>
                     <ref>ri:givenName</ref>
                     <displayName>First name</displayName>
@@ -143,7 +143,7 @@ This contains configuration for a managed (non federated) Office 365 domain
                         </source>
                     </outbound>
                 </attribute>
-                
+
                 <attribute>
                     <ref>ri:mail</ref>
                     <displayName>Email Address</displayName>
@@ -153,7 +153,7 @@ This contains configuration for a managed (non federated) Office 365 domain
                         </target>
                     </inbound>
                 </attribute>
-                
+
                 <attribute>
                     <ref>ri:licenses</ref>
                     <displayName>License to assign</displayName>
@@ -164,7 +164,7 @@ This contains configuration for a managed (non federated) Office 365 domain
                         </expression>
                     </outbound>
                 </attribute>
-                
+
                 <attribute>
                     <ref>ri:usageLocation</ref>
                     <displayName>Usage Location</displayName>
@@ -185,7 +185,7 @@ This contains configuration for a managed (non federated) Office 365 domain
                         </source>
                     </outbound>
                 </attribute>
-                
+
                 <attribute>
                     <ref>ri:jobTitle</ref>
                     <displayName>Job Title</displayName>
@@ -195,7 +195,7 @@ This contains configuration for a managed (non federated) Office 365 domain
                         </source>
                     </outbound>
                 </attribute>
-                
+
                 <attribute>
                     <ref>ri:department</ref>
                     <displayName>Department</displayName>
@@ -205,7 +205,7 @@ This contains configuration for a managed (non federated) Office 365 domain
                         </source>
                     </outbound>
                 </attribute>
-                
+
                 <attribute>
                     <ref>ri:city</ref>
                     <displayName>City</displayName>
@@ -215,13 +215,13 @@ This contains configuration for a managed (non federated) Office 365 domain
                         </source>
                     </outbound>
                 </attribute>
-                
+
                 <attribute>
                     <ref>ri:proxyAddresses</ref>
                     <displayName>EMail Address</displayName>
                     <description>Proxy Addresses for the user.</description>
                 </attribute>
-                
+
                 <activation>
                     <administrativeStatus>
                         <outbound />
@@ -236,10 +236,10 @@ This contains configuration for a managed (non federated) Office 365 domain
                         <outbound />
                     </password>
                 </credentials>
-                
+
             </objectType>
         </schemaHandling>
-        
+
         <capabilities
             xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
             <configured>
@@ -253,7 +253,7 @@ This contains configuration for a managed (non federated) Office 365 domain
                 </cap:activation>
             </configured>
         </capabilities>
-        
+
         <synchronization>
             <objectSynchronization>
                 <!--
@@ -296,25 +296,25 @@ This contains configuration for a managed (non federated) Office 365 domain
                 <reaction>
                     <situation>linked</situation>
                     <action>
-                    	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser</handlerUri>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser</handlerUri>
                     </action>
                 </reaction>
                 <reaction>
                     <situation>deleted</situation>
                     <action>
-                    	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount</handlerUri>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount</handlerUri>
                     </action>
                 </reaction>
                 <reaction>
                     <situation>unlinked</situation>
                     <action>
-                    	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
                     </action>
                 </reaction>
                 <reaction>
                     <situation>unmatched</situation>
                     <action>
-                    	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
                     </action>
                 </reaction>
             </objectSynchronization>

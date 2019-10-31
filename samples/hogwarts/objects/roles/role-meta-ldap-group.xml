@@ -21,40 +21,40 @@
     <name>Meta OpenDJ</name>
     <description>
      A basic role, that specifies account on OpenDJ resource
-     
+
     </description>
     <inducement>
-    	<construction>
-    		<resourceRef oid="2a7c7130-7a34-11e4-bdf6-001e8c717e5b" type="c:ResourceType"/>
-    		<kind>entitlement</kind>
+        <construction>
+            <resourceRef oid="2a7c7130-7a34-11e4-bdf6-001e8c717e5b" type="c:ResourceType"/>
+            <kind>entitlement</kind>
             <intent>ldapGroup</intent>
-    	</construction>
-    	<focusType>OrgType</focusType>
-    	<order>1</order>
+        </construction>
+        <focusType>OrgType</focusType>
+        <order>1</order>
     </inducement>
-    
+
     <inducement>
-    	<construction>
-    		<resourceRef oid="2a7c7130-7a34-11e4-bdf6-001e8c717e5b" type="c:ResourceType"/>
-    		<kind>account</kind>
+        <construction>
+            <resourceRef oid="2a7c7130-7a34-11e4-bdf6-001e8c717e5b" type="c:ResourceType"/>
+            <kind>account</kind>
             <intent>default</intent>
-    		<association>
-                	<ref>ri:group</ref>
-                	<outbound>
-                		<strength>strong</strength>
-                    	<expression>
-                    		<associationFromLink>
-                    			<projectionDiscriminator>
-	                    			<kind>entitlement</kind>
-	           						<intent>ldapGroup</intent>
-           						</projectionDiscriminator>
-                    		</associationFromLink>
-                		</expression>
-                	</outbound>
+            <association>
+                    <ref>ri:group</ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <expression>
+                            <associationFromLink>
+                                <projectionDiscriminator>
+                                    <kind>entitlement</kind>
+                                       <intent>ldapGroup</intent>
+                                   </projectionDiscriminator>
+                            </associationFromLink>
+                        </expression>
+                    </outbound>
                 </association>
-    	</construction>
-    	<focusType>UserType</focusType>
-    	<order>2</order>
+        </construction>
+        <focusType>UserType</focusType>
+        <order>2</order>
     </inducement>
     <requestable>false</requestable>
 </role>

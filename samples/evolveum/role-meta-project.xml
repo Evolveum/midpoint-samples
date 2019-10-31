@@ -22,120 +22,120 @@
         xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
         xmlns:piracy="http://midpoint.evolveum.com/xml/ns/samples/piracy">
     <name>Project Metarole</name>
-    
+
     <inducement>
-    	<construction>
-    		<!-- OpenLDAP resource -->
-    		<resourceRef oid="28b699cc-107c-11e6-8277-034841879377" type="c:ResourceType"/>
-    		<kind>entitlement</kind>
+        <construction>
+            <!-- OpenLDAP resource -->
+            <resourceRef oid="28b699cc-107c-11e6-8277-034841879377" type="c:ResourceType"/>
+            <kind>entitlement</kind>
             <intent>ldapGroup</intent>
-			<attribute>
-				<ref>ri:description</ref>
-				<outbound>
-					<strength>strong</strength>
-					<source>
-						<path>displayName</path>
-					</source>
-				</outbound>
-			</attribute>
-    	</construction>
-   	</inducement>
-     
+            <attribute>
+                <ref>ri:description</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <source>
+                        <path>displayName</path>
+                    </source>
+                </outbound>
+            </attribute>
+        </construction>
+       </inducement>
+
     <inducement>
-    	<description>PM-I2-L</description>
-    	<construction>
-    		<description>PM-I2-L</description>
-    		<resourceRef oid="28b699cc-107c-11e6-8277-034841879377" type="c:ResourceType"/>
-    		<kind>account</kind>
-    		<intent>default</intent>
-    		<association>
-            	<ref>ri:ldapGroup</ref>
-            	<outbound>
-            		<expression>
-            			<associationFromLink>
-            				<projectionDiscriminator>
-	            				<kind>entitlement</kind>
-	            				<intent>ldapGroup</intent>
-            				</projectionDiscriminator>
-            			</associationFromLink>
-            		</expression>
-            	</outbound>
+        <description>PM-I2-L</description>
+        <construction>
+            <description>PM-I2-L</description>
+            <resourceRef oid="28b699cc-107c-11e6-8277-034841879377" type="c:ResourceType"/>
+            <kind>account</kind>
+            <intent>default</intent>
+            <association>
+                <ref>ri:ldapGroup</ref>
+                <outbound>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator>
+                                <kind>entitlement</kind>
+                                <intent>ldapGroup</intent>
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
             </association>
-    	</construction>  
-    	<order>2</order>
-    	<condition>
-			<expression>
-				<script>
-					<code>
-						focus.getClass() == com.evolveum.midpoint.xml.ns._public.common.common_3.UserType.class
-					</code>
-				</script>
-			</expression>
-		</condition> 
+        </construction>
+        <order>2</order>
+        <condition>
+            <expression>
+                <script>
+                    <code>
+                        focus.getClass() == com.evolveum.midpoint.xml.ns._public.common.common_3.UserType.class
+                    </code>
+                </script>
+            </expression>
+        </condition>
     </inducement>
 
-	<inducement>    
-    	<construction>
-    		<!-- OpenLDAP resource -->
-    		<resourceRef oid="28b699cc-107c-11e6-8277-034841879377" type="c:ResourceType"/>
-    		<kind>entitlement</kind>
+    <inducement>
+        <construction>
+            <!-- OpenLDAP resource -->
+            <resourceRef oid="28b699cc-107c-11e6-8277-034841879377" type="c:ResourceType"/>
+            <kind>entitlement</kind>
             <intent>posixGroup</intent>
-			<attribute>
-				<ref>ri:description</ref>
-				<outbound>
-					<strength>strong</strength>
-					<source>
-						<path>displayName</path>
-					</source>
-				</outbound>
-			</attribute>
-			<attribute>
-				<ref>ri:gidNumber</ref>
-				<outbound>
-					<source>
-						<path>identifier</path>
-					</source>
-					<expression>
-						<script>
-							<code>5000 + identifier as int</code>
-						</script>
-					</expression>
-				</outbound>
-			</attribute>
-    	</construction>
+            <attribute>
+                <ref>ri:description</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <source>
+                        <path>displayName</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:gidNumber</ref>
+                <outbound>
+                    <source>
+                        <path>identifier</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>5000 + identifier as int</code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+        </construction>
     </inducement>
 
     <inducement>
-    	<description>PM-I2-P</description>
-    	<construction>
-    		<description>PM-I2-P</description>
-    		<resourceRef oid="28b699cc-107c-11e6-8277-034841879377" type="c:ResourceType"/>
-    		<kind>account</kind>
-    		<intent>default</intent>
-    		<association>
-            	<ref>ri:posixGroup</ref>
-            	<outbound>
-            		<expression>
-            			<associationFromLink>
-            				<projectionDiscriminator>
-	            				<kind>entitlement</kind>
-	            				<intent>posixGroup</intent>
-            				</projectionDiscriminator>
-            			</associationFromLink>
-            		</expression>
-            	</outbound>
+        <description>PM-I2-P</description>
+        <construction>
+            <description>PM-I2-P</description>
+            <resourceRef oid="28b699cc-107c-11e6-8277-034841879377" type="c:ResourceType"/>
+            <kind>account</kind>
+            <intent>default</intent>
+            <association>
+                <ref>ri:posixGroup</ref>
+                <outbound>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator>
+                                <kind>entitlement</kind>
+                                <intent>posixGroup</intent>
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
             </association>
-    	</construction>
-    	<order>2</order>
-		<condition>
-			<expression>
-				<script>
-					<code>
-						focus.getClass() == com.evolveum.midpoint.xml.ns._public.common.common_3.UserType.class
-					</code>
-				</script>
-			</expression>
-		</condition> 
+        </construction>
+        <order>2</order>
+        <condition>
+            <expression>
+                <script>
+                    <code>
+                        focus.getClass() == com.evolveum.midpoint.xml.ns._public.common.common_3.UserType.class
+                    </code>
+                </script>
+            </expression>
+        </condition>
     </inducement>
 
 </role>

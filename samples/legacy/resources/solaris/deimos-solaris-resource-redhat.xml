@@ -23,89 +23,89 @@ using an Identity Connector Framework Solaris connector.
 
 -->
 
-<c:objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+<c:objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
-	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+    xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
 
 
-	<c:resource oid="ef2bc95b-76e0-48e2-86d6-3d4f02343434">
-    
-    	<!-- Resource name. It will be displayed in GUI.  -->
-		<c:name>Deimos Linux</c:name>
-     
-     	<!-- Reference to the ICF Solaris connector. Using a search query to locate specific connector. -->
-		<connectorRef type="ConnectorType">
-			<filter>
-		        <q:equal>
-			  <q:path>c:connectorType</q:path>
-		          <q:value>org.identityconnectors.solaris.SolarisConnector</q:value>
-		        </q:equal>
-		      </filter>
-		</connectorRef>
+    <c:resource oid="ef2bc95b-76e0-48e2-86d6-3d4f02343434">
+
+        <!-- Resource name. It will be displayed in GUI.  -->
+        <c:name>Deimos Linux</c:name>
+
+         <!-- Reference to the ICF Solaris connector. Using a search query to locate specific connector. -->
+        <connectorRef type="ConnectorType">
+            <filter>
+                <q:equal>
+              <q:path>c:connectorType</q:path>
+                  <q:value>org.identityconnectors.solaris.SolarisConnector</q:value>
+                </q:equal>
+              </filter>
+        </connectorRef>
 
         <!-- Configuration section contains configuration of the connector,
              such as hostnames and passwords -->
-		<c:connectorConfiguration
+        <c:connectorConfiguration
                         xmlns:icfcsolaris="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/org.forgerock.openicf.connectors.solaris-connector/org.identityconnectors.solaris.SolarisConnector"
-	                xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
-	
+                    xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+
             <!-- Configuration specific for the LDAP connector -->
-			<icfc:configurationProperties>
-				<icfcsolaris:port>22</icfcsolaris:port>
-				<icfcsolaris:host>deimos.lab.evolveum.com</icfcsolaris:host>
-				<icfcsolaris:loginUser>idm</icfcsolaris:loginUser>
-				<icfcsolaris:password><clearValue>XXXXXXXXXXXXXXXXXXXX</clearValue></icfcsolaris:password>
-				<icfcsolaris:connectionType>SSH</icfcsolaris:connectionType>
-				<icfcsolaris:loginShellPrompt>$</icfcsolaris:loginShellPrompt>
-				<icfcsolaris:rootShellPrompt>$</icfcsolaris:rootShellPrompt>
-				<icfcsolaris:sudoAuthorization>true</icfcsolaris:sudoAuthorization>
-				<icfcsolaris:credentials><clearValue>XXXXXXXXXXXXXXXXXXXXXX</clearValue></icfcsolaris:credentials>
-				<icfcsolaris:unixMode>linux</icfcsolaris:unixMode>
-				<icfcsolaris:activationMode>expiration</icfcsolaris:activationMode>
+            <icfc:configurationProperties>
+                <icfcsolaris:port>22</icfcsolaris:port>
+                <icfcsolaris:host>deimos.lab.evolveum.com</icfcsolaris:host>
+                <icfcsolaris:loginUser>idm</icfcsolaris:loginUser>
+                <icfcsolaris:password><clearValue>XXXXXXXXXXXXXXXXXXXX</clearValue></icfcsolaris:password>
+                <icfcsolaris:connectionType>SSH</icfcsolaris:connectionType>
+                <icfcsolaris:loginShellPrompt>$</icfcsolaris:loginShellPrompt>
+                <icfcsolaris:rootShellPrompt>$</icfcsolaris:rootShellPrompt>
+                <icfcsolaris:sudoAuthorization>true</icfcsolaris:sudoAuthorization>
+                <icfcsolaris:credentials><clearValue>XXXXXXXXXXXXXXXXXXXXXX</clearValue></icfcsolaris:credentials>
+                <icfcsolaris:unixMode>linux</icfcsolaris:unixMode>
+                <icfcsolaris:activationMode>expiration</icfcsolaris:activationMode>
 
-				<!--
-				<icfcsolaris:rootUser>root</icfcsolaris:rootUser>
-				<icfcsolaris:credentials><clearValue>password</clearValue></icfcsolaris:credentials>
-				<icfcsolaris:rootShellPrompt>#</icfcsolaris:rootShellPrompt>
-				<icfcsolaris:sudoAuthorization>true</icfcsolaris:sudoAuthorization>
-				<icfcsolaris:privateKey>???</icfcsolaris:privateKey>
-				<icfsolaris:passphrase><clearValue>MySuperSecretPassphrase</clearValue></icfsolaris:passphrase>
+                <!--
+                <icfcsolaris:rootUser>root</icfcsolaris:rootUser>
+                <icfcsolaris:credentials><clearValue>password</clearValue></icfcsolaris:credentials>
+                <icfcsolaris:rootShellPrompt>#</icfcsolaris:rootShellPrompt>
+                <icfcsolaris:sudoAuthorization>true</icfcsolaris:sudoAuthorization>
+                <icfcsolaris:privateKey>???</icfcsolaris:privateKey>
+                <icfsolaris:passphrase><clearValue>MySuperSecretPassphrase</clearValue></icfsolaris:passphrase>
 
-				<icfsolaris:blockSize>100</icfsolaris:blockSize>
-				<icfsolaris:blockFetchTimeout>6000</icfsolaris:blockFetchTimeout>
-				<icfsolaris:mutexAcquireTimeout>60icfsolaris:mutexAcquireTimeout>
+                <icfsolaris:blockSize>100</icfsolaris:blockSize>
+                <icfsolaris:blockFetchTimeout>6000</icfsolaris:blockFetchTimeout>
+                <icfsolaris:mutexAcquireTimeout>60icfsolaris:mutexAcquireTimeout>
 
-				<icfsolaris:makeDirectory>true</icfsolaris:makeDirectory>
-				<icfsolaris:homeBaseDirectory>/home</icfsolaris:homeBaseDirectory>
-				<icfsolaris:defaultPrimaryGroup>users</icfsolaris:defaultPrimaryGroup>
-				<icfsolaris:loginShell>/bin/bash</icfsolaris:loginShell>
-				<icfsolaris:skeletonDirectory>/etc/skel</icfsolaris:skeletonDirectory>
-				<icfsolaris:deleteHomeDirectory>false</icfsolaris:deleteHomeDirectory>
-				<icfsolaris:systemDatabaseType>FILES</icfsolaris:systemDatabaseType>
-				<icfsolaris:nisBuildDirectory>/var/yp</icfsolaris:nisBuildDirectory>
-				<icfsolaris:nisPwdDir>/etc</icfsolaris:nisPwdDir>
-				<icfsolaris:nisShadowPasswordSupport>false</icfsolaris:nisShadowPasswordSupport>
-				<icfsolaris:commandTimeout>24000</icfsolaris:commandTimeout>
+                <icfsolaris:makeDirectory>true</icfsolaris:makeDirectory>
+                <icfsolaris:homeBaseDirectory>/home</icfsolaris:homeBaseDirectory>
+                <icfsolaris:defaultPrimaryGroup>users</icfsolaris:defaultPrimaryGroup>
+                <icfsolaris:loginShell>/bin/bash</icfsolaris:loginShell>
+                <icfsolaris:skeletonDirectory>/etc/skel</icfsolaris:skeletonDirectory>
+                <icfsolaris:deleteHomeDirectory>false</icfsolaris:deleteHomeDirectory>
+                <icfsolaris:systemDatabaseType>FILES</icfsolaris:systemDatabaseType>
+                <icfsolaris:nisBuildDirectory>/var/yp</icfsolaris:nisBuildDirectory>
+                <icfsolaris:nisPwdDir>/etc</icfsolaris:nisPwdDir>
+                <icfsolaris:nisShadowPasswordSupport>false</icfsolaris:nisShadowPasswordSupport>
+                <icfsolaris:commandTimeout>24000</icfsolaris:commandTimeout>
 -->
-			</icfc:configurationProperties>
-		
-			<!-- Generic ICF configuration -->
+            </icfc:configurationProperties>
 
-			<icfc:connectorPoolConfiguration>
-				<icfc:minEvictableIdleTimeMillis>120000</icfc:minEvictableIdleTimeMillis>
-				<icfc:minIdle>1</icfc:minIdle>
-				<icfc:maxIdle>10</icfc:maxIdle>
-				<icfc:maxObjects>10</icfc:maxObjects>
-				<icfc:maxWait>150000</icfc:maxWait>
-			</icfc:connectorPoolConfiguration>
+            <!-- Generic ICF configuration -->
 
-			<icfc:producerBufferSize>100</icfc:producerBufferSize>
+            <icfc:connectorPoolConfiguration>
+                <icfc:minEvictableIdleTimeMillis>120000</icfc:minEvictableIdleTimeMillis>
+                <icfc:minIdle>1</icfc:minIdle>
+                <icfc:maxIdle>10</icfc:maxIdle>
+                <icfc:maxObjects>10</icfc:maxObjects>
+                <icfc:maxWait>150000</icfc:maxWait>
+            </icfc:connectorPoolConfiguration>
+
+            <icfc:producerBufferSize>100</icfc:producerBufferSize>
 
 
-		</c:connectorConfiguration>
+        </c:connectorConfiguration>
 
         <!-- Resource Schema Handling definition.
              This part defines how the schema defined above will be used by
@@ -118,44 +118,44 @@ using an Identity Connector Framework Solaris connector.
              This is the part where most of the customization takes place.
         -->
 
-	<schemaHandling>
-		<objectType>
-			<displayName>Default Account</displayName>
-			<default>true</default>
-			<objectClass>ri:AccountObjectClass</objectClass>
-			<attribute>
-				<ref>icfs:name</ref>
-				<displayName>Username</displayName>
-				<limitations>
-					<layer>presentation</layer>
-					<minOccurs>0</minOccurs>
-				</limitations>
-				<outbound>
-					<strength>weak</strength>
-					<source>
-						<path>$user/name</path>
-					</source>
-				</outbound>
-			</attribute>
-			<attribute>
-				<ref>icfs:description</ref>
-				<displayName>GCOS</displayName>
-				<outbound>
-					<source>
-						<path>$user/fullName</path>
-					</source>
-				</outbound>
-			</attribute>
-			<attribute>
-				<ref>ri:shell</ref>
-				<outbound>
-					<strength>weak</strength>
-					<expression>
-						<value>/bin/bash</value>
-					</expression>
-				</outbound>
-			</attribute>
-            
+    <schemaHandling>
+        <objectType>
+            <displayName>Default Account</displayName>
+            <default>true</default>
+            <objectClass>ri:AccountObjectClass</objectClass>
+            <attribute>
+                <ref>icfs:name</ref>
+                <displayName>Username</displayName>
+                <limitations>
+                    <layer>presentation</layer>
+                    <minOccurs>0</minOccurs>
+                </limitations>
+                <outbound>
+                    <strength>weak</strength>
+                    <source>
+                        <path>$user/name</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>icfs:description</ref>
+                <displayName>GCOS</displayName>
+                <outbound>
+                    <source>
+                        <path>$user/fullName</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:shell</ref>
+                <outbound>
+                    <strength>weak</strength>
+                    <expression>
+                        <value>/bin/bash</value>
+                    </expression>
+                </outbound>
+            </attribute>
+
             <protected>
                 <icfs:name>root</icfs:name>
             </protected>
@@ -246,33 +246,33 @@ using an Identity Connector Framework Solaris connector.
             <protected>
                 <icfs:name>midpoint</icfs:name>
             </protected>
-            
+
             <activation>
                 <administrativeStatus>
                     <outbound/>
                     <inbound>
-                    	<strength>weak</strength>
+                        <strength>weak</strength>
                         <expression>
                             <asIs/>
                         </expression>
                     </inbound>
                 </administrativeStatus>
             </activation>
-            
+
             <credentials>
                 <password>
                     <outbound>
-                    	<expression>
-                        	<asIs/>
+                        <expression>
+                            <asIs/>
                         </expression>
                     </outbound>
                 </password>
             </credentials>
-		</objectType>
-	</schemaHandling>
+        </objectType>
+    </schemaHandling>
 
 
-	</c:resource>
+    </c:resource>
 
 
 </c:objects>

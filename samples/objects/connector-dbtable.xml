@@ -25,7 +25,7 @@
            xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
            xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
            xmlns:enc="http://www.w3.org/2001/04/xmlenc#">
-           
+
    <name>ICF org.identityconnectors.databasetable.DatabaseTableConnector</name>
    <framework>http://midpoint.evolveum.com/xml/ns/public/connector/icf-1</framework>
    <connectorType>org.identityconnectors.databasetable.DatabaseTableConnector</connectorType>
@@ -39,13 +39,13 @@
                   xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/org.forgerock.openicf.connectors.db.databasetable/org.identityconnectors.databasetable.DatabaseTableConnector"
                   xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                   xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3"
-				  xmlns:ra="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3"
+                  xmlns:ra="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   elementFormDefault="qualified"
                   targetNamespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/org.forgerock.openicf.connectors.db.databasetable/org.identityconnectors.databasetable.DatabaseTableConnector">
          <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"/>
          <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/common/common-3"/>
-         
+
          <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
          <xsd:complexType name="ConfigurationPropertiesType">
             <xsd:annotation>

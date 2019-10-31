@@ -36,10 +36,10 @@ these tasks via admin GUI.
 
     <task oid="00000000-0000-0000-0000-123450000001">
         <name>Task1: basic single-run task (takes 3x60 sec)</name>
-		<extension>
-			<noop:delay xsi:type="xsd:int">60000</noop:delay>	<!--  delay simulates a non-interruptible processing -->
-			<noop:steps xsi:type="xsd:int">3</noop:steps>		<!--  at the end of each step, the NoOp handler looks for shutdown signal -->
-		</extension>
+        <extension>
+            <noop:delay xsi:type="xsd:int">60000</noop:delay>    <!--  delay simulates a non-interruptible processing -->
+            <noop:steps xsi:type="xsd:int">3</noop:steps>        <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
+        </extension>
         <taskIdentifier>10000000-0000-0000-0000-123450000001</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
@@ -52,10 +52,10 @@ these tasks via admin GUI.
 
     <task oid="00000000-0000-0000-0000-123450000002">
         <name>Task2: interval-based recurrent, tightly bound (every 20 sec, takes 2x4 sec)</name>
-		<extension>
-			<noop:delay xsi:type="xsd:int">4000</noop:delay>
-			<noop:steps xsi:type="xsd:int">2</noop:steps>
-		</extension>
+        <extension>
+            <noop:delay xsi:type="xsd:int">4000</noop:delay>
+            <noop:steps xsi:type="xsd:int">2</noop:steps>
+        </extension>
         <taskIdentifier>10000000-0000-0000-0000-123450000002</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
@@ -71,10 +71,10 @@ these tasks via admin GUI.
 
     <task oid="00000000-0000-0000-0000-123450000003">
         <name>Task3: interval-based recurrent, loosely bound (every 60 sec, takes 3x10 sec)</name>
-		<extension>
-			<noop:delay xsi:type="xsd:int">10000</noop:delay>
-			<noop:steps xsi:type="xsd:int">3</noop:steps>
-		</extension>
+        <extension>
+            <noop:delay xsi:type="xsd:int">10000</noop:delay>
+            <noop:steps xsi:type="xsd:int">3</noop:steps>
+        </extension>
         <taskIdentifier>10000000-0000-0000-0000-123450000003</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
@@ -90,10 +90,10 @@ these tasks via admin GUI.
 
     <task oid="00000000-0000-0000-0000-123450000004">
         <name>Task4: cron-based recurrent, loosely bound (every minute, takes 3x10 sec)</name>
-		<extension>
-			<noop:delay xsi:type="xsd:int">10000</noop:delay>
-			<noop:steps xsi:type="xsd:int">3</noop:steps>
-		</extension>
+        <extension>
+            <noop:delay xsi:type="xsd:int">10000</noop:delay>
+            <noop:steps xsi:type="xsd:int">3</noop:steps>
+        </extension>
         <taskIdentifier>10000000-0000-0000-0000-123450000004</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
@@ -109,10 +109,10 @@ these tasks via admin GUI.
 
     <task oid="00000000-0000-0000-0000-123450000005">
         <name>Task5: cron-based recurrent, loosely bound (every 5 minutes, takes 3x20 sec)</name>
-		<extension>
-			<noop:delay xsi:type="xsd:int">20000</noop:delay>
-			<noop:steps xsi:type="xsd:int">3</noop:steps>
-		</extension>
+        <extension>
+            <noop:delay xsi:type="xsd:int">20000</noop:delay>
+            <noop:steps xsi:type="xsd:int">3</noop:steps>
+        </extension>
         <taskIdentifier>10000000-0000-0000-0000-123450000005</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
@@ -125,13 +125,13 @@ these tasks via admin GUI.
             <cronLikePattern>0 0/5 * * * ?</cronLikePattern>
         </schedule>
     </task>
-    
+
     <task oid="00000000-0000-0000-0000-123450000006">
         <name>Task6: cron-based, loosely bound, non-resilient, reschedule on misfire (3x20 sec a 5min)</name>
-		<extension>
-			<noop:delay xsi:type="xsd:int">20000</noop:delay>
-			<noop:steps xsi:type="xsd:int">3</noop:steps>
-		</extension>
+        <extension>
+            <noop:delay xsi:type="xsd:int">20000</noop:delay>
+            <noop:steps xsi:type="xsd:int">3</noop:steps>
+        </extension>
         <taskIdentifier>10000000-0000-0000-0000-123450000006</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
@@ -149,10 +149,10 @@ these tasks via admin GUI.
 
     <task oid="00000000-0000-0000-0000-123450000007">
         <name>Task7: non-resilient single-run task (20x5 sec)</name>
-		<extension>
-			<noop:delay xsi:type="xsd:int">5000</noop:delay>	<!--  delay simulates a non-interruptible processing -->
-			<noop:steps xsi:type="xsd:int">20</noop:steps>		<!--  at the end of each step, the NoOp handler looks for shutdown signal -->
-		</extension>
+        <extension>
+            <noop:delay xsi:type="xsd:int">5000</noop:delay>    <!--  delay simulates a non-interruptible processing -->
+            <noop:steps xsi:type="xsd:int">20</noop:steps>        <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
+        </extension>
         <taskIdentifier>10000000-0000-0000-0000-123450000007</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>

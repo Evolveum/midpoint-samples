@@ -18,53 +18,53 @@
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
         xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
-    <name>Captain</name>    
+    <name>Captain</name>
     <inducement>
-    	<!-- Inner "sailor" role. This role includes sailor role, therefore any specifications
+        <!-- Inner "sailor" role. This role includes sailor role, therefore any specifications
              of the sailor role also apply to this role. -->
         <targetRef oid="12345678-d34d-b33f-f00d-987955553535" type="RoleType"/>
     </inducement>
     <inducement>
-    	<construction>
-    		<!-- The c: prefix in type must be there due to a JAXB bug -->
-    		<resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="c:ResourceType"/>
-    		<attribute>
+        <construction>
+            <!-- The c: prefix in type must be there due to a JAXB bug -->
+            <resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="c:ResourceType"/>
+            <attribute>
                     <ref>ri:title</ref>
                     <outbound>
-                    	<expression>
-                    		<value>Honorable Captain</value>
-                    	</expression>
+                        <expression>
+                            <value>Honorable Captain</value>
+                        </expression>
                     </outbound>
-                </attribute>    		
-    		<attribute>
+                </attribute>
+            <attribute>
                     <ref>ri:carLicense</ref>
                     <outbound>
-                    	<expression>
-		                    <value>C4PT41N</value>
-		                </expression>
-		           	</outbound>
-                </attribute>    		
-    		<attribute>
+                        <expression>
+                            <value>C4PT41N</value>
+                        </expression>
+                       </outbound>
+                </attribute>
+            <attribute>
                     <ref>ri:businessCategory</ref>
                     <outbound>
-                    	<expression>
-		                    <value>cruise</value>
-		                </expression>
-		            </outbound>
-                </attribute>    		
-                <attribute> 
+                        <expression>
+                            <value>cruise</value>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute>
                     <ref>ri:departmentNumber</ref>
                     <outbound>
-                    	<source>
-                    		<path>$user/givenName</path>
-                    	</source>
-                    	<expression>
-		                    <script>
-		                        <code>'Department of ' + givenName</code>
-		                     </script>
-		                 </expression>
-		             </outbound>
+                        <source>
+                            <path>$user/givenName</path>
+                        </source>
+                        <expression>
+                            <script>
+                                <code>'Department of ' + givenName</code>
+                             </script>
+                         </expression>
+                     </outbound>
                 </attribute>
-    	</construction>
-    </inducement>    
+        </construction>
+    </inducement>
 </role>

@@ -21,31 +21,31 @@
 
     <task>
         <name>Recompute users without nickName starting on b</name>
-		<extension>
+        <extension>
             <scext:executeScript xmlns:scext="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3">
-                <s:search xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">				
-					<s:type>c:UserType</s:type>
-                    
-					<s:searchFilter>
-					<q:and>
+                <s:search xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
+                    <s:type>c:UserType</s:type>
+
+                    <s:searchFilter>
+                    <q:and>
                         <q:equal>
                             <q:path>c:nickName</q:path>
-                        </q:equal>					                   					
-						<q:substring>
+                        </q:equal>
+                        <q:substring>
                             <q:matching>polyStringNorm</q:matching>
                             <q:path>c:name</q:path>
                             <q:value>b</q:value>
                             <q:anchorStart>true</q:anchorStart>
-						</q:substring>
-					</q:and>
-					</s:searchFilter>
-					
+                        </q:substring>
+                    </q:and>
+                    </s:searchFilter>
+
                     <s:action>
                         <s:type>recompute</s:type>
                     </s:action>
                 </s:search>
             </scext:executeScript>
-		</extension>
+        </extension>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 

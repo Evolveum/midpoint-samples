@@ -259,7 +259,7 @@
                 <displayName>last logon date + time</displayName>
                 <inbound>
                     <source>
-                    	<name>ltime</name>
+                        <name>ltime</name>
                         <path>$account/attributes/ri:LOGONDATA.LTIME</path>
                     </source>
                     <expression>

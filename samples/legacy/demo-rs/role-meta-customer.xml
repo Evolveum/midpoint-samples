@@ -21,30 +21,30 @@
         xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
         xmlns:piracy="http://midpoint.evolveum.com/xml/ns/samples/piracy">
     <name>Customer Metarole</name>
-   
+
     <inducement>
-    	<construction>
-    		<!-- Gitlab resource -->
-    		<resourceRef oid="00000000-dead-dead-beef-000000a00008" type="c:ResourceType"/>
-    		<kind>entitlement</kind>
-		<intent>group</intent>
-    	</construction>
+        <construction>
+            <!-- Gitlab resource -->
+            <resourceRef oid="00000000-dead-dead-beef-000000a00008" type="c:ResourceType"/>
+            <kind>entitlement</kind>
+        <intent>group</intent>
+        </construction>
     </inducement>
 
     <inducement>
-    	<construction>
-    		<!-- OpenLDAP resource -->
-    		<resourceRef oid="d0811790-1d80-11e4-86b2-3c970e467874" type="c:ResourceType"/>
-    		<kind>generic</kind>
-		<intent>customer</intent>
-    	</construction>
+        <construction>
+            <!-- OpenLDAP resource -->
+            <resourceRef oid="d0811790-1d80-11e4-86b2-3c970e467874" type="c:ResourceType"/>
+            <kind>generic</kind>
+        <intent>customer</intent>
+        </construction>
     </inducement>
 
     <inducement>
         <focusMappings>
                 <mapping>
                         <expression>
-				<value>customer</value>
+                <value>customer</value>
                         </expression>
                         <target>
                                 <path>$focus/orgType</path>

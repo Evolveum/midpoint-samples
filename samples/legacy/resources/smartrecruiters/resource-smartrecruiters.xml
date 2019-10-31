@@ -40,8 +40,8 @@
 
     <schemaHandling>
         <objectType>
-        	<kind>account</kind>
-        	<intent>default</intent>
+            <kind>account</kind>
+            <intent>default</intent>
             <displayName>Default Account</displayName>
             <default>true</default>
             <objectClass>ri:AccountObjectClass</objectClass>
@@ -97,10 +97,10 @@
                 <limitations>
                     <minOccurs>0</minOccurs>
                 </limitations>
-                <!-- true = MP only ADD new roles, doesn't remove old 
-                	false = also REMOVE 
-                	Need true, to accept role differences between MP & SR. 
-                	Important is only most powerfull role, so this is OK and all Employye has at least SmartRecruiters:Employee role -->
+                <!-- true = MP only ADD new roles, doesn't remove old
+                    false = also REMOVE
+                    Need true, to accept role differences between MP & SR.
+                    Important is only most powerfull role, so this is OK and all Employye has at least SmartRecruiters:Employee role -->
                 <tolerant>false</tolerant>
             </attribute>
 

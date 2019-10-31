@@ -21,106 +21,106 @@
    xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
    xmlns:t='http://prism.evolveum.com/xml/ns/public/types-3'>
     <name>Default User Template</name>
-	<item>
-		<c:ref>employeeType</c:ref>
-		<valueEnumerationRef oid="5783c174-d141-11e4-bb29-001e8c717e5b"/>
-	</item>
+    <item>
+        <c:ref>employeeType</c:ref>
+        <valueEnumerationRef oid="5783c174-d141-11e4-bb29-001e8c717e5b"/>
+    </item>
     <mapping>
-		<strength>strong</strength>
-		<source>
-			<path>$user/givenName</path>
-		</source>
-		<source>
-			<path>$user/familyName</path>
-		</source>
-		<expression>
-			<script>
-				<code>(givenName == null ? '' : givenName) + ' ' + (familyName == null ? '' : familyName)</code>
-			</script>
-		</expression>
-		<target>
-			<path>fullName</path>
-		</target>
-	</mapping>
-       
-    <mapping>
-	<description>A hack to avoid feedback to HR feed - deleting accounts because they are not assigned</description>
-		<strength>strong</strength>
-    	<source>
-    		<path>employeeType</path>
-    	</source>
-    	<expression>
-            <value>
-				<!--<assignment>-->
-					<construction>
-						<resourceRef oid="8844dcca-775d-11e2-a0ac-001e8c717e5b" type="c:ResourceType"/>
-					</construction>
-				<!--</assignment>-->
-            </value>    	
-    	</expression>
-    	<target>
-    		<path>assignment</path>
-    	</target>
-    	<condition>
-    		<script>
-            	<code>employeeType != null</code>
+        <strength>strong</strength>
+        <source>
+            <path>$user/givenName</path>
+        </source>
+        <source>
+            <path>$user/familyName</path>
+        </source>
+        <expression>
+            <script>
+                <code>(givenName == null ? '' : givenName) + ' ' + (familyName == null ? '' : familyName)</code>
             </script>
-		</condition>
-    </mapping>
- 
-    <mapping>
-		<strength>strong</strength>
-    	<source>
-    		<path>employeeType</path>
-    	</source>
-    	<expression>
-            <value>
-            	<!--<assignment>-->
-					<targetRef oid="abf3884a-7778-11e2-abb7-001e8c717e5b" type="c:RoleType"/>
-				<!--</assignment>-->
-            </value>    	
-    	</expression>
-    	<target>
-    		<path>assignment</path>
-    	</target>
-    	<condition>
-    		<script>
-            	<code>employeeType == 'FTE'</code>
-            </script>
-		</condition>
+        </expression>
+        <target>
+            <path>fullName</path>
+        </target>
     </mapping>
 
     <mapping>
-		<strength>strong</strength>
-    	<source>
-    		<path>employeeType</path>
-    	</source>
-    	<expression>
+    <description>A hack to avoid feedback to HR feed - deleting accounts because they are not assigned</description>
+        <strength>strong</strength>
+        <source>
+            <path>employeeType</path>
+        </source>
+        <expression>
             <value>
-            	<!--<assignment>-->
-					<targetRef oid="8d62985c-7797-11e2-94a6-001e8c717e5b" type="c:RoleType"/>
-				<!--</assignment>-->
-            </value>    	
-    	</expression>
-    	<target>
-    		<path>assignment</path>
-    	</target>
-    	<condition>
-    		<script>
-            	<code>employeeType == 'CONTRACTOR'</code>
+                <!--<assignment>-->
+                    <construction>
+                        <resourceRef oid="8844dcca-775d-11e2-a0ac-001e8c717e5b" type="c:ResourceType"/>
+                    </construction>
+                <!--</assignment>-->
+            </value>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+        <condition>
+            <script>
+                <code>employeeType != null</code>
             </script>
-		</condition>
+        </condition>
+    </mapping>
+
+    <mapping>
+        <strength>strong</strength>
+        <source>
+            <path>employeeType</path>
+        </source>
+        <expression>
+            <value>
+                <!--<assignment>-->
+                    <targetRef oid="abf3884a-7778-11e2-abb7-001e8c717e5b" type="c:RoleType"/>
+                <!--</assignment>-->
+            </value>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+        <condition>
+            <script>
+                <code>employeeType == 'FTE'</code>
+            </script>
+        </condition>
+    </mapping>
+
+    <mapping>
+        <strength>strong</strength>
+        <source>
+            <path>employeeType</path>
+        </source>
+        <expression>
+            <value>
+                <!--<assignment>-->
+                    <targetRef oid="8d62985c-7797-11e2-94a6-001e8c717e5b" type="c:RoleType"/>
+                <!--</assignment>-->
+            </value>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+        <condition>
+            <script>
+                <code>employeeType == 'CONTRACTOR'</code>
+            </script>
+        </condition>
     </mapping>
 
 <!-- moved to HR Feed resource
     <mapping>
-		<strength>weak</strength>
-    	<expression>
-            <value>ENABLED</value>    	
-    	</expression>
-    	<target>
-    		<path>activation/administrativeStatus</path>
-    	</target>
+        <strength>weak</strength>
+        <expression>
+            <value>ENABLED</value>
+        </expression>
+        <target>
+            <path>activation/administrativeStatus</path>
+        </target>
     </mapping>
     -->
 </objectTemplate>

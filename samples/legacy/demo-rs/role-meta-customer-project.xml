@@ -21,78 +21,78 @@
         xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
         xmlns:piracy="http://midpoint.evolveum.com/xml/ns/samples/piracy">
     <name>Customer Project Metarole</name>
-    
+
     <inducement>
-    	<construction>
-    		<!-- Gitlab resource -->
-    		<resourceRef oid="00000000-dead-dead-beef-000000a00008" type="c:ResourceType"/>
-    		<kind>entitlement</kind>
-		<intent>project</intent>
-    	</construction>
+        <construction>
+            <!-- Gitlab resource -->
+            <resourceRef oid="00000000-dead-dead-beef-000000a00008" type="c:ResourceType"/>
+            <kind>entitlement</kind>
+        <intent>project</intent>
+        </construction>
     </inducement>
 
     <inducement>
-    	<description>CPM-I2-gitlab</description>
-    	<construction>
-    		<description>CPM-I2-gitlab</description>
-    		<resourceRef oid="00000000-dead-dead-beef-000000a00008" type="c:ResourceType"/>
-    		<kind>account</kind>
-    		<intent>default</intent>
-    		<association>
-		    	<ref>ri:project</ref>
-		    	<outbound>
-		    		<expression>
-		    			<associationFromLink>
-		    				<projectionDiscriminator>
-			    				<kind>entitlement</kind>
-			    				<intent>project</intent>
-		    				</projectionDiscriminator>
-		    			</associationFromLink>
-		    		</expression>
-		    	</outbound>
-		</association>
-	</construction>  
-    	<order>2</order>
+        <description>CPM-I2-gitlab</description>
+        <construction>
+            <description>CPM-I2-gitlab</description>
+            <resourceRef oid="00000000-dead-dead-beef-000000a00008" type="c:ResourceType"/>
+            <kind>account</kind>
+            <intent>default</intent>
+            <association>
+                <ref>ri:project</ref>
+                <outbound>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator>
+                                <kind>entitlement</kind>
+                                <intent>project</intent>
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
+        </association>
+    </construction>
+        <order>2</order>
     </inducement>
 
     <inducement>
-    	<construction>
-    		<!-- OpenLDAP resource -->
-    		<resourceRef oid="d0811790-1d80-11e4-86b2-3c970e467874" type="c:ResourceType"/>
-    		<kind>entitlement</kind>
-		<intent>customerProject</intent>
-    	</construction>
+        <construction>
+            <!-- OpenLDAP resource -->
+            <resourceRef oid="d0811790-1d80-11e4-86b2-3c970e467874" type="c:ResourceType"/>
+            <kind>entitlement</kind>
+        <intent>customerProject</intent>
+        </construction>
     </inducement>
 
     <inducement>
-    	<description>CPM-I2-ldap</description>
-    	<construction>
-    		<description>CPM-I2-ldap</description>
-    		<resourceRef oid="d0811790-1d80-11e4-86b2-3c970e467874" type="c:ResourceType"/>
-    		<kind>account</kind>
-    		<intent>default</intent>
-    		<association>
-		    	<ref>ri:customerProject</ref>
-		    	<outbound>
-		    		<expression>
-		    			<associationFromLink>
-		    				<projectionDiscriminator>
-			    				<kind>entitlement</kind>
-			    				<intent>customerProject</intent>
-		    				</projectionDiscriminator>
-		    			</associationFromLink>
-		    		</expression>
-		    	</outbound>
-		</association>
-	</construction>  
-    	<order>2</order>
+        <description>CPM-I2-ldap</description>
+        <construction>
+            <description>CPM-I2-ldap</description>
+            <resourceRef oid="d0811790-1d80-11e4-86b2-3c970e467874" type="c:ResourceType"/>
+            <kind>account</kind>
+            <intent>default</intent>
+            <association>
+                <ref>ri:customerProject</ref>
+                <outbound>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator>
+                                <kind>entitlement</kind>
+                                <intent>customerProject</intent>
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
+        </association>
+    </construction>
+        <order>2</order>
     </inducement>
 
     <inducement>
         <focusMappings>
                 <mapping>
                         <expression>
-				<value>customer</value>
+                <value>customer</value>
                         </expression>
                         <target>
                                 <path>$focus/orgType</path>
@@ -100,5 +100,5 @@
                 </mapping>
         </focusMappings>
     </inducement>
- 
+
 </role>
