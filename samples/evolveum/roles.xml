@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2017 Evolveum
+  ~ Copyright (c) 2017-2019 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@
 	            <policyActions>
 	                <approval>
 	                    <approvalSchema>
-		                    <level>
+		                    <stage>
 	                            <name>Line managers</name>
 	                            <approverExpression>
 	                                <script>
@@ -48,13 +48,13 @@
 	                            </approverExpression>
 	                            <evaluationStrategy>firstDecides</evaluationStrategy>
 	                            <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
-	                        </level>
-	                        <level>
+	                        </stage>
+	                        <stage>
 	                            <name>Role approvers</name>
 	                            <approverRelation>approver</approverRelation>
 	                            <evaluationStrategy>firstDecides</evaluationStrategy>
 	                            <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
-	                        </level>
+	                        </stage>
 	                    </approvalSchema>
 	                </approval>
 	            </policyActions>
@@ -281,7 +281,7 @@
 										<q:value>devel</q:value>
 									</q:equal>
 								</filter>
-								<searchOnResource>true</searchOnResource>
+								<searchStrategy>onResource</searchStrategy>
 							</associationTargetSearch>
 						</expression>
 					</outbound>

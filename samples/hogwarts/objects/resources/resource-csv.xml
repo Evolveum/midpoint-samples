@@ -218,65 +218,67 @@
 					<inbound>
 						<expression>
 							<assignmentTargetSearch>
-			            	<targetType>c:OrgType</targetType>
-			            	<relation>manager</relation>
-			        		<filter>
-								<q:equal>
-									<q:path>c:name</q:path>
-									<q:matching>polyStringNorm</q:matching>
-									<expression>
-										<script>
-											<code>
-											
-												parent = input.tokenize('/').reverse()[0]
-												if (!parent) {
-													return "hogwarts";
-												} else {
-													return parent;
-												} 
+								<targetType>c:OrgType</targetType>
+								<assignmentProperties>
+									<relation>manager</relation>
+								</assignmentProperties>
+								<filter>
+									<q:equal>
+										<q:path>c:name</q:path>
+										<q:matching>polyStringNorm</q:matching>
+										<expression>
+											<script>
+												<code>
 
-											</code>
-										</script>
-									</expression>
-								</q:equal>
-							</filter>
-							<createOnDemand>true</createOnDemand>
-							<populateObject>
-								<populateItem>
-									<expression>
-										<script>
-											<code>
-											
-												input.tokenize('/').reverse()[0]
-											</code>
-										</script>
-									</expression>
-									<target>
-										<path>name</path>
-									</target>
-								</populateItem>
-								<populateItem>
-									<expression>
-										<value>access</value>
-									</expression>
-									<target>
-										<path>orgType</path>
-									</target>
-								</populateItem>
-								<populateItem>
-									<expression>
-										<script>
-											<code>
-												input.tokenize('/').reverse()[1..-1].join('/').tokenize('/').reverse()[0..-1].join('/')
-											</code>
-										</script>
-									</expression>
-									<target>
-										<path>identifier</path>
-									</target>
-								</populateItem>
-							</populateObject>
-			            </assignmentTargetSearch>    	
+													parent = input.tokenize('/').reverse()[0]
+													if (!parent) {
+														return "hogwarts";
+													} else {
+														return parent;
+													}
+
+												</code>
+											</script>
+										</expression>
+									</q:equal>
+								</filter>
+								<createOnDemand>true</createOnDemand>
+								<populateObject>
+									<populateItem>
+										<expression>
+											<script>
+												<code>
+
+													input.tokenize('/').reverse()[0]
+												</code>
+											</script>
+										</expression>
+										<target>
+											<path>name</path>
+										</target>
+									</populateItem>
+									<populateItem>
+										<expression>
+											<value>access</value>
+										</expression>
+										<target>
+											<path>orgType</path>
+										</target>
+									</populateItem>
+									<populateItem>
+										<expression>
+											<script>
+												<code>
+													input.tokenize('/').reverse()[1..-1].join('/').tokenize('/').reverse()[0..-1].join('/')
+												</code>
+											</script>
+										</expression>
+										<target>
+											<path>identifier</path>
+										</target>
+									</populateItem>
+								</populateObject>
+							</assignmentTargetSearch>
 						</expression>
 						<target>
 							<path>assignment</path>
