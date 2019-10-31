@@ -14,7 +14,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-  
+
 <lookupTable oid="d5fa5e92-e450-11e4-b281-001e8c717e5b"
    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
    xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
@@ -23,26 +23,26 @@
    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
    xmlns:piracy='http://midpoint.evolveum.com/xml/ns/samples/piracy'>
 
-	<name>Role Types</name>
-	
-	<row>
-		<key>system</key>
-		<label>System</label>
-	</row>
-	
-	<row>
-		<key>application</key>
-		<label>Application</label>
-	</row>
+    <name>Role Types</name>
 
-	<row>
-		<key>it</key>
-		<label>IT</label>
-	</row>
-	
-	<row>
-		<key>business</key>
-		<label>Business</label>
-	</row>  
+    <row>
+        <key>system</key>
+        <label>System</label>
+    </row>
+
+    <row>
+        <key>application</key>
+        <label>Application</label>
+    </row>
+
+    <row>
+        <key>it</key>
+        <label>IT</label>
+    </row>
+
+    <row>
+        <key>business</key>
+        <label>Business</label>
+    </row>
 
 </lookupTable>

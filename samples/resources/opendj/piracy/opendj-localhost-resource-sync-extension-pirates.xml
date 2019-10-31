@@ -25,7 +25,7 @@ This resource definition contains also definition to enable synchronization.
 
 -->
 <objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-		 xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns:xsd="http://www.w3.org/2001/XMLSchema"
          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
@@ -141,11 +141,11 @@ This resource definition contains also definition to enable synchronization.
                     <outbound>
                         <strength>weak</strength>
                         <source>
-                        	<path>$user/name</path>
+                            <path>$user/name</path>
                         </source>
                         <expression>
-                        	<script>
-                            	<code>'uid=' + name + ',ou=people,dc=example,dc=com'</code>
+                            <script>
+                                <code>'uid=' + name + ',ou=people,dc=example,dc=com'</code>
                             </script>
                         </expression>
                     </outbound>
@@ -270,7 +270,7 @@ This resource definition contains also definition to enable synchronization.
                     <outbound>
                         <strength>weak</strength>
                         <expression>
-                        	<value>Created by IDM</value>
+                            <value>Created by IDM</value>
                         </expression>
                     </outbound>
                     <!-- No outbound expression for description. We don't want to synchronize that -->
@@ -284,10 +284,10 @@ This resource definition contains also definition to enable synchronization.
                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                             xmlns:i="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
                         <target>
-                        	<path>
-	                            declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
-	                            declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
-	                            $user/extension/rpiracyShipName
+                            <path>
+                                declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
+                                declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
+                                $user/extension/rpiracyShipName
                             </path>
                         </target>
                     </inbound>
@@ -301,10 +301,10 @@ This resource definition contains also definition to enable synchronization.
                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                             xmlns:i="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
                         <target>
-                        	<path>
-	                            declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
-	                            declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
-	                            $user/extension/rpiracyStatus
+                            <path>
+                                declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
+                                declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
+                                $user/extension/rpiracyStatus
                             </path>
                         </target>
                     </inbound>
@@ -318,10 +318,10 @@ This resource definition contains also definition to enable synchronization.
                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                             xmlns:i="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
                         <target>
-                        	<path>
-	                            declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
-	                            declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
-	                            $user/extension/rpiracyScarNumber
+                            <path>
+                                declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
+                                declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
+                                $user/extension/rpiracyScarNumber
                             </path>
                         </target>
                     </inbound>
@@ -335,10 +335,10 @@ This resource definition contains also definition to enable synchronization.
                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                             xmlns:i="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
                         <target>
-                        	<path>
-	                            declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
-	                            declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
-	                            $user/extension/rpiracyCaptainship
+                            <path>
+                                declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
+                                declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
+                                $user/extension/rpiracyCaptainship
                             </path>
                         </target>
                     </inbound>
@@ -352,10 +352,10 @@ This resource definition contains also definition to enable synchronization.
                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                             xmlns:i="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
                         <target>
-                        	<path>
-	                            declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
-	                            declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
-	                            $user/extension/rpiracyEnrollmentTimestamp
+                            <path>
+                                declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
+                                declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
+                                $user/extension/rpiracyEnrollmentTimestamp
                             </path>
                         </target>
                     </inbound>
@@ -369,10 +369,10 @@ This resource definition contains also definition to enable synchronization.
                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                             xmlns:i="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
                         <target>
-                        	<path>
-	                            declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
-	                            declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
-	                            $user/extension/rpiracyTreasureSecret
+                            <path>
+                                declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
+                                declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
+                                $user/extension/rpiracyTreasureSecret
                             </path>
                         </target>
                     </inbound>
@@ -386,10 +386,10 @@ This resource definition contains also definition to enable synchronization.
                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                             xmlns:i="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
                         <target>
-                        	<path>
-	                            declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
-	                            declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
-	                            $user/extension/rpiracyNickname
+                            <path>
+                                declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
+                                declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
+                                $user/extension/rpiracyNickname
                             </path>
                         </target>
                     </inbound>
@@ -403,10 +403,10 @@ This resource definition contains also definition to enable synchronization.
                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                             xmlns:i="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
                         <target>
-                        	<path>
-	                            declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
-	                            declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
-	                            $user/extension/rpiracyBestWeapon
+                            <path>
+                                declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
+                                declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
+                                $user/extension/rpiracyBestWeapon
                             </path>
                         </target>
                     </inbound>
@@ -420,10 +420,10 @@ This resource definition contains also definition to enable synchronization.
                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                             xmlns:i="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
                         <target>
-                        	<path>
-	                            declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
-	                            declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
-	                            $user/extension/rpiracyQuote
+                            <path>
+                                declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
+                                declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
+                                $user/extension/rpiracyQuote
                             </path>
                         </target>
                     </inbound>
@@ -432,10 +432,10 @@ This resource definition contains also definition to enable synchronization.
                     <ref>rpiracyDrink</ref>
                     <inbound xmlns:iccldap="http://midpoint.evolveum.com/xml/ns/resource/idconnector/bundle/org.identityconnectors.ldap/org.identityconnectors.ldap.LdapConnector/1.0.5531" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:idc="http://midpoint.evolveum.com/xml/ns/public/resource/idconnector/configuration-1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:i="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
                         <target>
-                        	<path>
-	                            declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
-	                            declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
-	                            $user/extension/rpiracyDrink
+                            <path>
+                                declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
+                                declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instances/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
+                                $user/extension/rpiracyDrink
                             </path>
                         </target>
                     </inbound>
@@ -447,75 +447,75 @@ This resource definition contains also definition to enable synchronization.
             reactions and similar synchronization settings.
         -->
         <synchronization>
-        	<objectSynchronization>
-	            <!--
-	                The synchronization for this resource is enabled.
-	                It means that the synchronization will poll for changes once
-	                per interval specified below. -->
-	            <enabled>true</enabled>
-	
-	            <!-- Correlation expression.
-	                 It will be used to find appropriate user entry for an account.
-	              -->
-	            <correlation>
-	                <!-- Correlation rule is a search query -->
-	                <!-- The clause <type uri="http://midpoint.evolveum.com/xml/ns/public/common/common-3#UserType"/> is implicit in correlation rules -->
-	                <!-- Following search query will look for users that have "name"
-	                     equal to the "uid" attribute of the account. Simply speaking,
-	                     it will look for match in usernames in the IDM and the resource. -->
-	                <q:equal>
-	                    <q:path>name</q:path>
-	                    <expression>
-	                        <script>
-		                        <code>
-		                            declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
-		                            declare namespace dj="http://midpoint.evolveum.com/xml/ns/public/resource/instance/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
-		                            $account/attributes/dj:uid
-		                        </code>
-	                        </script>
-	                    </expression>
-	                </q:equal>
-	            </correlation>
-	            <!-- Confirmation rule may be here, but as the search above will
-	                 always return at most one match, the confirmation rule is not needed. -->
-	            <!-- Following section describes reactions to a situations.
-	                 The setting here assumes that this resource is authoritative,
-	                 therefore all accounts created on the resource should be
-	                 reflected as new users in IDM.
-	                 See https://wikis.forgerock.org/confluence/display/openidm/Synchronization+Situations
-	             -->
-	            <reaction>
-	                <situation>linked</situation>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser</handlerUri>
-	              	</action>
-	            </reaction>
-	            <reaction>
-	                <situation>deleted</situation>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount</handlerUri>
-	                </action>
-	            </reaction>
-	            <reaction>
-	                <situation>unlinked</situation>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
-	                </action>
-	            </reaction>
-	            <reaction>
-	                <situation>unmatched</situation>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addUser</handlerUri>
-	                    <!-- Reference to the User Template is here. If the user would be
-	                         created as a result of this action, it will be created according
-	                         to this template. -->
-	                    <objectTemplateRef oid="c0c010c0-d34d-b33f-f00d-777111111111"/>
-	                </action>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
-	                </action>
-	            </reaction>
-	    	</objectSynchronization>
+            <objectSynchronization>
+                <!--
+                    The synchronization for this resource is enabled.
+                    It means that the synchronization will poll for changes once
+                    per interval specified below. -->
+                <enabled>true</enabled>
+
+                <!-- Correlation expression.
+                     It will be used to find appropriate user entry for an account.
+                  -->
+                <correlation>
+                    <!-- Correlation rule is a search query -->
+                    <!-- The clause <type uri="http://midpoint.evolveum.com/xml/ns/public/common/common-3#UserType"/> is implicit in correlation rules -->
+                    <!-- Following search query will look for users that have "name"
+                         equal to the "uid" attribute of the account. Simply speaking,
+                         it will look for match in usernames in the IDM and the resource. -->
+                    <q:equal>
+                        <q:path>name</q:path>
+                        <expression>
+                            <script>
+                                <code>
+                                    declare namespace i="http://midpoint.evolveum.com/xml/ns/public/common/common-3";
+                                    declare namespace dj="http://midpoint.evolveum.com/xml/ns/public/resource/instance/ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2";
+                                    $account/attributes/dj:uid
+                                </code>
+                            </script>
+                        </expression>
+                    </q:equal>
+                </correlation>
+                <!-- Confirmation rule may be here, but as the search above will
+                     always return at most one match, the confirmation rule is not needed. -->
+                <!-- Following section describes reactions to a situations.
+                     The setting here assumes that this resource is authoritative,
+                     therefore all accounts created on the resource should be
+                     reflected as new users in IDM.
+                     See https://wikis.forgerock.org/confluence/display/openidm/Synchronization+Situations
+                 -->
+                <reaction>
+                    <situation>linked</situation>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser</handlerUri>
+                      </action>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <objectTemplateRef oid="c0c010c0-d34d-b33f-f00d-777111111111"/>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addUser</handlerUri>
+                        <!-- Reference to the User Template is here. If the user would be
+                             created as a result of this action, it will be created according
+                             to this template. -->
+                    </action>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
+                    </action>
+                </reaction>
+            </objectSynchronization>
         </synchronization>
     </resource>
     <!-- User Template Object.
@@ -528,24 +528,24 @@ This resource definition contains also definition to enable synchronization.
              This specific definition sets a full name as a concatenation
              of givenName and familyName. -->
         <mapping>
-			<strength>weak</strength>
-			<source>
-				<path>$user/givenName</path>
-			</source>
-			<source>
-				<path>$user/familyName</path>
-			</source>
-			<expression>
-				<script>
-					<code>
-						givenName + ' ' + familyName
-					</code>
-				</script>
-			</expression>
-			<target>
-				<path>fullName</path>
-			</target>
-		</mapping>
+            <strength>weak</strength>
+            <source>
+                <path>$user/givenName</path>
+            </source>
+            <source>
+                <path>$user/familyName</path>
+            </source>
+            <expression>
+                <script>
+                    <code>
+                        givenName + ' ' + familyName
+                    </code>
+                </script>
+            </expression>
+            <target>
+                <path>fullName</path>
+            </target>
+        </mapping>
 
     </objectTemplate>
 </objects>

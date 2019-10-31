@@ -22,107 +22,107 @@
    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
    xmlns:ext="http://midpoint.evolveum.com/xml/ns/story/orgsync/ext">
     <name>Org Template</name>
-    
+
     <mapping>
-    	<name>Org-org mapping</name>
-    	<authoritative>true</authoritative>
-		<strength>strong</strength>
-    	<source>
-    		<path>identifier</path>
-    		<name>orgpath</name>
-    	</source>
-    	<source>
-    		<path>orgType</path>
-    	</source>
-    	<expression>
-    		<assignmentTargetSearch>
-            	<targetType>c:OrgType</targetType>
-        		<filter>
-					<q:equal>
-						<q:path>c:name</q:path>
-						<q:matching>polyStringNorm</q:matching>
-						<expression>
-							<script>
-								<code>
-									parent = orgpath?.tokenize('/').reverse()[0]
-									return parent
-								</code>
-							</script>
-						</expression>
-					</q:equal>
-				</filter>
-				<createOnDemand>true</createOnDemand>
-				<populateObject>
-					<populateItem>
-						<expression>
-							<script>
-								<code>
-									orgpath.tokenize('/').reverse()[0]
-								</code>
-							</script>
-						</expression>
-						<target>
-							<path>name</path>
-						</target>
-					</populateItem>
-					<populateItem>
-						<expression>
-							<value>access</value>
-						</expression>
-						<target>
-							<path>orgType</path>
-						</target>
-					</populateItem>
-					<populateItem>
-						<expression>
-							<script>
-								<code>
-									orgpath.tokenize('/').reverse()[1..-1].join('/').tokenize('/').reverse()[0..-1].join('/')
-								</code>
-							</script>
-						</expression>
-						<target>
-							<path>identifier</path>
-						</target>
-					</populateItem>
-					<populateItem>
-						<expression>
-							<assignmentTargetSearch>
-								<targetType>RoleType</targetType>
-								<oid>12345678-d34d-b33f-f00d-111111111222</oid>
-							</assignmentTargetSearch>
-						</expression>
-						<target>
-							<path>assignment</path>
-						</target>
-					</populateItem>
-				</populateObject>
-            </assignmentTargetSearch>    	
-    	</expression>
-    	<target>
-    		<path>assignment</path>
-    	</target>
-    	<condition>
-    		<script>
-    			<code>orgType != null &amp;&amp; orgType == 'access'</code>
-    		</script>
-    	</condition>
+        <name>Org-org mapping</name>
+        <authoritative>true</authoritative>
+        <strength>strong</strength>
+        <source>
+            <path>identifier</path>
+            <name>orgpath</name>
+        </source>
+        <source>
+            <path>orgType</path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:OrgType</targetType>
+                <filter>
+                    <q:equal>
+                        <q:path>c:name</q:path>
+                        <q:matching>polyStringNorm</q:matching>
+                        <expression>
+                            <script>
+                                <code>
+                                    parent = orgpath?.tokenize('/').reverse()[0]
+                                    return parent
+                                </code>
+                            </script>
+                        </expression>
+                    </q:equal>
+                </filter>
+                <createOnDemand>true</createOnDemand>
+                <populateObject>
+                    <populateItem>
+                        <expression>
+                            <script>
+                                <code>
+                                    orgpath.tokenize('/').reverse()[0]
+                                </code>
+                            </script>
+                        </expression>
+                        <target>
+                            <path>name</path>
+                        </target>
+                    </populateItem>
+                    <populateItem>
+                        <expression>
+                            <value>access</value>
+                        </expression>
+                        <target>
+                            <path>orgType</path>
+                        </target>
+                    </populateItem>
+                    <populateItem>
+                        <expression>
+                            <script>
+                                <code>
+                                    orgpath.tokenize('/').reverse()[1..-1].join('/').tokenize('/').reverse()[0..-1].join('/')
+                                </code>
+                            </script>
+                        </expression>
+                        <target>
+                            <path>identifier</path>
+                        </target>
+                    </populateItem>
+                    <populateItem>
+                        <expression>
+                            <assignmentTargetSearch>
+                                <targetType>RoleType</targetType>
+                                <oid>12345678-d34d-b33f-f00d-111111111222</oid>
+                            </assignmentTargetSearch>
+                        </expression>
+                        <target>
+                            <path>assignment</path>
+                        </target>
+                    </populateItem>
+                </populateObject>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+        <condition>
+            <script>
+                <code>orgType != null &amp;&amp; orgType == 'access'</code>
+            </script>
+        </condition>
     </mapping>
-  
-  	
-  	<mapping>
-  		<name>Assign meta role</name>
-    	<authoritative>true</authoritative>
-		<strength>strong</strength>
-    	<expression>
-    		<assignmentTargetSearch>
-				<targetType>RoleType</targetType>
-				<oid>12345678-d34d-b33f-f00d-111111111222</oid>
-			</assignmentTargetSearch>
-		</expression>
-		<target>
-			<path>assignment</path>
-		</target>
-  	</mapping>
-  
+
+
+      <mapping>
+          <name>Assign meta role</name>
+        <authoritative>true</authoritative>
+        <strength>strong</strength>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>RoleType</targetType>
+                <oid>12345678-d34d-b33f-f00d-111111111222</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+      </mapping>
+
 </objectTemplate>

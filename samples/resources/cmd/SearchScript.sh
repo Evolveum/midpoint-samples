@@ -18,13 +18,13 @@
 ## TODO: connector does not bother with exit values...
 # $__UID__ is icfs:uid; the connector assumes icfs:uid == icfs:name
 if [ -r "$__UID__" ]; then
-	echo "__UID__=$__UID__"
-	echo "__NAME__=$__UID__"
-	perm=`stat -c "%a" "$__UID__"`
-	
-	echo "permissions=$perm"
-	exit 0
+    echo "__UID__=$__UID__"
+    echo "__NAME__=$__UID__"
+    perm=`stat -c "%a" "$__UID__"`
+
+    echo "permissions=$perm"
+    exit 0
 else
-	exit 1
+    exit 1
 fi
 

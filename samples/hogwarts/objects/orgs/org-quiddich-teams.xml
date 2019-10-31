@@ -21,7 +21,7 @@
     <name>quiddich</name>
     <displayName>Quiddich Teams</displayName>
     <description>
-    	Teams structure.
+        Teams structure.
     </description>
     <requestable>true</requestable>
     <orgType>team</orgType>

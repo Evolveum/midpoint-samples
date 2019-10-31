@@ -49,47 +49,47 @@
         </filter>
     </connectorRef>
 
-	 <connectorConfiguration>
-		<icfc:configurationProperties
-			xmlns:icfcldap="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-ldap/com.evolveum.polygon.connector.ldap.LdapConnector">
-			<icfcldap:port>1389</icfcldap:port>
-			<icfcldap:host>localhost</icfcldap:host>
-			<icfcldap:baseContextsToSynchronize>ou=people,dc=example,dc=com</icfcldap:baseContextsToSynchronize>
-			<icfcldap:baseContextsToSynchronize>ou=groups,dc=example,dc=com</icfcldap:baseContextsToSynchronize>
-			<icfcldap:bindDn>uid=idm,ou=Administrators,dc=example,dc=com</icfcldap:bindDn>
+     <connectorConfiguration>
+        <icfc:configurationProperties
+            xmlns:icfcldap="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-ldap/com.evolveum.polygon.connector.ldap.LdapConnector">
+            <icfcldap:port>1389</icfcldap:port>
+            <icfcldap:host>localhost</icfcldap:host>
+            <icfcldap:baseContextsToSynchronize>ou=people,dc=example,dc=com</icfcldap:baseContextsToSynchronize>
+            <icfcldap:baseContextsToSynchronize>ou=groups,dc=example,dc=com</icfcldap:baseContextsToSynchronize>
+            <icfcldap:bindDn>uid=idm,ou=Administrators,dc=example,dc=com</icfcldap:bindDn>
             <icfcldap:pagingStrategy>none</icfcldap:pagingStrategy>
-			 <icfcldap:bindPassword>
+             <icfcldap:bindPassword>
                     <clearValue>secret</clearValue>
                 </icfcldap:bindPassword>
-			<icfcldap:modifiersNamesToFilterOut>uid=idm,ou=Administrators,dc=example,dc=com</icfcldap:modifiersNamesToFilterOut>
-			<icfcldap:vlvSortAttribute>uid</icfcldap:vlvSortAttribute>
-			<icfcldap:operationalAttributes>ds-pwp-account-disabled</icfcldap:operationalAttributes>
-		</icfc:configurationProperties>
+            <icfcldap:modifiersNamesToFilterOut>uid=idm,ou=Administrators,dc=example,dc=com</icfcldap:modifiersNamesToFilterOut>
+            <icfcldap:vlvSortAttribute>uid</icfcldap:vlvSortAttribute>
+            <icfcldap:operationalAttributes>ds-pwp-account-disabled</icfcldap:operationalAttributes>
+        </icfc:configurationProperties>
          <icfc:resultsHandlerConfiguration>
              <icfc:enableFilteredResultsHandler>false</icfc:enableFilteredResultsHandler>
          </icfc:resultsHandlerConfiguration>
-		<icfc:connectorPoolConfiguration>
-			<icfc:minEvictableIdleTimeMillis>120000</icfc:minEvictableIdleTimeMillis>
-			<icfc:minIdle>1</icfc:minIdle>
-			<icfc:maxIdle>10</icfc:maxIdle>
-			<icfc:maxObjects>10</icfc:maxObjects>
-			<icfc:maxWait>150000</icfc:maxWait>
-		</icfc:connectorPoolConfiguration>
-		<icfc:timeouts>
-			<icfc:create>-1</icfc:create>
-			<icfc:get>-1</icfc:get>
-			<icfc:update>-1</icfc:update>
-			<icfc:delete>-1</icfc:delete>
-			<icfc:test>-1</icfc:test>
-			<icfc:scriptOnConnector>-1</icfc:scriptOnConnector>
-			<icfc:scriptOnResource>-1</icfc:scriptOnResource>
-			<icfc:authentication>-1</icfc:authentication>
-			<icfc:search>-1</icfc:search>
-			<icfc:validate>-1</icfc:validate>
-			<icfc:sync>-1</icfc:sync>
-			<icfc:schema>-1</icfc:schema>
-		</icfc:timeouts>
-	</connectorConfiguration>
+        <icfc:connectorPoolConfiguration>
+            <icfc:minEvictableIdleTimeMillis>120000</icfc:minEvictableIdleTimeMillis>
+            <icfc:minIdle>1</icfc:minIdle>
+            <icfc:maxIdle>10</icfc:maxIdle>
+            <icfc:maxObjects>10</icfc:maxObjects>
+            <icfc:maxWait>150000</icfc:maxWait>
+        </icfc:connectorPoolConfiguration>
+        <icfc:timeouts>
+            <icfc:create>-1</icfc:create>
+            <icfc:get>-1</icfc:get>
+            <icfc:update>-1</icfc:update>
+            <icfc:delete>-1</icfc:delete>
+            <icfc:test>-1</icfc:test>
+            <icfc:scriptOnConnector>-1</icfc:scriptOnConnector>
+            <icfc:scriptOnResource>-1</icfc:scriptOnResource>
+            <icfc:authentication>-1</icfc:authentication>
+            <icfc:search>-1</icfc:search>
+            <icfc:validate>-1</icfc:validate>
+            <icfc:sync>-1</icfc:sync>
+            <icfc:schema>-1</icfc:schema>
+        </icfc:timeouts>
+    </connectorConfiguration>
 
     <schema>
         <!-- workaround to MID-2723 -->
@@ -101,187 +101,187 @@
         </generationConstraints>
     </schema>
 
-	<schemaHandling>
-		<objectType>
-			<intent>default</intent>
-			<displayName>Default Account</displayName>
-			<default>true</default>
-			<objectClass>ri:inetOrgPerson</objectClass>
-			<attribute>
-				<ref>ri:dn</ref>
-				<displayName>Distinguished Name</displayName>
-				<outbound>
-					<source>
-						<path>$user/name</path>
-					</source>
-					<expression>
-						<script>
-							<code>'uid=' + name + ',ou=people,dc=example,dc=com'</code>
-						</script>
-					</expression>
-				</outbound>
-			</attribute>
-			<attribute>
-				<ref>ri:entryUUID</ref>
-				<displayName>Entry UUID</displayName>
-				<limitations>
+    <schemaHandling>
+        <objectType>
+            <intent>default</intent>
+            <displayName>Default Account</displayName>
+            <default>true</default>
+            <objectClass>ri:inetOrgPerson</objectClass>
+            <attribute>
+                <ref>ri:dn</ref>
+                <displayName>Distinguished Name</displayName>
+                <outbound>
+                    <source>
+                        <path>$user/name</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>'uid=' + name + ',ou=people,dc=example,dc=com'</code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:entryUUID</ref>
+                <displayName>Entry UUID</displayName>
+                <limitations>
                     <access>
                         <read>true</read>
                     </access>
                 </limitations>
-			</attribute>
-			<attribute>
-				<ref>ri:cn</ref>
-				<displayName>Common Name</displayName>
-				<limitations>
-					<minOccurs>0</minOccurs>
-					<access>
+            </attribute>
+            <attribute>
+                <ref>ri:cn</ref>
+                <displayName>Common Name</displayName>
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                    <access>
                         <read>true</read>
-						<add>true</add>
-						<modify>true</modify>
-					</access>
-				</limitations>
-				<outbound>
-					<source>
-						<path>$user/fullName</path>
-					</source>
-				</outbound>
-				<inbound>
-					<strength>weak</strength>
-					<target>
-						<path>$user/fullName</path>
-					</target>
-				</inbound>
-			</attribute>
-			<attribute>
-				<ref>ri:sn</ref>
-				<displayName>Surname</displayName>
-				<limitations>
-					<minOccurs>0</minOccurs>
-				</limitations>
-				<outbound>
-					<source>
-						<path>familyName</path>
-					</source>
-				</outbound>
-				<inbound>
-					<strength>weak</strength>
-					<target>
-						<path>familyName</path>
-					</target>
-				</inbound>
-			</attribute>
-			<attribute>
-				<ref>ri:givenName</ref>
-				<displayName>Given Name</displayName>
-				<outbound>
-					<source>
-						<path>$c:user/c:givenName</path>
-					</source>
-				</outbound>
-				<inbound>
-					<strength>weak</strength>
-					<target>
-						<path>$c:user/c:givenName</path>
-					</target>
-				</inbound>
-			</attribute>
-			<attribute>
-				<ref>ri:uid</ref>
-				<displayName>Login Name</displayName>
-				<limitations>
+                        <add>true</add>
+                        <modify>true</modify>
+                    </access>
+                </limitations>
+                <outbound>
+                    <source>
+                        <path>$user/fullName</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <strength>weak</strength>
+                    <target>
+                        <path>$user/fullName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:sn</ref>
+                <displayName>Surname</displayName>
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                </limitations>
+                <outbound>
+                    <source>
+                        <path>familyName</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <strength>weak</strength>
+                    <target>
+                        <path>familyName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:givenName</ref>
+                <displayName>Given Name</displayName>
+                <outbound>
+                    <source>
+                        <path>$c:user/c:givenName</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <strength>weak</strength>
+                    <target>
+                        <path>$c:user/c:givenName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:uid</ref>
+                <displayName>Login Name</displayName>
+                <limitations>
                     <access>
                         <read>true</read>
                         <add>true</add>
                     </access>
                 </limitations>
-				<outbound>
-					<strength>weak</strength>
-					<source>
-						<path>$user/name</path>
-					</source>
-				</outbound>
-				<inbound>
-					<strength>weak</strength>
-					<target>
-						<path>$c:user/c:name</path>
-                    			</target>
-				</inbound>
-			</attribute>
-			<attribute>
-				<ref>ri:description</ref>
-				<outbound>
-					<strength>weak</strength>
-					<expression>
-						<description>Expression that assigns a fixed description value if there is no other description present.</description>
-						<value>Managed by midPoint</value>
-					</expression>
-				</outbound>
-			</attribute>
-			<attribute>
-				<ref>ri:l</ref>
-				<inbound>
-					<target>
-						<path>$user/locality</path>
-					</target>
-				</inbound>
-			</attribute>
-			<attribute>
-				<ref>ri:telephoneNumber</ref>
-				<outbound>
-					<source>
-						<path>$user/telephoneNumber</path>
-					</source>
-				</outbound>
-				<inbound>
-					<target>
-						<path>$user/telephoneNumber</path>
-					</target>
-				</inbound>
-			</attribute>
-			<attribute>
-				<ref>ri:employeeNumber</ref>
-				<outbound>
-					<strength>strong</strength>
-					<source>
-						<path>$user/employeeNumber</path>
-					</source>
-				</outbound>
-				<inbound>
-					<strength>weak</strength>
-					<target>
-						<path>$user/employeeNumber</path>
-					</target>
-				</inbound>
-			</attribute>
-			<attribute>
-				<ref>ri:employeeType</ref>
-				<outbound>
-					<strength>strong</strength>
-					<source>
-						<path>$user/employeeType</path>
-					</source>
-				</outbound>
-				<inbound>
-					<strength>weak</strength>
-					<target>
-						<path>$user/employeeType</path>
-					</target>
-				</inbound>
-			</attribute>
-			
-			<association>
-				<ref>ri:ldapGroups</ref>
-				<displayName>Group Membership</displayName>
-				<matchingRule>mr:stringIgnoreCase</matchingRule>
-				<tolerant>true</tolerant>
-				<kind>entitlement</kind>
-				<intent>group</intent>
-				<direction>objectToSubject</direction>
-				<associationAttribute>ri:uniqueMember</associationAttribute>
-				<valueAttribute>ri:dn</valueAttribute>
-				<explicitReferentialIntegrity>false</explicitReferentialIntegrity>
-			</association>
+                <outbound>
+                    <strength>weak</strength>
+                    <source>
+                        <path>$user/name</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <strength>weak</strength>
+                    <target>
+                        <path>$c:user/c:name</path>
+                                </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:description</ref>
+                <outbound>
+                    <strength>weak</strength>
+                    <expression>
+                        <description>Expression that assigns a fixed description value if there is no other description present.</description>
+                        <value>Managed by midPoint</value>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:l</ref>
+                <inbound>
+                    <target>
+                        <path>$user/locality</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:telephoneNumber</ref>
+                <outbound>
+                    <source>
+                        <path>$user/telephoneNumber</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <target>
+                        <path>$user/telephoneNumber</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:employeeNumber</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <source>
+                        <path>$user/employeeNumber</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <strength>weak</strength>
+                    <target>
+                        <path>$user/employeeNumber</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:employeeType</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <source>
+                        <path>$user/employeeType</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <strength>weak</strength>
+                    <target>
+                        <path>$user/employeeType</path>
+                    </target>
+                </inbound>
+            </attribute>
+
+            <association>
+                <ref>ri:ldapGroups</ref>
+                <displayName>Group Membership</displayName>
+                <matchingRule>mr:stringIgnoreCase</matchingRule>
+                <tolerant>true</tolerant>
+                <kind>entitlement</kind>
+                <intent>group</intent>
+                <direction>objectToSubject</direction>
+                <associationAttribute>ri:uniqueMember</associationAttribute>
+                <valueAttribute>ri:dn</valueAttribute>
+                <explicitReferentialIntegrity>false</explicitReferentialIntegrity>
+            </association>
 
             <association>
                 <c:ref>ri:ldapProjects</c:ref>
@@ -296,7 +296,7 @@
                 <explicitReferentialIntegrity>false</explicitReferentialIntegrity>
             </association>
 
-			<protected>
+            <protected>
                 <filter>
                     <q:equal>
                         <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#distinguishedName</q:matching>
@@ -310,36 +310,36 @@
                   <administrativeStatus>
                     <outbound/>
                     <inbound>
-                    	<strength>weak</strength>
+                        <strength>weak</strength>
                         <expression>
                             <asIs/>
                         </expression>
                     </inbound>
                   </administrativeStatus>
             </activation>
-			
+
             <credentials>
                 <password>
                     <outbound>
-                    	<expression>
-                        	<asIs/>
+                        <expression>
+                            <asIs/>
                         </expression>
                     </outbound>
                     <inbound>
-                    	<strength>weak</strength>
+                        <strength>weak</strength>
                         <expression>
                             <generate/>
                         </expression>
                     </inbound>
                 </password>
             </credentials>
-		</objectType>
+        </objectType>
         <objectType>
-				<kind>entitlement</kind>
-				<intent>group</intent>
-				<displayName>Group</displayName>
-				<default>true</default>
-				<objectClass>ri:groupOfUniqueNames</objectClass>
+                <kind>entitlement</kind>
+                <intent>group</intent>
+                <displayName>Group</displayName>
+                <default>true</default>
+                <objectClass>ri:groupOfUniqueNames</objectClass>
         </objectType>
         <objectType>
             <kind>entitlement</kind>
@@ -442,10 +442,10 @@
             </attribute>
         </objectType>
 
-	</schemaHandling>
-	
+    </schemaHandling>
+
     <capabilities xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
-    	<configured>
+        <configured>
             <cap:activation>
                 <cap:status>
                     <cap:attribute>ri:ds-pwp-account-disabled</cap:attribute>
@@ -453,12 +453,12 @@
                     <cap:disableValue>true</cap:disableValue>
                 </cap:status>
             </cap:activation>
-    	</configured>
+        </configured>
     </capabilities>
 
     <synchronization>
-		<objectSynchronization>
-		    <name>sync account</name>
+        <objectSynchronization>
+            <name>sync account</name>
 
             <objectClass>ri:inetOrgPerson</objectClass>
             <kind>account</kind>

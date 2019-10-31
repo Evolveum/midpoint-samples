@@ -28,7 +28,7 @@
         <ref>employeeType</ref>
         <valueEnumerationRef oid="5783c174-d141-11e4-bb29-001e8c717e5b"/>
     </item>
-  
+
     <item>
         <ref>organization</ref>
         <limitations>
@@ -53,241 +53,243 @@
         </limitations>
     </item>
     <mapping>
-    	<name>Fullname</name>
-    	<authoritative>true</authoritative>
-		<strength>strong</strength>
-    	<source>
-    		<path>givenName</path>
-    	</source>
-    	<source>
-    		<path>familyName</path>
-    	</source>
-	<expression>
-		<script>
-			<code>basic.concatName(givenName, familyName)</code>
-		</script>
-	</expression>
-	<target>
-		<path>fullName</path>
-	</target>
+        <name>Fullname</name>
+        <authoritative>true</authoritative>
+        <strength>strong</strength>
+        <source>
+            <path>givenName</path>
+        </source>
+        <source>
+            <path>familyName</path>
+        </source>
+    <expression>
+        <script>
+            <code>basic.concatName(givenName, familyName)</code>
+        </script>
+    </expression>
+    <target>
+        <path>fullName</path>
+    </target>
     </mapping>
     <mapping>
-    	<name>Org mapping - organization member</name>
-    	<description>
-    		Look for appropriate Org objects by using the user's organizationalUnit property
-    		as the name of the org object. When no such object is found we want to create it on
-    		demand. We want to populate new Org object with a name and displayName derived from
-    		the user.
-    	</description>
-    	<authoritative>true</authoritative>
+        <name>Org mapping - organization member</name>
+        <description>
+            Look for appropriate Org objects by using the user's organizationalUnit property
+            as the name of the org object. When no such object is found we want to create it on
+            demand. We want to populate new Org object with a name and displayName derived from
+            the user.
+        </description>
+        <authoritative>true</authoritative>
         <strength>strong</strength>
-    	<source>
-    		<path>organization</path>
-    	</source>
-    	<source>
-    		<path>organizationalUnit</path>
-    	</source>
-    	<expression>
+        <source>
+            <path>organization</path>
+        </source>
+        <source>
+            <path>organizationalUnit</path>
+        </source>
+        <expression>
             <assignmentTargetSearch>
-            	<targetType>c:OrgType</targetType>
-        		<filter>
-					<q:equal>
-						<q:path>c:name</q:path>
+                <targetType>c:OrgType</targetType>
+                <filter>
+                    <q:equal>
+                        <q:path>c:name</q:path>
 <!--                                                <q:path>c:displayName</q:path>-->
-						<expression>
-							<script>
-								<code>
-								log.info("XXXXXX USER TEMPLATE assignmentTargetSearch, organizationalUnit {}", organizationalUnit);
-								return organizationalUnit
-								</code>
-							</script>
-						</expression>
-					</q:equal>
-				</filter>
-				<createOnDemand>true</createOnDemand>
-				<populateObject>
-					<populateItem>
-						<expression>
-							<script>
-								<code>
-								log.info("XXXXXX USER TEMPLATE populate item organizationalUnit {}", organizationalUnit);
-								return organizationalUnit
-								</code>
-							</script>
-						</expression>
-						<target>
-							<path>name</path>
-						</target>
-					</populateItem>
-					<populateItem>
-						<expression>
-							<script>
-								<code>
-								log.info("XXXXXX USER TEMPLATE populate item organization {}", organization);
-								return organization
-								</code>
-							</script>
-						</expression>
-						<target>
-							<path>displayName</path>
-						</target>
-					</populateItem>
-					<populateItem>
-						<expression>
-							<value>customer</value>
-						</expression>
-						<target>
-							<path>orgType</path>
-						</target>
-					</populateItem>
-				</populateObject>
-            </assignmentTargetSearch>    	
-    	</expression>
-    	<target>
-    		<path>assignment</path>
-    	</target>
+                        <expression>
+                            <script>
+                                <code>
+                                log.info("XXXXXX USER TEMPLATE assignmentTargetSearch, organizationalUnit {}", organizationalUnit);
+                                return organizationalUnit
+                                </code>
+                            </script>
+                        </expression>
+                    </q:equal>
+                </filter>
+                <createOnDemand>true</createOnDemand>
+                <populateObject>
+                    <populateItem>
+                        <expression>
+                            <script>
+                                <code>
+                                log.info("XXXXXX USER TEMPLATE populate item organizationalUnit {}", organizationalUnit);
+                                return organizationalUnit
+                                </code>
+                            </script>
+                        </expression>
+                        <target>
+                            <path>name</path>
+                        </target>
+                    </populateItem>
+                    <populateItem>
+                        <expression>
+                            <script>
+                                <code>
+                                log.info("XXXXXX USER TEMPLATE populate item organization {}", organization);
+                                return organization
+                                </code>
+                            </script>
+                        </expression>
+                        <target>
+                            <path>displayName</path>
+                        </target>
+                    </populateItem>
+                    <populateItem>
+                        <expression>
+                            <value>customer</value>
+                        </expression>
+                        <target>
+                            <path>orgType</path>
+                        </target>
+                    </populateItem>
+                </populateObject>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
     </mapping>
 
     <mapping>
-    	<name>Org mapping - organization manager</name>
-    	<description>
-    		Look for appropriate Org objects by using the user's organizationalUnit property
-    		as the name of the org object. When no such object is found we want to create it on
-    		demand. We want to populate new Org object with a name and displayName derived from
-    		the user.
-    	</description>
-    	<authoritative>true</authoritative>
-        <strength>strong</strength>
-    	<source>
-    		<path>organization</path>
-    	</source>
-    	<source>
-    		<path>organizationalUnit</path>
-    	</source>
-    	<source>
-    		<path>employeeType</path>
-    	</source>
-    	<expression>
-            <assignmentTargetSearch>
-            	<targetType>c:OrgType</targetType>
-        		<filter>
-				<q:equal>
-					<q:path>c:name</q:path>
-<!--                                                <q:path>c:displayName</q:path>-->
-					<expression>
-						<script>
-							<code>
-							log.info("XXXXXX USER TEMPLATE assignmentTargetSearch, organizationalUnit {}", organizationalUnit);
-							return organizationalUnit
-							</code>
-						</script>
-					</expression>
-				</q:equal>
-			</filter>
-			<relation>org:manager</relation>
-            </assignmentTargetSearch>    	
-    	</expression>
-    	<target>
-    		<path>assignment</path>
-    	</target>
-	<condition>
-		<script>
-			<code>employeeType == 'customer-admin'</code>
-		</script>
-	</condition>
-    </mapping>
-
-<!-- FIXME FIXME assign once more with manager relation; do not create. Ordering???????????????? -->	
-    <mapping>
-    	<name>Basic Customer Admin role assignment</name>
+        <name>Org mapping - organization manager</name>
+        <description>
+            Look for appropriate Org objects by using the user's organizationalUnit property
+            as the name of the org object. When no such object is found we want to create it on
+            demand. We want to populate new Org object with a name and displayName derived from
+            the user.
+        </description>
+        <authoritative>true</authoritative>
         <strength>strong</strength>
         <source>
-            <path>$user/employeeType</path>
+            <path>organization</path>
         </source>
-    	<expression>
+        <source>
+            <path>organizationalUnit</path>
+        </source>
+        <source>
+            <path>employeeType</path>
+        </source>
+        <expression>
             <assignmentTargetSearch>
-            	<targetType>c:RoleType</targetType>
-		<oid>3410a44a-cc00-11e5-bc03-3c970e44b9e2</oid>
-            </assignmentTargetSearch>    	
-    	</expression>
-      	<target>
-    		<path>assignment</path>
-    	</target>
-	<condition>
-		<script>
-			<code>employeeType == 'customer-admin'</code>
-		</script>
-	</condition>
+                <targetType>c:OrgType</targetType>
+                <filter>
+                    <q:equal>
+                        <q:path>c:name</q:path>
+        <!--                                                <q:path>c:displayName</q:path>-->
+                        <expression>
+                            <script>
+                                <code>
+                                log.info("XXXXXX USER TEMPLATE assignmentTargetSearch, organizationalUnit {}", organizationalUnit);
+                                return organizationalUnit
+                                </code>
+                            </script>
+                        </expression>
+                    </q:equal>
+                </filter>
+                <assignmentProperties>
+                    <relation>org:manager</relation>
+                </assignmentProperties>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+    <condition>
+        <script>
+            <code>employeeType == 'customer-admin'</code>
+        </script>
+    </condition>
     </mapping>
 
+<!-- FIXME FIXME assign once more with manager relation; do not create. Ordering???????????????? -->
     <mapping>
-    	<name>Delegated Administration role assignment</name>
+        <name>Basic Customer Admin role assignment</name>
         <strength>strong</strength>
         <source>
             <path>$user/employeeType</path>
         </source>
-    	<expression>
+        <expression>
             <assignmentTargetSearch>
-            	<targetType>c:RoleType</targetType>
-		<oid>c546fe38-def1-11e5-85bb-3c970e44b9e2</oid>
-            </assignmentTargetSearch>    	
-    	</expression>
-      	<target>
-    		<path>assignment</path>
-    	</target>
-	<condition>
-		<script>
-			<code>employeeType == 'customer-admin'</code>
-		</script>
-	</condition>
+                <targetType>c:RoleType</targetType>
+        <oid>3410a44a-cc00-11e5-bc03-3c970e44b9e2</oid>
+            </assignmentTargetSearch>
+        </expression>
+          <target>
+            <path>assignment</path>
+        </target>
+    <condition>
+        <script>
+            <code>employeeType == 'customer-admin'</code>
+        </script>
+    </condition>
     </mapping>
 
     <mapping>
-    	<name>Basic Customer User role assignment</name>
+        <name>Delegated Administration role assignment</name>
         <strength>strong</strength>
         <source>
             <path>$user/employeeType</path>
         </source>
-    	<expression>
+        <expression>
             <assignmentTargetSearch>
-            	<targetType>c:RoleType</targetType>
-		<oid>0d76dd40-cc05-11e5-8cfb-3c970e44b9e2</oid>
-            </assignmentTargetSearch>    	
-    	</expression>
-      	<target>
-    		<path>assignment</path>
-    	</target>
-	<condition>
-		<script>
-			<code>employeeType == 'customer-admin' || employeeType == 'customer-user'</code>
-		</script>
-	</condition>
+                <targetType>c:RoleType</targetType>
+        <oid>c546fe38-def1-11e5-85bb-3c970e44b9e2</oid>
+            </assignmentTargetSearch>
+        </expression>
+          <target>
+            <path>assignment</path>
+        </target>
+    <condition>
+        <script>
+            <code>employeeType == 'customer-admin'</code>
+        </script>
+    </condition>
     </mapping>
 
     <mapping>
-    	<name>Customer End User role assignment</name>
-		<strength>strong</strength>
+        <name>Basic Customer User role assignment</name>
+        <strength>strong</strength>
         <source>
             <path>$user/employeeType</path>
         </source>
-    	<expression>
+        <expression>
             <assignmentTargetSearch>
-            	<targetType>c:RoleType</targetType>
-        		<filter>
-				<q:equal>
-					<q:path>c:name</q:path>
-					<q:value>Customer End User Role</q:value>
-				</q:equal>
-			</filter>
-            </assignmentTargetSearch>    	
-    	</expression>
-      	<target>
-    		<path>assignment</path>
-    	</target>
-	<condition>
-		<script>
-			<code>employeeType == 'customer-admin' || employeeType == 'customer-user'</code>
-		</script>
-	</condition>
+                <targetType>c:RoleType</targetType>
+        <oid>0d76dd40-cc05-11e5-8cfb-3c970e44b9e2</oid>
+            </assignmentTargetSearch>
+        </expression>
+          <target>
+            <path>assignment</path>
+        </target>
+    <condition>
+        <script>
+            <code>employeeType == 'customer-admin' || employeeType == 'customer-user'</code>
+        </script>
+    </condition>
+    </mapping>
+
+    <mapping>
+        <name>Customer End User role assignment</name>
+        <strength>strong</strength>
+        <source>
+            <path>$user/employeeType</path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:RoleType</targetType>
+                <filter>
+                <q:equal>
+                    <q:path>c:name</q:path>
+                    <q:value>Customer End User Role</q:value>
+                </q:equal>
+            </filter>
+            </assignmentTargetSearch>
+        </expression>
+          <target>
+            <path>assignment</path>
+        </target>
+    <condition>
+        <script>
+            <code>employeeType == 'customer-admin' || employeeType == 'customer-user'</code>
+        </script>
+    </condition>
     </mapping>
 </objectTemplate>

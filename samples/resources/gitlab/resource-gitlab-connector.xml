@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-	<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
           xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
           xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
@@ -1734,9 +1734,9 @@
             <situation>unmatched</situation>
             <synchronize>true</synchronize>
             <reconcile>false</reconcile>
+            <objectTemplateRef oid="99cc8d77-dedc-1144-a081-b006821a9c79"/>
             <action>
                <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-               <objectTemplateRef oid="99cc8d77-dedc-1144-a081-b006821a9c79"/>
             </action>
          </reaction>
       </objectSynchronization>

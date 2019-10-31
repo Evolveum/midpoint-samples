@@ -43,7 +43,7 @@
             </xsd:appinfo>
         </xsd:annotation>
         <xsd:sequence>
-            
+
         </xsd:sequence>
     </xsd:complexType>
 

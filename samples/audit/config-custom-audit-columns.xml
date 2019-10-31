@@ -25,12 +25,12 @@
                 <auditServiceFactoryClass>com.evolveum.midpoint.repo.sql.SqlAuditServiceFactory</auditServiceFactoryClass>
                 <!-- Mapping of AuditEventRecord properties to custom database table columns -->
                 <customColumn>
-                	<columnName>custFoo</columnName>
-                	<eventRecordPropertyName>foo</eventRecordPropertyName>
+                    <columnName>custFoo</columnName>
+                    <eventRecordPropertyName>foo</eventRecordPropertyName>
                 </customColumn>
                 <customColumn>
-                	<columnName>custBar</columnName>
-                	<eventRecordPropertyName>bar</eventRecordPropertyName>
+                    <columnName>custBar</columnName>
+                    <eventRecordPropertyName>bar</eventRecordPropertyName>
                 </customColumn>
             </auditService>
         </audit>

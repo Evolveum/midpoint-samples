@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2018 Evolveum
+  ~ Copyright (c) 2010-2019 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,17 +15,25 @@
   ~ limitations under the License.
   -->
 
-<!-- a peace of xml code which is used to configure users view -->
-<adminGuiConfiguration>
-    <objectLists>
-        <objectList>
-            <type>c:UserType</type>
-            <collectionRef oid="d2521d0b-6784-4540-bdff-086858ae0cc7"
-                           relation="org:default"
-                           type="c:ObjectCollectionType"><!-- Users view collection --></collectionRef>
-            <display>
-                <label>Employees</label>
-            </display>
-        </objectList>
-    </objectLists>
-</adminGuiConfiguration>
+<systemConfiguration oid="00000000-0000-0000-0000-000000000001" version="0"
+                     xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                     xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                     xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+    <name>SystemConfiguration</name>
+
+    <!-- a peace of xml code which is used to configure users view -->
+    <adminGuiConfiguration>
+        <objectCollectionViews>
+            <objectCollectionView>
+                <display>
+                    <label>Employees</label>
+                </display>
+                <type>UserType</type>
+                <collection>
+                    <collectionRef oid="d2521d0b-6784-4540-bdff-086858ae0cc7"
+                                   type="c:ObjectCollectionType"/>
+                </collection>
+            </objectCollectionView>
+        </objectCollectionViews>
+    </adminGuiConfiguration>
+</systemConfiguration>

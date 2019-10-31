@@ -24,30 +24,30 @@
     <description>
     </description>
     <inducement>
-    	<construction>
-    		<resourceRef oid="2a7c7130-7a34-11e4-bdf6-001e8c717e5b" type="c:ResourceType"/>
-    		<association>
-            	<ref>ri:group</ref>
-            	<outbound>
-            		<strength>strong</strength>
-                	<expression>
-						<associationTargetSearch>
-							<filter>
-								<q:equal>
-									<q:path>attributes/ri:cn</q:path>
-									<q:value>defenceAgainstDarkArts</q:value>
-								</q:equal>
-							</filter>
-							<searchStrategy>onResourceIfNeeded</searchStrategy>
-						</associationTargetSearch>
-					</expression>
-				</outbound>
+        <construction>
+            <resourceRef oid="2a7c7130-7a34-11e4-bdf6-001e8c717e5b" type="c:ResourceType"/>
+            <association>
+                <ref>ri:group</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <associationTargetSearch>
+                            <filter>
+                                <q:equal>
+                                    <q:path>attributes/ri:cn</q:path>
+                                    <q:value>defenceAgainstDarkArts</q:value>
+                                </q:equal>
+                            </filter>
+                            <searchStrategy>onResourceIfNeeded</searchStrategy>
+                        </associationTargetSearch>
+                    </expression>
+                </outbound>
             </association>
-    	</construction>
-    	
+        </construction>
+
     </inducement>
     <assignment>
-    	<targetRef oid="2dadd243-687d-4b4c-80cd-09ddfe4cbf59" type="RoleType" />
+        <targetRef oid="2dadd243-687d-4b4c-80cd-09ddfe4cbf59" type="RoleType" />
     </assignment>
     <requestable>true</requestable>
 </role>

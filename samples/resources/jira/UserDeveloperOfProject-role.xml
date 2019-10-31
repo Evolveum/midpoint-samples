@@ -36,7 +36,7 @@
                            <expression>
                               <script xsi:type="c:ScriptExpressionEvaluatorType">
                                  <code>
-                                    org = midpoint.getOrgByOid(orgUnit.getOid());                                   
+                                    org = midpoint.getOrgByOid(orgUnit.getOid());
                                     return org.getName()
                                 </code>
                               </script>
@@ -57,8 +57,8 @@
                   <returnMultiplicity>multi</returnMultiplicity>
                   <script>
                      <code>
-								        return focusAssignment?.getOrgRef()?.getOid()
-						         </code>
+                                        return focusAssignment?.getOrgRef()?.getOid()
+                                 </code>
                   </script>
                </expression>
             </q:inOid>

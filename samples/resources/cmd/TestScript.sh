@@ -24,8 +24,8 @@
 
 ## TODO: connector does not bother with exit values...
 if [ ! -w /tmp/homedirs ]; then
-	echo "Directory not writable"
-	exit 1
+    echo "Directory not writable"
+    exit 1
 else exit 0
 fi
 

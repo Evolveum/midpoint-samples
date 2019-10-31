@@ -19,29 +19,29 @@
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
-	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+    xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
     <name>Customer Admin Role</name>
     <description>Role intended to be assigned to all customer admins automatically</description>
      <inducement>
-    	<construction>
-    		<resourceRef oid="40be7fa0-cbec-11e5-926a-3c970e44b9e2" type="c:ResourceType"/>
+        <construction>
+            <resourceRef oid="40be7fa0-cbec-11e5-926a-3c970e44b9e2" type="c:ResourceType"/>
         <association>
             <ref>ri:group</ref>
             <outbound>
                 <source>
-			<path>$user/organizationalUnit</path>
+            <path>$user/organizationalUnit</path>
                 </source>
                 <expression>
                     <associationTargetSearch>
                         <filter>
                             <q:equal>
-				<q:matching>stringIgnoreCase</q:matching>
+                <q:matching>stringIgnoreCase</q:matching>
                                 <q:path>
-					declare namespace icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3";
+                    declare namespace icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3";
                                         declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3";
-					attributes/ri:dn
-				</q:path>
+                    attributes/ri:dn
+                </q:path>
                                 <expression>
                                     <script><!-- FIXME fixed suffix -->
                                         <code>return 'cn=' + organizationalUnit +'-admins,ou=' + organizationalUnit + ',ou=customers,dc=example,dc=com'</code>
@@ -54,7 +54,7 @@
                 </expression>
             </outbound>
         </association>
-    	</construction>
-    </inducement>    
+        </construction>
+    </inducement>
     <roleType>customer</roleType>
 </role>

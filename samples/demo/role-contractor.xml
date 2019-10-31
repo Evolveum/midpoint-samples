@@ -14,27 +14,27 @@
   ~ limitations under the License.
   -->
 
-<role oid="8d62985c-7797-11e2-94a6-001e8c717e5b" 
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<role oid="8d62985c-7797-11e2-94a6-001e8c717e5b"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-		xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
-    <name>Contractor role</name>    
+        xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
+    <name>Contractor role</name>
     <description>Role that gives contractors necessary access.</description>
     <inducement>
-	<description>Addressbook resource. We want contractors to be in addressbook. But not in the LDAP.</description>
-    	<construction>
-    		<!-- The c: prefix in type must be there due to a JAXB bug -->
-    		<resourceRef oid="c1b8b075-8c45-4058-ba32-753b87ac2da0" type="c:ResourceType"/>
-		<attribute>
+    <description>Addressbook resource. We want contractors to be in addressbook. But not in the LDAP.</description>
+        <construction>
+            <!-- The c: prefix in type must be there due to a JAXB bug -->
+            <resourceRef oid="c1b8b075-8c45-4058-ba32-753b87ac2da0" type="c:ResourceType"/>
+        <attribute>
                     <ref>ri:office_id</ref>
                     <outbound>
-                    	<expression>
-                    		<value>Contractor</value>
-                    	</expression>
+                        <expression>
+                            <value>Contractor</value>
+                        </expression>
                     </outbound>
                 </attribute>
-    	</construction>
-    </inducement>    
+        </construction>
+    </inducement>
 </role>
 

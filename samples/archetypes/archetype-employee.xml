@@ -20,18 +20,18 @@
         xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
     <name>Employee</name>
     <archetypePolicy>
-    	<display>
-    		<label>Employee</label>
-    		<pluralLabel>Employees</pluralLabel>
-    		<icon>
-    			<cssClass>fa fa-male</cssClass>
-    			<color>blue</color>
-    		</icon>
-    	</display>
+        <display>
+            <label>Employee</label>
+            <pluralLabel>Employees</pluralLabel>
+            <icon>
+                <cssClass>fa fa-male</cssClass>
+                <color>blue</color>
+            </icon>
+        </display>
     </archetypePolicy>
     <assignment>
-    	<assignmentRelation>
-    		<holderType>UserType</holderType>
-    	</assignmentRelation>
+        <assignmentRelation>
+            <holderType>UserType</holderType>
+        </assignmentRelation>
     </assignment>
 </archetype>

@@ -23,7 +23,7 @@
 
     <task>
         <name>Waits on each object</name>
-		<extension>
+        <extension>
             <scext:executeScript xmlns:scext="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3">
                 <s:search xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
                     <s:type>ObjectType</s:type>
@@ -42,7 +42,7 @@
                     </s:action>
                 </s:search>
             </scext:executeScript>
-		</extension>
+        </extension>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 

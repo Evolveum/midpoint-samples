@@ -7,7 +7,7 @@
         <policyRule>
             <policyConstraints>
                 <assignment>
-                	<operation>add</operation>
+                    <operation>add</operation>
                 </assignment>
             </policyConstraints>
             <policyActions>
@@ -16,7 +16,7 @@
                         <order>10</order>
                     </compositionStrategy>
                     <approvalSchema>
-                        <level>
+                        <stage>
                             <name>User's manager</name>
                             <approverExpression>
                                 <script>
@@ -25,7 +25,7 @@
                             </approverExpression>
                             <evaluationStrategy>allMustApprove</evaluationStrategy>
                             <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
-                        </level>
+                        </stage>
                     </approvalSchema>
                 </approval>
             </policyActions>
@@ -35,7 +35,7 @@
         <policyRule>
             <policyConstraints>
                 <assignment>
-                	<operation>add</operation>
+                    <operation>add</operation>
                 </assignment>
             </policyConstraints>
             <policyActions>
@@ -44,12 +44,12 @@
                         <order>20</order>
                     </compositionStrategy>
                     <approvalSchema>
-                        <level>
+                        <stage>
                             <name>Role approvers (all)</name>
                             <approverRelation>owner</approverRelation>
                             <evaluationStrategy>allMustApprove</evaluationStrategy>
                             <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
-                        </level>
+                        </stage>
                     </approvalSchema>
                 </approval>
             </policyActions>

@@ -1,0 +1,472 @@
+<!--
+  ~ Copyright (c) 2019 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<securityPolicy oid="6276728e-f98c-11e9-90ba-0785c1563bb1"
+                xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+                xmlns:piracy="http://midpoint.evolveum.com/xml/ns/samples/piracy">
+    <name>System security policy</name>
+
+    <description>
+        Final version of authentication/credentials configuration.
+        Planned for 4.x-5.x sometime in the future.
+    </description>
+
+    <authentication>
+        <!-- Definition of AUTHENTICATION methods that midPoint supports.
+             Credentials in this section are considered to be read-only. -->
+        <modules>
+            <!-- Definition and configuration of all authentication modules that can be used in the system -->
+            <loginForm>
+                <name>internalLoginForm</name>
+                <description>Internal username/password authentication, default user password, login form</description>
+                <!-- Credential name is not specified. Default password is used. -->
+            </loginForm>
+            <loginForm>
+                <name>adLoginForm</name>
+                <description>Username/password authentication using AD password. Login form</description>
+                <!-- This has to be a name of password or resourcePassword credential. -->
+                <credentialName>adPassword</credentialName>
+            </loginForm>
+            <loginForm>
+                <name>internalAdminLoginForm</name>
+                <description>Internal username/password authentication, admin password, login form</description>
+                <credentialName>adminPassword</credentialName>
+            </loginForm>
+            <httpBasic>
+                <name>internalBasic</name>
+                <description>Internal username/password authentication, using HTTP basic auth</description>
+                <!-- This has to be a name of password or resourcePassword credential. -->
+                <credentialName>userPassword</credentialName>
+                <!-- Password validation config. -->
+                <acceptEmptyPassword>false</acceptEmptyPassword>
+            </httpBasic>
+            <httpHeader>
+                <name>httpHeaderSso</name>
+                <description>
+                    Simple almost-authentication based on presence of HTTP headers.
+                    It does not really authenticates anything. It just takes username from HTTP header.
+                    It is often used with SSO-enabled reverse proxies.
+                </description>
+                <!-- No credentialName here. It does not make sense. -->
+                <!-- Specifies the name of the header that contains username -->
+                <usernameHeader>SSO_USER</usernameHeader>
+            </httpHeader>
+            <saml2>
+                <name>federation</name>
+                <description>SAML-based federation authentication (e.g. eduGAIN-like)</description>
+                <network>
+                    <readTimeout>10000</readTimeout>
+                </network>
+                <serviceProvider>
+                    <entityId>mynode</entityId>
+                </serviceProvider>
+                <!-- ... other SAML configuration that the module needs -->
+            </saml2>
+            <saml2>
+                <name>mySamlSso</name>
+                <description>My internal enterprise SAML-based SSO system.</description>
+                <serviceProvider>
+                    <entityId>midpoint</entityId>
+                </serviceProvider>
+                <!-- ... other SAML configuration that the module needs -->
+            </saml2>
+            <oidc>
+                <name>apiGw</name>
+                <description>API-GW-like authentication using company OpenID Connect authorization server.</description>
+                <!-- ... other OIDC configuration that the module needs -->
+            </oidc>
+            <mailNonce>
+                <name>registrationMail</name>
+                <description>Authentication based on mail message with a nonce. Used for user registration.</description>
+                <!-- This has to be a name of nonce credential. This credential will be generated and stored. -->
+                <credentialName>mailNonce</credentialName>
+                <!-- no emailAddressItem specified, therefore the default emailAddreess item will be used -->
+            </mailNonce>
+            <smsNonce>
+                <name>passwordResetSms</name>
+                <description>Authentication based on SMS message with a nonce. Used for password resets.</description>
+                <!-- This has to be a name of nonce credential. This credential will be generated and stored. -->
+                <credentialName>smsNonce</credentialName>
+                <mobileTelephoneNumberItemPath>extension/mobile</mobileTelephoneNumberItemPath>
+            </smsNonce>
+            <securityQuestionsForm>
+                <name>SecQ</name>
+                <description>
+                    This is interactive, form-based authentication by using security questions.
+                </description>
+                <!-- No credentialName here. Looks for default security questions credentials. -->
+                <!-- Define security question validation.
+                     E.g. how many questions to present, how many need to be answered successfuly, randomize order, etc.  -->
+            </securityQuestionsForm>
+            <httpSecQ>
+                <name>httpSecQ</name>
+                <description>
+                    Special "HTTP SecQ" authentication based on security question answers.
+                    It is used for REST service.
+                </description>
+                <!-- No credentialName here. Looks for default security questions credentials. -->
+                <!-- Define security question validation.
+                     E.g. how many questions to present, how many need to be answered successfuly, randomize order, etc.  -->
+            </httpSecQ>
+
+        </modules>
+
+        <sequence>
+            <name>admin-gui-default</name>
+            <description>
+                Default GUI authentication sequence.
+                We want to try company SSO, federation and internal. In that order.
+                Just one of then need to be successful to let user in.
+            </description>
+            <channel>
+                <!-- Default sequence for the user channel. Usual admin GUI login code will look for this configuration. -->
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#user</channelId>
+                <default>true</default>
+            </channel>
+            <module>
+                <name>mySamlSso</name> <!-- This is reference to module defined above -->
+                <order>10</order>
+                <necessity>sufficient</necessity>
+            </module>
+            <module>
+                <name>federation</name>
+                <order>20</order>
+                <necessity>sufficient</necessity>
+            </module>
+            <module>
+                <name>internalLoginForm</name>
+                <order>30</order>
+                <necessity>sufficient</necessity>
+            </module>
+            <!-- global sequence settings.
+                 e.g. whether to display info that account is locked or whether to be show just generic "access denied" message. -->
+        </sequence>
+
+        <sequence>
+            <name>admin-gui-emergency</name>
+            <description>
+                Special GUI authentication sequence that is using just the internal user password.
+                It is used only in emergency. It allows to skip SAML authentication cycles, e.g. in case
+                that the SAML authentication is redirecting the browser incorrectly.
+            </description>
+            <channel>
+                <!-- Non-default sequence for the user channel.
+                     It can be used for admin GUI. But special URL will be needed to initiate this sequence. -->
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#user</channelId>
+                <default>false</default>
+                <!-- e.g. http://localhost/midpoint/auth/emergency -->
+                <urlSuffix>emergency</urlSuffix>
+            </channel>
+            <!-- This authentication sequence will only work for users that have superuser role -->
+            <requireAssignmentTarget oid="00000000-0000-0000-0000-000000000004" type="RoleType"/> <!-- Role superuser -->
+            <module>
+                <name>internalLoginForm</name>
+                <order>30</order>
+                <necessity>sufficient</necessity>
+            </module>
+        </sequence>
+
+        <sequence>
+            <name>admin-gui-admin</name>
+            <description>
+                Special GUI authentication sequence using admin password.
+                This will count as a stronger authentication. It will enable authorizations that are not normally
+                available.
+            </description>
+            <channel>
+                <!-- Non-default sequence for the user channel.
+                     It can be used for admin GUI. But special URL will be needed to initiate this sequence. -->
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#user</channelId>
+                <default>false</default>
+                <urlSuffix>adminAuth</urlSuffix>
+            </channel>
+            <authenticationContextAttribute>
+                <description>
+                    Sets authentication context attribute "adminAuthentication" to value "true".
+                    This authentication context attribute can be used as an clause in authorizations.
+                    E.g. some authorizations will be active only if this attribute is set.
+                </description>
+                <name>adminAuthentication</name>
+                <value>true</value>
+            </authenticationContextAttribute>
+            <module>
+                <name>mySamlSso</name>
+                <order>10</order>
+                <necessity>sufficient</necessity>
+                <!-- We allow SSO login. But we allow that only for users that have
+                     attribute PRIVILEGE_LEVEL==100 set in the SSO system. The SSO system should be
+                     able to convey that information to us, e.g. using SAML attribute assertions. -->
+                <requireAuthenticationAttribute>
+                    <!-- TODO: maybe this can be made nicer? E.g. require level to be at least 100? -->
+                    <name>PRIVILEGE_LEVEL</name>
+                    <expectedValue>100</expectedValue>
+                </requireAuthenticationAttribute>
+                <transformAuthenticationAttribute>
+                    <!-- Translates SCOPE attribute from the SSO system into midPoint authentication
+                         context attribute "scopeOfControl". The "scopeOfControl" attribute can be used
+                         in authorizations. -->
+                    <name>SCOPE</name>
+                    <targetAttribute>scopeOfControl</targetAttribute>
+                </transformAuthenticationAttribute>
+            </module>
+            <module>
+                <!-- Special login module that is using admin password instead of the default one -->
+                <name>internalAdminLoginForm</name>
+                <order>20</order>
+                <necessity>sufficient</necessity>
+            </module>
+            <!-- global sequence settings.
+                 e.g. whether to display info that account is locked or whether to be show just generic "access denied" message. -->
+        </sequence>
+
+        <sequence>
+            <name>admin-gui-simple-sso</name>
+            <description>
+                Special GUI authentication sequence using simple SSO based on reverse proxy and HTTP headers.
+            </description>
+            <channel>
+                <!-- Non-default sequence for the user channel.
+                     It can be used for admin GUI. But special URL will be needed to initiate this sequence.
+                     The SSO system will be configured to send users to this URL-->
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#user</channelId>
+                <default>false</default>
+                <urlSuffix>sso</urlSuffix>
+            </channel>
+            <!-- Do not allow this authentication for users that have superuser role -->
+            <prohibitAssignmentTarget oid="00000000-0000-0000-0000-000000000004" type="RoleType"/> <!-- Role superuser -->
+            <authenticationContextAttribute>
+                <description>
+                    Sets authentication context attribute "simpleSSO" to value "true".
+                    This authentication context attribute can be used as an clause in authorizations.
+                    E.g. stronger authorizations will NOT be active only if this attribute is set.
+                </description>
+                <name>simpleSSO</name>
+                <value>true</value>
+            </authenticationContextAttribute>
+            <module>
+                <name>httpHeaderSso</name>
+                <order>10</order>
+                <necessity>sufficient</necessity>
+            </module>
+        </sequence>
+
+        <sequence>
+            <name>rest</name>
+            <description>
+                Authentication sequence for REST service.
+                We want just OIDC auth here, HTTP basic as fallback.
+                There is also HTTP SecQ authorization used by custom GUI front end. However, that SecQ
+                authorization can be used only to reset a password.
+                All modules have the same order. Therefore they are both advertised in HTTP WWW-Authentication
+                header. The client can decide which one to use.
+            </description>
+            <channel>
+                <!-- Default (and only) authentication sequence for the REST channel.
+                     This is how REST authorization code will know to look for this auth sequence definition. -->
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#rest</channelId>
+                <default>true</default>
+            </channel>
+            <module>
+                <name>apiGw</name>
+                <order>10</order>
+                <necessity>sufficient</necessity>
+            </module>
+            <module>
+                <name>internalBasic</name>
+                <order>10</order>
+                <necessity>sufficient</necessity>
+            </module>
+            <module>
+                <name>httpSecQ</name>
+                <order>10</order>
+                <necessity>sufficient</necessity>
+                <!-- TODO: reduce authorizations, allow password reset only -->
+            </module>
+        </sequence>
+
+        <sequence>
+            <name>userPasswordResetAuth</name>
+            <description>
+                Just plain and simple security questions.
+            </description>
+            <channel>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/gui/channels-3#resetPassword</channelId>
+            </channel>
+            <module>
+                <name>SecQ</name>
+                <order>10</order>
+                <necessity>sufficient</necessity>
+            </module>
+        </sequence>
+        <sequence>
+            <name>adminPasswordResetAuth</name>
+            <description>
+                We want combination of SMS nonce auth and security questions.
+                Both must be successful for authentication to pass.
+            </description>
+            <channel>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/gui/channels-3#resetPassword</channelId>
+            </channel>
+            <module>
+                <name>passwordResetSms</name>
+                <order>10</order>
+                <necessity>required</necessity>
+            </module>
+            <module>
+                <name>SecQ</name>
+                <order>20</order>
+                <necessity>required</necessity>
+            </module>
+        </sequence>
+        <sequence>
+            <name>selfRegistrationAuth</name>
+            <description>
+                Just a nonce mail to validate e-mail address.
+            </description>
+            <channel>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/gui/channels-3#selfRegistration</channelId>
+            </channel>
+            <module>
+                <name>registrationMail</name>
+                <order>10</order>
+                <necessity>required</necessity>
+            </module>
+        </sequence>
+        <sequence>
+            <name>experimental</name>
+            <description>
+                Experimental auth sequence just for testing.
+            </description>
+            <!-- No channel definition. Therefore this authentication cannot be used by any channel (admin GUI or REST).
+                 It can only be used when invoked explicitly. But even if it is invoked explicitly and user goes
+                 through authentication successfuly, it still may not set the principal to be used in the GUI or REST.
+                 E.g. it will not set any "channel" to the principal.
+                 -->
+        </sequence>
+        <audit>
+            <!-- login/logout auditing settings (if needed) -->
+        </audit>
+    </authentication>
+
+    <credentials>
+        <!-- Definition of user credentials that midPoint can MANAGE. Which means writing/changing them.
+             This has nothing to do with authentication or credential reset. Not directly.
+             But there may be dependencies. E.g. password reset may use password policy to generate/validate new password.
+             Also, resource-side passwords need to be defined here to be used by authentication modules. -->
+        <password>
+            <name>userPassword</name>
+            <description>Ordinary midPoint password (internal)</description>
+            <display>
+                <label>Enterprise password</label>
+            </display>
+            <default>true</default>
+            <!-- Default password policy. -->
+        </password>
+        <password>
+            <name>adminPassword</name>
+            <description>
+                Administration password. This can be used as an alternative password.
+                It can be used to synchronize to all accounts that have intent=admin.
+            </description>
+            <display>
+                <label>Administration password</label>
+                <help>Used for systems where you have special administrator accounts.</help>
+            </display>
+            <!-- Administration password policy. -->
+        </password>
+        <resourcePassword>
+            <name>ldapPassword</name>
+            <description>
+                Special description of password on LDAP resource.
+                This may have several reasons. Firstly we want to use this password in authentication
+                modules. Therefore it has to be defined as a credential.
+                But this password may be important in many ways. E.g. we may also want to have
+                a separate tab in the GUI to manage this password.
+            </description>
+            <resourceRef oid="11123444445"/> <!-- LDAP resource -->
+            <!-- Use connector "authenticate" method to validate the password. -->
+            <validationStrategy>connectorAuthenticate</validationStrategy>
+        </resourcePassword>
+        <resourcePassword>
+            <name>adPassword</name>
+            <description>Special description of password on LDAP resource.</description>
+            <resourceRef oid="12345666"/> <!-- AD resource -->
+            <!-- No validationStrategy. MidPoint will do some discovery logic
+                 (e.g. to see if authenticate method is supported by connector, whether the password is readable, etc. -->
+        </resourcePassword>
+        <resourcePassword>
+            <name>dbPassword</name>
+            <description>Special description of password on DB resource.</description>
+            <resourceRef oid="4536345365654"/> <!-- DB resource -->
+            <!-- MidPoint will read the password from resource and compare values.
+                 Password may be hashed on the resource. The hashing algorithm should be specified in the
+                 schemaHandling in the resource. We need that to set the password anyway. -->
+            <validationStrategy>readAndCompare</validationStrategy>
+        </resourcePassword>
+        <securityQuestions>
+            <name>SecQ</name>
+            <!-- Define credential management,
+                e.g. how many questions to set up. Allow user-provided questions or pre-defined questions only. -->
+        </securityQuestions>
+        <nonce>
+            <name>mailNonce</name>
+            <valuePolicyRef oid="12345"/> <!-- 30-char alphanumeric -->
+        </nonce>
+        <nonce>
+            <name>smsNonce</name>
+            <valuePolicyRef oid="43421233"/> <!-- 6-char alphanumeric (lowercase letters only) -->
+        </nonce>
+    </credentials>
+
+    <flow>
+        <!-- User interface "flows" such as self-service registration -->
+        <selfRegistration>
+            <name>selfRegistration</name>
+            <initialLifecycleState>draft</initialLifecycleState>
+            <displayName>Self Registration</displayName>
+            <additionalAuthenticationName>selfRegistrationAuth</additionalAuthenticationName>
+            <defaultRole oid="00000000-0000-0000-0000-000000000008" type="c:RoleType"/>
+        </selfRegistration>
+        <postAuthentication>
+            <!-- TODO -->
+            <formRef oid="23423535653"/>
+        </postAuthentication>
+    </flow>
+
+    <credentialsReset>
+        <name>userPasswordReset</name>
+        <description>
+            Credential reset procedure for default user password.
+            Security questions are used.
+        </description>
+        <credentialName>userPassword</credentialName>
+        <authenticationSequenceName>userPasswordResetAuth</authenticationSequenceName>
+        <newCredentialSource>userEntry</newCredentialSource>
+    </credentialsReset>
+    <credentialsReset>
+        <name>adminPasswordReset</name>
+        <description>
+            Credential reset procedure for administration password.
+            SMS nonce authentication and security questions are used.
+        </description>
+        <credentialName>adminPassword</credentialName>
+        <authenticationSequenceName>adminPasswordResetAuth</authenticationSequenceName>
+        <newCredentialSource>generated</newCredentialSource>
+        <forceChange>true</forceChange>
+    </credentialsReset>
+
+</securityPolicy>

@@ -22,31 +22,31 @@
    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
    xmlns:ext="http://midpoint.evolveum.com/xml/ns/story/orgsync/ext">
     <name>User Object Template nickName</name>
-    
+
     <mapping>
-    	<!-- This mapping is NOT initial so if will in fact FORCE fullname consistency -->
+        <!-- This mapping is NOT initial so if will in fact FORCE fullname consistency -->
         <strength>strong</strength>
-    	<source>
-    		<path>$user/givenName</path>
-    	</source>
-    	<source>
-    		<path>$user/familyName</path>
-    	</source>
-    	<expression>
-			<script>
-				<code>
-					givenName + ' ' + familyName
-				</code>
-         	</script>
-		</expression>
-    	<target>
-    		<path>$user/nickName</path>
-    	</target>
-    	<condition>
-     		<script>
-    			<code>givenName != null &amp;&amp; familyName != null</code>
-    		</script>  
-    	</condition>
+        <source>
+            <path>$user/givenName</path>
+        </source>
+        <source>
+            <path>$user/familyName</path>
+        </source>
+        <expression>
+            <script>
+                <code>
+                    givenName + ' ' + familyName
+                </code>
+             </script>
+        </expression>
+        <target>
+            <path>$user/nickName</path>
+        </target>
+        <condition>
+             <script>
+                <code>givenName != null &amp;&amp; familyName != null</code>
+            </script>
+        </condition>
     </mapping>
-    
+
 </objectTemplate>

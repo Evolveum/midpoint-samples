@@ -21,15 +21,15 @@
     <name>quiddich-ravenclaw</name>
     <displayName>Ravenclaw</displayName>
     <description>
-    	Ravenclaw quiddich team members
+        Ravenclaw quiddich team members
     </description>
     <requestable>true</requestable>
     <orgType>team</orgType>
     <assignment>
-    	<targetRef oid="00000000-team-0org-0000-111111111111" type="OrgType"/>
+        <targetRef oid="00000000-team-0org-0000-111111111111" type="OrgType"/>
     </assignment>
     <assignment>
-    	<targetRef oid="00000000-role-0000-0000-999111111112" type="RoleType"/>
+        <targetRef oid="00000000-role-0000-0000-999111111112" type="RoleType"/>
     </assignment>
 
 <!-- <assignment> -->

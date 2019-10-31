@@ -23,9 +23,9 @@
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
         xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
+    xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
     <name>Functional Orgstruct Metarole</name>
-    
+
    <inducement>
         <construction>
                 <!-- OpenLDAP -->

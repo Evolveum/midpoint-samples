@@ -16,7 +16,7 @@
   -->
 
 <c:objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	   xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
            xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
@@ -24,7 +24,7 @@
            xmlns:my="http://myself.me/schemas/whatever"
            xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
            xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
-	   xmlns:ext="http://prism.evolveum.com/xml/ns/demo/extension-electra">
+       xmlns:ext="http://prism.evolveum.com/xml/ns/demo/extension-electra">
 
     <c:resource oid="8844dcca-775d-11e2-a0ac-001e8c717e5b">
 
@@ -33,7 +33,7 @@
         <connectorRef type="ConnectorType">
             <filter>
                 <q:equal>
-					<q:path>c:connectorType</q:path>
+                    <q:path>c:connectorType</q:path>
                     <q:value>com.evolveum.polygon.csvfile.CSVFileConnector</q:value>
                 </q:equal>
             </filter>
@@ -43,7 +43,7 @@
 
             <!-- Configuration specific for the CSVfile connector -->
             <icfc:configurationProperties
-			xmlns:icfccsvfile="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csvfile/com.evolveum.polygon.csvfile.CSVFileConnector">
+            xmlns:icfccsvfile="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csvfile/com.evolveum.polygon.csvfile.CSVFileConnector">
                 <icfccsvfile:filePath>/var/opt/hr/export.csv</icfccsvfile:filePath>
                 <icfccsvfile:encoding>utf-8</icfccsvfile:encoding>
                 <icfccsvfile:valueQualifier>"</icfccsvfile:valueQualifier>
@@ -68,12 +68,12 @@
                 <attribute>
                     <ref>icfs:name</ref>
                     <displayName>Employee#</displayName>
-					<limitations>
-						<minOccurs>0</minOccurs>
-					</limitations>					
+                    <limitations>
+                        <minOccurs>0</minOccurs>
+                    </limitations>
                     <inbound>
                         <target>
-                        	<path>$user/employeeNumber</path>
+                            <path>$user/employeeNumber</path>
                         </target>
                     </inbound>
                 </attribute>
@@ -81,7 +81,7 @@
                 <attribute>
                     <ref>ri:firstname</ref>
                     <displayName>First Name</displayName>
-                    <description>Definition of Firstname attribute handling.</description>					
+                    <description>Definition of Firstname attribute handling.</description>
                     <inbound>
                         <target>
                             <path>$user/givenName</path>
@@ -91,7 +91,7 @@
 
                 <attribute>
                     <ref>ri:lastname</ref>
-                    <displayName>Last name</displayName>					
+                    <displayName>Last name</displayName>
                     <inbound>
                         <target>
                             <path>$user/familyName</path>
@@ -101,27 +101,27 @@
 
                 <attribute>
                     <ref>ri:artname</ref>
-                    <displayName>Artistic name</displayName>					
+                    <displayName>Artistic name</displayName>
                     <inbound>
                         <target>
                             <path>$user/extension/ext:artisticName</path>
                         </target>
-                    </inbound>					
-		    <inbound>
-			<strength>weak</strength>
+                    </inbound>
+            <inbound>
+            <strength>weak</strength>
                         <target>
                             <path>$user/nickName</path>
                         </target>
-                    </inbound>					
-		    <inbound>
-			<strength>weak</strength>
-			<expression>
-				<script>
-					<code>basic.norm(input)</code>
-				</script>
-			</expression>
+                    </inbound>
+            <inbound>
+            <strength>weak</strength>
+            <expression>
+                <script>
+                    <code>basic.norm(input)</code>
+                </script>
+            </expression>
                         <target>
-                        	<path>$user/name</path>
+                            <path>$user/name</path>
                         </target>
                     </inbound>
                 </attribute>
@@ -134,14 +134,14 @@
                             <path>$user/employeeType</path>
                         </target>
                     </inbound>
-					<!--<outbound>
-						<source>
-							<path>$user/employeeType</path>
-						</source>
+                    <!--<outbound>
+                        <source>
+                            <path>$user/employeeType</path>
+                        </source>
                     </outbound>-->
                 </attribute>
 
-		<activation>
+        <activation>
                     <administrativeStatus>
                         <inbound>
                             <strength>weak</strength>
@@ -151,7 +151,7 @@
                         </inbound>
                     </administrativeStatus>
                 </activation>
-		<credentials>
+        <credentials>
                     <password>
                         <inbound>
                             <strength>weak</strength>
@@ -167,63 +167,63 @@
         </schemaHandling>
 <!--       <capabilities xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
             <configured>
-				<cap:activation>
-					<cap:status>
-						<cap:attribute>ri:emptype</cap:attribute>
-						<cap:enableValue>FTE</cap:enableValue>
-						<cap:enableValue>PTE</cap:enableValue>
-						<cap:disableValue>RETIRED</cap:disableValue>
-						<cap:disableValue>FIRED</cap:disableValue>
-					</cap:status>
-				</cap:activation>
-			</configured>
+                <cap:activation>
+                    <cap:status>
+                        <cap:attribute>ri:emptype</cap:attribute>
+                        <cap:enableValue>FTE</cap:enableValue>
+                        <cap:enableValue>PTE</cap:enableValue>
+                        <cap:disableValue>RETIRED</cap:disableValue>
+                        <cap:disableValue>FIRED</cap:disableValue>
+                    </cap:status>
+                </cap:activation>
+            </configured>
         </capabilities> -->
         <synchronization>
-        	<objectSynchronization>
-	            <enabled>true</enabled>
-	
-	            <correlation>
-	                <q:description>
-	                    Correlation expression is a search query.
-	                    Following search query will look for users that have "name"
-	                    equal to the "name" attribute of the account. Simply speaking,
-	                    it will look for match in usernames in the IDM and the resource.
-	                    The correlation rule always looks for users, so it will not match
-	                    any other object type.
-	                </q:description>
-	                <q:equal>
-	                    <q:path>c:employeeNumber</q:path>
-	                    <expression>
-	                        <path>$c:account/c:attributes/icfs:name</path>
-	                    </expression>
-	                </q:equal>
-	            </correlation>
-	
-	            <reaction>
-	                <situation>linked</situation>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser</handlerUri>
-	                </action>
-	            </reaction>
-	            <reaction>
-	                <situation>deleted</situation>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#deleteUser</handlerUri>
-	                </action>
-	            </reaction>
-	            <reaction>
-	                <situation>unlinked</situation>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
-	                </action>
-	            </reaction>
-	            <reaction>
-	                <situation>unmatched</situation>
-	                <action>
-	                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addUser</handlerUri>
-	                </action>
-	            </reaction>
-			</objectSynchronization>
+            <objectSynchronization>
+                <enabled>true</enabled>
+
+                <correlation>
+                    <q:description>
+                        Correlation expression is a search query.
+                        Following search query will look for users that have "name"
+                        equal to the "name" attribute of the account. Simply speaking,
+                        it will look for match in usernames in the IDM and the resource.
+                        The correlation rule always looks for users, so it will not match
+                        any other object type.
+                    </q:description>
+                    <q:equal>
+                        <q:path>c:employeeNumber</q:path>
+                        <expression>
+                            <path>$c:account/c:attributes/icfs:name</path>
+                        </expression>
+                    </q:equal>
+                </correlation>
+
+                <reaction>
+                    <situation>linked</situation>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#deleteUser</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addUser</handlerUri>
+                    </action>
+                </reaction>
+            </objectSynchronization>
         </synchronization>
     </c:resource>
 

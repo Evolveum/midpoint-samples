@@ -13,11 +13,11 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-  
+
   <!--
-   
+
 EXTREMELY ABSOLUTELY GIGANTICALLY ENORMOUSLY MEGA GIGA TERA SUPER HYPER EXPERIMENTAL
-		  						
+
 This is almost certain to change in the future. It does not even belong here well
 as this is supposed to be *object* collection and not audit collection. But for now it solves a
 couple of problems in dashboards and report functionality, which is also experimental.
@@ -26,7 +26,7 @@ However, if you ever rely on this element the karma will get you, eventually.
 If that happens, don't come to us crying. You have been warned.
 
    -->
-  
+
 <objectCollection oid="02ed230e-56bb-11e9-b2bb-8bcc562d194a"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
@@ -37,15 +37,15 @@ If that happens, don't come to us crying. You have been warned.
     <!-- Collection: all resources where lastAvailabilityStatus=up -->
     <type>ResourceType</type>
     <auditSearch> <!-- EXPERIMENTAL!!! RADIOACTIVITY!!! BIOHAZARD!!! BEWARE THE DOG!!! -->
-		<search>
-			QUERY <!-- TODO: hql for now? change later? -->
-		</search>
-		<domain>
-			QUERY <!-- TODO: hql for now? change later? -->
-		</domain>
-		<interval>
-			<last>P3D</last> <!-- means: last three days -->
-			<!-- TODO: specify from-to specific dates? expressions? -->
-		</interval>
-	</auditSearch>    
+        <search>
+            QUERY <!-- TODO: hql for now? change later? -->
+        </search>
+        <domain>
+            QUERY <!-- TODO: hql for now? change later? -->
+        </domain>
+        <interval>
+            <last>P3D</last> <!-- means: last three days -->
+            <!-- TODO: specify from-to specific dates? expressions? -->
+        </interval>
+    </auditSearch>
 </objectCollection>

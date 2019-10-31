@@ -18,27 +18,27 @@
         xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
         xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
         xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
-    <name>Owner Control</name>    
+    <name>Owner Control</name>
     <description>
-    	Role that gives access to the organizational units and objects stored
-    	there for organizational unit managers. A manager can read everything in
-    	the units that he is managing. And it can change all the contained objects.
+        Role that gives access to the organizational units and objects stored
+        there for organizational unit managers. A manager can read everything in
+        the units that he is managing. And it can change all the contained objects.
     </description>
     <authorization>
-    	<name>gui</name>
-    	<action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#selfAll</action>
-    	<action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#myWorkItems</action>
-    	<action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#workItem</action>
+        <name>gui</name>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#selfAll</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#myWorkItems</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#workItem</action>
     </authorization>
-    
+
      <authorization>
-    	<name>approve-reject</name>
-    	<action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#completeAllWorkItems</action>
-    	<action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#delegateAllWorkItems</action>
-    	<action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#delegateOwnWorkItems</action>
-    	<action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#readAllWorkItems</action>
+        <name>approve-reject</name>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#completeAllWorkItems</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#delegateAllWorkItems</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#delegateOwnWorkItems</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#readAllWorkItems</action>
     </authorization>
-  
+
     <requestable>true</requestable>
     <assignment>
         <policyRule>

@@ -33,24 +33,24 @@
         </xsd:annotation>
         <xsd:sequence>
             <xsd:element name="artisticName" type="xsd:string" minOccurs="0" maxOccurs="1">
-            	<xsd:annotation>
-            		<xsd:appinfo>
-            			<a:indexed>true</a:indexed>
-            			<a:displayName>Artistic Name</a:displayName>
-		                <a:displayOrder>120</a:displayOrder>
-		                <a:help>The name by which is the artist commonly known in the art community</a:help>
-            		</xsd:appinfo>
-            	</xsd:annotation>
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Artistic Name</a:displayName>
+                        <a:displayOrder>120</a:displayOrder>
+                        <a:help>The name by which is the artist commonly known in the art community</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
             </xsd:element>
             <xsd:element name="artMovement" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
-            	<xsd:annotation>
-            		<xsd:appinfo>
-            			<a:indexed>true</a:indexed>
-            			<a:displayName>Art Movement</a:displayName>
-		                <a:displayOrder>130</a:displayOrder>
-		                <a:help>A tendency or style in art with a specific common philosophy or goal, followed by a group of artists during a restricted period of time, (usually a few months, years or decades) or, at least, with the heyday of the movement defined within a number of years.</a:help>
-            		</xsd:appinfo>
-            	</xsd:annotation>
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Art Movement</a:displayName>
+                        <a:displayOrder>130</a:displayOrder>
+                        <a:help>A tendency or style in art with a specific common philosophy or goal, followed by a group of artists during a restricted period of time, (usually a few months, years or decades) or, at least, with the heyday of the movement defined within a number of years.</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>

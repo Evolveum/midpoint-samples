@@ -15,18 +15,18 @@
   ~ limitations under the License.
   -->
 
-<securityPolicy oid="24bd8e70-5cc5-11e7-b20d-67ebcbf174d3" 
-	xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'>
-	<name>Security Policy: Hasing</name>
-	<credentials>
-		<password>
-			<lockoutMaxFailedAttempts>3</lockoutMaxFailedAttempts>
-			<lockoutFailedAttemptsDuration>PT3M</lockoutFailedAttemptsDuration>
-			<lockoutDuration>PT15M</lockoutDuration>
-			<valuePolicyRef oid="00000000-0000-0000-0000-000000000003"/>
-			<storageMethod>
-				<storageType>hashing</storageType>
-			</storageMethod>
-		</password>
-	</credentials>
+<securityPolicy oid="24bd8e70-5cc5-11e7-b20d-67ebcbf174d3"
+    xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'>
+    <name>Security Policy: Hasing</name>
+    <credentials>
+        <password>
+            <lockoutMaxFailedAttempts>3</lockoutMaxFailedAttempts>
+            <lockoutFailedAttemptsDuration>PT3M</lockoutFailedAttemptsDuration>
+            <lockoutDuration>PT15M</lockoutDuration>
+            <valuePolicyRef oid="00000000-0000-0000-0000-000000000003"/>
+            <storageMethod>
+                <storageType>hashing</storageType>
+            </storageMethod>
+        </password>
+    </credentials>
 </securityPolicy>
