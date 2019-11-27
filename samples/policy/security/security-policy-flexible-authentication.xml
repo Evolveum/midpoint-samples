@@ -1,0 +1,180 @@
+<!--
+  ~ Copyright (c) 2019 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+  
+<securityPolicy xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" oid="00000000-0000-0000-0000-0000000rt120" version="5">
+    <name>Default Security Policy</name>
+    <authentication>
+        <modules>
+            <loginForm id="1">
+                <name>internalLoginForm</name>
+                <description>Internal username/password authentication, default user password, login form</description>
+            </loginForm>
+            <httpBasic id="2">
+                <name>internalBasic</name>
+                <description>Internal username/password authentication, using HTTP basic auth</description>
+            </httpBasic>
+            <saml2 id="3">
+                <name>mySamlSso</name>
+                <description>My internal enterprise SAML-based SSO system.</description>
+                <network>
+                    <readTimeout>10000</readTimeout>
+                    <connectTimeout>5000</connectTimeout>
+                </network>
+                <serviceProvider>
+                    <entityId>sp_midpoint</entityId>
+                    <signMetadata>true</signMetadata>
+                    <signRequests>true</signRequests>
+                    <wantAssertionsSigned>true</wantAssertionsSigned>
+                    <singleLogoutEnabled>true</singleLogoutEnabled>
+                    <nameId>TRANSIENT</nameId>
+                    <keys>
+                        <active>
+                            <name>sp-signing-key</name>
+                            <privateKey>
+                                <t:encryptedData>
+                                    <t:encryptionMethod>
+                                        <t:algorithm>http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
+                                    </t:encryptionMethod>
+                                    <t:keyInfo>
+                                        <t:keyName>HCBsqwAf6kDyxQUHWheC0xzjDlI=</t:keyName>
+                                    </t:keyInfo>
+                                    <t:cipherData>
+                                        <t:cipherValue>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</t:cipherValue>
+                                    </t:cipherData>
+                                </t:encryptedData>
+                            </privateKey>
+                            <passphrase>
+                                <t:encryptedData>
+                                    <t:encryptionMethod>
+                                        <t:algorithm>http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
+                                    </t:encryptionMethod>
+                                    <t:keyInfo>
+                                        <t:keyName>HCBsqwAf6kDyxQUHWheC0xzjDlI=</t:keyName>
+                                    </t:keyInfo>
+                                    <t:cipherData>
+                                        <t:cipherValue>VIyt58IVAKX5njZ6uoqNyHNdpTLwi5wM9qi2zm1P5uY=</t:cipherValue>
+                                    </t:cipherData>
+                                </t:encryptedData>
+                            </passphrase>
+                            <certificate>
+                                <t:encryptedData>
+                                    <t:encryptionMethod>
+                                        <t:algorithm>http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
+                                    </t:encryptionMethod>
+                                    <t:keyInfo>
+                                        <t:keyName>HCBsqwAf6kDyxQUHWheC0xzjDlI=</t:keyName>
+                                    </t:keyInfo>
+                                    <t:cipherData>
+                                        <t:cipherValue>zCUbGp2cmopDJqK95Fuc3i6oBfPZ0jGna6aacbe0/Q0jov2i2LpMnTwsZchtjGmR0s4cDlqBlTlHFhMAyC8cnW49xzYiegvhKVj3RRYWo7RnObM/4ubiZMoeGnq75pvCIa4GEbRwBc3Lle8B1Z0pa8tRbib9ukdmlFZ/p/b31wsnL53yqN81e6LZtcfrFfglMYm3mgAvnfwpp6RgFuFRdba/1uvw3jDSY/sW8BjFtDG/BgDMdMhTe2nTS9Du+66eCg2BpzpsIesuoL2ZPdSReDlpjExqqP+tt65Lfr+14AkArIW4a78TUtJoLBtzXOkCD8iBqAlpzrLcqlovEdA+j9OHoDcqerEiIVk8l4h3xzegCkV3cpbGJRBRW1b6dXZc5ts+NS5+wz+T5vW2o3SUHCLqd295AoWCvS44f57IVj4pwKAD5WlkWx3Qy5uvzsCPH1NmIuFNOBVTaSN6vMZKun3RhvuKtMNoVx4VdgvBuPsL1NfB7wQZdRRzW0KDlTdxfgAmzoDbp/hp4HaujJ5QvdUwXaEsLWgL/NC5svUSRESwT3nRZwhHLm3dqCrgZZKplYuZSN8HnYPs2UBOcAebF+GQv3GK9BEuHsdvd+kkgqzkBThrtKUpCmngWVb4AaQJIm6gPKzQX77+SSrTfDD0l81kp3XuA0vMVyqsVlOGIhVSVBumDyWDarVFOjjrjriDKomAv7W8c1XIylpaDajgBVo9lZCZHuxJzABU6xr2TFammRgV2lYfVgCGVfFllEGXIDjdaE8t/D8jUftV8a7l6kNLES5AExGmC3dVR5J4HAds/QFNaujN6QocZQPbxTIl8gi3hXEpYTb/eWXQ6Kr42cQ+VKIOTUgjL4VWTLkLudEb1s1XoMEmsSAHpKG0qHJov7l4XH12khvS+UtfiEnzxwspH8JZayfbFC4IvfQwpnyIQdEZrDNTJIO+RA8oAITmXMEMJc5oP4OtI+tyQcsy9FPybJZ/BmI7udJ8fEeowx5nL2PsLb80uiWnltetLacYa3QnKf47rLfRN9DbUn/TjTgswoNu4CwgoPotocBNpZxMEzcGaPnMCjjyjw53gwV9Ju8Dw1lFEICqf8JcNj93o+M7wCRJR8daIpJ2EJost697gJ42UIQn4ALHBl9NRqytfC2WpEYkgG7CghjX8I0INQ7MtCdr1evHhOBOIrZ1Z6um5qsoiaFD9G6cGSh5EZtWvPOMkIf5BpXNG5FGOPEhgAhj3UTqQ5cTjhPhKjyke7hOU9Oez84oH9bapmY5bIYEigovBNBU39wIvg2i7lUcgaWkDr1FxWbG9nff3YFfls+JXKijEYffkWDXQxPzJMbsLDLNcjfJJNyJTxfpg3WZNi20f5v2OZfJ4Uj7cpo16EtNJQRJmVzx35l1GEh+hYykOSOXqs0XoNIyl1gp+Sw2iAAhlqLySOb58VrFQ+dfr2Aauxbpjg2QYm+r5fyhVmUpQ2yUn3UAvkE/HsHkzYRmrL0PWjJGzj29+XJUYLcb6Z0V3xtvcXp81QJgU+SBHuQZkwJ/GRv7x8hHBiZK48iLGngdmAt1ZzMEjX6Gh3C6gRg=</t:cipherValue>
+                                    </t:cipherData>
+                                </t:encryptedData>
+                            </certificate>
+                        </active>
+                    </keys>
+                    <provider id="19">
+                        <entityId>https://idptestbed/idp/shibboleth</entityId>
+                        <alias>simplesamlphp</alias>
+                        <metadata>
+                            <xml>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KICAgICAgICAgICAgICA8IS0tCiAgICAgICAgICAgICAgICAgICBUaGlzIGlzIGV4YW1wbGUgbWV0YWRhdGEgb25seS4gRG8gKk5PVCogc3VwcGx5IGl0IGFzIGlzIHdpdGhvdXQgcmV2aWV3LAogICAgICAgICAgICAgICAgICAgYW5kIGRvICpOT1QqIHByb3ZpZGUgaXQgaW4gcmVhbCB0aW1lIHRvIHlvdXIgcGFydG5lcnMuCgogICAgICAgICAgICAgICAgICAgVGhpcyBtZXRhZGF0YSBpcyBub3QgZHluYW1pYyAtIGl0IHdpbGwgbm90IGNoYW5nZSBhcyB5b3VyIGNvbmZpZ3VyYXRpb24gY2hhbmdlcy4KICAgICAgICAgICAgICAtLT4KICAgICAgICAgICAgICA8RW50aXR5RGVzY3JpcHRvciAgeG1sbnM9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDptZXRhZGF0YSIgeG1sbnM6ZHM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiIHhtbG5zOnNoaWJtZD0idXJuOm1hY2U6c2hpYmJvbGV0aDptZXRhZGF0YToxLjAiIHhtbG5zOnhtbD0iaHR0cDovL3d3dy53My5vcmcvWE1MLzE5OTgvbmFtZXNwYWNlIiB4bWxuczptZHVpPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDptZXRhZGF0YTp1aSIgZW50aXR5SUQ9Imh0dHBzOi8vaWRwdGVzdGJlZC9pZHAvc2hpYmJvbGV0aCI+CgogICAgICAgICAgICAgICAgICA8SURQU1NPRGVzY3JpcHRvciBwcm90b2NvbFN1cHBvcnRFbnVtZXJhdGlvbj0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOnByb3RvY29sIHVybjpvYXNpczpuYW1lczp0YzpTQU1MOjEuMTpwcm90b2NvbCB1cm46bWFjZTpzaGliYm9sZXRoOjEuMCI+CgogICAgICAgICAgICAgICAgICAgICAgPEV4dGVuc2lvbnM+CiAgICAgICAgICAgICAgICAgICAgICAgICAgPHNoaWJtZDpTY29wZSByZWdleHA9ImZhbHNlIj5leGFtcGxlLm9yZzwvc2hpYm1kOlNjb3BlPgogICAgICAgICAgICAgIDwhLS0KICAgICAgICAgICAgICAgICAgRmlsbCBpbiB0aGUgZGV0YWlscyBmb3IgeW91ciBJZFAgaGVyZQoKICAgICAgICAgICAgICAgICAgICAgICAgICA8bWR1aTpVSUluZm8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxtZHVpOkRpc3BsYXlOYW1lIHhtbDpsYW5nPSJlbiI+QSBOYW1lIGZvciB0aGUgSWRQIGF0IGlkcHRlc3RiZWQ8L21kdWk6RGlzcGxheU5hbWU+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxtZHVpOkRlc2NyaXB0aW9uIHhtbDpsYW5nPSJlbiI+RW50ZXIgYSBkZXNjcmlwdGlvbiBvZiB5b3VyIElkUCBhdCBpZHB0ZXN0YmVkPC9tZHVpOkRlc2NyaXB0aW9uPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8bWR1aTpMb2dvIGhlaWdodD0iODAiIHdpZHRoPSI4MCI+aHR0cHM6Ly9pZHB0ZXN0YmVkL1BhdGgvVG8vTG9nby5wbmc8L21kdWk6TG9nbz4KICAgICAgICAgICAgICAgICAgICAgICAgICA8L21kdWk6VUlJbmZvPgogICAgICAgICAgICAgIC0tPgogICAgICAgICAgICAgICAgICAgICAgPC9FeHRlbnNpb25zPgoKICAgICAgICAgICAgICAgICAgICAgIDxLZXlEZXNjcmlwdG9yIHVzZT0ic2lnbmluZyI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgPGRzOktleUluZm8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZHM6WDUwOURhdGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRzOlg1MDlDZXJ0aWZpY2F0ZT4KICAgICAgICAgICAgICBNSUlERXpDQ0FmdWdBd0lCQWdJVVM5U3VUWHdzRlZWRytMak9FQWJMcXFUL2VsMHdEUVlKS29aSWh2Y05BUUVMCiAgICAgICAgICAgICAgQlFBd0ZURVRNQkVHQTFVRUF3d0thV1J3ZEdWemRHSmxaREFlRncweE5URXlNVEV3TWpJd01qWmFGdzB6TlRFeQogICAgICAgICAgICAgIE1URXdNakl3TWpaYU1CVXhFekFSQmdOVkJBTU1DbWxrY0hSbGMzUmlaV1F3Z2dFaU1BMEdDU3FHU0liM0RRRUIKICAgICAgICAgICAgICBBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRQ01Bb0RIeDh4Q0lmdi82UUtxdDltY0hZbUVKOHkyZEtwclVicGRjT2pICiAgICAgICAgICAgICAgWXZOUElsL2xIUHNVeXJiK05jK3EyQ0RlaVdqVmsxbVdZcTBVcEl3cEJNdXcxSDYrb09xcjRWUVJpNjVwaW4wTQogICAgICAgICAgICAgIFNmRTBNV0lhRm81RlB2cHZvcHRrSEQ0Z3ZSRWJtNHN3eVhHTWN6Y01SZnFnYWxGWGhVRDJ3ejhXM1hBTTVDcTIKICAgICAgICAgICAgICAwM1hlSmJqNlR3anZLYXRHNVhQZGVVZTJGQkd1T08ycTU0TDFoY0lHbkxNQ1FyZzdEMzFsUjEzUEpiam5KME5vCiAgICAgICAgICAgICAgNUMzazhUUHVueTZ2SnNCQzAzR05MTktmbXJLVlRkenIzVktwMXVheTFHM0RMOTMxNGZnbWJsOEhBNWlSUW15KwogICAgICAgICAgICAgIFhJblVVNi84TlhaU0Y1OXAzSVRBT3ZaUWVac2JKamc1Z0dEaXA1T1pvOVlsQWdNQkFBR2pXekJaTUIwR0ExVWQKICAgICAgICAgICAgICBEZ1FXQkJSUGxNNFZrS1owVTRlYzlHckloRlFsMGhOYkxEQTRCZ05WSFJFRU1UQXZnZ3BwWkhCMFpYTjBZbVZrCiAgICAgICAgICAgICAgaGlGb2RIUndjem92TDJsa2NIUmxjM1JpWldRdmFXUndMM05vYVdKaWIyeGxkR2d3RFFZSktvWklodmNOQVFFTAogICAgICAgICAgICAgIEJRQURnZ0VCQUlaMGExb3YzbXkzbGpKRzU4OEkvUEh4K1R4QVdPTldtcEtiTzljL3FJM0RyeGs0b1JJZmZpYWMKICAgICAgICAgICAgICBBTnhkdnRhYmdJenJsazVnTU1pc0Q3b3lxSEppV2dLdjVCZ2N0ZDh3M0lTM2xMbDd3SFg2NW1US1FSWG5pRzk4CiAgICAgICAgICAgICAgTklqa3ZmcmhlMmVlSnhlY09xbkRJOEdPaElHQ0lxWlVuOFNoZE0veUhqaFEyTWgwSGozVTBMbEt2bm1mR1NRbAogICAgICAgICAgICAgIGowdmlHd2JGQ2FOYUlQM3pjNVVtQ3JkRTVoOHNXTDNGdTdJTEtNOVJ5RmEySUxIckpTY1Y5dDYyM0ljSGZmSFAKICAgICAgICAgICAgICBJZWFZL1d0dWFwc3JxUkZ4dVFMOVFGV04wRnNSSWRMbWpUcSswMCtCL1hubktSS0ZCdVdmamhITEYvdXU4ZitFCiAgICAgICAgICAgICAgdDZMZjIzS2I4eUQ2WlI3ZGloTVpBR0huWVEvaGxoTT0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2RzOlg1MDlDZXJ0aWZpY2F0ZT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZHM6WDUwOURhdGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kczpLZXlJbmZvPgoKICAgICAgICAgICAgICAgICAgICAgIDwvS2V5RGVzY3JpcHRvcj4KICAgICAgICAgICAgICAgICAgICAgIDxLZXlEZXNjcmlwdG9yIHVzZT0ic2lnbmluZyI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgPGRzOktleUluZm8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZHM6WDUwOURhdGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRzOlg1MDlDZXJ0aWZpY2F0ZT4KICAgICAgICAgICAgICBNSUlERkRDQ0FmeWdBd0lCQWdJVkFOM3Z2K2I3S041U2U5bTFSWnNDbGxwL0IvaGRNQTBHQ1NxR1NJYjNEUUVCCiAgICAgICAgICAgICAgQ3dVQU1CVXhFekFSQmdOVkJBTU1DbWxrY0hSbGMzUmlaV1F3SGhjTk1UVXhNakV4TURJeU1ERTBXaGNOTXpVeAogICAgICAgICAgICAgIE1qRXhNREl5TURFMFdqQVZNUk13RVFZRFZRUUREQXBwWkhCMFpYTjBZbVZrTUlJQklqQU5CZ2txaGtpRzl3MEIKICAgICAgICAgICAgICBBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUFoOTFjYWVZMFE4NXVoYVV5cUZ3UDJiTWp3TUZ4TXpSbEFvcUJIZDdnCiAgICAgICAgICAgICAgdTZlbzRkdWFlTHoxQmFvUjJYVEJwTk52RlI1b0hIK1RrS2FoVkRHZUg1K2tjbklweEk4SlBkc1ptbDFzcnZmMgogICAgICAgICAgICAgIFo2ZHpKc3VsSlpVZHBxbm5neWNUa0d0WmdFb0Mxdm1ZVmt5MkJTQUlJaWZtZGg2czBlcGJIbk1HTHNIek1LZkoKICAgICAgICAgICAgICBDYi9RNmRZelJXVENQdHpFMlZNdVFxcVdnZXlNcjd1MTR4L1ZxcjlSUEVGc2dZOEdJdTVqekI2QXlVSXdyTGcrCiAgICAgICAgICAgICAgTU5rdjZhSWRjSHd4WVRHTDdpamZ5NnJTV3JnQmZsUW9ZUllORW5zZUswWkhnSmFoejRvdkNhZzZ3WkFvUHBCcwogICAgICAgICAgICAgIHVZbFk3bEVyODlVY2I2Tkh4M3VxR01zWGxERmRFNFF3ZkRMTGhDWUhQdkowdXdJREFRQUJvMXN3V1RBZEJnTlYKICAgICAgICAgICAgICBIUTRFRmdRVUFrT2dFRDNpWWRtdlFFT01tNnUvSm1EL1VUUXdPQVlEVlIwUkJERXdMNElLYVdSd2RHVnpkR0psCiAgICAgICAgICAgICAgWklZaGFIUjBjSE02THk5cFpIQjBaWE4wWW1Wa0wybGtjQzl6YUdsaVltOXNaWFJvTUEwR0NTcUdTSWIzRFFFQgogICAgICAgICAgICAgIEN3VUFBNElCQVFCSWRkNFlXbG52SmpxbDgrektLZ21XZ0lZN1U4REE4ZTZRY2JBZjhmOGNkRTMzUlNuakk2M1gKICAgICAgICAgICAgICBzdi95OUdmbWJBVkFENlJJQVhQRkZlUllKMDhHT3hHSTlheGZOYUtkbHNrbEo5Yms0ZHVjSHFnQ1NXWVZlcjNzCiAgICAgICAgICAgICAgUlFCanh5T2ZTVHZrOVlDSnZkSlZRUkpMY0N2eHdLYWtGQ3NPU25WM3Q5T3ZOODZBaytmS1BWQjVqMmZNLzBmWgogICAgICAgICAgICAgIEtxam4zaXFnZE5QVExYUHN1SkxKTzVsSVRSaUJhNG9ubVZlbEFpQ3N0STlQUWlhRWNrK29BSG5NVG5DOUpFL0IKICAgICAgICAgICAgICBESHYzZTRyd3EzTHpubHFQdzBHU2Q3eHFOVGRNRHdOT1dqa3VPcjNzR3BXUzhtcy9aSEhYVjFWZDIydVBlNzBpCiAgICAgICAgICAgICAgczAweHJ2MTR6TGlmY2M4b2o1RFl6T2hZUmlmUlhnSFgKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2RzOlg1MDlDZXJ0aWZpY2F0ZT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZHM6WDUwOURhdGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kczpLZXlJbmZvPgoKICAgICAgICAgICAgICAgICAgICAgIDwvS2V5RGVzY3JpcHRvcj4KICAgICAgICAgICAgICAgICAgICAgIDxLZXlEZXNjcmlwdG9yIHVzZT0iZW5jcnlwdGlvbiI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgPGRzOktleUluZm8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZHM6WDUwOURhdGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRzOlg1MDlDZXJ0aWZpY2F0ZT4KICAgICAgICAgICAgICBNSUlERXpDQ0FmdWdBd0lCQWdJVUc2Tm4xcmxFUlMxdnNpODh0Y2R6U1lYMG9xQXdEUVlKS29aSWh2Y05BUUVMCiAgICAgICAgICAgICAgQlFBd0ZURVRNQkVHQTFVRUF3d0thV1J3ZEdWemRHSmxaREFlRncweE5URXlNVEV3TWpJd01UUmFGdzB6TlRFeQogICAgICAgICAgICAgIE1URXdNakl3TVRSYU1CVXhFekFSQmdOVkJBTU1DbWxrY0hSbGMzUmlaV1F3Z2dFaU1BMEdDU3FHU0liM0RRRUIKICAgICAgICAgICAgICBBUVVBQTRJQkR3QXdnZ0VLQW9JQkFRQ0JYdjBvM2ZtVDhpbHV5TGpKNGxCQVZDVytaUlZ5RVhQWVF1Umk3dmZECiAgICAgICAgICAgICAgY080YTZkMWt4aUpMc2FLMFc4OFZOeGpGUVJyOFBnRGtXcjI4dndvSDFyZ2s0cExzc3pMRDQ4REJ6RDk0MnBlSgogICAgICAgICAgICAgIGwvUzZGbnNJSmptYUhjQmg0cGJOaFU0eW93dTYzaUtrdnR0cmNaQUVicEVybzZaOEN6aVdFeDhzeXdvYVlFUUcKICAgICAgICAgICAgICBpZlBrcjlPUlY2Q24zdHhxKzlnTUJlUEc0MUdydFpyVUdJdSt4cm5kTDBTaGg0UHEwZXEvOU1Bc1ZsSUlYRWE4CiAgICAgICAgICAgICAgOVdmSDhKMmtGY1RPZm9XdEljNzBiN1RMWlFzeDRZbk5jbnJHTFNVRWNzdEZ5UExYK1h0djVTTlpGODlPT0l4WAogICAgICAgICAgICAgIFZOak52Z0U1RGJKYjloTU00VUFGcUkrMWJvOVFxdHh3VGhqYy9zT3ZJeHpOQWdNQkFBR2pXekJaTUIwR0ExVWQKICAgICAgICAgICAgICBEZ1FXQkJTdFR5b2dSUHVBVkc2cTd5UHlhdjF1dkUrN3BUQTRCZ05WSFJFRU1UQXZnZ3BwWkhCMFpYTjBZbVZrCiAgICAgICAgICAgICAgaGlGb2RIUndjem92TDJsa2NIUmxjM1JpWldRdmFXUndMM05vYVdKaWIyeGxkR2d3RFFZSktvWklodmNOQVFFTAogICAgICAgICAgICAgIEJRQURnZ0VCQUZNZm9PditvSVNHanZhbXE3K1k0RzdlcDV2eGxBUGVLM1JBVFlQWXZBbXlIOTQ2cVpYaDk4bmkKICAgICAgICAgICAgICBRWHl1cVpXNVA1ZUV0ODZ0b1k0NUl3RFU1cjA5U0t3SHVnaEVlOTlpaUVreGgwbWIycW84NHFYOS9xY2cra3lOCiAgICAgICAgICAgICAgamVMZC9PU3lvbHBVQ0VGTndPRmNvZzdwajdFZXIrNkFIYndUbjFNamI1VEJzS3d0RE1Kc2F4UHZkajB1N001cgogICAgICAgICAgICAgIHhML3dIa0ZobjFyQ28yUWlvanpqU2xWM3lMVGg0OWlUeWhFM2NHK1J4YU5LREN4aHAwalNTTFgxQlcvWm9QQTgKICAgICAgICAgICAgICArUE1KRUErUTBRYnlSRDhhSk9ITjVPOGpHeENhL1p6Y09uWVZMNkFzRVhvRGlZM3ZBVVloMUZVb25PV3cwbTlICiAgICAgICAgICAgICAgcCt0R1ViR1MybDg3M0o1UHJzYnBlS0VWUi9JSW9Lbz0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2RzOlg1MDlDZXJ0aWZpY2F0ZT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZHM6WDUwOURhdGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kczpLZXlJbmZvPgoKICAgICAgICAgICAgICAgICAgICAgIDwvS2V5RGVzY3JpcHRvcj4KCiAgICAgICAgICAgICAgICAgICAgICA8QXJ0aWZhY3RSZXNvbHV0aW9uU2VydmljZSBCaW5kaW5nPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoxLjA6YmluZGluZ3M6U09BUC1iaW5kaW5nIiBMb2NhdGlvbj0iaHR0cHM6Ly9pZHB0ZXN0YmVkOjg0NDMvaWRwL3Byb2ZpbGUvU0FNTDEvU09BUC9BcnRpZmFjdFJlc29sdXRpb24iIGluZGV4PSIxIi8+CiAgICAgICAgICAgICAgICAgICAgICA8QXJ0aWZhY3RSZXNvbHV0aW9uU2VydmljZSBCaW5kaW5nPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6YmluZGluZ3M6U09BUCIgTG9jYXRpb249Imh0dHBzOi8vaWRwdGVzdGJlZDo4NDQzL2lkcC9wcm9maWxlL1NBTUwyL1NPQVAvQXJ0aWZhY3RSZXNvbHV0aW9uIiBpbmRleD0iMiIvPgoKCiAgICAgICAgICAgICAgICAgICAgICA8U2luZ2xlTG9nb3V0U2VydmljZSBCaW5kaW5nPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6YmluZGluZ3M6SFRUUC1SZWRpcmVjdCIgTG9jYXRpb249Imh0dHBzOi8vaWRwdGVzdGJlZC9pZHAvcHJvZmlsZS9TQU1MMi9SZWRpcmVjdC9TTE8iLz4KICAgICAgICAgICAgICAgICAgICAgIDxTaW5nbGVMb2dvdXRTZXJ2aWNlIEJpbmRpbmc9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDpiaW5kaW5nczpIVFRQLVBPU1QiIExvY2F0aW9uPSJodHRwczovL2lkcHRlc3RiZWQvaWRwL3Byb2ZpbGUvU0FNTDIvUE9TVC9TTE8iLz4KICAgICAgICAgICAgICAgICAgICAgIDxTaW5nbGVMb2dvdXRTZXJ2aWNlIEJpbmRpbmc9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDpiaW5kaW5nczpIVFRQLVBPU1QtU2ltcGxlU2lnbiIgTG9jYXRpb249Imh0dHBzOi8vaWRwdGVzdGJlZC9pZHAvcHJvZmlsZS9TQU1MMi9QT1NULVNpbXBsZVNpZ24vU0xPIi8+CiAgICAgICAgICAgICAgICAgICAgICA8U2luZ2xlTG9nb3V0U2VydmljZSBCaW5kaW5nPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6YmluZGluZ3M6U09BUCIgTG9jYXRpb249Imh0dHBzOi8vaWRwdGVzdGJlZDo4NDQzL2lkcC9wcm9maWxlL1NBTUwyL1NPQVAvU0xPIi8+CgoKCiAgICAgICAgICAgICAgICAgICAgICA8TmFtZUlERm9ybWF0PnVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDpuYW1laWQtZm9ybWF0OnRyYW5zaWVudDwvTmFtZUlERm9ybWF0PgogICAgICAgICAgICAgICAgICAgICAgPE5hbWVJREZvcm1hdD51cm46bWFjZTpzaGliYm9sZXRoOjEuMDpuYW1lSWRlbnRpZmllcjwvTmFtZUlERm9ybWF0PgoKICAgICAgICAgICAgICAgICAgICAgIDxTaW5nbGVTaWduT25TZXJ2aWNlIEJpbmRpbmc9InVybjptYWNlOnNoaWJib2xldGg6MS4wOnByb2ZpbGVzOkF1dGhuUmVxdWVzdCIgTG9jYXRpb249Imh0dHBzOi8vaWRwdGVzdGJlZC9pZHAvcHJvZmlsZS9TaGliYm9sZXRoL1NTTyIvPgogICAgICAgICAgICAgICAgICAgICAgPFNpbmdsZVNpZ25PblNlcnZpY2UgQmluZGluZz0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOmJpbmRpbmdzOkhUVFAtUE9TVCIgTG9jYXRpb249Imh0dHBzOi8vaWRwdGVzdGJlZC9pZHAvcHJvZmlsZS9TQU1MMi9QT1NUL1NTTyIvPgogICAgICAgICAgICAgICAgICAgICAgPFNpbmdsZVNpZ25PblNlcnZpY2UgQmluZGluZz0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOmJpbmRpbmdzOkhUVFAtUE9TVC1TaW1wbGVTaWduIiBMb2NhdGlvbj0iaHR0cHM6Ly9pZHB0ZXN0YmVkL2lkcC9wcm9maWxlL1NBTUwyL1BPU1QtU2ltcGxlU2lnbi9TU08iLz4KICAgICAgICAgICAgICAgICAgICAgIDxTaW5nbGVTaWduT25TZXJ2aWNlIEJpbmRpbmc9InVybjpvYXNpczpuYW1lczp0YzpTQU1MOjIuMDpiaW5kaW5nczpIVFRQLVJlZGlyZWN0IiBMb2NhdGlvbj0iaHR0cHM6Ly9pZHB0ZXN0YmVkL2lkcC9wcm9maWxlL1NBTUwyL1JlZGlyZWN0L1NTTyIvPgoKICAgICAgICAgICAgICAgICAgPC9JRFBTU09EZXNjcmlwdG9yPgoKCiAgICAgICAgICAgICAgICAgIDxBdHRyaWJ1dGVBdXRob3JpdHlEZXNjcmlwdG9yIHByb3RvY29sU3VwcG9ydEVudW1lcmF0aW9uPSJ1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoxLjE6cHJvdG9jb2wiPgoKICAgICAgICAgICAgICAgICAgICAgIDxFeHRlbnNpb25zPgogICAgICAgICAgICAgICAgICAgICAgICAgIDxzaGlibWQ6U2NvcGUgcmVnZXhwPSJmYWxzZSI+ZXhhbXBsZS5vcmc8L3NoaWJtZDpTY29wZT4KICAgICAgICAgICAgICAgICAgICAgIDwvRXh0ZW5zaW9ucz4KCiAgICAgICAgICAgICAgICAgICAgICA8S2V5RGVzY3JpcHRvciB1c2U9InNpZ25pbmciPgogICAgICAgICAgICAgICAgICAgICAgICAgIDxkczpLZXlJbmZvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRzOlg1MDlEYXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkczpYNTA5Q2VydGlmaWNhdGU+CiAgICAgICAgICAgICAgTUlJREV6Q0NBZnVnQXdJQkFnSVVTOVN1VFh3c0ZWVkcrTGpPRUFiTHFxVC9lbDB3RFFZSktvWklodmNOQVFFTAogICAgICAgICAgICAgIEJRQXdGVEVUTUJFR0ExVUVBd3dLYVdSd2RHVnpkR0psWkRBZUZ3MHhOVEV5TVRFd01qSXdNalphRncwek5URXkKICAgICAgICAgICAgICBNVEV3TWpJd01qWmFNQlV4RXpBUkJnTlZCQU1NQ21sa2NIUmxjM1JpWldRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCCiAgICAgICAgICAgICAgQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUUNNQW9ESHg4eENJZnYvNlFLcXQ5bWNIWW1FSjh5MmRLcHJVYnBkY09qSAogICAgICAgICAgICAgIFl2TlBJbC9sSFBzVXlyYitOYytxMkNEZWlXalZrMW1XWXEwVXBJd3BCTXV3MUg2K29PcXI0VlFSaTY1cGluME0KICAgICAgICAgICAgICBTZkUwTVdJYUZvNUZQdnB2b3B0a0hENGd2UkVibTRzd3lYR01jemNNUmZxZ2FsRlhoVUQyd3o4VzNYQU01Q3EyCiAgICAgICAgICAgICAgMDNYZUpiajZUd2p2S2F0RzVYUGRlVWUyRkJHdU9PMnE1NEwxaGNJR25MTUNRcmc3RDMxbFIxM1BKYmpuSjBObwogICAgICAgICAgICAgIDVDM2s4VFB1bnk2dkpzQkMwM0dOTE5LZm1yS1ZUZHpyM1ZLcDF1YXkxRzNETDkzMTRmZ21ibDhIQTVpUlFteSsKICAgICAgICAgICAgICBYSW5VVTYvOE5YWlNGNTlwM0lUQU92WlFlWnNiSmpnNWdHRGlwNU9abzlZbEFnTUJBQUdqV3pCWk1CMEdBMVVkCiAgICAgICAgICAgICAgRGdRV0JCUlBsTTRWa0taMFU0ZWM5R3JJaEZRbDBoTmJMREE0QmdOVkhSRUVNVEF2Z2dwcFpIQjBaWE4wWW1WawogICAgICAgICAgICAgIGhpRm9kSFJ3Y3pvdkwybGtjSFJsYzNSaVpXUXZhV1J3TDNOb2FXSmliMnhsZEdnd0RRWUpLb1pJaHZjTkFRRUwKICAgICAgICAgICAgICBCUUFEZ2dFQkFJWjBhMW92M215M2xqSkc1ODhJL1BIeCtUeEFXT05XbXBLYk85Yy9xSTNEcnhrNG9SSWZmaWFjCiAgICAgICAgICAgICAgQU54ZHZ0YWJnSXpybGs1Z01NaXNEN295cUhKaVdnS3Y1QmdjdGQ4dzNJUzNsTGw3d0hYNjVtVEtRUlhuaUc5OAogICAgICAgICAgICAgIE5Jamt2ZnJoZTJlZUp4ZWNPcW5ESThHT2hJR0NJcVpVbjhTaGRNL3lIamhRMk1oMEhqM1UwTGxLdm5tZkdTUWwKICAgICAgICAgICAgICBqMHZpR3diRkNhTmFJUDN6YzVVbUNyZEU1aDhzV0wzRnU3SUxLTTlSeUZhMklMSHJKU2NWOXQ2MjNJY0hmZkhQCiAgICAgICAgICAgICAgSWVhWS9XdHVhcHNycVJGeHVRTDlRRldOMEZzUklkTG1qVHErMDArQi9Ybm5LUktGQnVXZmpoSExGL3V1OGYrRQogICAgICAgICAgICAgIHQ2TGYyM0tiOHlENlpSN2RpaE1aQUdIbllRL2hsaE09CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kczpYNTA5Q2VydGlmaWNhdGU+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2RzOlg1MDlEYXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgIDwvZHM6S2V5SW5mbz4KCiAgICAgICAgICAgICAgICAgICAgICA8L0tleURlc2NyaXB0b3I+CiAgICAgICAgICAgICAgICAgICAgICA8S2V5RGVzY3JpcHRvciB1c2U9InNpZ25pbmciPgogICAgICAgICAgICAgICAgICAgICAgICAgIDxkczpLZXlJbmZvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRzOlg1MDlEYXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkczpYNTA5Q2VydGlmaWNhdGU+CiAgICAgICAgICAgICAgTUlJREZEQ0NBZnlnQXdJQkFnSVZBTjN2ditiN0tONVNlOW0xUlpzQ2xscC9CL2hkTUEwR0NTcUdTSWIzRFFFQgogICAgICAgICAgICAgIEN3VUFNQlV4RXpBUkJnTlZCQU1NQ21sa2NIUmxjM1JpWldRd0hoY05NVFV4TWpFeE1ESXlNREUwV2hjTk16VXgKICAgICAgICAgICAgICBNakV4TURJeU1ERTBXakFWTVJNd0VRWURWUVFEREFwcFpIQjBaWE4wWW1Wa01JSUJJakFOQmdrcWhraUc5dzBCCiAgICAgICAgICAgICAgQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBaDkxY2FlWTBRODV1aGFVeXFGd1AyYk1qd01GeE16UmxBb3FCSGQ3ZwogICAgICAgICAgICAgIHU2ZW80ZHVhZUx6MUJhb1IyWFRCcE5OdkZSNW9ISCtUa0thaFZER2VINStrY25JcHhJOEpQZHNabWwxc3J2ZjIKICAgICAgICAgICAgICBaNmR6SnN1bEpaVWRwcW5uZ3ljVGtHdFpnRW9DMXZtWVZreTJCU0FJSWlmbWRoNnMwZXBiSG5NR0xzSHpNS2ZKCiAgICAgICAgICAgICAgQ2IvUTZkWXpSV1RDUHR6RTJWTXVRcXFXZ2V5TXI3dTE0eC9WcXI5UlBFRnNnWThHSXU1anpCNkF5VUl3ckxnKwogICAgICAgICAgICAgIE1Oa3Y2YUlkY0h3eFlUR0w3aWpmeTZyU1dyZ0JmbFFvWVJZTkVuc2VLMFpIZ0phaHo0b3ZDYWc2d1pBb1BwQnMKICAgICAgICAgICAgICB1WWxZN2xFcjg5VWNiNk5IeDN1cUdNc1hsREZkRTRRd2ZETExoQ1lIUHZKMHV3SURBUUFCbzFzd1dUQWRCZ05WCiAgICAgICAgICAgICAgSFE0RUZnUVVBa09nRUQzaVlkbXZRRU9NbTZ1L0ptRC9VVFF3T0FZRFZSMFJCREV3TDRJS2FXUndkR1Z6ZEdKbAogICAgICAgICAgICAgIFpJWWhhSFIwY0hNNkx5OXBaSEIwWlhOMFltVmtMMmxrY0M5emFHbGlZbTlzWlhSb01BMEdDU3FHU0liM0RRRUIKICAgICAgICAgICAgICBDd1VBQTRJQkFRQklkZDRZV2xudkpqcWw4K3pLS2dtV2dJWTdVOERBOGU2UWNiQWY4ZjhjZEUzM1JTbmpJNjNYCiAgICAgICAgICAgICAgc3YveTlHZm1iQVZBRDZSSUFYUEZGZVJZSjA4R094R0k5YXhmTmFLZGxza2xKOWJrNGR1Y0hxZ0NTV1lWZXIzcwogICAgICAgICAgICAgIFJRQmp4eU9mU1R2azlZQ0p2ZEpWUVJKTGNDdnh3S2FrRkNzT1NuVjN0OU92Tjg2QWsrZktQVkI1ajJmTS8wZloKICAgICAgICAgICAgICBLcWpuM2lxZ2ROUFRMWFBzdUpMSk81bElUUmlCYTRvbm1WZWxBaUNzdEk5UFFpYUVjaytvQUhuTVRuQzlKRS9CCiAgICAgICAgICAgICAgREh2M2U0cndxM0x6bmxxUHcwR1NkN3hxTlRkTUR3Tk9Xamt1T3Izc0dwV1M4bXMvWkhIWFYxVmQyMnVQZTcwaQogICAgICAgICAgICAgIHMwMHhydjE0ekxpZmNjOG9qNURZek9oWVJpZlJYZ0hYCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kczpYNTA5Q2VydGlmaWNhdGU+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2RzOlg1MDlEYXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgIDwvZHM6S2V5SW5mbz4KCiAgICAgICAgICAgICAgICAgICAgICA8L0tleURlc2NyaXB0b3I+CiAgICAgICAgICAgICAgICAgICAgICA8S2V5RGVzY3JpcHRvciB1c2U9ImVuY3J5cHRpb24iPgogICAgICAgICAgICAgICAgICAgICAgICAgIDxkczpLZXlJbmZvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRzOlg1MDlEYXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkczpYNTA5Q2VydGlmaWNhdGU+CiAgICAgICAgICAgICAgTUlJREV6Q0NBZnVnQXdJQkFnSVVHNk5uMXJsRVJTMXZzaTg4dGNkelNZWDBvcUF3RFFZSktvWklodmNOQVFFTAogICAgICAgICAgICAgIEJRQXdGVEVUTUJFR0ExVUVBd3dLYVdSd2RHVnpkR0psWkRBZUZ3MHhOVEV5TVRFd01qSXdNVFJhRncwek5URXkKICAgICAgICAgICAgICBNVEV3TWpJd01UUmFNQlV4RXpBUkJnTlZCQU1NQ21sa2NIUmxjM1JpWldRd2dnRWlNQTBHQ1NxR1NJYjNEUUVCCiAgICAgICAgICAgICAgQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUUNCWHYwbzNmbVQ4aWx1eUxqSjRsQkFWQ1crWlJWeUVYUFlRdVJpN3ZmRAogICAgICAgICAgICAgIGNPNGE2ZDFreGlKTHNhSzBXODhWTnhqRlFScjhQZ0RrV3IyOHZ3b0gxcmdrNHBMc3N6TEQ0OERCekQ5NDJwZUoKICAgICAgICAgICAgICBsL1M2Rm5zSUpqbWFIY0JoNHBiTmhVNHlvd3U2M2lLa3Z0dHJjWkFFYnBFcm82WjhDemlXRXg4c3l3b2FZRVFHCiAgICAgICAgICAgICAgaWZQa3I5T1JWNkNuM3R4cSs5Z01CZVBHNDFHcnRaclVHSXUreHJuZEwwU2hoNFBxMGVxLzlNQXNWbElJWEVhOAogICAgICAgICAgICAgIDlXZkg4SjJrRmNUT2ZvV3RJYzcwYjdUTFpRc3g0WW5OY25yR0xTVUVjc3RGeVBMWCtYdHY1U05aRjg5T09JeFgKICAgICAgICAgICAgICBWTmpOdmdFNURiSmI5aE1NNFVBRnFJKzFibzlRcXR4d1RoamMvc092SXh6TkFnTUJBQUdqV3pCWk1CMEdBMVVkCiAgICAgICAgICAgICAgRGdRV0JCU3RUeW9nUlB1QVZHNnE3eVB5YXYxdXZFKzdwVEE0QmdOVkhSRUVNVEF2Z2dwcFpIQjBaWE4wWW1WawogICAgICAgICAgICAgIGhpRm9kSFJ3Y3pvdkwybGtjSFJsYzNSaVpXUXZhV1J3TDNOb2FXSmliMnhsZEdnd0RRWUpLb1pJaHZjTkFRRUwKICAgICAgICAgICAgICBCUUFEZ2dFQkFGTWZvT3Yrb0lTR2p2YW1xNytZNEc3ZXA1dnhsQVBlSzNSQVRZUFl2QW15SDk0NnFaWGg5OG5pCiAgICAgICAgICAgICAgUVh5dXFaVzVQNWVFdDg2dG9ZNDVJd0RVNXIwOVNLd0h1Z2hFZTk5aWlFa3hoMG1iMnFvODRxWDkvcWNnK2t5TgogICAgICAgICAgICAgIGplTGQvT1N5b2xwVUNFRk53T0Zjb2c3cGo3RWVyKzZBSGJ3VG4xTWpiNVRCc0t3dERNSnNheFB2ZGowdTdNNXIKICAgICAgICAgICAgICB4TC93SGtGaG4xckNvMlFpb2p6alNsVjN5TFRoNDlpVHloRTNjRytSeGFOS0RDeGhwMGpTU0xYMUJXL1pvUEE4CiAgICAgICAgICAgICAgK1BNSkVBK1EwUWJ5UkQ4YUpPSE41TzhqR3hDYS9aemNPbllWTDZBc0VYb0RpWTN2QVVZaDFGVW9uT1d3MG05SAogICAgICAgICAgICAgIHArdEdVYkdTMmw4NzNKNVByc2JwZUtFVlIvSUlvS289CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kczpYNTA5Q2VydGlmaWNhdGU+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2RzOlg1MDlEYXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgIDwvZHM6S2V5SW5mbz4KCiAgICAgICAgICAgICAgICAgICAgICA8L0tleURlc2NyaXB0b3I+CgogICAgICAgICAgICAgICAgICAgICAgPEF0dHJpYnV0ZVNlcnZpY2UgQmluZGluZz0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6MS4wOmJpbmRpbmdzOlNPQVAtYmluZGluZyIgTG9jYXRpb249Imh0dHBzOi8vaWRwdGVzdGJlZDo4NDQzL2lkcC9wcm9maWxlL1NBTUwxL1NPQVAvQXR0cmlidXRlUXVlcnkiLz4KICAgICAgICAgICAgICAgICAgICAgIDwhLS0gPEF0dHJpYnV0ZVNlcnZpY2UgQmluZGluZz0idXJuOm9hc2lzOm5hbWVzOnRjOlNBTUw6Mi4wOmJpbmRpbmdzOlNPQVAiIExvY2F0aW9uPSJodHRwczovL2lkcHRlc3RiZWQ6ODQ0My9pZHAvcHJvZmlsZS9TQU1MMi9TT0FQL0F0dHJpYnV0ZVF1ZXJ5Ii8+IC0tPgogICAgICAgICAgICAgICAgICAgICAgPCEtLSBJZiB5b3UgdW5jb21tZW50IHRoZSBhYm92ZSB5b3Ugc2hvdWxkIGFkZCB1cm46b2FzaXM6bmFtZXM6dGM6U0FNTDoyLjA6cHJvdG9jb2wgdG8gdGhlIHByb3RvY29sU3VwcG9ydEVudW1lcmF0aW9uIGFib3ZlIC0tPgoKICAgICAgICAgICAgICAgICAgPC9BdHRyaWJ1dGVBdXRob3JpdHlEZXNjcmlwdG9yPgoKICAgICAgICAgICAgICA8L0VudGl0eURlc2NyaXB0b3I+</xml>
+                        </metadata>
+                        <skipSslValidation>true</skipSslValidation>
+                        <linkText>Shibboleth</linkText>
+                        <authenticationRequestBinding>urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST</authenticationRequestBinding>
+                        <nameOfUsernameAttribute>uid</nameOfUsernameAttribute>
+                    </provider>
+                </serviceProvider>
+            </saml2>
+            <mailNonce id="4">
+                <name>registrationMail</name>
+                <description>Authentication based on mail message with a nonce. Used for user registration.</description>
+                <credentialName>mailNonce</credentialName>
+            </mailNonce>
+            <smsNonce id="5">
+                <name>passwordResetSms</name>
+                <description>Authentication based on SMS message with a nonce. Used for password resets.</description>
+                <credentialName>smsNonce</credentialName>
+                <c:mobileTelephoneNumberItemPath>extension/mobile</c:mobileTelephoneNumberItemPath>
+            </smsNonce>
+            <securityQuestionsForm id="6">
+                <name>SecQ</name>
+                <description>
+                    This is interactive, form-based authentication by using security questions.
+                </description>
+            </securityQuestionsForm>
+            <httpSecQ id="7">
+                <name>httpSecQ</name>
+                <description>
+                    Special "HTTP SecQ" authentication based on security question answers.
+                    It is used for REST service.
+                </description>
+            </httpSecQ>
+        </modules>
+        <sequence id="8">
+            <name>admin-gui-default</name>
+            <description>
+                Default GUI authentication sequence.
+                We want to try company SSO, federation and internal. In that order.
+                Just one of then need to be successful to let user in.
+            </description>
+            <channel>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#user</channelId>
+                <default>true</default>
+            </channel>
+            <module id="12">
+                <name>mySamlSso</name>
+                <order>30</order>
+                <necessity>sufficient</necessity>
+            </module>
+            <module id="13">
+                <name>internalLoginForm</name>
+                <order>20</order>
+                <necessity>sufficient</necessity>
+            </module>
+        </sequence>
+        <sequence id="9">
+            <name>admin-gui-emergency</name>
+            <description>
+                Special GUI authentication sequence that is using just the internal user password.
+                It is used only in emergency. It allows to skip SAML authentication cycles, e.g. in case
+                that the SAML authentication is redirecting the browser incorrectly.
+            </description>
+            <channel>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#user</channelId>
+                <default>false</default>
+                <urlSuffix>emergency</urlSuffix>
+            </channel>
+            <requireAssignmentTarget oid="00000000-0000-0000-0000-000000000004" relation="org:default" type="c:RoleType">
+                <!-- Superuser -->
+            </requireAssignmentTarget>
+            <module id="14">
+                <name>internalLoginForm</name>
+                <order>30</order>
+                <necessity>sufficient</necessity>
+            </module>
+        </sequence>
+    </authentication>
+    <credentials>
+        <password>
+            <minOccurs>0</minOccurs>
+            <lockoutMaxFailedAttempts>3</lockoutMaxFailedAttempts>
+            <lockoutFailedAttemptsDuration>PT3M</lockoutFailedAttemptsDuration>
+            <lockoutDuration>PT15M</lockoutDuration>
+            <valuePolicyRef xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="00000000-0000-0000-0000-000000000003" relation="org:default" type="tns:ValuePolicyType">
+                <!-- Default Password Policy -->
+            </valuePolicyRef>
+        </password>
+    </credentials>
+</securityPolicy>
