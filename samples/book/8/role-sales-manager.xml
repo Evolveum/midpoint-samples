@@ -21,6 +21,6 @@
       xmlns:exmpl="http://example.com/xml/ns/midpoint/schema">
     <name>Sales Manager</name>
     <extension>
-        <exmpl:autoassignJobCode>006</exmpl:jobCode>
+        <exmpl:autoassignJobCode>S006</exmpl:jobCode>
     </extension>
 </role>

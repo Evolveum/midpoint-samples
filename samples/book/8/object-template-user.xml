@@ -50,6 +50,15 @@
             <expression>
                 <script>
                     <code>
+                        if ( givenName == null &amp;&amp; familyName == null ) {
+                            return null
+                        }
+                        if ( familyName == null ) {
+                            return givenName?.norm + iterationToken
+                        }
+                        if ( givenName == null ) {
+                            return familyName?.norm + iterationToken
+                        }
                         givenName?.norm[0] + familyName?.norm + iterationToken
                     </code>
                 </script>
@@ -60,7 +69,6 @@
     <item>
         <ref>fullName</ref>
         <mapping>
-            <strength>weak</strength>
             <source>
                 <path>givenName</path>
             </source>
@@ -69,9 +77,7 @@
             </source>
             <expression>
                 <script>
-                    <code>
-                        givenName + ' ' + familyName
-                    </code>
+                    <code>givenName + ' ' + familyName</code>
                 </script>
             </expression>
         </mapping>
@@ -104,8 +110,10 @@
             <expression>
                 <script>
                     <code>
-                        givenName?.norm + '.' + familyName?.norm
-                        + iterationToken + '@example.com'
+                        if ( givenName == null &amp;&amp; familyName == null ) { return null }
+                        if ( familyName == null ) { return givenName?.norm + iterationToken + '@example.com' }
+                        if ( givenName == null ) { return familyName?.norm + iterationToken + '@example.com' }
+                        givenName?.norm + '.' + familyName?.norm + iterationToken + '@example.com'
                     </code>
                 </script>
             </expression>
@@ -137,7 +145,7 @@
             </source>
             <expression>
                 <value>
-                    <targetRef oid="c38a5e6e-b783-11e9-b82f-ebb94fb5b6ec" type="RoleType">
+                    <targetRef oid="c38a5e6e-b783-11e9-b82f-ebb94fb5b6ec" type="RoleType"/>
                 </value>
             </expression>
             <condition>
