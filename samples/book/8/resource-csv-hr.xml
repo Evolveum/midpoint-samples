@@ -78,6 +78,17 @@
                         <path>$focus/employeeNumber</path>
                     </target>
                 </inbound>
+                <inbound>
+                    <expression>
+                        <value>
+                            <!-- Employee role -->
+                            <targetRef oid="86d3b462-2334-11ea-bbac-13d84ce0a1df" type="RoleType"/>
+                        </value>
+                    </expression>
+                    <target>
+                        <path>assignment</path>
+                    </target>
+                </inbound>
             </attribute>
             <attribute>
                 <ref>ri:firstname</ref>

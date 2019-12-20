@@ -155,6 +155,7 @@
             </condition>
         </mapping>
         <mapping>
+            <strength>strong</strength>
             <source>
                 <path>extension/jobCode</path>
             </source>
