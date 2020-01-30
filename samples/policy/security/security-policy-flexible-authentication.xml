@@ -165,6 +165,40 @@
                 <necessity>sufficient</necessity>
             </module>
         </sequence>
+        <sequence>
+            <name>rest</name>
+            <description>
+                Authentication sequence for REST service.
+            </description>
+            <channel>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#rest</channelId>
+                <default>true</default>
+                <urlSuffix>rest-default</urlSuffix>
+            </channel>
+            <module>
+                <name>internalBasic</name>
+                <order>10</order>
+                <necessity>sufficient</necessity>
+            </module>
+        </sequence>
+        <sequence>
+            <name>actuator</name>
+            <description>
+                Authentication sequence for actuator.
+            </description>
+            <channel>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#actuator</channelId>
+                <default>true</default>
+                <urlSuffix>actuator-default</urlSuffix>
+            </channel>
+            <module>
+                <name>internalBasic</name>
+                <order>10</order>
+                <necessity>sufficient</necessity>
+            </module>
+        </sequence>
+      <ignoredLocalPath>/actuator</ignoredLocalPath>
+      <ignoredLocalPath>/actuator/health</ignoredLocalPath>
     </authentication>
     <credentials>
         <password>
