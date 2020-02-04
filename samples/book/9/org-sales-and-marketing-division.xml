@@ -15,11 +15,14 @@
   ~ limitations under the License.
   -->
 
-<org oid="00000000-8888-6666-0000-100000000001"
+<org oid="7a1feb50-471f-11ea-8aab-1b2627541f15"
     xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
        xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
-    <name>TOP</name>
-    <displayName>Top</displayName>
-    <identifier>0000</identifier>
-    <orgType>functional</orgType>
+    <name>F11000</name>
+    <description>Expensive people that make money.</description>
+    <displayName>Sales and Marketing Division</displayName>
+    <identifier>11000</identifier>
+    <assignment>
+       <targetRef oid="4d12c1ac-440c-11ea-80af-2b314d06ba95" type="OrgType"/>
+    </assignment>
 </org>

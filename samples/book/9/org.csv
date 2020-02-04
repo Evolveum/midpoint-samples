@@ -20,5 +20,5 @@
 "19100","Financial Audit Department","Number-crunching detectives.","19000"
 "19200","Security Department","Policies, rules and paranoia.","19000"
 "19210","Physical Security Section","Locks and guns.","19200"
-"19210","Information Security Section","Dangerous geeks.","19200"
-"19211","Information Security Office","Heavenly seat of Security Officer.","19210"
+"19220","Information Security Section","Dangerous geeks.","19200"
+"19221","Information Security Office","Heavenly seat of Security Officer.","19210"
