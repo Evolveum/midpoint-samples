@@ -20,7 +20,7 @@
     <name>midPoint Samples</name>
     <groupId>com.evolveum.midpoint</groupId>
     <artifactId>midpoint-samples</artifactId>
-    <version>4.0.2-SNAPSHOT</version>
+    <version>4.0.2</version>
     <packaging>jar</packaging>
     <organization>
         <name>Evolveum</name>
