@@ -35,54 +35,23 @@
                 </network>
                 <serviceProvider>
                     <entityId>sp_midpoint</entityId>
-                    <signMetadata>true</signMetadata>
                     <signRequests>true</signRequests>
                     <wantAssertionsSigned>true</wantAssertionsSigned>
                     <singleLogoutEnabled>true</singleLogoutEnabled>
                     <nameId>TRANSIENT</nameId>
                     <keys>
-                        <active>
+                        <activeSimpleKey>
                             <name>sp-signing-key</name>
                             <privateKey>
-                                <t:encryptedData>
-                                    <t:encryptionMethod>
-                                        <t:algorithm>http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
-                                    </t:encryptionMethod>
-                                    <t:keyInfo>
-                                        <t:keyName>HCBsqwAf6kDyxQUHWheC0xzjDlI=</t:keyName>
-                                    </t:keyInfo>
-                                    <t:cipherData>
-                                        <t:cipherValue>/kMGyP9JDRKZBKRtcjv7mEh/RLHXC93+QY7iI3uGU7r+ccNYf2TVmt7UbdZT7nMeo5MZ16i0SIvIRmPKwLYNcod9T+zJG10Q8oQM1SdciwdZpfAVsF9h6W8CKxGCyjRXcQKj1xB6xS31mKspWUttmTjwJKmbni7m28OMSl3RJuGY+snU2UFdkGJx75WEIZccdyVGQJMJ76Evwgg84V5hvuW2GPJkU+KRK/x6guexxwa8chchE8lYnpkKu96Jn/69R9rHMOO8YdrkX6vZ/8cnrOFut4660/EdHgGkOya+L2TL4dNGyb3MVBip7YRYfyLL4A1ixTxXG8NSXvAn4HH4KCHaHDHB1WRusmJxlU1nwdIPi185cVB2MBrJbEC0LuTUyLNW7m7+yTa2ioahwQum1Zy4BxWxTK2YcMQo2Oyy+LI4fH0QjUj/lrHgK1ExeevYb9FdbDuIAVRl73Clrh04GZSoKK262xtDcc2X/Ogx1I0O+g8piSbJtCUL7eklDXfv8JNpOOhJ8emNJwPmLHhIXNG3g9SNMySRS6T5IRiGFb6PbeKB2U2ZWwKIdtf7cGLqXhOPZlA7j4nQ/BnpVqQBe0DVfudv4shbKeCi98iY57zpKcGEZKKSt9gqZiQbRd1ON2/eRBmGH6ulNOV5ekvxDVVueqRdo4ewINxzOY7pCcDyH8MYOkx3KGUR9jthrSc0INWCZEv43vbNYYaoD4vn5uxrfzA2zsOoXpW7Ht1+ZKWmX8gZZRmII5DFT9zpoD/mYnUd9mRHMfPJjlA191zBxBqhXXumZft4NSggq6F0A3quWAzFBoXzoDp02f+ECo6DAHelD1pLjqfFI0d9o1Nhs0xXvyIt8Ic5/FzFYxbtsbe2ux4iskGVqeH16Yz6Mh5WtvvHuBtnkd22ZXeQqTwz9UGrciAm4vScDeDHg+8UVnGyopkC9T9/LRxUPJI+GUxHaKi/RFW6f/jr24mIukmEElEjqWIGyKa1DPmJO5BWGNsW3eOr39r/RwWcV48Gdg9D+oFdBmu4nMCGwY7/oQ+Li4A+O4IndVieADETiI0Sb8iDBVbkThzNzEX7Bq8lVYdVDPCxe4q6Wv3pd9P6WBbrqb3Ky+C/0efqj9EEpv1yBRt/xhH2GN0pb4GHCUusyYCYHyjXD9yOWyP99qGRvMIYoZgSS9BbcjoOV2w9IOiw1H97V2taZIjxh75dkx0e9dOjL08fUJm1y4wDgLcvQSnu0Wp7uPfSPpEYIOtFE8MT0lxs9Xcv9d6nnnxxIgVGIJDvaMpQnxozwUy1QntxT6bJ9Tqo14g7khVn8FHzkXvGP7h01Hlz9WFcEa98DM3ErJxi5wCmLOYuuCF390tZMN1k2DYkZ+XmsdxP72JKmYI/49i+SOZPg52XDHndK2nghR6Pet0j1wJFPMZaWJHet79szAQAs/cNsIuFifgQC/f0hch3LEa2zsQyRONXyf5tTnXIdpKZ+kO+M2FDmJsJC4KMHWry3t79wGCaZ8Qk2zoqF1aDijP8IVw5AHhfTOL7eUMqemm78KXieszelj/vFtBxXBjZRAbz/4cPb01y3uan6WaDnLNOrYPOLzNlkJdRMxbJU/rh4Dg0Ir9VgdKmpGnfKPGgbfPb4nrmoTOwtPhzeZoW06TwGzfwSFYKEM/StE/H6xRaz6iBW5a1ImKFLS0/5MhbsDuZgfNJAOJy+llm/RE7DUbuB7OlSfPTWnFRecK1fc2OfwAHtITXu2HNmC220j3FYehZg4S02eqH7kFvdo63xaaJyHt0kzVQRMZDMKkwi17Hb0Jc/NkRPKEys95EzZdkxbGyickUkeKdDj0HhHeJf4oTel1Fcdxq85GijoU4scww/l2qa2f3tI0ozFq/zNb4EgXzoDa/kXZWTHgiKb2PtMWNNaLzqtDorzi6uKPUuIXBTeJoYxFUbHOCanqsNncHFlv8nNBqR//Lw2sQ5HCk3tcwrsOej38WeM2MBBNkb50Mb0b73OoT9CmMwNB7oxXorzdOi2X7CjVC70wzMJrJZVrk8EHqa6FyLfreZREKNWESAxGbjUL4B12NXOA7iSSSuIUkJ3nWBeNlU5ryApDww8GypdjzXZDiolvtxk/hBKIuM83ytglE3n2A2fFukNoQ9VaJI0nawLUckaxWTNZH56orshgXmkhSas1KeFJaHxSta67mj87waYm8Qc/qw0mCbVqNnuToIwrDhHhH0iObxqBsdHOvq3mH/RMcRCkfkDbkOe9pPsWrNsX79sG5t6vDI86kOceKCMk2UBEDEpfY3zOeg8z6p0KTWHbcQKrNQInAypNVrEGcfohgx0qIl5Ztie+GLmIpN8KMKMm0SU3Q3iPCdJ8BKnnh5WceuxxScJ9CWRMLG0ihSusryWliIFTuAYPdexz0LWif7/8dYCO+dfsfaAZLSy+OxHJDSY766zggUTuvSUVizPQHJ+QXynnjSqWUOOhShdKYkd1wrs3A7B7CSWk2+0DMsPTWMA95JbOBTNvmfPqYwDrQxf94rxwKSkGP8pS6JtBQkXjO+ZArXHhiE7Kl+55RtLQWjkdZZ7dyNOfm9FKhUu+yfnsZ1INowIfGbiSA3+7Sphhs3ssqkfMlx/52ls0Uv4ADtZWfoatMoL4bLzpFdTC1PILeqi0w2EMrOjcmIZrODVt+A/AOp0JN4SdoicVHoulRRyd0dnunMiuZiriCtYQaTF8O5UNlyyzLLAefFRv/6sfIQo6RlMH3kqUsXPIICdxKXqgx</t:cipherValue>
-                                    </t:cipherData>
-                                </t:encryptedData>
+                                <t:clearValue>...</t:clearValue>
                             </privateKey>
                             <passphrase>
-                                <t:encryptedData>
-                                    <t:encryptionMethod>
-                                        <t:algorithm>http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
-                                    </t:encryptionMethod>
-                                    <t:keyInfo>
-                                        <t:keyName>HCBsqwAf6kDyxQUHWheC0xzjDlI=</t:keyName>
-                                    </t:keyInfo>
-                                    <t:cipherData>
-                                        <t:cipherValue>VIyt58IVAKX5njZ6uoqNyHNdpTLwi5wM9qi2zm1P5uY=</t:cipherValue>
-                                    </t:cipherData>
-                                </t:encryptedData>
+                                <t:clearValue>...</t:clearValue>
                             </passphrase>
                             <certificate>
-                                <t:encryptedData>
-                                    <t:encryptionMethod>
-                                        <t:algorithm>http://www.w3.org/2001/04/xmlenc#aes256-cbc</t:algorithm>
-                                    </t:encryptionMethod>
-                                    <t:keyInfo>
-                                        <t:keyName>HCBsqwAf6kDyxQUHWheC0xzjDlI=</t:keyName>
-                                    </t:keyInfo>
-                                    <t:cipherData>
-                                        <t:cipherValue>zCUbGp2cmopDJqK95Fuc3i6oBfPZ0jGna6aacbe0/Q0jov2i2LpMnTwsZchtjGmR0s4cDlqBlTlHFhMAyC8cnW49xzYiegvhKVj3RRYWo7RnObM/4ubiZMoeGnq75pvCIa4GEbRwBc3Lle8B1Z0pa8tRbib9ukdmlFZ/p/b31wsnL53yqN81e6LZtcfrFfglMYm3mgAvnfwpp6RgFuFRdba/1uvw3jDSY/sW8BjFtDG/BgDMdMhTe2nTS9Du+66eCg2BpzpsIesuoL2ZPdSReDlpjExqqP+tt65Lfr+14AkArIW4a78TUtJoLBtzXOkCD8iBqAlpzrLcqlovEdA+j9OHoDcqerEiIVk8l4h3xzegCkV3cpbGJRBRW1b6dXZc5ts+NS5+wz+T5vW2o3SUHCLqd295AoWCvS44f57IVj4pwKAD5WlkWx3Qy5uvzsCPH1NmIuFNOBVTaSN6vMZKun3RhvuKtMNoVx4VdgvBuPsL1NfB7wQZdRRzW0KDlTdxfgAmzoDbp/hp4HaujJ5QvdUwXaEsLWgL/NC5svUSRESwT3nRZwhHLm3dqCrgZZKplYuZSN8HnYPs2UBOcAebF+GQv3GK9BEuHsdvd+kkgqzkBThrtKUpCmngWVb4AaQJIm6gPKzQX77+SSrTfDD0l81kp3XuA0vMVyqsVlOGIhVSVBumDyWDarVFOjjrjriDKomAv7W8c1XIylpaDajgBVo9lZCZHuxJzABU6xr2TFammRgV2lYfVgCGVfFllEGXIDjdaE8t/D8jUftV8a7l6kNLES5AExGmC3dVR5J4HAds/QFNaujN6QocZQPbxTIl8gi3hXEpYTb/eWXQ6Kr42cQ+VKIOTUgjL4VWTLkLudEb1s1XoMEmsSAHpKG0qHJov7l4XH12khvS+UtfiEnzxwspH8JZayfbFC4IvfQwpnyIQdEZrDNTJIO+RA8oAITmXMEMJc5oP4OtI+tyQcsy9FPybJZ/BmI7udJ8fEeowx5nL2PsLb80uiWnltetLacYa3QnKf47rLfRN9DbUn/TjTgswoNu4CwgoPotocBNpZxMEzcGaPnMCjjyjw53gwV9Ju8Dw1lFEICqf8JcNj93o+M7wCRJR8daIpJ2EJost697gJ42UIQn4ALHBl9NRqytfC2WpEYkgG7CghjX8I0INQ7MtCdr1evHhOBOIrZ1Z6um5qsoiaFD9G6cGSh5EZtWvPOMkIf5BpXNG5FGOPEhgAhj3UTqQ5cTjhPhKjyke7hOU9Oez84oH9bapmY5bIYEigovBNBU39wIvg2i7lUcgaWkDr1FxWbG9nff3YFfls+JXKijEYffkWDXQxPzJMbsLDLNcjfJJNyJTxfpg3WZNi20f5v2OZfJ4Uj7cpo16EtNJQRJmVzx35l1GEh+hYykOSOXqs0XoNIyl1gp+Sw2iAAhlqLySOb58VrFQ+dfr2Aauxbpjg2QYm+r5fyhVmUpQ2yUn3UAvkE/HsHkzYRmrL0PWjJGzj29+XJUYLcb6Z0V3xtvcXp81QJgU+SBHuQZkwJ/GRv7x8hHBiZK48iLGngdmAt1ZzMEjX6Gh3C6gRg=</t:cipherValue>
-                                    </t:cipherData>
-                                </t:encryptedData>
+                                <t:clearValue>...</t:clearValue>
                             </certificate>
-                        </active>
+                        </activeSimpleKey>
                     </keys>
                     <provider id="19">
                         <entityId>https://idptestbed/idp/shibboleth</entityId>
@@ -132,6 +101,7 @@
             <channel>
                 <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#user</channelId>
                 <default>true</default>
+              <urlSuffix>default</urlSuffix>
             </channel>
             <module id="12">
                 <name>mySamlSso</name>
