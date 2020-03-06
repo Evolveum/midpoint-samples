@@ -1,0 +1,34 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="role-affiliationAlumni" version="55">
+      <name>Primary: Alumni</name>
+      <description>Sets primary affiliation to alumni</description>
+      <activation>
+         <administrativeStatus>enabled</administrativeStatus>
+         <effectiveStatus>enabled</effectiveStatus>
+         <enableTimestamp>2018-06-10T09:30:05.014-05:00</enableTimestamp>
+      </activation>
+      <iteration>0</iteration>
+      <iterationToken/>
+      <displayName>Primary: Alumni</displayName>
+      <inducement id="1">
+         <focusMappings>
+            <mapping>
+               <strength>strong</strength>
+               <expression>
+                  <value>alumni</value>
+               </expression>
+               <target>
+                  <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:bshpPrimaryAffiliation</c:path>
+               </target>
+            </mapping>
+         </focusMappings>
+         <activation>
+            <administrativeStatus>enabled</administrativeStatus>
+         </activation>
+         <focusType>c:UserType</focusType>
+      </inducement>
+      <requestable>false</requestable>
+      <delegable>false</delegable>
+      <idempotence>none</idempotence>
+      <riskLevel>LOW</riskLevel>
+      <roleType>affiliation</roleType>
+   </role>

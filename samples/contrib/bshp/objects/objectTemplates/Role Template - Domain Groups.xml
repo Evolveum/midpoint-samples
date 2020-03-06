@@ -1,0 +1,103 @@
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+                xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+                xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+                xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+                oid="template-defaultDomainGroup"
+                version="4">
+   <name>Role Template - Domain Groups</name>
+   <description>
+		This object will create new Domain Groups.
+	</description>
+   <mapping>
+      <strength>strong</strength>
+      <source>
+         <c:path>$focus/identifier</c:path>
+      </source>
+      <expression>
+         <script>
+            <code>'Domain Group: ' + identifier</code>
+         </script>
+      </expression>
+      <target>
+         <c:path>$focus/displayName</c:path>
+      </target>
+   </mapping>
+   <mapping>
+   	  <name>Compose DN</name>
+      <strength>strong</strength>
+      <source>
+         <c:path>$focus/identifier</c:path>
+      </source>
+      <source>
+          <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:ldapDn</c:path>
+      </source>
+      <source>
+          <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:oupath</c:path>
+      </source>
+      <expression>
+         <script>
+            <code>'CN=' + identifier + ',' + oupath</code>
+         </script>
+      </expression>
+      <target>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:ldapDn</c:path>
+      </target>
+      <condition>
+         <script>
+            <code>identifier != null &amp;&amp; oupath != null</code>
+         </script>
+      </condition>
+   </mapping>
+   <mapping>
+      <strength>strong</strength>
+      <expression>
+         <value>false</value>
+      </expression>
+      <target>
+         <c:path>$focus/delegable</c:path>
+      </target>
+   </mapping>
+   <mapping>
+      <strength>strong</strength>
+      <expression>
+         <value>none</value>
+      </expression>
+      <target>
+         <c:path>$focus/idempotence</c:path>
+      </target>
+   </mapping>
+   <mapping>
+      <strength>strong</strength>
+      <expression>
+         <value>MODERATE</value>
+      </expression>
+      <target>
+         <c:path>$focus/riskLevel</c:path>
+      </target>
+   </mapping>
+   <mapping>
+      <strength>strong</strength>
+      <expression>
+         <value>false</value>
+      </expression>
+      <target>
+         <c:path>$focus/requestable</c:path>
+      </target>
+   </mapping>
+   <mapping>
+      <name>Metarole AD Group Assignment</name>
+      <strength>strong</strength>
+      <expression>
+         <assignmentTargetSearch>
+            <targetType>c:RoleType</targetType>
+            <oid>metarole-domainGroups</oid>
+         </assignmentTargetSearch>
+      </expression>
+      <target>
+         <c:path>assignment</c:path>
+      </target>
+   </mapping>
+</objectTemplate>

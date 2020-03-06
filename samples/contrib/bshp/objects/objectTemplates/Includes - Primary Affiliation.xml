@@ -1,0 +1,328 @@
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+	xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+	oid="includes-primaryAffiliation">
+    <name>Includes - Primary Affiliation</name>
+    <description>
+        Assign person primary affiliation.
+	</description>
+    <mapping id="1">
+        <name>Auto assign Primary Alumni</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationAlumni</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>academicStatus == 'Alumni'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="2">
+        <name>Auto assign Primary Applicant</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationApplicant</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>academicStatus == 'Applicant'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="3">
+        <name>Auto assign Primary CE Student</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationContinuingEd</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>academicStatus == 'CE Student'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="4">
+        <name>Auto assign Primary Constituent</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationConstituent</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>academicStatus == 'Constituent'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="5">
+        <name>Auto assign Auto assign Primary Contractor</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationContractor</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>bshpPrimaryAffiliation == 'contractor'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="6">
+        <name>Auto assign Primary Faculty</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationFaculty</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>academicStatus == 'Faculty'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="7">
+        <name>Auto assign Primary Guest</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationGuest</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>bshpPrimaryAffiliation == 'guest'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="8">
+        <name>Auto assign Primary Staff</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationStaff</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>academicStatus == 'Staff'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="9">
+        <name>Auto assign Primary Student</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationStudent</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>academicStatus == 'Student'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="10">
+        <name>Auto assign Primary Vendor</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationVendor</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>bshpPrimaryAffiliation == 'vendor'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="11">
+        <name>Auto assign Primary Withdrawn</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationWithdrawn</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>academicStatus == 'Withdrawn'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="12">
+        <name>Auto assign Primary Generic</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationGeneric</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>bshpPrimaryAffiliation == 'generic'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="13">
+        <name>Auto assign Primary Service</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationService</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>bshpPrimaryAffiliation == 'service'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping id="14">
+        <name>Auto assign Primary System</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationSystem</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>bshpPrimaryAffiliation == 'system'</code>
+            </script>
+        </condition>
+    </mapping>
+        <mapping>
+        <name>Auto assign Primary Inactive</name>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
+                <targetType>c:RoleType</targetType>
+                <oid>role-affiliationInactive</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                <code>academicStatus == 'Inactive'</code>
+            </script>
+        </condition>
+    </mapping>
+</objectTemplate>
