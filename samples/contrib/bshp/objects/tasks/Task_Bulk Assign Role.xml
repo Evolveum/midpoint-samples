@@ -1,0 +1,58 @@
+<task>
+	<name>Assign Applicant to non-starts</name>
+	<extension>
+		<scext:executeScript xmlns:scext="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3"
+							 xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3"
+                             xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+                             xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                             xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<s:search>
+			<s:type>c:UserType</s:type>
+			<s:searchFilter>
+				<q:and>
+					<q:equal>
+						<q:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</q:path>
+						<q:value>student</q:value>
+					</q:equal>
+					<q:equal>
+						<q:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:standing</q:path>
+						<q:value>INACTIVE</q:value>
+					</q:equal>
+					<q:equal>
+						<q:path>organization</q:path>
+						<q:value>OU=_DISABLED,OU=SHP STUDENTS,DC=BSHP,DC=ORG</q:value>
+					</q:equal>
+				</q:and>
+			</s:searchFilter>
+			<s:action>
+				<s:type>assign</s:type>
+				<s:parameter>
+					<s:name>role</s:name>
+						<c:value xsi:type="q:SearchFilterType">
+							<q:equal>
+								<q:path>name</q:path>
+								<q:value>Primary: Applicant</q:value>
+							</q:equal>
+						</c:value>
+				</s:parameter>
+				<s:parameter>
+					<s:name>options</s:name>
+						<c:value xsi:type="c:ModelExecuteOptionsType">
+ 							<partialProcessing>
+								<approvals>skip</approvals>
+							</partialProcessing>
+						</c:value>
+					</s:parameter>
+				</s:action>
+			</s:search>
+		</scext:executeScript>
+		<mext:workerThreads>4</mext:workerThreads>
+	</extension>
+	<ownerRef oid="00000000-0000-0000-0000-000000000002"/>
+	<executionStatus>runnable</executionStatus>
+	<category>BulkActions</category>
+	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/scripting/handler-3</handlerUri>
+	<recurrence>single</recurrence>
+</task>

@@ -1,0 +1,190 @@
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+                xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+                xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+                xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+                oid="template-defaultNewAccount">
+   <name>User Template - New Account</name>
+   <description>
+        This object can be used when creating a new account from a resource.
+	</description>
+   <iteration>
+      <maxIterations>999</maxIterations>
+      <tokenExpression>
+         <script>
+            <code>
+				if (iteration == 0) {
+					return "";
+				} else {
+					return "" + (iteration + 1);
+				}
+			</code>
+         </script>
+      </tokenExpression>
+   </iteration>
+   <mapping>
+      <name>Generate Username</name>
+      <source>
+         <name>tmpGivenName</name>
+         <c:path>givenName</c:path>
+      </source>
+      <source>
+         <name>tmpFamilyName</name>
+         <c:path>familyName</c:path>
+      </source>
+      <source>
+         <name>tmpUID</name>
+         <c:path>employeeNumber</c:path>
+      </source>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+      </source>
+      <expression>
+         <script>
+            <code>
+        		tmpGivenNameInitial = basic.stringify(tmpGivenName)?.size() &gt; 0 ? (basic.stringify(tmpGivenName)).substring(0,1) : ''
+        		last4UID = basic.stringify(tmpUID)?.size() &gt; 4 ? tmpUID.substring(tmpUID.length() - 4) : ''
+        		if (iteration == 0) {
+        			if (basic.stringify(tmpFamilyName).size() &lt; 10) {
+        				basic.norm(basic.stringify(tmpGivenNameInitial + tmpFamilyName) + last4UID)
+        			} else {
+        				basic.norm(basic.stringify(tmpGivenNameInitial + tmpFamilyName?.substring(0, 10)) + last4UID)
+        			}
+        		} else {
+        			if (basic.stringify(tmpFamilyName).size() &lt; 9) {
+        				basic.norm(basic.stringify(tmpGivenNameInitial + tmpFamilyName) + last4UID) + iterationToken
+        			} else {
+        				basic.norm(basic.stringify(tmpGivenNameInitial + tmpFamilyName?.substring(0, 9)) + last4UID) + iterationToken
+        			}
+        		}
+             </code>
+         </script>
+      </expression>
+      <target>
+         <c:path>name</c:path>
+      </target>
+      <condition>
+         <script>
+            <code>academicStatus != 'Faculty' || academicStatus != 'Staff'</code>
+         </script>
+      </condition>
+   </mapping>
+   <mapping>
+      <name>Generate Email Address</name>
+      <source>
+         <name>tmpGivenName</name>
+         <c:path>givenName</c:path>
+      </source>
+      <source>
+         <name>tmpFamilyName</name>
+         <c:path>familyName</c:path>
+      </source>
+      <source>
+         <name>tmpUID</name>
+         <c:path>employeeNumber</c:path>
+      </source>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+      </source>
+      <expression>
+         <script>
+            <code>
+        		tmpGivenNameInitial = basic.stringify(tmpGivenName)?.size() &gt; 0 ? (basic.stringify(tmpGivenName)).substring(0,1) : ''
+        		last4UID = basic.stringify(tmpUID)?.size() &gt; 4 ? tmpUID.substring(tmpUID.length() - 4) : ''
+        		if (iteration == 0) {
+        			if (basic.stringify(tmpFamilyName).size() &lt; 10) {
+        				name = basic.norm(basic.stringify(tmpGivenNameInitial + tmpFamilyName) + last4UID)
+        			} else {
+        				name = basic.norm(basic.stringify(tmpGivenNameInitial + tmpFamilyName?.substring(0, 10)) + last4UID)
+        			}
+        		} else {
+        			if (basic.stringify(tmpFamilyName).size() &lt; 9) {
+        				name = basic.norm(basic.stringify(tmpGivenNameInitial + tmpFamilyName) + last4UID) + iterationToken
+        			} else {
+        				name = basic.norm(basic.stringify(tmpGivenNameInitial + tmpFamilyName?.substring(0, 9)) + last4UID) + iterationToken
+        			}
+        		}
+        		name + '@bshp.edu'
+             </code>
+         </script>
+      </expression>
+      <target>
+         <c:path>emailAddress</c:path>
+      </target>
+      <condition>
+         <script>
+            <code>academicStatus != 'Faculty' || academicStatus != 'Staff'</code>
+         </script>
+      </condition>
+   </mapping>
+   <mapping>
+      <name>Generate Fullname</name>
+      <source>
+         <c:path>$user/givenName</c:path>
+      </source>
+      <source>
+         <c:path>$user/additionalName</c:path>
+      </source>
+      <source>
+         <c:path>$user/familyName</c:path>
+      </source>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+      </source>
+      <expression>
+         <script>
+            <language>http://midpoint.evolveum.com/xml/ns/public/expression/language#Groovy</language>
+            <code>
+				if (additionalName == null) {
+					return givenName + ' ' + familyName;
+				} else {
+					return givenName + ' ' + additionalName + '. ' + familyName;
+				}
+			</code>
+         </script>
+      </expression>
+      <target>
+         <c:path>$focus/fullName</c:path>
+      </target>
+   </mapping>
+   <mapping>
+      <name>Assign directory services for everyone</name>
+      <strength>strong</strength>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+      </source>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+      </source>
+      <expression>
+         <assignmentTargetSearch>
+            <targetType>c:ServiceType</targetType>
+            <oid>service-AccountDirectory</oid>
+         </assignmentTargetSearch>
+      </expression>
+      <target>
+         <c:path>$focus/assignment</c:path>
+      </target>
+   </mapping>
+   <mapping>
+      <name>Auto assign Network Access</name>
+      <strength>strong</strength>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+      </source>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+      </source>
+      <expression>
+         <assignmentTargetSearch>
+            <targetType>c:ServiceType</targetType>
+            <oid>service-networkAccess</oid>
+         </assignmentTargetSearch>
+      </expression>
+      <target>
+         <c:path>$focus/assignment</c:path>
+      </target>
+   </mapping>
+</objectTemplate>
