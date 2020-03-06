@@ -21,7 +21,7 @@
                                 <q:value>OU=_DISABLED</q:value>
                             </q:equal>
                             <q:equal>
-                                <q:path xmlns:bshp="http://www.bshp.edu/xml/ns/public/bshp">extension/bshp:standing</q:path>
+                                <q:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:standing</q:path>
                                 <q:value>INACTIVE</q:value>
                             </q:equal>
                         </q:and>
