@@ -456,9 +456,9 @@
                         <expression>
                             <script xsi:type="c:ScriptExpressionEvaluatorType">
                                 <code>
-									altType = 'ObjId';
-									return altType;
-								</code>
+                                    altType = focus.getOid();
+                                    return altType;
+                                </code>
                             </script>
                         </expression>
                     </outbound>
@@ -499,28 +499,28 @@
                             <script xsi:type="c:ScriptExpressionEvaluatorType">
                                 <relativityMode>absolute</relativityMode>
                                 <code>
-									import java.util.*;
-									import javax.naming.ldap.Rdn;
-									import javax.naming.ldap.LdapName;
-		
-									if (input != null) {
-										def memList = [];
-										def newList = [];
-										for (tmpdn in input) {
-											if (!tmpdn.toLowerCase().contains("ou=courses")) {
-												newList.add(tmpdn);
-												log.info("New list without courses: " + newList)
-											}
-										}
-										for (dn in newList) {
-											LdapName ldapDN = new LdapName(dn);
-											cn = ldapDN.get(ldapDN.size() - 1);
-											memList.add(cn.split('CN=')[1]);
-										}
-										log.info("User (without courses) is member of: " + memList)
-										return memList;
-										}
-								</code>
+                                    import java.util.*;
+                                    import javax.naming.ldap.Rdn;
+                                    import javax.naming.ldap.LdapName;
+        
+                                    if (input != null) {
+                                        def memList = [];
+                                        def newList = [];
+                                        for (tmpdn in input) {
+                                            if (!tmpdn.toLowerCase().contains("ou=courses")) {
+                                                newList.add(tmpdn);
+                                                log.info("New list without courses: " + newList)
+                                            }
+                                        }
+                                        for (dn in newList) {
+                                            LdapName ldapDN = new LdapName(dn);
+                                            cn = ldapDN.get(ldapDN.size() - 1);
+                                            memList.add(cn.split('CN=')[1]);
+                                        }
+                                        log.info("User (without courses) is member of: " + memList)
+                                        return memList;
+                                        }
+                                </code>
                             </script>
                         </expression>
                         <target>
@@ -556,12 +556,12 @@
                     <tokenExpression>
                         <script xsi:type="c:ScriptExpressionEvaluatorType">
                             <code>
-								if (iteration == 0) {
-									return "";
-								} else {
-									return "" + (iteration + 1);
-								}
-						  	</code>
+                                if (iteration == 0) {
+                                    return "";
+                                } else {
+                                    return "" + (iteration + 1);
+                                }
+                              </code>
                         </script>
                     </tokenExpression>
                 </iteration>
@@ -758,21 +758,21 @@
                                 <relativityMode>absolute</relativityMode>
                                 <language>http://midpoint.evolveum.com/xml/ns/public/expression/language#Groovy</language>
                                 <code>
-										import java.util.*;
-										import javax.naming.ldap.Rdn;
-										import javax.naming.ldap.LdapName;
-			
-										if (input != null) {
-											def memList = [];
-											for (dn in input) {
-												LdapName ldapDN = new LdapName(dn);
-												cn = ldapDN.get(ldapDN.size() - 1);
-												memList.add(cn.split('CN=')[1]);
-												log.info("-- Group Names: " + memList);
-											}
-											return memList;
-										}
-								 </code>
+                                        import java.util.*;
+                                        import javax.naming.ldap.Rdn;
+                                        import javax.naming.ldap.LdapName;
+            
+                                        if (input != null) {
+                                            def memList = [];
+                                            for (dn in input) {
+                                                LdapName ldapDN = new LdapName(dn);
+                                                cn = ldapDN.get(ldapDN.size() - 1);
+                                                memList.add(cn.split('CN=')[1]);
+                                                log.info("-- Group Names: " + memList);
+                                            }
+                                            return memList;
+                                        }
+                                 </code>
                             </script>
                         </expression>
                         <target>
@@ -930,26 +930,26 @@
                             <script xsi:type="c:ScriptExpressionEvaluatorType">
                                 <relativityMode>absolute</relativityMode>
                                 <code>
-									import com.evolveum.midpoint.xml.ns._public.common.common_3.*;
-									import com.evolveum.midpoint.prism.delta.*;
-									import com.evolveum.midpoint.schema.util.*;
-									import java.util.*;
-		
-									if (coordFaculty != null) {
-										def facultyList = [];
-										for (faculty in coordFaculty) {
-											username = faculty.split("\\@")[0];
-											log.info("-- Faculty username being considered for bypass: " + username);
-											faculty = midpoint.searchObjectByName(UserType.class, username);
-											cn = basic.getPropertyValue(faculty, 'fullName');
-											org = basic.getPropertyValue(faculty, 'organization');
-											dn = 'CN=' + cn + ',' + org;
-											log.info("-- Setting default bypass permissions: " + facultyList);
-											facultyList.add(dn);
-										}
-										return facultyList;
-									}
-							 	</code>
+                                    import com.evolveum.midpoint.xml.ns._public.common.common_3.*;
+                                    import com.evolveum.midpoint.prism.delta.*;
+                                    import com.evolveum.midpoint.schema.util.*;
+                                    import java.util.*;
+        
+                                    if (coordFaculty != null) {
+                                        def facultyList = [];
+                                        for (faculty in coordFaculty) {
+                                            username = faculty.split("\\@")[0];
+                                            log.info("-- Faculty username being considered for bypass: " + username);
+                                            faculty = midpoint.searchObjectByName(UserType.class, username);
+                                            cn = basic.getPropertyValue(faculty, 'fullName');
+                                            org = basic.getPropertyValue(faculty, 'organization');
+                                            dn = 'CN=' + cn + ',' + org;
+                                            log.info("-- Setting default bypass permissions: " + facultyList);
+                                            facultyList.add(dn);
+                                        }
+                                        return facultyList;
+                                    }
+                                 </code>
                             </script>
                         </expression>
                     </outbound>
@@ -968,27 +968,27 @@
                                 <relativityMode>absolute</relativityMode>
                                 <language>http://midpoint.evolveum.com/xml/ns/public/expression/language#Groovy</language>
                                 <code>
-									import com.evolveum.midpoint.xml.ns._public.common.common_3.*;
-									import com.evolveum.midpoint.prism.delta.*;
-									import com.evolveum.midpoint.schema.util.*;
-									import java.util.*;
-		
-									if (coordFaculty != null) {
-										def facultyList = [];
-										for (faculty in coordFaculty) {
-											username = faculty.split("\\@")[0];
-											log.info("-- Faculty username being considered for moderation: " + username);
-											faculty = midpoint.searchObjectByName(UserType.class, username);
-											cn = basic.getPropertyValue(faculty, 'fullName');
-											org = basic.getPropertyValue(faculty, 'organization');
-											dn = 'CN=' + cn + ',' + org;
-											log.info("-- Setting default moderators: " + facultyList);
-											facultyList.add(dn);
-		
-											}
-										return facultyList;
-									}
-							 	</code>
+                                    import com.evolveum.midpoint.xml.ns._public.common.common_3.*;
+                                    import com.evolveum.midpoint.prism.delta.*;
+                                    import com.evolveum.midpoint.schema.util.*;
+                                    import java.util.*;
+        
+                                    if (coordFaculty != null) {
+                                        def facultyList = [];
+                                        for (faculty in coordFaculty) {
+                                            username = faculty.split("\\@")[0];
+                                            log.info("-- Faculty username being considered for moderation: " + username);
+                                            faculty = midpoint.searchObjectByName(UserType.class, username);
+                                            cn = basic.getPropertyValue(faculty, 'fullName');
+                                            org = basic.getPropertyValue(faculty, 'organization');
+                                            dn = 'CN=' + cn + ',' + org;
+                                            log.info("-- Setting default moderators: " + facultyList);
+                                            facultyList.add(dn);
+        
+                                            }
+                                        return facultyList;
+                                    }
+                                 </code>
                             </script>
                         </expression>
                     </outbound>
@@ -1050,9 +1050,9 @@
                 <condition>
                     <script>
                         <code>
-							tmp = basic.getAttributeValue(shadow, 'http://midpoint.evolveum.com/xml/ns/public/resource/instance-3', 'dn');
-							return (!tmp.contains('OU=Courses,OU=Exchange'));
-						</code>
+                            tmp = basic.getAttributeValue(shadow, 'http://midpoint.evolveum.com/xml/ns/public/resource/instance-3', 'dn');
+                            return (!tmp.contains('OU=Courses,OU=Exchange'));
+                        </code>
                     </script>
                 </condition>
                 <correlation>
@@ -1102,9 +1102,9 @@
                 <condition>
                     <script xsi:type="c:ScriptExpressionEvaluatorType">
                         <code>
-							tmp = basic.getAttributeValue(shadow, 'http://midpoint.evolveum.com/xml/ns/public/resource/instance-3', 'dn');
-							return (tmp.contains('OU=Courses,OU=Exchange'))
-						</code>
+                            tmp = basic.getAttributeValue(shadow, 'http://midpoint.evolveum.com/xml/ns/public/resource/instance-3', 'dn');
+                            return (tmp.contains('OU=Courses,OU=Exchange'))
+                        </code>
                     </script>
                 </condition>
                 <correlation>

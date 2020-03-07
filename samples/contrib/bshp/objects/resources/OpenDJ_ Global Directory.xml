@@ -1,15 +1,15 @@
 <resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-		xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3"
-		xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-		xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
-		xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
-		xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-		xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-		xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
-		xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp"
-		oid="resource-OpenDJ1">
+        xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+        xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+        xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp"
+        oid="resource-OpenDJ1">
         <name>OpenDJ: Global Directory</name>
         <description>Global Directory Services</description>
         <operationalState>
@@ -510,12 +510,12 @@
                     <tokenExpression>
                         <script>
                             <code>
-								if (iteration == 0) {
-									return ""; 
-								} else { 
-									return "" + (iteration + 1);
-								}
-							</code>
+                                if (iteration == 0) {
+                                    return ""; 
+                                } else { 
+                                    return "" + (iteration + 1);
+                                }
+                            </code>
                         </script>
                     </tokenExpression>
                 </iteration>
@@ -635,8 +635,8 @@
                         <expression>
                             <script>
                                 <code>
-									'cn=' + name + ',ou=courses,dc=bshp,dc=edu'
-								</code>
+                                    'cn=' + name + ',ou=courses,dc=bshp,dc=edu'
+                                </code>
                             </script>
                         </expression>
                     </outbound>
@@ -679,11 +679,11 @@
                         <expression>
                             <script>
                                 <code>
-		                     		if (!basic.isEmpty(coordFaculty) &amp;&amp; coordFaculty.size() &gt; 0) {
-		                  				leadUser = coordFaculty.split("\\@")[0];
-		                  		    	return 'uid=' + leadUser + ',ou=people,dc=bshp,dc=edu';
-		                  		    }
-                  				</code>
+                                     if (!basic.isEmpty(coordFaculty) &amp;&amp; coordFaculty.size() &gt; 0) {
+                                          leadUser = coordFaculty.split("\\@")[0];
+                                          return 'uid=' + leadUser + ',ou=people,dc=bshp,dc=edu';
+                                      }
+                                  </code>
                             </script>
                         </expression>
                     </outbound>
@@ -836,10 +836,10 @@
                 <condition>
                     <script>
                         <code>
-		               	  crsGrp = basic.getAttributeValue(shadow, 'http://midpoint.evolveum.com/xml/ns/public/resource/instance-3', 'bshpGroupCourse');
-		                  objClass = basic.getAttributeValue(shadow, 'http://midpoint.evolveum.com/xml/ns/public/resource/instance-3', 'objectClass');
-		                  return (crsGrp != 'True' &amp;&amp; objClass == 'groupOfNames')
-		               </code>
+                             crsGrp = basic.getAttributeValue(shadow, 'http://midpoint.evolveum.com/xml/ns/public/resource/instance-3', 'bshpGroupCourse');
+                          objClass = basic.getAttributeValue(shadow, 'http://midpoint.evolveum.com/xml/ns/public/resource/instance-3', 'objectClass');
+                          return (crsGrp != 'True' &amp;&amp; objClass == 'groupOfNames')
+                       </code>
                     </script>
                 </condition>
                 <correlation>
@@ -885,9 +885,9 @@
                 <condition>
                     <script>
                         <code>
-		                  tmp = basic.getAttributeValue(shadow, 'http://midpoint.evolveum.com/xml/ns/public/resource/instance-3', 'bshpGroupCourse');
-		                  return (tmp == 'True')
-		               </code>
+                          tmp = basic.getAttributeValue(shadow, 'http://midpoint.evolveum.com/xml/ns/public/resource/instance-3', 'bshpGroupCourse');
+                          return (tmp == 'True')
+                       </code>
                     </script>
                 </condition>
                 <correlation>
