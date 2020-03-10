@@ -1,0 +1,161 @@
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+	xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" 
+	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
+	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
+	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
+	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
+	xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp"
+	oid="includes-entitlements">
+	<name>Includes - Entitlements</name>
+	<description>
+        Assign person entitlements.
+	</description>
+   <mapping>
+      <name>Auto assign Google Apps</name>
+      <strength>strong</strength>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+      </source>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicLevel</c:path>
+      </source>
+      <expression>
+         <assignmentTargetSearch>
+            <targetType>c:ServiceType</targetType>
+            <oid>entitlement-GoogleApps</oid>
+         </assignmentTargetSearch>
+      </expression>
+      <target>
+         <c:path>assignment</c:path>
+      </target>
+      <condition>
+         <script>
+            <code>bshpPrimaryAffiliation == 'faculty' || bshpPrimaryAffiliation == 'staff' || bshpPrimaryAffiliation == 'student' || bshpPrimaryAffiliation == 'continuing' || bshpPrimaryAffiliation == 'constituent' || academicLevel == 'Processed'</code>
+         </script>
+      </condition>
+   </mapping>
+   <mapping>
+      <name>Auto assign Library Resources</name>
+      <strength>strong</strength>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+      </source>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicLevel</c:path>
+      </source>
+      <expression>
+         <assignmentTargetSearch>
+            <targetType>c:ServiceType</targetType>
+            <oid>entitlement-LibraryResources</oid>
+         </assignmentTargetSearch>
+      </expression>
+      <target>
+         <c:path>assignment</c:path>
+      </target>
+      <condition>
+         <script>
+            <code>bshpPrimaryAffiliation == 'faculty' || bshpPrimaryAffiliation == 'staff' || bshpPrimaryAffiliation == 'student' || bshpPrimaryAffiliation == 'continuing' || bshpPrimaryAffiliation == 'constituent' || academicLevel == 'Processed'</code>
+         </script>
+      </condition>
+   </mapping>
+   <mapping>
+      <name>Auto assign Office365</name>
+      <strength>strong</strength>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+      </source>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicLevel</c:path>
+      </source>
+      <expression>
+         <assignmentTargetSearch>
+            <targetType>c:ServiceType</targetType>
+            <oid>entitlement-Office365</oid>
+         </assignmentTargetSearch>
+      </expression>
+      <target>
+         <c:path>assignment</c:path>
+      </target>
+      <condition>
+         <script>
+            <code>bshpPrimaryAffiliation == 'faculty' || bshpPrimaryAffiliation == 'staff' || bshpPrimaryAffiliation == 'student' || bshpPrimaryAffiliation == 'continuing' || bshpPrimaryAffiliation == 'constituent' || academicLevel == 'Processed'</code>
+         </script>
+      </condition>
+   </mapping>
+   <mapping>
+      <name>Auto assign Print Services</name>
+      <strength>strong</strength>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+      </source>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicLevel</c:path>
+      </source>
+      <expression>
+         <assignmentTargetSearch>
+            <targetType>c:ServiceType</targetType>
+            <oid>entitlement-CampusPrintServices</oid>
+         </assignmentTargetSearch>
+      </expression>
+      <target>
+         <c:path>assignment</c:path>
+      </target>
+      <condition>
+         <script>
+            <code>bshpPrimaryAffiliation == 'faculty' || bshpPrimaryAffiliation == 'staff' || bshpPrimaryAffiliation == 'student' || bshpPrimaryAffiliation == 'continuing' || bshpPrimaryAffiliation == 'constituent' || academicLevel == 'Processed'</code>
+         </script>
+      </condition>
+   </mapping>
+   <mapping>
+      <name>Auto assign LMS</name>
+      <strength>strong</strength>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+      </source>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicLevel</c:path>
+      </source>
+      <expression>
+         <assignmentTargetSearch>
+            <targetType>c:ServiceType</targetType>
+            <oid>entitlement-CampusLMS</oid>
+         </assignmentTargetSearch>
+      </expression>
+      <target>
+         <c:path>assignment</c:path>
+      </target>
+      <condition>
+         <script>
+            <code>bshpPrimaryAffiliation == 'faculty' || bshpPrimaryAffiliation == 'staff' || bshpPrimaryAffiliation == 'student' || bshpPrimaryAffiliation == 'continuing' || bshpPrimaryAffiliation == 'constituent' || academicLevel == 'Processed'</code>
+         </script>
+      </condition>
+   </mapping>
+   <!-- This is automatic from the resource itself -->
+   <mapping>
+      <name>Auto assign Campus ERP</name>
+      <strength>strong</strength>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+      </source>
+      <source>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicLevel</c:path>
+      </source>
+      <expression>
+         <assignmentTargetSearch>
+            <targetType>c:ServiceType</targetType>
+            <oid>entitlement-CampusERP</oid>
+         </assignmentTargetSearch>
+      </expression>
+      <target>
+         <c:path>assignment</c:path>
+      </target>
+      <condition>
+         <script>
+            <code>bshpPrimaryAffiliation == 'faculty' || bshpPrimaryAffiliation == 'staff' || bshpPrimaryAffiliation == 'student' || bshpPrimaryAffiliation == 'alumni' || bshpPrimaryAffiliation == 'withdrawn' || bshpPrimaryAffiliation == 'continuing' || bshpPrimaryAffiliation == 'constituent' || bshpPrimaryAffiliation == 'applicant'</code>
+         </script>
+      </condition>
+   </mapping>
+</objectTemplate>

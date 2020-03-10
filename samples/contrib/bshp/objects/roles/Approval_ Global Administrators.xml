@@ -1,0 +1,109 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+	  xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" 
+	  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+	  xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
+	  xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
+	  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
+	  xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
+	  xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	  oid="70425e84-14d7-46bd-9726-6d84f5806b92">
+      <name>Approval: Global Administrators</name>
+      <description>Members are global midpoint approver's.</description>
+      <assignment>
+         <targetRef oid="00000000-0000-0000-0000-000000000004" relation="org:approver" type="c:RoleType"/>
+         <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+         </activation>
+      </assignment>
+      <assignment>
+         <targetRef oid="2870bea0-2c2f-4ad6-833a-0515cc9205db" relation="org:approver" type="c:RoleType"/>
+         <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+         </activation>
+      </assignment>
+      <assignment>
+         <targetRef oid="aaa65475-c088-4324-aba5-27022a72942e" relation="org:approver" type="c:RoleType"/>
+         <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+         </activation>
+      </assignment>
+      <assignment>
+         <targetRef oid="9e2967ab-e687-4291-afa5-c1e2f4083162" relation="org:approver" type="c:RoleType"/>
+         <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+         </activation>
+      </assignment>
+      <assignment>
+         <targetRef oid="201f248d-d1fd-4e3f-b2a8-fd813afc36b5" relation="org:approver" type="c:RoleType"/>
+         <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+         </activation>
+      </assignment>
+      <assignment>
+         <targetRef oid="39b35b50-871a-4688-8e42-7ea31c1cda0b" relation="org:approver" type="c:RoleType"/>
+         <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+         </activation>
+      </assignment>
+      <assignment>
+         <targetRef oid="2cfb4b38-b520-4b40-9a02-85beab32e6e6" relation="org:approver" type="c:RoleType"/>
+         <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+         </activation>
+      </assignment>
+      <assignment>
+         <targetRef oid="19d8bfd2-20fa-4113-bdc3-fbb0eaad48fb" relation="org:approver" type="c:RoleType"/>
+         <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+         </activation>
+      </assignment>
+      <assignment>
+         <targetRef oid="c71e1cb2-82ec-4773-8a3d-4567cba4fb59" relation="org:approver" type="c:RoleType"/>
+         <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+         </activation>
+      </assignment>
+      <assignment>
+         <targetRef oid="30a0f87e-7d6e-4910-97ca-c175d2f215ab" relation="org:approver" type="c:RoleType"/>
+         <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+         </activation>
+      </assignment>
+      <assignment>
+         <targetRef oid="60581db3-832b-4726-af72-f747a0584bf7" relation="org:approver" type="c:RoleType"/>
+         <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+         </activation>
+      </assignment>
+      <assignment>
+         <targetRef oid="c7b64f92-fda4-4c6b-a738-62eebb6a6e08" relation="org:approver" type="c:RoleType"/>
+         <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+         </activation>
+      </assignment>
+      <activation>
+         <administrativeStatus>enabled</administrativeStatus>
+         <effectiveStatus>enabled</effectiveStatus>
+      </activation>
+      <iteration>0</iteration>
+      <iterationToken/>
+      <roleMembershipRef oid="2870bea0-2c2f-4ad6-833a-0515cc9205db" relation="org:approver" type="c:RoleType"/>
+      <roleMembershipRef oid="aaa65475-c088-4324-aba5-27022a72942e" relation="org:approver" type="c:RoleType"/>
+      <roleMembershipRef oid="19d8bfd2-20fa-4113-bdc3-fbb0eaad48fb" relation="org:approver" type="c:RoleType"/>
+      <roleMembershipRef oid="00000000-0000-0000-0000-000000000004" relation="org:approver" type="c:RoleType"/>
+      <roleMembershipRef oid="60581db3-832b-4726-af72-f747a0584bf7" relation="org:approver" type="c:RoleType"/>
+      <roleMembershipRef oid="9e2967ab-e687-4291-afa5-c1e2f4083162" relation="org:approver" type="c:RoleType"/>
+      <roleMembershipRef oid="201f248d-d1fd-4e3f-b2a8-fd813afc36b5" relation="org:approver" type="c:RoleType"/>
+      <roleMembershipRef oid="c7b64f92-fda4-4c6b-a738-62eebb6a6e08" relation="org:approver" type="c:RoleType"/>
+      <roleMembershipRef oid="30a0f87e-7d6e-4910-97ca-c175d2f215ab" relation="org:approver" type="c:RoleType"/>
+      <roleMembershipRef oid="c71e1cb2-82ec-4773-8a3d-4567cba4fb59" relation="org:approver" type="c:RoleType"/>
+      <roleMembershipRef oid="2cfb4b38-b520-4b40-9a02-85beab32e6e6" relation="org:approver" type="c:RoleType"/>
+      <roleMembershipRef oid="39b35b50-871a-4688-8e42-7ea31c1cda0b" relation="org:approver" type="c:RoleType"/>
+      <displayName>Approval: Global Administrators</displayName>
+      <requestable>false</requestable>
+      <delegable>false</delegable>
+      <idempotence>none</idempotence>
+      <riskLevel>HIGH</riskLevel>
+      <roleType>system</roleType>
+   </role>

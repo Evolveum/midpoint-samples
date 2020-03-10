@@ -1,0 +1,1142 @@
+<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" 
+	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
+	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
+	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
+	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
+	xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	oid="resource-AdLdap1" 
+	version="429">
+        <name>Active Directory: Domain Services</name>
+        <description>Domain Network Services</description>
+        <operationalState>
+            <lastAvailabilityStatus>up</lastAvailabilityStatus>
+        </operationalState>
+        <connectorRef type="ConnectorType">
+	        <filter>
+	            <q:equal>
+	                <q:path>c:connectorType</q:path>
+	                <q:value>com.evolveum.polygon.connector.ldap.ad.AdLdapConnector</q:value>
+	            </q:equal>
+	        </filter>
+        </connectorRef>
+        <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+            <icfc:connectorPoolConfiguration>
+                <icfc:minEvictableIdleTimeMillis>120000</icfc:minEvictableIdleTimeMillis>
+                <icfc:minIdle>1</icfc:minIdle>
+                <icfc:maxIdle>10</icfc:maxIdle>
+                <icfc:maxObjects>10</icfc:maxObjects>
+                <icfc:maxWait>150000</icfc:maxWait>
+            </icfc:connectorPoolConfiguration>
+            <icfc:resultsHandlerConfiguration>
+                <icfc:enableNormalizingResultsHandler>false</icfc:enableNormalizingResultsHandler>
+                <icfc:enableFilteredResultsHandler>false</icfc:enableFilteredResultsHandler>
+                <icfc:enableAttributesToGetSearchResultsHandler>false</icfc:enableAttributesToGetSearchResultsHandler>
+            </icfc:resultsHandlerConfiguration>
+            <icfc:configurationProperties xmlns:gen798="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-ldap/com.evolveum.polygon.connector.ldap.ad.AdLdapConnector">
+                <gen798:host>
+                    <expression>
+                        <const xsi:type="c:ConstExpressionEvaluatorType">resADhost</const>
+                    </expression>
+                </gen798:host>
+                <gen798:port>
+                    <expression>
+                        <const xsi:type="c:ConstExpressionEvaluatorType">resADport</const>
+                    </expression>
+                </gen798:port>
+                <gen798:connectionSecurity>ssl</gen798:connectionSecurity>
+                <gen798:bindDn>
+                    <expression>
+                        <const xsi:type="c:ConstExpressionEvaluatorType">resADbinddn</const>
+                    </expression>
+                </gen798:bindDn>
+                <gen798:bindPassword>
+                    <expression>
+                        <const xsi:type="c:ConstExpressionEvaluatorType">resADbindpw</const>
+                    </expression>
+                </gen798:bindPassword>
+                <gen798:baseContext>
+                    <expression>
+                        <const xsi:type="c:ConstExpressionEvaluatorType">resADbasedn</const>
+                    </expression>
+                </gen798:baseContext>
+                <gen798:referralStrategy>ignore</gen798:referralStrategy>
+                <gen798:operationalAttributes>info</gen798:operationalAttributes>
+            </icfc:configurationProperties>
+        </connectorConfiguration>
+        <schema>
+            <generationConstraints>
+                <generateObjectClass>ri:user</generateObjectClass>
+                <generateObjectClass>ri:group</generateObjectClass>
+                <generateObjectClass>ri:bshpGroup</generateObjectClass>
+                <generateObjectClass>ri:bshpPerson</generateObjectClass>
+                <generateObjectClass>ri:eduPerson</generateObjectClass>
+                <generateObjectClass>ri:organizationalUnit</generateObjectClass>
+            </generationConstraints>
+        </schema>
+        <schemaHandling>
+            <objectType id="1">
+                <kind>account</kind>
+                <displayName>Domain Account</displayName>
+                <default>true</default>
+                <objectClass>ri:user</objectClass>
+                <auxiliaryObjectClass>ri:bshpPerson</auxiliaryObjectClass>
+                <auxiliaryObjectClass>ri:eduPerson</auxiliaryObjectClass>
+                <attribute id="3">
+                    <c:ref>ri:dn</c:ref>
+                    <matchingRule xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3">mr:stringIgnoreCase</matchingRule>
+                    <outbound>
+                        <source>
+                            <c:path>$focus/fullName</c:path>
+                        </source>
+                        <source>
+                            <c:path>$focus/organization</c:path>
+                        </source>
+                        <source>
+                            <c:path>$focus/name</c:path>
+                        </source>
+                        <expression>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <code>'CN=' + fullName + iterationToken + ',' + organization</code>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute>
+                    <c:ref>ri:msDS-parentdistname</c:ref>
+                    <inbound>
+                        <target>
+                            <c:path>$focus/organization</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="4">
+                    <c:ref>ri:sAMAccountName</c:ref>
+                    <outbound>
+                        <strength>weak</strength>
+                        <source>
+                            <c:path>$focus/name</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="41">
+                        <target>
+                            <c:path>$focus/name</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="5">
+                    <c:ref>ri:cn</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/fullName</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="6">
+                    <c:ref>ri:sn</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/familyName</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="42">
+                        <target>
+                            <c:path>$focus/familyName</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="7">
+                    <c:ref>ri:givenName</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/givenName</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="43">
+                        <target>
+                            <c:path>$focus/givenName</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="8">
+                    <c:ref>ri:initials</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/additionalName</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="44">
+                        <target>
+                            <c:path>$focus/additionalName</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="9">
+                    <c:ref>ri:userPrincipalName</c:ref>
+                    <outbound>
+                        <source>
+                            <c:path>$focus/name</c:path>
+                        </source>
+                        <expression>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <code>name + '@bshp.edu'</code>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="10">
+                    <c:ref>ri:displayName</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/fullName</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="45">
+                        <target>
+                            <c:path>$focus/fullName</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="11">
+                    <c:ref>ri:mail</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/emailAddress</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="46">
+                        <target>
+                            <c:path>$focus/emailAddress</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="12">
+                    <c:ref>ri:telephoneNumber</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/telephoneNumber</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="47">
+                        <target>
+                            <c:path>$focus/telephoneNumber</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="13">
+                    <c:ref>ri:mobile</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:mobilePhone</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="48">
+                        <target>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:mobilePhone</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="14">
+                    <c:ref>ri:c</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/locale</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="49">
+                        <target>
+                            <c:path>$focus/locale</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="15">
+                    <c:ref>ri:l</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/locality</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="50">
+                        <target>
+                            <c:path>$focus/locality</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="16">
+                    <c:ref>ri:employeeType</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/employeeType</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="18">
+                    <c:ref>ri:employeeNumber</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/employeeNumber</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="19">
+                    <c:ref>ri:department</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/costCenter</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="20">
+                    <c:ref>ri:title</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/title</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="52">
+                        <target>
+                            <c:path>$focus/title</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="21">
+                    <c:ref>ri:description</c:ref>
+                    <limitations>
+                        <minOccurs>0</minOccurs>
+                        <maxOccurs>1</maxOccurs>
+                    </limitations>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/description</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="53">
+                        <target>
+                            <c:path>$focus/description</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="22">
+                    <c:ref>ri:division</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:division</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="23">
+                    <c:ref>ri:bshpPrimaryAffiliation</c:ref>
+                    <limitations>
+                        <minOccurs>0</minOccurs>
+                        <maxOccurs>1</maxOccurs>
+                    </limitations>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:bshpPrimaryAffiliation</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="54">
+                        <target>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:bshpPrimaryAffiliation</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="24">
+                    <c:ref>ri:eduPersonEntitlement</c:ref>
+                    <tolerant>false</tolerant>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:eduPersonEntitlement</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="25">
+                    <c:ref>ri:eduPersonScopedAffiliation</c:ref>
+                    <limitations>
+                        <minOccurs>0</minOccurs>
+                        <maxOccurs>1</maxOccurs>
+                    </limitations>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <name>tmpAffiliation</name>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:bshpPrimaryAffiliation</c:path>
+                        </source>
+                        <expression>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <code>tmpAffiliation + '@bshp.edu'</code>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="26">
+                    <c:ref>ri:eduPersonPrincipalName</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/name</c:path>
+                        </source>
+                        <expression>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <code>name + '@bshp.edu'</code>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="27">
+                    <c:ref>ri:otherMailbox</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:otherMailbox</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="55">
+                        <target>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:otherMailbox</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="28">
+                    <c:ref>ri:bshpPersonSelfClaimed</c:ref>
+                    <outbound>
+                        <source>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:bshpPersonSelfClaimed</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="56">
+                        <target>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:bshpPersonSelfClaimed</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="29">
+                    <c:ref>ri:bshpPersonDOBString</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:bshpPersonDOBString</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="30">
+                    <c:ref>ri:bshpPersonGender</c:ref>
+                    <matchingRule xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3">mr:stringIgnoreCase</matchingRule>
+                    <outbound>
+                        <source>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:gender</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="33">
+                    <c:ref>ri:bshpPersonIdMObjectID</c:ref>
+                    <matchingRule xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3">mr:stringIgnoreCase</matchingRule>
+                    <outbound>
+                        <strength>strong</strength>
+                        <expression>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <code>
+                                    altType = focus.getOid();
+                                    return altType;
+                                </code>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="35">
+                    <c:ref>ri:createTimeStamp</c:ref>
+                    <fetchStrategy>explicit</fetchStrategy>
+                </attribute>
+                <attribute id="36">
+                    <c:ref>ri:nTSecurityDescriptor</c:ref>
+                    <limitations>
+                        <minOccurs>0</minOccurs>
+                    </limitations>
+                </attribute>
+                <attribute id="37">
+                    <c:ref>ri:instanceType</c:ref>
+                    <limitations>
+                        <minOccurs>0</minOccurs>
+                    </limitations>
+                </attribute>
+                <attribute id="38">
+                    <c:ref>ri:objectCategory</c:ref>
+                    <limitations>
+                        <minOccurs>0</minOccurs>
+                    </limitations>
+                    <outbound>
+                        <expression>
+                            <value>CN=Person,CN=Schema,CN=Configuration,DC=BSHP,DC=ORG</value>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="39">
+                    <c:ref>ri:memberOf</c:ref>
+                    <matchingRule xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3">mr:stringIgnoreCase</matchingRule>
+                    <inbound id="57">
+                        <strength>strong</strength>
+                        <expression>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <relativityMode>absolute</relativityMode>
+                                <code>
+                                    import java.util.*;
+                                    import javax.naming.ldap.Rdn;
+                                    import javax.naming.ldap.LdapName;
+        
+                                    if (input != null) {
+                                        def memList = [];
+                                        def newList = [];
+                                        for (tmpdn in input) {
+                                            if (!tmpdn.toLowerCase().contains("ou=courses")) {
+                                                newList.add(tmpdn);
+                                                log.info("New list without courses: " + newList)
+                                            }
+                                        }
+                                        for (dn in newList) {
+                                            LdapName ldapDN = new LdapName(dn);
+                                            cn = ldapDN.get(ldapDN.size() - 1);
+                                            memList.add(cn.split('CN=')[1]);
+                                        }
+                                        log.info("User (without courses) is member of: " + memList)
+                                        return memList;
+                                        }
+                                </code>
+                            </script>
+                        </expression>
+                        <target>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:domainMembership</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <association id="58">
+                    <c:ref>ri:group</c:ref>
+                    <displayName>Domain User Groups</displayName>
+                    <tolerant>false</tolerant>
+                    <tolerantValuePattern>.*Courses.*</tolerantValuePattern>
+                    <kind>entitlement</kind>
+                    <intent>group</intent>
+                    <direction>objectToSubject</direction>
+                    <associationAttribute>ri:member</associationAttribute>
+                    <valueAttribute>ri:dn</valueAttribute>
+                    <explicitReferentialIntegrity>false</explicitReferentialIntegrity>
+                </association>
+                <association id="59">
+                    <c:ref>ri:domainCourse</c:ref>
+                    <displayName>Domain User Courses</displayName>
+                    <tolerant>false</tolerant>
+                    <kind>entitlement</kind>
+                    <intent>domainCourse</intent>
+                    <direction>objectToSubject</direction>
+                    <associationAttribute>ri:member</associationAttribute>
+                    <valueAttribute>ri:dn</valueAttribute>
+                    <explicitReferentialIntegrity>false</explicitReferentialIntegrity>
+                </association>
+                <iteration>
+                    <maxIterations>999</maxIterations>
+                    <tokenExpression>
+                        <script xsi:type="c:ScriptExpressionEvaluatorType">
+                            <code>
+                                if (iteration == 0) {
+                                    return "";
+                                } else {
+                                    return "" + (iteration + 1);
+                                }
+                              </code>
+                        </script>
+                    </tokenExpression>
+                </iteration>
+                <protected>
+                    <filter>
+                        <q:or>
+                            <q:substring>
+                                <q:matching>stringIgnoreCase</q:matching>
+                                <q:path>declare namespace ri='http://midpoint.evolveum.com/xml/ns/public/resource/instance-3'; attributes/ri:objectCategory</q:path>
+                                <q:value>CN=Computer,CN=Schema,CN=Configuration</q:value>
+                                <q:anchorEnd>true</q:anchorEnd>
+                            </q:substring>
+                        </q:or>
+                    </filter>
+                </protected>
+                <activation>
+                    <administrativeStatus>
+                        <outbound id="60">
+                            <strength>strong</strength>
+                            <expression>
+                                <asIs xsi:type="c:AsIsExpressionEvaluatorType"/>
+                            </expression>
+                        </outbound>
+                        <inbound id="61">
+                            <expression>
+                                <asIs xsi:type="c:AsIsExpressionEvaluatorType"/>
+                            </expression>
+                        </inbound>
+                    </administrativeStatus>
+                </activation>
+                <credentials>
+                    <password xsi:type="c:ResourcePasswordDefinitionType">
+                        <outbound>
+                            <expression>
+                                <asIs xsi:type="c:AsIsExpressionEvaluatorType"/>
+                            </expression>
+                        </outbound>
+                        <inbound>
+                            <strength>weak</strength>
+                            <expression>
+                                <generate xsi:type="c:GenerateExpressionEvaluatorType"/>
+                            </expression>
+                        </inbound>
+                    </password>
+                </credentials>
+            </objectType>
+            <objectType id="2">
+                <kind>entitlement</kind>
+                <intent>group</intent>
+                <displayName>Domain Group</displayName>
+                <default>true</default>
+                <objectClass>ri:group</objectClass>
+                <attribute id="62">
+                    <c:ref>ri:dn</c:ref>
+                    <matchingRule xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3">mr:stringIgnoreCase</matchingRule>
+                    <outbound>
+                        <source>
+                            <c:path>$focus/identifier</c:path>
+                        </source>
+                        <source>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:oupath</c:path>
+                        </source>
+                        <expression>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <code>'CN=' + identifier + ',' + oupath</code>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute>
+                    <c:ref>ri:msDS-parentdistname</c:ref>
+                    <inbound>
+                        <target>
+                            <c:path>$focus/extension/bshp:oupath</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="63">
+                    <c:ref>ri:cn</c:ref>
+                    <matchingRule xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3">mr:stringIgnoreCase</matchingRule>
+                    <outbound>
+                        <source>
+                            <c:path>$focus/identifier</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="72">
+                        <target>
+                            <c:path>$focus/identifier</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="64">
+                    <c:ref>ri:sAMAccountName</c:ref>
+                    <matchingRule xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3">mr:stringIgnoreCase</matchingRule>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/identifier</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="73">
+                        <expression>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <code>'Domain Group: ' + input</code>
+                            </script>
+                        </expression>
+                        <target>
+                            <c:path>$focus/name</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="65">
+                    <c:ref>ri:displayName</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/identifier</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="66">
+                    <c:ref>ri:description</c:ref>
+                    <limitations>
+                        <minOccurs>0</minOccurs>
+                        <maxOccurs>1</maxOccurs>
+                    </limitations>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>description</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="74">
+                        <target>
+                            <c:path>$focus/description</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="67">
+                    <c:ref>ri:groupType</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>roleType</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="75">
+                        <strength>strong</strength>
+                        <target>
+                            <c:path>$focus/roleType</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="68">
+                    <c:ref>ri:msExchEnableModeration</c:ref>
+                    <outbound>
+                        <strength>weak</strength>
+                        <source>
+                            <c:path>roleType</c:path>
+                        </source>
+                        <expression>
+                            <value>true</value>
+                        </expression>
+                        <condition>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <code>roleType == '8'</code>
+                            </script>
+                        </condition>
+                    </outbound>
+                </attribute>
+                <attribute id="69">
+                    <c:ref>ri:msExchHideFromAddressLists</c:ref>
+                    <outbound>
+                        <strength>weak</strength>
+                        <source>
+                            <c:path>roleType</c:path>
+                        </source>
+                        <expression>
+                            <value>true</value>
+                        </expression>
+                        <condition>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <code>roleType == '8'</code>
+                            </script>
+                        </condition>
+                    </outbound>
+                </attribute>
+                <attribute id="70">
+                    <c:ref>ri:memberOf</c:ref>
+                    <inbound id="76">
+                        <strength>strong</strength>
+                        <expression>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <relativityMode>absolute</relativityMode>
+                                <language>http://midpoint.evolveum.com/xml/ns/public/expression/language#Groovy</language>
+                                <code>
+                                        import java.util.*;
+                                        import javax.naming.ldap.Rdn;
+                                        import javax.naming.ldap.LdapName;
+            
+                                        if (input != null) {
+                                            def memList = [];
+                                            for (dn in input) {
+                                                LdapName ldapDN = new LdapName(dn);
+                                                cn = ldapDN.get(ldapDN.size() - 1);
+                                                memList.add(cn.split('CN=')[1]);
+                                                log.info("-- Group Names: " + memList);
+                                            }
+                                            return memList;
+                                        }
+                                 </code>
+                            </script>
+                        </expression>
+                        <target>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:groupMembership</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <association id="77">
+                    <c:ref>ri:group</c:ref>
+                    <displayName>Domain Group Groups</displayName>
+                    <tolerant>true</tolerant>
+                    <kind>entitlement</kind>
+                    <intent>group</intent>
+                    <direction>objectToSubject</direction>
+                    <associationAttribute>ri:member</associationAttribute>
+                    <valueAttribute>ri:dn</valueAttribute>
+                    <shortcutAssociationAttribute>ri:memberOf</shortcutAssociationAttribute>
+                    <shortcutValueAttribute>ri:dn</shortcutValueAttribute>
+                    <explicitReferentialIntegrity>false</explicitReferentialIntegrity>
+                </association>
+                <protected>
+                    <filter>
+                        <q:or>
+                            <q:substring>
+                                <q:matching>stringIgnoreCase</q:matching>
+                                <q:path>declare namespace ri='http://midpoint.evolveum.com/xml/ns/public/resource/instance-3'; attributes/ri:dn</q:path>
+                                <q:value>CN=System Managed Accounts Group,CN=BUILTIN</q:value>
+                                <q:anchorEnd>true</q:anchorEnd>
+                            </q:substring>
+                        </q:or>
+                    </filter>
+                </protected>
+            </objectType>
+            <objectType id="3">
+                <kind>entitlement</kind>
+                <intent>domainCourse</intent>
+                <displayName>Domain Course</displayName>
+                <default>false</default>
+                <objectClass>ri:group</objectClass>
+                <baseContext>
+                    <objectClass>ri:group</objectClass>
+                    <filter>
+                        <q:equal>
+                            <q:path>attributes/dn</q:path>
+                            <q:value>OU=Courses,OU=Exchange</q:value>
+                        </q:equal>
+                    </filter>
+                </baseContext>
+                <attribute id="78">
+                    <c:ref>ri:dn</c:ref>
+                    <matchingRule xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3">mr:stringIgnoreCase</matchingRule>
+                    <outbound>
+                        <source>
+                            <c:path>$focus/name</c:path>
+                        </source>
+                        <expression>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <code>'CN=' + name + ',OU=Courses,OU=Exchange'</code>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="79">
+                    <c:ref>ri:cn</c:ref>
+                    <matchingRule xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3">mr:stringIgnoreCase</matchingRule>
+                    <outbound>
+                        <source>
+                            <c:path>$focus/name</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="80">
+                    <c:ref>ri:sAMAccountName</c:ref>
+                    <matchingRule xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3">mr:stringIgnoreCase</matchingRule>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/name</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="81">
+                    <c:ref>ri:mail</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/mailDomain</c:path>
+                        </source>
+                    </outbound>
+                    <inbound id="89">
+                        <target>
+                            <c:path>$focus/mailDomain</c:path>
+                        </target>
+                    </inbound>
+                </attribute>
+                <attribute id="82">
+                    <c:ref>ri:displayName</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/name</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="83">
+                    <c:ref>ri:description</c:ref>
+                    <limitations>
+                        <minOccurs>0</minOccurs>
+                        <maxOccurs>1</maxOccurs>
+                    </limitations>
+                    <outbound>
+                        <strength>strong</strength>
+                        <source>
+                            <c:path>$focus/description</c:path>
+                        </source>
+                    </outbound>
+                </attribute>
+                <attribute id="84">
+                    <c:ref>ri:groupType</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <expression>
+                            <value>8</value>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="85">
+                    <c:ref>ri:msExchHideFromAddressLists</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <expression>
+                            <value>true</value>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="86">
+                    <c:ref>ri:msExchEnableModeration</c:ref>
+                    <outbound>
+                        <strength>strong</strength>
+                        <expression>
+                            <value>true</value>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="87">
+                    <c:ref>ri:msExchBypassModerationLink</c:ref>
+                    <outbound>
+                        <tolerant>false</tolerant>
+                        <strength>strong</strength>
+                        <source>
+                            <name>coordFaculty</name>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:coordEmailAddress</c:path>
+                        </source>
+                        <expression>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <relativityMode>absolute</relativityMode>
+                                <code>
+                                    import com.evolveum.midpoint.xml.ns._public.common.common_3.*;
+                                    import com.evolveum.midpoint.prism.delta.*;
+                                    import com.evolveum.midpoint.schema.util.*;
+                                    import java.util.*;
+        
+                                    if (coordFaculty != null) {
+                                        def facultyList = [];
+                                        for (faculty in coordFaculty) {
+                                            username = faculty.split("\\@")[0];
+                                            log.info("-- Faculty username being considered for bypass: " + username);
+                                            faculty = midpoint.searchObjectByName(UserType.class, username);
+                                            cn = basic.getPropertyValue(faculty, 'fullName');
+                                            org = basic.getPropertyValue(faculty, 'organization');
+                                            dn = 'CN=' + cn + ',' + org;
+                                            log.info("-- Setting default bypass permissions: " + facultyList);
+                                            facultyList.add(dn);
+                                        }
+                                        return facultyList;
+                                    }
+                                 </code>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+                <attribute id="88">
+                    <c:ref>ri:msExchModeratedByLink</c:ref>
+                    <outbound>
+                        <tolerant>false</tolerant>
+                        <strength>strong</strength>
+                        <source>
+                            <name>coordFaculty</name>
+                            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">$focus/extension/bshp:coordEmailAddress</c:path>
+                        </source>
+                        <expression>
+                            <script xsi:type="c:ScriptExpressionEvaluatorType">
+                                <relativityMode>absolute</relativityMode>
+                                <language>http://midpoint.evolveum.com/xml/ns/public/expression/language#Groovy</language>
+                                <code>
+                                    import com.evolveum.midpoint.xml.ns._public.common.common_3.*;
+                                    import com.evolveum.midpoint.prism.delta.*;
+                                    import com.evolveum.midpoint.schema.util.*;
+                                    import java.util.*;
+        
+                                    if (coordFaculty != null) {
+                                        def facultyList = [];
+                                        for (faculty in coordFaculty) {
+                                            username = faculty.split("\\@")[0];
+                                            log.info("-- Faculty username being considered for moderation: " + username);
+                                            faculty = midpoint.searchObjectByName(UserType.class, username);
+                                            cn = basic.getPropertyValue(faculty, 'fullName');
+                                            org = basic.getPropertyValue(faculty, 'organization');
+                                            dn = 'CN=' + cn + ',' + org;
+                                            log.info("-- Setting default moderators: " + facultyList);
+                                            facultyList.add(dn);
+        
+                                            }
+                                        return facultyList;
+                                    }
+                                 </code>
+                            </script>
+                        </expression>
+                    </outbound>
+                </attribute>
+            </objectType>
+        </schemaHandling>
+        <projection>
+            <assignmentPolicyEnforcement>full</assignmentPolicyEnforcement>
+        </projection>
+        <synchronization>
+            <objectSynchronization>
+                <name>Account Sync</name>
+                <objectClass>ri:user</objectClass>
+                <kind>account</kind>
+                <intent>default</intent>
+                <focusType>c:UserType</focusType>
+                <enabled>true</enabled>
+                <correlation>
+                    <q:equal>
+                        <q:path>c:name</q:path>
+                        <expression>
+                            <path>$shadow/attributes/ri:sAMAccountName</path>
+                        </expression>
+                    </q:equal>
+                </correlation>
+                <reaction>
+                    <situation>linked</situation>
+                    <synchronize>true</synchronize>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <synchronize>true</synchronize>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlink</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <synchronize>true</synchronize>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <synchronize>true</synchronize>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
+                    </action>
+                </reaction>
+            </objectSynchronization>
+            <objectSynchronization>
+                <name>Group Sync</name>
+                <objectClass>ri:group</objectClass>
+                <kind>entitlement</kind>
+                <intent>group</intent>
+                <focusType>c:RoleType</focusType>
+                <enabled>true</enabled>
+                <condition>
+                    <script>
+                        <code>
+                            tmp = basic.getAttributeValue(shadow, 'http://midpoint.evolveum.com/xml/ns/public/resource/instance-3', 'dn');
+                            return (!tmp.contains('OU=Courses,OU=Exchange'));
+                        </code>
+                    </script>
+                </condition>
+                <correlation>
+                    <q:equal>
+                        <q:path>c:identifier</q:path>
+                        <expression>
+                            <path>$shadow/attributes/ri:cn</path>
+                        </expression>
+                    </q:equal>
+                </correlation>
+                <reaction>
+                    <situation>linked</situation>
+                    <synchronize>true</synchronize>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <synchronize>true</synchronize>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlink</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <synchronize>true</synchronize>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <synchronize>true</synchronize>
+                    <objectTemplateRef oid="template-defaultDomainGroup" relation="org:default" type="c:ObjectTemplateType">
+                        <targetName>Role Template - Domain Groups</targetName>
+                    </objectTemplateRef>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
+                    </action>
+                </reaction>
+            </objectSynchronization>
+            <objectSynchronization>
+                <name>Course Sync</name>
+                <objectClass>ri:group</objectClass>
+                <kind>entitlement</kind>
+                <intent>domainCourse</intent>
+                <focusType>c:OrgType</focusType>
+                <enabled>true</enabled>
+                <condition>
+                    <script xsi:type="c:ScriptExpressionEvaluatorType">
+                        <code>
+                            tmp = basic.getAttributeValue(shadow, 'http://midpoint.evolveum.com/xml/ns/public/resource/instance-3', 'dn');
+                            return (tmp.contains('OU=Courses,OU=Exchange'))
+                        </code>
+                    </script>
+                </condition>
+                <correlation>
+                    <q:equal>
+                        <q:path>c:name</q:path>
+                        <expression>
+                            <path>$shadow/attributes/ri:cn</path>
+                        </expression>
+                    </q:equal>
+                </correlation>
+                <reaction>
+                    <situation>linked</situation>
+                    <synchronize>true</synchronize>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <synchronize>true</synchronize>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlink</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <synchronize>true</synchronize>
+                    <action>
+                        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
+                    </action>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <synchronize>true</synchronize>
+                </reaction>
+            </objectSynchronization>
+        </synchronization>
+    </resource>

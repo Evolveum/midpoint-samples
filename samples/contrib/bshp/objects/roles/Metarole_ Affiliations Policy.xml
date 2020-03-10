@@ -1,0 +1,93 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+	oid="metarole-affiliationsPolicy">
+    <name>Metarole: Affiliations Policy</name>
+    <description>This will apply policy constraints to the primary affiliations roles.</description>
+    <activation>
+        <administrativeStatus>enabled</administrativeStatus>
+        <effectiveStatus>enabled</effectiveStatus>
+    </activation>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <displayName>Metarole: Affiliations Policy</displayName>
+    <inducement id="1">
+        <focusMappings>
+            <mapping id="11">
+                <strength>strong</strength>
+                <expression>
+                    <value>false</value>
+                </expression>
+                <target>
+                    <c:path>requestable</c:path>
+                </target>
+            </mapping>
+        </focusMappings>
+        <activation>
+            <administrativeStatus>enabled</administrativeStatus>
+        </activation>
+        <focusType>c:RoleType</focusType>
+    </inducement>
+    <inducement id="2">
+        <focusMappings>
+            <mapping id="21">
+                <strength>strong</strength>
+                <expression>
+                    <value>false</value>
+                </expression>
+                <target>
+                    <c:path>delegable</c:path>
+                </target>
+            </mapping>
+        </focusMappings>
+        <activation>
+            <administrativeStatus>enabled</administrativeStatus>
+        </activation>
+        <focusType>c:RoleType</focusType>
+    </inducement>
+    <inducement id="3">
+        <focusMappings>
+            <mapping id="31">
+                <strength>strong</strength>
+                <expression>
+                    <value>none</value>
+                </expression>
+                <target>
+                    <c:path>idempotence</c:path>
+                </target>
+            </mapping>
+        </focusMappings>
+        <activation>
+            <administrativeStatus>enabled</administrativeStatus>
+        </activation>
+        <focusType>c:RoleType</focusType>
+    </inducement>
+    <inducement id="4">
+		<policyRule>
+			<name>Affiliations Policy</name>
+            <policyConstraints>
+                <exclusion id="41">
+                    <targetRef relation="org:default" type="c:RoleType">
+                        <filter>
+                            <q:ref>
+                                <q:path>assignment/targetRef</q:path>
+                                <q:value oid="metarole-affiliationsPolicy" relation="org:default" type="c:RoleType"/>
+                            </q:ref>
+                        </filter>
+                        <resolutionTime>run</resolutionTime>
+                    </targetRef>
+                </exclusion>
+            </policyConstraints>
+            <policyActions>
+                <prune/>
+            </policyActions>
+        </policyRule>
+    </inducement>
+    <requestable>false</requestable>
+    <delegable>false</delegable>
+    <riskLevel>LOW</riskLevel>
+</role>

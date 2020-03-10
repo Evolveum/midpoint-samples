@@ -1,0 +1,125 @@
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+	xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" 
+	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
+	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
+	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
+	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
+	xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	oid="includes-archiving">
+	<name>Includes - Archiving</name>
+	<description>
+        Archive previous attribute values that need to be retained.
+	</description>
+   <mapping>
+      <name>Auto Archive Level</name>
+      <strength>strong</strength>
+      <source>
+         <name>currentLevel</name>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicLevel</c:path>
+      </source>
+      <expression>
+         <script>
+            <code>
+                oldObj = midpoint.getFocusContext().getObjectOld().asObjectable();
+                oldValue = basic.getPropertyValue(oldObj, "extension/academicLevel");
+                
+                if (oldValue != currentLevel &amp;&amp; oldValue != null) {
+                	return oldValue;
+                }
+            </code>
+         </script>
+      </expression>
+      <target>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:prevAcademicLevel</c:path>
+      </target>
+	  <condition>
+		 <script>
+		 	 <code>operation != 'add'</code>
+		 </script>
+	  </condition>
+   </mapping>
+   <mapping>
+      <name>Auto Archive Status</name>
+      <strength>strong</strength>
+      <source>
+         <name>academicStatus</name>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:academicStatus</c:path>
+      </source>
+      <expression>
+         <script>
+            <code>
+                oldObj = midpoint.getFocusContext().getObjectOld().asObjectable();
+                oldValue = basic.getPropertyValue(oldObj, "extension/academicStatus");
+                
+                if (oldValue != academicStatus &amp;&amp; oldValue != null) {
+                	return oldValue;
+                }
+            </code>
+         </script>
+      </expression>
+      <target>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:prevAcademicStatus</c:path>
+      </target>
+	  <condition>
+		 <script>
+		 	 <code>operation != 'add'</code>
+		 </script>
+	  </condition>
+   </mapping>
+   <mapping>
+      <name>Auto Archive Username</name>
+      <strength>strong</strength>
+      <source>
+         <c:path>name</c:path>
+      </source>
+      <expression>
+         <script>
+            <code>
+                oldObj = midpoint.getFocusContext().getObjectOld().asObjectable();
+                oldValue = basic.getPropertyValue(oldObj, "name");
+                
+                if (oldValue != name &amp;&amp; oldValue != null) {
+                	return oldValue;
+                }
+            </code>
+         </script>
+      </expression>
+      <target>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:previousUsername</c:path>
+      </target>
+	  <condition>
+		 <script>
+		 	 <code>operation != 'add'</code>
+		 </script>
+	  </condition>
+   </mapping>
+   <mapping>
+      <name>Auto Archive Lastname</name>
+      <strength>strong</strength>
+      <source>
+         <c:path>familyName</c:path>
+      </source>
+      <expression>
+         <script>
+            <code>
+                oldObj = midpoint.getFocusContext().getObjectOld().asObjectable();
+                oldValue = basic.getPropertyValue(oldObj, "familyName");
+                
+                if (oldValue != familyName &amp;&amp; oldValue != null) {
+                	return oldValue;
+                }
+            </code>
+         </script>
+      </expression>
+      <target>
+         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:previousLastname</c:path>
+      </target>
+	  <condition>
+		 <script>
+		 	 <code>operation != 'add'</code>
+		 </script>
+	  </condition>
+   </mapping>
+</objectTemplate>

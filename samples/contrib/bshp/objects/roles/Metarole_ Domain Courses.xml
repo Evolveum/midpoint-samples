@@ -1,0 +1,53 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+	  xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" 
+	  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+	  xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
+	  xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
+	  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
+	  xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
+	  xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	  oid="metarole-DomainCourses">
+      <name>Metarole: Domain Courses</name>
+      <description>This will add, create, or update course related groups on the domain.</description>
+      <activation>
+         <administrativeStatus>enabled</administrativeStatus>
+         <effectiveStatus>enabled</effectiveStatus>
+      </activation>
+      <iteration>0</iteration>
+      <iterationToken/>
+      <displayName>Metarole: Domain Course Groups</displayName>
+      <inducement id="1">
+         <construction>
+            <resourceRef oid="resource-AdLdap1" relation="org:default" type="c:ResourceType"/>
+            <kind>entitlement</kind>
+            <intent>domainCourse</intent>
+         </construction>
+      </inducement>
+      <inducement id="2">
+         <construction>
+            <resourceRef oid="resource-AdLdap1" relation="org:default" type="c:ResourceType"/>
+            <kind>account</kind>
+            <intent>default</intent>
+            <association id="3">
+               <c:ref>ri:domainCourse</c:ref>
+               <outbound>
+                  <strength>strong</strength>
+                  <expression>
+                     <associationFromLink xsi:type="c:AssociationFromLinkExpressionEvaluatorType">
+                         <projectionDiscriminator>
+                             <kind>entitlement</kind>
+                             <intent>domainCourse</intent>
+                         </projectionDiscriminator>
+                     </associationFromLink>
+                 </expression>
+             </outbound>
+          </association>
+       </construction>
+       <order>2</order>
+       <focusType>c:UserType</focusType>
+    </inducement>
+    <requestable>false</requestable>
+    <delegable>false</delegable>
+    <riskLevel>HIGH</riskLevel>
+</role>
