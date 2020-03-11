@@ -66,7 +66,11 @@
         <resources>
             <resource>
                 <directory>samples</directory>
-                <filtering>true</filtering>
+                <!--
+                We're not replacing anything, and we don't want to by accident.
+                Any ${...} in sample files are resolved later in runtime, not during build.
+                -->
+                <filtering>false</filtering>
             </resource>
         </resources>
     </build>
