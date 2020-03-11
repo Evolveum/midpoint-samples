@@ -7,5 +7,5 @@ HOW TO CONTRIBUTE
 
 Create a directory that is reasonably unique for you. E.g. use your company name, your nick name
 or something similar. Then place samples inside that directory. If there are several sets of
-samples (e.g. several user stories) then pleace each set in a separate sub-directory. It is
+samples (e.g. several user stories) then place each set in a separate sub-directory. It is
 recommended to write a short description of the sample in a README file in each directory.
