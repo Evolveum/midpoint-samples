@@ -17,14 +17,16 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <name>midPoint Samples</name>
+
     <groupId>com.evolveum.midpoint</groupId>
     <artifactId>midpoint-samples</artifactId>
     <version>4.1-SNAPSHOT</version>
     <packaging>jar</packaging>
+
+    <name>midPoint Samples</name>
     <organization>
         <name>Evolveum</name>
-        <url>http://www.evolveum.com</url>
+        <url>https://www.evolveum.com</url>
     </organization>
     <licenses>
         <license>
@@ -33,6 +35,16 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <scm>
+        <connection>https://github.com/Evolveum/midpoint-samples.git</connection>
+        <developerConnection>git@github.com:Evolveum/midpoint-samples.git</developerConnection>
+        <url>https://github.com/Evolveum/midpoint-samples</url>
+    </scm>
+    <issueManagement>
+        <system>Atlassian JIRA</system>
+        <url>https://jira.evolveum.com/</url>
+    </issueManagement>
     <distributionManagement>
         <repository>
             <id>evolveum-nexus</id>
@@ -45,15 +57,11 @@
             <url>https://nexus.evolveum.com/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
-    <issueManagement>
-        <system>Atlassian JIRA</system>
-        <url>http://jira.evolveum.com/</url>
-    </issueManagement>
-    <scm>
-        <connection>https://github.com/Evolveum/midpoint-samples.git</connection>
-        <developerConnection>git@github.com:Evolveum/midpoint-samples.git</developerConnection>
-        <url>https://github.com/Evolveum/midpoint-samples</url>
-    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
     <build>
         <resources>
             <resource>
@@ -62,5 +70,4 @@
             </resource>
         </resources>
     </build>
-
 </project>
