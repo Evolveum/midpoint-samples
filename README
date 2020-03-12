@@ -1,7 +1,0 @@
-Configuration Samples for MidPoint Project
-------------------------------------------
-
-This project contains configuration samples for midPoint: https://github.com/Evolveum/midpoint
-
-You can contribute your own samples into samples/contrib directory.
-See samples/contrib/README for the instructions.
