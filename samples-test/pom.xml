@@ -11,14 +11,15 @@
 
     <artifactId>samples-test</artifactId>
     <groupId>com.evolveum.midpoint</groupId>
-    <version>4.1-SNAPSHOT</version>
+    <version>4.2-SNAPSHOT</version>
 
     <name>midPoint Samples - Test</name>
 
     <properties>
+        <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
 
         <redirectTestOutputToFile>false</redirectTestOutputToFile>
 
@@ -212,14 +213,21 @@
             <version>${midpoint.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency> <!-- needed as runtime dependency otherwise spring won't start -->
+        <!-- needed as runtime dependency otherwise spring won't start -->
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency> <!-- needed as runtime dependency otherwise spring won't start -->
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- needed as runtime dependency otherwise Tomcat won't start (includes Servlet API) -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
             <scope>test</scope>
         </dependency>
 
