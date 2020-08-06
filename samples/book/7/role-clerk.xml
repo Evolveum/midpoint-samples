@@ -14,7 +14,7 @@
   ~ limitations under the License.
   -->
 
-<role oid="48d4ef98-20e3-46ab-cd78-548d38364a6b3"
+<role oid="48d4ef98-20e3-46ab-cd78-548d38364a6b"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
@@ -22,7 +22,7 @@
     <inducement>
         <construction>
             <!-- Record management system -->
-            <resourceRef oid="84de003e-014f-2040-efbc-482e009ed2bcf"/>
+            <resourceRef oid="84de003e-014f-2040-efbc-482e009ed2bc"/>
             <kind>account</kind>
             <attribute>
                 <ref>ri:priv</ref>
