@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2020 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<objects xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+         xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+         xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
+
+    <!-- Project organizational structure of ExAmPLE company -->
+
+    <org oid="832e37e4-edfd-11ea-9f8c-ef736d6646a2">
+        <name>Projects</name>
+    </org>
+
+    <org oid="9c1b8464-edfd-11ea-87b8-db467c5ae301">
+        <name>PBD2020</name>
+        <description>Make money fast.</description>
+        <displayName>Big Deal</displayName>
+        <identifier>BD2020</identifier>
+        <assignment>
+            <targetRef oid="832e37e4-edfd-11ea-9f8c-ef736d6646a2" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="22dc2bd4-edfe-11ea-a904-5be54dda2e46">
+        <name>PLS</name>
+        <description>Make sure our marketing message gets across.</description>
+        <displayName>Loudspeaker</displayName>
+        <identifier>LS</identifier>
+        <assignment>
+            <targetRef oid="832e37e4-edfd-11ea-9f8c-ef736d6646a2" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="22dc2bd4-edfe-11ea-a904-5be54dda2e46">
+        <name>PWL2</name>
+        <description>Second generation wonderland. We are all mad here.</description>
+        <displayName>Wonderland 2.0</displayName>
+        <identifier>WL2</identifier>
+        <assignment>
+            <targetRef oid="832e37e4-edfd-11ea-9f8c-ef736d6646a2" type="OrgType"/>
+        </assignment>
+    </org>
+
+</objects>
