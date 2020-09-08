@@ -116,7 +116,6 @@
                     <!-- Custom CSS class/style for the entire table can be here. -->
                 </display>
                 <column>
-                    <!-- TODO: decide if we use name or path. The names may be hardcoded. -->
                     <name>delta</name>
                     <path>delta</path>
                     <display>
@@ -124,11 +123,13 @@
                         <!-- CSS class/style for the column may be here -->
                     </display>
                     <previousColumn>outcome</previousColumn>
-                    <expression>
-                        <script>
-                            <code>ReportUtils.printDelta(....)</code>
-                        </script>
-                    </expression>
+                    <export>
+                        <expression>
+                            <script>
+                                <code>ReportUtils.printDelta(....)</code>
+                            </script>
+                        </expression>
+                    </export>
                 </column>
             </view>
         </presentation>

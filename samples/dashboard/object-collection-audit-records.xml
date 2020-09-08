@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2019 Evolveum
+  ~ Copyright (c) 2020 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -17,19 +17,14 @@
 
 <objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                   xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-                  oid="16be4077-53fd-4ada-b0cc-572318e855f5">
-    <name>Error audit record</name>
+                  oid="00000000-0000-0000-0001-000000000285">
+    <name>Audit records</name>
     <type>AuditEventRecordType</type>
     <filter>
         <q:and>
             <q:equal>
                 <q:path>eventStage</q:path>
                 <q:value>execution</q:value>
-            </q:equal>
-            <q:equal>
-                <q:path>outcome</q:path>
-                <q:value>fatal_error</q:value>
             </q:equal>
             <q:greater>
                 <q:path>timestamp</q:path>
@@ -44,8 +39,4 @@
             </q:greater>
         </q:and>
     </filter>
-    <domain>
-        <collectionRef oid="00000000-0000-0000-0001-000000000285" type="c:ObjectCollectionType"/>
-    </domain>
 </objectCollection>
-
