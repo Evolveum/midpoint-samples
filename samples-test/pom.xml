@@ -28,9 +28,7 @@
 
         <!-- Typically matches sample versions, but declared explicitly (also can be overridden) -->
         <midpoint.version>${project.version}</midpoint.version>
-
-        <!-- Just for bill-of-materials (BOM) -->
-        <spring.boot.version>2.1.8.RELEASE</spring.boot.version>
+        <midpoint.sample.version>${midpoint.version}</midpoint.sample.version>
 
         <!-- We don't want to install/deploy this, nor we need Checkstyle here. -->
         <maven.install.skip>true</maven.install.skip>
@@ -108,7 +106,7 @@
         <dependency>
             <groupId>com.evolveum.midpoint</groupId>
             <artifactId>midpoint-samples</artifactId>
-            <version>${midpoint.version}</version>
+            <version>${midpoint.sample.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
