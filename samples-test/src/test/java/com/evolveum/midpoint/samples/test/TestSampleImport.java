@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2013 Evolveum and contributors
+ * Copyright (C) 2010-2020 Evolveum and contributors
  *
  * This work is dual-licensed under the Apache License 2.0
  * and European Union Public License. See LICENSE file for details.
@@ -10,7 +10,6 @@ import static org.testng.AssertJUnit.assertEquals;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
@@ -38,7 +37,7 @@ import com.evolveum.midpoint.xml.ns._public.common.common_3.ResourceType;
  *
  * @author Radovan Semancik
  */
-@ContextConfiguration(locations = { "classpath:ctx-samples-test-main.xml" })
+@ContextConfiguration(locations = { "classpath:ctx-samples-test.xml" })
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
 public class TestSampleImport extends AbstractSampleTest {
 
@@ -55,25 +54,27 @@ public class TestSampleImport extends AbstractSampleTest {
 
     @Test
     public void importOpenDJAdvanced() throws IOException, SchemaException {
-        importSample(new File(SAMPLES_DIRECTORY, "resources/opendj/opendj-localhost-resource-sync-advanced.xml"),
+        importSample(
+                new File(SAMPLES_DIRECTORY,
+                        "resources/opendj/opendj-localhost-resource-sync-advanced.xml"),
                 ResourceType.class, "Localhost OpenDJ");
     }
 
     public <T extends ObjectType> void importSample(
             File sampleFile, Class<T> type, String objectName)
             throws IOException, SchemaException {
-        sampleFile.getPath();
-        // GIVEN
-        sampleFile.getName();
+        given();
         Task task = getTestTask();
         OperationResult result = task.getResult();
         result.addParam("file", sampleFile.getPath());
+
+        when();
         try (FileInputStream stream = new FileInputStream(sampleFile)) {
-            // WHEN
             modelService.importObjectsFromStream(stream,
                     PrismContext.LANG_XML, MiscSchemaUtil.getDefaultImportOptions(), task, result);
         }
-        // THEN
+
+        then();
         result.computeStatus();
         display("Result after good import", result);
         TestUtil.assertSuccessOrWarning("Import has failed (result)", result, 1);
