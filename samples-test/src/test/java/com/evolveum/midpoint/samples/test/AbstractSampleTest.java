@@ -23,7 +23,7 @@ import com.evolveum.midpoint.xml.ns._public.common.common_3.UserType;
  * Samples are not testing by starting the application (Spring context) with all
  * samples imported during the startup, as they are mutually exclusive.
  */
-@ContextConfiguration(locations = { "classpath:ctx-samples-test-main.xml" })
+@ContextConfiguration(locations = { "classpath:ctx-samples-test.xml" })
 @DirtiesContext(classMode = ClassMode.AFTER_CLASS)
 public abstract class AbstractSampleTest extends AbstractModelIntegrationTest {
 
