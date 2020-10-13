@@ -16,7 +16,7 @@
   -->
 
 <objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-				  oid="2c2028c8-755e-11e8-bb29-53818f7c88fb">
+                  oid="2c2028c8-755e-11e8-bb29-53818f7c88fb">
     <name>All Resources</name>
     <type>ResourceType</type>
 </objectCollection>

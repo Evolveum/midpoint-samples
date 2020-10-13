@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<objectTemplate oid="22f83022-b76d-11e9-8a30-6ffc11b23016"
+                xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+                xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+                xmlns:t='http://prism.evolveum.com/xml/ns/public/types-3'
+                xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                xmlns:exmpl="http://example.com/xml/ns/midpoint/schema">
+    <name>User Template</name>
+
+    <iterationSpecification>
+        <maxIterations>5</maxIterations>
+        <tokenExpression>
+            <script>
+                <code>
+                    if (iteration == 0) {
+                        return ''
+                    } else {
+                        return iteration + 1
+                    }
+                </code>
+            </script>
+        </tokenExpression>
+    </iterationSpecification>
+
+    <item>
+        <ref>name</ref>
+        <mapping>
+            <source>
+                <path>givenName</path>
+            </source>
+            <source>
+                <path>familyName</path>
+            </source>
+            <expression>
+                <script>
+                    <code>
+                        if ( givenName == null &amp;&amp; familyName == null ) {
+                            return null
+                        }
+                        if ( familyName == null ) {
+                            return givenName?.norm + iterationToken
+                        }
+                        if ( givenName == null ) {
+                            return familyName?.norm + iterationToken
+                        }
+                        givenName?.norm[0] + familyName?.norm + iterationToken
+                    </code>
+                </script>
+            </expression>
+        </mapping>
+    </item>
+
+    <item>
+        <ref>fullName</ref>
+        <mapping>
+            <source>
+                <path>givenName</path>
+            </source>
+            <source>
+                <path>familyName</path>
+            </source>
+            <expression>
+                <script>
+                    <code>givenName + ' ' + familyName</code>
+                </script>
+            </expression>
+        </mapping>
+    </item>
+
+    <item>
+        <ref>givenName</ref>
+        <displayName>First Name</displayName>
+    </item>
+
+    <item>
+        <ref>additionalName</ref>
+        <displayName>Middle Name</displayName>
+    </item>
+
+    <item>
+        <ref>familyName</ref>
+        <displayName>Last Name</displayName>
+    </item>
+
+    <item>
+        <ref>emailAddress</ref>
+        <mapping>
+            <source>
+                <path>givenName</path>
+            </source>
+            <source>
+                <path>familyName</path>
+            </source>
+            <expression>
+                <script>
+                    <code>
+                        if ( givenName == null &amp;&amp; familyName == null ) { return null }
+                        if ( familyName == null ) { return givenName?.norm + iterationToken + '@example.com' }
+                        if ( givenName == null ) { return familyName?.norm + iterationToken + '@example.com' }
+                        givenName?.norm + '.' + familyName?.norm + iterationToken + '@example.com'
+                    </code>
+                </script>
+            </expression>
+        </mapping>
+    </item>
+
+    <item>
+        <ref>description</ref>
+        <mapping>
+            <source>
+                <path>extension/hatSize</path>
+            </source>
+            <expression>
+                <value>WARNING: Big brain!</value>
+            </expression>
+            <condition>
+                <script>
+                    <code>hatSize &gt; 60</code>
+                </script>
+            </condition>
+        </mapping>
+    </item>
+
+    <item>
+        <ref>assignment</ref>
+        <mapping>
+            <source>
+                <path>extension/hatSize</path>
+            </source>
+            <expression>
+                <value>
+                    <targetRef oid="c38a5e6e-b783-11e9-b82f-ebb94fb5b6ec" type="RoleType"/>
+                </value>
+            </expression>
+            <condition>
+                <script>
+                    <code>hatSize as Boolean</code>
+                </script>
+            </condition>
+        </mapping>
+        <mapping>
+            <strength>strong</strength>
+            <source>
+                <path>extension/jobCode</path>
+            </source>
+            <expression>
+                <assignmentTargetSearch>
+                    <targetType>RoleType</targetType>
+                    <filter>
+                        <q:equal>
+                            <q:path>extension/autoassignJobCode</q:path>
+                            <expression>
+                                <path>$jobCode</path>
+                            </expression>
+                        </q:equal>
+                    </filter>
+                </assignmentTargetSearch>
+            </expression>
+        </mapping>
+    </item>
+
+</objectTemplate>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2017 Evolveum
+  ~ Copyright (c) 2010-2019 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -22,49 +22,33 @@ This file is an example of Password Policy definition.
 
 -->
 
-<objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
-
-
-	<valuePolicy oid="81818181-76e0-59e2-8888-3d4f02d3fff9" xsi:type="c:ValuePolicyType" version="0" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<name>Numeric PIN Policy - first character not zero, all unique</name>
-	<description>A policy useful for generating PIN. The first character
+<valuePolicy oid="81818181-76e0-59e2-8888-3d4f02d3fff9" xsi:type="c:ValuePolicyType" version="0" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <name>Numeric PIN Policy - first character not zero, all unique</name>
+    <description>A policy useful for generating PIN. The first character
 is not zero to avoid string to integer conversion losing one the first character. All characters must be unique.</description>
-	<lifetime>
-		<expiration>999</expiration>
-		<warnBeforeExpiration>9</warnBeforeExpiration>
-		<lockAfterExpiration>0</lockAfterExpiration>
-		<minPasswordAge>0</minPasswordAge>
-		<passwordHistoryLength>0</passwordHistoryLength>
-	</lifetime>
-	<stringPolicy>
-		<description>String validation policy</description>
-		<limitations>
-			<minLength>4</minLength>
-			<maxLength>4</maxLength>
-			<minUniqueChars>4</minUniqueChars>
-			<!-- not implemented yet
-			 <checkAgainstDictionary>false</checkAgainstDictionary>
-			 -->
-			<checkPattern />
-			<limit>
-				<description>Numeric characters - first digit (non zero)</description>
-				<minOccurs>1</minOccurs>
-				<mustBeFirst>true</mustBeFirst>
-				<characterClass>
-					<value>123456789</value>
-				</characterClass>
-			</limit>
-			<limit>
-				<description>Numeric characters</description>
-				<mustBeFirst>false</mustBeFirst>
-				<characterClass>
-					<value>1234567890</value>
-				</characterClass>
-			</limit>
-		</limitations>
-	</stringPolicy>
+    <stringPolicy>
+        <description>String validation policy</description>
+        <limitations>
+            <minLength>4</minLength>
+            <maxLength>4</maxLength>
+            <minUniqueChars>4</minUniqueChars>
+            <checkPattern />
+            <limit>
+                <description>Numeric characters - first digit (non zero)</description>
+                <minOccurs>1</minOccurs>
+                <mustBeFirst>true</mustBeFirst>
+                <characterClass>
+                    <value>123456789</value>
+                </characterClass>
+            </limit>
+            <limit>
+                <description>Numeric characters</description>
+                <mustBeFirst>false</mustBeFirst>
+                <characterClass>
+                    <value>1234567890</value>
+                </characterClass>
+            </limit>
+        </limitations>
+    </stringPolicy>
 </valuePolicy>
-	
-
-</objects>

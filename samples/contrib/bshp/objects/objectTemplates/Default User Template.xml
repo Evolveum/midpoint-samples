@@ -1,0 +1,479 @@
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+	xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+	xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp"
+	oid="template-defaultUser">
+    <name>Default User Template</name>
+    <description>
+        This object is the default user template when not explicitly set
+    </description>
+    <includeRef oid="includes-archiving" relation="org:default" type="c:ObjectTemplateType">
+        <!-- Includes - Archiving -->
+    </includeRef>
+    <includeRef oid="includes-domainGroups" relation="org:default" type="c:ObjectTemplateType">
+        <!-- Includes - Domain Groups -->
+    </includeRef>
+    <includeRef oid="includes-entitlements" relation="org:default" type="c:ObjectTemplateType">
+        <!-- Includes - Entitlements -->
+    </includeRef>
+    <includeRef oid="includes-primaryAffiliation" relation="org:default" type="c:ObjectTemplateType">
+        <!-- Includes - Primary Affiliation -->
+    </includeRef>
+    <item>
+        <c:ref>c:name</c:ref>
+        <displayName>Username</displayName>
+    </item>
+    <item>
+        <c:ref>c:givenName</c:ref>
+        <displayName>First Name</displayName>
+    </item>
+    <item>
+        <c:ref>c:familyName</c:ref>
+        <displayName>Last Name</displayName>
+    </item>
+    <item>
+        <c:ref>c:additionalName</c:ref>
+        <displayName>Middle Initial</displayName>
+    </item>
+	<item>
+        <c:ref>c:fullName</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>true</modify>
+            </access>
+        </limitations>
+    </item>
+    <item>
+        <c:ref>c:nickName</c:ref>
+        <displayName>Preferred First Name</displayName>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>true</modify>
+            </access>
+        </limitations>
+    </item>
+    <item>
+        <c:ref>c:employeeNumber</c:ref>
+        <displayName>Campus ID</displayName>
+    </item>
+    <item>
+        <c:ref>c:honorificPrefix</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <ignore>true</ignore>
+        </limitations>
+    </item>
+    <item>
+        <c:ref>c:honorificSuffix</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <ignore>true</ignore>
+        </limitations>
+    </item>
+    <item>
+        <c:ref>c:preferredLanguage</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <ignore>true</ignore>
+        </limitations>
+    </item>
+    <item>
+        <c:ref>c:timezone</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <ignore>true</ignore>
+        </limitations>
+    </item>
+    <item>
+        <c:ref>c:adminGuiConfiguration</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <ignore>true</ignore>
+        </limitations>
+    </item>
+    <item>
+        <c:ref>c:costCenter</c:ref>
+        <displayName>Department Code</displayName>
+    </item>
+    <item>
+        <c:ref>c:locality</c:ref>
+        <displayName>City</displayName>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>true</modify>
+            </access>
+        </limitations>
+    </item>
+    <item>
+        <c:ref>c:locale</c:ref>
+        <displayName>Country</displayName>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>true</modify>
+            </access>
+        </limitations>
+    </item>
+    <item>
+        <c:ref xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:previousUsername</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>false</modify>
+            </access>
+        </limitations>
+    </item>
+    <item>
+        <c:ref xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:prevAcademicStatus</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>false</modify>
+            </access>
+        </limitations>
+    </item>
+    <item>
+        <c:ref xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:prevAcademicLevel</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>false</modify>
+            </access>
+        </limitations>
+    </item>
+    <item>
+        <c:ref xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:bshpPrimaryAffiliation</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <minOccurs>1</minOccurs>
+        </limitations>
+    </item>
+    <item>
+        <c:ref xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:courseMembership</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>false</modify>
+            </access>
+        </limitations>
+        <tolerant>false</tolerant>
+    </item>
+    <item>
+        <c:ref>c:tenantRef</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <ignore>true</ignore>
+        </limitations>
+    </item>
+    <item>
+        <c:ref>c:lifecycleState</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <ignore>true</ignore>
+        </limitations>
+    </item>
+    <item>
+        <c:ref>c:organizationalUnit</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>false</read>
+                <add>false</add>
+                <modify>false</modify>
+            </access>
+        </limitations>
+    </item>
+    <item>
+        <c:ref>c:organization</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>true</modify>
+            </access>
+        </limitations>
+        <tolerant>false</tolerant>
+    </item>
+    <item>
+        <c:ref xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:domainMembership</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>false</read>
+                <add>false</add>
+                <modify>false</modify>
+            </access>
+        </limitations>
+        <tolerant>false</tolerant>
+    </item>
+    <item>
+        <c:ref xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:previousLastname</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>false</modify>
+            </access>
+        </limitations>
+    </item>
+    <item>
+        <c:ref xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:eduPersonEntitlement</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>false</modify>
+            </access>
+        </limitations>
+        <tolerant>false</tolerant>
+        <mapping>
+            <expression>
+                <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                    <relativityMode>absolute</relativityMode>
+                    <code>
+                    	import com.evolveum.midpoint.prism.path.*
+                    	import com.evolveum.midpoint.prism.path.ItemPath
+						import javax.xml.namespace.QName
+                    	midpoint.collectAssignedFocusMappingsResults(new ItemPath('extension', 'eduPersonEntitlement'))
+                	</code>
+                </script>
+            </expression>
+            <evaluationPhase>afterAssignments</evaluationPhase>
+        </mapping>
+    </item>
+    <item>
+        <c:ref>c:extension</c:ref>
+        <displayName>BSHP Extensions</displayName>
+    </item>
+    <mapping>
+        <strength>strong</strength>
+        <source>
+            <c:path>givenName</c:path>
+        </source>
+        <source>
+            <c:path>familyName</c:path>
+        </source>
+        <source>
+            <c:path>nickName</c:path>
+        </source>
+        <source>
+            <c:path>additionalName</c:path>
+        </source>
+        <expression>
+            <script>
+                <code>
+	            	if (givenName != null &amp;&amp; familyName != null) {
+	            		if (nickName == null) {
+							if (additionalName == null) {
+								result = givenName + ' ' + familyName;
+							} else {
+								result = givenName + ' ' + additionalName + '. ' + familyName;
+							}
+						} else {
+							if (additionalName == null) {
+								result = nickName + ' ' + familyName;
+							} else {
+								result = nickName + ' ' + additionalName + '. ' + familyName;
+							}
+						}
+						return result;
+					}
+				</code>
+            </script>
+        </expression>
+        <target>
+            <c:path>fullName</c:path>
+        </target>
+    </mapping>
+    <mapping>
+        <name>Update standing for non-erp users</name>
+        <strength>strong</strength>
+        <source>
+            <name>admStatus</name>
+            <c:path>activation/administrativeStatus</c:path>
+        </source>
+        <source>
+            <name>eduStatus</name>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+        </source>
+        <expression>
+            <script>
+                <code>
+					import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
+					if (eduStatus == null || eduStatus == 'contractor' || eduStatus == 'generic' || eduStatus == 'guest' || eduStatus == 'service' || eduStatus == 'system' || eduStatus == 'vendor') {
+						if (admStatus == ActivationStatusType.ENABLED) {
+							return 'ACTIVE';
+						}
+						if (admStatus == ActivationStatusType.DISABLED) {
+							return 'INACTIVE';
+						}
+					}
+				</code>
+            </script>
+        </expression>
+        <target>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:standing</c:path>
+        </target>
+    </mapping>
+    <mapping>
+        <name>Update administrative status</name>
+        <strength>strong</strength>
+        <source>
+            <c:path>activation/validFrom</c:path>
+        </source>
+        <source>
+            <c:path>activation/validTo</c:path>
+        </source>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:overrideAdminStatus</c:path>
+        </source>
+        <expression>
+            <script>
+                <code>
+			          import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
+			          now = new java.util.Date();
+			          if (overrideAdministrativeStatus!=null) {
+			            return overrideAdminStatus;
+			          }
+			          if (validFrom != null &amp;&amp; now.before(validFrom.toGregorianCalendar().getTime())) {
+			            return ActivationStatusType.DISABLED;
+			          }
+			          if (validTo != null &amp;&amp; now.after(validTo.toGregorianCalendar().getTime())) {
+			            return ActivationStatusType.DISABLED;
+			          }
+	        	</code>
+            </script>
+        </expression>
+        <target>
+            <c:path>activation/administrativeStatus</c:path>
+        </target>
+    </mapping>
+    <mapping>
+        <name>Update effective status</name>
+        <strength>strong</strength>
+        <source>
+            <c:path>activation/validFrom</c:path>
+        </source>
+        <source>
+            <c:path>activation/validTo</c:path>
+        </source>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:overrideAdminStatus</c:path>
+        </source>
+        <expression>
+            <script>
+                <code>
+			          import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
+			          now = new java.util.Date();
+			          if (overrideAdministrativeStatus!=null) {
+			            return overrideAdminStatus;
+			          } 
+			          if (validFrom != null &amp;&amp; now.before(validFrom.toGregorianCalendar().getTime())) {
+			            return ActivationStatusType.DISABLED;
+			          }
+			          if (validTo != null &amp;&amp; now.after(validTo.toGregorianCalendar().getTime())) {
+			            return ActivationStatusType.DISABLED;
+			          }
+			    </code>
+            </script>
+        </expression>
+        <target>
+            <c:path>activation/effectiveStatus</c:path>
+        </target>
+    </mapping>
+    <mapping>
+        <name>Assign Org</name>
+        <authoritative>false</authoritative>
+        <strength>strong</strength>
+        <source>
+            <c:path>organization</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:OrgType</targetType>
+                <filter>
+                    <q:equal>
+                        <q:path>c:name</q:path>
+                        <expression>
+                            <script>
+                                <includeNullInputs>false</includeNullInputs>
+                                <code>
+		                  			log.info("Assigning Org: " + organization + "; From Default User Template");
+		                  			return organization;
+		                  		</code>
+                            </script>
+                        </expression>
+                    </q:equal>
+                </filter>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script>
+                <code>organization != null</code>
+            </script>
+        </condition>
+    </mapping>
+        <mapping>
+        <name>Assign directory services for everyone</name>
+        <authoritative>true</authoritative>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:ServiceType</targetType>
+                <oid>service-AccountDirectory</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+    </mapping>
+    <mapping>
+        <name>Auto assign Network Access</name>
+        <authoritative>true</authoritative>
+        <strength>strong</strength>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:bshpPrimaryAffiliation</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:ServiceType</targetType>
+                <oid>service-networkAccess</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+    </mapping>
+</objectTemplate>

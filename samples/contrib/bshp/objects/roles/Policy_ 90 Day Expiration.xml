@@ -1,0 +1,45 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+	  xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" 
+	  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+	  xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
+	  xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
+	  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
+	  xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
+	  xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	  oid="role-policies90Days">
+      <name>Policy: 90 Day Expiration</name>
+      <description>Object expires 90 days from the day this role is assigned</description>
+      <activation>
+         <administrativeStatus>enabled</administrativeStatus>
+         <effectiveStatus>enabled</effectiveStatus>
+         <enableTimestamp>2018-06-17T18:53:15.049-05:00</enableTimestamp>
+      </activation>
+      <iteration>0</iteration>
+      <iterationToken/>
+      <displayName>Policy: 90 Day Expiration</displayName>
+      <inducement id="1">
+         <focusMappings>
+            <mapping>
+               <expression>
+                  <script>
+                     <code>
+                        basic.fromNow("P90D")
+                    </code>
+                  </script>
+               </expression>
+               <target>
+                  <c:path>$focus/activation/validTo</c:path>
+               </target>
+            </mapping>
+         </focusMappings>
+         <activation>
+            <administrativeStatus>enabled</administrativeStatus>
+         </activation>
+         <focusType>c:UserType</focusType>
+      </inducement>
+      <requestable>true</requestable>
+      <delegable>false</delegable>
+      <riskLevel>LOW</riskLevel>
+      <roleType>access</roleType>
+   </role>

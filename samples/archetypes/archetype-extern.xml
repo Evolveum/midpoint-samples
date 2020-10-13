@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2018-2019 Evolveum
+  ~ Copyright (C) 2018-2020 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -14,27 +14,24 @@
   ~ limitations under the License.
   -->
 <archetype oid="b97490e6-24aa-11e9-923a-cbe17394eff9"
-        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
-        xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Extern</name>
     <description>External worker, e.g. contractor</description>
     <archetypePolicy>
-    	<display>
-    		<label>Extern</label>
-    		<pluralLabel>Externs</pluralLabel>
-    		<tooltip>External worker</tooltip>
-    		<icon>
-    			<cssClass>fa fa-male</cssClass>
-    			<!-- Same icon as employee, just different color. -->
-    			<color>teal</color>
-    		</icon>
-    	</display>
+        <display>
+            <label>Extern</label>
+            <pluralLabel>Externs</pluralLabel>
+            <tooltip>External worker</tooltip>
+            <icon>
+                <cssClass>fa fa-male</cssClass>
+                <!-- Same icon as employee, just different color. -->
+                <color>teal</color>
+            </icon>
+        </display>
     </archetypePolicy>
     <assignment>
-    	<assignmentRelation>
-    		<holderType>UserType</holderType>
-    	</assignmentRelation>
+        <assignmentRelation>
+            <holderType>UserType</holderType>
+        </assignmentRelation>
     </assignment>
 </archetype>

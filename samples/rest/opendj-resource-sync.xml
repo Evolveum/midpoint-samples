@@ -350,9 +350,9 @@ removed all objects other than the resource itself.
     <synchronization>
         <objectSynchronization>
             <!--
-	                The synchronization for this resource is enabled.
-	                It means that the synchronization will react to changes detected by
-	                the system (live sync task, discovery or reconciliation) -->
+                    The synchronization for this resource is enabled.
+                    It means that the synchronization will react to changes detected by
+                    the system (live sync task, discovery or reconciliation) -->
             <enabled>true</enabled>
 
             <correlation>
@@ -376,37 +376,37 @@ removed all objects other than the resource itself.
             </correlation>
 
             <!-- Confirmation rule may be here, but as the search above will
-	                 always return at most one match, the confirmation rule is not needed. -->
+                     always return at most one match, the confirmation rule is not needed. -->
 
             <!-- Following section describes reactions to a situations.
-	                 The setting here assumes that this resource is authoritative,
-	                 therefore all accounts created on the resource should be
-	                 reflected as new users in IDM.
-	                 See http://wiki.evolveum.com/display/midPoint/Synchronization+Situations
-	             -->
+                     The setting here assumes that this resource is authoritative,
+                     therefore all accounts created on the resource should be
+                     reflected as new users in IDM.
+                     See http://wiki.evolveum.com/display/midPoint/Synchronization+Situations
+                 -->
 
             <reaction>
                 <situation>linked</situation>
                 <action>
-                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser</handlerUri>
+                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser</handlerUri>
                 </action>
             </reaction>
             <reaction>
                 <situation>deleted</situation>
                 <action>
-                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount</handlerUri>
+                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount</handlerUri>
                 </action>
             </reaction>
             <reaction>
                 <situation>unlinked</situation>
                 <action>
-                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
+                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri>
                 </action>
             </reaction>
             <reaction>
                 <situation>unmatched</situation>
                 <action>
-                	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addUser</handlerUri>
+                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addUser</handlerUri>
                 </action>
             </reaction>
         </objectSynchronization>

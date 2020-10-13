@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+  ~
+  ~ Baptist School of Health Professions
+  ~ 
+  ~ File Usage: Schema Extension
+  ~
+-->
+<xsd:schema elementFormDefault="qualified"
+    targetNamespace="http://midpoint.bshp.edu/xml/ns/bshp"
+    xmlns:tns="http://midpoint.bshp.edu/xml/ns/bshp"
+    xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/common/common-3" />
+
+    <!-- begin enumeration definitions -->
+
+    <xsd:simpleType name="genderType">
+        <xsd:annotation>
+            <xsd:documentation>Legal Gender on Birth Certificate</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="M">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Male</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="F">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Female</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="standingType">
+        <xsd:annotation>
+            <xsd:documentation>Account standing, automatic based on account activity</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="ACTIVE">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>ACTIVE</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="INACTIVE">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>INACTIVE</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="affiliationType">
+        <xsd:annotation>
+            <xsd:documentation>Primary Affiliation</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="FACULTY">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Faculty</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="STAFF">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Staff</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="STUDENT">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Student</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="GUEST">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Guest</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="VENDOR">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Vendor</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="CONTRACTOR">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Contractor</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="ALUMNI">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Alumni</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="APPLICANT">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Applicant</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="CONTINUING">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>CE Student</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="CONSTITUENT">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Constituent</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SYSTEM">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>System</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="SERVICE">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Service</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+            <xsd:enumeration value="GENERIC">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:label>Generic</a:label>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <!-- end enumeration definitions -->
+
+    <!-- begin user extension -->
+
+    <xsd:complexType name="UserTypeExtensionType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <a:extension ref="c:UserType"/>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="previousUsername" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Previous Username</a:displayName>
+                        <a:displayOrder>1190</a:displayOrder>
+                        <a:help>Read-Only: Previous username if it has been changed</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="previousLastname" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Previous Lastname</a:displayName>
+                        <a:displayOrder>1192</a:displayOrder>
+                        <a:help>Read-Only: Previous lastname if it has been changed</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="otherMailbox" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Other Mailbox</a:displayName>
+                        <a:displayOrder>1200</a:displayOrder>
+                        <a:help>someone@example.com</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="mobilePhone" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Mobile Phone</a:displayName>
+                        <a:displayOrder>1300</a:displayOrder>
+                        <a:help>2105456789</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="bshpPersonPrivacy" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>FERPA Privacy</a:displayName>
+                        <a:displayOrder>1350</a:displayOrder>
+                        <a:help>If FERPA directory block has been requested</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="bshpPersonDOBString" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Date of Birth</a:displayName>
+                        <a:displayOrder>1500</a:displayOrder>
+                        <a:help>String format in YYYYMMDD</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="bshpPersonStateID" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>State ID</a:displayName>
+                        <a:displayOrder>1505</a:displayOrder>
+                        <a:help>01023456789</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="citizen" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Citizen</a:displayName>
+                        <a:displayOrder>1510</a:displayOrder>
+                        <a:help>True or False</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="gender" type="tns:genderType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Gender</a:displayName>
+                        <a:displayOrder>1520</a:displayOrder>
+                        <a:help>Female or Male</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="academicLevel" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Level</a:displayName>
+                        <a:displayOrder>1600</a:displayOrder>
+                        <a:help>freshman,sophomore,junior,senior,etc..</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="academicStatus" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Level</a:displayName>
+                        <a:displayOrder>1601</a:displayOrder>
+                        <a:help>student, alumni, withdrawn, etc..</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="prevAcademicLevel" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Previous Level</a:displayName>
+                        <a:displayOrder>1701</a:displayOrder>
+                        <a:help>Read-Only: freshman,sophomore,junior,senior, etc..</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="prevAcademicStatus" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Previous Status</a:displayName>
+                        <a:displayOrder>1702</a:displayOrder>
+                        <a:help>Read-Only: student, alumni, withdrawn, etc..</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="division" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Division</a:displayName>
+                        <a:displayOrder>1710</a:displayOrder>
+                        <a:help>blended, daytime, evening, online, weekend, etc..</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="campus" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Campus</a:displayName>
+                        <a:displayOrder>1800</a:displayOrder>
+                        <a:help>Campus Locale</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="bshpPrimaryAffiliation" type="tns:affiliationType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Primary Affiliation</a:displayName>
+                        <a:displayOrder>1900</a:displayOrder>
+                        <a:help>STUDENT, FACULTY, STAFF, ALUMNI, etc..</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="standing" type="tns:standingType" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Standing</a:displayName>
+                        <a:displayOrder>2100</a:displayOrder>
+                        <a:help>ACTIVE or INACTIVE</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="bshpPersonSelfClaimed" type="xsd:boolean" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Self Claimed</a:displayName>
+                        <a:displayOrder>2105</a:displayOrder>
+                        <a:help>End user initiated account claim</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="eduPersonEntitlement" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Entitlements</a:displayName>
+                        <a:displayOrder>5000</a:displayOrder>
+                        <a:help>urn:mace:....</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="domainMembership" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Domain Memberships</a:displayName>
+                        <a:displayOrder>5001</a:displayOrder>
+                        <a:help>Group memberOf Name</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="courseMembership" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Course Memberships</a:displayName>
+                        <a:displayOrder>5005</a:displayOrder>
+                        <a:help>Course Number - Section Number</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="overrideAdminStatus" type="c:ActivationStatusType" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Manual Activation</a:displayName>
+                        <a:displayOrder>9999</a:displayOrder>
+                        <a:help>If activation needs to be manually overridden</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- end user extension -->
+    <!-- begin role extension -->
+
+    <xsd:complexType name="RoleTypeExtensionType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <a:extension ref="c:RoleType"/>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="ldapDn" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>LDAP Distinguished Name</a:displayName>
+                        <a:displayOrder>190</a:displayOrder>
+                        <a:help>Read-Only: value updated dynamically from resource</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="oupath" type="xsd:string" minOccurs="0" maxOccurs="1">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>LDAP Path</a:displayName>
+                        <a:displayOrder>200</a:displayOrder>
+                        <a:help>Read-Only: value updated dynamically from resource</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+	        <xsd:element name="groupEmailAddress" type="xsd:string" minOccurs="0" maxOccurs="1">
+	            <xsd:annotation>
+	                <xsd:appinfo>
+	                    <a:indexed>true</a:indexed>
+	                    <a:displayName>Email Address</a:displayName>
+	                    <a:displayOrder>210</a:displayOrder>
+	                    <a:help>Deprecated, Email Address, in midPoint default schema now for all object types</a:help>
+	                </xsd:appinfo>
+	            </xsd:annotation>
+	        </xsd:element>
+            <xsd:element name="groupMembership" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Domain Memberships</a:displayName>
+                        <a:displayOrder>5000</a:displayOrder>
+                        <a:help>Group memberOf</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- end role extension -->
+
+    <!-- begin org extension -->
+    
+    <xsd:complexType name="OrgTypeExtensionType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <a:extension ref="c:OrgType"/>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="coordDisplayName" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Coordinator</a:displayName>
+                        <a:displayOrder>200</a:displayOrder>
+                        <a:help>The course coordinator's name from the campus erp system</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="coordEmailAddress" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:appinfo>
+                        <a:indexed>true</a:indexed>
+                        <a:displayName>Coordinator Email Address</a:displayName>
+                        <a:displayOrder>200</a:displayOrder>
+                        <a:help>The course coordinator's email from the campus erp system</a:help>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- end org extension -->
+
+</xsd:schema>

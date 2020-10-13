@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2019 Evolveum
+  ~ Copyright (c) 2010-2020 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -16,24 +16,36 @@
   -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<name>midPoint Samples</name>
-	<groupId>com.evolveum.midpoint</groupId>
-	<artifactId>midpoint-samples</artifactId>
-	<version>4.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<organization>
-		<name>Evolveum</name>
-		<url>http://www.evolveum.com</url>
-	</organization>
-	<licenses>
-		<license>
-			<name>Apache License v2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-	<distributionManagement>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.evolveum.midpoint</groupId>
+    <artifactId>midpoint-samples</artifactId>
+    <version>4.2-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>midPoint Samples</name>
+    <organization>
+        <name>Evolveum</name>
+        <url>https://www.evolveum.com</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>Apache License v2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>https://github.com/Evolveum/midpoint-samples.git</connection>
+        <developerConnection>git@github.com:Evolveum/midpoint-samples.git</developerConnection>
+        <url>https://github.com/Evolveum/midpoint-samples</url>
+    </scm>
+    <issueManagement>
+        <system>Atlassian JIRA</system>
+        <url>https://jira.evolveum.com/</url>
+    </issueManagement>
+    <distributionManagement>
         <repository>
             <id>evolveum-nexus</id>
             <name>Internal Releases</name>
@@ -45,22 +57,21 @@
             <url>https://nexus.evolveum.com/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
-	<issueManagement>
-		<system>Atlassian JIRA</system>
-		<url>http://jira.evolveum.com/</url>
-	</issueManagement>
-	<scm>
-		<connection>https://github.com/Evolveum/midpoint-samples.git</connection>
-		<developerConnection>git@github.com:Evolveum/midpoint-samples.git</developerConnection>
-		<url>https://github.com/Evolveum/midpoint-samples</url>
-	</scm>
-	<build>
-	    <resources>
-	        <resource>
-	            <directory>samples</directory>
-	            <filtering>true</filtering>
-	        </resource>
-	    </resources>
-	</build>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>samples</directory>
+                <!--
+                We're not replacing anything, and we don't want to by accident.
+                Any ${...} in sample files are resolved later in runtime, not during build.
+                -->
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
 </project>

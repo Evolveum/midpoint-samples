@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-	<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                 xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
                 xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                 xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
@@ -89,9 +89,9 @@
                     import com.evolveum.midpoint.schema.util.ObjectTypeUtil;
                     import com.evolveum.midpoint.util.exception.SystemException;
                     import java.util.*;
-                    
+
                     if(members_with_name!=null &amp;&amp; focus.getOid() != null){
-                    
+
                      for (member in members_with_name){
                         userName = member.tokenize(':')[0];
                         user = midpoint.searchObjectByName(UserType.class, userName);
@@ -114,27 +114,27 @@
                                 roleName = 'owner';
                             }
                             role = midpoint.searchObjectByName(RoleType.class, roleName);
-                        
+
                             if (role==null){
                                 throw new SystemException("Exception while assigning the permision role. Please make sure that all the role (permision role) are already added into Midpoint.");
                             }
-                    
+
                             roleOrt = new ObjectReferenceType();
                             roleOrt.setOid(role.getOid());
                             roleOrt.setType(RoleType.COMPLEX_TYPE);
-                        
+
                             orgOrt = new ObjectReferenceType();
                             orgOrt.setOid(focus.getOid());
                             orgOrt.setType(OrgType.COMPLEX_TYPE);
-                    
+
                             AssignmentType assignment = new AssignmentType();
                             assignment.asPrismContainerValue()
                             assignment.setTargetRef(roleOrt);
                             assignment.setOrgRef(orgOrt);
-                        
+
                             assignments = user.getAssignment();
                             containsSameAssignment = false;
-                            
+
                             for(userAssignment in assignments){
                                 log.info("XXXX "+userAssignment.getTargetRef().toString());
                                 log.info("XXXX "+userAssignment.getOrgRef().toString());
@@ -142,7 +142,7 @@
                                     containsSameAssignment = true;
                                 }
                             }
-                            
+
                             if(!containsSameAssignment){
                                 delta = midpoint.prismContext.deltaFactory().object().createModificationAddContainer(UserType.class, user.getOid(), UserType.F_ASSIGNMENT, assignment);
 

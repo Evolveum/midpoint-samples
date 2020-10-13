@@ -7,12 +7,12 @@
           xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
    <name>SIEBEL</name>
    <connectorRef type="c:ConnectorType">
-  	<filter>
-  		<q:equal>
-  			<q:path>c:connectorType</q:path>
-  			<q:value>com.evolveum.polygon.connector.siebel.SiebelConnector</q:value>
-  		</q:equal>
-  	</filter>
+      <filter>
+          <q:equal>
+              <q:path>c:connectorType</q:path>
+              <q:value>com.evolveum.polygon.connector.siebel.SiebelConnector</q:value>
+          </q:equal>
+      </filter>
    </connectorRef>
    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -40,7 +40,7 @@
          <gen298:soapLogBasedir></gen298:soapLogBasedir>
       </icfc:configurationProperties>
    </connectorConfiguration>
-   <schema>      
+   <schema>
       <definition>
          <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                      xmlns:a="http://prism.evolveum.com/xml/ns/public/annotation-3"
@@ -48,214 +48,214 @@
                      xmlns:ra="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3"
                      elementFormDefault="qualified"
                      targetNamespace="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
-				        <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
-				        <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3"/>
-				        <xsd:complexType name="AccountObjectClass">
-					          <xsd:annotation>
-						            <xsd:appinfo>
-							              <ra:resourceObject/>
-							              <ra:identifier>ri:Id</ra:identifier>
-							              <ra:secondaryIdentifier>ri:LoginName</ra:secondaryIdentifier>
-							              <ra:displayNameAttribute>ri:LoginName</ra:displayNameAttribute>
-							              <ra:namingAttribute>ri:LoginName</ra:namingAttribute>
-							              <ra:nativeObjectClass>__ACCOUNT__</ra:nativeObjectClass>
-							              <ra:kind>account</ra:kind>
-							              <ra:default>true</ra:default>
-						            </xsd:appinfo>
-					          </xsd:annotation>
-					          <xsd:sequence>
-						            <xsd:element maxOccurs="unbounded"
+                        <xsd:import namespace="http://prism.evolveum.com/xml/ns/public/annotation-3"/>
+                        <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3"/>
+                        <xsd:complexType name="AccountObjectClass">
+                              <xsd:annotation>
+                                    <xsd:appinfo>
+                                          <ra:resourceObject/>
+                                          <ra:identifier>ri:Id</ra:identifier>
+                                          <ra:secondaryIdentifier>ri:LoginName</ra:secondaryIdentifier>
+                                          <ra:displayNameAttribute>ri:LoginName</ra:displayNameAttribute>
+                                          <ra:namingAttribute>ri:LoginName</ra:namingAttribute>
+                                          <ra:nativeObjectClass>__ACCOUNT__</ra:nativeObjectClass>
+                                          <ra:kind>account</ra:kind>
+                                          <ra:default>true</ra:default>
+                                    </xsd:appinfo>
+                              </xsd:annotation>
+                              <xsd:sequence>
+                                    <xsd:element maxOccurs="unbounded"
                                minOccurs="0"
                                name="SecondaryPositions"
                                type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:access>read</a:access>
-									                  <a:displayOrder>120</a:displayOrder>
-									                  <ra:frameworkAttributeName>SecondaryPositions</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="CellPhone" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>130</a:displayOrder>
-									                  <ra:frameworkAttributeName>CellPhone</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="EmployeePrimaryOrganization" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>140</a:displayOrder>
-									                  <ra:frameworkAttributeName>EmployeePrimaryOrganization</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="EmployeeTypeCode" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>150</a:displayOrder>
-									                  <ra:frameworkAttributeName>EmployeeTypeCode</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="Alias" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>160</a:displayOrder>
-									                  <ra:frameworkAttributeName>Alias</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="Phone" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>170</a:displayOrder>
-									                  <ra:frameworkAttributeName>Phone</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="PrimaryPosition" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>180</a:displayOrder>
-									                  <ra:frameworkAttributeName>PrimaryPosition</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element name="FirstName" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>190</a:displayOrder>
-									                  <ra:frameworkAttributeName>FirstName</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="PrimaryResponsibility" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>200</a:displayOrder>
-									                  <ra:frameworkAttributeName>PrimaryResponsibility</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="EMailAddr" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>210</a:displayOrder>
-									                  <ra:frameworkAttributeName>EMailAddr</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element maxOccurs="unbounded"
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:access>read</a:access>
+                                                      <a:displayOrder>120</a:displayOrder>
+                                                      <ra:frameworkAttributeName>SecondaryPositions</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="CellPhone" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>130</a:displayOrder>
+                                                      <ra:frameworkAttributeName>CellPhone</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="EmployeePrimaryOrganization" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>140</a:displayOrder>
+                                                      <ra:frameworkAttributeName>EmployeePrimaryOrganization</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="EmployeeTypeCode" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>150</a:displayOrder>
+                                                      <ra:frameworkAttributeName>EmployeeTypeCode</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="Alias" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>160</a:displayOrder>
+                                                      <ra:frameworkAttributeName>Alias</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="Phone" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>170</a:displayOrder>
+                                                      <ra:frameworkAttributeName>Phone</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="PrimaryPosition" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>180</a:displayOrder>
+                                                      <ra:frameworkAttributeName>PrimaryPosition</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="FirstName" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>190</a:displayOrder>
+                                                      <ra:frameworkAttributeName>FirstName</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="PrimaryResponsibility" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>200</a:displayOrder>
+                                                      <ra:frameworkAttributeName>PrimaryResponsibility</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="EMailAddr" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>210</a:displayOrder>
+                                                      <ra:frameworkAttributeName>EMailAddr</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element maxOccurs="unbounded"
                                minOccurs="0"
                                name="EmployeeSecondaryOrganizations"
                                type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>220</a:displayOrder>
-									                  <ra:frameworkAttributeName>EmployeeSecondaryOrganizations</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="TimeZoneName" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>230</a:displayOrder>
-									                  <ra:frameworkAttributeName>TimeZoneName</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element maxOccurs="unbounded"
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>220</a:displayOrder>
+                                                      <ra:frameworkAttributeName>EmployeeSecondaryOrganizations</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="TimeZoneName" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>230</a:displayOrder>
+                                                      <ra:frameworkAttributeName>TimeZoneName</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element maxOccurs="unbounded"
                                minOccurs="0"
                                name="SecondaryResponsibilities"
                                type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>									
-									                  <a:displayOrder>240</a:displayOrder>
-									                  <ra:frameworkAttributeName>SecondaryResponsibilities</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="SalesChannel" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>250</a:displayOrder>
-									                  <ra:frameworkAttributeName>SalesChannel</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element name="LastName" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>260</a:displayOrder>
-									                  <ra:frameworkAttributeName>LastName</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="UserType" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>270</a:displayOrder>
-									                  <ra:frameworkAttributeName>UserType</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element name="LoginName" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>110</a:displayOrder>
-									                  <ra:nativeAttributeName>LoginName</ra:nativeAttributeName>
-									                  <ra:frameworkAttributeName>__NAME__</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="Fax" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>280</a:displayOrder>
-									                  <ra:frameworkAttributeName>Fax</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="PersonalTitle" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>290</a:displayOrder>
-									                  <ra:frameworkAttributeName>PersonalTitle</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="PreferredCommunication" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>300</a:displayOrder>
-									                  <ra:frameworkAttributeName>PreferredCommunication</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="JobTitle" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>310</a:displayOrder>
-									                  <ra:frameworkAttributeName>JobTitle</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-						            <xsd:element minOccurs="0" name="Id" type="xsd:string">
-							              <xsd:annotation>
-								                <xsd:appinfo>
-									                  <a:displayOrder>100</a:displayOrder>
-									                  <a:access>read</a:access>
-									                  <ra:nativeAttributeName>Id</ra:nativeAttributeName>
-									                  <ra:frameworkAttributeName>__UID__</ra:frameworkAttributeName>
-								                </xsd:appinfo>
-							              </xsd:annotation>
-						            </xsd:element>
-					          </xsd:sequence>
-				        </xsd:complexType>
-			      </xsd:schema>
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>240</a:displayOrder>
+                                                      <ra:frameworkAttributeName>SecondaryResponsibilities</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="SalesChannel" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>250</a:displayOrder>
+                                                      <ra:frameworkAttributeName>SalesChannel</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="LastName" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>260</a:displayOrder>
+                                                      <ra:frameworkAttributeName>LastName</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="UserType" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>270</a:displayOrder>
+                                                      <ra:frameworkAttributeName>UserType</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element name="LoginName" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>110</a:displayOrder>
+                                                      <ra:nativeAttributeName>LoginName</ra:nativeAttributeName>
+                                                      <ra:frameworkAttributeName>__NAME__</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="Fax" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>280</a:displayOrder>
+                                                      <ra:frameworkAttributeName>Fax</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="PersonalTitle" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>290</a:displayOrder>
+                                                      <ra:frameworkAttributeName>PersonalTitle</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="PreferredCommunication" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>300</a:displayOrder>
+                                                      <ra:frameworkAttributeName>PreferredCommunication</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="JobTitle" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>310</a:displayOrder>
+                                                      <ra:frameworkAttributeName>JobTitle</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                                    <xsd:element minOccurs="0" name="Id" type="xsd:string">
+                                          <xsd:annotation>
+                                                <xsd:appinfo>
+                                                      <a:displayOrder>100</a:displayOrder>
+                                                      <a:access>read</a:access>
+                                                      <ra:nativeAttributeName>Id</ra:nativeAttributeName>
+                                                      <ra:frameworkAttributeName>__UID__</ra:frameworkAttributeName>
+                                                </xsd:appinfo>
+                                          </xsd:annotation>
+                                    </xsd:element>
+                              </xsd:sequence>
+                        </xsd:complexType>
+                  </xsd:schema>
       </definition>
    </schema>
    <schemaHandling>
@@ -274,12 +274,12 @@
                   <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                           xsi:type="c:ScriptExpressionEvaluatorType">
                      <code>
-        								basic.uc(name?.getOrig());	
-        							</code>
+                                        basic.uc(name?.getOrig());
+                                    </code>
                   </script>
                </expression>
             </outbound>
-         </attribute>                          
+         </attribute>
          <attribute>
             <c:ref>ri:LastName</c:ref>
             <outbound>
@@ -307,7 +307,7 @@
                </source>
             </outbound>
          </attribute>
-         
+
          <activation>
             <existence>
                <outbound>
@@ -320,8 +320,8 @@
                      <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                              xsi:type="c:ScriptExpressionEvaluatorType">
                             <code>
-                        			focusExists
-                        		</code>
+                                    focusExists
+                                </code>
                      </script>
                   </expression>
                </outbound>
@@ -333,10 +333,10 @@
                      <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                              xsi:type="c:ScriptExpressionEvaluatorType">
                         <code>
-	                            import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
-	                            	                            	                                                        
-	                            ActivationStatusType.DISABLED;
-							         </code>
+                                import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
+
+                                ActivationStatusType.DISABLED;
+                                     </code>
                      </script>
                   </expression>
                   <condition>
@@ -347,11 +347,11 @@
                      <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                              xsi:type="c:ScriptExpressionEvaluatorType">
                         <code>
-                     			import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
-                     		
-                     			// disabled identity must always have all linked accounts DISABLED (strong)
-                     			identityEffectiveStatus != ActivationStatusType.ENABLED;
-                     		</code>
+                                 import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
+
+                                 // disabled identity must always have all linked accounts DISABLED (strong)
+                                 identityEffectiveStatus != ActivationStatusType.ENABLED;
+                             </code>
                      </script>
                   </condition>
                </outbound>
@@ -361,10 +361,10 @@
                      <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                              xsi:type="c:ScriptExpressionEvaluatorType">
                         <code>
-	                            import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
-	                            	                            	                            
-	                            (legal)?input:ActivationStatusType.DISABLED; // disable instead of delete
-							           </code>
+                                import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
+
+                                (legal)?input:ActivationStatusType.DISABLED; // disable instead of delete
+                                       </code>
                      </script>
                   </expression>
                </outbound>
@@ -372,7 +372,7 @@
          </activation>
       </objectType>
    </schemaHandling>
-   <capabilities>      
+   <capabilities>
       <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:type="c:CapabilityCollectionType">
@@ -428,8 +428,8 @@
    </projection>
    <consistency>
       <connectorErrorCriticality>
-         <network>false</network>
-         <schema>false</schema>
+         <network>partial</network>
+         <schema>partial</schema>
       </connectorErrorCriticality>
    </consistency>
    <synchronization>

@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2018 Evolveum
+  ~ Copyright (c) 2018-2019 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -25,12 +25,12 @@
         xmlns:piracy="http://midpoint.evolveum.com/xml/ns/samples/piracy">
     <name>Approval by Approver</name>
     <description>Meta-role that defines "approval by approver" policy. Any object that has this meta-role requires approval by the one of the approvers defined for that object.</description>
-    
+
     <inducement>
         <policyRule>
             <policyConstraints>
                 <assignment>
-                	<operation>add</operation>
+                    <operation>add</operation>
                 </assignment>
             </policyConstraints>
             <policyActions>
@@ -39,12 +39,12 @@
                         <order>200</order>
                     </compositionStrategy>
                     <approvalSchema>
-                        <level>
+                        <stage>
                             <name>Role approvers</name>
                             <approverRelation>approver</approverRelation>
                             <evaluationStrategy>firstDecides</evaluationStrategy>
                             <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
-                        </level>
+                        </stage>
                     </approvalSchema>
                 </approval>
             </policyActions>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--
-  ~ Copyright (c) 2010-2019 Evolveum
+  ~ Copyright (C) 2010-2020 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -16,27 +16,25 @@
   -->
 
 <systemConfiguration oid="00000000-0000-0000-0000-000000000001" version="0"
-	xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
-    <name>SystemConfiguration</name>
-    
-	<audit>
-		<eventRecording>
-			<recordResourceOids>true</recordResourceOids>
-			<property>
-				<name>foo</name>
-				<expression>
-					<path>$target/extension/foo</path>
-				</expression>
-			</property>
-			<property>
-				<name>bar</name>
-				<expression>
-					<path>$target/extension/bar</path>
-				</expression>
-			</property>
-		</eventRecording>
-	</audit>
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
 
+    <name>SystemConfiguration</name>
+
+    <audit>
+        <eventRecording>
+            <recordResourceOids>true</recordResourceOids>
+            <property>
+                <name>foo</name>
+                <expression>
+                    <path>$target/extension/foo</path>
+                </expression>
+            </property>
+            <property>
+                <name>bar</name>
+                <expression>
+                    <path>$target/extension/bar</path>
+                </expression>
+            </property>
+        </eventRecording>
+    </audit>
 </systemConfiguration>

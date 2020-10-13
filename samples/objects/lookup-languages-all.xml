@@ -16,15 +16,15 @@
   -->
 
 <lookupTable oid="878fa8fc-57ee-11e7-bbd8-b75f54e22d1d"
-	xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'>
+    xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'>
 
-	<name>All Languages</name>
-	
-	<description>
-		Lookup table for all languages.
-		This table is supposed to list all known languages, even those
-		that are not supported by midPoint GUI.
-	</description>
+    <name>All Languages</name>
+
+    <description>
+        Lookup table for all languages.
+        This table is supposed to list all known languages, even those
+        that are not supported by midPoint GUI.
+    </description>
 
    <row id="1">
       <key>ar_AE</key>

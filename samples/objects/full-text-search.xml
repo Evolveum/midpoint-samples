@@ -24,49 +24,49 @@
 
     <fullTextSearch>
         <indexed>
-			<item>name</item>
-			<item>description</item>
-		</indexed>
+            <item>name</item>
+            <item>description</item>
+        </indexed>
         <indexed>
-			<objectType>UserType</objectType>
-			<item>fullName</item>
-			<item>givenName</item>
-			<item>familyName</item>
-			<item>additionalName</item>
-			<item>nickName</item>
-			<item>emailAddress</item>
-			<item>telephoneNumber</item>
-			<item>honorificPrefix</item>
-			<item>honorificSuffix</item>
-			<item>title</item>
-			<item>employeeNumber</item>
-			<item>employeeType</item>
-			<item>costCenter</item>
-			<item>organization</item>
-			<item>organizationalUnit</item>
-			<item>locality</item>
-		</indexed>
-		<indexed>
-			<objectType>AbstractRoleType</objectType>
-			<item>displayName</item>
-			<item>identifier</item>
-		</indexed>
-		<indexed>
-			<objectType>RoleType</objectType>
-			<item>roleType</item>
-		</indexed>
-		<indexed>
-			<objectType>OrgType</objectType>
-			<item>orgType</item>
-			<item>costCenter</item>
-			<item>locality</item>
-			<item>mailDomain</item>
-		</indexed>
-		<indexed>
-			<objectType>ServiceType</objectType>
-			<item>serviceType</item>
-			<item>locality</item>
-			<!-- url? -->
-		</indexed>
+            <objectType>UserType</objectType>
+            <item>fullName</item>
+            <item>givenName</item>
+            <item>familyName</item>
+            <item>additionalName</item>
+            <item>nickName</item>
+            <item>emailAddress</item>
+            <item>telephoneNumber</item>
+            <item>honorificPrefix</item>
+            <item>honorificSuffix</item>
+            <item>title</item>
+            <item>employeeNumber</item>
+            <item>employeeType</item>
+            <item>costCenter</item>
+            <item>organization</item>
+            <item>organizationalUnit</item>
+            <item>locality</item>
+        </indexed>
+        <indexed>
+            <objectType>AbstractRoleType</objectType>
+            <item>displayName</item>
+            <item>identifier</item>
+        </indexed>
+        <indexed>
+            <objectType>RoleType</objectType>
+            <item>roleType</item>
+        </indexed>
+        <indexed>
+            <objectType>OrgType</objectType>
+            <item>orgType</item>
+            <item>costCenter</item>
+            <item>locality</item>
+            <item>mailDomain</item>
+        </indexed>
+        <indexed>
+            <objectType>ServiceType</objectType>
+            <item>serviceType</item>
+            <item>locality</item>
+            <!-- url? -->
+        </indexed>
     </fullTextSearch>
 </systemConfiguration>

@@ -22,7 +22,7 @@
                 <q:path>resourceRef</q:path>
                 <q:value>
                     <oid>resource-0000-0000-0000-000000000001</oid>
-                   
+
                 </q:value>
             </q:ref>
             <q:equal>

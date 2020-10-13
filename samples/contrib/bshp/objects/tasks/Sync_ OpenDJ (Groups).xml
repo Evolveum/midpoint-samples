@@ -1,0 +1,25 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="ab1d4734-0d7b-470e-8b19-8063abdf09fc" version="346417">
+      <name>Sync: OpenDJ (Groups)</name>
+      <extension xmlns:gen216="http://midpoint.evolveum.com/xml/ns/public/provisioning/liveSync-3" xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3" xsi:type="c:ExtensionType">
+         <mext:kind>entitlement</mext:kind>
+         <gen216:token xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:type="xsd:int">26402</gen216:token>
+      </extension>
+      <taskIdentifier>1535985036614-0-1</taskIdentifier>
+      <ownerRef oid="cd1adbb9-a3a2-49b8-92a8-acb16e841f7s" relation="org:default" type="c:UserType"/>
+      <channel>http://midpoint.evolveum.com/xml/ns/public/provisioning/channels-3#liveSync</channel>
+      <executionStatus>runnable</executionStatus>
+      <category>LiveSynchronization</category>
+      <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/live-sync/handler-3</handlerUri>
+      <resultStatus>success</resultStatus>
+      <objectRef oid="resource-OpenDJ1" relation="org:default" type="c:ResourceType"/>
+      <lastRunStartTimestamp>2020-01-25T19:14:26.245-06:00</lastRunStartTimestamp>
+      <lastRunFinishTimestamp>2020-01-25T19:14:26.321-06:00</lastRunFinishTimestamp>
+      <progress>45</progress>
+      <recurrence>recurring</recurrence>
+      <binding>tight</binding>
+      <schedule>
+         <interval>120</interval>
+         <misfireAction>reschedule</misfireAction>
+      </schedule>
+      <threadStopAction>restart</threadStopAction>
+   </task>

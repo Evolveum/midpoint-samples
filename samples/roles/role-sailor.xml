@@ -25,26 +25,26 @@
      as a copy of a user property.
     </description>
     <inducement>
-    	<construction>
-    		<!-- The c: prefix in type must be there due to a JAXB bug -->
-    		<resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="c:ResourceType"/>
-    		<attribute>
-                	<ref>ri:employeeType</ref>
-                	<outbound>
-                    	<expression>
-                			<value>sailor</value>
-                		</expression>
-                	</outbound>
-                </attribute>
-                <attribute> 
-                    <ref>ri:destinationIndicator</ref>
+        <construction>
+            <!-- The c: prefix in type must be there due to a JAXB bug -->
+            <resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="c:ResourceType"/>
+            <attribute>
+                    <ref>ri:employeeType</ref>
                     <outbound>
-                    	<source>
-                    		<path>$user/employeeNumber</path>
-                    	</source>
+                        <expression>
+                            <value>sailor</value>
+                        </expression>
                     </outbound>
                 </attribute>
-    	</construction>
+                <attribute>
+                    <ref>ri:destinationIndicator</ref>
+                    <outbound>
+                        <source>
+                            <path>$user/employeeNumber</path>
+                        </source>
+                    </outbound>
+                </attribute>
+        </construction>
     </inducement>
     <requestable>true</requestable>
 </role>

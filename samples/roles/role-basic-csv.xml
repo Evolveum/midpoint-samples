@@ -21,9 +21,9 @@
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Basic Role - CSV</name>
     <inducement>
-    	<construction>
-    		<!-- The c: prefix in type must be there due to a JAXB bug -->
-    		<resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe" type="c:ResourceType"/>
-    	</construction>
-    </inducement>    
+        <construction>
+            <!-- The c: prefix in type must be there due to a JAXB bug -->
+            <resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe" type="c:ResourceType"/>
+        </construction>
+    </inducement>
 </role>

@@ -23,13 +23,13 @@
     <!-- Collection: all resources where lastAvailabilityStatus=up -->
     <type>ResourceType</type>
     <filter>
-    	<q:equal>
-    		<q:path>operationalState/lastAvailabilityStatus</q:path>
-    		<q:value>up</q:value>
-    	</q:equal>
+        <q:equal>
+            <q:path>operationalState/lastAvailabilityStatus</q:path>
+            <q:value>up</q:value>
+        </q:equal>
     </filter>
     <domain>
-    	<!-- Domain: all resources -->
+        <!-- Domain: all resources -->
     </domain>
     <!-- TODO: maybe we would like to define default view here. E.g. default list of columns. -->
 
@@ -39,26 +39,26 @@
          But the there may be also more specific thresholds. W.g. turn widget orange,
          but do not send any notification about that.  -->
     <assignment>
-    	<policyRule>
-    		<policyConstraints>
-    			<!-- The thresholds are defined as policy rules with a special constraint.
-    			     The <collection> constraint means, the the rule should not look at the collection definition.
-    			     The rule should look at the collected objects. -->
-    			<collectionStats> <!-- or just <collectionStats/> should be enough. Default interpretation for ObjectCollectionType should be "explicit". -->
-    				<collection>
-    					<interpretation>explicit</interpretation>
-    				</collection>
-    			</collectionStats>
-    		</policyConstraints>
-    		<policyThreshold>
-    			<lowWaterMark> <!-- lowWaterMark? -->
-    				<percentage>90</percentage>
-	            	<!-- <count>4</count>  -->
-    			</lowWaterMark>
-            	<!-- <period>PT1H</period>  -->
+        <policyRule>
+            <policyConstraints>
+                <!-- The thresholds are defined as policy rules with a special constraint.
+                     The <collection> constraint means, the the rule should not look at the collection definition.
+                     The rule should look at the collected objects. -->
+                <collectionStats> <!-- or just <collectionStats/> should be enough. Default interpretation for ObjectCollectionType should be "explicit". -->
+                    <collection>
+                        <interpretation>explicit</interpretation>
+                    </collection>
+                </collectionStats>
+            </policyConstraints>
+            <policyThreshold>
+                <lowWaterMark> <!-- lowWaterMark? -->
+                    <percentage>90</percentage>
+                    <!-- <count>4</count>  -->
+                </lowWaterMark>
+                <!-- <period>PT1H</period>  -->
             </policyThreshold>
-    		<policySituation>#resourceHealthDanger</policySituation>
-    	</policyRule>
+            <policySituation>#resourceHealthDanger</policySituation>
+        </policyRule>
     </assignment>
-    
+
 </objectCollection>

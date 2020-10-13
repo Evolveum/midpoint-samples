@@ -21,7 +21,7 @@
 <!--
 
 This file is an example of Resource definition. It defines an Office365 resource
-using an Identity Connector Framework Office365 connector. 
+using an Identity Connector Framework Office365 connector.
 
 This contains configuration for a managed (non federated) Office 365 domain
 
@@ -370,7 +370,7 @@ This contains configuration for a managed (non federated) Office 365 domain
                         <c:path>$user/organizationalUnit</c:path>
                     </source>
                 </outbound>
-            </attribute>   
+            </attribute>
             <attribute>
                 <c:ref>ri:mailNickname</c:ref>
                 <displayName>Mail Nickname</displayName>
@@ -481,17 +481,17 @@ This contains configuration for a managed (non federated) Office 365 domain
                                 <code>
                                     import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
                                     if (legal) {
-										if (admStatus?.value) {
-											if (admStatus.value.toUpperCase().equals('DISABLED')) {
-												ActivationStatusType.DISABLED;
-											} else {
-												input;
-											}
-										} else {
-											input;
-										}
+                                        if (admStatus?.value) {
+                                            if (admStatus.value.toUpperCase().equals('DISABLED')) {
+                                                ActivationStatusType.DISABLED;
+                                            } else {
+                                                input;
+                                            }
+                                        } else {
+                                            input;
+                                        }
                                     } else {
-										ActivationStatusType.DISABLED;
+                                        ActivationStatusType.DISABLED;
                                     }
                                 </code>
                             </script>
@@ -555,22 +555,22 @@ This contains configuration for a managed (non federated) Office 365 domain
             <reaction>
                 <situation>linked</situation>
                 <synchronize>true</synchronize>
-                <action ref="http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser"/>
+                <action><handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyUser</handlerUri></action>
             </reaction>
             <reaction>
                 <situation>deleted</situation>
                 <synchronize>true</synchronize>
-                <action ref="http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount"/>
+                <action><handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlinkAccount</handlerUri></action>
             </reaction>
             <reaction>
                 <situation>unlinked</situation>
                 <synchronize>true</synchronize>
-                <action ref="http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount"/>
+                <action><handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#linkAccount</handlerUri></action>
             </reaction>
             <reaction>
                 <situation>unmatched</situation>
                 <synchronize>true</synchronize>
-                <action ref="http://midpoint.evolveum.com/xml/ns/public/model/action-3#addUser"/>
+                <action><handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addUser</handlerUri></action>
             </reaction>
         </objectSynchronization>
     </synchronization>

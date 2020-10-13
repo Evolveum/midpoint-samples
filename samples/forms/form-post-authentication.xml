@@ -34,7 +34,7 @@
             <formItems list="true">
                <formField>
                   <binding>
-                  	<c:path>nickName</c:path>
+                      <c:path>nickName</c:path>
                   </binding>
                   <display>
                      <label>Nickname</label>
@@ -44,7 +44,7 @@
                </formField>
                <formField>
                   <binding>
-                  	<c:path>c:emailAddress</c:path>
+                      <c:path>c:emailAddress</c:path>
                   </binding>
                   <display>
                      <label>Personal Email</label>
@@ -54,7 +54,7 @@
                </formField>
                <formField>
                   <binding>
-                  	<c:path>c:telephoneNumber</c:path>
+                      <c:path>c:telephoneNumber</c:path>
                   </binding>
                   <display>
                      <label>Personal phone number</label>
@@ -81,7 +81,7 @@
                </formField>
                <formField>
                   <binding>
-                  	<c:path>c:credentials/password</c:path>
+                      <c:path>c:credentials/password</c:path>
                   </binding>
                   <display>
                      <label> </label>

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-	<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+ <objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                 xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
                 xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                 xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
@@ -57,13 +54,13 @@
                   <expression>
                      <script>
                         <code>
-									parent = hostname
-									if (parent.equals("All Files")) {
-										return "Folders";
-									} else {
-										return parent;
-									}
-								</code>
+                                    parent = hostname
+                                    if (parent.equals("All Files")) {
+                                        return "Folders";
+                                    } else {
+                                        return parent;
+                                    }
+                                </code>
                      </script>
                   </expression>
                </q:equal>
@@ -74,8 +71,8 @@
                   <expression>
                      <script xsi:type="c:ScriptExpressionEvaluatorType">
                         <code>
-									hostname
-								</code>
+                                    hostname
+                                </code>
                      </script>
                   </expression>
                   <target>
@@ -105,20 +102,19 @@
       </expression>
       <target>
          <c:path>assignment</c:path>
+         <set>
+            <condition>
+               <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xsi:type="c:ScriptExpressionEvaluatorType">
+                  <code>
+                     import com.evolveum.midpoint.schema.constants.*
+                     import com.evolveum.midpoint.xml.ns._public.common.common_3.OrgType
+                     leader = midpoint.searchObjectByName(OrgType.class, "Folders");
+                     value.targetRef != null &amp;&amp; value.targetRef.type == OrgType.COMPLEX_TYPE &amp;&amp; (value.targetRef.getOid().equals(leader.getOid()))
+                  </code>
+               </script>
+            </condition>
+         </set>
       </target>
-      <range>
-         <isInSetExpression>
-            <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                    xsi:type="c:ScriptExpressionEvaluatorType">
-               <code>
-      import com.evolveum.midpoint.schema.constants.*
-      import com.evolveum.midpoint.xml.ns._public.common.common_3.OrgType
-      leader = midpoint.searchObjectByName(OrgType.class, "Folders");
-      value.targetRef != null &amp;&amp; value.targetRef.type == OrgType.COMPLEX_TYPE &amp;&amp; (value.targetRef.getOid().equals(leader.getOid()))
-     </code>
-            </script>
-         </isInSetExpression>
-      </range>
    </mapping>
 </objectTemplate>
-</objects>

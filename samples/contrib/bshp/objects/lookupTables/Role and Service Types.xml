@@ -1,0 +1,67 @@
+<lookupTable xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+             xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+             xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+             xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+             xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+             xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+             xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+             oid="lookup-typesRolesAndServices"
+             version="3">
+   <name>Role and Service Types</name>
+   <row>
+      <key>account</key>
+      <label>Account</label>
+   </row>
+   <row>
+      <key>entitlement</key>
+      <label>Entitlement</label>
+   </row>
+   <row>
+      <key>group</key>
+      <label>Generic Group</label>
+   </row>
+   <row>
+      <key>8</key>
+      <label>AD Distribution List</label>
+   </row>
+   <row>
+      <key>system</key>
+      <label>System</label>
+   </row>
+   <row>
+      <key>access</key>
+      <label>Access</label>
+   </row>
+   <row>
+      <key>-2147483646</key>
+      <label>AD Security Group</label>
+   </row>
+   <row>
+      <key>dsGroup</key>
+      <label>Directory Group</label>
+   </row>
+   <row>
+      <key>affiliation</key>
+      <label>Affiliation</label>
+   </row>
+   <row>
+      <key>-2147483643</key>
+      <label>AD Builtin Group</label>
+   </row>
+   <row>
+      <key>-2147483640</key>
+      <label>AD Universal Security Group</label>
+   </row>
+   <row>
+      <key>-2147483644</key>
+      <label>AD Domain Local Group</label>
+   </row>
+   <row>
+      <key>2</key>
+      <label>AD Global Distribution List</label>
+   </row>
+   <row>
+      <key>4</key>
+      <label>AD Local Distribution List</label>
+   </row>
+</lookupTable>

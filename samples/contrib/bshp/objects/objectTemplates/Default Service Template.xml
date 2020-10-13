@@ -1,0 +1,31 @@
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+			    xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" 
+			    xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+			    xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
+			    xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
+			    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
+			    xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
+			    xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
+			    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			    oid="template-defaultService">
+      <name>Default Service Template</name>
+      <description>
+      	  This object is used when creating/modifying a Service.
+   	  </description>
+      <item>
+         <c:ref>riskLevel</c:ref>
+         <displayName>Risk Level</displayName>
+         <valueEnumerationRef xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+         					  oid="lookup-riskLevels" 
+         					  relation="org:default" 
+         					  type="tns:LookupTableType"/>
+      </item>
+      <item>
+         <c:ref>serviceType</c:ref>
+         <displayName>Type</displayName>
+         <valueEnumerationRef xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+         					  oid="lookup-typesRolesAndServices" 
+         					  relation="org:default" 
+         					  type="tns:LookupTableType"/>
+      </item>
+   </objectTemplate>

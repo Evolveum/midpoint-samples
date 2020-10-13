@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2020 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                oid="9ff4dcad-8f7e-4a28-8515-83cf50daec22">
+    <name>Global user template</name>
+
+    <mapping>
+        <name>Full name mapping</name>
+        <strength>strong</strength>
+        <source>
+            <path>givenName</path>
+        </source>
+        <source>
+            <path>familyName</path>
+        </source>
+        <expression>
+            <script>
+                <code>givenName + ' ' + familyName</code>
+            </script>
+        </expression>
+        <target>
+            <path>fullName</path>
+        </target>
+        <condition>
+            <script>
+                <code>
+                    givenName != null &amp;&amp; familyName != null
+                </code>
+            </script>
+        </condition>
+        <metadataMapping>
+            <expression>
+                <value>generated</value>
+            </expression>
+            <target>
+                <path>transformation/source/name</path>
+            </target>
+        </metadataMapping>
+    </mapping>
+
+    <mapping>
+        <strength>strong</strength>
+        <source>
+            <path>organization</path>
+        </source>
+        <expression>
+            <script>
+                <valueVariableMode>prismValue</valueVariableMode>
+                <code>
+                    loa = basic.getMetadataValues(organization, 'extension/assurance/loa').max()
+                    log.info("loa for $organization is $loa")
+                    loa &gt; 1 ? organization : null
+                </code>
+            </script>
+        </expression>
+        <target>
+            <path>extension/assuredOrganization</path>
+            <set>
+                <predefined>all</predefined>
+            </set>
+        </target>
+    </mapping>
+
+    <meta>
+        <item>
+            <ref>provenance</ref>
+            <limitations>
+                <processing>full</processing>
+            </limitations>
+        </item>
+
+
+        <item>
+            <ref>extension/assurance/loa</ref>
+            <mapping>
+                <scope>transformation</scope>
+                <source>
+                    <path>extension/assurance/loa</path>
+                </source>
+                <expression>
+                    <script>
+                        <relativityMode>absolute</relativityMode>
+                        <code>
+                            log.info('metadata computation input:\n{}', metadataComputationInput?.debugDump(1))
+
+                            // LoA for the transformation output is computed as the lowest one of LoA values for individual inputs.
+                            // LoA of each input value is computed as the highest one of LoA values of its yields (or 0 if no LoA is known).
+                            // If there is no input value, it is ignored during this computation.
+
+                            rv = metadataComputationInput.inputDataValues.collect {
+                                it.prismValue != null ?
+                                        (it.metadataValues.max() ?: 0)
+                                        : null
+                            }.min()
+                            log.info("### resulting loa = $rv")
+                            rv
+                        </code>
+                    </script>
+                </expression>
+            </mapping>
+            <mapping>
+                <scope>consolidation</scope>
+                <source>
+                    <path>extension/assurance/loa</path>
+                </source>
+                <expression>
+                    <script>
+                        <relativityMode>absolute</relativityMode>
+                        <code>
+                            // LoA is computed as the highest one of LoA values for individual yields.
+                            rv = loa.collect { it ?: 0 }.max()
+                            log.info("### loa = $loa -> $rv")
+                            rv
+                        </code>
+                    </script>
+                </expression>
+            </mapping>
+            <applicability>
+                <exclude>
+                    <!-- All assignments will have LoA processing disabled. -->
+                    <path>assignment</path>
+                </exclude>
+            </applicability>
+        </item>
+
+    </meta>
+</objectTemplate>

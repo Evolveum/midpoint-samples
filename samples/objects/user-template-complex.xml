@@ -24,80 +24,80 @@
    xmlns:t='http://prism.evolveum.com/xml/ns/public/types-3'>
     <name>Complex User Template</name>
     <mapping>
-		<!-- This expression is NOT initial so if will in fact FORCE fullname consistency -->
-		<strength>strong</strength>
-		<source>
-			<path>$user/givenName</path>
-		</source>
-		<source>
-			<path>$user/familyName</path>
-		</source>
-		<expression>
-			<script>
-				<language>http://midpoint.evolveum.com/xml/ns/public/expression/language#Groovy</language>
-				<code>
-					givenName + ' ' + familyName
-				</code>
-			</script>
-		</expression>
-		<target>
-			<path>$user/fullName</path>
-		</target>
-	</mapping>
-    
-	<!-- Unconditional automatic assignment of OpenDJ resource -->
-    <mapping>
-		<strength>strong</strength>
-    	<expression>
-            <value>
-            	<assignment>
-					<construction>
-						<resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="ResourceType"/>
-					</construction>
-				</assignment>
-            </value>    	
-    	</expression>
-    	<target>
-    		<path>assignment</path>
-    	</target>
+        <!-- This expression is NOT initial so if will in fact FORCE fullname consistency -->
+        <strength>strong</strength>
+        <source>
+            <path>$user/givenName</path>
+        </source>
+        <source>
+            <path>$user/familyName</path>
+        </source>
+        <expression>
+            <script>
+                <language>http://midpoint.evolveum.com/xml/ns/public/expression/language#Groovy</language>
+                <code>
+                    givenName + ' ' + familyName
+                </code>
+            </script>
+        </expression>
+        <target>
+            <path>$user/fullName</path>
+        </target>
     </mapping>
-    
+
+    <!-- Unconditional automatic assignment of OpenDJ resource -->
+    <mapping>
+        <strength>strong</strength>
+        <expression>
+            <value>
+                <assignment>
+                    <construction>
+                        <resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1a2" type="ResourceType"/>
+                    </construction>
+                </assignment>
+            </value>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+    </mapping>
+
     <!-- RB-RBAC functionality. The Pirate role is automatically assigned based on the value of employeeType property -->
     <mapping>
-		<strength>strong</strength>
-    	<source>
-    		<path>employeeType</path>
-    	</source>
-    	<expression>
+        <strength>strong</strength>
+        <source>
+            <path>employeeType</path>
+        </source>
+        <expression>
             <value>
-            	<assignment>
-					<targetRef oid="12345678-d34d-b33f-f00d-987987987988" type="RoleType"/>
-				</assignment>
-            </value>    	
-    	</expression>
-    	<target>
-    		<path>assignment</path>
-    	</target>
-    	<condition>
-    		<script>
-            	<language>http://midpoint.evolveum.com/xml/ns/public/expression/language#Groovy</language>
-            	<code>employeeType == 'PIRATE'</code>
+                <assignment>
+                    <targetRef oid="12345678-d34d-b33f-f00d-987987987988" type="RoleType"/>
+                </assignment>
+            </value>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+        <condition>
+            <script>
+                <language>http://midpoint.evolveum.com/xml/ns/public/expression/language#Groovy</language>
+                <code>employeeType == 'PIRATE'</code>
             </script>
-		</condition>
+        </condition>
     </mapping>
-    
+
     <!-- Automatically generate employee number if there is none (note the "weak" flag)
-	The "Alphanumeric Password Policy" will be used.  -->
+    The "Alphanumeric Password Policy" will be used.  -->
     <mapping>
-    	<strength>weak</strength>
-    	<expression>
+        <strength>weak</strength>
+        <expression>
             <generate>
-        	<valuePolicyRef oid="81818181-76e0-59e2-8888-3d4f02d3fffd"/>
+            <valuePolicyRef oid="81818181-76e0-59e2-8888-3d4f02d3fffd"/>
             </generate>
-    	</expression>
-    	<target>
-    		<path>employeeNumber</path>
-    	</target>
+        </expression>
+        <target>
+            <path>employeeNumber</path>
+        </target>
     </mapping>
 
 </objectTemplate>

@@ -18,7 +18,7 @@
 <objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <task>
         <name>Assign Enduser role to users starting with 'a' (skipping approvals)</name>
-		<extension>
+        <extension>
             <scext:executeScript xmlns:scext="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3"
                                  xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
                                  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
@@ -39,7 +39,7 @@
                         <s:type>assign</s:type>
                         <s:parameter>
                             <s:name>role</s:name>
-							<c:value xsi:type="q:SearchFilterType">
+                            <c:value xsi:type="q:SearchFilterType">
                                 <q:equal>
                                     <q:path>name</q:path>
                                     <q:value>End user</q:value>
@@ -62,7 +62,7 @@
                     </s:action>
                 </s:search>
             </scext:executeScript>
-		</extension>
+        </extension>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 

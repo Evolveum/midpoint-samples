@@ -1,0 +1,54 @@
+<!--
+  ~ Copyright (c) 2019 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<role oid="b93af850-b9b9-11e9-8c2c-dfb9a89635a0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema">
+    <name>Sales Agent</name>
+    <extension>
+        <exmpl:autoassignJobCode>S007</exmpl:autoassignJobCode>
+    </extension>
+    <inducement>
+        <construction>
+            <!-- OpenLDAP -->
+            <resourceRef oid="8a83b1a4-be18-11e6-ae84-7301fdab1d7c" />
+            <attribute>
+                <ref>ri:title</ref>
+                <outbound>
+                    <expression>
+                        <value>Sales Agent</value>
+                    </expression>
+                </outbound>
+            </attribute>
+        </construction>
+    </inducement>
+    <inducement>
+        <construction>
+            <!-- CRM -->
+            <resourceRef oid="04afeda6-394b-11e6-8cbe-abf7ff430056" />
+            <attribute>
+                <ref>ri:accesslevel</ref>
+                <outbound>
+                    <expression>
+                        <value>AGENT</value>
+                    </expression>
+                </outbound>
+            </attribute>
+        </construction>
+    </inducement>
+</role>

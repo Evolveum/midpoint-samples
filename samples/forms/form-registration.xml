@@ -36,7 +36,7 @@
             <formItems list="true">
                <formField>
                   <binding>
-                  	<c:path>name</c:path>
+                      <c:path>name</c:path>
                   </binding>
                   <display>
                      <label>Login</label>
@@ -46,7 +46,7 @@
                </formField>
                <formField>
                   <binding>
-                  	<c:path>c:emailAddress</c:path>
+                      <c:path>c:emailAddress</c:path>
                   </binding>
                   <display>
                      <label>Email Address</label>
@@ -56,7 +56,7 @@
                </formField>
                <formField>
                   <binding>
-                  	<c:path>c:credentials/password</c:path>
+                      <c:path>c:credentials/password</c:path>
                   </binding>
                   <display>
                      <label> </label>
@@ -71,7 +71,7 @@
             <formItems list="true">
                <formField>
                   <binding>
-                  	<c:path>givenName</c:path>
+                      <c:path>givenName</c:path>
                   </binding>
                   <display>
                      <label>First Name</label>
@@ -80,7 +80,7 @@
                </formField>
                <formField>
                   <binding>
-                  	<c:path>familyName</c:path>
+                      <c:path>familyName</c:path>
                   </binding>
                   <display>
                      <label>Last Name</label>
@@ -94,7 +94,7 @@
             <formItems list="true">
                <formField>
                   <binding>
-                  	<c:path>c:organization</c:path>
+                      <c:path>c:organization</c:path>
                   </binding>
                   <display>
                      <label>Company/University</label>
@@ -102,7 +102,7 @@
                </formField>
                <formField>
                   <binding>
-                  	<c:path>c:organizationalUnit</c:path>
+                      <c:path>c:organizationalUnit</c:path>
                   </binding>
                   <display>
                      <maxOccurs>1</maxOccurs>

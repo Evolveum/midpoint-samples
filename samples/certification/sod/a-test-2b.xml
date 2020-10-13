@@ -15,25 +15,25 @@
   -->
 
 <role oid="ecb9287d-5852-4bec-9926-4ab1de518e26"
-	  xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
-	<name>a-test-2b</name>
-	<c:description>Exclusive with test-2a/2c</c:description>
-	<assignment>
-		<policyRule>
-			<policyConstraints>
-				<or>
-					<exclusion>
-						<targetRef oid="fa636d6a-f016-491c-8cd5-cdcbfd516be5" type="RoleType"/>		<!--  test-2a -->
-					</exclusion>
-					<exclusion>
-						<targetRef oid="dc9beda4-9bb1-40da-8530-c67da19f2b5e" type="RoleType"/>		<!--  test-2c -->
-					</exclusion>
-				</or>
-			</policyConstraints>
-			<policyActions>
-			</policyActions>
-		</policyRule>
-	</assignment>
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+    <name>a-test-2b</name>
+    <c:description>Exclusive with test-2a/2c</c:description>
+    <assignment>
+        <policyRule>
+            <policyConstraints>
+                <or>
+                    <exclusion>
+                        <targetRef oid="fa636d6a-f016-491c-8cd5-cdcbfd516be5" type="RoleType"/>        <!--  test-2a -->
+                    </exclusion>
+                    <exclusion>
+                        <targetRef oid="dc9beda4-9bb1-40da-8530-c67da19f2b5e" type="RoleType"/>        <!--  test-2c -->
+                    </exclusion>
+                </or>
+            </policyConstraints>
+            <policyActions>
+            </policyActions>
+        </policyRule>
+    </assignment>
 </role>

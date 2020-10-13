@@ -39,14 +39,14 @@
         </scext:executeScript>
         <mext:useRepositoryDirectly>true</mext:useRepositoryDirectly>
         <!--    <mext:objectType>UserType</mext:objectType>
-				<mext:objectQuery>
-					<q:filter>
-						<q:equal>
-							<q:path>name</q:path>
-							<q:value>administrator</q:value>
-						</q:equal>
-					</q:filter>
-				</mext:objectQuery>  -->
+                <mext:objectQuery>
+                    <q:filter>
+                        <q:equal>
+                            <q:path>name</q:path>
+                            <q:value>administrator</q:value>
+                        </q:equal>
+                    </q:filter>
+                </mext:objectQuery>  -->
     </extension>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionStatus>runnable</executionStatus>

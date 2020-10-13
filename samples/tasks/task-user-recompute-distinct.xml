@@ -16,56 +16,56 @@
   -->
 
 <task
-	xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3"
-	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-								  
-	<name>User Recompute (distinct)</name>
-	<extension>
-		<mext:objectQuery>
-			<q:filter>
-				<q:exists>
-					<q:path>assignment</q:path>
-					<q:filter>
-						<q:or>
-							<q:ref>
-								<q:path>targetRef</q:path>
-								<q:value xsi:type="c:ObjectReferenceType" oid="00000000-0000-0000-0000-00000000000a" type="c:RoleType" />    <!-- Approver -->
-							</q:ref>
-							<q:ref>
-								<q:path>targetRef</q:path>
-								<q:value xsi:type="c:ObjectReferenceType" oid="00000000-0000-0000-0000-00000000000c" type="c:RoleType" />    <!-- Delegator -->
-							</q:ref>
-							<q:ref>
-								<q:path>targetRef</q:path>
-								<q:value xsi:type="c:ObjectReferenceType" oid="00000000-0000-0000-0000-000000000008" type="c:RoleType" />    <!-- End user -->
-							</q:ref>
-							<q:ref>
-								<q:path>targetRef</q:path>
-								<q:value xsi:type="c:ObjectReferenceType" oid="00000000-0000-0000-0000-00000000000b" type="c:RoleType" />    <!-- Reviewer -->
-							</q:ref>
-							<q:ref>
-								<q:path>targetRef</q:path>
-								<q:value xsi:type="c:ObjectReferenceType" oid="00000000-0000-0000-0000-000000000004" type="c:RoleType" />    <!-- Superuser -->
-							</q:ref>
-						</q:or>
-					</q:filter>
-				</q:exists>
-			</q:filter>
-		</mext:objectQuery>
-		<mext:objectType>UserType</mext:objectType>
-		<mext:searchOptions>
-			<option>
-				<options>
-					<distinct>true</distinct>
-				</options>
-			</option>
-		</mext:searchOptions>
-	</extension>
-	<ownerRef oid="00000000-0000-0000-0000-000000000002"/>
-	<executionStatus>runnable</executionStatus>
-	<handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/recompute/handler-3</handlerUri>
-	<recurrence>single</recurrence>
+    xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3"
+    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <name>User Recompute (distinct)</name>
+    <extension>
+        <mext:objectQuery>
+            <q:filter>
+                <q:exists>
+                    <q:path>assignment</q:path>
+                    <q:filter>
+                        <q:or>
+                            <q:ref>
+                                <q:path>targetRef</q:path>
+                                <q:value xsi:type="c:ObjectReferenceType" oid="00000000-0000-0000-0000-00000000000a" type="c:RoleType" />    <!-- Approver -->
+                            </q:ref>
+                            <q:ref>
+                                <q:path>targetRef</q:path>
+                                <q:value xsi:type="c:ObjectReferenceType" oid="00000000-0000-0000-0000-00000000000c" type="c:RoleType" />    <!-- Delegator -->
+                            </q:ref>
+                            <q:ref>
+                                <q:path>targetRef</q:path>
+                                <q:value xsi:type="c:ObjectReferenceType" oid="00000000-0000-0000-0000-000000000008" type="c:RoleType" />    <!-- End user -->
+                            </q:ref>
+                            <q:ref>
+                                <q:path>targetRef</q:path>
+                                <q:value xsi:type="c:ObjectReferenceType" oid="00000000-0000-0000-0000-00000000000b" type="c:RoleType" />    <!-- Reviewer -->
+                            </q:ref>
+                            <q:ref>
+                                <q:path>targetRef</q:path>
+                                <q:value xsi:type="c:ObjectReferenceType" oid="00000000-0000-0000-0000-000000000004" type="c:RoleType" />    <!-- Superuser -->
+                            </q:ref>
+                        </q:or>
+                    </q:filter>
+                </q:exists>
+            </q:filter>
+        </mext:objectQuery>
+        <mext:objectType>UserType</mext:objectType>
+        <mext:searchOptions>
+            <option>
+                <options>
+                    <distinct>true</distinct>
+                </options>
+            </option>
+        </mext:searchOptions>
+    </extension>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
+    <executionStatus>runnable</executionStatus>
+    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/recompute/handler-3</handlerUri>
+    <recurrence>single</recurrence>
 </task>

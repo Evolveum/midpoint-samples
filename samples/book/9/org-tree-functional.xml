@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2020 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<objects xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+         xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+         xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
+
+    <!-- Functional organizational structure of ExAmPLE company -->
+
+    <org oid="4d12c1ac-440c-11ea-80af-2b314d06ba95">
+        <name>F10000</name>
+        <displayName>ExAmPLE, Inc.</displayName>
+    </org>
+
+    <org oid="7a1feb50-471f-11ea-8aab-1b2627541f15">
+        <name>F11000</name>
+        <description>Expensive people that make money.</description>
+        <displayName>Sales and Marketing Division</displayName>
+        <identifier>11000</identifier>
+        <assignment>
+            <targetRef oid="4d12c1ac-440c-11ea-80af-2b314d06ba95" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="832f409a-4726-11ea-b0be-8b8eab99c1ed">
+        <name>F11100</name>
+        <description>Suits that talk to customers directly.</description>
+        <displayName>Direct Sales Department</displayName>
+        <identifier>11100</identifier>
+        <assignment>
+            <targetRef oid="7a1feb50-471f-11ea-8aab-1b2627541f15" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="8887e0b0-4726-11ea-96b0-5f5ced221e42">
+        <name>F11200</name>
+        <description>Suits that talk to other suits that talk to customers.</description>
+        <displayName>Indirect Sales Department</displayName>
+        <identifier>11200</identifier>
+        <assignment>
+            <targetRef oid="7a1feb50-471f-11ea-8aab-1b2627541f15" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="f5e619a6-4726-11ea-888c-ab25c098d8b3">
+        <name>F11210</name>
+        <description>People that deal with agents (no James Bond here).</description>
+        <displayName>Agent Management Section</displayName>
+        <identifier>11210</identifier>
+        <assignment>
+            <targetRef oid="8887e0b0-4726-11ea-96b0-5f5ced221e42" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="a0c7d92c-4722-11ea-bc8d-d79a6cefb1bf">
+        <name>F11300</name>
+        <description>Creative bunch that spends money to get more money.</description>
+        <displayName>Marketing Department</displayName>
+        <identifier>11300</identifier>
+        <assignment>
+            <targetRef oid="7a1feb50-471f-11ea-8aab-1b2627541f15" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="3be09f12-4727-11ea-9480-0f471030d570">
+        <name>F11310</name>
+        <description>People that get all mad about missing (TM) in our logo.</description>
+        <displayName>Brand Awareness Section</displayName>
+        <identifier>11310</identifier>
+        <assignment>
+            <targetRef oid="a0c7d92c-4722-11ea-bc8d-d79a6cefb1bf" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="5a4b54ec-4727-11ea-a323-4fcdff560934">
+        <name>F11320</name>
+        <description>We are all mad here.</description>
+        <displayName>Creative Section</displayName>
+        <identifier>11320</identifier>
+        <assignment>
+            <targetRef oid="a0c7d92c-4722-11ea-bc8d-d79a6cefb1bf" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="93f771f8-4727-11ea-b454-af128c9e17dd">
+        <name>F11321</name>
+        <description>We have twisted mind and we are not afraid to use it!</description>
+        <displayName>Special Marketing Task Force</displayName>
+        <identifier>11321</identifier>
+        <assignment>
+            <targetRef oid="5a4b54ec-4727-11ea-a323-4fcdff560934" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="e1cd3d4a-4727-11ea-9e30-eb8c3002a37c">
+        <name>F12000</name>
+        <description>People that make this company work.</description>
+        <displayName>Operations Division</displayName>
+        <identifier>12000</identifier>
+        <assignment>
+            <targetRef oid="4d12c1ac-440c-11ea-80af-2b314d06ba95" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="0878ec00-4728-11ea-a745-0b989d121cb9">
+        <name>F12100</name>
+        <description>Suits sans sense of humor.</description>
+        <displayName>Legal Department</displayName>
+        <identifier>12100</identifier>
+        <assignment>
+            <targetRef oid="e1cd3d4a-4727-11ea-9e30-eb8c3002a37c" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="5d92bcac-4728-11ea-b314-0720890970e0">
+        <name>F12110</name>
+        <description>Dangerous suits. Do not feed.</description>
+        <displayName>Corporate Counsel Section</displayName>
+        <identifier>12110</identifier>
+        <assignment>
+            <targetRef oid="0878ec00-4728-11ea-a745-0b989d121cb9" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="b26a39c6-4728-11ea-b17c-cbf8b228962c">
+        <name>F12200</name>
+        <description>Paperwork on top, paperwork on bottom and paperwork in between.</description>
+        <displayName>Backoffice Section</displayName>
+        <identifier>12200</identifier>
+        <assignment>
+            <targetRef oid="e1cd3d4a-4727-11ea-9e30-eb8c3002a37c" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="b807964e-4728-11ea-8fe2-1fa2724ecb76">
+        <name>F12300</name>
+        <description>Technology primadonnas.</description>
+        <displayName>IT Department</displayName>
+        <identifier>12300</identifier>
+        <assignment>
+            <targetRef oid="e1cd3d4a-4727-11ea-9e30-eb8c3002a37c" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="d809c8c2-4728-11ea-8fba-ebdb0607d4c2">
+        <name>F12310</name>
+        <description>Magic.</description>
+        <displayName>System Administration Section</displayName>
+        <identifier>12310</identifier>
+        <assignment>
+            <targetRef oid="b807964e-4728-11ea-8fe2-1fa2724ecb76" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="fca2e4ac-4728-11ea-be3a-4f6f8d567435">
+        <name>F12320</name>
+        <description>Alien life forms that consume a lot of coffee and produce bugs.</description>
+        <displayName>Software Development Section</displayName>
+        <identifier>12320</identifier>
+        <assignment>
+            <targetRef oid="b807964e-4728-11ea-8fe2-1fa2724ecb76" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="347fbeea-4729-11ea-a8c4-af1e0d2f06ad">
+        <name>F12330</name>
+        <description>Whiteboard meets theory.</description>
+        <displayName>Enterprise Architecture Section</displayName>
+        <identifier>12330</identifier>
+        <assignment>
+            <targetRef oid="b807964e-4728-11ea-8fe2-1fa2724ecb76" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="9ce420ac-4729-11ea-ae6a-df283aed2cb7">
+        <name>F19000</name>
+        <description>We are watching you, always watching.</description>
+        <displayName>Controlling Division</displayName>
+        <identifier>19000</identifier>
+        <assignment>
+            <targetRef oid="4d12c1ac-440c-11ea-80af-2b314d06ba95" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="cce83f54-4729-11ea-bd77-af4213206590">
+        <name>F19100</name>
+        <description>Number-crunching detectives.</description>
+        <displayName>Financial Audit Department</displayName>
+        <identifier>19100</identifier>
+        <assignment>
+            <targetRef oid="9ce420ac-4729-11ea-ae6a-df283aed2cb7" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="ec450da0-4729-11ea-909c-0b931d9f0927">
+        <name>F19200</name>
+        <description>Policies, rules and paranoia.</description>
+        <displayName>Security Department</displayName>
+        <identifier>19200</identifier>
+        <assignment>
+            <targetRef oid="9ce420ac-4729-11ea-ae6a-df283aed2cb7" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="19e371a2-472a-11ea-95de-5725f879ca5f">
+        <name>F19210</name>
+        <description>Locks and guns.</description>
+        <displayName>Physical Security Section</displayName>
+        <identifier>19210</identifier>
+        <assignment>
+            <targetRef oid="ec450da0-4729-11ea-909c-0b931d9f0927" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="293fe73e-472a-11ea-b04f-274374b2c5e2">
+        <name>F19220</name>
+        <description>Dangerous geeks.</description>
+        <displayName>Information Security Section</displayName>
+        <identifier>19220</identifier>
+        <assignment>
+            <targetRef oid="ec450da0-4729-11ea-909c-0b931d9f0927" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <org oid="">
+        <name>F19221</name>
+        <description>Heavenly seat of Security Officer.</description>
+        <displayName>Information Security Office</displayName>
+        <identifier>19221</identifier>
+        <assignment>
+            <targetRef oid="293fe73e-472a-11ea-b04f-274374b2c5e2" type="OrgType"/>
+        </assignment>
+    </org>
+
+</objects>

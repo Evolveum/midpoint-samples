@@ -21,7 +21,7 @@
    <oid>deadbeef-c001-f00d-1111-222233330001</oid>
    <propertyModification modificationType="replace">
        <value>
-       		<eMailAddress>jack@blackpearl.com</eMailAddress>
+               <eMailAddress>jack@blackpearl.com</eMailAddress>
        </value>
    </propertyModification>
 </objectModification>

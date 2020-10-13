@@ -30,7 +30,7 @@
             User Template Object.
             This object is used when creating a new user or changing an existing user, to set it up as needed.
         </description>
-        
+
         <mapping>
             <description>
                 Property mapping.
@@ -57,7 +57,7 @@
                 <path>$user/fullName</path>
             </target>
         </mapping>
-        
+
          <mapping>
             <description>
                 Property mapping.

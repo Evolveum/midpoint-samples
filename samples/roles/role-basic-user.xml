@@ -20,13 +20,13 @@
         xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
         xmlns:piracy="http://midpoint.evolveum.com/xml/ns/samples/piracy">
     <name>Basic User</name>
-    
+
     <inducement>
-    	<construction>
-    		<!-- OpenDJ resource -->
-    		<resourceRef oid="10000000-0000-0000-0000-000000000003" type="c:ResourceType"/>
-    		<kind>account</kind>
-    	</construction>
+        <construction>
+            <!-- OpenDJ resource -->
+            <resourceRef oid="10000000-0000-0000-0000-000000000003" type="c:ResourceType"/>
+            <kind>account</kind>
+        </construction>
     </inducement>
-    
+
 </role>

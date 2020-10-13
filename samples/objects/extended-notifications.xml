@@ -21,7 +21,7 @@
     <name>dummy</name>
 
     <!-- insert the following element into system configuration object (via debug pages)
-		 before logging and cleanup policy items -->
+         before logging and cleanup policy items -->
 
     <notificationConfiguration>
         <handler>
