@@ -1,0 +1,17 @@
+<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+oid="bd07ddc9-fc58-4bd8-9ff3-ee796469c95e">
+    <name>Failed users during recon task</name>
+    <type>UserType</type>
+    <filter>
+        <q:and>
+            <q:equal>
+                <q:path>operationExecution/tastRef</q:path>
+                <q:value>c570786d-e2f9-447d-9023-98ff63dfd88e</q:value>
+            </q:equal>
+            <q:equal>
+                <q:path>operationExecution/status</q:path>
+                <q:value>fatal_error</q:value>
+            </q:equal>
+        </q:and>
+    </filter>
+</objectCollection>
