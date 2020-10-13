@@ -1,0 +1,24 @@
+<report xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" oid="c5b5e08c-0fa7-4ec3-a82f-34c951eab2d8">
+    <name>Failed all shadow last 24 hours</name>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000171" relation="org:default" type="c:ArchetypeType">
+            <!-- Collection report -->
+        </targetRef>
+    </assignment>
+    <objectCollection>
+        <collection>
+            <collectionRef oid="5f16bd0b-c590-408a-9546-3eda9a78e605" relation="org:default" type="c:ObjectCollectionType">
+                <!-- Failed shadows (all - last 24hours) -->
+            </collectionRef>
+        </collection>
+    </objectCollection>
+    <fileFormat>
+        <type>csv</type>
+        <csv>
+            <multivalueDelimiter>,</multivalueDelimiter>
+            <fieldDelimiter>;</fieldDelimiter>
+            <quoteMode>all</quoteMode>
+            <header>true</header>
+        </csv>
+    </fileFormat>
+</report>
