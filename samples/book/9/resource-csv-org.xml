@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2020 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+
+<resource oid="81ec779e-13b2-11eb-8e47-dfbfd542db3e"
+            xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+            xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+            xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+            xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+            xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+            xmlns:ext="http://midpoint.evolveum.com/xml/ns/story/orgsync/ext"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+
+    <name>Organizational Chart</name>
+
+    <description>
+        Resource that contains organization chart (org tree) in a from of CSV file.
+        This is a sample used in the "Practical Identity Management with MidPoint"
+        book, chapter 9.
+    </description>
+
+    <connectorRef type="ConnectorType">
+        <filter>
+            <q:equal>
+                <q:path>c:connectorType</q:path>
+                <q:value>com.evolveum.polygon.connector.csv.CsvConnector</q:value>
+            </q:equal>
+        </filter>
+    </connectorRef>
+
+    <connectorConfiguration>
+        <!-- Configuration specific for the CSV connector -->
+        <icfc:configurationProperties
+                xmlns:icfccsvfile="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
+            <icfccsvfile:filePath>/opt/midpoint/var/resources/org.csv</icfccsvfile:filePath>
+            <icfccsvfile:encoding>utf-8</icfccsvfile:encoding>
+            <icfccsvfile:fieldDelimiter>,</icfccsvfile:fieldDelimiter>
+            <icfccsvfile:multivalueDelimiter>;</icfccsvfile:multivalueDelimiter>
+            <icfccsvfile:uniqueAttribute>orgnum</icfccsvfile:uniqueAttribute>
+        </icfc:configurationProperties>
+    </connectorConfiguration>
+
+    <schemaHandling>
+
+        <objectType>
+            <displayName>Organizational unit</displayName>
+            <default>true</default>
+            <objectClass>ri:AccountObjectClass</objectClass>
+            <kind>generic</kind>
+            <intent>orgunit</intent>
+            <attribute>
+                <ref>ri:orgnum</ref>
+                <inbound>
+                    <target>
+                        <path>$focus/identifier</path>
+                    </target>
+                </inbound>
+                <inbound>
+                    <expression>
+                        <script>
+                            <code>'O'+input</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>$focus/name</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:name</ref>
+                <inbound>
+                    <target>
+                        <path>$focus/displayName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:description</ref>
+                <inbound>
+                    <target>
+                        <path>$focus/description</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:parentOrgNum</ref>
+                <inbound>
+                    <expression>
+                        <assignmentTargetSearch>
+                            <targetType>OrgType</targetType>
+                            <filter>
+                                <q:equal>
+                                    <q:path>identifier</q:path>
+                                    <expression>
+                                        <path>$input</path>
+                                    </expression>
+                                </q:equal>
+                            </filter>
+                        </assignmentTargetSearch>
+                    </expression>
+                    <target>
+                        <path>$focus/assignment</path>
+                    </target>
+                </inbound>
+            </attribute>
+        </objectType>
+
+    </schemaHandling>
+
+    <projection>
+        <assignmentPolicyEnforcement>none</assignmentPolicyEnforcement>
+    </projection>
+
+    <synchronization>
+        <objectSynchronization>
+            <enabled>true</enabled>
+            <objectClass>AccountObjectClass</objectClass>
+            <kind>generic</kind>
+            <intent>orgunit</intent>
+            <focusType>OrgType</focusType>
+            <correlation>
+                <q:equal>
+                    <q:path>identifier</q:path>
+                    <expression>
+                        <path>$projection/attributes/orgnum</path>
+                    </expression>
+                </q:equal>
+            </correlation>
+            <reaction>
+                <situation>linked</situation>
+                <synchronize>true</synchronize>
+            </reaction>
+            <reaction>
+                <situation>deleted</situation>
+                <synchronize>true</synchronize>
+                <action>
+                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#deleteFocus</handlerUri>
+                </action>
+            </reaction>
+            <reaction>
+                <situation>unlinked</situation>
+                <synchronize>true</synchronize>
+                <action>
+                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
+                </action>
+            </reaction>
+            <reaction>
+                <situation>unmatched</situation>
+                <synchronize>true</synchronize>
+                <action>
+                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
+                </action>
+            </reaction>
+        </objectSynchronization>
+    </synchronization>
+</resource>
