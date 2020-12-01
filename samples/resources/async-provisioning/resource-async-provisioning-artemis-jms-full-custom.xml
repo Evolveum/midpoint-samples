@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2019 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+
+<resource oid="0a5bf793-b952-45bc-8f7a-48b5c5e14bda"
+          xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+          xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+          xmlns:conf="http://midpoint.evolveum.com/xml/ns/public/connector/builtin-1/bundle/com.evolveum.midpoint.provisioning.ucf.impl.builtin.async.provisioning/AsyncProvisioningConnector">
+
+    <name>Async - full - custom</name>
+    <description>Async Provisioning Resource (Artemis JMS) sending full object state, using custom transformation script</description>
+    <connectorRef type="ConnectorType">
+        <filter>
+            <q:equal>
+                <q:path>connectorType</q:path>
+                <q:value>AsyncProvisioningConnector</q:value>
+            </q:equal>
+        </filter>
+    </connectorRef>
+    <connectorConfiguration>
+        <conf:targets>
+            <jms>
+                <connectionFactory>localhostConnectionFactory</connectionFactory>
+                <username>admin</username>
+                <password>secret</password>
+                <destination>ProvisioningQueue</destination>
+            </jms>
+        </conf:targets>
+        <conf:transformExpression>
+            <script>
+                <code>
+                    transformerHelper.jsonRequestFormatter(operationRequested)
+                        .changeMapAsAttributes()
+                        .format()
+                </code>
+            </script>
+        </conf:transformExpression>
+    </connectorConfiguration>
+    <schema>
+        <definition>
+            <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+                        xmlns:ra="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3"
+                        targetNamespace="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
+                <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"/>
+                <xsd:import namespace="http://midpoint.evolveum.com/xml/ns/public/resource/annotation-3"/>
+                <xsd:complexType name="AccountObjectClass">
+                    <xsd:annotation>
+                        <xsd:appinfo>
+                            <ra:resourceObject/>
+                            <ra:identifier>ri:login</ra:identifier>
+                            <ra:displayNameAttribute>ri:login</ra:displayNameAttribute>
+                            <ra:namingAttribute>ri:login</ra:namingAttribute>
+                            <ra:kind>account</ra:kind>
+                            <ra:default/>
+                        </xsd:appinfo>
+                    </xsd:annotation>
+                    <xsd:sequence>
+                        <xsd:element name="login" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="fullName" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:schema>
+        </definition>
+    </schema>
+    <schemaHandling>
+        <objectType>
+            <objectClass>ri:AccountObjectClass</objectClass>
+            <attribute>
+                <ref>ri:login</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <source>
+                        <path>name</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:fullName</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <source>
+                        <path>fullName</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:description</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <source>
+                        <path>name</path>
+                    </source>
+                    <source>
+                        <path>fullName</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>"This is '$name' called '$fullName'"</code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+        </objectType>
+    </schemaHandling>
+    <capabilities>
+        <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
+            <cap:read>
+                <cap:cachingOnly>true</cap:cachingOnly>
+            </cap:read>
+            <cap:update>
+                <cap:attributeContentRequirement>all</cap:attributeContentRequirement>
+            </cap:update>
+        </configured>
+    </capabilities>
+</resource>
