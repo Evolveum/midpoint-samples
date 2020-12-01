@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2018-2019 Evolveum
+  ~ Copyright (C) 2018-2020 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,8 +15,6 @@
   -->
 <archetype oid="b0d40672-225d-11ea-9d7c-43e2a3631390"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
         xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
     <name>Special Role</name>
     <archetypePolicy>

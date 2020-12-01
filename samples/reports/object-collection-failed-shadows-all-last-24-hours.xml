@@ -1,0 +1,42 @@
+<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+oid="5f16bd0b-c590-408a-9546-3eda9a78e605">
+    <name>Failed shadows (all - last 24hours)</name>
+    <type>ShadowType</type>
+    <filter>
+        <q:and>
+            <q:equal>
+                <q:path>kind</q:path>
+                <q:value>account</q:value>
+            </q:equal>
+            <q:exists>
+                <q:path>operationExecution</q:path>
+                <q:filter>
+                    <q:and>
+                        <q:equal>
+                            <q:path>status</q:path>
+                            <q:value>fatal_error</q:value>
+                        </q:equal>
+                        <q:greater>
+                            <q:path>timestamp</q:path>
+                            <expression xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+                                <script>
+                                    <code>
+                                            calendar = basic.addDuration(basic.currentDateTime(), "-P1D");
+                                            return calendar;
+                                        </code>
+                                </script>
+                            </expression>
+                        </q:greater>
+                    </q:and>
+                </q:filter>
+            </q:exists>
+        </q:and>
+    </filter>
+    <getOptions>
+        <option>
+            <options>
+                <raw>true</raw>
+            </options>
+        </option>
+    </getOptions>
+</objectCollection>

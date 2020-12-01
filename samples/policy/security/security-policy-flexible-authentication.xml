@@ -99,7 +99,7 @@
                 Just one of then need to be successful to let user in.
             </description>
             <channel>
-                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#user</channelId>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</channelId>
                 <default>true</default>
               <urlSuffix>default</urlSuffix>
             </channel>
@@ -122,7 +122,7 @@
                 that the SAML authentication is redirecting the browser incorrectly.
             </description>
             <channel>
-                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#user</channelId>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</channelId>
                 <default>false</default>
                 <urlSuffix>emergency</urlSuffix>
             </channel>
@@ -141,7 +141,7 @@
                 Authentication sequence for REST service.
             </description>
             <channel>
-                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#rest</channelId>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#rest</channelId>
                 <default>true</default>
                 <urlSuffix>rest-default</urlSuffix>
             </channel>
@@ -157,7 +157,7 @@
                 Authentication sequence for actuator.
             </description>
             <channel>
-                <channelId>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#actuator</channelId>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#actuator</channelId>
                 <default>true</default>
                 <urlSuffix>actuator-default</urlSuffix>
             </channel>

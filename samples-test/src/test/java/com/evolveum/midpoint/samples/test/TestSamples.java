@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010-2013 Evolveum and contributors
+ * Copyright (C) 2010-2020 Evolveum and contributors
  *
  * This work is dual-licensed under the Apache License 2.0
  * and European Union Public License. See LICENSE file for details.
@@ -142,7 +142,7 @@ public class TestSamples extends AbstractSampleTest {
             public <T extends Objectable> EventResult postMarshall(PrismObject<T> object, Element objectElement,
                     OperationResult objectResult) {
 
-                // Try to marshall it back. This may detect some JAXB miscofiguration problems.
+                // Try to marshall it back. This may detect some JAXB misconfiguration problems.
                 try {
                     String serializedString = PrismTestUtil.serializeObjectToString(object, PrismContext.LANG_XML);
                 } catch (SchemaException e) {
@@ -171,7 +171,7 @@ public class TestSamples extends AbstractSampleTest {
         if (!result.isSuccess()) {
             // The error is most likely the first inner result. Therefore let's pull it out for convenience
             String errorMessage = result.getMessage();
-            if (result.getSubresults() != null && !result.getSubresults().isEmpty()) {
+            if (!result.getSubresults().isEmpty()) {
                 if (result.getSubresults().get(0).getMessage() != null) {
                     errorMessage = result.getSubresults().get(0).getMessage();
                 }
@@ -185,6 +185,5 @@ public class TestSamples extends AbstractSampleTest {
         }
 
         System.out.println();
-
     }
 }

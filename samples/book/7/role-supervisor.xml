@@ -22,7 +22,7 @@
     <inducement>
         <construction>
             <!-- Record management system -->
-            <resourceRef oid="84de003e-014f-2040-efbc-482e009ed2bcf"/>
+            <resourceRef oid="84de003e-014f-2040-efbc-482e009ed2bc"/>
             <kind>account</kind>
             <attribute>
                 <ref>ri:priv</ref>
@@ -38,6 +38,6 @@
     </inducement>
     <inducement>
         <!-- This "includes" all the clerk’s privileges in this role -->
-        <targetRef oid="48d4ef98-20e3-46ab-cd78-548d38364a6b3" type="RoleType"/>
+        <targetRef oid="48d4ef98-20e3-46ab-cd78-548d38364a6b" type="RoleType"/>
     </inducement>
 </role>

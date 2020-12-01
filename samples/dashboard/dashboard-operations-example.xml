@@ -1,0 +1,117 @@
+<dashboard xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3">
+    <name>operations-dashboard</name>
+    <display>
+        <label>Operations dashboard</label>
+    </display>
+    <widget>
+        <identifier>failed-users</identifier>
+        <display>
+            <label>Failed users during recon task</label>
+            <color>#00a65a</color>
+            <icon>
+                <cssClass>fa fa-user</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="bd07ddc9-fc58-4bd8-9ff3-ee796469c95e" relation="org:default" type="c:ObjectCollectionType">
+                    <!-- Failed users during recon task -->
+                </collectionRef>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ProportionalExpressionEvaluatorType">
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>users</value>
+                </expression>
+            </dataField>
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <c:path>name</c:path>
+                    <display>
+                        <label>Name</label>
+                    </display>
+                </column>
+                <column>
+                    <name>givenNameColumns</name>
+                    <c:path>givenName</c:path>
+                    <display>
+                        <label>Given name</label>
+                    </display>
+                    <previousColumn>nameColumn</previousColumn>
+                </column>
+                <column>
+                    <name>familyNameColumn</name>
+                    <c:path>familyName</c:path>
+                    <display>
+                        <label>Family name</label>
+                    </display>
+                    <previousColumn>givenName</previousColumn>
+                </column>
+                <column>
+                    <name>fullNameColumn</name>
+                    <c:path>fullName</c:path>
+                    <display>
+                        <label>Full name</label>
+                    </display>
+                    <previousColumn>givenNameColumn</previousColumn>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+    <widget>
+        <identifier>failed-shadows</identifier>
+        <display>
+            <label>Failed shadows (last 24hours)</label>
+            <color>#00a65a</color>
+            <icon>
+                <cssClass>fa fa-user</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="056e6f8c-23bd-43e3-93e2-5b0decba7ad0" relation="org:default" type="c:ObjectCollectionType">
+                    <!-- Failed shadows (last 24 hours) -->
+                </collectionRef>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ProportionalExpressionEvaluatorType">
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>shadows</value>
+                </expression>
+            </dataField>
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <c:path>name</c:path>
+                    <display>
+                        <label>Name</label>
+                    </display>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+    
+</dashboard>

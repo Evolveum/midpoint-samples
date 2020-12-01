@@ -1,0 +1,4 @@
+identifier,firstName,lastName,employeeType,organization,organizationalUnit,loa
+JohnSmith,John,Smith,internal,My University,,2
+PeterBrave,Peter,Brave,external,My Company,,1
+GracePatton,Grace,Patton,internal,My University,Rectorate,2
