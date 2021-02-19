@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2020 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<objects xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+         xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+         xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
+
+    <!-- Role catalog for ExAmPLE company -->
+
+    <org oid="945315a6-fc23-11ea-832e-1f9945adb481">
+        <name>Role catalog</name>
+    </org>
+
+    <org oid="b7e4cd0c-fc23-11ea-a79a-079cad42b39b">
+        <name>RC001</name>
+        <displayName>Client acquisition</displayName>
+        <assignment>
+            <targetRef oid="945315a6-fc23-11ea-832e-1f9945adb481" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <role oid="704d4a90-fc24-11ea-ae44-bbd7d89473b3">
+        <name>Market specialist</name>
+        <assignment>
+            <targetRef oid="b7e4cd0c-fc23-11ea-a79a-079cad42b39b" type="OrgType"/>
+        </assignment>
+    </role>
+
+    <org oid="259625ee-fc24-11ea-8bae-1bfdce011faf">
+        <name>RC002</name>
+        <displayName>Customer support</displayName>
+        <assignment>
+            <targetRef oid="945315a6-fc23-11ea-832e-1f9945adb481" type="OrgType"/>
+        </assignment>
+    </org>
+
+    <role oid="9c55ff88-fc24-11ea-977a-e39adc8e1bd4">
+        <name>Call center agent</name>
+        <assignment>
+            <targetRef oid="259625ee-fc24-11ea-8bae-1bfdce011faf" type="OrgType"/>
+        </assignment>
+    </role>
+
+    <role oid="e1bc89e8-fc24-11ea-972e-774cfddb9e76">
+        <name>Call center manager</name>
+        <assignment>
+            <targetRef oid="259625ee-fc24-11ea-8bae-1bfdce011faf" type="OrgType"/>
+        </assignment>
+    </role>
+
+    <role oid="0a7b667e-fc25-11ea-b92d-d7693b8b10eb">
+        <name>Tech support specialist</name>
+        <description>See also: magician, wizard.</description>
+        <assignment>
+            <targetRef oid="259625ee-fc24-11ea-8bae-1bfdce011faf" type="OrgType"/>
+        </assignment>
+    </role>
+
+</objects>
