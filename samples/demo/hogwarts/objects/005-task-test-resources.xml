@@ -1,0 +1,35 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" oid="10e76345-0f02-48de-86bf-e7a887cb374a">
+    <name>Test resources</name>
+    <extension xmlns:se="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3">
+        <se:executeScript xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
+            <s:pipeline list="true">
+                <s:search xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+                    xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+                    <s:type>ResourceType</s:type>
+                </s:search>
+                <s:action>
+                    <s:type>test-resource</s:type>
+                </s:action>
+            </s:pipeline>
+        </se:executeScript>
+    </extension>
+    
+    <assignment id="4">
+        <targetRef oid="00000000-0000-0000-0000-000000000508" relation="org:default" type="c:ArchetypeType">
+            <!-- Single bulk action task  -->
+        </targetRef>
+    </assignment>
+    <taskIdentifier>1555581798625-0-1</taskIdentifier>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType">
+        <!-- administrator -->
+    </ownerRef>
+    <executionStatus>runnable</executionStatus>
+    <category>BulkActions</category>
+    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/scripting/handler-3</handlerUri>
+    <recurrence>single</recurrence>
+    <binding>tight</binding>
+</task>

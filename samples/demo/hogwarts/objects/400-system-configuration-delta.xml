@@ -1,0 +1,94 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" oid="9de76345-0f02-48de-86bf-e7a887cb374a">
+    <name>Modify System Configuration Task</name>
+    <extension xmlns:se="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3">
+        <se:executeScript xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
+            <s:pipeline list="true">
+                <s:search>
+                    <s:type>SystemConfigurationType</s:type>
+                </s:search>
+                <s:action>
+                    <s:type>modify</s:type>
+                    <s:parameter>
+                        <s:name>delta</s:name>
+                        <value>
+                            <t:changeType>modify</t:changeType>
+                            <t:objectType>SystemConfigurationType</t:objectType>
+                            <t:itemDelta>
+                                <t:modificationType>add</t:modificationType>
+                                <t:path>defaultObjectPolicyConfiguration</t:path>
+                                <t:value>
+                                    <type>c:OrgType</type>
+                                    <objectTemplateRef oid="10000000-0000-0000-0000-000000000231" relation="org:default" type="c:ObjectTemplateType"><!-- Org Template --></objectTemplateRef>
+                                </t:value>
+                            </t:itemDelta>
+                            
+                            <t:itemDelta>
+                                <t:modificationType>add</t:modificationType>
+                                <t:path>adminGuiConfiguration/objectCollectionViews/objectCollectionView</t:path>
+                                <t:value>
+                                    <identifier>students</identifier>
+                                    <display>
+                                        <label>Students</label>
+                                        <singularLabel>Student</singularLabel>
+                                        <pluralLabel>Students</pluralLabel>
+                                        <icon>
+                                            <cssClass>fa fa-graduation-cap</cssClass>
+                                        </icon>
+                                    </display>
+                                    <displayOrder>1000</displayOrder>
+                                    <type>UserType</type>
+                                    <collection>
+                                        <collectionRef oid="arch0000-0000-0000-0000-000000000410" relation="org:default" type="c:ArchetypeType"/>
+                                    </collection>
+                                </t:value>
+                            </t:itemDelta>
+                            <t:itemDelta>
+                                <t:modificationType>add</t:modificationType>
+                                <t:path>adminGuiConfiguration/objectCollectionViews/objectCollectionView</t:path>
+                                <t:value>
+                                    <identifier>teachers</identifier>
+                                    <display>
+                                        <label>Teachers</label>
+                                        <singularLabel>Teacher</singularLabel>
+                                        <pluralLabel>Teachers</pluralLabel>
+                                        <icon>
+                                            <cssClass>fa fa-magic</cssClass>
+                                        </icon>
+                                    </display>
+                                    <displayOrder>1000</displayOrder>
+                                    <type>UserType</type>
+                                    <collection>
+                                        <collectionRef oid="arch0000-0000-0000-0000-000000000420" relation="org:default" type="c:ArchetypeType"/>
+                                    </collection>
+                                </t:value>
+                            </t:itemDelta>
+                            <t:itemDelta>
+                                <t:modificationType>add</t:modificationType>
+                                <t:path>adminGuiConfiguration/enableExperimentalFeatures</t:path>
+                                <t:value>true</t:value>
+                            </t:itemDelta>
+                        </value>
+                    </s:parameter>
+                </s:action>
+            </s:pipeline>
+        </se:executeScript>
+    </extension>
+    <taskIdentifier>1555581798624-0-1</taskIdentifier>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType">
+        <!-- administrator -->
+    </ownerRef>
+    <executionStatus>runnable</executionStatus>
+    <category>BulkActions</category>
+    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/scripting/handler-3</handlerUri>
+    <recurrence>single</recurrence>
+    <binding>tight</binding>
+    <assignment id="4">
+        <targetRef oid="00000000-0000-0000-0000-000000000508" relation="org:default" type="c:ArchetypeType">
+            <!-- Single bulk action task  -->
+        </targetRef>
+    </assignment>
+</task>

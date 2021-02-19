@@ -1,0 +1,60 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" oid="arch0000-0000-0000-0000-000000000420">
+    <name>Teacher</name>
+    <description>
+        Archetype for teachers
+    </description>
+    <assignment>
+        <assignmentRelation>
+            <holderType>UserType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <inducement id="9">
+        <focusMappings>
+            <mapping id="10">
+                <strength>weak</strength>
+                <expression>
+                    <value>employee</value>
+                </expression>
+                <target>
+                    <c:path>subtype</c:path>
+                </target>
+            </mapping>
+        </focusMappings>
+    </inducement>
+    <archetypePolicy>
+        <display>
+            <label>Teacher</label>
+            <pluralLabel>Teachers</pluralLabel>
+            <icon>
+                <cssClass>fa fa-magic</cssClass>
+                <color>purple</color>
+            </icon>
+        </display>
+        <objectTemplateRef oid="10000000-0000-0000-0000-000000000222" relation="org:default" type="c:ObjectTemplateType">
+            <!-- User Template -->
+        </objectTemplateRef>
+        <lifecycleStateModel>
+            <state id="119">
+                <name>active</name>
+                <transition id="11">
+                    <name>archival</name>
+                    <targetState>archived</targetState>
+                    <condition>
+                        <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
+                            <code>!(object?.name?.orig?.equals("c.fudge")) &amp;&amp; !midpoint.hasActiveAssignmentTargetSubtype('access')</code>
+                        </script>
+                    </condition>
+                </transition>
+            </state>
+            <state id="120">
+                <name>archived</name>
+                <entryAction id="121">
+                    <name>archival-data-reduction</name>
+                    <dataReduction>
+                        <c:purgeItem>telephoneNumber</c:purgeItem>
+                    </dataReduction>
+                </entryAction>
+            </state>
+        </lifecycleStateModel>
+    </archetypePolicy>
+</archetype>
