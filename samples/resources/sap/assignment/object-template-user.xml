@@ -62,7 +62,7 @@
         <!--<authoritative>true</authoritative>-->
         <!--<strength>strong</strength>-->
         <!--<source>-->
-            <!--<path>employeeType</path>-->
+            <!--<path>subtype</path>-->
         <!--</source>-->
         <!--<expression>-->
             <!--<assignmentTargetSearch>-->
@@ -75,7 +75,7 @@
         <!--</target>-->
         <!--<condition>-->
             <!--<script>-->
-                <!--<code>employeeType == 'cdo'</code>-->
+                <!--<code>subtype == 'cdo'</code>-->
             <!--</script>-->
         <!--</condition>-->
     <!--</mapping>-->

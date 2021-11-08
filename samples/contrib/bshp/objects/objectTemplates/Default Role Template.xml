@@ -1,289 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2010-2021 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
 <objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-                xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-                xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-                xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
-                xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
-                xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
-                xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-                oid="template-defaultRole">
-   <name>Default Role Template</name>
-   <description>
-      This object is used when creating/modifying a role.
-   </description>
-   <item>
-      <c:ref>riskLevel</c:ref>
-      <displayName>Risk Level</displayName>
-      <valueEnumerationRef xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-                           oid="lookup-riskLevels"
-                           relation="org:default"
-                           type="tns:LookupTableType"><!-- Risk Levels --></valueEnumerationRef>
-   </item>
-   <item>
-      <c:ref>roleType</c:ref>
-      <displayName>Type</displayName>
-      <valueEnumerationRef xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-                           oid="lookup-typesRolesAndServices"
-                           relation="org:default"
-                           type="tns:LookupTableType"><!-- Role and Service Types --></valueEnumerationRef>
-   </item>
-   <item>
-      <c:ref xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:ldapDn</c:ref>
-      <limitations>
-         <layer>presentation</layer>
-         <access>
-            <read>true</read>
-            <add>false</add>
-            <modify>false</modify>
-         </access>
-      </limitations>
-   </item>
-   <item>
-      <c:ref xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:groupMembership</c:ref>
-      <limitations>
-         <layer>presentation</layer>
-         <access>
-            <read>true</read>
-            <add>false</add>
-            <modify>false</modify>
-         </access>
-      </limitations>
-      <tolerant>false</tolerant>
-   </item>
-   <mapping>
-      <name>Metarole Security Group Assignment</name>
-      <strength>strong</strength>
-      <source>
-         <c:path>roleType</c:path>
-      </source>
-      <expression>
-         <assignmentTargetSearch>
-            <targetType>c:RoleType</targetType>
-            <oid>metarole-domainGroups</oid>
-         </assignmentTargetSearch>
-      </expression>
-      <target>
-         <c:path>assignment</c:path>
-      </target>
-      <condition>
-         <script>
-            <code>roleType == '-2147483646' || roleType == '-2147483643' || roleType == '-2147483640' || roleType == '-2147483644'</code>
-         </script>
-      </condition>
-   </mapping>
-   <mapping>
-      <name>Metarole Distribution Group Assignment</name>
-      <strength>strong</strength>
-      <source>
-         <c:path>roleType</c:path>
-      </source>
-      <expression>
-         <assignmentTargetSearch>
-            <targetType>c:RoleType</targetType>
-            <oid>metarole-domainGroups</oid>
-         </assignmentTargetSearch>
-      </expression>
-      <target>
-         <c:path>assignment</c:path>
-      </target>
-      <condition>
-         <script>
-            <code>roleType == '2' || roleType == '4' || roleType == '8'</code>
-         </script>
-      </condition>
-   </mapping>
-   <mapping>
-      <name>Metarole Registry Group Assignment</name>
-      <strength>strong</strength>
-      <source>
-         <c:path>roleType</c:path>
-      </source>
-      <expression>
-         <assignmentTargetSearch>
-            <targetType>c:RoleType</targetType>
-            <oid>metarole-registryGroups</oid>
-         </assignmentTargetSearch>
-      </expression>
-      <target>
-         <c:path>assignment</c:path>
-      </target>
-      <condition>
-         <script>
-            <code>roleType == 'dsGroup'</code>
-         </script>
-      </condition>
-   </mapping>
-   <mapping>
-      <name>Metarole Affiliations Policy Assignment</name>
-      <strength>strong</strength>
-      <source>
-         <c:path>roleType</c:path>
-      </source>
-      <expression>
-         <assignmentTargetSearch>
-            <targetType>c:RoleType</targetType>
-            <oid>metarole-affiliationsPolicy</oid>
-         </assignmentTargetSearch>
-      </expression>
-      <target>
-         <c:path>assignment</c:path>
-      </target>
-      <condition>
-         <script>
-            <code>roleType == 'affiliation'</code>
-         </script>
-      </condition>
-   </mapping>
-   <mapping>
-      <strength>strong</strength>
-      <source>
-         <c:path>roleType</c:path>
-      </source>
-      <source>
-         <c:path>identifier</c:path>
-      </source>
-      <expression>
-         <script>
-            <code>'Domain Group: ' + identifier</code>
-         </script>
-      </expression>
-      <target>
-         <c:path>displayName</c:path>
-      </target>
-      <condition>
-         <script>
-            <code>roleType == '8' &amp;&amp; identifier != null || roleType == '-2147483646' &amp;&amp; identifier != null</code>
-         </script>
-      </condition>
-   </mapping>
-   <mapping>
-      <strength>strong</strength>
-      <source>
-         <c:path>delegable</c:path>
-      </source>
-      <expression>
-      	<script>
-      		<code>
-      			if (delegable == null) {
-      				return 'false';
-      			}      			
-      		</code>
-      	</script>
-      </expression>
-      <target>
-         <c:path>delegable</c:path>
-      </target>
-   </mapping>
-   <mapping>
-      <strength>strong</strength>
-      <source>
-         <c:path>idempotence</c:path>
-      </source>
-      <expression>
-      	<script>
-      		<code>
-      			import com.evolveum.midpoint.xml.ns._public.common.common_3.IdempotenceType;
-      			if (idempotence == null) {
-	      			return IdempotenceType.NONE;
-      			}
-      		</code>
-      	</script>
-      </expression>
-      <target>
-         <c:path>idempotence</c:path>
-      </target>
-   </mapping>
-   <mapping>
-      <strength>strong</strength>
-      <source>
-         <c:path>riskLevel</c:path>
-      </source>
-      <expression>
-      	<script>
-      		<code>
-      			if (riskLevel == null) {
-      				return 'MODERATE';
-      			}
-      		</code>
-      	</script>
-      </expression>
-      <target>
-         <c:path>riskLevel</c:path>
-      </target>
-   </mapping>
-   <mapping>
-      <strength>strong</strength>
-      <source>
-         <c:path>requestable</c:path>
-      </source>
-      <expression>
-      	<script>
-      		<code>
-      			if (requestable == null) {
-      				return 'false';
-      			}      			
-      		</code>
-      	</script>
-      </expression>
-      <target>
-         <c:path>requestable</c:path>
-      </target>
-   </mapping>
-   <mapping>
-      <strength>strong</strength>
-      <source>
-         <c:path>identifier</c:path>
-      </source>
-      <source>
-         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:ldapDn</c:path>
-      </source>
-      <source>
-         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:oupath</c:path>
-      </source>
-      <expression>
-         <script>
-            <code>'CN=' + identifier + ',' + oupath</code>
-         </script>
-      </expression>
-      <target>
-         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:ldapDn</c:path>
-      </target>
-      <condition>
-         <script>
-            <code>identifier != null &amp;&amp; oupath != null</code>
-         </script>
-      </condition>
-   </mapping>
-   <mapping>
-      <name>Add Domain Group Groups</name>
-      <source>
-         <name>groupMembership</name>
-         <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:groupMembership</c:path>
-      </source>
-      <expression>
-         <assignmentTargetSearch>
-            <targetType>c:RoleType</targetType>
-            <filter>
-               <q:equal>
-                  <q:path>c:identifier</q:path>
-                  <expression>
-                  	<script>
-                  		<code>
-                  			log.info("-- Assigning Group: " + groupMembership + "; From Default Role Template");
-                  			return groupMembership;
-                  		</code>
-                  	</script>
-                  </expression>
-               </q:equal>
-            </filter>
-         </assignmentTargetSearch>
-      </expression>
-      <target>
-         <c:path>assignment</c:path>
-      </target>
-      <condition>
-         <script>
-            <code>groupMembership != null</code>
-         </script>
-      </condition>
-   </mapping>
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        oid="template-defaultRole">
+
+    <name>Default Role Template</name>
+    <description>
+        This object is used when creating/modifying a role.
+    </description>
+    <item>
+        <c:ref>riskLevel</c:ref>
+        <displayName>Risk Level</displayName>
+        <valueEnumerationRef xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                oid="lookup-riskLevels"
+                relation="org:default"
+                type="tns:LookupTableType"><!-- Risk Levels --></valueEnumerationRef>
+    </item>
+    <item>
+        <c:ref>subtype</c:ref>
+        <displayName>Type</displayName>
+        <valueEnumerationRef xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                oid="lookup-typesRolesAndServices"
+                relation="org:default"
+                type="tns:LookupTableType"><!-- Role and Service Types --></valueEnumerationRef>
+    </item>
+    <item>
+        <c:ref xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:ldapDn</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>false</modify>
+            </access>
+        </limitations>
+    </item>
+    <item>
+        <c:ref xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:groupMembership</c:ref>
+        <limitations>
+            <layer>presentation</layer>
+            <access>
+                <read>true</read>
+                <add>false</add>
+                <modify>false</modify>
+            </access>
+        </limitations>
+        <tolerant>false</tolerant>
+    </item>
+    <mapping>
+        <name>Metarole Security Group Assignment</name>
+        <strength>strong</strength>
+        <source>
+            <c:path>subtype</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:RoleType</targetType>
+                <oid>metarole-domainGroups</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script>
+                <code>subtype == '-2147483646' || subtype == '-2147483643' || subtype == '-2147483640' || subtype == '-2147483644'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping>
+        <name>Metarole Distribution Group Assignment</name>
+        <strength>strong</strength>
+        <source>
+            <c:path>subtype</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:RoleType</targetType>
+                <oid>metarole-domainGroups</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script>
+                <code>subtype == '2' || subtype == '4' || subtype == '8'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping>
+        <name>Metarole Registry Group Assignment</name>
+        <strength>strong</strength>
+        <source>
+            <c:path>subtype</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:RoleType</targetType>
+                <oid>metarole-registryGroups</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script>
+                <code>subtype == 'dsGroup'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping>
+        <name>Metarole Affiliations Policy Assignment</name>
+        <strength>strong</strength>
+        <source>
+            <c:path>subtype</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:RoleType</targetType>
+                <oid>metarole-affiliationsPolicy</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script>
+                <code>subtype == 'affiliation'</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping>
+        <strength>strong</strength>
+        <source>
+            <c:path>subtype</c:path>
+        </source>
+        <source>
+            <c:path>identifier</c:path>
+        </source>
+        <expression>
+            <script>
+                <code>'Domain Group: ' + identifier</code>
+            </script>
+        </expression>
+        <target>
+            <c:path>displayName</c:path>
+        </target>
+        <condition>
+            <script>
+                <code>subtype == '8' &amp;&amp; identifier != null || subtype == '-2147483646' &amp;&amp; identifier != null</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping>
+        <strength>strong</strength>
+        <source>
+            <c:path>delegable</c:path>
+        </source>
+        <expression>
+            <script>
+                <code>
+                    if (delegable == null) {
+                    return 'false';
+                    }
+                </code>
+            </script>
+        </expression>
+        <target>
+            <c:path>delegable</c:path>
+        </target>
+    </mapping>
+    <mapping>
+        <strength>strong</strength>
+        <source>
+            <c:path>idempotence</c:path>
+        </source>
+        <expression>
+            <script>
+                <code>
+                    import com.evolveum.midpoint.xml.ns._public.common.common_3.IdempotenceType;
+                    if (idempotence == null) {
+                    return IdempotenceType.NONE;
+                    }
+                </code>
+            </script>
+        </expression>
+        <target>
+            <c:path>idempotence</c:path>
+        </target>
+    </mapping>
+    <mapping>
+        <strength>strong</strength>
+        <source>
+            <c:path>riskLevel</c:path>
+        </source>
+        <expression>
+            <script>
+                <code>
+                    if (riskLevel == null) {
+                    return 'MODERATE';
+                    }
+                </code>
+            </script>
+        </expression>
+        <target>
+            <c:path>riskLevel</c:path>
+        </target>
+    </mapping>
+    <mapping>
+        <strength>strong</strength>
+        <source>
+            <c:path>requestable</c:path>
+        </source>
+        <expression>
+            <script>
+                <code>
+                    if (requestable == null) {
+                    return 'false';
+                    }
+                </code>
+            </script>
+        </expression>
+        <target>
+            <c:path>requestable</c:path>
+        </target>
+    </mapping>
+    <mapping>
+        <strength>strong</strength>
+        <source>
+            <c:path>identifier</c:path>
+        </source>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:ldapDn</c:path>
+        </source>
+        <source>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:oupath</c:path>
+        </source>
+        <expression>
+            <script>
+                <code>'CN=' + identifier + ',' + oupath</code>
+            </script>
+        </expression>
+        <target>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:ldapDn</c:path>
+        </target>
+        <condition>
+            <script>
+                <code>identifier != null &amp;&amp; oupath != null</code>
+            </script>
+        </condition>
+    </mapping>
+    <mapping>
+        <name>Add Domain Group Groups</name>
+        <source>
+            <name>groupMembership</name>
+            <c:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">c:extension/bshp:groupMembership</c:path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:RoleType</targetType>
+                <filter>
+                    <q:equal>
+                        <q:path>c:identifier</q:path>
+                        <expression>
+                            <script>
+                                <code>
+                                    log.info("-- Assigning Group: " + groupMembership + "; From Default Role Template");
+                                    return groupMembership;
+                                </code>
+                            </script>
+                        </expression>
+                    </q:equal>
+                </filter>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <c:path>assignment</c:path>
+        </target>
+        <condition>
+            <script>
+                <code>groupMembership != null</code>
+            </script>
+        </condition>
+    </mapping>
 </objectTemplate>

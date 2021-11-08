@@ -297,7 +297,7 @@ object.
                 <tolerantValuePattern>^res-.*</tolerantValuePattern>
                 <outbound>
                     <source>
-                        <path>$user/employeeType</path>
+                        <path>$user/subtype</path>
                     </source>
                 </outbound>
             </attribute>

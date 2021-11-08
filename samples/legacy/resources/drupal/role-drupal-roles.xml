@@ -14,6 +14,6 @@
         <identifier>2</identifier>
         <requestable>false</requestable>
         <displayName>Drupal:Authenticated user</displayName>
-        <roleType>drupal</roleType>
+        <subtype>drupal</subtype>
     </role>
 </objects>

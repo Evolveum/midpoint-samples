@@ -200,7 +200,7 @@ object.
                     <displayName>Employee type</displayName>
                     <inbound>
                        <target>
-                          <c:path xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">$user/employeeType</c:path>
+                          <c:path xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">$user/subtype</c:path>
                        </target>
                     </inbound>
                 </attribute>

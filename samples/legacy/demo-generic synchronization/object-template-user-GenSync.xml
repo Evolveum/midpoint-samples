@@ -52,7 +52,7 @@
       <description>A hack to avoid feedback to HR feed - deleting accounts because they are not assigned</description>
       <strength>strong</strength>
       <source>
-         <c:path xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">employeeType</c:path>
+         <c:path xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">subtype</c:path>
       </source>
       <expression>
          <value>
@@ -66,14 +66,14 @@
       </target>
       <condition>
          <script>
-            <code>employeeType != null</code>
+            <code>subtype != null</code>
          </script>
       </condition>
    </mapping>
    <mapping>
       <strength>strong</strength>
       <source>
-         <c:path xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">employeeType</c:path>
+         <c:path xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">subtype</c:path>
       </source>
       <expression>
          <value>
@@ -85,14 +85,14 @@
       </target>
       <condition>
          <script>
-            <code>employeeType == 'FTE'</code>
+            <code>subtype == 'FTE'</code>
          </script>
       </condition>
    </mapping>
    <mapping>
       <strength>strong</strength>
       <source>
-         <c:path xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">employeeType</c:path>
+         <c:path xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">subtype</c:path>
       </source>
       <expression>
          <value>
@@ -104,14 +104,14 @@
       </target>
       <condition>
          <script>
-            <code>employeeType == 'CONTRACTOR'</code>
+            <code>subtype == 'CONTRACTOR'</code>
          </script>
       </condition>
    </mapping>
    <mapping>
       <strength>strong</strength>
       <source>
-         <c:path xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">employeeType</c:path>
+         <c:path xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">subtype</c:path>
       </source>
       <expression>
          <value>
@@ -123,7 +123,7 @@
       </target>
       <condition>
          <script>
-            <code>employeeType == 'PTE'</code>
+            <code>subtype == 'PTE'</code>
          </script>
       </condition>
    </mapping>
@@ -184,7 +184,7 @@
                             <value>replicated</value>
                         </expression>
                         <target>
-                            <path>orgType</path>
+                            <path>subtype</path>
                         </target>
                     </populateItem>
                     <populateItem>

@@ -15,11 +15,9 @@
   ~ limitations under the License.
   -->
 <objectTemplate oid="ee3c08d4-cbe5-11e5-98de-3c970e44b9e2"
-   xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-   xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
-   xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
-   xmlns:t='http://prism.evolveum.com/xml/ns/public/types-3'
-   xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+        xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+        xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
     <name>Organization Object Template</name>
 
     <mapping>
@@ -27,7 +25,7 @@
         <authoritative>true</authoritative>
         <strength>strong</strength>
         <source>
-            <path>orgType</path>
+            <path>subtype</path>
         </source>
         <source>
             <path>name</path>
@@ -36,44 +34,17 @@
             <assignmentTargetSearch>
                 <targetType>c:OrgType</targetType>
                 <filter>
-                <q:equal>
-                    <q:path>c:name</q:path>
-                    <expression>
-                        <script>
-                            <code>
-                            return 'CUSTOMERS'
-                            </code>
-                        </script>
-                    </expression>
-                </q:equal>
-            </filter>
-            </assignmentTargetSearch>
-        </expression>
-        <target>
-            <path>assignment</path>
-        </target>
-        <condition>
-                <script>
-                        <code>
-                        log.info("XXXXXX ORG TEMPLATE orgType CONDITION: {}", orgType);
-                        orgType == 'customer'
-                        </code>
-                </script>
-        </condition>
-
-        </mapping>
-
-    <mapping>
-        <name>Org metarole assignment</name>
-        <authoritative>true</authoritative>
-        <strength>strong</strength>
-        <source>
-             <path>orgType</path>
-        </source>
-        <expression>
-            <assignmentTargetSearch>
-                <targetType>c:RoleType</targetType>
-               <oid>bb1adfda-cbee-11e5-a445-3c970e44b9e2</oid>
+                    <q:equal>
+                        <q:path>c:name</q:path>
+                        <expression>
+                            <script>
+                                <code>
+                                    return 'CUSTOMERS'
+                                </code>
+                            </script>
+                        </expression>
+                    </q:equal>
+                </filter>
             </assignmentTargetSearch>
         </expression>
         <target>
@@ -81,7 +52,34 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'customer'</code>
+                <code>
+                    log.info("XXXXXX ORG TEMPLATE subtype CONDITION: {}", subtype);
+                    subtype == 'customer'
+                </code>
+            </script>
+        </condition>
+
+    </mapping>
+
+    <mapping>
+        <name>Org metarole assignment</name>
+        <authoritative>true</authoritative>
+        <strength>strong</strength>
+        <source>
+            <path>subtype</path>
+        </source>
+        <expression>
+            <assignmentTargetSearch>
+                <targetType>c:RoleType</targetType>
+                <oid>bb1adfda-cbee-11e5-a445-3c970e44b9e2</oid>
+            </assignmentTargetSearch>
+        </expression>
+        <target>
+            <path>assignment</path>
+        </target>
+        <condition>
+            <script>
+                <code>subtype == 'customer'</code>
             </script>
         </condition>
     </mapping>

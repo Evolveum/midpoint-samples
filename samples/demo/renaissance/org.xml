@@ -32,7 +32,7 @@
         <description>Famous workshop of Leonardo da Vinci</description>
         <displayName>Leonardo's Workshop</displayName>
         <identifier>0000</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
         <costCenter>CC000</costCenter>
         <locality>Florence</locality>
     </org>
@@ -43,7 +43,7 @@
         <parentOrgRef oid="c74a7d86-7798-11e2-964e-100000000000" type="c:OrgType"/>
         <displayName>Department of Arts</displayName>
         <identifier>0100</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
         <costCenter>CC100</costCenter>
         <locality>Florence</locality>
     </org>
@@ -54,7 +54,7 @@
         <parentOrgRef oid="c74a7d86-7798-11e2-964e-100000000100" type="c:OrgType"/>
         <displayName>Painting Lounge</displayName>
         <identifier>0110</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
     </org>
 
     <org oid="c74a7d86-7798-11e2-964e-100000000120">
@@ -63,7 +63,7 @@
         <parentOrgRef oid="c74a7d86-7798-11e2-964e-100000000100" type="c:OrgType"/>
         <displayName>Sculpting Corner</displayName>
         <identifier>0120</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
     </org>
 
     <org oid="c74a7d86-7798-11e2-964e-100000000200">
@@ -118,7 +118,7 @@
                 </association>
             </construction>
         </inducement>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
         <costCenter>CC200</costCenter>
     </org>
 
@@ -135,7 +135,7 @@
         </assignment>
         <displayName>War Machines Section</displayName>
         <identifier>0210</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
     </org>
 
     <!-- Project organizational structure -->
@@ -144,7 +144,7 @@
         <name>P0000</name>
         <description>Project organizational structure root</description>
         <displayName>Projects</displayName>
-        <orgType>project</orgType>
+        <subtype>project</subtype>
     </org>
 
     <org oid="c74a7d86-7798-11e2-964e-200000000001">
@@ -153,7 +153,7 @@
         <parentOrgRef oid="c74a7d86-7798-11e2-964e-200000000000" type="c:OrgType"/>
         <displayName>Smile</displayName>
         <identifier>0001</identifier>
-        <orgType>project</orgType>
+        <subtype>project</subtype>
     </org>
 
     <org oid="c74a7d86-7798-11e2-964e-200000000002">
@@ -161,7 +161,7 @@
         <parentOrgRef oid="c74a7d86-7798-11e2-964e-200000000000" type="c:OrgType"/>
         <displayName>Kaboom</displayName>
         <identifier>0002</identifier>
-        <orgType>project</orgType>
+        <subtype>project</subtype>
     </org>
 
 </objects>

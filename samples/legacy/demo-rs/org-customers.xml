@@ -20,7 +20,7 @@
         </assignment>
         <displayName>ACME, Inc.</displayName>
         <identifier>C-ACME</identifier>
-        <orgType>customer</orgType>
+        <subtype>customer</subtype>
     </org>
 
     <org oid="00000000-9999-9999-0000-110000100001">
@@ -32,7 +32,7 @@
         </assignment>
         <displayName>Advanced World Domination Program</displayName>
         <identifier>C-ACME</identifier>
-        <orgType>customer</orgType>
+        <subtype>customer</subtype>
     </org>
 
 </objects>

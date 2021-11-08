@@ -215,7 +215,7 @@
                 <outbound>
                     <strength>strong</strength>
                     <source>
-                        <path>employeeType</path>
+                        <path>subtype</path>
                     </source>
                 </outbound>
             </attribute>

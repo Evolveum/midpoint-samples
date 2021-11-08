@@ -25,7 +25,7 @@
         <name>System Administrator</name>
         <description>Permission to access the system with system administrator privileges. Non-requestable role. This role has to be explicitly assigned by IDM administrator.</description>
         <requestable>false</requestable>
-        <roleType>operational</roleType>
+        <subtype>operational</subtype>
     </role>
 
     <role oid="a04fd258-ce0a-11e7-819c-435b398f7636">
@@ -60,7 +60,7 @@
                 </policyActions>
             </policyRule>
         </inducement>
-        <roleType>meta</roleType>
+        <subtype>meta</subtype>
     </role>
 
     <role oid="9ff31e4c-1cf3-11e6-bc5d-0727c08b96ed">
@@ -74,7 +74,7 @@
             <targetRef oid="08bd752e-1cf1-11e6-90a3-a3ad27be3da2" type="RoleType" /> <!-- Wiki Contributor -->
         </inducement>
         <requestable>true</requestable>
-        <roleType>business</roleType>
+        <subtype>business</subtype>
     </role>
 
     <role oid="a73b0386-1cf3-11e6-ac6e-dfedc87cdda3">
@@ -84,14 +84,14 @@
             <targetRef oid="a04fd258-ce0a-11e7-819c-435b398f7636" type="RoleType" /> <!-- Business metarole -->
         </assignment>
         <requestable>true</requestable>
-        <roleType>business</roleType>
+        <subtype>business</subtype>
     </role>
 
     <role oid="ad1fd0ce-1cf3-11e6-8a68-fbf7c6fc2f97">
         <name>Wiki Contributor</name>
         <description>Write access to the wiki. This role is requestable, but it has no approver. Therefore anyone requesting it will get it automatically.</description>
         <requestable>true</requestable>
-        <roleType>application</roleType>
+        <subtype>application</subtype>
     </role>
 
     <role oid="b613c706-3889-11e6-b175-d78cc67d7066">
@@ -152,7 +152,7 @@
                 </owner>
             </object>
         </authorization>
-        <roleType>application</roleType>
+        <subtype>application</subtype>
     </role>
 
     <role oid="9ebe365e-baf7-11e6-bf9d-8b7318f64996">
@@ -202,7 +202,7 @@
             <item>activation/archiveTimestamp</item>
             <item>activation/validityChangeTimestamp</item>
         </authorization>
-        <roleType>application</roleType>
+        <subtype>application</subtype>
     </role>
 
     <!-- JOB Roles -->
@@ -222,7 +222,7 @@
             </construction>
         </inducement>
         <requestable>false</requestable>
-        <roleType>job</roleType>
+        <subtype>job</subtype>
     </role>
 
 
@@ -239,7 +239,7 @@
             <targetRef oid="5d516f6e-cf97-11e7-97d6-6fb8d2e8c59f" type="RoleType" /> <!-- Addresssbook Maintenance Responsibility -->
         </inducement>
         <requestable>false</requestable>
-        <roleType>job</roleType>
+        <subtype>job</subtype>
     </role>
 
     <role oid="a12c11c8-07ea-11e7-bd69-bf7bb8c15360">
@@ -257,7 +257,7 @@
             <targetRef oid="5d516f6e-cf97-11e7-97d6-6fb8d2e8c59f" type="RoleType" /> <!-- Addresssbook Maintenance Responsibility -->
         </inducement>
         <requestable>false</requestable>
-        <roleType>job</roleType>
+        <subtype>job</subtype>
     </role>
 
     <role oid="ae97e3fa-07ea-11e7-a354-13b959d5572d">
@@ -289,7 +289,7 @@
             </construction>
         </inducement>
         <requestable>false</requestable>
-        <roleType>job</roleType>
+        <subtype>job</subtype>
     </role>
 
     <role oid="d161eb4c-07ea-11e7-9ef9-4720a07d67c8">
@@ -298,7 +298,7 @@
             <targetRef oid="2e242b4c-07f5-11e7-9369-83a5c3b84cb2" type="RoleType" /> <!-- Employee -->
         </inducement>
         <requestable>false</requestable>
-        <roleType>job</roleType>
+        <subtype>job</subtype>
     </role>
 
     <role oid="e774a9c4-07ea-11e7-99b1-bb2574fc17b7">
@@ -307,7 +307,7 @@
             <targetRef oid="2e242b4c-07f5-11e7-9369-83a5c3b84cb2" type="RoleType" /> <!-- Employee -->
         </inducement>
         <requestable>false</requestable>
-        <roleType>job</roleType>
+        <subtype>job</subtype>
     </role>
 
     <role oid="ef9f0be4-07ea-11e7-aa44-27bf6e51efa9">
@@ -316,7 +316,7 @@
             <targetRef oid="2e242b4c-07f5-11e7-9369-83a5c3b84cb2" type="RoleType" /> <!-- Employee -->
         </inducement>
         <requestable>false</requestable>
-        <roleType>job</roleType>
+        <subtype>job</subtype>
     </role>
 
     <role oid="f618e68e-07ea-11e7-b049-93c0d71b481a">
@@ -325,7 +325,7 @@
             <targetRef oid="2e242b4c-07f5-11e7-9369-83a5c3b84cb2" type="RoleType" /> <!-- Employee -->
         </inducement>
         <requestable>false</requestable>
-        <roleType>job</roleType>
+        <subtype>job</subtype>
     </role>
 
     <role oid="2015685e-07eb-11e7-9508-6ba358bcb10c">
@@ -337,7 +337,7 @@
             <targetRef oid="b70d8ae8-cf96-11e7-9fed-cb4449227dd2" type="RoleType" /> <!-- Management Responsibility -->
         </inducement>
         <requestable>false</requestable>
-        <roleType>job</roleType>
+        <subtype>job</subtype>
     </role>
 
     <role oid="7750ef7a-4a04-11e7-af32-638f754f4ddf">
@@ -359,7 +359,7 @@
             </policyRule>
         </assignment>
         <requestable>true</requestable>
-        <roleType>job</roleType>
+        <subtype>job</subtype>
     </role>
 
     <role oid="b70d8ae8-cf96-11e7-9fed-cb4449227dd2">
@@ -368,14 +368,14 @@
             <targetRef oid="00000000-0000-0000-0000-00000000000c" type="RoleType" /> <!-- Delegator -->
         </inducement>
         <requestable>false</requestable>
-        <roleType>responsibility</roleType>
+        <subtype>responsibility</subtype>
     </role>
 
     <role oid="5d516f6e-cf97-11e7-97d6-6fb8d2e8c59f">
         <name>Addressbook Maintenance Responsibility</name>
         <requestable>false</requestable>
         <delegable>true</delegable>
-        <roleType>responsibility</roleType>
+        <subtype>responsibility</subtype>
         <authorization>
             <name>addressbook-maintenance</name>
             <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>
@@ -420,7 +420,7 @@
             <item>description</item>
             <item>identifier</item>
             <item>displayName</item>
-            <item>roleType</item>
+            <item>subtype</item>
         </authorization>
         <authorization>
             <name>eeu-workflow-end-user</name>
@@ -619,7 +619,7 @@
                 </owner>
             </object>
         </authorization>
-        <roleType>operational</roleType>
+        <subtype>operational</subtype>
     </role>
 
     <role oid="8d93aef4-d4f0-11e7-85ee-5728c3e3ca7d">
@@ -646,7 +646,7 @@
             <name>ladmin-raw</name>
             <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#rawOperation</action>
         </authorization>
-        <roleType>operational</roleType>
+        <subtype>operational</subtype>
     </role>
 
 </objects>

@@ -17,7 +17,7 @@
         <identifier>EMPLOYEE</identifier>
         <requestable>false</requestable>
         <displayName>SmartRecruiters:Employee</displayName>
-        <roleType>smartrecruiters</roleType>
+        <subtype>smartrecruiters</subtype>
     </role>
     <role oid="115344ef-f954-4fb6-8b84-7348bb8d0c7b" version="1">
         <name>SmartRecruiters:Basic</name>
@@ -33,7 +33,7 @@
         <identifier>RESTRICTED</identifier>
         <requestable>false</requestable>
         <displayName>SmartRecruiters:Basic</displayName>
-        <roleType>smartrecruiters</roleType>
+        <subtype>smartrecruiters</subtype>
     </role>
     <role oid="53e30c35-1bba-4b87-8be9-510545b911b2" version="1">
         <name>SmartRecruiters:Standard</name>
@@ -50,7 +50,7 @@
         <identifier>STANDARD</identifier>
         <requestable>false</requestable>
         <displayName>SmartRecruiters:Standard</displayName>
-        <roleType>smartrecruiters</roleType>
+        <subtype>smartrecruiters</subtype>
     </role>
     <role oid="899ef70f-a897-4e93-93af-d745a1aa7145" version="1">
         <name>SmartRecruiters:Extended</name>
@@ -66,7 +66,7 @@
         <identifier>EXTENDED</identifier>
         <requestable>false</requestable>
         <displayName>SmartRecruiters:Extended</displayName>
-        <roleType>smartrecruiters</roleType>
+        <subtype>smartrecruiters</subtype>
     </role>
     <role oid="22e4335e-009a-4bf3-8d8d-e2024aeff7d1" version="1">
         <name>SmartRecruiters:Admin</name>
@@ -83,7 +83,7 @@
         <identifier>ADMINISTRATOR</identifier>
         <requestable>false</requestable>
         <displayName>SmartRecruiters:Admin</displayName>
-        <roleType>smartrecruiters</roleType>
+        <subtype>smartrecruiters</subtype>
     </role>
 
 </objects>

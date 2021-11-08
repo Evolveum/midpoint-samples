@@ -20,14 +20,14 @@
          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
 
     <task>
-        <name>Recompute orgs having orgType=='test'</name>
+        <name>Recompute orgs having subtype=='test'</name>
         <extension>
             <scext:executeScript xmlns:scext="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3">
                 <s:search xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
                     <s:type>c:OrgType</s:type>
                     <s:searchFilter>
                         <q:equal>
-                            <q:path>orgType</q:path>
+                            <q:path>subtype</q:path>
                             <q:value>test</q:value>
                         </q:equal>
                     </s:searchFilter>

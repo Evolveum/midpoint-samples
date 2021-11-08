@@ -1215,7 +1215,7 @@
                   </script>
                </expression>
                <target>
-                  <c:path>$focus/orgType</c:path>
+                  <c:path>$focus/subtype</c:path>
                </target>
             </inbound>
             <inbound>
@@ -1543,7 +1543,7 @@
                   </script>
                </expression>
                <target>
-                  <c:path>$focus/orgType</c:path>
+                  <c:path>$focus/subtype</c:path>
                </target>
             </inbound>
             <inbound>

@@ -20,7 +20,7 @@
       <authoritative>true</authoritative>
       <strength>strong</strength>
       <source>
-         <c:path>roleType</c:path>
+         <c:path>subtype</c:path>
       </source>
       <expression>
          <assignmentTargetSearch>
@@ -33,7 +33,7 @@
       </target>
       <condition>
          <script>
-            <code>roleType == 'Slack-Group'</code>
+            <code>subtype == 'Slack-Group'</code>
          </script>
       </condition>
    </mapping>

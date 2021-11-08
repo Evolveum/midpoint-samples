@@ -30,6 +30,6 @@
    </activation>
    <displayName>Customers</displayName>
   <identifier>0001</identifier>
-  <orgType>functional</orgType>
+  <subtype>functional</subtype>
 </org>
 </objects>

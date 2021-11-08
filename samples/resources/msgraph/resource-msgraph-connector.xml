@@ -423,12 +423,12 @@ xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-
                 <c:ref>ri:userType</c:ref>
                 <outbound>
                     <source>
-                        <c:path>$user/employeeType</c:path>
+                        <c:path>$user/subtype</c:path>
                     </source>
                 </outbound>
                 <inbound>
                     <target>
-                        <c:path>$user/employeeType</c:path>
+                        <c:path>$user/subtype</c:path>
                     </target>
                 </inbound>
             </attribute>

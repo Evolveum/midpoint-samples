@@ -773,7 +773,7 @@
                <strength>normal</strength>
                <source>
                   <name>projectType</name>
-                  <c:path>$focus/orgType</c:path>
+                  <c:path>$focus/subtype</c:path>
                </source>
                <expression>
                   <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -839,7 +839,7 @@
                <exclusive>false</exclusive>
                <strength>normal</strength>
                <source>
-                  <c:path>$focus/orgType</c:path>
+                  <c:path>$focus/subtype</c:path>
                </source>
             </outbound>
             <inbound>
@@ -847,7 +847,7 @@
                <exclusive>false</exclusive>
                <strength>normal</strength>
                <target>
-                  <c:path>$focus/orgType</c:path>
+                  <c:path>$focus/subtype</c:path>
                </target>
             </inbound>
          </attribute>

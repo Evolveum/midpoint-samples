@@ -29,5 +29,5 @@
       <requestable>false</requestable>
       <delegable>false</delegable>
       <riskLevel>LOW</riskLevel>
-      <serviceType>entitlement</serviceType>
+      <subtype>entitlement</subtype>
    </service>

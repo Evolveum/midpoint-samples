@@ -13,5 +13,5 @@
       </assignment>
       <displayName>Set 3 Machine 200</displayName>
       <identifier>m3</identifier>
-      <serviceType>machine</serviceType>
+      <subtype>machine</subtype>
    </service>

@@ -18,7 +18,7 @@
         <description>A hack to avoid feedback to HR feed - deleting accounts because they are not assigned</description>
         <strength>strong</strength>
         <source>
-            <c:path>orgType</c:path>
+            <c:path>subtype</c:path>
         </source>
         <expression>
             <value>
@@ -30,7 +30,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'functional'</code>
+                <code>subtype == 'functional'</code>
             </script>
         </condition>
     </mapping>
@@ -38,7 +38,7 @@
         <description>A hack to avoid feedback to HR feed - deleting accounts because they are not assigned</description>
         <strength>strong</strength>
         <source>
-            <c:path>orgType</c:path>
+            <c:path>subtype</c:path>
         </source>
         <expression>
             <value>
@@ -50,7 +50,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'project'</code>
+                <code>subtype == 'project'</code>
             </script>
         </condition>
     </mapping>

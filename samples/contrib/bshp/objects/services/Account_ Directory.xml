@@ -44,5 +44,5 @@
       <requestable>false</requestable>
       <delegable>false</delegable>
       <riskLevel>MODERATE</riskLevel>
-      <serviceType>account</serviceType>
+      <subtype>account</subtype>
    </service>

@@ -28,7 +28,7 @@
         <name>template-org-meta-project</name>
         <strength>strong</strength>
         <source>
-            <path>orgType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <value>
@@ -42,7 +42,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'project'</code>
+                <code>subtype == 'project'</code>
             </script>
         </condition>
     </mapping>
@@ -51,7 +51,7 @@
         <name>template-org-meta-functional</name>
         <strength>strong</strength>
         <source>
-            <path>orgType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <value>
@@ -65,7 +65,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'functional'</code>
+                <code>subtype == 'functional'</code>
             </script>
         </condition>
     </mapping>

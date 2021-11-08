@@ -105,11 +105,11 @@
             <type>RoleType</type>
             <filter>
                <q:equal>
-                  <q:path>roleType</q:path>
+                  <q:path>subtype</q:path>
                   <q:value>access</q:value>
                </q:equal>
             </filter>
          </target>
       </authorization>
-      <roleType>system</roleType>
+      <subtype>system</subtype>
    </role>

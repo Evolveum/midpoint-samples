@@ -388,7 +388,7 @@
                         <value>sap-role</value>
                     </expression>
                     <target>
-                        <c:path>orgType</c:path>
+                        <c:path>subtype</c:path>
                     </target>
                 </inbound>
             </attribute>
@@ -440,7 +440,7 @@
                         <value>sap-group</value>
                     </expression>
                     <target>
-                        <c:path>orgType</c:path>
+                        <c:path>subtype</c:path>
                     </target>
                 </inbound>
             </attribute>
@@ -492,7 +492,7 @@
                         <value>sap-profile</value>
                     </expression>
                     <target>
-                        <c:path>orgType</c:path>
+                        <c:path>subtype</c:path>
                     </target>
                 </inbound>
             </attribute>

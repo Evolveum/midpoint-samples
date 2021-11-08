@@ -73,6 +73,6 @@
         </c:inducement>
 
         <requestable>false</requestable>
-        <roleType>midpoint</roleType>
+        <subtype>midpoint</subtype>
     </role>
 </objects>

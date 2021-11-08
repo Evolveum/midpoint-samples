@@ -91,7 +91,7 @@
         </assignment>
         <displayName>Evolveum</displayName>
         <identifier>1000</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
         <costCenter>10</costCenter>
         <locality>Bratislava</locality>
     </org>
@@ -108,7 +108,7 @@
         </assignment>
         <displayName>Research and Development Division</displayName>
         <identifier>1100</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
         <costCenter>11</costCenter>
     </org>
 
@@ -124,7 +124,7 @@
         </assignment>
         <displayName>Development Section</displayName>
         <identifier>1110</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
         <costCenter>111</costCenter>
     </org>
 
@@ -140,7 +140,7 @@
         </assignment>
         <displayName>QA Section</displayName>
         <identifier>1120</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
         <costCenter>111</costCenter>
     </org>
 
@@ -156,7 +156,7 @@
         </assignment>
         <displayName>Services Section</displayName>
         <identifier>1130</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
         <costCenter>113</costCenter>
     </org>
 
@@ -171,7 +171,7 @@
         </assignment>
         <displayName>Business Division</displayName>
         <identifier>1200</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
         <costCenter>12</costCenter>
     </org>
 
@@ -187,7 +187,7 @@
         </assignment>
         <displayName>Marketing Section</displayName>
         <identifier>1210</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
         <costCenter>121</costCenter>
     </org>
 
@@ -203,7 +203,7 @@
         </assignment>
         <displayName>Accounting Section</displayName>
         <identifier>1220</identifier>
-        <orgType>functional</orgType>
+        <subtype>functional</subtype>
         <costCenter>122</costCenter>
     </org>
 
@@ -213,7 +213,7 @@
         <name>PRoot</name>
         <description>Project organizational structure root</description>
         <displayName>Projects</displayName>
-        <orgType>project</orgType>
+        <subtype>project</subtype>
     </org>
 
     <org oid="00000000-ee88-6666-0000-200000000001">
@@ -224,7 +224,7 @@
         </assignment>
         <displayName>midPoint</displayName>
         <identifier>0001</identifier>
-        <orgType>project</orgType>
+        <subtype>project</subtype>
     </org>
 
     <org oid="00000000-ee88-6666-0000-200000000002">
@@ -235,7 +235,7 @@
         </assignment>
         <displayName>ConnId</displayName>
         <identifier>0002</identifier>
-        <orgType>project</orgType>
+        <subtype>project</subtype>
     </org>
 
     <org oid="00000000-ee88-6666-0000-200000000003">
@@ -246,7 +246,7 @@
         </assignment>
         <displayName>LDAP Connector</displayName>
         <identifier>0003</identifier>
-        <orgType>project</orgType>
+        <subtype>project</subtype>
     </org>
 
     <org oid="00000000-ee88-6666-0000-200000000004">
@@ -257,7 +257,7 @@
         </assignment>
         <displayName>OpenStack Integration</displayName>
         <identifier>0004</identifier>
-        <orgType>project</orgType>
+        <subtype>project</subtype>
     </org>
 
     <org oid="00000000-ee88-6666-0000-200000000005">
@@ -268,7 +268,7 @@
         </assignment>
         <displayName>Website</displayName>
         <identifier>0005</identifier>
-        <orgType>project</orgType>
+        <subtype>project</subtype>
     </org>
 
     <!-- Users -->

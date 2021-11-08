@@ -56,5 +56,5 @@
         </association>
         </construction>
     </inducement>
-    <roleType>customer</roleType>
+    <subtype>customer</subtype>
 </role>

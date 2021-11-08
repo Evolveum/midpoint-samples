@@ -108,7 +108,7 @@ public class TestSamples extends AbstractSampleTest {
                         .parserFor(objectElements.get(i))
                         .strict()
                         .parse();
-            } catch (SchemaException e) {
+            } catch (Exception e) {
                 throw new SchemaException("Error parsing " + file.getPath() + ", element " + objectElements.get(i).getLocalName() + " (#" + (i + 1) + "): " + e.getMessage(), e);
             }
         }

@@ -62,11 +62,11 @@
         </target>
     </mapping>
 
-    <!-- RB-RBAC functionality. The Pirate role is automatically assigned based on the value of employeeType property -->
+    <!-- RB-RBAC functionality. The Pirate role is automatically assigned based on the value of subtype property -->
     <mapping>
         <strength>strong</strength>
         <source>
-            <path>employeeType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <value>
@@ -81,7 +81,7 @@
         <condition>
             <script>
                 <language>http://midpoint.evolveum.com/xml/ns/public/expression/language#Groovy</language>
-                <code>employeeType == 'PIRATE'</code>
+                <code>subtype == 'PIRATE'</code>
             </script>
         </condition>
     </mapping>

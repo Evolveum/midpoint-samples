@@ -20,6 +20,6 @@
     xmlns:ext="http://midpoint.evolveum.com/xml/ns/samples/extension-3">
     <name>Domain Auditor</name>
     <description>Sample parametric role. It expects "domain" parameter that is used to compute values on resource.</description>
-    <roleType>domain</roleType>
+    <subtype>domain</subtype>
 </role>
 

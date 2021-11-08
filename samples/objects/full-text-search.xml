@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  ~ Copyright (c) 2010-2017 Evolveum
+  ~ Copyright (C) 2010-2021 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@
             <item>honorificSuffix</item>
             <item>title</item>
             <item>employeeNumber</item>
-            <item>employeeType</item>
+            <item>subtype</item>
             <item>costCenter</item>
             <item>organization</item>
             <item>organizationalUnit</item>
@@ -53,18 +53,18 @@
         </indexed>
         <indexed>
             <objectType>RoleType</objectType>
-            <item>roleType</item>
+            <item>subtype</item>
         </indexed>
         <indexed>
             <objectType>OrgType</objectType>
-            <item>orgType</item>
+            <item>subtype</item>
             <item>costCenter</item>
             <item>locality</item>
             <item>mailDomain</item>
         </indexed>
         <indexed>
             <objectType>ServiceType</objectType>
-            <item>serviceType</item>
+            <item>subtype</item>
             <item>locality</item>
             <!-- url? -->
         </indexed>

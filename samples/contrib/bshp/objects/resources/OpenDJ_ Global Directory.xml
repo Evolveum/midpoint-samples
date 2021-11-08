@@ -276,7 +276,7 @@
                     <outbound>
                         <strength>strong</strength>
                         <source>
-                            <c:path>$focus/employeeType</c:path>
+                            <c:path>$focus/subtype</c:path>
                         </source>
                     </outbound>
                 </attribute>
@@ -511,8 +511,8 @@
                         <script>
                             <code>
                                 if (iteration == 0) {
-                                    return ""; 
-                                } else { 
+                                    return "";
+                                } else {
                                     return "" + (iteration + 1);
                                 }
                             </code>

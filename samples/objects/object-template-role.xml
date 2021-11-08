@@ -25,7 +25,7 @@
     <name>Role Template</name>
 
     <item>
-        <ref>roleType</ref>
+        <ref>subtype</ref>
         <valueEnumerationRef oid="d5fa5e92-e450-11e4-b281-001e8c717e5b"/>
     </item>
 

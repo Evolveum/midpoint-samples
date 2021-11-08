@@ -1,12 +1,9 @@
 <objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
-	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
-	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-	xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
-	xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp"
-	oid="template-defaultUser">
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp"
+        oid="template-defaultUser">
     <name>Default User Template</name>
     <description>
         This object is the default user template when not explicitly set
@@ -39,7 +36,7 @@
         <c:ref>c:additionalName</c:ref>
         <displayName>Middle Initial</displayName>
     </item>
-	<item>
+    <item>
         <c:ref>c:fullName</c:ref>
         <limitations>
             <layer>presentation</layer>
@@ -70,35 +67,35 @@
         <c:ref>c:honorificPrefix</c:ref>
         <limitations>
             <layer>presentation</layer>
-            <ignore>true</ignore>
+            <processing>ignore</processing>
         </limitations>
     </item>
     <item>
         <c:ref>c:honorificSuffix</c:ref>
         <limitations>
             <layer>presentation</layer>
-            <ignore>true</ignore>
+            <processing>ignore</processing>
         </limitations>
     </item>
     <item>
         <c:ref>c:preferredLanguage</c:ref>
         <limitations>
             <layer>presentation</layer>
-            <ignore>true</ignore>
+            <processing>ignore</processing>
         </limitations>
     </item>
     <item>
         <c:ref>c:timezone</c:ref>
         <limitations>
             <layer>presentation</layer>
-            <ignore>true</ignore>
+            <processing>ignore</processing>
         </limitations>
     </item>
     <item>
         <c:ref>c:adminGuiConfiguration</c:ref>
         <limitations>
             <layer>presentation</layer>
-            <ignore>true</ignore>
+            <processing>ignore</processing>
         </limitations>
     </item>
     <item>
@@ -185,14 +182,14 @@
         <c:ref>c:tenantRef</c:ref>
         <limitations>
             <layer>presentation</layer>
-            <ignore>true</ignore>
+            <processing>ignore</processing>
         </limitations>
     </item>
     <item>
         <c:ref>c:lifecycleState</c:ref>
         <limitations>
             <layer>presentation</layer>
-            <ignore>true</ignore>
+            <processing>ignore</processing>
         </limitations>
     </item>
     <item>
@@ -257,11 +254,11 @@
                 <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ScriptExpressionEvaluatorType">
                     <relativityMode>absolute</relativityMode>
                     <code>
-                    	import com.evolveum.midpoint.prism.path.*
-                    	import com.evolveum.midpoint.prism.path.ItemPath
-						import javax.xml.namespace.QName
-                    	midpoint.collectAssignedFocusMappingsResults(new ItemPath('extension', 'eduPersonEntitlement'))
-                	</code>
+                        import com.evolveum.midpoint.prism.path.*
+                        import com.evolveum.midpoint.prism.path.ItemPath
+                        import javax.xml.namespace.QName
+                        midpoint.collectAssignedFocusMappingsResults(new ItemPath('extension', 'eduPersonEntitlement'))
+                    </code>
                 </script>
             </expression>
             <evaluationPhase>afterAssignments</evaluationPhase>
@@ -288,23 +285,23 @@
         <expression>
             <script>
                 <code>
-	            	if (givenName != null &amp;&amp; familyName != null) {
-	            		if (nickName == null) {
-							if (additionalName == null) {
-								result = givenName + ' ' + familyName;
-							} else {
-								result = givenName + ' ' + additionalName + '. ' + familyName;
-							}
-						} else {
-							if (additionalName == null) {
-								result = nickName + ' ' + familyName;
-							} else {
-								result = nickName + ' ' + additionalName + '. ' + familyName;
-							}
-						}
-						return result;
-					}
-				</code>
+                    if (givenName != null &amp;&amp; familyName != null) {
+                    if (nickName == null) {
+                    if (additionalName == null) {
+                    result = givenName + ' ' + familyName;
+                    } else {
+                    result = givenName + ' ' + additionalName + '. ' + familyName;
+                    }
+                    } else {
+                    if (additionalName == null) {
+                    result = nickName + ' ' + familyName;
+                    } else {
+                    result = nickName + ' ' + additionalName + '. ' + familyName;
+                    }
+                    }
+                    return result;
+                    }
+                </code>
             </script>
         </expression>
         <target>
@@ -325,16 +322,16 @@
         <expression>
             <script>
                 <code>
-					import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
-					if (eduStatus == null || eduStatus == 'contractor' || eduStatus == 'generic' || eduStatus == 'guest' || eduStatus == 'service' || eduStatus == 'system' || eduStatus == 'vendor') {
-						if (admStatus == ActivationStatusType.ENABLED) {
-							return 'ACTIVE';
-						}
-						if (admStatus == ActivationStatusType.DISABLED) {
-							return 'INACTIVE';
-						}
-					}
-				</code>
+                    import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
+                    if (eduStatus == null || eduStatus == 'contractor' || eduStatus == 'generic' || eduStatus == 'guest' || eduStatus == 'service' || eduStatus == 'system' || eduStatus == 'vendor') {
+                    if (admStatus == ActivationStatusType.ENABLED) {
+                    return 'ACTIVE';
+                    }
+                    if (admStatus == ActivationStatusType.DISABLED) {
+                    return 'INACTIVE';
+                    }
+                    }
+                </code>
             </script>
         </expression>
         <target>
@@ -356,18 +353,18 @@
         <expression>
             <script>
                 <code>
-			          import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
-			          now = new java.util.Date();
-			          if (overrideAdministrativeStatus!=null) {
-			            return overrideAdminStatus;
-			          }
-			          if (validFrom != null &amp;&amp; now.before(validFrom.toGregorianCalendar().getTime())) {
-			            return ActivationStatusType.DISABLED;
-			          }
-			          if (validTo != null &amp;&amp; now.after(validTo.toGregorianCalendar().getTime())) {
-			            return ActivationStatusType.DISABLED;
-			          }
-	        	</code>
+                    import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
+                    now = new java.util.Date();
+                    if (overrideAdministrativeStatus!=null) {
+                    return overrideAdminStatus;
+                    }
+                    if (validFrom != null &amp;&amp; now.before(validFrom.toGregorianCalendar().getTime())) {
+                    return ActivationStatusType.DISABLED;
+                    }
+                    if (validTo != null &amp;&amp; now.after(validTo.toGregorianCalendar().getTime())) {
+                    return ActivationStatusType.DISABLED;
+                    }
+                </code>
             </script>
         </expression>
         <target>
@@ -389,18 +386,18 @@
         <expression>
             <script>
                 <code>
-			          import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
-			          now = new java.util.Date();
-			          if (overrideAdministrativeStatus!=null) {
-			            return overrideAdminStatus;
-			          } 
-			          if (validFrom != null &amp;&amp; now.before(validFrom.toGregorianCalendar().getTime())) {
-			            return ActivationStatusType.DISABLED;
-			          }
-			          if (validTo != null &amp;&amp; now.after(validTo.toGregorianCalendar().getTime())) {
-			            return ActivationStatusType.DISABLED;
-			          }
-			    </code>
+                    import com.evolveum.midpoint.xml.ns._public.common.common_3.ActivationStatusType;
+                    now = new java.util.Date();
+                    if (overrideAdministrativeStatus!=null) {
+                    return overrideAdminStatus;
+                    }
+                    if (validFrom != null &amp;&amp; now.before(validFrom.toGregorianCalendar().getTime())) {
+                    return ActivationStatusType.DISABLED;
+                    }
+                    if (validTo != null &amp;&amp; now.after(validTo.toGregorianCalendar().getTime())) {
+                    return ActivationStatusType.DISABLED;
+                    }
+                </code>
             </script>
         </expression>
         <target>
@@ -424,9 +421,9 @@
                             <script>
                                 <includeNullInputs>false</includeNullInputs>
                                 <code>
-		                  			log.info("Assigning Org: " + organization + "; From Default User Template");
-		                  			return organization;
-		                  		</code>
+                                    log.info("Assigning Org: " + organization + "; From Default User Template");
+                                    return organization;
+                                </code>
                             </script>
                         </expression>
                     </q:equal>
@@ -442,7 +439,7 @@
             </script>
         </condition>
     </mapping>
-        <mapping>
+    <mapping>
         <name>Assign directory services for everyone</name>
         <authoritative>true</authoritative>
         <strength>strong</strength>

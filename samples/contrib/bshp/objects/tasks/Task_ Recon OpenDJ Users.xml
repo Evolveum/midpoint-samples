@@ -1,4 +1,7 @@
-<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" oid="f45b32f8-e4a7-45a8-8146-991152abc019" version="20729">
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        oid="f45b32f8-e4a7-45a8-8146-991152abc019">
     <name>Recon: OpenDJ (Users)</name>
     <extension xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ExtensionType">
         <mext:kind>account</mext:kind>
@@ -18,17 +21,9 @@
     <lastRunStartTimestamp>2020-01-29T22:30:00.301-06:00</lastRunStartTimestamp>
     <lastRunFinishTimestamp>2020-01-29T23:26:29.939-06:00</lastRunFinishTimestamp>
     <progress>59266</progress>
-    <workState>
-        <bucket id="4">
-            <sequentialNumber>1</sequentialNumber>
-            <state>complete</state>
-        </bucket>
-        <numberOfBuckets>1</numberOfBuckets>
-        <allWorkComplete>true</allWorkComplete>
-    </workState>
-    <recurrence>recurring</recurrence>
     <binding>loose</binding>
     <schedule>
+        <recurrence>recurring</recurrence>
         <cronLikePattern>0 30 22 ? * SAT *</cronLikePattern>
         <misfireAction>reschedule</misfireAction>
     </schedule>

@@ -12,5 +12,5 @@
       </assignment>
       <displayName>Machine Set 2</displayName>
       <identifier>m2</identifier>
-      <orgType>machines</orgType>
+      <subtype>machines</subtype>
    </org>

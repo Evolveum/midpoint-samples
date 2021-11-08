@@ -16,7 +16,7 @@
         <authoritative>true</authoritative>
         <strength>strong</strength>
         <source>
-            <path>orgType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -29,7 +29,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'sap-role'</code>
+                <code>subtype == 'sap-role'</code>
             </script>
         </condition>
     </mapping>
@@ -39,7 +39,7 @@
         <authoritative>true</authoritative>
         <strength>strong</strength>
         <source>
-            <path>orgType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -52,7 +52,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'sap-role'</code>
+                <code>subtype == 'sap-role'</code>
             </script>
         </condition>
     </mapping>
@@ -64,7 +64,7 @@
         <authoritative>true</authoritative>
         <strength>strong</strength>
         <source>
-            <path>orgType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -77,7 +77,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'sap-group'</code>
+                <code>subtype == 'sap-group'</code>
             </script>
         </condition>
     </mapping>
@@ -87,7 +87,7 @@
         <authoritative>true</authoritative>
         <strength>strong</strength>
         <source>
-            <path>orgType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -100,7 +100,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'sap-group'</code>
+                <code>subtype == 'sap-group'</code>
             </script>
         </condition>
     </mapping>
@@ -112,7 +112,7 @@
         <authoritative>true</authoritative>
         <strength>strong</strength>
         <source>
-            <path>orgType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -125,7 +125,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'sap-profile'</code>
+                <code>subtype == 'sap-profile'</code>
             </script>
         </condition>
     </mapping>
@@ -135,7 +135,7 @@
         <authoritative>true</authoritative>
         <strength>strong</strength>
         <source>
-            <path>orgType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -148,7 +148,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'sap-profile'</code>
+                <code>subtype == 'sap-profile'</code>
             </script>
         </condition>
     </mapping>

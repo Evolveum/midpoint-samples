@@ -259,13 +259,13 @@
                 <outbound>
                     <strength>strong</strength>
                     <source>
-                        <path>$user/employeeType</path>
+                        <path>$user/subtype</path>
                     </source>
                 </outbound>
                 <inbound>
                     <strength>weak</strength>
                     <target>
-                        <path>$user/employeeType</path>
+                        <path>$user/subtype</path>
                     </target>
                 </inbound>
             </attribute>

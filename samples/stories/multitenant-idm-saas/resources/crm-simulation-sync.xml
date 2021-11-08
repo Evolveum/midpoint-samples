@@ -137,7 +137,7 @@ object.
                             <value>customer-admin</value>
                         </expression>
                         <target>
-                            <path>$user/employeeType</path>
+                            <path>$user/subtype</path>
                         </target>
                     </inbound>
                 </attribute>

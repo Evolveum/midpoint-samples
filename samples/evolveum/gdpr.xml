@@ -24,25 +24,25 @@
     <role oid="665d7d52-92d7-11e7-877a-b359a4a005d2">
         <name>Newsletter</name>
         <description>Regular or irregular delivery of a newsletter by electronic means. The newsletter contains information and news about products, services, community and the ecosystem. Newsletter content may be personalized by using the data from user profile.</description>
-        <roleType>dps</roleType>
+        <subtype>dps</subtype>
     </role>
 
     <role oid="d5a6855a-92d7-11e7-955a-8b4649d10023">
         <name>Personalized user experience</name>
         <description>User interaction of company web sites may use information from the user profile to personalize user experience.</description>
-        <roleType>dps</roleType>
+        <subtype>dps</subtype>
     </role>
 
     <role oid="5dac0420-92d8-11e7-9c64-63f66b08c50a">
         <name>Usage statistics</name>
         <description>Data controller may observe user behavior and gather statistical data that may be combined with personal data from user profile.</description>
-        <roleType>dps</roleType>
+        <subtype>dps</subtype>
     </role>
 
     <role oid="cfebc2c8-92d8-11e7-b56f-d3ff62d95a3e">
         <name>Partner network information exchange</name>
         <description>Limited scope of user personal data may be shared with selected members of the partner network.</description>
-        <roleType>dps</roleType>
+        <subtype>dps</subtype>
     </role>
 
 </objects>

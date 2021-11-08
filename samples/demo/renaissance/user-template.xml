@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2017 Evolveum
+  ~ Copyright (C) 2010-2021 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -16,13 +16,12 @@
   -->
 
 <objectTemplate oid="84769304-7776-11e2-b582-001e8c717e5b"
-   xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-   xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
-   xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
-   xmlns:t='http://prism.evolveum.com/xml/ns/public/types-3'>
+        xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+        xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'>
+
     <name>Default User Template</name>
     <item>
-        <c:ref>employeeType</c:ref>
+        <c:ref>subtype</c:ref>
         <valueEnumerationRef oid="5783c174-d141-11e4-bb29-001e8c717e5b"/>
     </item>
     <mapping>
@@ -44,17 +43,17 @@
     </mapping>
 
     <mapping>
-    <description>A hack to avoid feedback to HR feed - deleting accounts because they are not assigned</description>
+        <description>A hack to avoid feedback to HR feed - deleting accounts because they are not assigned</description>
         <strength>strong</strength>
         <source>
-            <path>employeeType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <value>
                 <!--<assignment>-->
-                    <construction>
-                        <resourceRef oid="8844dcca-775d-11e2-a0ac-001e8c717e5b" type="c:ResourceType"/>
-                    </construction>
+                <construction>
+                    <resourceRef oid="8844dcca-775d-11e2-a0ac-001e8c717e5b" type="c:ResourceType"/>
+                </construction>
                 <!--</assignment>-->
             </value>
         </expression>
@@ -63,7 +62,7 @@
         </target>
         <condition>
             <script>
-                <code>employeeType != null</code>
+                <code>subtype != null</code>
             </script>
         </condition>
     </mapping>
@@ -71,12 +70,12 @@
     <mapping>
         <strength>strong</strength>
         <source>
-            <path>employeeType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <value>
                 <!--<assignment>-->
-                    <targetRef oid="abf3884a-7778-11e2-abb7-001e8c717e5b" type="c:RoleType"/>
+                <targetRef oid="abf3884a-7778-11e2-abb7-001e8c717e5b" type="c:RoleType"/>
                 <!--</assignment>-->
             </value>
         </expression>
@@ -85,7 +84,7 @@
         </target>
         <condition>
             <script>
-                <code>employeeType == 'FTE'</code>
+                <code>subtype == 'FTE'</code>
             </script>
         </condition>
     </mapping>
@@ -93,12 +92,12 @@
     <mapping>
         <strength>strong</strength>
         <source>
-            <path>employeeType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <value>
                 <!--<assignment>-->
-                    <targetRef oid="8d62985c-7797-11e2-94a6-001e8c717e5b" type="c:RoleType"/>
+                <targetRef oid="8d62985c-7797-11e2-94a6-001e8c717e5b" type="c:RoleType"/>
                 <!--</assignment>-->
             </value>
         </expression>
@@ -107,20 +106,20 @@
         </target>
         <condition>
             <script>
-                <code>employeeType == 'CONTRACTOR'</code>
+                <code>subtype == 'CONTRACTOR'</code>
             </script>
         </condition>
     </mapping>
 
-<!-- moved to HR Feed resource
-    <mapping>
-        <strength>weak</strength>
-        <expression>
-            <value>ENABLED</value>
-        </expression>
-        <target>
-            <path>activation/administrativeStatus</path>
-        </target>
-    </mapping>
-    -->
+    <!-- moved to HR Feed resource
+        <mapping>
+            <strength>weak</strength>
+            <expression>
+                <value>ENABLED</value>
+            </expression>
+            <target>
+                <path>activation/administrativeStatus</path>
+            </target>
+        </mapping>
+        -->
 </objectTemplate>

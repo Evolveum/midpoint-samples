@@ -20,7 +20,7 @@
       <authoritative>true</authoritative>
       <strength>strong</strength>
       <source>
-         <c:path>roleType</c:path>
+         <c:path>subtype</c:path>
       </source>
       <expression>
          <assignmentTargetSearch>
@@ -33,7 +33,7 @@
       </target>
       <condition>
          <script>
-            <code>roleType == 'SalesForce-Group'</code>
+            <code>subtype == 'SalesForce-Group'</code>
          </script>
       </condition>
    </mapping>
@@ -42,7 +42,7 @@
       <authoritative>true</authoritative>
       <strength>strong</strength>
       <source>
-         <c:path>roleType</c:path>
+         <c:path>subtype</c:path>
       </source>
       <expression>
          <assignmentTargetSearch>
@@ -55,7 +55,7 @@
       </target>
       <condition>
          <script>
-            <code>roleType == 'SalesForce-Entitlement'</code>
+            <code>subtype == 'SalesForce-Entitlement'</code>
          </script>
       </condition>
    </mapping>

@@ -703,7 +703,7 @@
             <displayName>ICF UID</displayName>
             <limitations>
                <layer>presentation</layer>
-               <ignore>true</ignore>
+               <processing>ignore</processing>
             </limitations>
          </attribute>
 

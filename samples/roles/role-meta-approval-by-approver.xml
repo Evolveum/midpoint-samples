@@ -50,5 +50,5 @@
             </policyActions>
         </policyRule>
     </inducement>
-    <roleType>policy</roleType>
+    <subtype>policy</subtype>
 </role>

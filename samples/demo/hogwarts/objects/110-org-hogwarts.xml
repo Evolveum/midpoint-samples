@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2010-2017 Evolveum
+  ~ Copyright (C) 2010-2021 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,15 +15,14 @@
   -->
 
 <org oid="00000000-0000-0org-0000-111111111111"
-        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+
     <name>hogwarts</name>
-<!--     <parentOrgRef oid="4e5dfba1-f208-4038-962f-668f25e1e370" type="OrgType" /> -->
+    <!--     <parentOrgRef oid="4e5dfba1-f208-4038-962f-668f25e1e370" type="OrgType" /> -->
     <displayName>Hogwarts</displayName>
     <description>
-    	Hogwarts organization structure. Include all students, staff, teachers etc.
+        Hogwarts organization structure. Include all students, staff, teachers etc.
     </description>
     <requestable>true</requestable>
-<!--     <orgType>access</orgType> -->
+    <!--     <subtype>access</subtype> -->
 </org>

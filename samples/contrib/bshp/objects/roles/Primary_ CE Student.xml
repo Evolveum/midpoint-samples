@@ -38,5 +38,5 @@
         <delegable>false</delegable>
         <idempotence>none</idempotence>
         <riskLevel>LOW</riskLevel>
-        <roleType>affiliation</roleType>
+        <subtype>affiliation</subtype>
     </role>

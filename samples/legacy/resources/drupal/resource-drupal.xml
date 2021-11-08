@@ -327,7 +327,7 @@
                         </expression>
                     </q:equal>
                     <q:equal>
-                        <q:path>c:orgType</q:path>
+                        <q:path>c:subtype</q:path>
                         <q:value>drupal-company-structure</q:value>
                     </q:equal>
                 </q:and>

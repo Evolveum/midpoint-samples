@@ -589,7 +589,7 @@
                <tolerant>false</tolerant>
                <outbound>
                   <source>
-                     <c:path>$user/employeeType</c:path>
+                     <c:path>$user/subtype</c:path>
                   </source>
                </outbound>
             </attribute>

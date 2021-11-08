@@ -957,7 +957,7 @@
                   <value>SalesForce-Entitlement</value>
                </expression>
                <target>
-                  <c:path>roleType</c:path>
+                  <c:path>subtype</c:path>
                </target>
             </inbound>
          </attribute>
@@ -996,7 +996,7 @@
                   <value>SalesForce-Group</value>
                </expression>
                <target>
-                  <c:path>roleType</c:path>
+                  <c:path>subtype</c:path>
                </target>
             </inbound>
          </attribute>
@@ -1146,12 +1146,12 @@
             <description>Definition of Lastname attribute handling.</description>
             <outbound>
                <source>
-                  <c:path>$user/employeeType</c:path>
+                  <c:path>$user/subtype</c:path>
                </source>
             </outbound>
             <inbound>
                <target>
-                  <c:path>$user/employeeType</c:path>
+                  <c:path>$user/subtype</c:path>
                </target>
             </inbound>
          </attribute>

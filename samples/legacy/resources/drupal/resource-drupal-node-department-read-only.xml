@@ -83,7 +83,7 @@
                 <inbound>
                     <strength>strong</strength>
                     <target>
-                        <c:path>orgType</c:path>
+                        <c:path>subtype</c:path>
                     </target>
                     <expression>
                         <description>to differentiate orgs created from Drupal</description>
@@ -145,7 +145,7 @@
                         </expression>
                     </q:equal>
                     <q:equal>
-                        <q:path>c:orgType</q:path>
+                        <q:path>c:subtype</q:path>
                         <q:value>drupal-department</q:value>
                     </q:equal>
                 </q:and>

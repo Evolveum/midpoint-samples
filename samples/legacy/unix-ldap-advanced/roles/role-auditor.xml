@@ -90,5 +90,5 @@
             </code>
          </script>
       </automaticallyApproved>
-      <roleType>access</roleType>
+      <subtype>access</subtype>
    </role>

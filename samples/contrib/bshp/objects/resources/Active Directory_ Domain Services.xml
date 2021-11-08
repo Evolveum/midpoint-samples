@@ -276,7 +276,7 @@
                 <outbound>
                     <strength>strong</strength>
                     <source>
-                        <c:path>$focus/employeeType</c:path>
+                        <c:path>$focus/subtype</c:path>
                     </source>
                 </outbound>
             </attribute>
@@ -702,13 +702,13 @@
                 <outbound>
                     <strength>strong</strength>
                     <source>
-                        <c:path>roleType</c:path>
+                        <c:path>subtype</c:path>
                     </source>
                 </outbound>
                 <inbound id="75">
                     <strength>strong</strength>
                     <target>
-                        <c:path>$focus/roleType</c:path>
+                        <c:path>$focus/subtype</c:path>
                     </target>
                 </inbound>
             </attribute>
@@ -717,14 +717,14 @@
                 <outbound>
                     <strength>weak</strength>
                     <source>
-                        <c:path>roleType</c:path>
+                        <c:path>subtype</c:path>
                     </source>
                     <expression>
                         <value>true</value>
                     </expression>
                     <condition>
                         <script xsi:type="c:ScriptExpressionEvaluatorType">
-                            <code>roleType == '8'</code>
+                            <code>subtype == '8'</code>
                         </script>
                     </condition>
                 </outbound>
@@ -734,14 +734,14 @@
                 <outbound>
                     <strength>weak</strength>
                     <source>
-                        <c:path>roleType</c:path>
+                        <c:path>subtype</c:path>
                     </source>
                     <expression>
                         <value>true</value>
                     </expression>
                     <condition>
                         <script xsi:type="c:ScriptExpressionEvaluatorType">
-                            <code>roleType == '8'</code>
+                            <code>subtype == '8'</code>
                         </script>
                     </condition>
                 </outbound>

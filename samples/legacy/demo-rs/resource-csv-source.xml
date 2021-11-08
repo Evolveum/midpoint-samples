@@ -157,7 +157,7 @@ object.
                     <displayName>Type</displayName>
                     <inbound>
                         <target>
-                            <path>$user/employeeType</path>
+                            <path>$user/subtype</path>
                         </target>
                     </inbound>
                 </attribute>

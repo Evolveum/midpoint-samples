@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2017 Evolveum
+  ~ Copyright (C) 2010-2021 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -16,15 +16,12 @@
   -->
 
 <c:objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-           xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-           xmlns:my="http://myself.me/schemas/whatever"
-           xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
-           xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
-       xmlns:ext="http://prism.evolveum.com/xml/ns/demo/extension-electra">
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+        xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+        xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
+        xmlns:ext="http://prism.evolveum.com/xml/ns/demo/extension-electra">
 
     <c:resource oid="8844dcca-775d-11e2-a0ac-001e8c717e5b">
 
@@ -43,7 +40,7 @@
 
             <!-- Configuration specific for the CSVfile connector -->
             <icfc:configurationProperties
-            xmlns:icfccsvfile="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csvfile/com.evolveum.polygon.csvfile.CSVFileConnector">
+                    xmlns:icfccsvfile="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csvfile/com.evolveum.polygon.csvfile.CSVFileConnector">
                 <icfccsvfile:filePath>/var/opt/hr/export.csv</icfccsvfile:filePath>
                 <icfccsvfile:encoding>utf-8</icfccsvfile:encoding>
                 <icfccsvfile:valueQualifier>"</icfccsvfile:valueQualifier>
@@ -107,19 +104,19 @@
                             <path>$user/extension/ext:artisticName</path>
                         </target>
                     </inbound>
-            <inbound>
-            <strength>weak</strength>
+                    <inbound>
+                        <strength>weak</strength>
                         <target>
                             <path>$user/nickName</path>
                         </target>
                     </inbound>
-            <inbound>
-            <strength>weak</strength>
-            <expression>
-                <script>
-                    <code>basic.norm(input)</code>
-                </script>
-            </expression>
+                    <inbound>
+                        <strength>weak</strength>
+                        <expression>
+                            <script>
+                                <code>basic.norm(input)</code>
+                            </script>
+                        </expression>
                         <target>
                             <path>$user/name</path>
                         </target>
@@ -131,17 +128,12 @@
                     <displayName>Employee type</displayName>
                     <inbound>
                         <target>
-                            <path>$user/employeeType</path>
+                            <path>$user/subtype</path>
                         </target>
                     </inbound>
-                    <!--<outbound>
-                        <source>
-                            <path>$user/employeeType</path>
-                        </source>
-                    </outbound>-->
                 </attribute>
 
-        <activation>
+                <activation>
                     <administrativeStatus>
                         <inbound>
                             <strength>weak</strength>
@@ -151,7 +143,7 @@
                         </inbound>
                     </administrativeStatus>
                 </activation>
-        <credentials>
+                <credentials>
                     <password>
                         <inbound>
                             <strength>weak</strength>
@@ -165,19 +157,6 @@
 
             </objectType>
         </schemaHandling>
-<!--       <capabilities xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
-            <configured>
-                <cap:activation>
-                    <cap:status>
-                        <cap:attribute>ri:emptype</cap:attribute>
-                        <cap:enableValue>FTE</cap:enableValue>
-                        <cap:enableValue>PTE</cap:enableValue>
-                        <cap:disableValue>RETIRED</cap:disableValue>
-                        <cap:disableValue>FIRED</cap:disableValue>
-                    </cap:status>
-                </cap:activation>
-            </configured>
-        </capabilities> -->
         <synchronization>
             <objectSynchronization>
                 <enabled>true</enabled>

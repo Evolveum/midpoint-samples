@@ -29,7 +29,7 @@
                     <s:type>c:OrgType</s:type>
                     <s:searchFilter>
                         <q:equal>
-                            <q:path>orgType</q:path>
+                            <q:path>subtype</q:path>
                             <q:value>foo</q:value>
                         </q:equal>
                     </s:searchFilter>
