@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
 import org.testng.Assert;
@@ -99,7 +98,20 @@ public class TestSamples extends AbstractSampleTest {
         }
     }
 
+    // TODO: This is rather primitive now, as there is no indication of which of the objects is wrong.
+    // Possibly something like DomLexicalProcessor.readObjects could be utilized, but we need to know
+    // the language in advance or have the source where detection is possible (e.g. String).
+    // This is all possible, which leads us to another question:
+    // Why only XML samples are checked? (At least it seems so from CHECK_PATTERNS constant above.)
     private void parseObjectsElements(File file, Element topElement) throws SchemaException {
+        try {
+            prismContext.parserFor(file)
+                    .strict()
+                    .parseObjects();
+        } catch (Exception e) {
+            throw new SchemaException("Error parsing " + file.getPath() + ": " + e.getMessage(), e);
+        }
+        /* Original code that did not apply namespaces from the root <objects> to sub-objects:
         List<Element> objectElements = DOMUtil.listChildElements(topElement);
         for (int i = 0; i < objectElements.size(); i++) {
             try {
@@ -112,6 +124,7 @@ public class TestSamples extends AbstractSampleTest {
                 throw new SchemaException("Error parsing " + file.getPath() + ", element " + objectElements.get(i).getLocalName() + " (#" + (i + 1) + "): " + e.getMessage(), e);
             }
         }
+        */
     }
 
     private void parseObjectFile(File file) throws SchemaException {
