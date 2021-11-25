@@ -355,6 +355,7 @@
         </synchronization>
     </c:resource>
 
+    <!-- TODO convert to activities (4.4) -->
     <task oid="11111111-2222-3333-4444-100000000000">
         <name>Synchronization: Active Directory (users)</name>
         <taskIdentifier>11111111-2222-3333-4444-100000000000</taskIdentifier>
@@ -369,6 +370,7 @@
         </schedule>
     </task>
 
+    <!-- TODO convert to activities (4.4) -->
     <task oid="11111111-2222-3333-4444-100000000001">
         <name>Synchronization: Active Directory (groups)</name>
         <extension>

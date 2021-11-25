@@ -611,18 +611,26 @@
     <task oid="87843d58-76b8-11e2-ae3e-001e8c717e5b">
         <name>Live Sync: LDAP Server (OpenDJ)</name>
         <description>
-            Definition of a live sychnronization task. It will poll changelog and pull in changes
+            Definition of a live synchronization task. It will poll changelog and pull in changes
         </description>
         <taskIdentifier>91919191-76e0-59e2-86d6-3d4f02d3ffff</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
-        <executionStatus>runnable</executionStatus>
-        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/live-sync/handler-3</handlerUri>
+        <executionState>runnable</executionState>
         <objectRef oid="ebd0bf7b-7e80-4175-ba5e-4fd5de2ecd62" type="ResourceType"/>
-        <recurrence>recurring</recurrence>
         <binding>tight</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>5</interval>
         </schedule>
+        <activity>
+            <work>
+                <liveSynchronization>
+                    <resourceObjects>
+                        <resourceRef oid="ebd0bf7b-7e80-4175-ba5e-4fd5de2ecd62"/>
+                    </resourceObjects>
+                </liveSynchronization>
+            </work>
+        </activity>
     </task>
 
 </objects>

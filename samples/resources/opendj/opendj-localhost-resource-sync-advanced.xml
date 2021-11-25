@@ -500,6 +500,7 @@ object.
         <subtype>http://myself.me/schemas/objects#SampleConfigType</subtype>
     </genericObject>
 
+    <!-- TODO convert to activities (4.4) -->
     <task oid="91919191-76e0-59e2-86d6-3d4f02d3ffff">
         <name>Synchronization: Embedded Test OpenDJ</name>
         <description>

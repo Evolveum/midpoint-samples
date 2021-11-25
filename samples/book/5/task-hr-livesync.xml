@@ -15,23 +15,26 @@
   ~ limitations under the License.
   -->
 
-<task oid="7c57adc2-a857-11e7-83ac-0f212d965f5b"
-        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      oid="7c57adc2-a857-11e7-83ac-0f212d965f5b">
     <name>HR Live Synchronization</name>
-    <extension>
-        <mext:kind>account</mext:kind>
-    </extension>
     <taskIdentifier>7c57adc2-a857-11e7-83ac-0f212d965f5b</taskIdentifier>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
-    <executionStatus>runnable</executionStatus>
-    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/live-sync/handler-3</handlerUri>
+    <executionState>runnable</executionState>
     <objectRef oid="03c3ceea-78e2-11e6-954d-dfdfa9ace0cf" type="c:ResourceType"/>
-    <recurrence>recurring</recurrence>
     <schedule>
+        <recurrence>recurring</recurrence>
         <interval>10</interval>
     </schedule>
+    <activity>
+        <work>
+            <liveSynchronization>
+                <resourceObjects>
+                    <resourceRef oid="03c3ceea-78e2-11e6-954d-dfdfa9ace0cf"/>
+                    <kind>account</kind>
+                </resourceObjects>
+            </liveSynchronization>
+        </work>
+    </activity>
 </task>
