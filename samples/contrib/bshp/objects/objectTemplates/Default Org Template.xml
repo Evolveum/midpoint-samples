@@ -60,7 +60,7 @@
         <expression>
             <assignmentTargetSearch>
                 <targetType>c:RoleType</targetType>
-                <oid>metarole-registryCourses</oid>
+                <oid>159cd4a7-28b1-4ae0-8194-d1606c340206</oid>
             </assignmentTargetSearch>
         </expression>
         <target>
@@ -81,7 +81,7 @@
         <expression>
             <assignmentTargetSearch>
                 <targetType>c:RoleType</targetType>
-                <oid>metarole-registryOrgUnit</oid>
+                <oid>8e9c0012-12c0-4318-9963-7c3ccdcdcd08</oid>
             </assignmentTargetSearch>
         </expression>
         <target>

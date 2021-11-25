@@ -1,21 +1,11 @@
-<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
-        oid="f45b32f8-e4a7-45a8-8146-991152abc019">
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" oid="f45b32f8-e4a7-45a8-8146-991152abc019">
     <name>Recon: OpenDJ (Users)</name>
-    <extension xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ExtensionType">
-        <mext:kind>account</mext:kind>
-        <mext:workerThreads>4</mext:workerThreads>
-    </extension>
     <taskIdentifier>1562166291322-0-1</taskIdentifier>
-    <ownerRef oid="fd1adbb9-a3a2-29c8-92a1-acb16e841f7s" relation="org:default" type="c:UserType">
-    </ownerRef>
+    <ownerRef oid="e06a0994-f449-46aa-9383-e0a59ffaa417" relation="org:default" type="c:UserType"/>
     <channel>http://midpoint.evolveum.com/xml/ns/public/provisioning/channels-3#reconciliation</channel>
-    <executionStatus>runnable</executionStatus>
-    <category>Reconciliation</category>
-    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/reconciliation/handler-3</handlerUri>
+    <executionState>runnable</executionState>
     <resultStatus>success</resultStatus>
-    <objectRef oid="resource-OpenDJ1" relation="org:default" type="c:ResourceType">
+    <objectRef oid="b0e37eeb-f88f-4eec-9e61-ae6de33c78b5" relation="org:default" type="c:ResourceType">
         <!-- OpenDJ: Global Directory -->
     </objectRef>
     <lastRunStartTimestamp>2020-01-29T22:30:00.301-06:00</lastRunStartTimestamp>
@@ -28,4 +18,17 @@
         <misfireAction>reschedule</misfireAction>
     </schedule>
     <threadStopAction>restart</threadStopAction>
+    <activity>
+        <work>
+            <reconciliation>
+                <resourceObjects>
+                    <resourceRef oid="b0e37eeb-f88f-4eec-9e61-ae6de33c78b5"/>
+                    <kind>account</kind>
+                </resourceObjects>
+            </reconciliation>
+        </work>
+        <distribution>
+            <workerThreads>4</workerThreads>
+        </distribution>
+    </activity>
 </task>

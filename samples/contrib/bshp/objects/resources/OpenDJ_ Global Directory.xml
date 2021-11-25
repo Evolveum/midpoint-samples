@@ -9,7 +9,7 @@
         xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp"
-        oid="resource-OpenDJ1">
+        oid="b0e37eeb-f88f-4eec-9e61-ae6de33c78b5">
         <name>OpenDJ: Global Directory</name>
         <description>Global Directory Services</description>
         <operationalState>

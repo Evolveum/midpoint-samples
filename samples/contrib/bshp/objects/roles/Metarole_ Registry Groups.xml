@@ -1,13 +1,13 @@
-<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-	  xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" 
-	  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-	  xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
-	  xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
-	  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
-	  xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
-	  xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
-	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	  oid="metarole-registryGroups">
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	  xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3"
+	  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	  xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+	  xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+	  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+	  xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+	  xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  oid="60486d48-1f85-4b59-a8d7-d7ad6caa86e0">
       <name>Metarole: Registry Groups</name>
       <description>This will add, create, or update regular groups in the Global Directory.</description>
       <activation>
@@ -19,14 +19,14 @@
       <displayName>Metarole: Registry Groups</displayName>
       <inducement id="1">
          <construction>
-            <resourceRef oid="resource-OpenDJ1" relation="org:default" type="c:ResourceType"/>
+            <resourceRef oid="b0e37eeb-f88f-4eec-9e61-ae6de33c78b5" relation="org:default" type="c:ResourceType"/>
             <kind>entitlement</kind>
             <intent>registryGroup</intent>
          </construction>
       </inducement>
       <inducement id="2">
          <construction>
-            <resourceRef oid="resource-OpenDJ1" relation="org:default" type="c:ResourceType"/>
+            <resourceRef oid="b0e37eeb-f88f-4eec-9e61-ae6de33c78b5" relation="org:default" type="c:ResourceType"/>
             <kind>account</kind>
             <intent>default</intent>
             <association id="3">

@@ -4,7 +4,7 @@
         xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
         xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        oid="resource-AdLdap1"
+        oid="a2fbe299-3fab-402a-b643-ead607133fae"
         version="429">
     <name>Active Directory: Domain Services</name>
     <description>Domain Network Services</description>

@@ -1,13 +1,13 @@
-<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-	  xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" 
-	  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-	  xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
-	  xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
-	  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
-	  xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
-	  xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
-	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	  oid="metarole-domainGroups">
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	  xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3"
+	  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	  xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+	  xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+	  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+	  xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+	  xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+	  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  oid="d7d344ae-d00f-4535-a6aa-7e63daf3f549">
       <name>Metarole: Domain Groups</name>
       <description>This will add, create, or update regular groups on the domain.</description>
       <activation>
@@ -20,14 +20,14 @@
       <displayName>Metarole: Domain Groups</displayName>
       <inducement id="1">
          <construction>
-            <resourceRef oid="resource-AdLdap1" relation="org:default" type="c:ResourceType"/>
+            <resourceRef oid="a2fbe299-3fab-402a-b643-ead607133fae" relation="org:default" type="c:ResourceType"/>
             <kind>entitlement</kind>
             <intent>group</intent>
          </construction>
       </inducement>
       <inducement id="2">
          <construction>
-            <resourceRef oid="resource-AdLdap1" relation="org:default" type="c:ResourceType"/>
+            <resourceRef oid="a2fbe299-3fab-402a-b643-ead607133fae" relation="org:default" type="c:ResourceType"/>
             <kind>account</kind>
             <intent>default</intent>
             <association>
@@ -51,7 +51,7 @@
       </inducement>
       <inducement id="3">
          <construction>
-            <resourceRef oid="resource-AdLdap1" relation="org:default" type="c:ResourceType"/>
+            <resourceRef oid="a2fbe299-3fab-402a-b643-ead607133fae" relation="org:default" type="c:ResourceType"/>
             <kind>entitlement</kind>
             <intent>group</intent>
             <association>
