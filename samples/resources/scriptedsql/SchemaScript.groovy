@@ -30,17 +30,11 @@ builder.schema({
             OperationalAttributeInfos.LOCK_OUT
         }
     }
+
     objectClass {
-        type BaseScript.GROUP
+        type BaseScript.GROUP_NAME
         attributes {
             name String.class, MULTIVALUED
-            description()
-        }
-    }
-    objectClass {
-        type BaseScript.ORGANIZATION
-        attributes {
-            name()
             description()
         }
     }
