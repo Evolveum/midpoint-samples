@@ -1,0 +1,14 @@
+.idea
+*.iml
+
+.classpath
+.project
+.settings
+
+target
+
+.cache
+scratches
+
+credentials.kdbx
+

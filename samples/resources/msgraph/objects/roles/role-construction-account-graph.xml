@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      oid="524aaa93-072d-4018-8608-65141fb71805">
+    <name>Azure Account</name>
+    <description>Role providing user account on Microsoft Azure cloud.</description>
+
+    <inducement>
+        <construction>
+            <resourceRef oid="042f4119-1ee9-4f09-b6bc-7a0846d45ac6" relation="org:default" type="c:ResourceType"/>
+            <kind>account</kind>
+            <intent>default</intent>
+        </construction>
+    </inducement>
+</role>

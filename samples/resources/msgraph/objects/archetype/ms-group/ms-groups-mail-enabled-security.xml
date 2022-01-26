@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+           xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           oid="43e64ad4-9347-48e4-9dc3-a65396151aac">
+
+    <name>Mail Enabled Security Group</name>
+    <description>MS Mail Enabled Security Group</description>
+    <archetypePolicy>
+        <display>
+            <label>Azure Mail and Security</label>
+            <pluralLabel>Azure Mail and Security</pluralLabel>
+            <tooltip>Azure Mail and Security Groups</tooltip>
+            <icon>
+                <cssClass>fa fa-book</cssClass>
+                <!-- HEXA, aquamarine color -->
+                <color>#63c999</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+    <assignment>
+        <assignmentRelation>
+            <holderType>RoleType</holderType>
+        </assignmentRelation>
+    </assignment>
+
+    // Construction not permitted, API restriction
+
+    <inducement>
+        <construction>
+            <resourceRef oid="042f4119-1ee9-4f09-b6bc-7a0846d45ac6" type="c:ResourceType"/>
+            <kind>account</kind>
+            <intent>default</intent>
+            <association>
+                <ref>ri:group</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator>
+                                <kind>entitlement</kind>
+                                <intent>group</intent>
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
+            </association>
+            <strength>weak</strength><!-- XXX Do not create account just because it has role assigned -->
+        </construction>
+        <focusType>c:UserType</focusType>
+        <order>2</order>
+    </inducement>
+
+    <requestable>false</requestable>
+
+</archetype>
+
+
+        <!--  TODO, Add to system config
+
+
+                    <objectCollectionView>
+
+                        <identifier>groups-view-mail-and-security</identifier>
+
+                        <displayOrder>50</displayOrder>
+
+                        <type>RoleType</type>
+
+                        <collection>
+
+                            <collectionRef oid="43e64ad4-9347-48e4-9dc3-a65396151aac" relation="org:default" type="c:ArchetypeType"/>
+
+                        </collection>
+
+                    </objectCollectionView>
+
+         -->
