@@ -32,7 +32,7 @@
     <description>
         HR resource using CSV connector. This is the HR feed (source) resource.
         This is a sample used in the "Practical Identity Management with MidPoint"
-        book, chapter 5.
+        book, chapter 8.
     </description>
 
     <connectorRef type="ConnectorType">

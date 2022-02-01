@@ -101,6 +101,7 @@
     <item>
         <ref>emailAddress</ref>
         <mapping>
+            <strength>weak</strength>
             <source>
                 <path>givenName</path>
             </source>
@@ -139,21 +140,6 @@
 
     <item>
         <ref>assignment</ref>
-        <mapping>
-            <source>
-                <path>extension/hatSize</path>
-            </source>
-            <expression>
-                <value>
-                    <targetRef oid="c38a5e6e-b783-11e9-b82f-ebb94fb5b6ec" type="RoleType"/>
-                </value>
-            </expression>
-            <condition>
-                <script>
-                    <code>hatSize as Boolean</code>
-                </script>
-            </condition>
-        </mapping>
         <mapping>
             <strength>strong</strength>
             <source>
