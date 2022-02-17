@@ -4,6 +4,7 @@ import org.forgerock.openicf.misc.scriptedcommon.ICFObjectBuilder
 import org.forgerock.openicf.misc.scriptedcommon.OperationType
 import org.identityconnectors.common.logging.Log
 import org.identityconnectors.framework.common.exceptions.ConnectorException
+import org.identityconnectors.framework.common.objects.ConnectorObject
 import org.identityconnectors.framework.common.objects.ObjectClass
 import org.identityconnectors.framework.common.objects.OperationOptions
 import org.identityconnectors.framework.common.objects.ResultsHandler
@@ -50,21 +51,27 @@ return new SearchResult()
 
 // =================================================================================
 
+static ConnectorObject buildAccount(Sql sql, GroovyObject row) {
+
+    return ICFObjectBuilder.co {
+        objectClass ObjectClass.ACCOUNT
+
+        uid row.id as String
+        id row.login
+
+        attribute '__ENABLE__', !row.disabled
+        attribute 'fullname', row.fullname
+        attribute 'firstname', row.firstname
+        attribute 'lastname', row.lastname
+        attribute 'email', row.email
+        attribute 'organization', row.organization
+    }
+
+}
+
 void handleAccount(Sql sql) {
     Closure closure = { row ->
-        ICFObjectBuilder.co {
-            objectClass ObjectClass.ACCOUNT
-
-            uid row.id as String
-            id row.login
-
-            attribute '__ENABLE__', !row.disabled
-            attribute 'fullname', row.fullname
-            attribute 'firstname', row.firstname
-            attribute 'lastname', row.lastname
-            attribute 'email', row.email
-            attribute 'organization', row.organization
-        }
+        buildAccount(sql, row)
     }
 
     String sqlQuery = "select " + Constants.PREFIX_MAPPER_ACCOUNT.defaultPrefix + ".* from " + BaseScript.TABLE_USER + " " + Constants.PREFIX_MAPPER_ACCOUNT.defaultPrefix
