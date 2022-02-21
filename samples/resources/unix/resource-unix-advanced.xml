@@ -54,7 +54,9 @@
             <icfconf:sudoPassword>
                 <t:clearValue>secret</t:clearValue>    <!-- change to current password -->
             </icfconf:sudoPassword>
-            <icfconf:readTimeout>10000</icfconf:readTimeout>
+            <icfconf:sshConnectionTimeout>5000</icfconf:sshConnectionTimeout>
+            <icfconf:readTimeout>30000</icfconf:readTimeout>
+            <icfconf:timeToWait>1000</icfconf:timeToWait>
         </icfc:configurationProperties>
     </connectorConfiguration>
     <schemaHandling>
@@ -200,35 +202,6 @@
             </credentials>
         </objectType>
     </schemaHandling>
-    <capabilities>
-        <cachingMetadata>
-            <retrievalTimestamp>2016-01-08T10:55:09.834+01:00</retrievalTimestamp>
-            <serialNumber>9daad27c2782934a-6fb5c4a527e3b230</serialNumber>
-        </cachingMetadata>
-        <native>
-            <cap:addRemoveAttributeValues/>
-            <cap:activation>
-                <cap:status/>
-                <cap:validTo/>
-                <cap:lockoutStatus/>
-            </cap:activation>
-            <cap:credentials>
-                <cap:password>
-                    <cap:returnedByDefault>false</cap:returnedByDefault>
-                </cap:password>
-            </cap:credentials>
-            <cap:testConnection/>
-            <cap:create/>
-            <cap:read/>
-            <cap:update/>
-            <cap:delete/>
-            <cap:script>
-                <cap:host>
-                    <cap:type>connector</cap:type>
-                </cap:host>
-            </cap:script>
-        </native>
-    </capabilities>
     <synchronization>
         <objectSynchronization>
             <objectClass>ri:AccountObjectClass</objectClass>
