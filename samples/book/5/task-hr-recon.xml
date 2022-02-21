@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2017 Evolveum
+  ~ Copyright (c) 2017-2022 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -19,10 +19,12 @@
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       oid="bbe4ceac-a85c-11e7-a49f-0f5777d22906">
     <name>HR Reconciliation</name>
-    <taskIdentifier>bbe4ceac-a85c-11e7-a49f-0f5777d22906</taskIdentifier>
+    <assignment>
+        <!-- Reconciliation task archetype -->
+        <targetRef oid="00000000-0000-0000-0000-000000000501" type="ArchetypeType"/>
+    </assignment>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>
-    <objectRef oid="03c3ceea-78e2-11e6-954d-dfdfa9ace0cf" type="c:ResourceType"/>
     <schedule>
         <recurrence>recurring</recurrence>
         <cronLikePattern>0 0 1 ? * SAT</cronLikePattern>
@@ -39,3 +41,4 @@
         </work>
     </activity>
 </task>
+

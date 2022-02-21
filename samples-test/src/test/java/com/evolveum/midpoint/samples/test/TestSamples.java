@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2020 Evolveum and contributors
+ * Copyright (C) 2010-2022 Evolveum and contributors
  *
  * This work is dual-licensed under the Apache License 2.0
  * and European Union Public License. See LICENSE file for details.
@@ -143,7 +143,7 @@ public class TestSamples extends AbstractSampleTest {
     private void validate(File file) throws FileNotFoundException {
         System.out.println("===> Validating file " + file.getPath());
 
-        EventHandler handler = new EventHandler() {
+        EventHandler<Objectable> handler = new EventHandler<>() {
 
             @Override
             public EventResult preMarshall(Element objectElement, Node postValidationTree,
@@ -152,12 +152,15 @@ public class TestSamples extends AbstractSampleTest {
             }
 
             @Override
-            public <T extends Objectable> EventResult postMarshall(PrismObject<T> object, Element objectElement,
+            public EventResult postMarshall(Objectable object, Element objectElement,
                     OperationResult objectResult) {
 
                 // Try to marshall it back. This may detect some JAXB misconfiguration problems.
                 try {
-                    String serializedString = PrismTestUtil.serializeObjectToString(object, PrismContext.LANG_XML);
+                    //noinspection unchecked
+                    String serializedString =
+                            PrismTestUtil.serializeObjectToString(
+                                    object.asPrismObject(), PrismContext.LANG_XML);
                 } catch (SchemaException e) {
                     objectResult.recordFatalError("Object serialization failed", e);
                 }
@@ -172,7 +175,7 @@ public class TestSamples extends AbstractSampleTest {
 
         };
 
-        LegacyValidator validator = new LegacyValidator(PrismTestUtil.getPrismContext());
+        LegacyValidator<Objectable> validator = new LegacyValidator<>(PrismTestUtil.getPrismContext());
         validator.setVerbose(false);
         validator.setAllowAnyType(true);
         validator.setHandler(handler);
