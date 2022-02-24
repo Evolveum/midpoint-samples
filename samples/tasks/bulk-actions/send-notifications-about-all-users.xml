@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2010-2017 Evolveum
+  ~ Copyright (c) 2010-2021 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -14,46 +14,50 @@
   ~ limitations under the License.
   -->
 
-<c:task xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <c:name>Execute send notifications on objects 1 to 0</c:name>
-    <c:extension>
-        <scext:executeScript xmlns:scext="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3">
-            <s:pipeline xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
-                <s:expression xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="s:SearchExpressionType">
-                    <s:type>UserType</s:type>
-                </s:expression>
-                <s:expression xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="s:ActionExpressionType">
-                    <s:type>notify</s:type>
-                    <s:parameter>
-                        <s:name>subtype</s:name>
-                        <c:value xsi:type="xsd:string">type1</c:value>
-                    </s:parameter>
-                    <s:parameter>
-                        <s:name>handler</s:name>
-                        <c:value xsi:type="c:EventHandlerType">
-                            <c:generalNotifier>
-                                <c:recipientExpression>
-                                    <c:value>recipient@evolveum.com</c:value>
-                                </c:recipientExpression>
-                                <c:bodyExpression>
-                                    <c:script>    <!-- currently, event.object is PrismObjectValue - this should be changed e.g. to ObjectType -->
-                                        <c:language>http://midpoint.evolveum.com/xml/ns/public/expression/language#velocity</c:language>
-                                        <c:code>event.object is '$event.object.asObjectable().name' with OID of $event.object.oid</c:code>
-                                    </c:script>
-                                </c:bodyExpression>
-                                <c:transport>mail</c:transport>
-                            </c:generalNotifier>
-                        </c:value>
-                    </s:parameter>
-                    <!-- Other parameters: forWholeInput, status, operation -->
-                </s:expression>
-            </s:pipeline>
-        </scext:executeScript>
-    </c:extension>
-    <c:taskIdentifier>1474665896757:987750751</c:taskIdentifier>
-    <c:ownerRef oid="00000000-0000-0000-0000-000000000002"/>
-    <c:executionStatus>runnable</c:executionStatus>
-    <c:category>BulkActions</c:category>
-    <c:handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/scripting/handler-3</c:handlerUri>
-    <c:recurrence>single</c:recurrence>
-</c:task>
+<!--
+Mail transport for notifications should be defined in the system configuration object, at least e.g. like this:
+
+    <notificationConfiguration>
+        <mail>
+            <redirectToFile>/some-path/mail-notifications.log</redirectToFile>
+        </mail>
+    </notificationConfiguration>
+
+-->
+
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
+    <name>Execute send notifications on objects</name>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
+    <executionState>runnable</executionState>
+    <activity>
+        <work>
+            <iterativeScripting>
+                <objects>
+                    <type>UserType</type>
+                </objects>
+                <scriptExecutionRequest>
+                    <s:notify>
+                        <s:subtype>type1</s:subtype>
+                        <s:handler>
+                            <generalNotifier>
+                                <recipientExpression>
+                                    <value>recipient@evolveum.com</value>
+                                </recipientExpression>
+                                <bodyExpression>
+                                    <script>
+                                        <!-- currently, event.object is PrismObjectValue - this should be changed e.g. to ObjectType -->
+                                        <language>http://midpoint.evolveum.com/xml/ns/public/expression/language#velocity</language>
+                                        <code>event.object is '$event.object.asObjectable().name' with OID of $event.object.oid</code>
+                                    </script>
+                                </bodyExpression>
+                                <transport>mail</transport>
+                            </generalNotifier>
+                        </s:handler>
+                        <!-- Other parameters: forWholeInput, status, operation -->
+                    </s:notify>
+                </scriptExecutionRequest>
+            </iterativeScripting>
+        </work>
+    </activity>
+</task>

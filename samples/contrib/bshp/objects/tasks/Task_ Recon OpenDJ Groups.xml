@@ -1,18 +1,11 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" oid="5d71f30f-1cf8-4c00-96b4-d6497d64ca14" version="2661">
     <name>Recon: OpenDJ (Groups)</name>
-    <extension xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ExtensionType">
-        <mext:kind>entitlement</mext:kind>
-    </extension>
     <taskIdentifier>1554053354892-0-1</taskIdentifier>
-    <ownerRef oid="fd1adbb9-a3a2-29c8-92a1-acb16e841f7s" relation="org:default" type="c:UserType">
-    </ownerRef>
+    <ownerRef oid="e06a0994-f449-46aa-9383-e0a59ffaa417" relation="org:default" type="c:UserType"/>
     <channel>http://midpoint.evolveum.com/xml/ns/public/provisioning/channels-3#reconciliation</channel>
-    <executionStatus>runnable</executionStatus>
-    <category>Reconciliation</category>
-    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/reconciliation/handler-3</handlerUri>
+    <executionState>runnable</executionState>
     <resultStatus>success</resultStatus>
-    <objectRef oid="resource-OpenDJ1" relation="org:default" type="c:ResourceType">
-    </objectRef>
+    <objectRef oid="b0e37eeb-f88f-4eec-9e61-ae6de33c78b5" relation="org:default" type="c:ResourceType"/>
     <lastRunStartTimestamp>2020-01-05T20:45:00.598-06:00</lastRunStartTimestamp>
     <lastRunFinishTimestamp>2020-01-05T20:45:02.120-06:00</lastRunFinishTimestamp>
     <progress>5</progress>
@@ -23,4 +16,14 @@
         <misfireAction>reschedule</misfireAction>
     </schedule>
     <threadStopAction>restart</threadStopAction>
+    <activity>
+        <work>
+            <reconciliation>
+                <resourceObjects>
+                    <resourceRef oid="b0e37eeb-f88f-4eec-9e61-ae6de33c78b5"/>
+                    <kind>entitlement</kind>
+                </resourceObjects>
+            </reconciliation>
+        </work>
+    </activity>
 </task>

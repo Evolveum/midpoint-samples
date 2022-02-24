@@ -397,6 +397,7 @@ It also contains inbound mappings and definition to enable synchronization.
 
     </resource>
 
+    <!-- TODO convert to activities (4.4) -->
     <task oid="91919192-76e0-59e2-86d6-3d4f02d3ffff">
         <name>Synchronization: Embedded Test OpenDJ (no extensions schema)</name>
         <description>

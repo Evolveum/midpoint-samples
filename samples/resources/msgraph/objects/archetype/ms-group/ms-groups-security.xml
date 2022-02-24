@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+           xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           oid="ac25c88d-b97f-4b47-9793-081525abb5ce">
+
+    <name>Office Security Groups</name>
+    <description>MS Office Security Groups</description>
+    <archetypePolicy>
+        <display>
+            <label>Azure Security Groups</label>
+            <pluralLabel>Azure Security Group</pluralLabel>
+            <tooltip>Azure Security Groups</tooltip>
+            <icon>
+                <cssClass>fa fa-shield</cssClass>
+                <!-- HEXA, light blue color -->
+                <color>#47a6d6</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+    <assignment>
+        <assignmentRelation>
+            <holderType>RoleType</holderType>
+        </assignmentRelation>
+    </assignment>
+
+    <inducement>
+        <construction>
+            <kind>entitlement</kind>
+            <intent>group</intent>
+            <resourceRef oid="042f4119-1ee9-4f09-b6bc-7a0846d45ac6" relation="org:default" type="c:ResourceType"/>
+            <attribute>
+                <ref>ri:mailEnabled</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <value>false</value>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:securityEnabled</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <value>true</value>
+                    </expression>
+                </outbound>
+            </attribute>
+        </construction>
+    </inducement>
+
+    <inducement>
+        <construction>
+            <resourceRef oid="042f4119-1ee9-4f09-b6bc-7a0846d45ac6" type="c:ResourceType" />
+            <kind>account</kind>
+            <intent>default</intent>
+            <association>
+                <ref>ri:group</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator>
+                                <kind>entitlement</kind>
+                                <intent>group</intent>
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
+            </association>
+            <strength>weak</strength><!-- XXX Do not create account just because it has role assigned -->
+        </construction>
+        <focusType>c:UserType</focusType>
+        <order>2</order>
+    </inducement>
+
+    <requestable>false</requestable>
+
+</archetype>
+
+
+        <!--  TODO, Add to system config
+
+
+                    <objectCollectionView>
+
+                        <identifier>groups-view-security</identifier>
+
+                        <displayOrder>70</displayOrder>
+
+                        <type>RoleType</type>
+
+                        <collection>
+
+                            <collectionRef oid="ac25c88d-b97f-4b47-9793-081525abb5ce" relation="org:default" type="c:ArchetypeType"/>
+
+                        </collection>
+
+                    </objectCollectionView>
+
+         -->

@@ -18,8 +18,6 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>JDBC Ping</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
-    <executionStatus>runnable</executionStatus>
+    <executionState>runnable</executionState>
     <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/jdbc-ping/handler-3</handlerUri>
-    <recurrence>single</recurrence>
-    <binding>tight</binding>
 </task>

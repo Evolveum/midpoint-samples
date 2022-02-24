@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2010-2018 Evolveum
+  ~ Copyright (c) 2010-2021 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -14,36 +14,34 @@
   ~ limitations under the License.
   -->
 
-<task oid="9fa6d045-06d8-4549-9b7c-599b92f202f3"
-      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-      xmlns:syncext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3"
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-      xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
+      oid="9fa6d045-06d8-4549-9b7c-599b92f202f3">
     <name>Partitioned multi-node reconciliation [numeric]</name>
-
-    <extension>
-        <syncext:objectclass>ri:AccountObjectClass</syncext:objectclass>
-    </extension>
-
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
-    <executionStatus>runnable</executionStatus>
-
-    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/partitioned-reconciliation/handler-3</handlerUri>
+    <executionState>runnable</executionState>
     <objectRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe" type="ResourceType"/>
-    <workManagement>
-        <partitions>
-            <partition>
-                <index>2</index>
-                <workManagement>
-                    <taskKind>coordinator</taskKind>
+    <activity>
+        <work>
+            <reconciliation>
+                <resourceObjects>
+                    <resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe"/>
+                    <objectclass>ri:AccountObjectClass</objectclass>
+                </resourceObjects>
+            </reconciliation>
+        </work>
+        <distribution>
+            <subtasks/>
+        </distribution>
+        <tailoring>
+            <change>
+                <reference>resourceObjects</reference>
+                <distribution>
                     <buckets>
                         <numericSegmentation>
                             <discriminator>attributes/number</discriminator>
-                            <to>18446744073709551616</to>        <!-- 2^64 -->
                             <numberOfBuckets>128</numberOfBuckets>
+                            <to>18446744073709551616</to> <!-- 2^64 -->
                         </numericSegmentation>
                     </buckets>
                     <workers>
@@ -51,9 +49,8 @@
                             <count>4</count>
                         </workersPerNode>
                     </workers>
-                </workManagement>
-            </partition>
-        </partitions>
-    </workManagement>
-    <recurrence>single</recurrence>
+                </distribution>
+            </change>
+        </tailoring>
+    </activity>
 </task>

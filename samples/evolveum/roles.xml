@@ -600,6 +600,7 @@
             </object>
         </authorization>
         <authorization>
+            <!-- TODO fix this (does not work with activity-based tasks) -->
             <name>eeu-self-owned-task-add-execute-changes</name>
             <description>
                 Authorization to create a new 'execute changes' task owned by a currently logged-in user.

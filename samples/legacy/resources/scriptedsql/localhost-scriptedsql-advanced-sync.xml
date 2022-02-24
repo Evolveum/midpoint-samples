@@ -287,6 +287,7 @@
 
     </c:resource>
 
+    <!-- TODO convert to activities (4.4) -->
     <task oid="91919191-76e0-59e2-8787-3d4f03d8ffff">
         <name>Synchronization: ScriptedSQL</name>
         <description>

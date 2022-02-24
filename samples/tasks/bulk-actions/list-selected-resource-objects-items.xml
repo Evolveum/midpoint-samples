@@ -15,6 +15,7 @@
   ~ limitations under the License.
   -->
 
+<!-- TODO convert to new task config style -->
 <objects xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
          xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">

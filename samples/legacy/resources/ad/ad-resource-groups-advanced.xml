@@ -355,35 +355,50 @@
         </synchronization>
     </c:resource>
 
-    <task oid="11111111-2222-3333-4444-100000000000">
+    <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="11111111-2222-3333-4444-100000000000">
         <name>Synchronization: Active Directory (users)</name>
         <taskIdentifier>11111111-2222-3333-4444-100000000000</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
-        <executionStatus>runnable</executionStatus>
-        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/live-sync/handler-3</handlerUri>
+        <executionState>runnable</executionState>
         <objectRef oid="11111111-2222-3333-4444-000000000000" type="c:ResourceType"/>
-        <recurrence>recurring</recurrence>
         <binding>tight</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>5</interval>
         </schedule>
+        <activity>
+            <work>
+                <liveSynchronization>
+                    <resourceObjects>
+                        <resourceRef oid="11111111-2222-3333-4444-000000000000"/>
+                        <kind>account</kind>
+                    </resourceObjects>
+                </liveSynchronization>
+            </work>
+        </activity>
     </task>
 
-    <task oid="11111111-2222-3333-4444-100000000001">
+    <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="11111111-2222-3333-4444-100000000001">
         <name>Synchronization: Active Directory (groups)</name>
-        <extension>
-            <mext:kind xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3">entitlement</mext:kind>
-        </extension>
         <taskIdentifier>11111111-2222-3333-4444-100000000001</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
-        <executionStatus>runnable</executionStatus>
-        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/live-sync/handler-3</handlerUri>
+        <executionState>runnable</executionState>
         <objectRef oid="11111111-2222-3333-4444-000000000000" type="c:ResourceType"/>
-        <recurrence>recurring</recurrence>
         <binding>tight</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>5</interval>
         </schedule>
+        <activity>
+            <work>
+                <liveSynchronization>
+                    <resourceObjects>
+                        <resourceRef oid="11111111-2222-3333-4444-000000000000"/>
+                        <kind>entitlement</kind>
+                    </resourceObjects>
+                </liveSynchronization>
+            </work>
+        </activity>
     </task>
 
     <role oid="11111111-2222-3333-4444-200000000001"

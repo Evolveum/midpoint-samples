@@ -73,7 +73,7 @@
         <expression>
             <assignmentTargetSearch>
                 <targetType>c:RoleType</targetType>
-                <oid>metarole-domainGroups</oid>
+                <oid>d7d344ae-d00f-4535-a6aa-7e63daf3f549</oid>
             </assignmentTargetSearch>
         </expression>
         <target>
@@ -94,7 +94,7 @@
         <expression>
             <assignmentTargetSearch>
                 <targetType>c:RoleType</targetType>
-                <oid>metarole-domainGroups</oid>
+                <oid>d7d344ae-d00f-4535-a6aa-7e63daf3f549</oid>
             </assignmentTargetSearch>
         </expression>
         <target>
@@ -115,7 +115,7 @@
         <expression>
             <assignmentTargetSearch>
                 <targetType>c:RoleType</targetType>
-                <oid>metarole-registryGroups</oid>
+                <oid>60486d48-1f85-4b59-a8d7-d7ad6caa86e0</oid>
             </assignmentTargetSearch>
         </expression>
         <target>

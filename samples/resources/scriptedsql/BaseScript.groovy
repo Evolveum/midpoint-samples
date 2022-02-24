@@ -10,6 +10,9 @@ class BaseScript extends Script {
 
     public static final ObjectClass ORGANIZATION = new ObjectClass(BaseScript.ORGANIZATION_NAME)
 
+    public static final String TABLE_USER = "Users"
+    public static final String TABLE_GROUPS = "Groups"
+
     @Override
     Object run() {
         return null

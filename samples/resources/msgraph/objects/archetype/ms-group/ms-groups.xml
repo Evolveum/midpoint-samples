@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype oid="dbf13e69-b6aa-48fc-b15f-500b1542ad21"
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Groups</name>
+    <description>MS Groups</description>
+    <archetypePolicy>
+        <display>
+            <label>Group</label>
+            <pluralLabel>Groups</pluralLabel>
+            <tooltip>Group</tooltip>
+            <icon>
+                <cssClass>fa fa-users</cssClass>
+                <!-- HEXA, light blue color -->
+                <color>#3bd0d2</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+    <assignment>
+        <assignmentRelation>
+            <holderType>RoleType</holderType>
+        </assignmentRelation>
+    </assignment>
+</archetype>
+
+
+        <!--  TODO, Add to system config
+
+
+                    <objectCollectionView>
+
+                        <identifier>groups-view</identifier>
+
+                        <displayOrder>30</displayOrder>
+
+                        <type>RoleType</type>
+
+                        <collection>
+
+                            <collectionRef oid="dbf13e69-b6aa-48fc-b15f-500b1542ad21" relation="org:default" type="c:ArchetypeType"/>
+
+                        </collection>
+
+                    </objectCollectionView>
+
+         -->
