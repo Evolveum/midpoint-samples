@@ -48,11 +48,12 @@
             xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
             xmlns:icfcldap="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-ldap/com.evolveum.polygon.connector.ldap.LdapConnector">
         <icfc:configurationProperties>
-            <icfcldap:port>389</icfcldap:port>
+            <icfcldap:port>primary.ldap.example.com</icfcldap:port>
             <icfcldap:host>localhost</icfcldap:host>
             <icfcldap:baseContext>dc=repltest,dc=evolveum,dc=com</icfcldap:baseContext>
             <icfcldap:bindDn>cn=idm,ou=Administrators,dc=repltest,dc=evolveum,dc=com</icfcldap:bindDn>
             <icfcldap:bindPassword><t:clearValue>secret</t:clearValue></icfcldap:bindPassword>
+            <icfcldap:servers>host=secondary.ldap.example.com</icfcldap:servers>
             <icfcldap:passwordHashAlgorithm>SSHA</icfcldap:passwordHashAlgorithm>
             <icfcldap:vlvSortAttribute>uid,cn,ou,dc</icfcldap:vlvSortAttribute>
             <icfcldap:vlvSortOrderingRule>2.5.13.3</icfcldap:vlvSortOrderingRule>
