@@ -1,0 +1,35 @@
+dn: dc=repltest,dc=evolveum,dc=com
+objectClass: domain
+dc: repltest
+
+dn: ou=people,dc=repltest,dc=evolveum,dc=com
+objectClass: organizationalunit
+ou: people
+
+dn: ou=groups,dc=repltest,dc=evolveum,dc=com
+objectClass: organizationalunit
+ou: groups
+
+dn: ou=Administrators,dc=repltest,dc=evolveum,dc=com
+objectclass: top
+objectclass: organizationalunit
+ou: Administrators
+
+dn: cn=idm,ou=Administrators,dc=repltest,dc=evolveum,dc=com
+objectclass: top
+objectclass: person
+cn: idm
+sn: IDM Administrator
+description: Special LDAP acccount used by the IDM
+  to access the LDAP data.
+# password: secret
+userPassword: {SSHA}R5KF3K4X2FX5gkWKuDxm4M6gZyO0QgNF
+
+dn: cn=replication manager,ou=Administrators,dc=repltest,dc=evolveum,dc=com
+objectclass: top
+objectclass: simpleSecurityObject
+objectclass: organizationalRole
+cn: replication manager
+description: Replication Manager
+# password: rsecret
+userPassword: {SSHA}iQhyb3i0v3mMdBBQQxgfpbPXSV2Gkksi
