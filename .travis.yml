@@ -1,5 +1,0 @@
-language: java
-jdk: openjdk11
-# this should just skip default Maven dependency install
-install: skip
-script: bash test.sh
