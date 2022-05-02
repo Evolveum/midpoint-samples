@@ -28,49 +28,38 @@ podTemplate(
         }
         stage("build") {
             container('maven') {
-                try {
-                    sh """#!/bin/bash
-                        # .m2 is mutable and short-term, we just sym-link the settings.xml there.
-                        mkdir -p /root/.m2
-                        ln -s ../jenkins-nexus/settings.xml /root/.m2/settings.xml
+                sh """#!/bin/bash
+                    # .m2 is mutable and short-term, we just sym-link the settings.xml there.
+                    mkdir -p /root/.m2
+                    ln -s ../jenkins-nexus/settings.xml /root/.m2/settings.xml
 
-                        if [ '${VERBOSE}' = '1' ]
-                        then
-	                        env | sort
-	                        mvn --version
-	                        df -h
-			            fi
+                    if [ '${VERBOSE}' = '1' ]
+                    then
+                        env | sort
+                        mvn --version
+                        df -h
+                    fi
 
-				        mvn -B -ntp -DskipTests clean deploy
+                    mvn -B -ntp -DskipTests clean deploy
 
-				        if [ '${VERBOSE}' = '1' ]
-                        then
-                            df -h
-                        fi
-                    """
-                } catch (err) {
-                    echo "Caught: ${err}"
-                    currentBuild.result = 'FAILURE'
-                }
+                    if [ '${VERBOSE}' = '1' ]
+                    then
+                        df -h
+                    fi
+                """
             }
         }
         stage("tests") {
             container('maven') {
-                try {
-                    sh """
-                        mvn -B -ntp -Dmaven.test.failure.ignore -f samples-test/pom.xml clean package
+                sh """
+                    mvn -B -ntp -Dmaven.test.failure.ignore -f samples-test/pom.xml clean package
 
-				        if [ '${VERBOSE}' = '1' ]
-                        then
-                            df -h
-                        fi
-                    """
-                } catch (err) {
-                    echo "Caught: ${err}"
-                    currentBuild.result = 'FAILURE'
-                } finally {
-                    step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
-                }
+                    if [ '${VERBOSE}' = '1' ]
+                    then
+                        df -h
+                    fi
+                """
+                step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
             }
         }
     }
