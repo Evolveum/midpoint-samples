@@ -2,18 +2,17 @@ podTemplate(
         activeDeadlineSeconds: 600, // 10m limit is more than enough for samples
         idleMinutes: 1,
         // Secret volume with maven settings.xml for deploy, see also sim-link in "build" stage.
-        volumes: [secretVolume(secretName: "jenkins-nexus",mountPath: "/root/jenkins-nexus")],
+        volumes: [secretVolume(secretName: "jenkins-nexus", mountPath: "/root/jenkins-nexus")],
         workspaceVolume: dynamicPVC(requestsSize: "5Gi"),
         containers: [
                 containerTemplate(name: 'jnlp',
-                        image: 'jenkins/inbound-agent:4.10-3-alpine',
-                        runAsUser: '0',
+                        image: 'jenkins/inbound-agent:4.13-2-alpine',
                         resourceLimitCpu: '900m',
                         resourceLimitMemory: '1Gi',
                         resourceRequestCpu: '900m',
                         resourceRequestMemory: '1Gi'),
                 containerTemplate(name: 'maven',
-                        image: 'maven:3.8.5-openjdk-11-slim',
+                        image: "${params.BUILDER_IMAGE ?: 'maven:3.8.5-openjdk-11-slim'}",
                         ttyEnabled: true,
                         command: 'cat',
                         resourceLimitCpu: '1',
@@ -22,7 +21,7 @@ podTemplate(
 ) {
     node(POD_LABEL) {
         stage("checkout") {
-            git branch: "${BRANCH}",
+            git branch: "${params.BRANCH ?: 'master'}",
                     url: 'https://github.com/Evolveum/midpoint-samples.git'
             echo "git checkout done..."
         }
@@ -33,19 +32,7 @@ podTemplate(
                     mkdir -p /root/.m2
                     ln -s ../jenkins-nexus/settings.xml /root/.m2/settings.xml
 
-                    if [ '${VERBOSE}' = '1' ]
-                    then
-                        env | sort
-                        mvn --version
-                        df -h
-                    fi
-
                     mvn -B -ntp -DskipTests clean deploy
-
-                    if [ '${VERBOSE}' = '1' ]
-                    then
-                        df -h
-                    fi
                 """
             }
         }
@@ -53,12 +40,8 @@ podTemplate(
             container('maven') {
                 sh """
                     mvn -B -ntp -Dmaven.test.failure.ignore -f samples-test/pom.xml clean package
-
-                    if [ '${VERBOSE}' = '1' ]
-                    then
-                        df -h
-                    fi
                 """
+
                 step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
             }
         }
