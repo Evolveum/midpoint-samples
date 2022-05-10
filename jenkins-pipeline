@@ -1,0 +1,51 @@
+podTemplate(
+        activeDeadlineSeconds: 600, // 10m limit is more than enough for samples
+        idleMinutes: 1,
+        // Secret volume with maven settings.xml for deploy, see also sim-link in "build" stage.
+        volumes: [secretVolume(secretName: "jenkins-nexus", mountPath: "/root/jenkins-nexus")],
+        workspaceVolume: dynamicPVC(requestsSize: "5Gi"),
+        containers: [
+                containerTemplate(name: 'jnlp',
+                        image: 'jenkins/inbound-agent:4.13-2-alpine',
+                        resourceRequestCpu: '500m',
+                        resourceLimitCpu: '500m',
+                        resourceRequestMemory: '1Gi',
+                        resourceLimitMemory: '1Gi'),
+                containerTemplate(name: 'maven',
+                        image: "${params.BUILDER_IMAGE ?: 'maven:3.8.5-openjdk-11-slim'}",
+                        ttyEnabled: true,
+                        command: 'cat',
+                        resourceRequestCpu: '1',
+                        resourceLimitCpu: '1',
+                        resourceRequestMemory: '1Gi',
+                        resourceLimitMemory: '1Gi'),
+        ]
+) {
+    node(POD_LABEL) {
+        stage("checkout") {
+            git branch: "${params.BRANCH ?: 'support-4.5'}",
+                    url: 'https://github.com/Evolveum/midpoint-samples.git'
+            echo "git checkout done..."
+        }
+        stage("build") {
+            container('maven') {
+                sh """#!/bin/bash -ex
+                    # .m2 is mutable and short-term, we just sym-link the settings.xml there.
+                    mkdir -p /root/.m2
+                    ln -s ../jenkins-nexus/settings.xml /root/.m2/settings.xml
+
+                    mvn -B -ntp -DskipTests clean deploy
+                """
+            }
+        }
+        stage("tests") {
+            container('maven') {
+                sh """#!/bin/bash -ex
+                    mvn -B -ntp -Dmaven.test.failure.ignore -f samples-test/pom.xml clean package
+                """
+
+                step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+            }
+        }
+    }
+}
