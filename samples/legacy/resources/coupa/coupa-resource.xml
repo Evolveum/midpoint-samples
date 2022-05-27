@@ -420,9 +420,7 @@
          <retrievalTimestamp>2017-02-14T13:31:47.598+01:00</retrievalTimestamp>
          <serialNumber>84acf9c4f2a66b40-a9e7e37f5d6c5ea4</serialNumber>
       </cachingMetadata>
-      <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:type="c:CapabilityCollectionType">
+      <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
          <cap:addRemoveAttributeValues/>
          <cap:testConnection/>
          <cap:read/>

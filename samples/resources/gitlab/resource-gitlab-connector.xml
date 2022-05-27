@@ -1649,9 +1649,7 @@
          <retrievalTimestamp>2017-09-05T14:25:05.983+02:00</retrievalTimestamp>
          <serialNumber>2f912b4fb8aabbf5-89bd5ebef5832e94</serialNumber>
       </cachingMetadata>
-      <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:type="c:CapabilityCollectionType">
+      <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
          <cap:addRemoveAttributeValues/>
          <cap:testConnection/>
          <cap:create/>
@@ -1663,9 +1661,7 @@
             </cap:host>
          </cap:script>
       </native>
-      <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3"
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:type="c:CapabilityCollectionType">
+      <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
          <cap:addRemoveAttributeValues>
             <cap:enabled>true</cap:enabled>
          </cap:addRemoveAttributeValues>

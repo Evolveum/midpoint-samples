@@ -772,7 +772,7 @@
             </objectType>
         </schemaHandling>
         <capabilities>
-            <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3" xsi:type="c:CapabilityCollectionType">
+            <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
                 <cap:activation>
                     <cap:status>
                         <cap:attribute>ri:ds-pwp-account-disabled</cap:attribute>
