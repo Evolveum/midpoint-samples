@@ -39,14 +39,5 @@ podTemplate(
                 """
             }
         }
-        stage("tests") {
-            container('maven') {
-                sh """#!/bin/bash -ex
-                    mvn -B -ntp -Dmaven.test.failure.ignore -f samples-test/pom.xml clean package
-                """
-
-                step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
-            }
-        }
     }
 }
