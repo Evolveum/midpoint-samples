@@ -35,17 +35,21 @@ podTemplate(
                     mkdir -p /root/.m2
                     ln -s ../jenkins-nexus/settings.xml /root/.m2/settings.xml
 
-                    mvn -B -ntp -DskipTests clean deploy
+                    mvn -B -ntp -DskipTests clean ${params.SKIP_DEPLOY ? 'deploy' : 'install'}
                 """
             }
         }
         stage("tests") {
-            container('maven') {
-                sh """#!/bin/bash -ex
-                    mvn -B -ntp -Dmaven.test.failure.ignore -f samples-test/pom.xml clean package
-                """
+            if (!params.SKIP_TEST) {
+                container('maven') {
+                    sh """#!/bin/bash -ex
+                        mvn -B -ntp -Dmaven.test.failure.ignore -f samples-test/pom.xml clean package
+                    """
 
-                step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+                    step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+                }
+            } else {
+                println 'Skipping the tests as requested.'
             }
         }
     }
