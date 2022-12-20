@@ -1,0 +1,16 @@
+<report xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        oid="b74e5878-6114-4522-ac36-b6f5b71d4883">
+    <name>Howto example dashboard report</name>
+    <assignment id="1">
+        <targetRef oid="00000000-0000-0000-0000-000000000170" relation="org:default" type="c:ArchetypeType"/>
+        <!-- Archetype for dashboard reports -->
+    </assignment>
+    <dashboard>
+        <dashboardRef oid="44e211d9-27c7-466e-ad40-f6d626f88eb1" type="DashboardType"/>
+        <showOnlyWidgetsTable>true</showOnlyWidgetsTable>
+        <storeExportedWidgetData>onlyWidget</storeExportedWidgetData>           <!-- necessary for storing data only in widget and not creating reports -->
+    </dashboard>
+</report>
