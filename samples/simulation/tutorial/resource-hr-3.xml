@@ -1,0 +1,36 @@
+<resource oid="236dd5ca-47df-403c-82e1-9ce2f36be000"
+			xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+			xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+			xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+			xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+	<name>hr</name>
+    <lifecycleState>proposed</lifecycleState>
+	<connectorRef type="ConnectorType">
+		<filter>
+			<q:equal>
+				<q:path>connectorType</q:path>
+				<q:value>com.evolveum.polygon.connector.csv.CsvConnector</q:value>
+			</q:equal>
+		</filter>
+	</connectorRef>
+	<connectorConfiguration xmlns:icfi="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
+		<icfc:configurationProperties>
+			<icfi:filePath>D:\evo\git\midpoint-samples\samples\simulation\tutorial\hr.csv</icfi:filePath>
+			<icfi:encoding>utf-8</icfi:encoding>
+			<icfi:fieldDelimiter>,</icfi:fieldDelimiter>
+			<icfi:multivalueDelimiter>;</icfi:multivalueDelimiter>
+			<icfi:uniqueAttribute>ident</icfi:uniqueAttribute>
+		</icfc:configurationProperties>
+	</connectorConfiguration>
+    <schemaHandling>
+        <!-- We want to use custom intent for accounts corresponding to persons -->
+        <objectType>
+            <kind>account</kind>
+            <intent>person</intent>
+            <default>true</default>
+            <delineation>
+                <objectClass>ri:AccountObjectClass</objectClass>
+            </delineation>
+        </objectType>
+    </schemaHandling>
+</resource>
