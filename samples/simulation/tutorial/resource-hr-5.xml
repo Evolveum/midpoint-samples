@@ -4,7 +4,7 @@
           xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
           xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
     <name>hr</name>
-    <lifecycleState>proposed</lifecycleState>
+    <lifecycleState>active</lifecycleState>
     <connectorRef type="ConnectorType">
         <filter>
             <q:equal>
@@ -69,6 +69,16 @@
                     <strength>strong</strength>
                     <target>
                         <path>emailAddress</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:phone</ref>
+                <inbound>
+                    <lifecycleState>proposed</lifecycleState>
+                    <strength>strong</strength>
+                    <target>
+                        <path>telephoneNumber</path>
                     </target>
                 </inbound>
             </attribute>
