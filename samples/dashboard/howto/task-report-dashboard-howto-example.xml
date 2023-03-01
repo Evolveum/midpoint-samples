@@ -1,0 +1,31 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+        xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        oid="d27c540c-b2f4-494e-b6e3-c8794e004043">
+    <name>Report task: dashboard-howto-example</name>
+    <assignment id="1">
+        <targetRef oid="00000000-0000-0000-0000-000000000511" relation="org:default" type="c:ArchetypeType"/>
+    </assignment>
+    <executionState>closed</executionState>
+    <objectRef oid="b74e5878-6114-4522-ac36-b6f5b71d4883" relation="org:default" type="c:ReportType"/>
+    <binding>loose</binding>
+    <!--    <schedule>-->
+    <!--        <recurrence>recurring</recurrence>-->
+    <!-- every day at 07:00 -->
+    <!--        <cronLikePattern>0 0 7 * * ?</cronLikePattern>-->
+    <!--        <misfireAction>executeImmediately</misfireAction>-->
+    <!--    </schedule>-->
+    <threadStopAction>close</threadStopAction>
+    <activity>
+        <work>
+            <reportExport>
+                <reportRef oid="b74e5878-6114-4522-ac36-b6f5b71d4883" relation="org:default" type="c:ReportType"/>
+            </reportExport>
+        </work>
+    </activity>
+</task>

@@ -13,7 +13,7 @@ podTemplate(
                         resourceRequestMemory: '1Gi',
                         resourceLimitMemory: '1Gi'),
                 containerTemplate(name: 'maven',
-                        image: "${params.BUILDER_IMAGE ?: 'maven:3.8.5-openjdk-11'}",
+                        image: params.BUILDER_IMAGE ?: 'maven:3.8.5-openjdk-11',
                         runAsUser: '0',
                         ttyEnabled: true,
                         command: 'cat',
@@ -25,7 +25,7 @@ podTemplate(
 ) {
     node(POD_LABEL) {
         stage("checkout") {
-            git branch: "${params.BRANCH ?: 'master'}",
+            git branch: params.BRANCH ?: 'master',
                     url: 'https://github.com/Evolveum/midpoint-samples.git'
         }
         stage("build") {
@@ -35,17 +35,21 @@ podTemplate(
                     mkdir -p /root/.m2
                     ln -s ../jenkins-nexus/settings.xml /root/.m2/settings.xml
 
-                    mvn -B -ntp -DskipTests clean deploy
+                    mvn -B -ntp -DskipTests clean ${params.SKIP_DEPLOY ? 'install' : 'deploy'}
                 """
             }
         }
         stage("tests") {
-            container('maven') {
-                sh """#!/bin/bash -ex
-                    mvn -B -ntp -Dmaven.test.failure.ignore -f samples-test/pom.xml clean package
-                """
+            if (!params.SKIP_TEST) {
+                container('maven') {
+                    sh """#!/bin/bash -ex
+                        mvn -B -ntp -Dmaven.test.failure.ignore -f samples-test/pom.xml clean package
+                    """
 
-                step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+                    step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+                }
+            } else {
+                println 'Skipping the tests as requested.'
             }
         }
     }

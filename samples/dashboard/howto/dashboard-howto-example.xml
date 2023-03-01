@@ -1,0 +1,80 @@
+<dashboard xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+        xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        oid="44e211d9-27c7-466e-ad40-f6d626f88eb1">
+    <name>dashboard-howto-example</name>
+    <display>
+        <label>Howto-example</label>
+    </display>
+    <widget>
+        <identifier>disabled-users</identifier>
+        <display>
+            <label>Number of disabled users</label>
+            <color>#a1b2c3</color>
+            <icon>
+                <cssClass>fa fa-user</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="43d69568-be1f-4806-9110-cc6a4da5b579" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>disabled</value>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+
+    <widget>
+        <identifier>enabled-users-async</identifier>
+        <display>
+            <label>Number of enabled users (async.)</label>
+            <color>#00a65a</color>
+            <icon>
+                <cssClass>fa fa-user</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <displaySourceType>widgetData</displaySourceType>
+            <collection>
+                <collectionRef oid="00000000-0000-0000-0001-000000147896" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>enabled</value>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+</dashboard>
