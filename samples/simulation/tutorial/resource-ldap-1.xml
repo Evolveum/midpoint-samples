@@ -1,0 +1,24 @@
+<resource oid="80d0e843-906a-4bbe-b237-bd3568ec4169"
+			xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+			xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+			xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+	<name>ldap</name>
+    <lifecycleState>proposed</lifecycleState>
+	<connectorRef type="ConnectorType">
+		<filter>
+			<q:equal>
+				<q:path>connectorType</q:path>
+				<q:value>com.evolveum.polygon.connector.csv.CsvConnector</q:value>
+			</q:equal>
+		</filter>
+	</connectorRef>
+	<connectorConfiguration xmlns:icfi="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
+		<icfc:configurationProperties>
+			<icfi:filePath>D:\evo\git\midpoint-samples\samples\simulation\tutorial\ldap.csv</icfi:filePath>
+			<icfi:encoding>utf-8</icfi:encoding>
+			<icfi:fieldDelimiter>,</icfi:fieldDelimiter>
+			<icfi:multivalueDelimiter>;</icfi:multivalueDelimiter>
+			<icfi:uniqueAttribute>ident</icfi:uniqueAttribute>
+		</icfc:configurationProperties>
+	</connectorConfiguration>
+</resource>

@@ -1,0 +1,10 @@
+dn,uid,cn,sn,givenName,mail,employeeNumber,note
+"uid=jsmith1,ou=People,dc=example,dc=com",jsmith1,John Smith,Smith,John,jsmith1@evolveum.com,1,"Correlating right on employeeNumber"
+"uid=jsmith2,ou=People,dc=example,dc=com",jsmith2,John Smith,Smith,John,jsmith2@evolveum.com,,"Correlating on mail (no employeeNumber here)"
+"uid=agreen3,ou=People,dc=example,dc=com",agreen3,Alice Green,Green,Alice,,,"Correlating on name (exact match)"
+"uid=rblack,ou=People,dc=example,dc=com",rblack,Robert Black,Black,Robert,,,"Correlating on name (disputed) - This is rblack4 but only insiders know it"
+"uid=bob,ou=People,dc=example,dc=com",bob,Bob Black,Black,Bob,,,"Alternative form of given name - hence he will not be correlated by the current algorithms"
+"uid=tesla,ou=People,dc=example,dc=com",tesla,Nikola Tesla,Tesla,Nikola,,,"Forgotten account (this man is no longer with us)"
+"uid=hacker,ou=People,dc=example,dc=com",hacker,Jim Hacker,Hacker,Jim,,,"Illegal account (security breach)"
+"uid=admin,ou=People,dc=example,dc=com",admin,OpenDJ Administrator,Administrator,,,,"Forgotten protected account (not matched by the rules in provisioning)"
+"uid=junior1,ou=People,dc=example,dc=com",junior1,Jack Junior,Junior,Jack,,,"Legal account, yet not in HR (part-time worker)"
