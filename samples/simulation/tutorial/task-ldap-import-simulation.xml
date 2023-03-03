@@ -1,0 +1,25 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      oid="9b83b53e-6b20-401f-8fae-b3ae7ce00049">
+    <name>ldap-import (simulation)</name>
+    <executionState>runnable</executionState>
+    <activity>
+        <work>
+            <import>
+                <resourceObjects>
+                    <resourceRef oid="80d0e843-906a-4bbe-b237-bd3568ec4169"/>
+                    <objectclass>ri:AccountObjectClass</objectclass>
+                </resourceObjects>
+            </import>
+        </work>
+        <execution>
+            <mode>preview</mode>
+            <configurationToUse>
+                <predefined>development</predefined>
+            </configurationToUse>
+        </execution>
+        <reporting>
+            <simulationResult/>
+        </reporting>
+    </activity>
+</task>

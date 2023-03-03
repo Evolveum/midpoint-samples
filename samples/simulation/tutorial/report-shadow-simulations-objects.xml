@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2010-2023 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<report xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        oid="a8d0afd0-a339-4ecd-b38e-723fe2219d3a">
+    <name>Simulation report: Shadows (objects)</name>
+    <objectCollection>
+        <collection>
+            <!-- Type is declared in the view element. -->
+            <filter>
+                <q:inOid>
+                    <c:expression>
+                        <c:script>
+                            <c:code>simulationResultRef?.oid</c:code>
+                        </c:script>
+                    </c:expression>
+                    <q:considerOwner>true</q:considerOwner>
+                </q:inOid>
+            </filter>
+        </collection>
+        <view>
+            <column>
+                <name>id</name>
+                <display>
+                    <label>ID</label>
+                </display>
+                <export>
+                    <expression>
+                        <script>
+                            <code>object.id</code>
+                        </script>
+                    </expression>
+                </export>
+            </column>
+            <column>
+                <name>oid</name>
+                <path>oid</path>
+                <display>
+                    <label>OID</label>
+                </display>
+                <previousColumn>id</previousColumn>
+            </column>
+            <column>
+                <name>name</name>
+                <path>name</path>
+                <previousColumn>oid</previousColumn>
+            </column>
+            <column>
+                <name>resourceRef</name>
+                <path>resourceObjectCoordinates/resourceRef</path>
+                <previousColumn>name</previousColumn>
+            </column>
+            <column>
+                <name>kind</name>
+                <path>resourceObjectCoordinates/kind</path>
+                <previousColumn>resourceRef</previousColumn>
+            </column>
+            <column>
+                <name>intent</name>
+                <path>resourceObjectCoordinates/intent</path>
+                <previousColumn>kind</previousColumn>
+            </column>
+            <column>
+                <name>tag</name>
+                <path>resourceObjectCoordinates/tag</path>
+                <previousColumn>intent</previousColumn>
+            </column>
+            <column>
+                <name>state</name>
+                <path>state</path>
+                <previousColumn>tag</previousColumn>
+            </column>
+            <column>
+                <name>effectiveMarkRef</name>
+                <path>effectiveMarkRef</path>
+                <display>
+                    <label>Shadow mark</label>
+                </display>
+                <previousColumn>state</previousColumn>
+            </column>
+            <column>
+                <name>eventMarkRef</name>
+                <previousColumn>effectiveMarkRef</previousColumn>
+                <export>
+                    <expression>
+                        <script>
+                            <code>
+                                report.getEffectiveMarkRefs(object.after ?: object.before)
+                            </code>
+                        </script>
+                    </expression>
+                </export>
+            </column>
+            <column>
+                <name>kindBefore</name>
+                <path>before/kind</path>
+                <display>
+                    <label>Kind before</label>
+                </display>
+                <previousColumn>eventMarkRef</previousColumn>
+            </column>
+            <column>
+                <name>kindAfter</name>
+                <path>after/kind</path>
+                <display>
+                    <label>Kind after</label>
+                </display>
+                <previousColumn>kindBefore</previousColumn>
+            </column>
+            <column>
+                <name>intentBefore</name>
+                <path>before/intent</path>
+                <display>
+                    <label>Intent before</label>
+                </display>
+                <previousColumn>kindAfter</previousColumn>
+            </column>
+            <column>
+                <name>intentAfter</name>
+                <path>after/intent</path>
+                <display>
+                    <label>Intent after</label>
+                </display>
+                <previousColumn>intentBefore</previousColumn>
+            </column>
+            <column>
+                <name>correlationSituationBefore</name>
+                <path>before/correlation/situation</path>
+                <display>
+                    <label>Correlation situation before</label>
+                </display>
+                <previousColumn>intentAfter</previousColumn>
+            </column>
+            <column>
+                <name>correlationSituationAfter</name>
+                <path>after/correlation/situation</path>
+                <display>
+                    <label>Correlation situation after</label>
+                </display>
+                <previousColumn>correlationSituationBefore</previousColumn>
+            </column>
+            <column>
+                <name>correlatedOwnerBefore</name>
+                <path>before/correlation/resultingOwner</path>
+                <display>
+                    <label>Correlated owner before</label>
+                </display>
+                <previousColumn>correlationSituationAfter</previousColumn>
+            </column>
+            <column>
+                <name>correlatedOwnerAfter</name>
+                <path>after/correlation/resultingOwner</path>
+                <display>
+                    <label>Correlated owner after</label>
+                </display>
+                <previousColumn>correlatedOwnerBefore</previousColumn>
+            </column>
+            <type>c:SimulationResultProcessedObjectType</type>
+        </view>
+        <parameter>
+            <name>simulationResultRef</name>
+            <type>c:ObjectReferenceType</type>
+            <targetType>SimulationResultType</targetType>
+            <display>
+                <label>Simulation result</label>
+            </display>
+        </parameter>
+    </objectCollection>
+</report>

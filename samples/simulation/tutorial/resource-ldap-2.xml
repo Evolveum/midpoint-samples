@@ -1,6 +1,7 @@
 <resource oid="80d0e843-906a-4bbe-b237-bd3568ec4169"
           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+          xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
           xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
     <name>ldap</name>
     <lifecycleState>proposed</lifecycleState>
@@ -21,4 +22,15 @@
             <icfi:uniqueAttribute>dn</icfi:uniqueAttribute>
         </icfc:configurationProperties>
     </connectorConfiguration>
+    <schemaHandling>
+        <objectType>
+            <kind>account</kind>
+            <intent>default</intent>
+            <default>true</default>
+            <delineation>
+                <!-- Would be inetOrgPerson on real LDAP -->
+                <objectClass>ri:AccountObjectClass</objectClass>
+            </delineation>
+        </objectType>
+    </schemaHandling>
 </resource>
