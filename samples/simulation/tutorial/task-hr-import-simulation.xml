@@ -1,7 +1,7 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-      oid="e44cd468-70e0-44b4-a25e-c26ccfdfb33d">
-    <name>hr-import (shadow management simulation)</name>
+      oid="8b169df3-3124-4e36-871f-83bb52acfd7b">
+    <name>hr-import (simulation)</name>
     <executionState>runnable</executionState>
     <activity>
         <work>
@@ -13,7 +13,7 @@
             </import>
         </work>
         <execution>
-            <mode>shadowManagementPreview</mode>
+            <mode>preview</mode>
             <configurationToUse>
                 <predefined>development</predefined>
             </configurationToUse>

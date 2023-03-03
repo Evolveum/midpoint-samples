@@ -1,7 +1,7 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-      oid="8b169df3-3124-4e36-871f-83bb52acfd7b">
-    <name>hr-import (full simulation)</name>
+      oid="904e4391-e128-4305-b3e7-0505d4008fea">
+    <name>hr-import (simulation, no result)</name>
     <executionState>runnable</executionState>
     <activity>
         <work>
@@ -12,12 +12,11 @@
                 </resourceObjects>
             </import>
         </work>
-        <executionMode>preview</executionMode>
         <execution>
+            <mode>preview</mode>
             <configurationToUse>
-                <productionConfiguration>false</productionConfiguration>
+                <predefined>development</predefined>
             </configurationToUse>
-            <createSimulationResult>true</createSimulationResult>
         </execution>
     </activity>
 </task>
