@@ -8,7 +8,6 @@
 <report xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         oid="a8d0afd0-a339-4ecd-b38e-723fe2219d3a">
     <name>Simulation report: Shadows (objects)</name>
     <objectCollection>
@@ -78,26 +77,31 @@
                 <previousColumn>tag</previousColumn>
             </column>
             <column>
-                <name>effectiveMarkRef</name>
-                <path>effectiveMarkRef</path>
-                <display>
-                    <label>Shadow mark</label>
-                </display>
+                <name>eventMarkRef</name>
+                <path>eventMarkRef</path>
                 <previousColumn>state</previousColumn>
             </column>
-            <column>
-                <name>eventMarkRef</name>
-                <previousColumn>effectiveMarkRef</previousColumn>
-                <export>
-                    <expression>
-                        <script>
-                            <code>
-                                report.getEffectiveMarkRefs(object.after ?: object.before)
-                            </code>
-                        </script>
-                    </expression>
-                </export>
-            </column>
+            <!--<column>-->
+            <!--    <name>effectiveMarkRef</name>-->
+            <!--    <path>effectiveMarkRef</path>-->
+            <!--    <display>-->
+            <!--        <label>Shadow mark</label>-->
+            <!--    </display>-->
+            <!--    <previousColumn>state</previousColumn>-->
+            <!--</column>-->
+            <!--<column>-->
+            <!--    <name>eventMarkRef</name>-->
+            <!--    <previousColumn>effectiveMarkRef</previousColumn>-->
+            <!--    <export>-->
+            <!--        <expression>-->
+            <!--            <script>-->
+            <!--                <code>-->
+            <!--                    report.getEffectiveMarkRefs(object.after ?: object.before)-->
+            <!--                </code>-->
+            <!--            </script>-->
+            <!--        </expression>-->
+            <!--    </export>-->
+            <!--</column>-->
             <column>
                 <name>kindBefore</name>
                 <path>before/kind</path>
@@ -147,12 +151,28 @@
                 <previousColumn>correlationSituationBefore</previousColumn>
             </column>
             <column>
+                <name>synchronizationSituationBefore</name>
+                <path>before/correlation/situation</path>
+                <display>
+                    <label>Synchronization situation before</label>
+                </display>
+                <previousColumn>correlationSituationAfter</previousColumn>
+            </column>
+            <column>
+                <name>synchronizationSituationAfter</name>
+                <path>after/correlation/situation</path>
+                <display>
+                    <label>Synchronization situation after</label>
+                </display>
+                <previousColumn>synchronizationSituationBefore</previousColumn>
+            </column>
+            <column>
                 <name>correlatedOwnerBefore</name>
                 <path>before/correlation/resultingOwner</path>
                 <display>
                     <label>Correlated owner before</label>
                 </display>
-                <previousColumn>correlationSituationAfter</previousColumn>
+                <previousColumn>synchronizationSituationAfter</previousColumn>
             </column>
             <column>
                 <name>correlatedOwnerAfter</name>

@@ -1,0 +1,16 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      oid="266d9391-8095-45a7-b852-5d1032652705">
+    <name>ldap-import</name>
+    <executionState>runnable</executionState>
+    <activity>
+        <work>
+            <import>
+                <resourceObjects>
+                    <resourceRef oid="80d0e843-906a-4bbe-b237-bd3568ec4169"/>
+                    <objectclass>ri:AccountObjectClass</objectclass>
+                </resourceObjects>
+            </import>
+        </work>
+    </activity>
+</task>
