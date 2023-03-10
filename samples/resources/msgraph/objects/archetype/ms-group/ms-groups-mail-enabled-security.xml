@@ -25,32 +25,7 @@
         </assignmentRelation>
     </assignment>
 
-    // Construction not permitted, API restriction
-
-    <inducement>
-        <construction>
-            <resourceRef oid="042f4119-1ee9-4f09-b6bc-7a0846d45ac6" type="c:ResourceType"/>
-            <kind>account</kind>
-            <intent>default</intent>
-            <association>
-                <ref>ri:group</ref>
-                <outbound>
-                    <strength>strong</strength>
-                    <expression>
-                        <associationFromLink>
-                            <projectionDiscriminator>
-                                <kind>entitlement</kind>
-                                <intent>group</intent>
-                            </projectionDiscriminator>
-                        </associationFromLink>
-                    </expression>
-                </outbound>
-            </association>
-            <strength>weak</strength><!-- XXX Do not create account just because it has role assigned -->
-        </construction>
-        <focusType>c:UserType</focusType>
-        <order>2</order>
-    </inducement>
+    <!--// Construction nor association permitted, API restriction-->
 
     <requestable>false</requestable>
 
