@@ -1,0 +1,54 @@
+<!--
+  ~ Copyright (c) 2010-2023 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      oid="3b1c4d23-8155-4268-bf82-62b4c27dd51d" >
+      <name>Modify Default System Configuration - Replace Global Security Poicy</name>
+        <executionState>runnable</executionState>
+        <activity>
+            <work>
+                <nonIterativeScripting>
+                    <scriptExecutionRequest>
+                        <s:search xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
+                            <s:type>SystemConfigurationType</s:type>
+                            <s:searchFilter>
+                                <q:inOid>
+                                    <q:value>00000000-0000-0000-0000-000000000001</q:value>
+                                </q:inOid>
+                            </s:searchFilter>
+                            <s:action>
+                                <s:type>modify</s:type>
+                                <s:parameter>
+                                    <s:name>delta</s:name>
+                                    <c:value xsi:type="t:ObjectDeltaType">
+                                        <t:changeType>modify</t:changeType>
+                                        <t:itemDelta>
+                                            <t:modificationType>replace</t:modificationType>
+                                            <t:path>globalSecurityPolicyRef</t:path>
+                                            <t:value oid="b6576622-db77-4cbd-a6ff-e59e32947cc7"  type="c:SecurityPolicyType"/>
+                                        </t:itemDelta>
+                                    </c:value>
+                                </s:parameter>
+                            </s:action>
+                        </s:search>
+                    </scriptExecutionRequest>
+                </nonIterativeScripting>
+            </work>
+        </activity>
+</task>
