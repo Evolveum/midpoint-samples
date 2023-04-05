@@ -15,7 +15,7 @@
     </connectorRef>
     <connectorConfiguration xmlns:icfi="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
         <icfc:configurationProperties>
-            <icfi:filePath>D:\evo\git\midpoint-samples\samples\simulation\tutorial\hr.csv</icfi:filePath>
+            <icfi:filePath>~/sim-tutorial/hr.csv</icfi:filePath>
             <icfi:encoding>utf-8</icfi:encoding>
             <icfi:fieldDelimiter>,</icfi:fieldDelimiter>
             <icfi:multivalueDelimiter>;</icfi:multivalueDelimiter>
@@ -23,13 +23,34 @@
         </icfc:configurationProperties>
     </connectorConfiguration>
     <schemaHandling>
-        <!-- We want to use custom intent for accounts corresponding to persons -->
         <objectType>
             <kind>account</kind>
             <intent>person</intent>
-            <default>true</default>
             <delineation>
                 <objectClass>ri:AccountObjectClass</objectClass>
+                <filter>
+                    <q:description>Everyone with non-empty last name is a person</q:description>
+                    <q:not>
+                        <q:equal>
+                            <q:path>attributes/ri:lastname</q:path>
+                            <!-- empty value -->
+                        </q:equal>
+                    </q:not>
+                </filter>
+            </delineation>
+        </objectType>
+        <objectType>
+            <kind>account</kind>
+            <intent>default</intent>
+            <delineation>
+                <objectClass>ri:AccountObjectClass</objectClass>
+                <filter>
+                    <q:description>Everyone with empty last name is not a person</q:description>
+                    <q:equal>
+                        <q:path>attributes/ri:lastname</q:path>
+                        <!-- empty value -->
+                    </q:equal>
+                </filter>
             </delineation>
         </objectType>
     </schemaHandling>

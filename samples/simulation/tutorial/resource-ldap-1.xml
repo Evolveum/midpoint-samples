@@ -14,7 +14,7 @@
     </connectorRef>
     <connectorConfiguration xmlns:icfi="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
         <icfc:configurationProperties>
-            <icfi:filePath>D:\evo\git\midpoint-samples\samples\simulation\tutorial\ldap.csv</icfi:filePath>
+            <icfi:filePath>~/sim-tutorial/ldap.csv</icfi:filePath>
             <icfi:encoding>utf-8</icfi:encoding>
             <icfi:fieldDelimiter>,</icfi:fieldDelimiter>
             <icfi:multivalueDelimiter>;</icfi:multivalueDelimiter>
