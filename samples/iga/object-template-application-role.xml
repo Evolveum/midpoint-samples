@@ -1,0 +1,55 @@
+<!--
+  ~ Copyright (c) 2023 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                oid="cd0affb8-c8e3-4771-a5ca-031de1969b9e">
+
+    <name>Application role template</name>
+    <description>Initial object template for application role</description>
+
+    <!-- ordering and displaying of items on page -->
+    <!-- General container -->
+    <item>
+        <ref>name</ref>
+        <help>Identification of the application role. &lt;br&gt;
+            Name must be unique among all roles (all types of roles) in midPoint.</help>
+        <displayOrder>10</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+    <item>
+        <ref>displayName</ref>
+        <help>Readable name of the application role. Will be displayed in most places instead of name.
+            If not filled in, then name is displayed. Doesn't have to be unique.</help>
+        <displayOrder>20</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+    <item>
+        <ref>description</ref>
+        <help>Description of the application role that can be useful for users.</help>
+        <displayOrder>30</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+    <item>
+        <ref>riskLevel</ref>
+        <help>Indication of the level of risk that assignment of this role represents.</help>
+        <displayOrder>50</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+    <item>
+        <ref>requestable</ref>
+        <help>If set to true, this application may be requested by users.</help>
+        <displayOrder>60</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+    <item>
+        <ref>jpegPhoto</ref>
+        <displayName>Application role icon</displayName>
+        <help>Icon of the application role.</help>
+        <displayOrder>70</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+
+</objectTemplate>
