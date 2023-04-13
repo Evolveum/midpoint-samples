@@ -1,0 +1,68 @@
+<!--
+  ~ Copyright (c) 2010-2023 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<task xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      oid="0d65a851-0cf6-40da-a430-ff3bde14d432">
+
+    <name>Resume task in case of suspended state</name>
+
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000509" type="ArchetypeType"/>
+    </assignment>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" type="UserType"/>
+    <executionState>runnable</executionState>
+    <schedule>
+        <recurrence>recurring</recurrence>
+        <interval>3600</interval>
+        <misfireAction>executeImmediately</misfireAction>
+    </schedule>
+    <activity>
+        <work>
+            <iterativeScripting>
+                <objects>
+                    <type>TaskType</type>
+                    <query>
+                        <q:filter>
+                            <q:and>
+                                <q:substring>
+                                    <q:path>name</q:path>
+                                    <q:value>Reconciliation Task</q:value>
+                                    <q:anchorStart>true</q:anchorStart>
+                                </q:substring>
+                                <q:equal>
+                                    <q:path>schedulingState</q:path>
+                                    <q:value>suspended</q:value>
+                                </q:equal>
+                            </q:and>
+                        </q:filter>
+                    </query>
+                </objects>
+                <scriptExecutionRequest>
+                    <s:execute>
+                        <s:script>
+                            <code>
+                                log.info('About to resume suspended task {}', input)
+                                midpoint.taskManager.resumeTask(input.getOid(), midpoint.currentResult)
+                            </code>
+                        </s:script>
+                    </s:execute>
+                </scriptExecutionRequest>
+            </iterativeScripting>
+        </work>
+    </activity>
+</task>
