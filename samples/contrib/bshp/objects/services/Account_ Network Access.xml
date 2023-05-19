@@ -21,7 +21,7 @@
       <displayName>Account: Network Access</displayName>
       <inducement id="6">
          <construction>
-            <resourceRef oid="resource-AdLdap1" relation="org:default" type="c:ResourceType"/>
+            <resourceRef oid="a2fbe299-3fab-402a-b643-ead607133fae" relation="org:default" type="c:ResourceType"/>
             <kind>account</kind>
             <intent>default</intent>
          </construction>
@@ -46,5 +46,5 @@
       <requestable>false</requestable>
       <delegable>false</delegable>
       <riskLevel>MODERATE</riskLevel>
-      <serviceType>entitlement</serviceType>
+      <subtype>entitlement</subtype>
    </service>

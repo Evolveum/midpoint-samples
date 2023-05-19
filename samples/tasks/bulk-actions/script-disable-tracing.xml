@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2010-2018 Evolveum
+  ~ Copyright (c) 2010-2021 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -15,40 +15,28 @@
   -->
 
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
-      xmlns:scext="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
     <name>Disable global tracing</name>
-    <executionStatus>runnable</executionStatus>
-    <extension>
-        <scext:executeScript>
-            <s:action>
-                <s:type>execute-script</s:type>
-                <s:parameter>
-                    <s:name>script</s:name>
-                    <c:value xsi:type="c:ScriptExpressionEvaluatorType">
-                        <c:code>
-                            import com.evolveum.midpoint.wf.impl.processes.common.SpringApplicationContextHolder
-                            import com.evolveum.midpoint.task.api.TaskManager
-                            SpringApplicationContextHolder.getBean("taskManager", TaskManager.class)
-                                    .removeGlobalTracingOverride()
-                        </c:code>
-                    </c:value>
-                </s:parameter>
-                <s:parameter>
-                    <s:name>forWholeInput</s:name>
-                    <c:value>true</c:value>
-                </s:parameter>
-            </s:action>
-        </scext:executeScript>
-    </extension>
-    <ownerRef oid="00000000-0000-0000-0000-000000000002" />
-    <category>BulkActions</category>
-    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/scripting/handler-3</handlerUri>
-    <recurrence>single</recurrence>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
+    <executionState>runnable</executionState>
+    <activity>
+        <work>
+            <nonIterativeScripting>
+                <scriptExecutionRequest>
+                    <s:execute>
+                        <s:script>
+                            <code>
+                                import com.evolveum.midpoint.wf.impl.processes.common.SpringApplicationContextHolder
+                                import com.evolveum.midpoint.task.api.TaskManager
+
+                                SpringApplicationContextHolder.getBean("taskManager", TaskManager.class)
+                                    .unsetGlobalTracingOverride()
+                            </code>
+                        </s:script>
+                        <s:forWholeInput>true</s:forWholeInput>
+                    </s:execute>
+                </scriptExecutionRequest>
+            </nonIterativeScripting>
+        </work>
+    </activity>
 </task>

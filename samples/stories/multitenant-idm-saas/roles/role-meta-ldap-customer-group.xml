@@ -21,7 +21,6 @@
 <role oid="31ea66ac-1a8e-11e5-8ab8-001e8c717e5b"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
         xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
     <name>Create Custom Customer LDAP Group Metarole</name>
 
@@ -41,18 +40,18 @@
             <kind>account</kind>
             <intent>default</intent>
             <association>
-            <ref>ri:group</ref>
-            <outbound>
-                <expression>
-                    <associationFromLink>
-                        <projectionDiscriminator>
-                            <kind>entitlement</kind>
-                            <intent>group-custom</intent>
-                        </projectionDiscriminator>
-                    </associationFromLink>
-                </expression>
-            </outbound>
-        </association>
+                <ref>ri:group</ref>
+                <outbound>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator>
+                                <kind>entitlement</kind>
+                                <intent>group-custom</intent>
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
+            </association>
         </construction>
         <order>2</order>
     </inducement>
@@ -88,5 +87,5 @@
             </mapping>
         </focusMappings>
     </inducement>
-    <roleType>customer</roleType>
+    <subtype>customer</subtype>
 </role>

@@ -38,5 +38,5 @@
       <requestable>false</requestable>
       <delegable>false</delegable>
       <riskLevel>MODERATE</riskLevel>
-      <serviceType>entitlement</serviceType>
+      <subtype>entitlement</subtype>
    </service>

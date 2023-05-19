@@ -31,6 +31,6 @@
             <order>2</order>
         </inducement>
         <requestable>false</requestable>
-        <roleType>smartrecruiters</roleType>
+        <subtype>smartrecruiters</subtype>
     </role>
 </objects>

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2010-2020 Evolveum and contributors
+ * Copyright (C) 2010-2022 Evolveum and contributors
  *
  * This work is dual-licensed under the Apache License 2.0
  * and European Union Public License. See LICENSE file for details.
@@ -10,7 +10,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
 import java.util.Objects;
 
 import org.testng.Assert;
@@ -99,7 +98,20 @@ public class TestSamples extends AbstractSampleTest {
         }
     }
 
+    // TODO: This is rather primitive now, as there is no indication of which of the objects is wrong.
+    // Possibly something like DomLexicalProcessor.readObjects could be utilized, but we need to know
+    // the language in advance or have the source where detection is possible (e.g. String).
+    // This is all possible, which leads us to another question:
+    // Why only XML samples are checked? (At least it seems so from CHECK_PATTERNS constant above.)
     private void parseObjectsElements(File file, Element topElement) throws SchemaException {
+        try {
+            prismContext.parserFor(file)
+                    .strict()
+                    .parseObjects();
+        } catch (Exception e) {
+            throw new SchemaException("Error parsing " + file.getPath() + ": " + e.getMessage(), e);
+        }
+        /* Original code that did not apply namespaces from the root <objects> to sub-objects:
         List<Element> objectElements = DOMUtil.listChildElements(topElement);
         for (int i = 0; i < objectElements.size(); i++) {
             try {
@@ -108,10 +120,11 @@ public class TestSamples extends AbstractSampleTest {
                         .parserFor(objectElements.get(i))
                         .strict()
                         .parse();
-            } catch (SchemaException e) {
+            } catch (Exception e) {
                 throw new SchemaException("Error parsing " + file.getPath() + ", element " + objectElements.get(i).getLocalName() + " (#" + (i + 1) + "): " + e.getMessage(), e);
             }
         }
+        */
     }
 
     private void parseObjectFile(File file) throws SchemaException {
@@ -130,7 +143,7 @@ public class TestSamples extends AbstractSampleTest {
     private void validate(File file) throws FileNotFoundException {
         System.out.println("===> Validating file " + file.getPath());
 
-        EventHandler handler = new EventHandler() {
+        EventHandler<Objectable> handler = new EventHandler<>() {
 
             @Override
             public EventResult preMarshall(Element objectElement, Node postValidationTree,
@@ -139,12 +152,15 @@ public class TestSamples extends AbstractSampleTest {
             }
 
             @Override
-            public <T extends Objectable> EventResult postMarshall(PrismObject<T> object, Element objectElement,
+            public EventResult postMarshall(Objectable object, Element objectElement,
                     OperationResult objectResult) {
 
                 // Try to marshall it back. This may detect some JAXB misconfiguration problems.
                 try {
-                    String serializedString = PrismTestUtil.serializeObjectToString(object, PrismContext.LANG_XML);
+                    //noinspection unchecked
+                    String serializedString =
+                            PrismTestUtil.serializeObjectToString(
+                                    object.asPrismObject(), PrismContext.LANG_XML);
                 } catch (SchemaException e) {
                     objectResult.recordFatalError("Object serialization failed", e);
                 }
@@ -159,7 +175,7 @@ public class TestSamples extends AbstractSampleTest {
 
         };
 
-        LegacyValidator validator = new LegacyValidator(PrismTestUtil.getPrismContext());
+        LegacyValidator<Objectable> validator = new LegacyValidator<>(PrismTestUtil.getPrismContext());
         validator.setVerbose(false);
         validator.setAllowAnyType(true);
         validator.setHandler(handler);

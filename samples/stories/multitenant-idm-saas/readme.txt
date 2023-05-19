@@ -15,7 +15,7 @@ OpenLDAP (assumed the "ou=customers,dc=example,dc=com" already exists!):
 4) group: cn=<customerName>-powerusers,ou=<customerName>,ou=customers,dc=example,dc=com
 
 For each user from CSV, user with identifier <name> will be created in
-midPoint, employeeType will be set to "customer-admin", which causes the
+midPoint, subtype will be set to "customer-admin", which causes the
 following to be automatically assigned in midPoint:
 1) organization <customerName> (member)
 2) organization <customerName> (manager)
@@ -62,13 +62,13 @@ and select "Create member" and confirm "UserType" to open new user form
   - name (this is midPoint login and OpenLDAP uid attribute)
   - givenName
   - familyName
-  - employeeType: click to the field and choose either customer-admin or
+  - subtype: click to the field and choose either customer-admin or
   customer-user
   - emailAddress: to send (simulate sending) notification with initial password
   - password
 - save the form
 
-Based on the employeeType setting, user will be created either as
+Based on the subtype setting, user will be created either as
 administrator or normal user:
 
 1) assigned organization <customerName> (member) (for both customer-admin and
@@ -88,11 +88,11 @@ cn=<customerName>-users,ou=<customerName>,ou=customers,dc=example,dc=com (for
 both customer-admin and customer-user)
 
 To modify user, certain attributes can be modified from within midPoint, such
-as givenName, familyName, name, employeeType, password etc. Some attributes
+as givenName, familyName, name, subtype, password etc. Some attributes
 will be computed by midPoint (fullName) and cannot be edited directly.
 
 To change the permissions from customer-admin to customer-user and vice-versa,
-change the employeeType attribute value in midPoint. Groups and organization
+change the subtype attribute value in midPoint. Groups and organization
 will be automatically (un)assigned based on this setting.
 
 To assign user a different role using midPoint, click on the user and switch
@@ -110,7 +110,7 @@ Role", the membership of the following group will be updated:
 1) group: cn=<customerName>-powerusers,ou=<customerName>,ou=customers,dc=example,dc=com
 
 You can assign the Customer Admin Role to the normal user if you wish, but
-this role is automatically assigned/unassigned based on employeeType attribute
+this role is automatically assigned/unassigned based on subtype attribute
 value.
 
 To rename the account, edit the user and change "name" attribute. The account

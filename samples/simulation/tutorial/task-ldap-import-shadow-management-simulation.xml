@@ -1,0 +1,25 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      oid="8648b50d-8051-4a60-a0d3-11ca1c63aaff">
+    <name>ldap-import (shadow management simulation)</name>
+    <executionState>runnable</executionState>
+    <activity>
+        <work>
+            <import>
+                <resourceObjects>
+                    <resourceRef oid="80d0e843-906a-4bbe-b237-bd3568ec4169"/>
+                    <objectclass>ri:AccountObjectClass</objectclass>
+                </resourceObjects>
+            </import>
+        </work>
+        <execution>
+            <mode>shadowManagementPreview</mode>
+            <configurationToUse>
+                <predefined>development</predefined>
+            </configurationToUse>
+        </execution>
+        <reporting>
+            <simulationResult/>
+        </reporting>
+    </activity>
+</task>

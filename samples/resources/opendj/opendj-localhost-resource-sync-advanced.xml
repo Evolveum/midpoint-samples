@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2017 Evolveum
+  ~ Copyright (C) 2010-2021 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -497,9 +497,10 @@ object.
         </extension>
         <!-- This is generic object, it must have an "application level" type.
              However, this is not used in the current business logic. Can be anything. -->
-        <objectType>http://myself.me/schemas/objects#SampleConfigType</objectType>
+        <subtype>http://myself.me/schemas/objects#SampleConfigType</subtype>
     </genericObject>
 
+    <!-- TODO convert to activities (4.4) -->
     <task oid="91919191-76e0-59e2-86d6-3d4f02d3ffff">
         <name>Synchronization: Embedded Test OpenDJ</name>
         <description>

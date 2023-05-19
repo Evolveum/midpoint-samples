@@ -39,7 +39,7 @@
             <path>extension/ext:orgpath</path>
         </source>
         <source>
-            <path>orgType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -80,7 +80,7 @@
                             <value>replicated</value>
                         </expression>
                         <target>
-                            <path>orgType</path>
+                            <path>subtype</path>
                         </target>
                     </populateItem>
                     <populateItem>
@@ -103,7 +103,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'replicated'</code>
+                <code>subtype == 'replicated'</code>
             </script>
         </condition>
     </mapping>
@@ -116,7 +116,7 @@
         <authoritative>true</authoritative>
         <strength>strong</strength>
         <source>
-            <path>orgType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -129,7 +129,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'replicated'</code>
+                <code>subtype == 'replicated'</code>
             </script>
         </condition>
     </mapping>

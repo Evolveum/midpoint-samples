@@ -1,0 +1,53 @@
+<resource oid="80d0e843-906a-4bbe-b237-bd3568ec4169"
+          xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+          xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+          xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+    <name>ldap</name>
+    <lifecycleState>proposed</lifecycleState>
+    <connectorRef type="ConnectorType">
+        <filter>
+            <q:equal>
+                <q:path>connectorType</q:path>
+                <q:value>com.evolveum.polygon.connector.csv.CsvConnector</q:value>
+            </q:equal>
+        </filter>
+    </connectorRef>
+    <connectorConfiguration xmlns:icfi="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
+        <icfc:configurationProperties>
+            <icfi:filePath>~/sim-tutorial/ldap.csv</icfi:filePath>
+            <icfi:encoding>utf-8</icfi:encoding>
+            <icfi:fieldDelimiter>,</icfi:fieldDelimiter>
+            <icfi:multivalueDelimiter>;</icfi:multivalueDelimiter>
+            <icfi:uniqueAttribute>dn</icfi:uniqueAttribute>
+        </icfc:configurationProperties>
+    </connectorConfiguration>
+    <schemaHandling>
+        <objectType>
+            <kind>account</kind>
+            <intent>default</intent>
+            <default>true</default>
+            <delineation>
+                <!-- Would be inetOrgPerson on real LDAP -->
+                <objectClass>ri:AccountObjectClass</objectClass>
+            </delineation>
+            <attribute>
+                <ref>ri:employeeNumber</ref>
+                <correlator/>
+                <inbound>
+                    <target>
+                        <path>employeeNumber</path>
+                    </target>
+                    <!-- This is a kind of hack. We want to correlate on this attribute by a simple mapping but do not want
+                         to use it to really modify the focus. This may happen for correlation attributes on non-authoritative
+                         resources (e.g. target ones, or "auxiliary" source ones). -->
+                    <evaluationPhases>
+                        <include>beforeCorrelation</include>
+                        <exclude>clockwork</exclude>
+                    </evaluationPhases>
+                </inbound>
+            </attribute>
+            <synchronization/> <!-- no reactions, just the correlation -->
+        </objectType>
+    </schemaHandling>
+</resource>

@@ -1489,9 +1489,7 @@
          <retrievalTimestamp>2017-09-18T13:56:53.756+02:00</retrievalTimestamp>
          <serialNumber>67e225a63d887ea8-1088eef641ec72d1</serialNumber>
       </cachingMetadata>
-      <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:type="c:CapabilityCollectionType">
+      <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
          <cap:addRemoveAttributeValues/>
          <cap:testConnection/>
          <cap:create/>
@@ -1504,9 +1502,7 @@
             </cap:host>
          </cap:script>
       </native>
-      <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3"
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:type="c:CapabilityCollectionType">
+      <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
          <cap:addRemoveAttributeValues>
             <cap:enabled>true</cap:enabled>
          </cap:addRemoveAttributeValues>
@@ -1549,9 +1545,6 @@
          <reaction>
             <situation>linked</situation>
             <synchronize>true</synchronize>
-            <action>
-               <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyFocus</handlerUri>
-            </action>
          </reaction>
          <reaction>
             <situation>deleted</situation>
@@ -1595,9 +1588,6 @@
          <reaction>
             <situation>linked</situation>
             <synchronize>true</synchronize>
-            <action>
-               <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyFocus</handlerUri>
-            </action>
          </reaction>
          <reaction>
             <situation>deleted</situation>
@@ -1641,9 +1631,6 @@
          <reaction>
             <situation>linked</situation>
             <synchronize>true</synchronize>
-            <action>
-               <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#modifyFocus</handlerUri>
-            </action>
          </reaction>
          <reaction>
             <situation>deleted</situation>

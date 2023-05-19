@@ -38,4 +38,11 @@ oid="056e6f8c-23bd-43e3-93e2-5b0decba7ad0">
             </q:exists>
         </q:and>
     </filter>
+    <getOptions>
+        <option>
+            <options>
+                <noFetch>true</noFetch>
+            </options>
+        </option>
+    </getOptions>
 </objectCollection>

@@ -1,12 +1,12 @@
-<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-	xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" 
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
-	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
-	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
-	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
-	xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3"
+	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+	xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	oid="template-defaultRegistryCourse">
       <name>Org Template - New Registry Course</name>
       <description>
@@ -32,7 +32,7 @@
          <expression>
             <assignmentTargetSearch>
                <targetType>c:RoleType</targetType>
-               <oid>metarole-registryCourses</oid>
+               <oid>159cd4a7-28b1-4ae0-8194-d1606c340206</oid>
             </assignmentTargetSearch>
          </expression>
          <target>
@@ -46,7 +46,7 @@
 			<value>Course Group</value>
          </expression>
          <target>
-            <c:path>$focus/orgType</c:path>
+            <c:path>$focus/subtype</c:path>
          </target>
       </mapping>
       <mapping>

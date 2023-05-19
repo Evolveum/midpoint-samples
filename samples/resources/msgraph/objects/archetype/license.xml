@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype oid="000b1483-4d32-4bba-9089-053e2d4884e1"
+           xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>License</name>
+    <description>MS License</description>
+    <archetypePolicy>
+        <display>
+            <label>License</label>
+            <pluralLabel>Licenses</pluralLabel>
+            <tooltip>License</tooltip>
+            <icon>
+                <cssClass>fa fa-user-circle-o</cssClass>
+                <!-- HEXA, blue color -->
+                <color>#1c57ed</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+    <assignment>
+        <assignmentRelation>
+            <holderType>ServiceType</holderType>
+        </assignmentRelation>
+    </assignment>
+
+    <inducement>
+        <construction>
+            <resourceRef oid="042f4119-1ee9-4f09-b6bc-7a0846d45ac6" type="c:ResourceType"/>
+            <attribute>
+                <ref>ri:assignedLicenses.skuId</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <source>
+                        <c:path>$immediateRole/identifier</c:path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>
+                                return identifier
+                            </code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <strength>weak</strength>
+        </construction>
+        <focusType>c:UserType</focusType>
+        <order>2</order>
+    </inducement>
+</archetype>
+
+
+        <!--  TODO, Add to system config
+
+
+                    <objectCollectionView>
+
+                        <identifier>license-view</identifier>
+
+                        <displayOrder>20</displayOrder>
+
+                        <type>ServiceType</type>
+
+                        <collection>
+
+                            <collectionRef oid="000b1483-4d32-4bba-9089-053e2d4884e1" relation="org:default" type="c:ArchetypeType"/>
+
+                        </collection>
+
+                    </objectCollectionView>
+
+         -->

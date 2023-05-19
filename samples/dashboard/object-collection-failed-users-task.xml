@@ -5,7 +5,7 @@ oid="bd07ddc9-fc58-4bd8-9ff3-ee796469c95e">
     <filter>
         <q:and>
             <q:equal>
-                <q:path>operationExecution/tastRef</q:path>
+                <q:path>operationExecution/taskRef</q:path>
                 <q:value>c570786d-e2f9-447d-9023-98ff63dfd88e</q:value>
             </q:equal>
             <q:equal>

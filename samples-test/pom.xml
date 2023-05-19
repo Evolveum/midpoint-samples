@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (C) 2010-2020 Evolveum and contributors
+  ~ Copyright (C) 2010-2022 Evolveum and contributors
   ~
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>samples-test</artifactId>
     <groupId>com.evolveum.midpoint</groupId>
-    <version>4.3-SNAPSHOT</version>
+    <version>4.8-SNAPSHOT</version>
 
     <name>midPoint Samples - Test</name>
 
@@ -51,18 +49,18 @@
     <dependencies>
         <!-- TEST dependency -->
         <dependency>
-            <groupId>com.evolveum.midpoint.infra</groupId>
+            <groupId>com.evolveum.commons</groupId>
             <artifactId>util</artifactId>
             <version>${midpoint.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.evolveum.midpoint.infra</groupId>
+            <groupId>com.evolveum.prism</groupId>
             <artifactId>prism-api</artifactId>
             <version>${midpoint.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.evolveum.midpoint.infra</groupId>
+            <groupId>com.evolveum.prism</groupId>
             <artifactId>prism-impl</artifactId>
             <version>${midpoint.version}</version>
             <scope>test</scope>
@@ -110,7 +108,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.evolveum.midpoint.tools</groupId>
+            <groupId>com.evolveum.commons</groupId>
             <artifactId>test-ng</artifactId>
             <version>${midpoint.version}</version>
             <scope>test</scope>
@@ -135,7 +133,7 @@
         </dependency>
         <dependency>
             <groupId>com.evolveum.midpoint.repo</groupId>
-            <artifactId>audit-impl</artifactId>
+            <artifactId>audit-log-impl</artifactId>
             <version>${midpoint.version}</version>
             <scope>test</scope>
         </dependency>

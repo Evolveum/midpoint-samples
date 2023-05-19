@@ -279,7 +279,7 @@
                         <value>SAP-ActivityGroup</value>
                     </expression>
                     <target>
-                        <c:path>roleType</c:path>
+                        <c:path>subtype</c:path>
                     </target>
                 </inbound>
             </attribute>
@@ -328,7 +328,7 @@
                         <value>SAP-Group</value>
                     </expression>
                     <target>
-                        <c:path>roleType</c:path>
+                        <c:path>subtype</c:path>
                     </target>
                 </inbound>
             </attribute>
@@ -370,7 +370,7 @@
                         <value>SAP-Profile</value>
                     </expression>
                     <target>
-                        <c:path>roleType</c:path>
+                        <c:path>subtype</c:path>
                     </target>
                 </inbound>
             </attribute>

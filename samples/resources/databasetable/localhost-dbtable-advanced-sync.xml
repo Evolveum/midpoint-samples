@@ -331,6 +331,8 @@ This resource definition contains also definition to enable synchronization.
         </mapping>
 
     </objectTemplate>
+
+    <!-- TODO convert to activities (4.4) -->
     <task oid="91919191-76e0-59e2-8787-3d4f02d3ffff">
         <name>Synchronization: DBTable</name>
         <description>

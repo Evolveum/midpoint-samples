@@ -1,0 +1,57 @@
+<resource oid="236dd5ca-47df-403c-82e1-9ce2f36be000"
+          xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+          xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+          xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+    <name>hr</name>
+    <lifecycleState>proposed</lifecycleState>
+    <connectorRef type="ConnectorType">
+        <filter>
+            <q:equal>
+                <q:path>connectorType</q:path>
+                <q:value>com.evolveum.polygon.connector.csv.CsvConnector</q:value>
+            </q:equal>
+        </filter>
+    </connectorRef>
+    <connectorConfiguration xmlns:icfi="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
+        <icfc:configurationProperties>
+            <icfi:filePath>~/sim-tutorial/hr.csv</icfi:filePath>
+            <icfi:encoding>utf-8</icfi:encoding>
+            <icfi:fieldDelimiter>,</icfi:fieldDelimiter>
+            <icfi:multivalueDelimiter>;</icfi:multivalueDelimiter>
+            <icfi:uniqueAttribute>ident</icfi:uniqueAttribute>
+        </icfc:configurationProperties>
+    </connectorConfiguration>
+    <schemaHandling>
+        <objectType>
+            <kind>account</kind>
+            <intent>person</intent>
+            <delineation>
+                <objectClass>ri:AccountObjectClass</objectClass>
+                <filter>
+                    <q:description>Everyone with non-empty last name is a person</q:description>
+                    <q:not>
+                        <q:equal>
+                            <q:path>attributes/ri:lastname</q:path>
+                            <!-- empty value -->
+                        </q:equal>
+                    </q:not>
+                </filter>
+            </delineation>
+        </objectType>
+        <objectType>
+            <kind>account</kind>
+            <intent>default</intent>
+            <delineation>
+                <objectClass>ri:AccountObjectClass</objectClass>
+                <filter>
+                    <q:description>Everyone with empty last name is not a person</q:description>
+                    <q:equal>
+                        <q:path>attributes/ri:lastname</q:path>
+                        <!-- empty value -->
+                    </q:equal>
+                </filter>
+            </delineation>
+        </objectType>
+    </schemaHandling>
+</resource>

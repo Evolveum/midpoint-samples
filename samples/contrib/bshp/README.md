@@ -8,7 +8,7 @@ The objects were exported using the Eclipse plugin for midPoint and maintains th
 Active Directory and OpenDJ synchronization of users, groups, organizational units (inbound and outbound).
 There are some little unique things, the way it created the AD Groups in midPoint,
 some groups are roles that are prefixed with 'Domain Group:' and then course specific
-groups are imported as orgTypes, both with createOnDemand.
+groups are imported as subtype, both with createOnDemand.
 
 Most of the assignments are automatic using rules and policies.
 If you take a look at the [Metarole_ Affiliations Policy.xml](https://github.com/JasonEverling/midpoint-samples/blob/master/samples/contrib/bshp/objects/roles/Metarole_%20Affiliations%20Policy.xml)
@@ -27,4 +27,3 @@ The archiving of the `username` attribute allows us to ensure that a new usernam
 if it does get changes which is rare for us, doesn't ever get assigned again.
 
 There are much more examples and usages to explore in these samples, give them a look see.
- 

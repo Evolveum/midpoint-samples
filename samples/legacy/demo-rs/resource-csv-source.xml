@@ -157,7 +157,7 @@ object.
                     <displayName>Type</displayName>
                     <inbound>
                         <target>
-                            <path>$user/employeeType</path>
+                            <path>$user/subtype</path>
                         </target>
                     </inbound>
                 </attribute>
@@ -264,21 +264,31 @@ object.
         </synchronization>
     </c:resource>
 
-    <task oid="91919191-76e0-59e2-8888-3d4f02d3ffff">
+    <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          oid="91919191-76e0-59e2-8888-3d4f02d3ffff">
         <name>Synchronization: Source</name>
         <description>
             Definition of a live synchronization task. It will poll changelog and pull in changes
         </description>
         <taskIdentifier>91919191-76e0-59e2-8888-3d4f02d3ffff</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
-        <executionStatus>runnable</executionStatus>
-        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/live-sync/handler-3</handlerUri>
+        <executionState>runnable</executionState>
         <objectRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe" type="c:ResourceType"/>
-        <recurrence>recurring</recurrence>
         <binding>tight</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>5</interval>
         </schedule>
+        <activity>
+            <work>
+                <liveSynchronization>
+                    <resourceObjects>
+                        <resourceRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe"/>
+                    </resourceObjects>
+                </liveSynchronization>
+            </work>
+        </activity>
     </task>
 
 </c:objects>

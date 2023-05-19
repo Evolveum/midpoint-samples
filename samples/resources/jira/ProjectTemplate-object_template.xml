@@ -19,7 +19,7 @@
       <createChannel>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#objectImport</createChannel>
    </metadata>
    <item>
-      <c:ref>focus/orgType</c:ref>
+      <c:ref>focus/subtype</c:ref>
       <valueEnumerationRef oid="5783c174-d141-11e4-bb29-001e8c717e5b"/>
    </item>
    <mapping>

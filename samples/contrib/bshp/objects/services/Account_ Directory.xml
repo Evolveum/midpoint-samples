@@ -7,7 +7,7 @@
 	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
 	xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	oid="service-AccountDirectory"
+	oid="80214942-6fcc-4a0b-add9-687ed706ad72"
 	version="16">
       <name>Account: Directory</name>
       <description>Global Directory</description>
@@ -20,7 +20,7 @@
       <displayName>Account: Directory</displayName>
       <inducement id="1">
          <construction>
-            <resourceRef oid="resource-OpenDJ1" relation="org:default" type="c:ResourceType"/>
+            <resourceRef oid="b0e37eeb-f88f-4eec-9e61-ae6de33c78b5" relation="org:default" type="c:ResourceType"/>
             <kind>account</kind>
             <intent>default</intent>
          </construction>
@@ -44,5 +44,5 @@
       <requestable>false</requestable>
       <delegable>false</delegable>
       <riskLevel>MODERATE</riskLevel>
-      <serviceType>account</serviceType>
+      <subtype>account</subtype>
    </service>

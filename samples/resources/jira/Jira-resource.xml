@@ -773,7 +773,7 @@
                <strength>normal</strength>
                <source>
                   <name>projectType</name>
-                  <c:path>$focus/orgType</c:path>
+                  <c:path>$focus/subtype</c:path>
                </source>
                <expression>
                   <script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -839,7 +839,7 @@
                <exclusive>false</exclusive>
                <strength>normal</strength>
                <source>
-                  <c:path>$focus/orgType</c:path>
+                  <c:path>$focus/subtype</c:path>
                </source>
             </outbound>
             <inbound>
@@ -847,7 +847,7 @@
                <exclusive>false</exclusive>
                <strength>normal</strength>
                <target>
-                  <c:path>$focus/orgType</c:path>
+                  <c:path>$focus/subtype</c:path>
                </target>
             </inbound>
          </attribute>
@@ -1026,9 +1026,7 @@
          <retrievalTimestamp>2017-08-16T14:58:40.894+02:00</retrievalTimestamp>
          <serialNumber>97c635ae8315d7bb-194b20ba30d0aaf8</serialNumber>
       </cachingMetadata>
-      <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:type="c:CapabilityCollectionType">
+      <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
          <cap:schema/>
          <cap:testConnection/>
          <cap:create/>
@@ -1045,9 +1043,7 @@
             <cap:status/>
          </cap:activation>
       </native>
-      <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3"
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:type="c:CapabilityCollectionType">
+      <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
          <cap:addRemoveAttributeValues>
             <cap:enabled>true</cap:enabled>
          </cap:addRemoveAttributeValues>

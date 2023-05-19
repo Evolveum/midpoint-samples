@@ -1,0 +1,17 @@
+dn: olcDatabase={1}mdb,cn=config
+changetype: modify
+add: olcSyncRepl
+olcSyncRepl: rid=100
+  provider=ldap://ldapmaster2.example.com:389/
+  bindmethod=simple
+  binddn="cn=replication manager,ou=Administrators,dc=repltest,dc=evolveum,dc=com"
+  credentials=rsecret
+  searchbase="dc=repltest,dc=evolveum,dc=com"
+  scope=sub
+  schemachecking=on
+  type=refreshAndPersist
+  retry="30 5 300 3"
+  interval=00:00:05:00
+-
+add: olcMirrorMode
+olcMirrorMode: TRUE

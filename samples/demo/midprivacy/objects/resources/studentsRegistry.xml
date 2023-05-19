@@ -166,7 +166,7 @@
         </objectType>
     </schemaHandling>
     <capabilities>
-        <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xsi:type="c:CapabilityCollectionType">
+        <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
             <cap:schema/>
             <cap:liveSync/>
             <cap:testConnection/>
@@ -179,7 +179,7 @@
                 <cap:returnDefaultAttributesOption>false</cap:returnDefaultAttributesOption>
             </cap:read>
         </native>
-        <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xsi:type="c:CapabilityCollectionType">
+        <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
             <cap:create>
                 <cap:enabled>false</cap:enabled>
             </cap:create>

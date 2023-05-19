@@ -25,7 +25,7 @@
                         <value>A2S</value>
                     </expression>
                     <target>
-                        <c:path>employeeType</c:path>
+                        <c:path>subtype</c:path>
                     </target>
                 </mapping>
             </focusMappings>
@@ -56,5 +56,5 @@
         <delegable>false</delegable>
         <idempotence>none</idempotence>
         <riskLevel>MODERATE</riskLevel>
-        <roleType>affiliation</roleType>
+        <subtype>affiliation</subtype>
     </role>

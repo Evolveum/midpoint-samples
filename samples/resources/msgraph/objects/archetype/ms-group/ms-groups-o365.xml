@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+           xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           oid="838ce8ad-17fb-42e2-9a84-d269531527ce">
+
+    <name>Groups O365</name>
+    <description>MS O365 Groups</description>
+    <archetypePolicy>
+        <display>
+            <label>Azure O365 Group</label>
+            <pluralLabel>Azure O365 Groups</pluralLabel>
+            <tooltip>Azure O365 Group</tooltip>
+            <icon>
+                <cssClass>fa fa-users</cssClass>
+                <!-- HEXA, turquoise color -->
+                <color>#4dc4b6</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+    <assignment>
+        <assignmentRelation>
+            <holderType>RoleType</holderType>
+        </assignmentRelation>
+    </assignment>
+
+    <inducement>
+        <construction>
+            <kind>entitlement</kind>
+            <intent>group</intent>
+            <resourceRef oid="042f4119-1ee9-4f09-b6bc-7a0846d45ac6" relation="org:default" type="c:ResourceType">
+            </resourceRef>
+            <attribute>
+                <ref>ri:mailEnabled</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <value>true</value>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:securityEnabled</ref>
+                <outbound>
+                    <strength>weak</strength>
+                    <expression>
+                        <value>false</value>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:groupTypes</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <value>Unified</value>
+                    </expression>
+                </outbound>
+            </attribute>
+        </construction>
+    </inducement>
+
+    <inducement>
+        <construction>
+            <resourceRef oid="042f4119-1ee9-4f09-b6bc-7a0846d45ac6" type="c:ResourceType"/>
+            <kind>account</kind>
+            <intent>default</intent>
+            <association>
+                <ref>ri:group</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator>
+                                <kind>entitlement</kind>
+                                <intent>group</intent>
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
+            </association>
+            <strength>weak</strength><!-- XXX Do not create account just because it has role assigned -->
+        </construction>
+        <focusType>c:UserType</focusType>
+        <order>2</order>
+    </inducement>
+
+    <requestable>false</requestable>
+
+</archetype>
+
+
+        <!--  TODO, Add to system config
+
+
+                    <objectCollectionView>
+
+                        <identifier>groups-view-o365</identifier>
+
+                        <displayOrder>60</displayOrder>
+
+                        <type>RoleType</type>
+
+                        <collection>
+
+                            <collectionRef oid="838ce8ad-17fb-42e2-9a84-d269531527ce" relation="org:default" type="c:ArchetypeType"/>
+
+                        </collection>
+
+                    </objectCollectionView>
+
+         -->

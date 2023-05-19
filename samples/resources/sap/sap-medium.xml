@@ -257,7 +257,7 @@
                         <value>SAP-ActivityGroup</value>
                     </expression>
                     <target>
-                        <c:path>roleType</c:path>
+                        <c:path>subtype</c:path>
                     </target>
                 </inbound>
             </attribute>

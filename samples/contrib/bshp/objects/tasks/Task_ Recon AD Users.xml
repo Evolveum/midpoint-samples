@@ -1,22 +1,29 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="ec3c2407-cbe6-405c-bd53-29fee98edaaf" version="2820">
-      <name>Task: Recon AD Users</name>
-      <extension xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3" xsi:type="c:ExtensionType">
-         <mext:kind>account</mext:kind>
-         <mext:workerThreads>2</mext:workerThreads>
-      </extension>
-      <taskIdentifier>1551485696207-0-1</taskIdentifier>
-      <ownerRef oid="fd1adbb9-a3a2-29c8-92a1-acb16e841f7s" relation="org:default" type="c:UserType"/>
-      <channel>http://midpoint.evolveum.com/xml/ns/public/provisioning/channels-3#reconciliation</channel>
-      <executionStatus>runnable</executionStatus>
-      <category>Reconciliation</category>
-      <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/reconciliation/handler-3</handlerUri>
-      <resultStatus>in_progress</resultStatus>
-      <objectRef oid="resource-AdLdap1" relation="org:default" type="c:ResourceType"/>
-      <recurrence>recurring</recurrence>
-      <binding>loose</binding>
-      <schedule>
-         <cronLikePattern>0 25 21 ? * MON-FRI *</cronLikePattern>
-         <misfireAction>reschedule</misfireAction>
-      </schedule>
-      <threadStopAction>restart</threadStopAction>
+    <name>Task: Recon AD Users</name>
+    <taskIdentifier>1551485696207-0-1</taskIdentifier>
+    <ownerRef oid="e06a0994-f449-46aa-9383-e0a59ffaa417" relation="org:default" type="c:UserType"/>
+    <channel>http://midpoint.evolveum.com/xml/ns/public/provisioning/channels-3#reconciliation</channel>
+    <executionState>runnable</executionState>
+    <resultStatus>in_progress</resultStatus>
+    <objectRef oid="a2fbe299-3fab-402a-b643-ead607133fae" relation="org:default" type="c:ResourceType"/>
+    <binding>loose</binding>
+    <schedule>
+        <recurrence>recurring</recurrence>
+        <cronLikePattern>0 25 21 ? * MON-FRI *</cronLikePattern>
+        <misfireAction>reschedule</misfireAction>
+    </schedule>
+    <threadStopAction>restart</threadStopAction>
+    <activity>
+        <work>
+            <reconciliation>
+                <resourceObjects>
+                    <resourceRef oid="a2fbe299-3fab-402a-b643-ead607133fae"/>
+                    <kind>account</kind>
+                </resourceObjects>
+            </reconciliation>
+        </work>
+        <distribution>
+            <workerThreads>2</workerThreads>
+        </distribution>
+    </activity>
 </task>

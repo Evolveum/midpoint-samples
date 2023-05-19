@@ -1,138 +1,133 @@
-<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
-	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
-	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
-	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
-	xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
-	oid="bulkTask-validateAssignments" 
-	version="54599">
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+      oid="3126290b-730e-40e0-83c0-5ffef2cbe4af" version="54599">
     <name>Task: Validate Assignments</name>
     <description>Validates current assignment, if invalid, item is removed, this happens from time to time.</description>
-    <extension xmlns:mext="http://midpoint.evolveum.com/xml/ns/public/model/extension-3" xmlns:se="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:ExtensionType">
-        <se:executeScript xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
-            <s:search>
-                <s:type>c:UserType</s:type>
-                <s:query>
-                    <q:filter>
-                        <q:and>
-                            <q:equal>
-                                <q:path>organization</q:path>
-                                <q:value>OU=_DISABLED</q:value>
-                            </q:equal>
-                            <q:equal>
-                                <q:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:standing</q:path>
-                                <q:value>INACTIVE</q:value>
-                            </q:equal>
-                        </q:and>
-                    </q:filter>
-                </s:query>
-                <s:action>
-                    <s:type>execute-script</s:type>
-                    <s:parameter>
-                        <s:name>script</s:name>
-                        <value xsi:type="c:ScriptExpressionEvaluatorType">
-                            <code>
-                            import java.io.StringWriter;
-                            import java.io.PrintWriter;
-                            import javax.xml.namespace.QName;
-                            import com.evolveum.midpoint.prism.delta.*;
-                            import com.evolveum.midpoint.xml.ns._public.common.common_3.*;
-                            import com.evolveum.midpoint.util.exception.ExpressionEvaluationException;
-                            
-                            userDelta = null;
-                            allAssignments = input?.getAssignment();
-                            log.info("# All assignments: " + allAssignments);
-                            
-                            allAssignments?.each {
-                            	asnType = it.getTargetRef()?.getType().getLocalPart();
-                                if (asnType == "RoleType") {
-                                    assignmentOid = basic.stringify(it.getTargetRef()?.getOid());
-                                    role = midpoint.getObject(RoleType, assignmentOid);
-                                    if (role != null) {
-                                        roleAssignments = role?.getAssignment();
-                                        for(roleAssignment in roleAssignments) {
-                                            metaRoleOid = basic.stringify(roleAssignment.getTargetRef()?.getOid());
-                                            log.info("# Metarole OID: " + metaRoleOid);
-                                            if (metaRoleOid == "metarole-domainGroups") {
-                                                grpName = basic.uc(basic.stringify(role.getIdentifier()));
-                                                grpType = basic.uc(basic.stringify(role.getRoleType()));
-                                                log.info("# Domain Group Member Of: " + grpName + ", Group Type: " + grpType);
-                                                if (grpName != "SHP-ALUMNI") {
-                                                    
-                                                    log.warn("# Found Invalid Role: " + role.getName() + ", Removing from :" + input.getName());
-                                                    assignmentQname = new QName('http://midpoint.evolveum.com/xml/ns/public/common/common-3', 'assignment');
-                                                    log.info("# Assignment: " + it);
-                                                    AssignmentType a = new AssignmentType();
-                                                    a.setId(it.getId());
-                                                    if (userDelta == null) {
-                                                        userDelta = ObjectDelta.createModificationDeleteContainer(UserType.class, input?.getOid(), UserType.F_ASSIGNMENT, midpoint.getPrismContext(), a);
-                                                    } else {
-                                                        userDelta.addModificationDeleteContainer(UserType.F_ASSIGNMENT, a);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                
-                                if (asnType == "ServiceType") {
-                                    assignmentOid = basic.stringify(it.getTargetRef()?.getOid());
-                                    svc = midpoint.getObject(ServiceType, assignmentOid);
-                                    if (svc != null) {
-                                        svcAssignments = svc?.getAssignment();
-                                        for(svcAssignment in svcAssignments) {
-                                            metaRoleOid = basic.stringify(svcAssignment.getTargetRef()?.getOid());
-                                            log.info("# Metarole OID: " + metaRoleOid);
-                                            if (metaRoleOid == "metarole-serviceEntitlements") {
-                                                svcName = basic.uc(basic.stringify(svc.getName()));
-                                                svcType = basic.uc(basic.stringify(svc.getServiceType()));
-                                                log.info("# Service Entitlement Name: " + svcName + ", Entitlement Type: " + svcType);
-                                                
-                                                if (svcType != "ACCOUNT" &amp;&amp; svcName != 'ENTITLEMENT: CAMPUS ERP') {
-                                                    
-                                                    log.warn("# Found Invalid Service: " + svc.getName() + ", Removing from: " + input.getName());
-                                                    assignmentQname = new QName('http://midpoint.evolveum.com/xml/ns/public/common/common-3', 'assignment');
-                                                    log.info("# Assignment: " + it);
-                                                    AssignmentType a = new AssignmentType();
-                                                    a.setId(it.getId());
-                                                    if (userDelta == null) {
-                                                        userDelta = ObjectDelta.createModificationDeleteContainer(UserType.class, input?.getOid(), UserType.F_ASSIGNMENT, midpoint.getPrismContext(), a);
-                                                    } else {
-                                                        userDelta.addModificationDeleteContainer(UserType.F_ASSIGNMENT, a);
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            if (userDelta != null) {
-                                midpoint.executeChanges(userDelta);
-                            }
-                        </code>
-                        </value>
-                    </s:parameter>
-                </s:action>
-            </s:search>
-        </se:executeScript>
-        <mext:workerThreads>4</mext:workerThreads>
-    </extension>
     <taskIdentifier>1574017723809-0-1</taskIdentifier>
-    <ownerRef xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="fd1adbb9-a3a2-29c8-92a1-acb16e841f7s" relation="org:default" type="tns:UserType">
-    </ownerRef>
-    <executionStatus>runnable</executionStatus>
-    <category>BulkActions</category>
-    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/scripting/handler-3</handlerUri>
+    <ownerRef oid="e06a0994-f449-46aa-9383-e0a59ffaa417" relation="org:default" type="UserType"/>
+    <executionState>runnable</executionState>
     <resultStatus>success</resultStatus>
     <lastRunStartTimestamp>2020-01-05T20:15:00.361-06:00</lastRunStartTimestamp>
     <lastRunFinishTimestamp>2020-01-05T20:43:03.703-06:00</lastRunFinishTimestamp>
     <progress>7127</progress>
-    <recurrence>recurring</recurrence>
     <binding>loose</binding>
     <schedule>
+        <recurrence>recurring</recurrence>
         <cronLikePattern>0 15 20 ? * * *</cronLikePattern>
         <misfireAction>reschedule</misfireAction>
     </schedule>
     <threadStopAction>restart</threadStopAction>
+    <activity>
+        <work>
+            <iterativeScripting>
+                <objects>
+                    <type>UserType</type>
+                    <query>
+                        <q:filter>
+                            <q:and>
+                                <q:equal>
+                                    <q:path>organization</q:path>
+                                    <q:value>OU=_DISABLED</q:value>
+                                </q:equal>
+                                <q:equal>
+                                    <q:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:standing</q:path>
+                                    <q:value>INACTIVE</q:value>
+                                </q:equal>
+                            </q:and>
+                        </q:filter>
+                    </query>
+                </objects>
+                <scriptExecutionRequest>
+                    <s:execute>
+                        <s:script>
+                            <code>
+                                import java.io.StringWriter;
+                                import java.io.PrintWriter;
+                                import javax.xml.namespace.QName;
+                                import com.evolveum.midpoint.prism.delta.*;
+                                import com.evolveum.midpoint.xml.ns._public.common.common_3.*;
+                                import com.evolveum.midpoint.util.exception.ExpressionEvaluationException;
+
+                                userDelta = null;
+                                allAssignments = input?.getAssignment();
+                                log.info("# All assignments: " + allAssignments);
+
+                                allAssignments?.each {
+                                    asnType = it.getTargetRef()?.getType().getLocalPart();
+                                    if (asnType == "RoleType") {
+                                        assignmentOid = basic.stringify(it.getTargetRef()?.getOid());
+                                        role = midpoint.getObject(RoleType, assignmentOid);
+                                        if (role != null) {
+                                            roleAssignments = role?.getAssignment();
+                                            for(roleAssignment in roleAssignments) {
+                                                metaRoleOid = basic.stringify(roleAssignment.getTargetRef()?.getOid());
+                                                log.info("# Metarole OID: " + metaRoleOid);
+                                                if (metaRoleOid == "metarole-domainGroups") {
+                                                    grpName = basic.uc(basic.stringify(role.getIdentifier()));
+                                                    grpType = basic.uc(basic.stringify(role.getRoleType()));
+                                                    log.info("# Domain Group Member Of: " + grpName + ", Group Type: " + grpType);
+                                                    if (grpName != "SHP-ALUMNI") {
+
+                                                        log.warn("# Found Invalid Role: " + role.getName() + ", Removing from :" + input.getName());
+                                                        assignmentQname = new QName('http://midpoint.evolveum.com/xml/ns/public/common/common-3', 'assignment');
+                                                        log.info("# Assignment: " + it);
+                                                        AssignmentType a = new AssignmentType();
+                                                        a.setId(it.getId());
+                                                        if (userDelta == null) {
+                                                            userDelta = ObjectDelta.createModificationDeleteContainer(UserType.class, input?.getOid(), UserType.F_ASSIGNMENT, midpoint.getPrismContext(), a);
+                                                        } else {
+                                                            userDelta.addModificationDeleteContainer(UserType.F_ASSIGNMENT, a);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    if (asnType == "ServiceType") {
+                                        assignmentOid = basic.stringify(it.getTargetRef()?.getOid());
+                                        svc = midpoint.getObject(ServiceType, assignmentOid);
+                                        if (svc != null) {
+                                            svcAssignments = svc?.getAssignment();
+                                            for(svcAssignment in svcAssignments) {
+                                                metaRoleOid = basic.stringify(svcAssignment.getTargetRef()?.getOid());
+                                                log.info("# Metarole OID: " + metaRoleOid);
+                                                if (metaRoleOid == "metarole-serviceEntitlements") {
+                                                    svcName = basic.uc(basic.stringify(svc.getName()));
+                                                    svcType = basic.uc(basic.stringify(svc.getServiceType()));
+                                                    log.info("# Service Entitlement Name: " + svcName + ", Entitlement Type: " + svcType);
+
+                                                    if (svcType != "ACCOUNT" &amp;&amp; svcName != 'ENTITLEMENT: CAMPUS ERP') {
+
+                                                        log.warn("# Found Invalid Service: " + svc.getName() + ", Removing from: " + input.getName());
+                                                        assignmentQname = new QName('http://midpoint.evolveum.com/xml/ns/public/common/common-3', 'assignment');
+                                                        log.info("# Assignment: " + it);
+                                                        AssignmentType a = new AssignmentType();
+                                                        a.setId(it.getId());
+                                                        if (userDelta == null) {
+                                                            userDelta = ObjectDelta.createModificationDeleteContainer(UserType.class, input?.getOid(), UserType.F_ASSIGNMENT, midpoint.getPrismContext(), a);
+                                                        } else {
+                                                            userDelta.addModificationDeleteContainer(UserType.F_ASSIGNMENT, a);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (userDelta != null) {
+                                    midpoint.executeChanges(userDelta);
+                                }
+                            </code>
+                        </s:script>
+                    </s:execute>
+                </scriptExecutionRequest>
+            </iterativeScripting>
+        </work>
+        <distribution>
+            <workerThreads>4</workerThreads>
+        </distribution>
+    </activity>
 </task>

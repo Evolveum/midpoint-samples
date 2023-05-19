@@ -14,7 +14,7 @@
         <authoritative>true</authoritative>
         <strength>strong</strength>
         <source>
-            <path>roleType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -27,7 +27,7 @@
         </target>
         <condition>
             <script>
-                <code>roleType == 'SAP-ActivityGroup'</code>
+                <code>subtype == 'SAP-ActivityGroup'</code>
             </script>
         </condition>
     </mapping>
@@ -37,7 +37,7 @@
         <authoritative>true</authoritative>
         <strength>strong</strength>
         <source>
-            <path>roleType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -50,7 +50,7 @@
         </target>
         <condition>
             <script>
-                <code>roleType == 'SAP-Group'</code>
+                <code>subtype == 'SAP-Group'</code>
             </script>
         </condition>
     </mapping>
@@ -60,7 +60,7 @@
         <authoritative>true</authoritative>
         <strength>strong</strength>
         <source>
-            <path>roleType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -73,7 +73,7 @@
         </target>
         <condition>
             <script>
-                <code>roleType == 'SAP-Profile'</code>
+                <code>subtype == 'SAP-Profile'</code>
             </script>
         </condition>
     </mapping>

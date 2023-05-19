@@ -56,7 +56,7 @@
                             <value>Course Group</value>
                         </expression>
                         <target>
-                            <c:path>orgType</c:path>
+                            <c:path>subtype</c:path>
                         </target>
                     </populateItem>
                     <populateItem>
@@ -106,7 +106,7 @@
                         <expression>
                             <assignmentTargetSearch>
                                 <targetType>c:RoleType</targetType>
-                                <oid>metarole-registryCourses</oid>
+                                <oid>159cd4a7-28b1-4ae0-8194-d1606c340206</oid>
                             </assignmentTargetSearch>
                         </expression>
                         <target>
@@ -177,7 +177,7 @@
                             <value>Course Group</value>
                         </expression>
                         <target>
-                            <c:path>orgType</c:path>
+                            <c:path>subtype</c:path>
                         </target>
                     </populateItem>
                     <populateItem>
@@ -227,7 +227,7 @@
                         <expression>
                             <assignmentTargetSearch>
                                 <targetType>c:RoleType</targetType>
-                                <oid>metarole-registryCourses</oid>
+                                <oid>159cd4a7-28b1-4ae0-8194-d1606c340206</oid>
                             </assignmentTargetSearch>
                         </expression>
                         <target>

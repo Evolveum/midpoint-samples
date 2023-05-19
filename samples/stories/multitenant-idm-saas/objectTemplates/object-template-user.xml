@@ -25,7 +25,7 @@
 
 <!-- TODO: figure out how to set default value customer-user -->
     <item>
-        <ref>employeeType</ref>
+        <ref>subtype</ref>
         <valueEnumerationRef oid="5783c174-d141-11e4-bb29-001e8c717e5b"/>
     </item>
 
@@ -137,7 +137,7 @@
                             <value>customer</value>
                         </expression>
                         <target>
-                            <path>orgType</path>
+                            <path>subtype</path>
                         </target>
                     </populateItem>
                 </populateObject>
@@ -165,7 +165,7 @@
             <path>organizationalUnit</path>
         </source>
         <source>
-            <path>employeeType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -194,7 +194,7 @@
         </target>
     <condition>
         <script>
-            <code>employeeType == 'customer-admin'</code>
+            <code>subtype == 'customer-admin'</code>
         </script>
     </condition>
     </mapping>
@@ -204,7 +204,7 @@
         <name>Basic Customer Admin role assignment</name>
         <strength>strong</strength>
         <source>
-            <path>$user/employeeType</path>
+            <path>$user/subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -217,7 +217,7 @@
         </target>
     <condition>
         <script>
-            <code>employeeType == 'customer-admin'</code>
+            <code>subtype == 'customer-admin'</code>
         </script>
     </condition>
     </mapping>
@@ -226,7 +226,7 @@
         <name>Delegated Administration role assignment</name>
         <strength>strong</strength>
         <source>
-            <path>$user/employeeType</path>
+            <path>$user/subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -239,7 +239,7 @@
         </target>
     <condition>
         <script>
-            <code>employeeType == 'customer-admin'</code>
+            <code>subtype == 'customer-admin'</code>
         </script>
     </condition>
     </mapping>
@@ -248,7 +248,7 @@
         <name>Basic Customer User role assignment</name>
         <strength>strong</strength>
         <source>
-            <path>$user/employeeType</path>
+            <path>$user/subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -261,7 +261,7 @@
         </target>
     <condition>
         <script>
-            <code>employeeType == 'customer-admin' || employeeType == 'customer-user'</code>
+            <code>subtype == 'customer-admin' || subtype == 'customer-user'</code>
         </script>
     </condition>
     </mapping>
@@ -270,7 +270,7 @@
         <name>Customer End User role assignment</name>
         <strength>strong</strength>
         <source>
-            <path>$user/employeeType</path>
+            <path>$user/subtype</path>
         </source>
         <expression>
             <assignmentTargetSearch>
@@ -288,7 +288,7 @@
         </target>
     <condition>
         <script>
-            <code>employeeType == 'customer-admin' || employeeType == 'customer-user'</code>
+            <code>subtype == 'customer-admin' || subtype == 'customer-user'</code>
         </script>
     </condition>
     </mapping>

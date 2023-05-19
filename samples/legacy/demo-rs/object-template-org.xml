@@ -26,7 +26,7 @@
     <mapping>
         <strength>strong</strength>
         <source>
-            <path>orgType</path>
+            <path>subtype</path>
         </source>
         <expression>
             <value>
@@ -39,7 +39,7 @@
         </target>
         <condition>
             <script>
-                <code>orgType == 'project'</code>
+                <code>subtype == 'project'</code>
             </script>
     </condition>
     </mapping>

@@ -17,7 +17,7 @@
         <parentOrgRef oid="00000000-9999-9999-0000-120000000000" type="c:OrgType"/>
         <displayName>Temporary</displayName>
         <identifier>EXT-TEMP</identifier>
-        <orgType>extern</orgType>
+        <subtype>extern</subtype>
     </org>
 
     <org oid="00000000-9999-9999-0000-120000100001">
@@ -26,7 +26,7 @@
         <parentOrgRef oid="00000000-9999-9999-0000-120000000000" type="c:OrgType"/>
         <displayName>Support</displayName>
         <identifier>EXT-SUPP</identifier>
-        <orgType>extern</orgType>
+        <subtype>extern</subtype>
     </org>
 
 </objects>

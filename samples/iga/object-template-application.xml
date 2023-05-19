@@ -1,0 +1,61 @@
+<!--
+  ~ Copyright (c) 2023 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                oid="48aa8ec1-b2d0-4e64-b6b5-74cb3a9cf813">
+
+    <name>Application template</name>
+    <description>Initial object template for application.</description>
+
+    <!-- ordering and displaying of items on page - items on Basic panel -->
+    <item>
+        <ref>name</ref>
+        <help>Identification of the application. &lt;br&gt;
+            Name must be unique among all applications (and other services) in midPoint.</help>
+        <displayOrder>10</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+    <item>
+        <ref>displayName</ref>
+        <help>Readable name of the application. Will be displayed in most places instead of name.
+            If not filled in, then name is displayed. Doesn't have to be unique.</help>
+        <displayOrder>20</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+    <item>
+        <ref>description</ref>
+        <help>Free form description of the application.</help>
+        <displayOrder>30</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+    <item>
+        <ref>url</ref>
+        <help>URL of the application.</help>
+        <displayOrder>40</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+    <item>
+        <ref>riskLevel</ref>
+        <help>Indication of the level of risk that access to this application provides.
+            Can be used also as indication of data sensitivity.</help>
+        <displayOrder>50</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+    <item>
+        <ref>requestable</ref>
+        <help>If set to true, this application may be requested by users.</help>
+        <displayOrder>60</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+    <item>
+        <ref>jpegPhoto</ref>
+        <displayName>Application icon</displayName>
+        <help>Icon of the application. &lt;br&gt; Will be displayed during selection of application.</help>
+        <displayOrder>70</displayOrder>
+        <emphasized>true</emphasized>
+    </item>
+
+</objectTemplate>

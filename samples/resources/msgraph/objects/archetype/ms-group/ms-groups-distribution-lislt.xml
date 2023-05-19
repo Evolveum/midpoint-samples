@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+           xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           oid="23e6bfa6-118e-4412-81c4-9fd61994035c">
+
+    <name>Office Distribution list</name>
+    <description>MS Office Distribution lists</description>
+    <archetypePolicy>
+        <display>
+            <label>Azure Distribution list</label>
+            <pluralLabel>Azure Distribution lists</pluralLabel>
+            <tooltip>Azure Distribution list</tooltip>
+            <icon>
+                <cssClass>fa fa-list</cssClass>
+                <!-- HEXA, light green -->
+                <color>#88c46c</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+    <assignment>
+        <assignmentRelation>
+            <holderType>RoleType</holderType>
+        </assignmentRelation>
+    </assignment>
+
+    <!--// Construction nor association permitted, API restriction-->
+
+    <requestable>false</requestable>
+</archetype>
+
+
+        <!--  Add to system config
+
+
+                    <objectCollectionView>
+
+                        <identifier>groups-view-distr-list</identifier>
+
+                        <displayOrder>40</displayOrder>
+
+                        <type>RoleType</type>
+
+                        <collection>
+
+                            <collectionRef oid="23e6bfa6-118e-4412-81c4-9fd61994035c" relation="org:default" type="c:ArchetypeType"/>
+
+                        </collection>
+
+                    </objectCollectionView>
+
+         -->

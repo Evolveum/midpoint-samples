@@ -957,7 +957,7 @@
                   <value>SalesForce-Entitlement</value>
                </expression>
                <target>
-                  <c:path>roleType</c:path>
+                  <c:path>subtype</c:path>
                </target>
             </inbound>
          </attribute>
@@ -996,7 +996,7 @@
                   <value>SalesForce-Group</value>
                </expression>
                <target>
-                  <c:path>roleType</c:path>
+                  <c:path>subtype</c:path>
                </target>
             </inbound>
          </attribute>
@@ -1146,12 +1146,12 @@
             <description>Definition of Lastname attribute handling.</description>
             <outbound>
                <source>
-                  <c:path>$user/employeeType</c:path>
+                  <c:path>$user/subtype</c:path>
                </source>
             </outbound>
             <inbound>
                <target>
-                  <c:path>$user/employeeType</c:path>
+                  <c:path>$user/subtype</c:path>
                </target>
             </inbound>
          </attribute>
@@ -1250,9 +1250,7 @@
          <retrievalTimestamp>2016-10-28T11:26:31.256+02:00</retrievalTimestamp>
          <serialNumber>c830295a6053d6d3-6f8991bc5758331c</serialNumber>
       </cachingMetadata>
-      <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:type="c:CapabilityCollectionType">
+      <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
          <cap:addRemoveAttributeValues/>
          <cap:activation>
             <cap:status/>
@@ -1274,9 +1272,7 @@
          </cap:script>
          <cap:pagedSearch/>
       </native>
-      <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3"
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:type="c:CapabilityCollectionType">
+      <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
          <cap:activation>
             <cap:status>
                <cap:attribute>ri:active</cap:attribute>

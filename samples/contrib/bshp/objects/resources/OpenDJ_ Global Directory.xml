@@ -9,7 +9,7 @@
         xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp"
-        oid="resource-OpenDJ1">
+        oid="b0e37eeb-f88f-4eec-9e61-ae6de33c78b5">
         <name>OpenDJ: Global Directory</name>
         <description>Global Directory Services</description>
         <operationalState>
@@ -276,7 +276,7 @@
                     <outbound>
                         <strength>strong</strength>
                         <source>
-                            <c:path>$focus/employeeType</c:path>
+                            <c:path>$focus/subtype</c:path>
                         </source>
                     </outbound>
                 </attribute>
@@ -511,8 +511,8 @@
                         <script>
                             <code>
                                 if (iteration == 0) {
-                                    return ""; 
-                                } else { 
+                                    return "";
+                                } else {
                                     return "" + (iteration + 1);
                                 }
                             </code>
@@ -772,7 +772,7 @@
             </objectType>
         </schemaHandling>
         <capabilities>
-            <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3" xsi:type="c:CapabilityCollectionType">
+            <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
                 <cap:activation>
                     <cap:status>
                         <cap:attribute>ri:ds-pwp-account-disabled</cap:attribute>

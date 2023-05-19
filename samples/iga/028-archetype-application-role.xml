@@ -1,0 +1,223 @@
+<!--
+  ~ Copyright (c) 2023 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           oid="00000000-0000-0000-0000-000000000328">
+    <name>Application role</name>
+    <description>
+        Application roles are basic roles. They are related to applications.
+        The application roles are integrating technical components for creation
+        of user access with business description of the access.
+    </description>
+    <assignment>
+        <assignmentRelation>
+            <holderType>RoleType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <archetypePolicy>
+        <display>
+            <label>Application role</label>
+            <pluralLabel>Application roles</pluralLabel>
+            <icon>
+                <cssClass>fe fe-role</cssClass>
+                <color>#5b80a5</color>
+            </icon>
+        </display>
+
+        <objectTemplateRef oid="cd0affb8-c8e3-4771-a5ca-031de1969b9e"/>
+        <adminGuiConfiguration>
+            <objectDetails>
+                <type>RoleType</type>
+                <!-- hidden panels -->
+                <panel>
+                    <identifier>basic</identifier>
+                    <visibility>hidden</visibility>
+                    <default>false</default>
+                </panel>
+                <panel>
+                    <identifier>password</identifier>
+                    <visibility>hidden</visibility>
+                </panel>
+                <panel>
+                    <identifier>assignments</identifier>
+                    <visibility>hidden</visibility>
+                </panel>
+                <panel>
+                    <identifier>roleGovernance</identifier>
+                    <visibility>hidden</visibility>
+                </panel>
+
+                <!--Visible panels configuration -->
+
+                <!-- Panel for wizard -->
+                <panel>
+                    <identifier>arw-basic</identifier>
+                    <display>
+                        <label>Application.panel.basic</label>
+                    </display>
+                    <displayOrder>10</displayOrder>
+
+                    <!-- just hiding default container. Default container does not have an identifier -->
+                    <container>
+                        <visibility>hidden</visibility>
+                        <path> </path>
+                    </container>
+
+                    <container>
+                        <identifier>arw-basic</identifier>
+                        <display>
+                            <label>Properties</label>
+                        </display>
+                        <item>
+                            <path>name</path>
+                        </item>
+                        <item>
+                            <path>displayName</path>
+                        </item>
+                        <item>
+                            <path>description</path>
+                        </item>
+                        <item>
+                            <path>riskLevel</path>
+                        </item>
+                        <item>
+                            <path>requestable</path>
+                        </item>
+                        <item>
+                            <path>jpegPhoto</path>
+                        </item>
+                        <!-- NOTE: if you miss any RoleType attribute from default schema in this archetype, you can display it here.
+                         Do not forget to include its definition also in application object template.
+                         -->
+                    </container>
+                    <panelType>arw-basic</panelType>
+                    <default>true</default>
+                </panel>
+
+                <!-- standard (not wizard) panel for role modification -->
+                <panel>
+                    <identifier>basic-role</identifier>
+                    <display>
+                        <label>Role.panel.basic</label>
+                    </display>
+                    <displayOrder>10</displayOrder>
+                    <applicableForOperation>modify</applicableForOperation>
+                    <container>
+                        <identifier>properties</identifier>
+                        <display>
+                            <label>Properties</label>
+                        </display>
+                        <item>
+                            <path>name</path>
+                        </item>
+                        <item>
+                            <path>displayName</path>
+                        </item>
+                        <item>
+                            <path>description</path>
+                        </item>
+                        <item>
+                            <path>url</path>
+                        </item>
+                        <item>
+                            <path>riskLevel</path>
+                        </item>
+                        <item>
+                            <path>requestable</path>
+                        </item>
+                        <item>
+                            <path>jpegPhoto</path>
+                        </item>
+                        <!-- NOTE: if you miss any RoleType attribute from default schema in this archetype, you can display it here.
+                         Do not forget to include its definition also in application object template.
+                         -->
+                    </container>
+                    <panelType>formPanel</panelType>
+                    <default>true</default>
+                </panel>
+                <panel>
+                    <identifier>projections</identifier>
+                    <display>
+                        <icon>
+                            <cssClass>fa fa-database</cssClass>
+                        </icon>
+                    </display>
+                    <displayOrder>20</displayOrder>
+                    <panelType>projections</panelType>
+                </panel>
+                <panel>
+                    <identifier>activation</identifier>
+                    <displayOrder>30</displayOrder>
+                    <applicableForOperation>modify</applicableForOperation>
+                </panel>
+                <panel>
+                    <identifier>inducements</identifier>
+                    <displayOrder>40</displayOrder>
+                </panel>
+                <panel>
+                    <identifier>roleMembers</identifier>
+                    <displayOrder>50</displayOrder>
+                    <applicableForOperation>modify</applicableForOperation>
+                    <listView>
+                        <searchBoxConfiguration>
+                            <objectTypeConfiguration>
+                                <visibility>hidden</visibility>
+                                <defaultValue>UserType</defaultValue>
+                                <supportedTypes>UserType</supportedTypes>
+                            </objectTypeConfiguration>
+                            <indirectConfiguration>
+                                <indirect>true</indirect>
+                            </indirectConfiguration>
+                        </searchBoxConfiguration>
+                    </listView>
+                </panel>
+                <panel>
+                    <identifier>governance</identifier>
+                    <display>
+                        <label>GovernanceCardsPanel.label</label>
+                        <icon>
+                            <cssClass>fa fa-users</cssClass>
+                        </icon>
+                    </display>
+                    <displayOrder>60</displayOrder>
+                    <applicableForOperation>modify</applicableForOperation>
+                    <panelType>governanceCards</panelType>
+                </panel>
+                <panel>
+                    <identifier>inducedBy</identifier>
+                    <display>
+                        <icon>
+                            <cssClass>fa fa-list</cssClass>
+                        </icon>
+                    </display>
+                    <displayOrder>70</displayOrder>
+                    <applicableForOperation>modify</applicableForOperation>
+                </panel>
+                <panel>
+                    <identifier>applicablePolicies</identifier>
+                    <displayOrder>80</displayOrder>
+                    <applicableForOperation>modify</applicableForOperation>
+                </panel>
+                <panel>
+                    <identifier>history</identifier>
+                    <displayOrder>90</displayOrder>
+                    <applicableForOperation>modify</applicableForOperation>
+                </panel>
+                <panel>
+                    <identifier>focusCases</identifier>
+                    <displayOrder>100</displayOrder>
+                    <applicableForOperation>modify</applicableForOperation>
+                </panel>
+                <panel>
+                    <identifier>focusTriggers</identifier>
+                    <displayOrder>110</displayOrder>
+                    <applicableForOperation>modify</applicableForOperation>
+                </panel>
+            </objectDetails>
+        </adminGuiConfiguration>
+    </archetypePolicy>
+</archetype>

@@ -1,0 +1,10 @@
+<objectCollection oid="00000000-0000-0000-0001-000000147896">
+    <name>All enabled users</name>
+    <type>UserType</type>
+    <filter>
+        <equal>
+            <path>activation/effectiveStatus</path>
+            <value>enabled</value>
+        </equal>
+    </filter>
+</objectCollection>

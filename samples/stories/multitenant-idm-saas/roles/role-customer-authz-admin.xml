@@ -14,34 +14,32 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<role oid="c546fe38-def1-11e5-85bb-3c970e44b9e2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<role oid="c546fe38-def1-11e5-85bb-3c970e44b9e2"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-    xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Delegated Administration Role</name>
     <description>Role to delegate administration to customer admins.</description>
-<!-- ***** GUI ***** -->
+    <!-- ***** GUI ***** -->
     <authorization>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#users</action>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#user</action>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#userDetails</action>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#findUsers</action>
 
-<!-- to see at least Org menu -->
+        <!-- to see at least Org menu -->
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#orgStruct</action>
-<!-- to see Org tree -->
+        <!-- to see Org tree -->
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#orgTree</action>
-<!-- to be able to click on Org -->
+        <!-- to be able to click on Org -->
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#orgUnit</action>
-<!-- to be able to see configuration objects - may be security risk to allow
-     see e.g. all/foreign password policies... -->
-<!--<action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#debugs</action>-->
-<!--<action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#tasksAll</action>-->
+        <!-- to be able to see configuration objects - may be security risk to allow
+             see e.g. all/foreign password policies... -->
+        <!--<action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#debugs</action>-->
+        <!--<action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#tasksAll</action>-->
     </authorization>
 
-<!-- ***** From End User role (fragments) ***** -->
+    <!-- ***** From End User role (fragments) ***** -->
 
     <authorization>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#selfAll</action>
@@ -101,7 +99,7 @@
     </authorization>
 
     <authorization>
-    <name>Read for all password policies, all resources and roles of roleType=customer and End User</name>
+        <name>Read for all password policies, all resources and roles of subtype=customer and End User</name>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
         <object>
             <type>ValuePolicyType</type>
@@ -112,54 +110,54 @@
         <object>
             <type>RoleType</type>
             <filter>
-                 <q:or>
+                <q:or>
                     <q:equal>
-                            <q:path>roleType</q:path>
-                            <q:value>customer</q:value>
+                        <q:path>subtype</q:path>
+                        <q:value>customer</q:value>
                     </q:equal>
                     <q:equal>
-                            <q:path>name</q:path>
-                            <q:value>End user</q:value>
+                        <q:path>name</q:path>
+                        <q:value>End user</q:value>
                     </q:equal>
                     <q:equal>
-                            <q:path>name</q:path>
-                            <q:value>Delegated Administration Role</q:value><!-- To see also this role -->
+                        <q:path>name</q:path>
+                        <q:value>Delegated Administration Role</q:value><!-- To see also this role -->
                     </q:equal>
-               </q:or>
+                </q:or>
             </filter>
         </object>
     </authorization>
-<!-- ***** Model ***** -->
+    <!-- ***** Model ***** -->
 
-<!-- Authorization to see root. Required even if orgRelation is used! -->
+    <!-- Authorization to see root. Required even if orgRelation is used! -->
     <authorization>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
         <object>
             <type>OrgType</type>
             <filter>
-               <q:or>
-                  <q:equal>
-                    <q:path>orgType</q:path>
-                    <q:value>functional</q:value>
-                  </q:equal>
-               </q:or>
+                <q:or>
+                    <q:equal>
+                        <q:path>subtype</q:path>
+                        <q:value>functional</q:value>
+                    </q:equal>
+                </q:or>
             </filter>
         </object>
     </authorization>
-<!-- Authorization to see lookupTables -->
+    <!-- Authorization to see lookupTables -->
     <authorization>
-    <name>Read for lookuptable</name>
+        <name>Read for lookuptable</name>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
         <object>
             <type>LookupTableType</type>
         </object>
     </authorization>
 
-<!-- Authorization to read own organization and its content including the path from root - if assigned as manager -->
+    <!-- Authorization to read own organization and its content including the path from root - if assigned as manager -->
     <authorization>
-    <name>Magic read/modify</name>
-    <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
-    <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>
+        <name>Magic read/modify</name>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>
         <object>
             <orgRelation>
                 <subjectRelation>org:manager</subjectRelation>
@@ -169,10 +167,10 @@
         </object>
     </authorization>
 
-<!-- Authorization to modify some attributes IN their own organizations - if assigned as manager -->
+    <!-- Authorization to modify some attributes IN their own organizations - if assigned as manager -->
     <authorization>
-    <name>Modify some user attributes</name>
-    <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>
+        <name>Modify some user attributes</name>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>
         <object>
             <type>UserType</type>
             <orgRelation>
@@ -183,18 +181,18 @@
         <item>description</item>
         <item>givenName</item>
         <item>familyName</item>
-        <item>employeeType</item>
+        <item>subtype</item>
         <item>emailAddress</item>
         <item>activation</item>
         <item>credentials</item>
     </authorization>
 
-<!-- Authorization to CRD IN their own organizations - if assigned as manager -->
+    <!-- Authorization to CRD IN their own organizations - if assigned as manager -->
     <authorization>
         <name>Authz: CRD UserType</name>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#add</action>
-<!--        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>-->
+        <!--        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>-->
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#delete</action>
         <object>
             <type>UserType</type>
@@ -204,8 +202,27 @@
         </object>
     </authorization>
 
-<!-- Authorization to assign/unassign IN their own organizations - if assigned as manager -->
-<!--
+    <!-- Authorization to assign/unassign IN their own organizations - if assigned as manager -->
+    <!--
+        <authorization>
+            <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#assign</action>
+            <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#unassign</action>
+            <object>
+                <type>UserType</type>
+                <orgRelation>
+                    <subjectRelation>org:manager</subjectRelation>
+                </orgRelation>
+            </object>
+            <target>
+                    <filter>
+                            <q:type>
+                                    <q:type>c:OrgType</q:type>
+                            </q:type>
+                    </filter>
+            </target>
+        </authorization>
+    -->
+    <!-- Authorization to assign/unassign IN their own organization - roles of subtype=customer or End user -->
     <authorization>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#assign</action>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#unassign</action>
@@ -216,45 +233,26 @@
             </orgRelation>
         </object>
         <target>
-                <filter>
-                        <q:type>
-                                <q:type>c:OrgType</q:type>
-                        </q:type>
-                </filter>
-        </target>
-    </authorization>
--->
-<!-- Authorization to assign/unassign IN their own organization - roles of roleType=customer or End user -->
-    <authorization>
-        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#assign</action>
-        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#unassign</action>
-        <object>
-            <type>UserType</type>
-            <orgRelation>
-                <subjectRelation>org:manager</subjectRelation>
-            </orgRelation>
-        </object>
-        <target>
-                <type>RoleType</type>
-                <filter>
-                    <q:or>
-                        <q:equal>
-                                <q:path>roleType</q:path>
-                                <q:value>customer</q:value>
-                        </q:equal>
-                        <q:equal>
-                                <q:path>name</q:path>
-                                <q:value>End user</q:value>
-                        </q:equal>
-                    </q:or>
-                </filter>
+            <type>RoleType</type>
+            <filter>
+                <q:or>
+                    <q:equal>
+                        <q:path>subtype</q:path>
+                        <q:value>customer</q:value>
+                    </q:equal>
+                    <q:equal>
+                        <q:path>name</q:path>
+                        <q:value>End user</q:value>
+                    </q:equal>
+                </q:or>
+            </filter>
         </target>
     </authorization>
 
-<!-- Authorization to Read Shadows, employeeType == 'customer-admin' ||
-     'customer-user' -->
+    <!-- Authorization to Read Shadows, subtype == 'customer-admin' ||
+         'customer-user' -->
     <authorization>
-    <name>Read shadows owned by customer-admin/customer-user</name>
+        <name>Read shadows owned by customer-admin/customer-user</name>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
         <object>
             <type>ShadowType</type>
@@ -263,22 +261,22 @@
                 <filter>
                     <q:or>
                         <q:equal>
-                            <q:path>employeeType</q:path>
+                            <q:path>subtype</q:path>
                             <q:value>customer-admin</q:value>
                         </q:equal>
                         <q:equal>
-                            <q:path>employeeType</q:path>
+                            <q:path>subtype</q:path>
                             <q:value>customer-user</q:value>
                         </q:equal>
-            </q:or>
+                    </q:or>
                 </filter>
-             </owner>
+            </owner>
         </object>
     </authorization>
 
-<!-- Authorization to read entitlements and generic -->
+    <!-- Authorization to read entitlements and generic -->
     <authorization>
-    <name>Read all entitlements and generic shadows</name>
+        <name>Read all entitlements and generic shadows</name>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
         <object>
             <type>ShadowType</type>
@@ -291,37 +289,37 @@
                     <q:equal>
                         <q:path>kind</q:path>
                         <q:value>generic</q:value>
-        </q:equal>
-        </q:or>
-    </filter>
+                    </q:equal>
+                </q:or>
+            </filter>
         </object>
     </authorization>
 
-<!-- Allow derived changes of all user attributes (e.g. name change) (phase=execution) -->
+    <!-- Allow derived changes of all user attributes (e.g. name change) (phase=execution) -->
     <authorization>
-    <name>Allow execution for derived changes on User</name>
+        <name>Allow execution for derived changes on User</name>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>
         <phase>execution</phase>
         <object>
             <type>UserType</type>
-                <filter>
-                    <q:or>
-                        <q:equal>
-                            <q:path>employeeType</q:path>
-                            <q:value>customer-admin</q:value>
-                        </q:equal>
-                        <q:equal>
-                            <q:path>employeeType</q:path>
-                            <q:value>customer-user</q:value>
-                        </q:equal>
-            </q:or>
-                </filter>
+            <filter>
+                <q:or>
+                    <q:equal>
+                        <q:path>subtype</q:path>
+                        <q:value>customer-admin</q:value>
+                    </q:equal>
+                    <q:equal>
+                        <q:path>subtype</q:path>
+                        <q:value>customer-user</q:value>
+                    </q:equal>
+                </q:or>
+            </filter>
         </object>
     </authorization>
 
     <authorization>
-    <name>Allow execution for derived changes on Shadows for users</name>
-    <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#add</action>
+        <name>Allow execution for derived changes on Shadows for users</name>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#add</action>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#delete</action>
         <phase>execution</phase>
@@ -332,21 +330,21 @@
                 <filter>
                     <q:or>
                         <q:equal>
-                            <q:path>employeeType</q:path>
+                            <q:path>subtype</q:path>
                             <q:value>customer-admin</q:value>
                         </q:equal>
                         <q:equal>
-                            <q:path>employeeType</q:path>
+                            <q:path>subtype</q:path>
                             <q:value>customer-user</q:value>
                         </q:equal>
-            </q:or>
+                    </q:or>
                 </filter>
             </owner>
         </object>
     </authorization>
     <authorization>
-    <name>Allow execution for derived changes on Shado for organizations</name>
-    <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#add</action>
+        <name>Allow execution for derived changes on Shado for organizations</name>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#add</action>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>
         <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#delete</action>
         <phase>execution</phase>
@@ -357,10 +355,10 @@
                 <filter>
                     <q:or>
                         <q:equal>
-                            <q:path>orgType</q:path>
+                            <q:path>subtype</q:path>
                             <q:value>customer</q:value>
                         </q:equal>
-            </q:or>
+                    </q:or>
                 </filter>
             </owner>
         </object>

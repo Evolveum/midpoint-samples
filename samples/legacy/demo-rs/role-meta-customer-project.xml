@@ -95,7 +95,7 @@
                 <value>customer</value>
                         </expression>
                         <target>
-                                <path>$focus/orgType</path>
+                                <path>$focus/subtype</path>
                         </target>
                 </mapping>
         </focusMappings>

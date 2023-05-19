@@ -1,0 +1,8 @@
+Renaissance demo samples in this directory are not maintained anymore. 
+
+For actual up-to-date version of the files please, go to:
+
+https://github.com/Evolveum/midpoint-kubernetes/tree/main/midpoint-live-demo/kustomize-base/renaissance-demo-config
+
+The samples are maintained together with demo Kubernetes configuration to provide people option to run our whole demo in their (Kubernetes) environment:
+https://github.com/Evolveum/midpoint-kubernetes/tree/main/midpoint-live-demo

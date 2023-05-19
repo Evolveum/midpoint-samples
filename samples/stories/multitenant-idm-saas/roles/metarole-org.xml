@@ -35,11 +35,11 @@
         </construction>
         <condition>
             <source>
-                <path>$immediateRole/orgType</path>
+                <path>$immediateRole/subtype</path>
             </source>
                 <expression>
                     <script>
-                        <code>orgType == 'customer'</code>
+                        <code>subtype == 'customer'</code>
                     </script>
                 </expression>
         </condition>
@@ -53,11 +53,11 @@
         </construction>
         <condition>
             <source>
-                <path>$immediateRole/orgType</path>
+                <path>$immediateRole/subtype</path>
             </source>
                 <expression>
                     <script>
-                        <code>orgType == 'customer'</code>
+                        <code>subtype == 'customer'</code>
                     </script>
                 </expression>
         </condition>
@@ -71,11 +71,11 @@
         </construction>
         <condition>
             <source>
-                <path>$immediateRole/orgType</path>
+                <path>$immediateRole/subtype</path>
             </source>
                 <expression>
                     <script>
-                        <code>orgType == 'customer'</code>
+                        <code>subtype == 'customer'</code>
                     </script>
                 </expression>
         </condition>
@@ -89,11 +89,11 @@
         </construction>
         <condition>
             <source>
-                <path>$immediateRole/orgType</path>
+                <path>$immediateRole/subtype</path>
             </source>
                 <expression>
                     <script>
-                        <code>orgType == 'customer'</code>
+                        <code>subtype == 'customer'</code>
                     </script>
                 </expression>
         </condition>

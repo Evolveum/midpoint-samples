@@ -1,0 +1,11 @@
+<report>
+    <name>Enabled users report</name>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000170" type="ArchetypeType"/>
+    </assignment>
+    <dashboard>
+        <dashboardRef oid="f89709f9-7313-494f-a600-69ea75d95106" type="DashboardType"/>
+        <showOnlyWidgetsTable>true</showOnlyWidgetsTable>
+        <storeExportedWidgetData>onlyWidget</storeExportedWidgetData>
+    </dashboard>
+</report>

@@ -1,102 +1,96 @@
-<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-	   		    xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" 
-	   		    xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-	   		    xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
-	   		    xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
-	   		    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
-	   		    xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
-	   		    xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
-	   		    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	   		    oid="template-defaultOrg">
-      <name>Default Org Template</name>
-      <description>
+<objectTemplate xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        oid="template-defaultOrg">
+    <name>Default Org Template</name>
+    <description>
         This object is used when creating/modifying an organization.
     </description>
-      <item>
-         <c:ref>orgType</c:ref>
-         <displayName>Type</displayName>
-         <valueEnumerationRef xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-         					  oid="lookup-typesOrgs" 
-         					  relation="org:default" 
-         					  type="tns:LookupTableType"/>
-      </item>
-      <item>
-         <c:ref>riskLevel</c:ref>
-         <displayName>Risk Level</displayName>
-         <valueEnumerationRef xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-         					  oid="lookup-riskLevels" 
-         					  relation="org:default" 
-         					  type="tns:LookupTableType"/>
-      </item>
-      <item>
-         <c:ref>c:costCenter</c:ref>
-         <displayName>Department Code</displayName>
-      </item>
-      <item>
-         <c:ref>c:mailDomain</c:ref>
-         <displayName>Email Address</displayName>
-      </item>
-      <mapping>
-         <name>Org Metarole Assignment</name>
-         <strength>strong</strength>
-         <source>
-            <c:path>orgType</c:path>
-         </source>
-         <expression>
+    <item>
+        <c:ref>subtype</c:ref>
+        <displayName>Type</displayName>
+        <valueEnumerationRef xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                oid="lookup-typesOrgs"
+                relation="org:default"
+                type="tns:LookupTableType"/>
+    </item>
+    <item>
+        <c:ref>riskLevel</c:ref>
+        <displayName>Risk Level</displayName>
+        <valueEnumerationRef xmlns:tns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                oid="lookup-riskLevels"
+                relation="org:default"
+                type="tns:LookupTableType"/>
+    </item>
+    <item>
+        <c:ref>c:costCenter</c:ref>
+        <displayName>Department Code</displayName>
+    </item>
+    <item>
+        <c:ref>c:mailDomain</c:ref>
+        <displayName>Email Address</displayName>
+    </item>
+    <mapping>
+        <name>Org Metarole Assignment</name>
+        <strength>strong</strength>
+        <source>
+            <c:path>subtype</c:path>
+        </source>
+        <expression>
             <assignmentTargetSearch>
-               <targetType>c:RoleType</targetType>
-               <oid>metarole-OrgToOrg</oid>
+                <targetType>c:RoleType</targetType>
+                <oid>metarole-OrgToOrg</oid>
             </assignmentTargetSearch>
-         </expression>
-         <target>
+        </expression>
+        <target>
             <c:path>assignment</c:path>
-         </target>
-         <condition>
+        </target>
+        <condition>
             <script>
-               <code>orgType == 'TOP' || orgType == 'Domain' || orgType == 'Organization' || orgType == 'Organizational Unit'</code>
+                <code>subtype == 'TOP' || subtype == 'Domain' || subtype == 'Organization' || subtype == 'Organizational Unit'</code>
             </script>
-         </condition>
-      </mapping>
-      <mapping>
-         <name>Org Metarole Course Registry Assignment</name>
-         <strength>strong</strength>
-         <source>
-            <c:path>orgType</c:path>
-         </source>
-         <expression>
+        </condition>
+    </mapping>
+    <mapping>
+        <name>Org Metarole Course Registry Assignment</name>
+        <strength>strong</strength>
+        <source>
+            <c:path>subtype</c:path>
+        </source>
+        <expression>
             <assignmentTargetSearch>
-               <targetType>c:RoleType</targetType>
-               <oid>metarole-registryCourses</oid>
+                <targetType>c:RoleType</targetType>
+                <oid>159cd4a7-28b1-4ae0-8194-d1606c340206</oid>
             </assignmentTargetSearch>
-         </expression>
-         <target>
+        </expression>
+        <target>
             <c:path>assignment</c:path>
-         </target>
-         <condition>
+        </target>
+        <condition>
             <script>
-               <code>orgType == 'Course Group'</code>
+                <code>subtype == 'Course Group'</code>
             </script>
-         </condition>
-      </mapping>
-      <mapping>
-         <name>Org Metarole OrgUnit Registry Assignment</name>
-         <strength>strong</strength>
-         <source>
-            <c:path>orgType</c:path>
-         </source>
-         <expression>
+        </condition>
+    </mapping>
+    <mapping>
+        <name>Org Metarole OrgUnit Registry Assignment</name>
+        <strength>strong</strength>
+        <source>
+            <c:path>subtype</c:path>
+        </source>
+        <expression>
             <assignmentTargetSearch>
-               <targetType>c:RoleType</targetType>
-               <oid>metarole-registryOrgUnit</oid>
+                <targetType>c:RoleType</targetType>
+                <oid>8e9c0012-12c0-4318-9963-7c3ccdcdcd08</oid>
             </assignmentTargetSearch>
-         </expression>
-         <target>
+        </expression>
+        <target>
             <c:path>assignment</c:path>
-         </target>
-         <condition>
+        </target>
+        <condition>
             <script>
-               <code>orgType == 'Course OrgUnit'</code>
+                <code>subtype == 'Course OrgUnit'</code>
             </script>
-         </condition>
-      </mapping>
-   </objectTemplate>
+        </condition>
+    </mapping>
+</objectTemplate>

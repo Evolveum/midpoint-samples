@@ -276,7 +276,7 @@ removed all objects other than the resource itself.
                 <tolerant>false</tolerant>
                 <outbound>
                     <source>
-                        <path>$user/employeeType</path>
+                        <path>$user/subtype</path>
                     </source>
                 </outbound>
             </attribute>

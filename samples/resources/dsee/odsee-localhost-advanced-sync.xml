@@ -389,6 +389,7 @@ object.
 
     </c:resource>
 
+    <!-- TODO convert to activities (4.4) -->
     <task oid="91919191-76e0-59e2-86d6-3d4f02d3afaf">
 
         <name>Synchronization: Embedded Test Oracle DSEE7</name>
