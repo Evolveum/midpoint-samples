@@ -31,23 +31,23 @@
         <modules>
             <!-- Definition and configuration of all authentication modules that can be used in the system -->
             <loginForm>
-                <name>internalLoginForm</name>
+                <identifier>internalLoginForm</identifier>
                 <description>Internal username/password authentication, default user password, login form</description>
                 <!-- Credential name is not specified. Default password is used. -->
             </loginForm>
             <loginForm>
-                <name>adLoginForm</name>
+                <identifier>adLoginForm</identifier>
                 <description>Username/password authentication using AD password. Login form</description>
                 <!-- This has to be a name of password or resourcePassword credential. -->
                 <credentialName>adPassword</credentialName>
             </loginForm>
             <loginForm>
-                <name>internalAdminLoginForm</name>
+                <identifier>internalAdminLoginForm</identifier>
                 <description>Internal username/password authentication, admin password, login form</description>
                 <credentialName>adminPassword</credentialName>
             </loginForm>
             <httpBasic>
-                <name>internalBasic</name>
+                <identifier>internalBasic</identifier>
                 <description>Internal username/password authentication, using HTTP basic auth</description>
                 <!-- This has to be a name of password or resourcePassword credential. -->
                 <credentialName>userPassword</credentialName>
@@ -55,7 +55,7 @@
                 <acceptEmptyPassword>false</acceptEmptyPassword>
             </httpBasic>
             <httpHeader>
-                <name>httpHeaderSso</name>
+                <identifier>httpHeaderSso</identifier>
                 <description>
                     Simple almost-authentication based on presence of HTTP headers.
                     It does not really authenticates anything. It just takes username from HTTP header.
@@ -66,7 +66,7 @@
                 <usernameHeader>SSO_USER</usernameHeader>
             </httpHeader>
             <saml2>
-                <name>federation</name>
+                <identifier>federation</identifier>
                 <description>SAML-based federation authentication (e.g. eduGAIN-like)</description>
                 <network>
                     <readTimeout>10000</readTimeout>
@@ -77,7 +77,7 @@
                 <!-- ... other SAML configuration that the module needs -->
             </saml2>
             <saml2>
-                <name>mySamlSso</name>
+                <identifier>mySamlSso</identifier>
                 <description>My internal enterprise SAML-based SSO system.</description>
                 <serviceProvider>
                     <entityId>midpoint</entityId>
@@ -85,26 +85,26 @@
                 <!-- ... other SAML configuration that the module needs -->
             </saml2>
             <oidc>
-                <name>apiGw</name>
+                <identifier>apiGw</identifier>
                 <description>API-GW-like authentication using company OpenID Connect authorization server.</description>
                 <!-- ... other OIDC configuration that the module needs -->
             </oidc>
             <mailNonce>
-                <name>registrationMail</name>
+                <identifier>registrationMail</identifier>
                 <description>Authentication based on mail message with a nonce. Used for user registration.</description>
                 <!-- This has to be a name of nonce credential. This credential will be generated and stored. -->
                 <credentialName>mailNonce</credentialName>
                 <!-- no emailAddressItem specified, therefore the default emailAddreess item will be used -->
             </mailNonce>
             <smsNonce>
-                <name>passwordResetSms</name>
+                <identifier>passwordResetSms</identifier>
                 <description>Authentication based on SMS message with a nonce. Used for password resets.</description>
                 <!-- This has to be a name of nonce credential. This credential will be generated and stored. -->
                 <credentialName>smsNonce</credentialName>
                 <mobileTelephoneNumberItemPath>extension/mobile</mobileTelephoneNumberItemPath>
             </smsNonce>
             <securityQuestionsForm>
-                <name>SecQ</name>
+                <identifier>SecQ</identifier>
                 <description>
                     This is interactive, form-based authentication by using security questions.
                 </description>
@@ -113,7 +113,7 @@
                      E.g. how many questions to present, how many need to be answered successfuly, randomize order, etc.  -->
             </securityQuestionsForm>
             <httpSecQ>
-                <name>httpSecQ</name>
+                <identifier>httpSecQ</identifier>
                 <description>
                     Special "HTTP SecQ" authentication based on security question answers.
                     It is used for REST service.

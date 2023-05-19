@@ -13,21 +13,21 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-  
+
 <securityPolicy xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" oid="00000000-0000-0000-0000-0000000rt120" version="5">
     <name>Default Security Policy</name>
     <authentication>
         <modules>
             <loginForm id="1">
-                <name>internalLoginForm</name>
+                <identifier>internalLoginForm</identifier>
                 <description>Internal username/password authentication, default user password, login form</description>
             </loginForm>
             <httpBasic id="2">
-                <name>internalBasic</name>
+                <identifier>internalBasic</identifier>
                 <description>Internal username/password authentication, using HTTP basic auth</description>
             </httpBasic>
             <saml2 id="3">
-                <name>mySamlSso</name>
+                <identifier>mySamlSso</identifier>
                 <description>My internal enterprise SAML-based SSO system.</description>
                 <network>
                     <readTimeout>10000</readTimeout>
@@ -67,24 +67,24 @@
                 </serviceProvider>
             </saml2>
             <mailNonce id="4">
-                <name>registrationMail</name>
+                <identifier>registrationMail</identifier>
                 <description>Authentication based on mail message with a nonce. Used for user registration.</description>
                 <credentialName>mailNonce</credentialName>
             </mailNonce>
             <smsNonce id="5">
-                <name>passwordResetSms</name>
+                <identifier>passwordResetSms</identifier>
                 <description>Authentication based on SMS message with a nonce. Used for password resets.</description>
                 <credentialName>smsNonce</credentialName>
                 <c:mobileTelephoneNumberItemPath>extension/mobile</c:mobileTelephoneNumberItemPath>
             </smsNonce>
             <securityQuestionsForm id="6">
-                <name>SecQ</name>
+                <identifier>SecQ</identifier>
                 <description>
                     This is interactive, form-based authentication by using security questions.
                 </description>
             </securityQuestionsForm>
             <httpSecQ id="7">
-                <name>httpSecQ</name>
+                <identifier>httpSecQ</identifier>
                 <description>
                     Special "HTTP SecQ" authentication based on security question answers.
                     It is used for REST service.
