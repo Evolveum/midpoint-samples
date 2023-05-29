@@ -98,9 +98,7 @@
         <!-- administrator -->
     </ownerRef>
     <executionStatus>runnable</executionStatus>
-    <category>BulkActions</category>
     <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/scripting/handler-3</handlerUri>
-    <recurrence>single</recurrence>
     <binding>tight</binding>
     <assignment id="4">
         <targetRef oid="00000000-0000-0000-0000-000000000508" relation="org:default" type="c:ArchetypeType">

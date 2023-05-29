@@ -41,11 +41,10 @@ so please do not edit unless you know what you are doing.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>3600</interval>
         </schedule>
     </task>
@@ -60,11 +59,10 @@ so please do not edit unless you know what you are doing.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>3600</interval>
         </schedule>
     </task>
@@ -79,11 +77,9 @@ so please do not edit unless you know what you are doing.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
-        <binding>tight</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>5</interval>
         </schedule>
     </task>
@@ -98,11 +94,11 @@ so please do not edit unless you know what you are doing.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
+        
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>3600</interval>
         </schedule>
         <threadStopAction>suspend</threadStopAction>

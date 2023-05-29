@@ -1038,15 +1038,11 @@
                <cap:type>connector</cap:type>
             </cap:host>
          </cap:script>
-         <cap:addRemoveAttributeValues/>
          <cap:activation>
             <cap:status/>
          </cap:activation>
       </native>
       <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
-         <cap:addRemoveAttributeValues>
-            <cap:enabled>true</cap:enabled>
-         </cap:addRemoveAttributeValues>
          <cap:activation>
             <cap:enabled>true</cap:enabled>
             <cap:status>

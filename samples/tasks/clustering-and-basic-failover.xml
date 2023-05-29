@@ -45,11 +45,10 @@ so please do not edit unless you know what you are doing.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>20</interval>
         </schedule>
     </task>
@@ -64,11 +63,10 @@ so please do not edit unless you know what you are doing.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>22</interval>
         </schedule>
     </task>
@@ -83,11 +81,10 @@ so please do not edit unless you know what you are doing.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>24</interval>
         </schedule>
     </task>
@@ -102,11 +99,10 @@ so please do not edit unless you know what you are doing.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>26</interval>
         </schedule>
     </task>
@@ -121,11 +117,10 @@ so please do not edit unless you know what you are doing.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>19</interval>
         </schedule>
     </task>
@@ -140,11 +135,10 @@ so please do not edit unless you know what you are doing.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>2</interval>
         </schedule>
     </task>
@@ -159,11 +153,11 @@ so please do not edit unless you know what you are doing.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
+        
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>2</interval>
         </schedule>
     </task>
