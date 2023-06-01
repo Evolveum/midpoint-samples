@@ -126,7 +126,7 @@
         </modules>
 
         <sequence>
-            <name>admin-gui-default</name>
+            <identifier>admin-gui-default</identifier>
             <description>
                 Default GUI authentication sequence.
                 We want to try company SSO, federation and internal. In that order.
@@ -138,17 +138,17 @@
                 <default>true</default>
             </channel>
             <module>
-                <name>mySamlSso</name> <!-- This is reference to module defined above -->
+                <identifier>mySamlSso</identifier> <!-- This is reference to module defined above -->
                 <order>10</order>
                 <necessity>sufficient</necessity>
             </module>
             <module>
-                <name>federation</name>
+                <identifier>federation</identifier>
                 <order>20</order>
                 <necessity>sufficient</necessity>
             </module>
             <module>
-                <name>internalLoginForm</name>
+                <identifier>internalLoginForm</identifier>
                 <order>30</order>
                 <necessity>sufficient</necessity>
             </module>
@@ -157,7 +157,7 @@
         </sequence>
 
         <sequence>
-            <name>admin-gui-emergency</name>
+            <identifier>admin-gui-emergency</identifier>
             <description>
                 Special GUI authentication sequence that is using just the internal user password.
                 It is used only in emergency. It allows to skip SAML authentication cycles, e.g. in case
@@ -174,14 +174,14 @@
             <!-- This authentication sequence will only work for users that have superuser role -->
             <requireAssignmentTarget oid="00000000-0000-0000-0000-000000000004" type="RoleType"/> <!-- Role superuser -->
             <module>
-                <name>internalLoginForm</name>
+                <identifier>internalLoginForm</identifier>
                 <order>30</order>
                 <necessity>sufficient</necessity>
             </module>
         </sequence>
 
         <sequence>
-            <name>admin-gui-admin</name>
+            <identifier>admin-gui-admin</identifier>
             <description>
                 Special GUI authentication sequence using admin password.
                 This will count as a stronger authentication. It will enable authorizations that are not normally
@@ -204,7 +204,7 @@
                 <value>true</value>
             </authenticationContextAttribute>
             <module>
-                <name>mySamlSso</name>
+                <identifier>mySamlSso</identifier>
                 <order>10</order>
                 <necessity>sufficient</necessity>
                 <!-- We allow SSO login. But we allow that only for users that have
@@ -225,7 +225,7 @@
             </module>
             <module>
                 <!-- Special login module that is using admin password instead of the default one -->
-                <name>internalAdminLoginForm</name>
+                <identifier>internalAdminLoginForm</identifier>
                 <order>20</order>
                 <necessity>sufficient</necessity>
             </module>
@@ -234,7 +234,7 @@
         </sequence>
 
         <sequence>
-            <name>admin-gui-simple-sso</name>
+            <identifier>admin-gui-simple-sso</identifier>
             <description>
                 Special GUI authentication sequence using simple SSO based on reverse proxy and HTTP headers.
             </description>
@@ -258,14 +258,14 @@
                 <value>true</value>
             </authenticationContextAttribute>
             <module>
-                <name>httpHeaderSso</name>
+                <identifier>httpHeaderSso</identifier>
                 <order>10</order>
                 <necessity>sufficient</necessity>
             </module>
         </sequence>
 
         <sequence>
-            <name>rest</name>
+            <identifier>rest</identifier>
             <description>
                 Authentication sequence for REST service.
                 We want just OIDC auth here, HTTP basic as fallback.
@@ -281,17 +281,17 @@
                 <default>true</default>
             </channel>
             <module>
-                <name>apiGw</name>
+                <identifier>apiGw</identifier>
                 <order>10</order>
                 <necessity>sufficient</necessity>
             </module>
             <module>
-                <name>internalBasic</name>
+                <identifier>internalBasic</identifier>
                 <order>10</order>
                 <necessity>sufficient</necessity>
             </module>
             <module>
-                <name>httpSecQ</name>
+                <identifier>httpSecQ</identifier>
                 <order>10</order>
                 <necessity>sufficient</necessity>
                 <!-- TODO: reduce authorizations, allow password reset only -->
@@ -299,7 +299,7 @@
         </sequence>
 
         <sequence>
-            <name>userPasswordResetAuth</name>
+            <identifier>userPasswordResetAuth</identifier>
             <description>
                 Just plain and simple security questions.
             </description>
@@ -307,13 +307,13 @@
                 <channelId>http://midpoint.evolveum.com/xml/ns/public/gui/channels-3#resetPassword</channelId>
             </channel>
             <module>
-                <name>SecQ</name>
+                <identifier>SecQ</identifier>
                 <order>10</order>
                 <necessity>sufficient</necessity>
             </module>
         </sequence>
         <sequence>
-            <name>adminPasswordResetAuth</name>
+            <identifier>adminPasswordResetAuth</identifier>
             <description>
                 We want combination of SMS nonce auth and security questions.
                 Both must be successful for authentication to pass.
@@ -322,18 +322,18 @@
                 <channelId>http://midpoint.evolveum.com/xml/ns/public/gui/channels-3#resetPassword</channelId>
             </channel>
             <module>
-                <name>passwordResetSms</name>
+                <identifier>passwordResetSms</identifier>
                 <order>10</order>
                 <necessity>required</necessity>
             </module>
             <module>
-                <name>SecQ</name>
+                <identifier>SecQ</identifier>
                 <order>20</order>
                 <necessity>required</necessity>
             </module>
         </sequence>
         <sequence>
-            <name>selfRegistrationAuth</name>
+            <identifier>selfRegistrationAuth</identifier>
             <description>
                 Just a nonce mail to validate e-mail address.
             </description>
@@ -341,13 +341,13 @@
                 <channelId>http://midpoint.evolveum.com/xml/ns/public/gui/channels-3#selfRegistration</channelId>
             </channel>
             <module>
-                <name>registrationMail</name>
+                <identifier>registrationMail</identifier>
                 <order>10</order>
                 <necessity>required</necessity>
             </module>
         </sequence>
         <sequence>
-            <name>experimental</name>
+            <identifier>experimental</identifier>
             <description>
                 Experimental auth sequence just for testing.
             </description>
@@ -448,7 +448,7 @@
     </flow>
 
     <credentialsReset>
-        <name>userPasswordReset</name>
+        <identifier>userPasswordReset</identifier>
         <description>
             Credential reset procedure for default user password.
             Security questions are used.
@@ -458,7 +458,7 @@
         <newCredentialSource>userEntry</newCredentialSource>
     </credentialsReset>
     <credentialsReset>
-        <name>adminPasswordReset</name>
+        <identifier>adminPasswordReset</identifier>
         <description>
             Credential reset procedure for administration password.
             SMS nonce authentication and security questions are used.

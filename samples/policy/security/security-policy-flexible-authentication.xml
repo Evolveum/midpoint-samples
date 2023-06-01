@@ -82,7 +82,7 @@
             </httpSecQ>
         </modules>
         <sequence id="8">
-            <name>admin-gui-default</name>
+            <identifier>admin-gui-default</identifier>
             <description>
                 Default GUI authentication sequence.
                 We want to try company SSO, federation and internal. In that order.
@@ -94,18 +94,18 @@
               <urlSuffix>default</urlSuffix>
             </channel>
             <module id="12">
-                <name>mySamlSso</name>
+                <identifier>mySamlSso</identifier>
                 <order>30</order>
                 <necessity>sufficient</necessity>
             </module>
             <module id="13">
-                <name>internalLoginForm</name>
+                <identifier>internalLoginForm</identifier>
                 <order>20</order>
                 <necessity>sufficient</necessity>
             </module>
         </sequence>
         <sequence id="9">
-            <name>admin-gui-emergency</name>
+            <identifier>admin-gui-emergency</identifier>
             <description>
                 Special GUI authentication sequence that is using just the internal user password.
                 It is used only in emergency. It allows to skip SAML authentication cycles, e.g. in case
@@ -120,13 +120,13 @@
                 <!-- Superuser -->
             </requireAssignmentTarget>
             <module id="14">
-                <name>internalLoginForm</name>
+                <identifier>internalLoginForm</identifier>
                 <order>30</order>
                 <necessity>sufficient</necessity>
             </module>
         </sequence>
         <sequence>
-            <name>rest</name>
+            <identifier>rest</identifier>
             <description>
                 Authentication sequence for REST service.
             </description>
@@ -136,13 +136,13 @@
                 <urlSuffix>rest-default</urlSuffix>
             </channel>
             <module>
-                <name>internalBasic</name>
+                <identifier>internalBasic</identifier>
                 <order>10</order>
                 <necessity>sufficient</necessity>
             </module>
         </sequence>
         <sequence>
-            <name>actuator</name>
+            <identifier>actuator</identifier>
             <description>
                 Authentication sequence for actuator.
             </description>
@@ -152,7 +152,7 @@
                 <urlSuffix>actuator-default</urlSuffix>
             </channel>
             <module>
-                <name>internalBasic</name>
+                <identifier>internalBasic</identifier>
                 <order>10</order>
                 <necessity>sufficient</necessity>
             </module>

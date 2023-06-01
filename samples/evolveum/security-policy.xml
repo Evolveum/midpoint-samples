@@ -34,7 +34,7 @@
             </mailNonce>
         </modules>
         <sequence>
-            <name>admin-gui-default</name>
+            <identifier>admin-gui-default</identifier>
             <description>
                 Default GUI authentication sequence.
                 We want to try company SSO, federation and internal. In that order.
@@ -46,13 +46,13 @@
                 <urlSuffix>default</urlSuffix>
             </channel>
             <module>
-                <name>internalLoginForm</name>
+                <identifier>internalLoginForm</identifier>
                 <order>10</order>
                 <necessity>sufficient</necessity>
             </module>
         </sequence>
         <sequence>
-            <name>rest</name>
+            <identifier>rest</identifier>
             <description>
                 Authentication sequence for REST service.
             </description>
@@ -62,20 +62,20 @@
                 <urlSuffix>rest-default</urlSuffix>
             </channel>
             <module>
-                <name>internalBasic</name>
+                <identifier>internalBasic</identifier>
                 <order>10</order>
                 <necessity>sufficient</necessity>
             </module>
         </sequence>
         <sequence>
-            <name>confirmationLink</name>
+            <identifier>confirmationLink</identifier>
             <description>Just a nonce mail to validate e-mail address.</description>
             <channel>
                 <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#resetPassword</channelId>
                 <urlSuffix>resetPassword</urlSuffix>
             </channel>
             <module>
-                <name>MailNonce</name>
+                <identifier>MailNonce</identifier>
                 <order>10</order>
                 <necessity>sufficient</necessity>
             </module>
