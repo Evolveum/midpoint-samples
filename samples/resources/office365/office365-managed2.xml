@@ -514,7 +514,6 @@ This contains configuration for a managed (non federated) Office 365 domain
     </schemaHandling>
     <capabilities>
         <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
-            <cap:addRemoveAttributeValues/>
             <cap:credentials>
                 <cap:password>
                     <cap:returnedByDefault>false</cap:returnedByDefault>

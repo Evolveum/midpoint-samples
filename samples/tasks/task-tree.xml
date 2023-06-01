@@ -41,8 +41,9 @@ so please do not edit unless you know what you are doing.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>waiting</executionStatus>
         <waitingReason>otherTasks</waitingReason>
-        <category>Demo</category>
-        <recurrence>single</recurrence>
+        <schedule>
+            <recurrence>single</recurrence>
+        </schedule>
     </task>
 
 
@@ -63,7 +64,9 @@ so please do not edit unless you know what you are doing.
         <executionStatus>runnable</executionStatus>
 
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>single</recurrence>
+        <schedule>
+            <recurrence>single</recurrence>
+        </schedule>
     </task>
 
     <task oid="91919191-76e0-59e2-86d6-556655662021"
@@ -83,7 +86,9 @@ so please do not edit unless you know what you are doing.
         <executionStatus>runnable</executionStatus>
 
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>single</recurrence>
+        <schedule>
+            <recurrence>single</recurrence>
+        </schedule>
     </task>
 
 </objects>

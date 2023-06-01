@@ -402,9 +402,9 @@ object.
         <executionStatus>runnable</executionStatus>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/live-sync/handler-3</handlerUri>
         <objectRef oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3e1aa" type="c:ResourceType"/>
-        <recurrence>recurring</recurrence>
         <binding>tight</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>5</interval>
         </schedule>
 

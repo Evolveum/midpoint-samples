@@ -104,7 +104,6 @@
          <serialNumber>ea50ed1821e1d1f6-d9905c941fb779e1</serialNumber>
       </cachingMetadata>
       <native xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
-         <cap:addRemoveAttributeValues/>
          <cap:credentials>
             <cap:password>
                <cap:returnedByDefault>false</cap:returnedByDefault>

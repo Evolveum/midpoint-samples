@@ -215,7 +215,6 @@
          <serialNumber>1141db340df1573e-621c56a87c47c088</serialNumber>
       </cachingMetadata>
       <native>
-         <cap:addRemoveAttributeValues/>
          <cap:activation>
             <cap:status/>
             <cap:validTo/>

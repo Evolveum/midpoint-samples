@@ -44,9 +44,10 @@ these tasks via admin GUI.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>single</recurrence>
+        <schedule>
+            <recurrence>single</recurrence>
+        </schedule>
         <binding>tight</binding>
     </task>
 
@@ -60,11 +61,10 @@ these tasks via admin GUI.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>tight</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>20</interval>
         </schedule>
     </task>
@@ -79,11 +79,10 @@ these tasks via admin GUI.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>60</interval>
         </schedule>
     </task>
@@ -98,11 +97,10 @@ these tasks via admin GUI.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <cronLikePattern>0 * * * * ?</cronLikePattern>
         </schedule>
     </task>
@@ -117,11 +115,10 @@ these tasks via admin GUI.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <cronLikePattern>0 0/5 * * * ?</cronLikePattern>
         </schedule>
     </task>
@@ -136,11 +133,10 @@ these tasks via admin GUI.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <schedule>
+            <recurrence>recurring</recurrence>
             <cronLikePattern>0 0/5 * * * ?</cronLikePattern>
             <misfireAction>reschedule</misfireAction>
         </schedule>
@@ -157,11 +153,10 @@ these tasks via admin GUI.
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>single</recurrence>
         <binding>tight</binding>
         <schedule>
+            <recurrence>single</recurrence>
             <earliestStartTime>2012-05-09T06:30:00</earliestStartTime>
         </schedule>
         <threadStopAction>suspend</threadStopAction>

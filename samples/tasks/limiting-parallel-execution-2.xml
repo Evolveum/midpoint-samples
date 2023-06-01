@@ -31,9 +31,7 @@
         <taskIdentifier>00000005-0000-0000-0011-123450000001</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <executionConstraints>
             <group>exclusive</group>
@@ -41,6 +39,7 @@
             <retryAfter>PT17S</retryAfter>
         </executionConstraints>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>80</interval>
         </schedule>
     </task>
@@ -54,9 +53,7 @@
         <taskIdentifier>00000005-0000-0000-0011-123450000002</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <executionConstraints>
             <group>exclusive</group>
@@ -64,6 +61,7 @@
             <retryAfter>PT17S</retryAfter>
         </executionConstraints>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>80</interval>
         </schedule>
     </task>
@@ -77,9 +75,7 @@
         <taskIdentifier>00000005-0000-0000-0011-123450000003</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
-        <category>Demo</category>
         <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        <recurrence>recurring</recurrence>
         <binding>loose</binding>
         <executionConstraints>
             <group>exclusive</group>
@@ -87,6 +83,7 @@
             <retryAfter>PT17S</retryAfter>
         </executionConstraints>
         <schedule>
+            <recurrence>recurring</recurrence>
             <interval>80</interval>
         </schedule>
     </task>
