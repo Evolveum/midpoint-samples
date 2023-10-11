@@ -20,7 +20,7 @@
 
 This file is an example of Resource definition. It defines CSV resource.
 
-This is the "bare" definition, specifying the connector configuration only.
+This is the "minimal" definition, specifying connector configuration and account object class.
 
 -->
 <resource oid="03c3ceea-78e2-11e6-954d-dfdfa9ace0cf"
@@ -34,7 +34,7 @@ This is the "bare" definition, specifying the connector configuration only.
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
 
-    <c:name>HR System</c:name>
+    <name>HR System</name>
 
     <connectorRef type="ConnectorType">
         <filter>
@@ -58,7 +58,17 @@ This is the "bare" definition, specifying the connector configuration only.
             <icfccsvfile:passwordAttribute>password</icfccsvfile:passwordAttribute>
         </icfc:configurationProperties>
 
-
     </connectorConfiguration>
+
+    <schemaHandling>
+
+        <objectType>
+            <displayName>HR Record</displayName>
+            <default>true</default>
+            <objectClass>ri:AccountObjectClass</objectClass>
+        </objectType>
+
+    </schemaHandling>
+
 
 </resource>
