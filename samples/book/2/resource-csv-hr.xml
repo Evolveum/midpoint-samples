@@ -16,11 +16,6 @@
   -->
 
 
-<!--
-
-This file is an example of Resource definition. It defines CSV resource.
-
--->
 <resource oid="03c3ceea-78e2-11e6-954d-dfdfa9ace0cf"
             xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
             xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
@@ -34,6 +29,8 @@ This file is an example of Resource definition. It defines CSV resource.
 
     <name>HR System</name>
 
+    <description>Resource definition for HR source resource. It is based on CSV exports from the HR system.</description>
+
     <connectorRef type="ConnectorType">
         <filter>
             <q:equal>
@@ -45,15 +42,11 @@ This file is an example of Resource definition. It defines CSV resource.
 
     <connectorConfiguration>
 
-        <!-- Configuration specific for the CSVfile connector -->
         <icfc:configurationProperties
                     xmlns:icfccsvfile="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
             <icfccsvfile:filePath>/opt/midpoint/var/resources/hr.csv</icfccsvfile:filePath>
-            <icfccsvfile:encoding>utf-8</icfccsvfile:encoding>
             <icfccsvfile:fieldDelimiter>,</icfccsvfile:fieldDelimiter>
-            <icfccsvfile:multivalueDelimiter>;</icfccsvfile:multivalueDelimiter>
             <icfccsvfile:uniqueAttribute>empno</icfccsvfile:uniqueAttribute>
-            <icfccsvfile:passwordAttribute>password</icfccsvfile:passwordAttribute>
         </icfc:configurationProperties>
 
     </connectorConfiguration>
@@ -62,19 +55,12 @@ This file is an example of Resource definition. It defines CSV resource.
 
         <objectType>
             <displayName>HR Record</displayName>
-            <default>true</default>
-            <objectClass>ri:AccountObjectClass</objectClass>
+            <delineation>
+                <objectClass>ri:AccountObjectClass</objectClass>
+            </delineation>
             <attribute>
                 <ref>ri:empno</ref>
-                <displayName>Name</displayName>
-                <limitations>
-                    <minOccurs>0</minOccurs>
-                    <access>
-                        <read>true</read>
-                        <add>true</add>
-                        <modify>true</modify>
-                    </access>
-                </limitations>
+                <displayName>Employee Number</displayName>
                 <inbound>
                     <target>
                         <path>name</path>
@@ -89,7 +75,6 @@ This file is an example of Resource definition. It defines CSV resource.
                         <path>givenName</path>
                     </target>
                 </inbound>
-
             </attribute>
             <attribute>
                 <ref>ri:lastname</ref>
@@ -117,6 +102,32 @@ This file is an example of Resource definition. It defines CSV resource.
                 </password>
             </credentials>
 
+            <synchronization>
+                <reaction>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <actions>
+                        <deleteFocus/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus/>
+                    </actions>
+                </reaction>
+            </synchronization>
         </objectType>
 
     </schemaHandling>
@@ -125,42 +136,4 @@ This file is an example of Resource definition. It defines CSV resource.
         <assignmentPolicyEnforcement>none</assignmentPolicyEnforcement>
     </projection>
 
-    <synchronization>
-        <objectSynchronization>
-            <enabled>true</enabled>
-            <correlation>
-                <q:equal>
-                    <q:path>c:name</q:path>
-                    <expression>
-                        <path>$projection/attributes/empno</path>
-                    </expression>
-                </q:equal>
-            </correlation>
-            <reaction>
-                <situation>linked</situation>
-                <synchronize>true</synchronize>
-            </reaction>
-            <reaction>
-                <situation>deleted</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#deleteFocus</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unlinked</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unmatched</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-                </action>
-            </reaction>
-        </objectSynchronization>
-    </synchronization>
 </resource>

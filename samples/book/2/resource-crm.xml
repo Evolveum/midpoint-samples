@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2017 Evolveum
+  ~ Copyright (c) 2017-2023 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -26,7 +26,8 @@
     xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
     xmlns:my="http://myself.me/schemas/whatever">
 
-       <name>CRM</name>
+    <name>CRM</name>
+    <description>Customer Relationship Management</description>
 
     <connectorRef type="ConnectorType">
         <filter>
@@ -64,30 +65,19 @@
         <objectType>
             <displayName>Default Account</displayName>
             <default>true</default>
-            <objectClass>ri:AccountObjectClass</objectClass>
+            <delineation>
+                <objectClass>ri:AccountObjectClass</objectClass>
+            </delineation>
             <attribute>
                 <ref>icfs:uid</ref>
                 <displayName>User ID</displayName>
-                <limitations>
-                    <access>
-                        <read>true</read>
-                    </access>
-                </limitations>
             </attribute>
             <attribute>
                 <ref>icfs:name</ref>
                 <displayName>Name</displayName>
-                <limitations>
-                    <minOccurs>0</minOccurs>
-                    <access>
-                           <read>true</read>
-                        <add>true</add>
-                        <modify>true</modify>
-                    </access>
-                </limitations>
                 <outbound>
                     <source>
-                        <path>$user/name</path>
+                        <path>$focus/name</path>
                     </source>
                 </outbound>
             </attribute>
@@ -97,27 +87,25 @@
                 <displayName>First name</displayName>
                 <outbound>
                     <source>
-                        <path>$user/givenName</path>
+                        <path>$focus/givenName</path>
                     </source>
                 </outbound>
-
             </attribute>
             <attribute>
                 <ref>ri:lastname</ref>
                 <displayName>Last name</displayName>
                 <outbound>
                     <source>
-                        <path>$user/familyName</path>
+                        <path>$focus/familyName</path>
                     </source>
                 </outbound>
-
             </attribute>
             <attribute>
                 <ref>ri:fullname</ref>
                 <displayName>Full name</displayName>
                 <outbound>
                     <source>
-                        <path>$user/fullName</path>
+                        <path>$focus/fullName</path>
                     </source>
                 </outbound>
             </attribute>
