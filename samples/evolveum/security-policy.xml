@@ -32,6 +32,13 @@
                 <description>Authentication based on mail message with a nonce. Used for user registration.</description>
                 <credentialName>mailNonce</credentialName>
             </mailNonce>
+            <focusIdentification>
+                <identifier>userName</identifier>
+                <item>
+                    <path>name</path>
+                    <matchingRule>polyStringNorm</matchingRule>
+                </item>
+            </focusIdentification>
         </modules>
         <sequence>
             <identifier>admin-gui-default</identifier>
@@ -68,15 +75,20 @@
             </module>
         </sequence>
         <sequence>
-            <identifier>confirmationLink</identifier>
+            <identifier>userPasswordResetAuth</identifier>
             <description>Just a nonce mail to validate e-mail address.</description>
             <channel>
                 <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#resetPassword</channelId>
                 <urlSuffix>resetPassword</urlSuffix>
             </channel>
             <module>
-                <identifier>MailNonce</identifier>
+                <identifier>userName</identifier>
                 <order>10</order>
+                <necessity>requisite</necessity>
+            </module>
+            <module>
+                <identifier>MailNonce</identifier>
+                <order>20</order>
                 <necessity>sufficient</necessity>
             </module>
         </sequence>
@@ -109,6 +121,8 @@
         </securityQuestions>
     </credentials>
     <credentialsReset>
-        <authenticationSequenceName>confirmationLink</authenticationSequenceName>
+        <identifier>global-credentials-reset</identifier>
+        <description>Credential reset procedure for default user password.</description>
+        <authenticationSequenceName>userPasswordResetAuth</authenticationSequenceName>
     </credentialsReset>
 </securityPolicy>
