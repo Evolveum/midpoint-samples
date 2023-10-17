@@ -31,11 +31,8 @@
 
     <connectorRef type="ConnectorType">
         <filter>
-            <q:equal>
-            <q:path>c:connectorType</q:path>
-              <q:value>org.identityconnectors.databasetable.DatabaseTableConnector</q:value>
-            </q:equal>
-          </filter>
+            <q:text>connectorType = "org.identityconnectors.databasetable.DatabaseTableConnector"</q:text>
+        </filter>
     </connectorRef>
 
     <connectorConfiguration>

@@ -38,10 +38,7 @@ This is the "minimal" definition, specifying connector configuration and account
 
     <connectorRef type="ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>c:connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.csv.CsvConnector</q:value>
-            </q:equal>
+            <q:text>connectorType = "com.evolveum.polygon.connector.csv.CsvConnector"</q:text>
         </filter>
     </connectorRef>
 
