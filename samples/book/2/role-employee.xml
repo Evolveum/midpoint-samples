@@ -22,7 +22,7 @@
     <inducement>
         <construction>
             <!-- OpenLDAP resource -->
-            <resourceRef oid="b4101662-7902-11e6-9f14-53e18426fe81"/>
+            <resourceRef oid="8a83b1a4-be18-11e6-ae84-7301fdab1d7c"/>
             <kind>account</kind>
         </construction>
     </inducement>

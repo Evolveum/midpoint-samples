@@ -59,7 +59,7 @@ This is the "minimal" definition, specifying connector configuration and account
         <objectType>
             <displayName>HR Record</displayName>
             <delineation>
-                <objectClass>ri:AccountObjectClass</objectClass>
+                <objectClass>AccountObjectClass</objectClass>
             </delineation>
         </objectType>
 

@@ -21,7 +21,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-    xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
     xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
     xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
     xmlns:my="http://myself.me/schemas/whatever">
@@ -62,7 +61,7 @@
             <displayName>Default Account</displayName>
             <default>true</default>
             <delineation>
-                <objectClass>ri:AccountObjectClass</objectClass>
+                <objectClass>AccountObjectClass</objectClass>
             </delineation>
             <attribute>
                 <ref>icfs:uid</ref>
@@ -78,7 +77,7 @@
                 </outbound>
             </attribute>
             <attribute>
-                <ref>ri:fullname</ref>
+                <ref>fullname</ref>
                 <displayName>Full name</displayName>
                 <outbound>
                     <source>
@@ -100,7 +99,7 @@
         <configured>
             <cap:activation>
                 <cap:status>
-                    <cap:attribute>ri:disabled</cap:attribute>
+                    <cap:attribute>disabled</cap:attribute>
                     <cap:enableValue></cap:enableValue>
                     <cap:enableValue>false</cap:enableValue>
                     <cap:disableValue>true</cap:disableValue>

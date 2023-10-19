@@ -15,12 +15,10 @@
   ~ limitations under the License.
   -->
 
-<resource oid="b4101662-7902-11e6-9f14-53e18426fe81"
+<resource oid="8a83b1a4-be18-11e6-ae84-7301fdab1d7c"
     xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:t='http://prism.evolveum.com/xml/ns/public/types-3' xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-    xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
     xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
     xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
     xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3"
@@ -56,11 +54,6 @@
             <icfcldap:usePermissiveModify>always</icfcldap:usePermissiveModify>
             <icfcldap:lockoutStrategy>openldap</icfcldap:lockoutStrategy>
         </icfc:configurationProperties>
-        <icfc:resultsHandlerConfiguration>
-            <icfc:enableNormalizingResultsHandler>false</icfc:enableNormalizingResultsHandler>
-            <icfc:enableFilteredResultsHandler>false</icfc:enableFilteredResultsHandler>
-            <icfc:enableAttributesToGetSearchResultsHandler>false</icfc:enableAttributesToGetSearchResultsHandler>
-        </icfc:resultsHandlerConfiguration>
     </connectorConfiguration>
 
     <schemaHandling>
@@ -69,10 +62,10 @@
             <displayName>Normal Account</displayName>
             <default>true</default>
             <delineation>
-                <objectClass>ri:inetOrgPerson</objectClass>
+                <objectClass>inetOrgPerson</objectClass>
             </delineation>
             <attribute>
-                <ref>ri:dn</ref>
+                <ref>dn</ref>
                 <displayName>Distinguished Name</displayName>
                 <limitations>
                     <minOccurs>0</minOccurs>
@@ -91,11 +84,11 @@
                 </outbound>
             </attribute>
             <attribute>
-                <ref>ri:entryUUID</ref>
+                <ref>entryUUID</ref>
                 <displayName>Entry UUID</displayName>
             </attribute>
             <attribute>
-                <ref>ri:cn</ref>
+                <ref>cn</ref>
                 <displayName>Common Name</displayName>
                 <outbound>
                     <!-- We do not have user fullName populated yet. Use name in the meantime. -->
@@ -105,7 +98,7 @@
                 </outbound>
             </attribute>
             <attribute>
-                <ref>ri:sn</ref>
+                <ref>sn</ref>
                 <displayName>Surname</displayName>
                 <limitations>
                     <minOccurs>0</minOccurs>
@@ -117,7 +110,7 @@
                 </outbound>
             </attribute>
             <attribute>
-                <ref>ri:givenName</ref>
+                <ref>givenName</ref>
                 <displayName>Given Name</displayName>
                 <outbound>
                     <source>
@@ -126,7 +119,7 @@
                 </outbound>
             </attribute>
             <attribute>
-                <ref>ri:uid</ref>
+                <ref>uid</ref>
                 <displayName>Login Name</displayName>
                 <outbound>
                     <strength>weak</strength>
@@ -141,7 +134,7 @@
                 </outbound>
             </attribute>
             <attribute>
-                <ref>ri:employeeNumber</ref>
+                <ref>employeeNumber</ref>
                 <displayName>Employee Number</displayName>
                 <tolerant>false</tolerant>
                 <outbound>

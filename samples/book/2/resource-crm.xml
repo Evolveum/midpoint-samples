@@ -63,7 +63,7 @@
             <displayName>Default Account</displayName>
             <default>true</default>
             <delineation>
-                <objectClass>ri:AccountObjectClass</objectClass>
+                <objectClass>AccountObjectClass</objectClass>
             </delineation>
             <attribute>
                 <ref>icfs:uid</ref>
@@ -80,7 +80,7 @@
             </attribute>
 
             <attribute>
-                <ref>ri:firstname</ref>
+                <ref>firstname</ref>
                 <displayName>First name</displayName>
                 <outbound>
                     <source>
@@ -89,7 +89,7 @@
                 </outbound>
             </attribute>
             <attribute>
-                <ref>ri:lastname</ref>
+                <ref>lastname</ref>
                 <displayName>Last name</displayName>
                 <outbound>
                     <source>
@@ -98,7 +98,7 @@
                 </outbound>
             </attribute>
             <attribute>
-                <ref>ri:fullname</ref>
+                <ref>fullname</ref>
                 <displayName>Full name</displayName>
                 <outbound>
                     <source>
@@ -126,7 +126,7 @@
         <configured>
             <cap:activation>
                 <cap:status>
-                    <cap:attribute>ri:disabled</cap:attribute>
+                    <cap:attribute>disabled</cap:attribute>
                     <cap:enableValue></cap:enableValue>
                     <cap:enableValue>false</cap:enableValue>
                     <cap:disableValue>true</cap:disableValue>

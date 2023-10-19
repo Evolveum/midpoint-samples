@@ -53,10 +53,10 @@
         <objectType>
             <displayName>HR Record</displayName>
             <delineation>
-                <objectClass>ri:AccountObjectClass</objectClass>
+                <objectClass>AccountObjectClass</objectClass>
             </delineation>
             <attribute>
-                <ref>ri:empno</ref>
+                <ref>empno</ref>
                 <displayName>Employee Number</displayName>
                 <inbound>
                     <target>
@@ -65,7 +65,7 @@
                 </inbound>
             </attribute>
             <attribute>
-                <ref>ri:firstname</ref>
+                <ref>firstname</ref>
                 <displayName>First name</displayName>
                 <inbound>
                     <target>
@@ -74,7 +74,7 @@
                 </inbound>
             </attribute>
             <attribute>
-                <ref>ri:lastname</ref>
+                <ref>lastname</ref>
                 <displayName>Last name</displayName>
                 <inbound>
                     <target>
