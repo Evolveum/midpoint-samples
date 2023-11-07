@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2019 Evolveum
+  ~ Copyright (c) 2010-2023 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -30,17 +30,13 @@
     <name>HR System</name>
 
     <description>
-        HR resource using CSV connector. This is the HR feed (source) resource.
-        This is a sample used in the "Practical Identity Management with MidPoint"
-        book, chapter 5.
+        Resource definition for HR source resource. It is based on CSV exports from the HR system.
+        This is a sample used in the "Practical Identity Management with MidPoint" book, chapter 5.
     </description>
 
     <connectorRef type="ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>c:connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.csv.CsvConnector</q:value>
-            </q:equal>
+            <q:text>connectorType = "com.evolveum.polygon.connector.csv.CsvConnector"</q:text>
         </filter>
     </connectorRef>
 
@@ -62,9 +58,11 @@
         <objectType>
             <displayName>Default Account</displayName>
             <default>true</default>
-            <objectClass>ri:AccountObjectClass</objectClass>
+            <delineation>
+                <objectClass>AccountObjectClass</objectClass>
+            </delineation>
             <attribute>
-                <ref>ri:empno</ref>
+                <ref>empno</ref>
                 <displayName>Name</displayName>
                 <limitations>
                     <minOccurs>0</minOccurs>
@@ -81,12 +79,12 @@
                 </inbound>
                 <inbound>
                     <target>
-                        <path>$focus/employeeNumber</path>
+                        <path>$focus/personalNumber</path>
                     </target>
                 </inbound>
             </attribute>
             <attribute>
-                <ref>ri:firstname</ref>
+                <ref>firstname</ref>
                 <displayName>First name</displayName>
                 <inbound>
                     <target>
@@ -95,7 +93,7 @@
                 </inbound>
             </attribute>
             <attribute>
-                <ref>ri:lastname</ref>
+                <ref>lastname</ref>
                 <displayName>Last name</displayName>
                 <inbound>
                     <target>
@@ -120,6 +118,43 @@
                 </password>
             </credentials>
 
+            <correlation>
+                <correlators>
+                    <items>
+                        <item>
+                            <ref>personalNumber</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+
+            <synchronization>
+                <reaction>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <actions>
+                        <deleteFocus/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus/>
+                    </actions>
+                </reaction>
+            </synchronization>
+
         </objectType>
 
     </schemaHandling>
@@ -128,43 +163,5 @@
         <assignmentPolicyEnforcement>none</assignmentPolicyEnforcement>
     </projection>
 
-    <synchronization>
-        <objectSynchronization>
-            <enabled>true</enabled>
-            <correlation>
-                <q:equal>
-                    <q:path>employeeNumber</q:path>
-                    <expression>
-                        <path>$projection/attributes/empno</path>
-                    </expression>
-                </q:equal>
-            </correlation>
-            <reaction>
-                <situation>linked</situation>
-                <synchronize>true</synchronize>
-            </reaction>
-            <reaction>
-                <situation>deleted</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#deleteFocus</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unlinked</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unmatched</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-                </action>
-            </reaction>
-        </objectSynchronization>
-    </synchronization>
 </resource>
 

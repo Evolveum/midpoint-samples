@@ -140,7 +140,7 @@
                 <outbound>
                     <strength>strong</strength>
                     <source>
-                        <path>employeeNumber</path>
+                        <path>personalNumber</path>
                     </source>
                 </outbound>
             </attribute>
