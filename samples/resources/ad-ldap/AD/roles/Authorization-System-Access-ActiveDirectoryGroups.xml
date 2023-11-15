@@ -15,24 +15,6 @@
     <archetypeRef oid="f8006a16-8de0-427e-b362-97fb0848e746" relation="org:default" type="c:ArchetypeType"/>
     <adminGuiConfiguration>
         <objectCollectionViews>
-            <!-- template mapping -->
-            <!--<objectCollectionView>
-                <identifier>ad-group-view</identifier>
-                <displayOrder>100</displayOrder>
-                <type>RoleType</type>
-                <disableSorting>true</disableSorting>
-                <display>
-                    <label>Active directory group</label>
-                    <pluralLabel>Active directory users</pluralLabel>
-                    <icon>
-                        <cssClass>fas fa-users</cssClass>
-                        <color>green</color>
-                    </icon>
-                </display>
-                <collection>
-                    <collectionRef oid="00000000-0000-0001-0328-000000000100" relation="org:default" type="c:ArchetypeType"/>
-                </collection>
-            </objectCollectionView>-->
             <objectCollectionView>
                 <identifier>ad-gdg-view</identifier>
                 <display>
