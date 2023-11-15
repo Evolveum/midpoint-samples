@@ -2,7 +2,7 @@
 This configuration example contains midpoint objects designed to work with the active directory as a source and destination resource based on the First Steps methodology (see documentation https://docs.evolveum.com/midpoint/methodology/first-steps/), which is also presented in the MidPoint Deployment: First Steps [MID301] training
 ### Prerequisities
 1. running midpoint server with 4.8 version or later
-2. aAvailable Active directory server certificates and imported into truststore
+2. available Active directory server certificates and imported into truststore
 3. account in Active directory with domain admin privileges, used for midpoint connector configuration
 
 ### Deployment instructions
