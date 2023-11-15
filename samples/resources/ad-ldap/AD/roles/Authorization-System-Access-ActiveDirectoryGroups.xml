@@ -1,0 +1,434 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+      oid="00000000-0001-0001-0328-000000000100">
+    <name>IAM - System-Access - Active Directory Groups</name>
+    <description>Role containing authorizations to view active directory group objects with ability extend authorization</description>
+    <assignment>
+        <targetRef oid="f8006a16-8de0-427e-b362-97fb0848e746" relation="org:default" type="c:ArchetypeType"/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+    </assignment>
+    <archetypeRef oid="f8006a16-8de0-427e-b362-97fb0848e746" relation="org:default" type="c:ArchetypeType"/>
+    <adminGuiConfiguration>
+        <objectCollectionViews>
+            <!-- template mapping -->
+            <!--<objectCollectionView>
+                <identifier>ad-group-view</identifier>
+                <displayOrder>100</displayOrder>
+                <type>RoleType</type>
+                <disableSorting>true</disableSorting>
+                <display>
+                    <label>Active directory group</label>
+                    <pluralLabel>Active directory users</pluralLabel>
+                    <icon>
+                        <cssClass>fas fa-users</cssClass>
+                        <color>green</color>
+                    </icon>
+                </display>
+                <collection>
+                    <collectionRef oid="00000000-0000-0001-0328-000000000100" relation="org:default" type="c:ArchetypeType"/>
+                </collection>
+            </objectCollectionView>-->
+            <objectCollectionView>
+                <identifier>ad-gdg-view</identifier>
+                <display>
+                    <label>Global Distribution Group</label>
+                    <pluralLabel>Global Distribution Groups</pluralLabel>
+                    <icon>
+                        <cssClass>fas fa-users</cssClass>
+                        <color>green</color>
+                    </icon>
+                </display>
+                <displayOrder>110</displayOrder>
+                <disableSorting>true</disableSorting>
+                <searchBoxConfiguration>
+                    <defaultMode>basic</defaultMode>
+                    <searchItems>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "entitlement" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Groups with provisioning</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>false</visibleByDefault>
+                        </searchItem>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ not matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "entitlement" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users not having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Groups without provisioning</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>true</visibleByDefault>
+                        </searchItem>
+                    </searchItems>
+                </searchBoxConfiguration>
+                <type>RoleType</type>
+                <collection>
+                    <collectionRef oid="00000000-0000-0001-0328-000000000110" relation="org:default" type="c:ArchetypeType"/>
+                </collection>
+            </objectCollectionView>
+            <objectCollectionView>
+                <identifier>ad-dldg-view</identifier>
+                <display>
+                    <label>Domain local distribution group</label>
+                    <pluralLabel>Domain local distribution groups</pluralLabel>
+                    <icon>
+                        <cssClass>fas fa-users</cssClass>
+                        <color>green</color>
+                    </icon>
+                </display>
+                <displayOrder>120</displayOrder>
+                <disableSorting>true</disableSorting>
+                <searchBoxConfiguration>
+                    <defaultMode>basic</defaultMode>
+                    <searchItems>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "entitlement" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Groups with provisioning</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>false</visibleByDefault>
+                        </searchItem>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ not matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "entitlement" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users not having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Groups without provisioning</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>true</visibleByDefault>
+                        </searchItem>
+                    </searchItems>
+                </searchBoxConfiguration>
+                <type>RoleType</type>
+                <collection>
+                    <collectionRef oid="00000000-0000-0001-0328-000000000120" relation="org:default" type="c:ArchetypeType"/>
+                </collection>
+            </objectCollectionView>
+            <objectCollectionView>
+                <identifier>ad-udg-view</identifier>
+                <display>
+                    <label>Universal distribution group</label>
+                    <pluralLabel>Universal distribution groups</pluralLabel>
+                    <icon>
+                        <cssClass>fas fa-users</cssClass>
+                        <color>green</color>
+                    </icon>
+                </display>
+                <displayOrder>130</displayOrder>
+                <disableSorting>true</disableSorting>
+                <searchBoxConfiguration>
+                    <defaultMode>basic</defaultMode>
+                    <searchItems>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "entitlement" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Groups with provisioning</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>false</visibleByDefault>
+                        </searchItem>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ not matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "entitlement" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users not having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Groups without provisioning</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>true</visibleByDefault>
+                        </searchItem>
+                    </searchItems>
+                </searchBoxConfiguration>
+                <type>RoleType</type>
+                <collection>
+                    <collectionRef oid="00000000-0000-0001-0328-000000000130" relation="org:default" type="c:ArchetypeType"/>
+                </collection>
+            </objectCollectionView>
+            <objectCollectionView>
+                <identifier>ad-gsg-view</identifier>
+                <display>
+                    <label>Global security group</label>
+                    <pluralLabel>Global security groups</pluralLabel>
+                    <icon>
+                        <cssClass>fas fa-users</cssClass>
+                        <color>green</color>
+                    </icon>
+                </display>
+                <displayOrder>140</displayOrder>
+                <disableSorting>true</disableSorting>
+                <searchBoxConfiguration>
+                    <defaultMode>basic</defaultMode>
+                    <searchItems>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "entitlement" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Groups with provisioning</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>false</visibleByDefault>
+                        </searchItem>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ not matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "entitlement" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users not having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Groups without provisioning</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>true</visibleByDefault>
+                        </searchItem>
+                    </searchItems>
+                </searchBoxConfiguration>
+                <type>RoleType</type>
+                <collection>
+                    <collectionRef oid="00000000-0000-0001-0328-000000000140" relation="org:default" type="c:ArchetypeType"/>
+                </collection>
+            </objectCollectionView>
+            <objectCollectionView>
+                <identifier>ad-dlsg-view</identifier>
+                <display>
+                    <label>Domain local security group</label>
+                    <pluralLabel>Domain local security groups</pluralLabel>
+                    <icon>
+                        <cssClass>fas fa-users</cssClass>
+                        <color>green</color>
+                    </icon>
+                </display>
+                <displayOrder>150</displayOrder>
+                <disableSorting>true</disableSorting>
+                <searchBoxConfiguration>
+                    <defaultMode>basic</defaultMode>
+                    <searchItems>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "entitlement" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Groups with provisioning</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>false</visibleByDefault>
+                        </searchItem>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ not matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "entitlement" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users not having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Groups without provisioning</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>true</visibleByDefault>
+                        </searchItem>
+                    </searchItems>
+                </searchBoxConfiguration>
+                <type>RoleType</type>
+                <collection>
+                    <collectionRef oid="00000000-0000-0001-0328-000000000150" relation="org:default" type="c:ArchetypeType"/>
+                </collection>
+            </objectCollectionView>
+            <objectCollectionView>
+                <identifier>ad-usg-view</identifier>
+                <display>
+                    <label>Universal security group</label>
+                    <pluralLabel>Universal security groups</pluralLabel>
+                    <icon>
+                        <cssClass>fas fa-users</cssClass>
+                        <color>green</color>
+                    </icon>
+                </display>
+                <displayOrder>160</displayOrder>
+                <disableSorting>true</disableSorting>
+                <searchBoxConfiguration>
+                    <defaultMode>basic</defaultMode>
+                    <searchItems>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "entitlement" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Groups with provisioning</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>false</visibleByDefault>
+                        </searchItem>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ not matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "entitlement" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users not having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Groups without provisioning</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>true</visibleByDefault>
+                        </searchItem>
+                    </searchItems>
+                </searchBoxConfiguration>
+                <type>RoleType</type>
+                <collection>
+                    <collectionRef oid="00000000-0000-0001-0328-000000000160" relation="org:default" type="c:ArchetypeType"/>
+                </collection>
+            </objectCollectionView>
+        </objectCollectionViews>
+    </adminGuiConfiguration>
+</role>

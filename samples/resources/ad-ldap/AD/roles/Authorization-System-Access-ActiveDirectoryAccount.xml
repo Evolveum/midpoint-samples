@@ -1,0 +1,79 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+      oid="00000000-0001-0001-0702-000000000100">
+    <name>IAM - System-Access - Active Directory User Accounts</name>
+    <description>Role containing authorizations to view active directory user accounts with ability extend authorization</description>
+    <assignment>
+        <targetRef oid="f8006a16-8de0-427e-b362-97fb0848e746" relation="org:default" type="c:ArchetypeType"/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+    </assignment>
+    <archetypeRef oid="f8006a16-8de0-427e-b362-97fb0848e746" relation="org:default" type="c:ArchetypeType"/>
+    <adminGuiConfiguration>
+        <objectCollectionViews>
+            <objectCollectionView>
+                <identifier>ad-account-view</identifier>
+                <displayOrder>100</displayOrder>
+                <searchBoxConfiguration>
+                    <defaultMode>basic</defaultMode>
+                    <searchItems>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "account"
+                                    and intent = "msa" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Users with account</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>true</visibleByDefault>
+                        </searchItem>
+                        <searchItem>
+                            <filter>
+                                <q:text>
+                                    linkRef/@ not matches (
+                                    . type ShadowType
+                                    and resourceRef/@/name = `resourceParameter?.getName()?.getOrig()`
+                                    and kind = "account"
+                                    and intent = "msa" )
+                                </q:text>
+                            </filter>
+                            <description>Allow searching for users not having account on specific resource. Intent is not considered. The search item is not displayed by default
+                                (visibleByDefault=false).
+                            </description>
+                            <display>
+                                <label>Users without account</label>
+                            </display>
+                            <parameter>
+                                <name>resourceParameter</name>
+                                <type>c:ObjectReferenceType</type>
+                                <targetType>ResourceType</targetType>
+                            </parameter>
+                            <visibleByDefault>true</visibleByDefault>
+                        </searchItem>
+                    </searchItems>
+                </searchBoxConfiguration>
+                <type>UserType</type>
+                <collection>
+                    <collectionRef oid="00000000-0000-0001-0702-000000000100" relation="org:default" type="c:ArchetypeType"/>
+                </collection>
+            </objectCollectionView>
+        </objectCollectionViews>
+    </adminGuiConfiguration>
+</role>

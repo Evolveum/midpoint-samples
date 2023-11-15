@@ -1,0 +1,28 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+           xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+           xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
+           xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
+           xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
+           xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+           oid="f8006a16-8de0-427e-b362-97fb0848e746" >
+    <name>IAM System Access Role</name>
+    <documentation>Archetype which governs roles representing authorization rules used to access the IAM system.</documentation>
+    <assignment>
+        <assignmentRelation>
+            <holderType>RoleType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <archetypePolicy>
+        <display>
+            <label>IAM System Access Role</label>
+            <pluralLabel>IAM System Access Roles</pluralLabel>
+            <tooltip>IAM System Access Role</tooltip>
+            <icon>
+                <cssClass>fa fa-key</cssClass>
+                <color>#b04c4c</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+</archetype>

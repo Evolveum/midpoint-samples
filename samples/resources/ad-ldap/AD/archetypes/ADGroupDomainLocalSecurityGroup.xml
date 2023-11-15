@@ -1,0 +1,176 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+           xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           oid="00000000-0000-0001-0328-000000000150" version="9">
+    <name>Domain local security group</name>
+    <description>Domain local security groups are basic roles. The Domain local security groups are integrating technical components for creation of user access with business description of the access.</description>
+    <indestructible>true</indestructible>
+    <lifecycleState>active</lifecycleState>
+    <assignment>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+        <assignmentRelation>
+            <holderType>RoleType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+    </activation>
+    <!--Inducement for group construction on resource -->
+    <inducement>
+        <construction>
+            <!--replace resource filter with direct Oid value if needed -->
+            <!--<resourceRef oid="75c197a9-1071-4ac8-b8c0-414b1c8eb4f1" relation="org:default" type="c:ResourceType"/>-->
+            <resourceRef relation="org:default" type="c:ResourceType">
+                <filter>
+                    <q:text>name = "AD first steps"</q:text>
+                </filter>
+            </resourceRef>
+            <kind>entitlement</kind>
+            <intent>DomainLocalSecurityGroup</intent>
+        </construction>
+        <lifecycleState>active</lifecycleState>
+        <focusType>RoleType</focusType>
+    </inducement>
+
+    <!--Association for default user in group-->
+    <inducement>
+        <lifecycleState>active</lifecycleState>
+        <construction>
+            <strength>weak</strength>
+            <!--<resourceRef oid="75c197a9-1071-4ac8-b8c0-414b1c8eb4f1" relation="org:default" type="c:ResourceType"/>-->
+            <resourceRef relation="org:default" type="c:ResourceType">
+                <filter>
+                    <q:text>name = "AD first steps"</q:text>
+                </filter>
+            </resourceRef>
+            <kind>account</kind>
+            <intent>user</intent>
+            <association>
+                <ref>ri:DomainLocalSecurity</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator xsi:type="c:ShadowDiscriminatorType">
+                                <kind>entitlement</kind>
+                                <intent>DomainLocalSecurityGroup</intent>
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
+            </association>
+        </construction>
+        <order>2</order>
+        <focusType>UserType</focusType>
+    </inducement>
+    <inducement>
+        <construction>
+            <strength>weak</strength>
+            <!--<resourceRef oid="75c197a9-1071-4ac8-b8c0-414b1c8eb4f1" relation="org:default" type="c:ResourceType"/>-->
+            <resourceRef relation="org:default" type="c:ResourceType">
+                <filter>
+                    <q:text>name = "AD first steps"</q:text>
+                </filter>
+            </resourceRef>
+            <kind>account</kind>
+            <intent>msa</intent>
+            <association>
+                <ref>ri:DomainLocalSecurity</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator xsi:type="c:ShadowDiscriminatorType">
+                                <kind>entitlement</kind>
+                                <intent>DomainLocalSecurityGroup</intent>
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
+            </association>
+        </construction>
+        <order>2</order>
+        <focusType>RoleType</focusType>
+        <lifecycleState>active</lifecycleState>
+    </inducement>
+    <!--Association for groups in groups-->
+    <inducement>
+        <construction>
+            <strength>weak</strength>
+            <!--replace resource filter with direct Oid value if needed -->
+            <!--<resourceRef oid="75c197a9-1071-4ac8-b8c0-414b1c8eb4f1" relation="org:default" type="c:ResourceType"/>-->
+            <resourceRef relation="org:default" type="c:ResourceType">
+                <filter>
+                    <q:text>name = "AD first steps"</q:text>
+                </filter>
+            </resourceRef>
+            <kind>entitlement</kind>
+            <intent>DomainLocalDistributionGroup</intent>
+            <association>
+                <ref>ri:DomainLocalSecurity</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator xsi:type="c:ShadowDiscriminatorType">
+                                <kind>entitlement</kind>
+                                <intent>DomainLocalSecurityGroup</intent>
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
+            </association>
+        </construction>
+        <order>2</order>
+        <focusType>RoleType</focusType>
+        <lifecycleState>active</lifecycleState>
+    </inducement>
+    <inducement>
+        <construction>
+            <strength>weak</strength>
+            <!--replace resource filter with direct Oid value if needed -->
+            <!--<resourceRef oid="75c197a9-1071-4ac8-b8c0-414b1c8eb4f1" relation="org:default" type="c:ResourceType"/>-->
+            <resourceRef relation="org:default" type="c:ResourceType">
+                <filter>
+                    <q:text>name = "AD first steps"</q:text>
+                </filter>
+            </resourceRef>
+            <kind>entitlement</kind>
+            <intent>DomainLocalSecurityGroup</intent>
+            <association>
+                <ref>ri:DomainLocalSecurity</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <expression>
+                        <associationFromLink>
+                            <projectionDiscriminator xsi:type="c:ShadowDiscriminatorType">
+                                <kind>entitlement</kind>
+                                <intent>DomainLocalSecurityGroup</intent>
+                            </projectionDiscriminator>
+                        </associationFromLink>
+                    </expression>
+                </outbound>
+            </association>
+        </construction>
+        <order>2</order>
+        <focusType>RoleType</focusType>
+        <lifecycleState>active</lifecycleState>
+    </inducement>
+    <archetypePolicy>
+        <display>
+            <label>Domain local security group</label>
+            <pluralLabel>Domain local security groups</pluralLabel>
+            <icon>
+                <cssClass>fas fa-users</cssClass>
+                <color>green</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+    <superArchetypeRef oid="00000000-0000-0001-0328-000000000100" relation="default"  type="ArchetypeType">
+        <description>Referencing to the parent archetype</description>
+        <referentialIntegrity>default</referentialIntegrity>
+    </superArchetypeRef>
+</archetype>

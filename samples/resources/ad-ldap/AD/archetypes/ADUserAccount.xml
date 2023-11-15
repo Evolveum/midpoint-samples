@@ -1,0 +1,42 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+           xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           oid="00000000-0000-0001-0702-000000000100">
+    <name>Active directory user account</name>
+    <description>ToDo</description>
+    <assignment>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+        <assignmentRelation>
+            <holderType>UserType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <activation>
+        <effectiveStatus>enabled</effectiveStatus>
+    </activation>
+    <inducement>
+        <construction>
+            <strength>strong</strength>
+            <resourceRef relation="org:default" type="c:ResourceType">
+                <filter>
+                    <q:text>name = "AD first steps"</q:text>
+                </filter>
+            </resourceRef>
+            <kind>account</kind>
+            <intent>user</intent>
+        </construction>
+        <focusType>UserType</focusType>
+    </inducement>
+    <archetypePolicy>
+        <display>
+            <label>Active directory user</label>
+            <pluralLabel>Active directory users</pluralLabel>
+            <icon>
+                <cssClass>fas fa-user-tie</cssClass>
+                <color>blue</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+</archetype>
