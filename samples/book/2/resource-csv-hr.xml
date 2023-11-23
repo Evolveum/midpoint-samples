@@ -57,7 +57,7 @@
             </delineation>
             <attribute>
                 <ref>empno</ref>
-                <displayName>Employee Number</displayName>
+                <displayName>Employee number</displayName>
                 <inbound>
                     <target>
                         <path>name</path>
