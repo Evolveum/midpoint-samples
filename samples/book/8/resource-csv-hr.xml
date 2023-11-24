@@ -64,7 +64,7 @@
             <objectClass>ri:AccountObjectClass</objectClass>
             <attribute>
                 <ref>ri:empno</ref>
-                <displayName>Name</displayName>
+                <displayName>Employee number</displayName>
                 <limitations>
                     <minOccurs>0</minOccurs>
                     <access>
