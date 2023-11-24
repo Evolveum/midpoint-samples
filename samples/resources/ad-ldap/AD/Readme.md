@@ -30,7 +30,15 @@ This configuration example contains midpoint objects designed to work with the a
      * Authorization-System-Access-ActiveDirectoryAccount.xml
      * Authorization-System-Access-ActiveDirectoryGroups.xml
      * Authorization-System-Access-ActiveDirectoryMSA.xml
-   *
+   All above object could be uploaded into midpoint using GUI. Click on left side menu item "Import object", then choose file and import it. Repeat steps for all midpoint objects in this sample.
 3. assign all authorization roles with prefix "IAM - System-Access -" to user. In this case midpoint objects are configured using authorization roles, for more information how it works you could find in related documentation page  https://docs.evolveum.com/midpoint/reference/support-4.8/security/authorization/).
+   * In your browser with midPoint, edit user and assign all of the imported roles by following steps:
+     * go to Assignments
+     * click New assignment button
+     * select Role tab
+     * select all roles with prefix "Authorization-System-Access-"
+     * make sure “Relation” in Parameters section is set to Default (this is the default)
+     * click Add button
+     * click Save button
 4. set Basic resource configuration attributes according to your Active Directory deployment using resource wizard, how to work with resource wizard, please see related documentation page https://docs.evolveum.com/midpoint/reference/support-4.8/admin-gui/resource-wizard/
 5. configuration was set to use in development mode to avoid unwanted modification on Active directory objects, how midpoint works in simulation mode, please refer to documentation https://docs.evolveum.com/midpoint/reference/support-4.8/simulation/
