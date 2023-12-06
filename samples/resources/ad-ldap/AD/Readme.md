@@ -16,10 +16,8 @@ This configuration example contains midpoint objects designed to work with the a
    Two alternatives follow:
 * all related mP configuration objects could be uploaded into midpoint using GUI. Click on left side menu item "Import object", then choose file and import it. Repeat steps for all midpoint objects in this sample.
 * copy all subfolders into midpoint studio and upload objects, for detailed instruction how to work with midpoint studio,please see related documentation page https://docs.evolveum.com/midpoint/tools/studio/usage/#uploading-midpoint-objects. Please import midpoint objects in order
-    * resource configuration xml file from folder lookuptables
+    * lookup table xml file from folder lookuptables
       * adGroupTypes.xml
-    * resource configuration xml file from folder resources
-      * ADfirststep.xml
     * all archetypes xml files from folder archetypes
      * ADGroupDomainLocalDistributionGroup.xml
      * ADGroupDomainLocalSecurityGroup.xml
@@ -31,6 +29,8 @@ This configuration example contains midpoint objects designed to work with the a
      * ADManagedServiceAccount.xml
      * ADUserAccount.xml
      * IAMSystemAccessRole.xml
+   * resource configuration xml file from folder resources
+     * ADfirststep.xml
    * all roles from folder roles
      * Authorization-System-Access-ActiveDirectoryAccount.xml
      * Authorization-System-Access-ActiveDirectoryGroups.xml
