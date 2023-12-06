@@ -16,7 +16,11 @@ This configuration example contains midpoint objects designed to work with the a
    Two alternatives follow:
 * all related mP configuration objects could be uploaded into midpoint using GUI. Click on left side menu item "Import object", then choose file and import it. Repeat steps for all midpoint objects in this sample.
 * copy all subfolders into midpoint studio and upload objects, for detailed instruction how to work with midpoint studio,please see related documentation page https://docs.evolveum.com/midpoint/tools/studio/usage/#uploading-midpoint-objects. Please import midpoint objects in order
-   * all archetypes xml files from folder archetypes
+    * resource configuration xml file from folder lookuptables
+      * adGroupTypes.xml
+    * resource configuration xml file from folder resources
+      * ADfirststep.xml
+    * all archetypes xml files from folder archetypes
      * ADGroupDomainLocalDistributionGroup.xml
      * ADGroupDomainLocalSecurityGroup.xml
      * ADGroupGlobalDistributionGroup.xml
@@ -27,13 +31,11 @@ This configuration example contains midpoint objects designed to work with the a
      * ADManagedServiceAccount.xml
      * ADUserAccount.xml
      * IAMSystemAccessRole.xml
-   * resource configuration xml file from folder resources
-     * ADfirststep.xml
    * all roles from folder roles
      * Authorization-System-Access-ActiveDirectoryAccount.xml
      * Authorization-System-Access-ActiveDirectoryGroups.xml
      * Authorization-System-Access-ActiveDirectoryMSA.xml
-    
+
 4. assign all authorization roles with prefix "IAM - System-Access -" to user. In this case midpoint objects are configured using authorization roles, for more information how it works you could find in related documentation page  https://docs.evolveum.com/midpoint/reference/support-4.8/security/authorization/).
    * In your browser with midPoint, edit user and assign all of the imported roles by following steps:
      * go to Assignments
