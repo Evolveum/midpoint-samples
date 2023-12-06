@@ -1,0 +1,28 @@
+<lookupTable  xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+              oid="00000000-0000-0000-0000-000000000260">
+    <name>AD group types</name>
+    <row>
+        <key>2</key>
+        <label>Global distribution group</label>
+    </row>
+    <row>
+        <key>4</key>
+        <label>Domain local distribution group</label>
+    </row>
+    <row>
+        <key>8</key>
+        <label>Universal distribution group</label>
+    </row>
+    <row>
+        <key>-2147483646</key>
+        <label>Global security group</label>
+    </row>
+    <row>
+        <key>-2147483644</key>
+        <label>Domain local security group</label>
+    </row>
+    <row>
+        <key>-2147483640</key>
+        <label>Universal security group</label>
+    </row>
+</lookupTable>
