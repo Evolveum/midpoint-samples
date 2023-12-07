@@ -1,0 +1,45 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="dabf8898-6a7d-47cb-b615-ce453f327f41">
+    <name>Assign roles to administrator</name>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000528" relation="org:default" type="c:ArchetypeType" />
+    </assignment>
+    <archetypeRef oid="00000000-0000-0000-0000-000000000528" relation="org:default" type="c:ArchetypeType" />
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType" />
+    <executionState>runnable</executionState>
+    <activity>
+        <work>
+            <explicitChangeExecution>
+                <delta>
+                    <t:changeType>modify</t:changeType>
+                    <t:objectType>c:UserType</t:objectType>
+                    <t:oid>00000000-0000-0000-0000-000000000002</t:oid>
+                    <t:itemDelta>
+                        <t:modificationType>add</t:modificationType>
+                        <t:path>c:assignment</t:path>
+                        <t:value>
+                            <targetRef>
+                                <oid>00000000-0001-0001-0702-000000000100</oid>
+                                <relation>org:default</relation>
+                                <type>c:RoleType</type>
+                            </targetRef>
+                        </t:value>
+                        <t:value>
+                            <targetRef>
+                                <oid>00000000-0001-0001-0702-000000000200</oid>
+                                <relation>org:default</relation>
+                                <type>c:RoleType</type>
+                            </targetRef>
+                        </t:value>
+                        <t:value>
+                            <targetRef>
+                                <oid>00000000-0001-0001-0328-000000000100</oid>
+                                <relation>org:default</relation>
+                                <type>c:RoleType</type>
+                            </targetRef>
+                        </t:value>
+                    </t:itemDelta>
+                </delta>
+            </explicitChangeExecution>
+        </work>
+    </activity>
+</task>

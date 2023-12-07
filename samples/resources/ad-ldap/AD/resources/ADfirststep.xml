@@ -382,7 +382,7 @@
                     </expression>
                     <condition>
                         <script>
-                            <code>fullName!=null &amp;&amp; !fullName.isEmpty() &amp;&amp; midpoint.isEvaluateNew()</code>
+                            <code>fullName!=null &amp;&amp; !fullName.isEmpty() &amp;&amp; name!=null &amp;&amp; !name.isEmpty() &amp;&amp; midpoint.isEvaluateNew()</code>
                         </script>
                     </condition>
                 </outbound>
