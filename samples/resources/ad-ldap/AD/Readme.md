@@ -12,10 +12,14 @@ This configuration example contains midpoint objects designed to work with the a
 ### Deployment instructions
 
 1. get Active Directory server certificate from SSL/TLS connection and import it into truststore, for detailed instruction how to setup TLS/SSL communication, please see related documentation page https://docs.evolveum.com/midpoint/reference/support-4.8/security/crypto/ssl-connections-client-side-/
-2. import objects into midPoint.
-   Two alternatives follow:
-* all related mP configuration objects could be uploaded into midpoint using GUI. Click on left side menu item "Import object", then choose file and import it. Repeat steps for all midpoint objects in this sample.
-* copy all subfolders into midpoint studio and upload objects, for detailed instruction how to work with midpoint studio,please see related documentation page https://docs.evolveum.com/midpoint/tools/studio/usage/#uploading-midpoint-objects. Please import midpoint objects in order
+2. import objects into midPoint. Three alternative ways how to upload all related mP configuration objects:
+* use script file upload.sh from linux console. Run script with url parameter specified for midpoint application like:
+
+    `./upload.sh -<midpointUrl>`
+
+    if no parameter is set default url will be used (default midpointUrl value http://localhost:8080).
+* or upload into midpoint using GUI. Click on left side menu item "Import object", then choose file and import it. Repeat steps for all midpoint objects in this sample.
+* or copy all subfolders into midpoint studio and upload objects, for detailed instruction how to work with midpoint studio,please see related documentation page https://docs.evolveum.com/midpoint/tools/studio/usage/#uploading-midpoint-objects. Please import midpoint objects in order
     * lookup table xml file from folder lookuptables
       * adGroupTypes.xml
     * all archetypes xml files from folder archetypes
@@ -35,7 +39,8 @@ This configuration example contains midpoint objects designed to work with the a
      * Authorization-System-Access-ActiveDirectoryAccount.xml
      * Authorization-System-Access-ActiveDirectoryGroups.xml
      * Authorization-System-Access-ActiveDirectoryMSA.xml
-
+  * task for assignment authorization roles to administrator from folder tasks
+      * assignroles-to-administrator.xml
 4. assign all authorization roles with prefix "IAM - System-Access -" to user. In this case midpoint objects are configured using authorization roles, for more information how it works you could find in related documentation page  https://docs.evolveum.com/midpoint/reference/support-4.8/security/authorization/).
    * In your browser with midPoint, edit user and assign all of the imported roles by following steps:
      * go to Assignments
