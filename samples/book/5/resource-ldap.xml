@@ -199,12 +199,6 @@
                     </actions>
                 </reaction>
                 <reaction>
-                    <situation>deleted</situation>
-                    <actions>
-                        <unlink/>
-                    </actions>
-                </reaction>
-                <reaction>
                     <situation>unlinked</situation>
                     <actions>
                         <link/>

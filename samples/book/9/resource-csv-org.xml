@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2020 Evolveum
+  ~ Copyright (c) 2010-2023 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@
             xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
             xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
             xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
-            xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
             xmlns:ext="http://midpoint.evolveum.com/xml/ns/story/orgsync/ext"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -61,11 +60,17 @@
         <objectType>
             <displayName>Organizational unit</displayName>
             <default>true</default>
-            <objectClass>ri:AccountObjectClass</objectClass>
+            <delineation>
+                <objectClass>AccountObjectClass</objectClass>
+            </delineation>
             <kind>generic</kind>
             <intent>orgunit</intent>
+            <focus>
+                <type>OrgType</type>
+                <archetypeRef oid="475106e4-1dfe-11eb-8429-534869969212"/>
+            </focus>
             <attribute>
-                <ref>ri:orgnum</ref>
+                <ref>orgnum</ref>
                 <inbound>
                     <target>
                         <path>$focus/identifier</path>
@@ -74,26 +79,16 @@
                 <inbound>
                     <expression>
                         <script>
-                            <code>'O'+input</code>
+                            <code>'O' + input</code>
                         </script>
                     </expression>
                     <target>
                         <path>$focus/name</path>
                     </target>
                 </inbound>
-                <inbound>
-                    <expression>
-                        <value>
-                            <targetRef oid="475106e4-1dfe-11eb-8429-534869969212" type="ArchetypeType"/>
-                        </value>
-                    </expression>
-                    <target>
-                        <path>$focus/assignment</path>
-                    </target>
-                </inbound>
             </attribute>
             <attribute>
-                <ref>ri:name</ref>
+                <ref>name</ref>
                 <inbound>
                     <target>
                         <path>$focus/displayName</path>
@@ -101,7 +96,7 @@
                 </inbound>
             </attribute>
             <attribute>
-                <ref>ri:description</ref>
+                <ref>description</ref>
                 <inbound>
                     <target>
                         <path>$focus/description</path>
@@ -109,18 +104,13 @@
                 </inbound>
             </attribute>
             <attribute>
-                <ref>ri:parentOrgNum</ref>
+                <ref>parentOrgNum</ref>
                 <inbound>
                     <expression>
                         <assignmentTargetSearch>
                             <targetType>OrgType</targetType>
                             <filter>
-                                <q:equal>
-                                    <q:path>identifier</q:path>
-                                    <expression>
-                                        <path>$input</path>
-                                    </expression>
-                                </q:equal>
+                                <q:text>identifier = $input</q:text>
                             </filter>
                         </assignmentTargetSearch>
                     </expression>
@@ -129,6 +119,41 @@
                     </target>
                 </inbound>
             </attribute>
+            <correlation>
+                <correlators>
+                    <items>
+                        <item>
+                            <ref>identifier</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+            <synchronization>
+                <reaction>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <actions>
+                        <deleteFocus/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus/>
+                    </actions>
+                </reaction>
+            </synchronization>
         </objectType>
 
     </schemaHandling>
@@ -137,46 +162,4 @@
         <assignmentPolicyEnforcement>none</assignmentPolicyEnforcement>
     </projection>
 
-    <synchronization>
-        <objectSynchronization>
-            <enabled>true</enabled>
-            <objectClass>AccountObjectClass</objectClass>
-            <kind>generic</kind>
-            <intent>orgunit</intent>
-            <focusType>OrgType</focusType>
-            <correlation>
-                <q:equal>
-                    <q:path>identifier</q:path>
-                    <expression>
-                        <path>$projection/attributes/orgnum</path>
-                    </expression>
-                </q:equal>
-            </correlation>
-            <reaction>
-                <situation>linked</situation>
-                <synchronize>true</synchronize>
-            </reaction>
-            <reaction>
-                <situation>deleted</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#deleteFocus</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unlinked</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unmatched</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-                </action>
-            </reaction>
-        </objectSynchronization>
-    </synchronization>
 </resource>

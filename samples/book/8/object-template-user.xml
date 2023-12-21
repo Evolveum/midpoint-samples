@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2019 Evolveum
+  ~ Copyright (c) 2019-2023 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -149,12 +149,7 @@
                 <assignmentTargetSearch>
                     <targetType>RoleType</targetType>
                     <filter>
-                        <q:equal>
-                            <q:path>extension/autoassignJobCode</q:path>
-                            <expression>
-                                <path>$jobCode</path>
-                            </expression>
-                        </q:equal>
+                        <q:text>extension/autoassignJobCode = $jobCode</q:text>
                     </filter>
                 </assignmentTargetSearch>
             </expression>
