@@ -1,4 +1,4 @@
-# **Active directory resource mapping**
+# **Active directory advanced resource mapping**
 <!-- TOC -->
 * [Prerequisities](#prerequisities)
 * [Deployment instructions](#deployment-instructions)
@@ -43,7 +43,7 @@ This configuration example contains midpoint objects designed to work with the a
      * Authorization-System-Access-ActiveDirectoryMSA.xml
   * task for assignment authorization roles to administrator from folder tasks
       * assignroles-to-administrator.xml
-4. assign all authorization roles with prefix "IAM - System-Access -" to user. In this case midpoint objects are configured using authorization roles, for more information how it works you could find in related documentation page  https://docs.evolveum.com/midpoint/reference/support-4.8/security/authorization/).
+3. assign all authorization roles with prefix "IAM - System-Access -" to user. In this case midpoint objects are configured using authorization roles, for more information how it works you could find in related documentation page  https://docs.evolveum.com/midpoint/reference/support-4.8/security/authorization/).
    * In your browser with midPoint, edit user and assign all of the imported roles by following steps:
      * go to Assignments
      * click New assignment button
@@ -52,5 +52,5 @@ This configuration example contains midpoint objects designed to work with the a
      * make sure “Relation” in Parameters section is set to Default (this is the default)
      * click Add button
      * click Save button
-7. set Basic resource configuration attributes according to your Active Directory deployment using resource wizard, how to work with resource wizard, please see related documentation page https://docs.evolveum.com/midpoint/reference/support-4.8/admin-gui/resource-wizard/
-8. configuration was set to use in development mode to avoid unwanted modification on Active directory objects, how midpoint works in simulation mode, please refer to documentation https://docs.evolveum.com/midpoint/reference/support-4.8/simulation/
+4. set Basic resource configuration attributes according to your Active Directory deployment using resource wizard, how to work with resource wizard, please see related documentation page https://docs.evolveum.com/midpoint/reference/support-4.8/admin-gui/resource-wizard/
+5. configuration was set to use in development mode to avoid unwanted modification on Active directory objects, how midpoint works in simulation mode, please refer to documentation https://docs.evolveum.com/midpoint/reference/support-4.8/simulation/
