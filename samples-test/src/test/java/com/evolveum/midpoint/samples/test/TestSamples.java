@@ -109,13 +109,6 @@ public class TestSamples extends AbstractSampleTest {
     // Why only XML samples are checked? (At least it seems so from CHECK_PATTERNS constant above.)
     private void parseObjectsElements(File file, Element topElement) throws SchemaException {
         try {
-            Item<?, ?> item = prismContext.parserFor(file).parseItem();
-            if (item instanceof PrismProperty
-                    && (item.getRealValue() instanceof ScriptingExpressionType
-                    || item.getRealValue() instanceof ExecuteScriptType)) {
-                return;
-            }
-
             prismContext.parserFor(file)
                     .strict()
                     .parseObjects();
@@ -141,8 +134,15 @@ public class TestSamples extends AbstractSampleTest {
     private void parseObjectFile(File file) throws SchemaException {
         System.out.println("===> Parsing file " + file.getPath());
         try {
+
+            Item<?, ?> item = prismContext.parserFor(file).parseItem();
+            if (item instanceof PrismProperty
+                    && (item.getRealValue() instanceof ScriptingExpressionType
+                    || item.getRealValue() instanceof ExecuteScriptType)) {
+                return;
+            }
             //noinspection unused
-            PrismObject<Objectable> object = prismContext
+            prismContext
                     .parserFor(file)
                     .strict()
                     .parse();
