@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- (c) 2020 Evolveum, All rights reserved -->
+<functionLibrary xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                 xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                 xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 oid="6ed75357-9fb2-4f80-be0f-9fbd53ed685b">
+    <name>adLibrary</name>
+    <description>Active directory resource related functions for midPoint</description>
+    <function>
+        <name>importGroup</name>
+        <description>
+            ... ToDo ...
+        </description>
+        <parameter>
+            <name>adRoleNameVar</name>
+            <type>xsd:string</type>
+        </parameter>
+
+        <script>
+            <code>
+                import com.evolveum.midpoint.xml.ns._public.common.common_3.RoleType
+                import com.evolveum.midpoint.prism.path.ItemPath
+                import com.evolveum.midpoint.xml.ns._public.common.common_3.AssignmentType
+                import com.evolveum.midpoint.xml.ns._public.common.common_3.AssignmentHolderType
+                import com.evolveum.midpoint.prism.PrismValue
+                import com.evolveum.midpoint.util.exception.ObjectNotFoundException;
+
+                adRoleName= adRoleNameVar //basic.getAttributeValue(entitlement, 'cn')
+
+                try{
+                    primDelta=midpoint.getFocusContext().getPrimaryDelta()
+                    if(primDelta!=null){
+                        if (primDelta.isModify() || primDelta.isDelete()) {
+                            for (ItemPath paths : primDelta.getModifiedItems()) {
+                                if (AssignmentHolderType.F_ASSIGNMENT.equivalent(paths)) {
+                                    for (PrismValue values : primDelta.getDeletedValuesFor(paths)) {
+                                        if (values.getRealClass().getName().equals(AssignmentType.getName())) {
+                                            AssignmentType localObject = values.getRealValue();
+                                            if (localObject.getTargetRef() == null) {
+                                                continue;
+                                            }
+                                            if (localObject.getTargetRef().getType().localPart.equals("RoleType")) {
+                                                tmpRoleObject = midpoint.repositoryService.getObject(RoleType.class, localObject.getTargetRef().getOid(), null, midpoint.getCurrentResult()).asObjectable()
+                                                roleName = tmpRoleObject.getName().getOrig().toString();
+                                                if (adRoleName!=null &amp;&amp; adRoleName.toString().equalsIgnoreCase(roleName)) {
+                                                    return "placeholder-no-name"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    return adRoleName
+                } catch ( ObjectNotFoundException onf){
+
+                    log.error("Evaluated object {} was not found: ",adRoleName, onf.getMessage())
+                    adRoleName = "placeholder-no-name"
+                } catch (Exception e){
+
+                    log.warn("#### Function adLibrary has exception.")
+                    log.error("Object evaluation - {} - ended in exception: {}", adRoleName, e.getMessage())
+
+                    adRoleName = "placeholder-no-name"
+                }
+            </code>
+        </script>
+    </function>
+</functionLibrary>

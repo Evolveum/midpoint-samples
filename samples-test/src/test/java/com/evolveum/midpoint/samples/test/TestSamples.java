@@ -23,9 +23,11 @@ import org.xml.sax.SAXException;
 import com.evolveum.midpoint.common.validator.EventHandler;
 import com.evolveum.midpoint.common.validator.EventResult;
 import com.evolveum.midpoint.common.validator.LegacyValidator;
+import com.evolveum.midpoint.prism.Item;
 import com.evolveum.midpoint.prism.Objectable;
 import com.evolveum.midpoint.prism.PrismContext;
 import com.evolveum.midpoint.prism.PrismObject;
+import com.evolveum.midpoint.prism.PrismProperty;
 import com.evolveum.midpoint.prism.util.PrismTestUtil;
 import com.evolveum.midpoint.schema.MidPointPrismContextFactory;
 import com.evolveum.midpoint.schema.constants.MidPointConstants;
@@ -33,6 +35,8 @@ import com.evolveum.midpoint.schema.result.OperationResult;
 import com.evolveum.midpoint.util.DOMUtil;
 import com.evolveum.midpoint.util.PrettyPrinter;
 import com.evolveum.midpoint.util.exception.SchemaException;
+import com.evolveum.midpoint.xml.ns._public.model.scripting_3.ExecuteScriptType;
+import com.evolveum.midpoint.xml.ns._public.model.scripting_3.ScriptingExpressionType;
 
 /**
  * Test validity of the samples in the trunk/samples directory.
@@ -130,8 +134,15 @@ public class TestSamples extends AbstractSampleTest {
     private void parseObjectFile(File file) throws SchemaException {
         System.out.println("===> Parsing file " + file.getPath());
         try {
+
+            Item<?, ?> item = prismContext.parserFor(file).parseItem();
+            if (item instanceof PrismProperty
+                    && (item.getRealValue() instanceof ScriptingExpressionType
+                    || item.getRealValue() instanceof ExecuteScriptType)) {
+                return;
+            }
             //noinspection unused
-            PrismObject<Objectable> object = prismContext
+            prismContext
                     .parserFor(file)
                     .strict()
                     .parse();
