@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <!--
   ~ Copyright (c) 2010-2024 Evolveum
   ~
@@ -15,9 +15,8 @@
   ~ limitations under the License.
   -->
 
-<user>
-    <name>jack</name>
-    <fullName>Jack Sparrow</fullName>
-    <givenName>Jack</givenName>
-    <familyName>Sparrow</familyName>
-</user>
+<query xmlns="http://prism.evolveum.com/xml/ns/public/query-3">
+    <filter>
+        <text>emailAddress endsWith "@evolveum.com"</text>
+    </filter>
+</query>

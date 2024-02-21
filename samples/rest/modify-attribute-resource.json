@@ -1,0 +1,9 @@
+{
+  "objectModification": {
+    "itemDelta": {
+      "modificationType": "replace",
+      "path": "capabilities/configured/delete/enabled/",
+      "value": false
+    }
+  }
+}

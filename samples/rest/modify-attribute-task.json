@@ -1,0 +1,9 @@
+{
+  "objectModification": {
+    "itemDelta": {
+      "modificationType": "replace",
+      "path": "schedulingState",
+      "value": "ready"
+    }
+  }
+}

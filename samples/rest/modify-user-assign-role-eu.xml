@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  ~ Copyright (c) 2010-2017 Evolveum
+  ~ Copyright (c) 2010-2024 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -14,7 +14,15 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-
-<q:query xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
-    <!-- empty query = return all records -->
-</q:query>
+<objectModification
+    xmlns='http://midpoint.evolveum.com/xml/ns/public/common/api-types-3'
+    xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+    xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3">
+    <itemDelta>
+        <t:modificationType>add</t:modificationType>
+        <t:path>c:assignment</t:path>
+        <t:value>
+                <c:targetRef oid="00000000-0000-0000-0000-000000000008" type="c:RoleType" />
+        </t:value>
+    </itemDelta>
+</objectModification>

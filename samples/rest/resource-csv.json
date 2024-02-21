@@ -1,0 +1,78 @@
+{
+  "resource" : {
+    "oid" : "ef2bc95b-76e0-59e2-86d6-9999cccccccc",
+    "name" : "Test CSV: username",
+    "description" : "Simple CSV resource that is using single identifier (username)",
+    "connectorRef" : {
+      "type" : "c:ConnectorType",
+      "filter" : {
+        "equal" : {
+          "path" : "c:connectorType",
+          "value" : "com.evolveum.polygon.connector.csv.CsvConnector"
+        }
+      }
+    },
+    "connectorConfiguration" : {
+      "@ns" : "http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3",
+      "configurationProperties" : {
+        "@ns" : "http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector",
+        "filePath" : "target/midpoint.csv",
+        "encoding" : "utf-8",
+        "fieldDelimiter" : ",",
+        "multivalueDelimiter" : ";",
+        "uniqueAttribute" : "username",
+        "passwordAttribute" : "password"
+      }
+    },
+    "schemaHandling" : {
+      "objectType" : {
+        "displayName" : "Default Account",
+        "default" : true,
+        "objectClass" : "ri:AccountObjectClass",
+        "attribute" : [ {
+          "ref" : "ri:username",
+          "outbound" : {
+            "source" : {
+              "path" : "$user/name"
+            }
+          }
+        }, {
+          "ref" : "ri:firstname",
+          "outbound" : {
+            "source" : {
+              "path" : "$user/givenName"
+            }
+          }
+        }, {
+          "ref" : "ri:lastname",
+          "outbound" : {
+            "source" : {
+              "path" : "$user/familyName"
+            }
+          }
+        } ],
+        "activation" : {
+          "administrativeStatus" : {
+            "outbound" : { }
+          }
+        },
+        "credentials" : {
+          "password" : {
+            "outbound" : { }
+          }
+        }
+      }
+    },
+    "capabilities" : {
+      "configured" : {
+        "activation" : {
+          "status" : {
+            "attribute" : "ri:disabled",
+            "enableValue" : "false",
+            "disableValue" : "true"
+          }
+        }
+      }
+    }
+  }
+}

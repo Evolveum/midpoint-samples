@@ -1,0 +1,9 @@
+{
+  "objectModification": {
+    "itemDelta": {
+      "modificationType": "add",
+      "path": "description",
+      "value": "Description parameter modified via REST"
+    }
+  }
+}

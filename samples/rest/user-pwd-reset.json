@@ -1,0 +1,6 @@
+{
+  "executeCredentialResetRequest": {
+    "resetMethod": "passwordReset",
+    "userEntry": "5ecr3tP4s5w0rd"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "policyItemsDefinition": {
+    "policyItemDefinition": {
+      "target": {
+        "path": "identifier"
+      },
+      "execute": "true"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "@ns" : "http://midpoint.evolveum.com/xml/ns/public/model/scripting-3",
+  "executeScript" : {
+    "pipeline" : [ {
+      "@element" : "action",
+      "type" : "resolve"
+    }, {
+      "@element" : "action",
+      "type" : "recompute"
+    } ],
+    "input" : {
+      "value" : {
+        "@type" : "c:ObjectReferenceType",
+        "oid" : "a9885c61-c442-42d8-af34-8182a8653e3c",
+        "type" : "UserType"
+      }
+    },
+    "options" : {
+      "continueOnAnyError" : "true"
+    }
+  }
+}
