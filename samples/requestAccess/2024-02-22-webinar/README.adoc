@@ -1,0 +1,10 @@
+= Request access webinar
+
+This directory contains configuration objects that were used to showcase configuration possibilities of request access feature for the webinar.
+
+== Notes
+
+* Authorizations in these samples were simplified, e.g. users have more authorizations than needed.
+Reason for this is to make the samples easier to understand, since discussion about authorizations was not primary goal of the webinar.
+** If you want to use these samples in your own system, you should adjust the authorizations to match your own system.
+

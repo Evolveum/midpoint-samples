@@ -1,0 +1,31 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           oid="8eb12d6d-5fa9-4724-b83a-f7a188c80eeb">
+
+    <name>Archetype: Pirate</name>
+
+    <assignment>
+        <identifier>holderType</identifier>
+        <assignmentRelation>
+            <holderType>UserType</holderType>
+        </assignmentRelation>
+    </assignment>
+
+    <inducement>
+        <targetRef oid="cdff295f-d026-4bc8-8c48-f8178b8ef18a" type="RoleType"/>
+    </inducement>
+
+    <inducement>
+        <targetRef oid="cc284f65-b8cf-427e-a362-4e132f60bf39" type="RoleType"/>
+    </inducement>
+
+    <archetypePolicy>
+        <display>
+            <label>Pirate</label>
+            <pluralLabel>Pirates</pluralLabel>
+            <icon>
+                <cssClass>fa-solid fa-skull-crossbones</cssClass>
+                <color>blue</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+</archetype>

@@ -1,0 +1,25 @@
+<user xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+      oid="3133d381-0cf5-40bf-9ef3-ca1b7c312177">
+
+    <name>swann</name>
+
+    <assignment>
+        <targetRef oid="81ce1f75-07f3-4e73-a3c9-adf0592bd07e" type="ArchetypeType"/>
+    </assignment>
+
+    <assignment>
+        <targetRef oid="45550131-4ae0-43b5-bd9e-935f1fd593d3" type="RoleType"/>
+    </assignment>
+
+    <credentials>
+        <password>
+            <value>
+                <t:clearValue>qwe123</t:clearValue>
+            </value>
+        </password>
+    </credentials>
+
+    <givenName>Weatherby</givenName>
+    <familyName>Swann</familyName>
+</user>

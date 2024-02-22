@@ -1,0 +1,11 @@
+<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+     oid="d1e2f3a4-b5c6-7980-abcd-ef6054321098">
+
+    <name>RMS Queen Mary</name>
+
+    <assignment>
+        <targetRef oid="5f4cd9bd-d440-4124-ab35-40163085de70" type="OrgType"/>
+    </assignment>
+
+    <requestable>true</requestable>
+</org>

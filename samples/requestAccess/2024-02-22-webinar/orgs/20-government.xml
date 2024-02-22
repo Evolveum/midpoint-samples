@@ -1,0 +1,9 @@
+<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+     oid="7a056fee-0475-40ed-94bf-e9a0c7f59192">
+
+    <name>Government</name>
+
+    <assignment>
+        <targetRef oid="39b4775e-3646-4fb8-ab9a-b89400fc04ce" type="OrgType"/>
+    </assignment>
+</org>

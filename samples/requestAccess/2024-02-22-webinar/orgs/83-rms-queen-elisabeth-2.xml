@@ -1,0 +1,11 @@
+<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+     oid="c7e1f4c8-ff41-449d-ba86-74d7da31b71b">
+
+    <name>RMS Queen Elizabeth II.</name>
+
+    <assignment>
+        <targetRef oid="5f4cd9bd-d440-4124-ab35-40163085de70" type="OrgType"/>
+    </assignment>
+
+    <requestable>true</requestable>
+</org>

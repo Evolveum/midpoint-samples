@@ -1,0 +1,11 @@
+<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+     oid="3b313e7a-dc0a-4a85-8840-01b5803e6667">
+
+    <name>MS Allure Of the Seas</name>
+
+    <assignment>
+        <targetRef oid="5f4cd9bd-d440-4124-ab35-40163085de70" type="OrgType"/>
+    </assignment>
+
+    <requestable>true</requestable>
+</org>

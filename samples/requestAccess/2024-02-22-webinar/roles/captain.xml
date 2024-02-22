@@ -1,0 +1,113 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      oid="8d0abb98-1f0b-4009-8e30-eb1f945435d4">
+
+    <name>Captain</name>
+
+    <assignment>
+        <targetRef oid="886833b6-b700-418d-9a5e-0abe6894720a" type="ArchetypeType"/>
+    </assignment>
+
+    <inducement>
+        <targetRef oid="79c3ea5d-f4b2-4ee9-bcae-a70423a1f7a2" type="RoleType"/>
+    </inducement>
+
+    <requestable>true</requestable>
+
+    <adminGuiConfiguration>
+        <accessRequest>
+            <targetSelection>
+                <defaultSelection>myself</defaultSelection>
+                <allowRequestForMyself>true</allowRequestForMyself>
+                <allowRequestForOthers>true</allowRequestForOthers>
+                <group>
+                    <identifier>pirate-users</identifier>
+                    <display>
+                        <label>Pirates</label>
+                    </display>
+                    <collection>
+                        <collectionRef oid="8eb12d6d-5fa9-4724-b83a-f7a188c80eeb" type="ArchetypeType"/>
+                    </collection>
+                    <autocompleteConfiguration>
+                        <displayExpression>
+                            <script>
+                                <code>
+                                    return "Pirate: " + object.givenName + " " + object.familyName + " (" + object.name + ")"
+                                </code>
+                            </script>
+                        </displayExpression>
+                        <autocompleteMinChars>1</autocompleteMinChars>
+                    </autocompleteConfiguration>
+                </group>
+                <group>
+                    <identifier>all-enabled-users</identifier>
+                    <display>
+                        <label>All enabled users</label>
+                    </display>
+                    <collection>
+                        <collectionRef oid="7dbc05c7-3469-46cb-92fa-81f6e2baa202" type="ObjectCollectionType"/>
+                    </collection>
+                    <autocompleteConfiguration>
+                        <displayExpression>
+                            <script>
+                                <code>
+                                    return "Enabled user: " + object.givenName + " " + object.familyName + " (" + object.name + ")"
+                                </code>
+                            </script>
+                        </displayExpression>
+                        <autocompleteMinChars>1</autocompleteMinChars>
+                    </autocompleteConfiguration>
+                </group>
+            </targetSelection>
+            <relationSelection>
+                <defaultRelation>org:default</defaultRelation>
+                <allowOtherRelations>true</allowOtherRelations>
+            </relationSelection>
+            <roleCatalog>
+                <rolesOfTeammate>
+                    <autocompleteConfiguration>
+                        <displayExpression>
+                            <script>
+                                <code>
+                                    return object.givenName + " " + object.familyName + " (" + object.name + ")"
+                                </code>
+                            </script>
+                        </displayExpression>
+                        <autocompleteMinChars>1</autocompleteMinChars>
+                    </autocompleteConfiguration>
+                </rolesOfTeammate>
+                <roleCatalogRef oid="336e9ce3-60bf-44e2-b518-02a2dbbfa2c8" type="OrgType"/>
+                <roleCatalogDepth>2</roleCatalogDepth>
+                <collection>
+                    <identifier>sailor-roles</identifier>
+                    <collectionRef oid="bc6e8406-87a1-49f1-8e57-7c097009522e" type="ObjectCollectionType"/>
+                </collection>
+                <collection>
+                    <identifier>sailor-government</identifier>
+                    <collectionRef oid="581f9337-70dc-42dd-87bf-4eb28106ffdd" type="ObjectCollectionType"/>
+                </collection>
+                <collection>
+                    <identifier>all-roles</identifier>
+                    <collectionIdentifier>allRoles</collectionIdentifier>
+                </collection>
+            </roleCatalog>
+            <checkout>
+                <validityConfiguration>
+                    <allowOnlyGlobalSettings>true</allowOnlyGlobalSettings>
+                    <predefinedValue>
+                        <display>
+                            <label>100 years</label>
+                        </display>
+                        <duration>P100Y</duration>
+                    </predefinedValue>
+                    <predefinedValue>
+                        <display>
+                            <label>Fifteen minutes</label>
+                        </display>
+                        <duration>PT15M</duration>
+                    </predefinedValue>
+                </validityConfiguration>
+            </checkout>
+        </accessRequest>
+    </adminGuiConfiguration>
+</role>

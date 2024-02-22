@@ -1,0 +1,9 @@
+<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                  oid="581f9337-70dc-42dd-87bf-4eb28106ffdd">
+    <name>Government</name>
+    <type>RoleType</type>
+    <filter>
+        <q:text>archetypeRef matches (oid = "cee99b9e-afca-4cb9-b72b-6956d7621458" and targetType = ArchetypeType)</q:text>
+    </filter>
+</objectCollection>

@@ -1,0 +1,11 @@
+<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+     oid="c1d2e3f4-a5b6-7980-abcd-ef7065432109">
+
+    <name>The Adventure Galley</name>
+
+    <assignment>
+        <targetRef oid="193ed30f-eb80-4b2c-b4f0-5c27f9aad0a2" type="OrgType"/>
+    </assignment>
+
+    <requestable>true</requestable>
+</org>

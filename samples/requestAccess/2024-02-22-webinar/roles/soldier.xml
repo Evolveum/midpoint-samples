@@ -1,0 +1,11 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      oid="b86d09fb-8949-4c4e-98c8-8c15adb99c6a">
+
+    <name>Soldier</name>
+
+    <assignment>
+        <targetRef oid="cee99b9e-afca-4cb9-b72b-6956d7621458" type="ArchetypeType"/>
+    </assignment>
+
+    <requestable>true</requestable>
+</role>

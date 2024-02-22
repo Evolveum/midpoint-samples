@@ -1,0 +1,25 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      oid="bfa4686a-913f-4574-a71b-5cf2b45d9f40">
+
+    <name>Prisoner</name>
+
+    <assignment>
+        <policyRule>
+            <name>criminal exclusion: Pirate</name>
+            <policyConstraints>
+                <exclusion>
+                    <targetRef oid="cc284f65-b8cf-427e-a362-4e132f60bf39" type="RoleType"/>
+                </exclusion>
+            </policyConstraints>
+            <policyActions>
+                <enforcement/>
+            </policyActions>
+        </policyRule>
+    </assignment>
+
+    <inducement>
+        <targetRef oid="baaf4017-d3bb-4ee4-a150-1454f1815aac" type="RoleType"/>
+    </inducement>
+
+    <requestable>true</requestable>
+</role>

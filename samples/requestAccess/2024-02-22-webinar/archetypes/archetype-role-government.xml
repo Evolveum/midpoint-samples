@@ -1,0 +1,25 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           oid="cee99b9e-afca-4cb9-b72b-6956d7621458">
+
+    <name>Archetype: Government</name>
+
+    <archetypePolicy>
+        <display>
+            <label>Government</label>
+            <icon>
+                <cssClass>fa-solid fa-building-shield</cssClass>
+                <color>pink</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+    <assignment>
+        <identifier>holderType</identifier>
+        <assignmentRelation>
+            <holderType>RoleType</holderType>
+        </assignmentRelation>
+    </assignment>
+
+    <inducement>
+        <targetRef oid="7a056fee-0475-40ed-94bf-e9a0c7f59192" type="OrgType"/>
+    </inducement>
+</archetype>

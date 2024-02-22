@@ -1,0 +1,9 @@
+<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+     oid="32d32fdb-1f65-42a6-91eb-0780954cf732">
+
+    <name>Army ships</name>
+
+    <assignment>
+        <targetRef oid="9599abbd-3398-4223-8456-cb69fe0035d4" type="OrgType"/>
+    </assignment>
+</org>

@@ -1,0 +1,51 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      oid="baaf4017-d3bb-4ee4-a150-1454f1815aac">
+
+    <name>Authorization: Prisoner</name>
+
+    <inducement>
+        <identifier>end-user</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000008" type="RoleType"/>
+    </inducement>
+
+    <authorization>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#auditRead</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#auditRecord</action>
+    </authorization>
+
+    <authorization>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
+        <object>
+            <type>ObjectCollectionType</type>
+        </object>
+    </authorization>
+
+    <authorization>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
+        <object>
+            <type>RoleType</type>
+            <archetypeRef oid="886833b6-b700-418d-9a5e-0abe6894720a"/>
+        </object>
+    </authorization>
+
+    <authorization>
+        <name>unassign-requestable-roles</name>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#unassign</action>
+        <phase>request</phase>
+        <object>
+            <special>self</special>
+        </object>
+        <target>
+            <type>RoleType</type>
+            <filter>
+                <q:equal>
+                    <q:path>requestable</q:path>
+                    <q:value>true</q:value>
+                </q:equal>
+            </filter>
+        </target>
+        <relation>org:default</relation>
+    </authorization>
+</role>

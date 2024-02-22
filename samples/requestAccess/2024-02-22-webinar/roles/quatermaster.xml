@@ -1,0 +1,70 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      oid="f648c6a1-4924-4477-9a88-d32ac8b62914">
+
+    <name>Quatermaster</name>
+
+    <assignment>
+        <targetRef oid="886833b6-b700-418d-9a5e-0abe6894720a" type="ArchetypeType"/>
+    </assignment>
+
+    <inducement>
+        <targetRef oid="79c3ea5d-f4b2-4ee9-bcae-a70423a1f7a2" type="RoleType"/>
+    </inducement>
+
+    <requestable>true</requestable>
+
+    <adminGuiConfiguration>
+        <accessRequest>
+            <targetSelection>
+                <defaultSelection>myself</defaultSelection>
+                <allowRequestForMyself>true</allowRequestForMyself>
+                <allowRequestForOthers>true</allowRequestForOthers>
+                <group>
+                    <identifier>pirate-users</identifier>
+                    <display>
+                        <label>Pirates</label>
+                    </display>
+                    <collection>
+                        <collectionRef oid="8eb12d6d-5fa9-4724-b83a-f7a188c80eeb" type="ArchetypeType"/>
+                    </collection>
+                    <autocompleteConfiguration>
+                        <displayExpression>
+                            <script>
+                                <code>
+                                    return "Pirate: " + object.givenName + " " + object.familyName + " (" + object.name + ")"
+                                </code>
+                            </script>
+                        </displayExpression>
+                        <autocompleteMinChars>1</autocompleteMinChars>
+                    </autocompleteConfiguration>
+                </group>
+            </targetSelection>
+            <relationSelection>
+                <defaultRelation>org:default</defaultRelation>
+                <allowOtherRelations>true</allowOtherRelations>
+            </relationSelection>
+            <roleCatalog>
+                <rolesOfTeammate>
+                    <autocompleteConfiguration>
+                        <displayExpression>
+                            <script>
+                                <code>
+                                    return "Another pirate: " + object.givenName + " " + object.familyName + " (" + object.name + ")"
+                                </code>
+                            </script>
+                        </displayExpression>
+                        <autocompleteMinChars>1</autocompleteMinChars>
+                    </autocompleteConfiguration>
+                </rolesOfTeammate>
+                <roleCatalogRef oid="336e9ce3-60bf-44e2-b518-02a2dbbfa2c8" type="OrgType"/>
+                <roleCatalogDepth>2</roleCatalogDepth>
+                <collection>
+                    <identifier>sailor-roles</identifier>
+                    <collectionRef oid="bc6e8406-87a1-49f1-8e57-7c097009522e" type="ObjectCollectionType"/>
+                </collection>
+            </roleCatalog>
+        </accessRequest>
+    </adminGuiConfiguration>
+</role>

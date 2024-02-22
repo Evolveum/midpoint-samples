@@ -1,0 +1,11 @@
+<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+     oid="f1e2d3c4-b5a6-7980-abcd-ef9087654321">
+
+    <name>The Flying Dutchman</name>
+
+    <assignment>
+        <targetRef oid="193ed30f-eb80-4b2c-b4f0-5c27f9aad0a2" type="OrgType"/>
+    </assignment>
+
+    <requestable>true</requestable>
+</org>
