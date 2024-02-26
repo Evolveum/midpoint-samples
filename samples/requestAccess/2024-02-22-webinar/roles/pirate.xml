@@ -1,0 +1,58 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      oid="cc284f65-b8cf-427e-a362-4e132f60bf39">
+
+    <name>Pirate</name>
+
+    <assignment>
+        <targetRef oid="886833b6-b700-418d-9a5e-0abe6894720a" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="224c9d2e-f742-4060-a1aa-1894d6ff2dce" type="RoleType"/>
+    </assignment>
+
+    <assignment>
+        <policyRule>
+            <name>criminal exclusion: Prisoner</name>
+            <policyConstraints>
+                <exclusion>
+                    <targetRef oid="bfa4686a-913f-4574-a71b-5cf2b45d9f40" type="RoleType"/>
+                </exclusion>
+            </policyConstraints>
+            <policyActions>
+                <enforcement/>
+            </policyActions>
+        </policyRule>
+    </assignment>
+
+    <assignment>
+        <policyRule>
+            <name>criminal exclusion: Governor</name>
+            <policyConstraints>
+                <exclusion>
+                    <targetRef oid="45550131-4ae0-43b5-bd9e-935f1fd593d3" type="RoleType"/>
+                </exclusion>
+            </policyConstraints>
+            <policyActions>
+                <enforcement/>
+            </policyActions>
+        </policyRule>
+    </assignment>
+
+
+
+    <assignment>
+        <policyRule>
+            <name>criminal exclusion: Judge</name>
+            <policyConstraints>
+                <exclusion>
+                    <targetRef oid="8033babc-b568-4def-a3c3-e959ca93f84d" type="RoleType"/>
+                </exclusion>
+            </policyConstraints>
+            <policyActions>
+                <enforcement/>
+            </policyActions>
+        </policyRule>
+    </assignment>
+
+    <requestable>true</requestable>
+</role>

@@ -1,0 +1,25 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           oid="886833b6-b700-418d-9a5e-0abe6894720a">
+
+    <name>Archetype: Sailor</name>
+
+    <archetypePolicy>
+        <display>
+            <label>Sailor</label>
+            <icon>
+                <cssClass>fa-solid fa-ship</cssClass>
+                <color>green</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+    <assignment>
+        <identifier>holderType</identifier>
+        <assignmentRelation>
+            <holderType>RoleType</holderType>
+        </assignmentRelation>
+    </assignment>
+
+    <inducement>
+        <targetRef oid="bb768a76-adc3-4d1c-86ac-2ec4623b8458" type="OrgType"/>
+    </inducement>
+</archetype>

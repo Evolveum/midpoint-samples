@@ -1,0 +1,11 @@
+<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+     oid="a1b2c3d4-e5f6-7890-abcd-ef1234567890">
+
+    <name>Queen Anne's Revenge</name>
+
+    <assignment>
+        <targetRef oid="193ed30f-eb80-4b2c-b4f0-5c27f9aad0a2" type="OrgType"/>
+    </assignment>
+
+    <requestable>true</requestable>
+</org>

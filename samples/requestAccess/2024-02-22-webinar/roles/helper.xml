@@ -1,0 +1,16 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      oid="b576a335-4588-4104-8813-211b399bf591">
+
+    <name>Helper</name>
+
+    <assignment>
+        <targetRef oid="886833b6-b700-418d-9a5e-0abe6894720a" type="ArchetypeType"/>
+    </assignment>
+
+    <inducement>
+        <identifier>end-user</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000008" type="RoleType"/>
+    </inducement>
+
+    <requestable>true</requestable>
+</role>

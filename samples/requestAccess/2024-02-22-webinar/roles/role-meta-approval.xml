@@ -1,0 +1,34 @@
+<role oid="224c9d2e-f742-4060-a1aa-1894d6ff2dce"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+    <name>Metarole: Sparrow Approval</name>
+    <inducement>
+        <policyRule>
+            <policyConstraints>
+                <assignment/>
+            </policyConstraints>
+            <policyActions>
+                <approval>
+                    <compositionStrategy>
+                        <order>20</order>
+                    </compositionStrategy>
+                    <approvalSchema>
+                        <stage>
+                            <name>Security</name>
+                            <approverRef type="UserType">
+                                <filter>
+                                    <q:text>name = "sparrow" or name = "gibbons"</q:text>
+                                </filter>
+                                <resolutionTime>run</resolutionTime>
+                            </approverRef>
+                            <evaluationStrategy>firstDecides</evaluationStrategy>
+                            <groupExpansion>onWorkItemCreation</groupExpansion>
+                            <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
+                        </stage>
+                    </approvalSchema>
+                </approval>
+            </policyActions>
+        </policyRule>
+    </inducement>
+</role>
+

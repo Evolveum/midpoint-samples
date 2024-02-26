@@ -1,0 +1,9 @@
+<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                  oid="bc6e8406-87a1-49f1-8e57-7c097009522e">
+    <name>Sailors</name>
+    <type>RoleType</type>
+    <filter>
+        <q:text>archetypeRef matches (oid = "886833b6-b700-418d-9a5e-0abe6894720a" and targetType = ArchetypeType)</q:text>
+    </filter>
+</objectCollection>

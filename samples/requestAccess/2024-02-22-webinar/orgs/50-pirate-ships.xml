@@ -1,0 +1,9 @@
+<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+     oid="193ed30f-eb80-4b2c-b4f0-5c27f9aad0a2">
+
+    <name>Pirate ships</name>
+
+    <assignment>
+        <targetRef oid="9599abbd-3398-4223-8456-cb69fe0035d4" type="OrgType"/>
+    </assignment>
+</org>

@@ -1,0 +1,25 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      oid="45550131-4ae0-43b5-bd9e-935f1fd593d3">
+
+    <name>Governor</name>
+
+    <assignment>
+        <targetRef oid="cee99b9e-afca-4cb9-b72b-6956d7621458" type="ArchetypeType"/>
+    </assignment>
+
+    <assignment>
+        <policyRule>
+            <name>criminal exclusion: Pirate</name>
+            <policyConstraints>
+                <exclusion>
+                    <targetRef oid="cc284f65-b8cf-427e-a362-4e132f60bf39" type="RoleType"/>
+                </exclusion>
+            </policyConstraints>
+            <policyActions>
+                <enforcement/>
+            </policyActions>
+        </policyRule>
+    </assignment>
+
+    <requestable>true</requestable>
+</role>

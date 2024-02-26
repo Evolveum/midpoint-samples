@@ -1,0 +1,56 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      oid="cdff295f-d026-4bc8-8c48-f8178b8ef18a">
+
+    <name>Authorization: Pirate</name>
+
+    <inducement>
+        <identifier>end-user</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000008" type="RoleType"/>
+    </inducement>
+
+    <authorization>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#usersAll</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#rolesAll</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#orgAll</action>
+    </authorization>
+
+    <authorization>
+        <decision>deny</decision>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#servicesAll</action>
+    </authorization>
+
+    <authorization>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#auditRead</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#auditRecord</action>
+    </authorization>
+
+    <authorization>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#get</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#search</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#assign</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#unassign</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>
+        <object>
+            <type>ObjectCollectionType</type>
+        </object>
+        <object>
+            <type>ArchetypeType</type>
+        </object>
+        <object>
+            <type>OrgType</type>
+        </object>
+        <object>
+            <type>UserType</type>
+        </object>
+        <object>
+            <type>RoleType</type>
+        </object>
+        <object>
+            <type>CaseType</type>
+        </object>
+        <object>
+            <type>TaskType</type>
+        </object>
+    </authorization>
+</role>

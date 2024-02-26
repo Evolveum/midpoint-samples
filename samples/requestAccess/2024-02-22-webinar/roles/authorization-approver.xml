@@ -1,0 +1,25 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      oid="79c3ea5d-f4b2-4ee9-bcae-a70423a1f7a2">
+
+    <name>Authorization: Approver</name>
+
+    <inducement>
+        <identifier>approver</identifier>
+        <targetRef oid="00000000-0000-0000-0000-00000000000a" type="RoleType"/>
+    </inducement>
+
+    <authorization>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#get</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#search</action>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
+        <object>
+            <type>ObjectCollectionType</type>
+        </object>
+        <object>
+            <type>ArchetypeType</type>
+        </object>
+        <object>
+            <type>OrgType</type>
+        </object>
+    </authorization>
+</role>

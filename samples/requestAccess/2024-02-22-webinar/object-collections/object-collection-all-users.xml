@@ -1,0 +1,9 @@
+<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                  oid="7dbc05c7-3469-46cb-92fa-81f6e2baa202">
+    <name>All enabled users</name>
+    <type>UserType</type>
+    <filter>
+        <q:text>activation/effectiveStatus = "enabled"</q:text>
+    </filter>
+</objectCollection>

@@ -1,0 +1,12 @@
+<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+     oid="9599abbd-3398-4223-8456-cb69fe0035d4">
+
+    <name>Ships</name>
+
+    <assignment>
+        <targetRef oid="39b4775e-3646-4fb8-ab9a-b89400fc04ce" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="336e9ce3-60bf-44e2-b518-02a2dbbfa2c8" type="OrgType"/>
+    </assignment>
+</org>

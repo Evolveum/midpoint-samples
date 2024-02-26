@@ -1,0 +1,9 @@
+<org xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+     oid="bb768a76-adc3-4d1c-86ac-2ec4623b8458">
+
+    <name>Sailors</name>
+
+    <assignment>
+        <targetRef oid="39b4775e-3646-4fb8-ab9a-b89400fc04ce" type="OrgType"/>
+    </assignment>
+</org>

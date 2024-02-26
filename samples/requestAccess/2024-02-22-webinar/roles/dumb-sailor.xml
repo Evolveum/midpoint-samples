@@ -1,0 +1,14 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      oid="d6abf9b4-b198-4ae3-9c93-a963f4a9f282">
+
+    <name>Dumb sailor</name>
+
+    <assignment>
+        <targetRef oid="886833b6-b700-418d-9a5e-0abe6894720a" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="224c9d2e-f742-4060-a1aa-1894d6ff2dce" type="RoleType"/>
+    </assignment>
+
+    <requestable>true</requestable>
+</role>

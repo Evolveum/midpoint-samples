@@ -1,0 +1,25 @@
+<user xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+      oid="691e5b1a-4f28-49b2-aa90-6596d09b5075">
+
+    <name>gibbs</name>
+
+    <assignment>
+        <targetRef oid="8eb12d6d-5fa9-4724-b83a-f7a188c80eeb" type="ArchetypeType"/>
+    </assignment>
+
+    <assignment>
+        <targetRef oid="f648c6a1-4924-4477-9a88-d32ac8b62914" type="RoleType"/>
+    </assignment>
+
+    <credentials>
+        <password>
+            <value>
+                <t:clearValue>qwe123</t:clearValue>
+            </value>
+        </password>
+    </credentials>
+
+    <givenName>Joshame</givenName>
+    <familyName>Gibbs</familyName>
+</user>

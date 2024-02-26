@@ -1,0 +1,22 @@
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           oid="81ce1f75-07f3-4e73-a3c9-adf0592bd07e">
+
+    <name>Archetype: Army</name>
+
+    <archetypePolicy>
+        <display>
+            <label>Army</label>
+            <pluralLabel>Army</pluralLabel>
+            <icon>
+                <cssClass>blue fa-solid fa-person-rifle</cssClass>
+                <color>green</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+    <assignment>
+        <identifier>holderType</identifier>
+        <assignmentRelation>
+            <holderType>UserType</holderType>
+        </assignmentRelation>
+    </assignment>
+</archetype>
