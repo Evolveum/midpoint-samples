@@ -1,0 +1,128 @@
+{
+  "report" : {
+    "name" : "All error audit records in 24h",
+    "description" : "Report made from all audit records.",
+    "assignment" : {
+      "@id" : 1,
+      "identifier" : "archetype",
+      "targetRef" : {
+        "oid" : "00000000-0000-0000-0000-000000000171",
+        "relation" : "org:default",
+        "type" : "c:ArchetypeType"
+      }
+    },
+    "archetypeRef" : {
+      "oid" : "00000000-0000-0000-0000-000000000171",
+      "relation" : "org:default",
+      "type" : "c:ArchetypeType"
+    },
+    "roleMembershipRef" : {
+      "oid" : "00000000-0000-0000-0000-000000000171",
+      "relation" : "org:default",
+      "type" : "c:ArchetypeType"
+    },
+    "objectCollection" : {
+      "collection" : {
+        "baseCollectionRef" : {
+          "collectionRef" : {
+            "oid" : "00000000-0000-0000-0001-000000000004",
+            "relation" : "org:default",
+            "type" : "c:ObjectCollectionType"
+          }
+        }
+      },
+      "parameter" : [ {
+        "@id" : 2,
+        "name" : "outcome",
+        "type" : "#OperationResultStatusType",
+        "display" : {
+          "label" : {
+            "orig" : "outcome",
+            "norm" : "outcome",
+            "translation" : {
+              "key" : "AuditEventRecordType.outcome"
+            }
+          }
+        }
+      }, {
+        "@id" : 3,
+        "name" : "eventType",
+        "type" : "#AuditEventTypeType",
+        "display" : {
+          "label" : {
+            "orig" : "eventType",
+            "norm" : "eventtype",
+            "translation" : {
+              "key" : "AuditEventRecordType.eventType"
+            }
+          }
+        }
+      }, {
+        "@id" : 4,
+        "name" : "eventStage",
+        "type" : "#AuditEventStageType",
+        "display" : {
+          "label" : {
+            "orig" : "eventStage",
+            "norm" : "eventstage",
+            "translation" : {
+              "key" : "AuditEventRecordType.eventStage"
+            }
+          }
+        }
+      }, {
+        "@id" : 5,
+        "name" : "from",
+        "type" : "#dateTime",
+        "display" : {
+          "label" : {
+            "orig" : "from",
+            "norm" : "from",
+            "translation" : {
+              "key" : "AuditPopupPanel.dateFrom"
+            }
+          }
+        }
+      }, {
+        "@id" : 6,
+        "name" : "to",
+        "type" : "#dateTime",
+        "display" : {
+          "label" : {
+            "orig" : "to",
+            "norm" : "to",
+            "translation" : {
+              "key" : "AuditPopupPanel.dateTo"
+            }
+          }
+        }
+      }, {
+        "@id" : 7,
+        "name" : "targetRef",
+        "type" : "c:ObjectReferenceType",
+        "display" : {
+          "label" : {
+            "orig" : "targetRef",
+            "norm" : "targetref",
+            "translation" : {
+              "key" : "AuditEventRecordType.targetRef"
+            }
+          }
+        }
+      }, {
+        "@id" : 8,
+        "name" : "initiatorRef",
+        "type" : "c:ObjectReferenceType",
+        "display" : {
+          "label" : {
+            "orig" : "initiatorRef",
+            "norm" : "initiatorref",
+            "translation" : {
+              "key" : "AuditEventRecordType.initiatorRef"
+            }
+          }
+        }
+      } ]
+    }
+  }
+}
