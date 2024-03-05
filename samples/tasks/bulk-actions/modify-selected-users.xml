@@ -29,12 +29,7 @@
                     <type>UserType</type>
                     <query>
                         <q:filter>
-                            <q:substring>
-                                <q:matching>polyStringNorm</q:matching>
-                                <q:path>c:name</q:path>
-                                <q:value>b</q:value>
-                                <q:anchorStart>true</q:anchorStart>
-                            </q:substring>
+                            <q:text>name startsWith[polyStringNorm] 'b'</q:text>
                         </q:filter>
                     </query>
                 </objects>

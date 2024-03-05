@@ -31,43 +31,12 @@
                     <type>UserType</type>
                     <query>
                         <q:filter>
-                            <q:exists>
-                                <q:path>assignment</q:path>
-                                <q:filter>
-                                    <q:or>
-                                        <q:ref>
-                                            <q:path>targetRef</q:path>
-                                            <q:value oid="00000000-0000-0000-0000-00000000000a" type="c:RoleType"
-                                                     xsi:type="c:ObjectReferenceType"/>
-                                            <!-- Approver -->
-                                        </q:ref>
-                                        <q:ref>
-                                            <q:path>targetRef</q:path>
-                                            <q:value oid="00000000-0000-0000-0000-00000000000c" type="c:RoleType"
-                                                     xsi:type="c:ObjectReferenceType"/>
-                                            <!-- Delegator -->
-                                        </q:ref>
-                                        <q:ref>
-                                            <q:path>targetRef</q:path>
-                                            <q:value oid="00000000-0000-0000-0000-000000000008" type="c:RoleType"
-                                                     xsi:type="c:ObjectReferenceType"/>
-                                            <!-- End user -->
-                                        </q:ref>
-                                        <q:ref>
-                                            <q:path>targetRef</q:path>
-                                            <q:value oid="00000000-0000-0000-0000-00000000000b" type="c:RoleType"
-                                                     xsi:type="c:ObjectReferenceType"/>
-                                            <!-- Reviewer -->
-                                        </q:ref>
-                                        <q:ref>
-                                            <q:path>targetRef</q:path>
-                                            <q:value oid="00000000-0000-0000-0000-000000000004" type="c:RoleType"
-                                                     xsi:type="c:ObjectReferenceType"/>
-                                            <!-- Superuser -->
-                                        </q:ref>
-                                    </q:or>
-                                </q:filter>
-                            </q:exists>
+                            <q:text>
+                                assignment/targetRef/@ matches
+                                ( . type RoleType and
+                                (name = "Approver" or name = "Delegator" or
+                                name = "End user" or name = "Reviewer" or name = "Superuser") )
+                            </q:text>
                         </q:filter>
                     </query>
                     <searchOptions>

@@ -28,12 +28,7 @@
                     <type>UserType</type>
                     <query>
                         <q:filter>
-                            <q:substring>
-                                <q:matching>polyStringNorm</q:matching>
-                                <q:path>c:name</q:path>
-                                <q:value>a</q:value>
-                                <q:anchorStart>true</q:anchorStart>
-                            </q:substring>
+                            <q:text>name startsWith[polyStringNorm] 'a'</q:text>
                         </q:filter>
                     </query>
                 </objects>
@@ -46,10 +41,7 @@
                         </s:executeOptions>
                         <s:targetRef type="RoleType">
                             <filter>
-                                <q:equal>
-                                    <q:path>name</q:path>
-                                    <q:value>End user</q:value>
-                                </q:equal>
+                                <q:text>name = 'End user'</q:text>
                             </filter>
                             <resolutionTime>run</resolutionTime>
                         </s:targetRef>

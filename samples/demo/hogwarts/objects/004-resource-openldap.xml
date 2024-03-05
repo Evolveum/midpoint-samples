@@ -30,12 +30,7 @@
 	<name>Localhost OpenLDAP</name>
 	<connectorRef type="ConnectorType">
 	    <filter>
-			<q:and>
-				<q:equal>
-					<q:path>c:connectorType</q:path>
-					<q:value>com.evolveum.polygon.connector.ldap.LdapConnector</q:value>
-				</q:equal>
-			</q:and>
+            <q:text>c:connectorType = 'com.evolveum.polygon.connector.ldap.LdapConnector'</q:text>
 		</filter>
 	</connectorRef>
 	<connectorConfiguration

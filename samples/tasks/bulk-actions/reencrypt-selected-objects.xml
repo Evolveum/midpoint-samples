@@ -31,10 +31,7 @@
                     <type>UserType</type>
                     <query>
                         <q:filter>
-                            <q:equal>
-                                <q:path>name</q:path>
-                                <q:value>administrator</q:value>
-                            </q:equal>
+                            <q:text>name = 'administrator'</q:text>
                         </q:filter>
                     </query>
                     <useRepositoryDirectly>true</useRepositoryDirectly>
