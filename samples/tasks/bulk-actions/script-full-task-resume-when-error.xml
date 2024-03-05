@@ -38,17 +38,7 @@
                     <type>TaskType</type>
                     <query>
                         <q:filter>
-                            <q:and>
-                                <q:substring>
-                                    <q:path>name</q:path>
-                                    <q:value>Reconciliation Task</q:value>
-                                    <q:anchorStart>true</q:anchorStart>
-                                </q:substring>
-                                <q:equal>
-                                    <q:path>schedulingState</q:path>
-                                    <q:value>suspended</q:value>
-                                </q:equal>
-                            </q:and>
+                            <q:text>name startsWith 'Reconciliation Task' and schedulingState = 'suspended'</q:text>
                         </q:filter>
                     </query>
                 </objects>

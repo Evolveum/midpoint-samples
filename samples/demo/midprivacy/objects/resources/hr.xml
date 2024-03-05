@@ -27,10 +27,7 @@
     <name>Midprivacy HR system</name>
     <connectorRef type="c:ConnectorType">
         <filter>
-            <q:equal>
-                <q:path xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">c:connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.csv.CsvConnector</q:value>
-            </q:equal>
+            <q:text>c:connectorType = 'com.evolveum.polygon.connector.csv.CsvConnector'</q:text>
         </filter>
     </connectorRef>
 

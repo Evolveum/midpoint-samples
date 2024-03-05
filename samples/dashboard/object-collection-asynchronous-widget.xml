@@ -2,9 +2,6 @@
     <name>All enabled users</name>
     <type>UserType</type>
     <filter>
-        <equal>
-            <path>activation/effectiveStatus</path>
-            <value>enabled</value>
-        </equal>
+        <text>activation/effectiveStatus = "enabled"</text>
     </filter>
 </objectCollection>

@@ -3,15 +3,6 @@ oid="bd07ddc9-fc58-4bd8-9ff3-ee796469c95e">
     <name>Failed users during recon task</name>
     <type>UserType</type>
     <filter>
-        <q:and>
-            <q:equal>
-                <q:path>operationExecution/taskRef</q:path>
-                <q:value>c570786d-e2f9-447d-9023-98ff63dfd88e</q:value>
-            </q:equal>
-            <q:equal>
-                <q:path>operationExecution/status</q:path>
-                <q:value>fatal_error</q:value>
-            </q:equal>
-        </q:and>
+        <q:text>operationExecution/taskRef matches (oid = 'c570786d-e2f9-447d-9023-98ff63dfd88e') and operationExecution/status = 'fatal_error'</q:text>
     </filter>
 </objectCollection>

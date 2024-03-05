@@ -26,10 +26,7 @@
                     <type>UserType</type>
                     <query>
                         <q:filter>
-                            <q:equal>
-                                <q:path>locality</q:path>
-                                <q:value>Bratislava</q:value>
-                            </q:equal>
+                            <q:text>locality = 'Bratislava'</q:text>
                         </q:filter>
                     </query>
                 </objects>
