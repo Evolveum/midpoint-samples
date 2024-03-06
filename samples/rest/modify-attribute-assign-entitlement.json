@@ -1,0 +1,14 @@
+{
+  "objectModification": {
+    "itemDelta": {
+      "modificationType": "add",
+      "path": "assignment",
+      "value": {
+      "targetRef": {
+        "oid": "96262f4f-053a-4b0b-8901-b3ec01e3509c",
+        "type": "RoleType"
+      }
+      }
+      }
+    }
+  }

@@ -1,6 +1,6 @@
 {
   "report" : {
-    "name" : "All error audit records in 24h",
+    "name" : "all error audit records in 24h",
     "description" : "Report made from all audit records.",
     "assignment" : {
       "@id" : 1,
