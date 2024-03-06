@@ -22,7 +22,7 @@
    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
    xmlns:ext="http://midpoint.evolveum.com/xml/ns/story/orgsync/ext">
     <name>Org Template</name>
-    
+
     <mapping>
     	<name>Org-org mapping</name>
     	<authoritative>true</authoritative>
@@ -38,18 +38,12 @@
     		<assignmentTargetSearch>
             	<targetType>c:OrgType</targetType>
         		<filter>
-					<q:equal>
-						<q:path>c:name</q:path>
-						<q:matching>polyStringNorm</q:matching>
-						<expression>
-							<script>
-								<code>
-									parent = orgpath?.tokenize('/').reverse()[0]
-									return parent
-								</code>
-							</script>
-						</expression>
-					</q:equal>
+                    <q:text>
+                        c:name =[polyStringNorm] ```
+                                parent = orgpath?.tokenize('/').reverse()[0]
+                                return parent
+                                ```
+                    </q:text>
 				</filter>
 				<createOnDemand>true</createOnDemand>
 				<populateObject>
@@ -97,7 +91,7 @@
 						</target>
 					</populateItem>
 				</populateObject>
-            </assignmentTargetSearch>    	
+            </assignmentTargetSearch>
     	</expression>
     	<target>
     		<path>assignment</path>
@@ -108,8 +102,8 @@
     		</script>
     	</condition>
     </mapping>
-  
-  	
+
+
   	<mapping>
   		<name>Assign meta role</name>
     	<authoritative>true</authoritative>
@@ -124,5 +118,5 @@
 			<path>assignment</path>
 		</target>
   	</mapping>
-  
+
 </objectTemplate>

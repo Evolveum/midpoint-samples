@@ -28,20 +28,10 @@
                     <s:type>c:ShadowType</s:type>
                     <s:query>
                         <q:filter>
-                            <q:and>
-                                <q:ref>
-                                    <q:path>resourceRef</q:path>
-                                    <q:value>
-                                        <oid>ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe</oid>
-                                        <type>ResourceType</type>
-                                    </q:value>
-                                </q:ref>
-                                <q:equal>
-                                    <q:path>objectClass</q:path>
-                                    <q:value xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">ri:AccountObjectClass</q:value>
-                                </q:equal>
-                            </q:and>
-                        </q:filter>
+                            <q:text>
+                                resourceRef matches (oid = 'ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe' and type = ResourceType) and
+                                objectClass = ri:AccountObjectClass
+                            </q:text>
                     </s:query>
                     <s:pipeline>
                         <s:filterContent>

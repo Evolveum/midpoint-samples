@@ -10,9 +10,6 @@
     <name>All enabled users</name>
     <type>UserType</type>
     <filter>
-        <q:equal>
-            <q:path>activation/effectiveStatus</q:path>
-            <q:value>enabled</q:value>
-        </q:equal>
+        <q:text>activation/effectiveStatus = "enabled"</q:text>
     </filter>
 </objectCollection>

@@ -3,40 +3,15 @@ oid="056e6f8c-23bd-43e3-93e2-5b0decba7ad0">
     <name>Failed shadows resource HR(last 24hours)</name>
     <type>ShadowType</type>
     <filter>
-        <q:and>
-            <q:equal>
-                <q:path>kind</q:path>
-                <q:value>account</q:value>
-            </q:equal>
-            <q:ref>
-                <q:path>resourceRef</q:path>
-                <q:value>
-                    <oid>ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe</oid>
-                </q:value>
-            </q:ref>
-            <q:exists>
-                <q:path>operationExecution</q:path>
-                <q:filter>
-                    <q:and>
-                        <q:equal>
-                            <q:path>status</q:path>
-                            <q:value>fatal_error</q:value>
-                        </q:equal>
-                        <q:greater>
-                            <q:path>timestamp</q:path>
-                            <expression xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
-                                <script>
-                                    <code>
-                                            calendar = basic.addDuration(basic.currentDateTime(), "-P1D");
-                                            return calendar;
-                                        </code>
-                                </script>
-                            </expression>
-                        </q:greater>
-                    </q:and>
-                </q:filter>
-            </q:exists>
-        </q:and>
+        <q:text>kind = 'account' and
+            resourceRef matches (oid = 'ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe') and
+            operationExecution matches
+                (status = 'fatal_error'
+                and timestamp > ```
+                    calendar = basic.addDuration(basic.currentDateTime(), "-P1D");
+                    return calendar;
+                    ```)
+        </q:text>
     </filter>
     <getOptions>
         <option>

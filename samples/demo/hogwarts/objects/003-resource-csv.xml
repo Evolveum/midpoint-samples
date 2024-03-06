@@ -18,7 +18,7 @@
 
 <resource 	oid="ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe"
 		xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-		xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+		xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 		xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
@@ -27,14 +27,11 @@
 
 	<name>HR</name>
     <description>Source resource</description>
-     
+
 	<connectorRef type="ConnectorType">
 		<filter>
-	        <q:equal>
-			<q:path>c:connectorType</q:path>
-	          <q:value>com.evolveum.polygon.connector.csv.CsvConnector</q:value>
-	        </q:equal>
-	      </filter>
+            <q:text>c:connectorType = 'com.evolveum.polygon.connector.csv.CsvConnector'</q:text>
+        </filter>
 	</connectorRef>
 
 	<connectorConfiguration xmlns:icfi="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
@@ -48,7 +45,7 @@
 				<icfi:uniqueAttribute>login</icfi:uniqueAttribute>
 				<icfi:passwordAttribute>password</icfi:passwordAttribute>
 			</icfc:configurationProperties>
-		
+
 			<!-- Generic ICF configuration -->
 
 	</connectorConfiguration>
@@ -130,11 +127,11 @@
                                                     if (input.contains("Professors") || input.contains("Auxiliary")) {
                                                         return "Teacher";
                                                     }
-					
+
                                                     if (input.contains("Gryffindor") || input.contains("Hufflepuff") || input.contains("Ravenclaw") || input.contains("Slytherin")) {
                                                         return "Student";
                                                     }
-                                                    
+
                                                     return null
                                                 </code>
                                             </script>
@@ -163,7 +160,7 @@
 													return "hogwarts";
 												} else {
 													return parent;
-												} 
+												}
 												return "TOP"
 											</code>
 										</script>
@@ -205,7 +202,7 @@
 									</target>
 								</populateItem>
 							</populateObject>
-			            </assignmentTargetSearch>    	
+			            </assignmentTargetSearch>
 						</expression>
 						<target>
 							<path>assignment</path>
@@ -215,7 +212,7 @@
 					                    <code>
 					                         import com.evolveum.midpoint.schema.constants.*
 					                         import com.evolveum.midpoint.xml.ns._public.common.common_3.OrgType;
-					                        
+
 					                        if (assignment.targetRef != null &amp;&amp; assignment.targetRef.type.localPart == "OrgType") {
 					                        	org = midpoint.getObject(OrgType.class, assignment.targetRef.oid)
 					                        	inRange = org.subtype?.contains('access') || org.subtype?.contains('team')
@@ -227,9 +224,9 @@
 					        </set>
 						</target>
 					</inbound>
-					
+
 				</attribute>
-				
+
 				<attribute>
 					<ref>ri:managerOf</ref>
 					<displayName>Manager of specified organization unit/project</displayName>
@@ -245,7 +242,7 @@
                                 <assignmentProperties>
                                     <relation>manager</relation>
                                 </assignmentProperties>
-			         
+
 			        		<filter>
 								<q:equal>
 									<q:path>c:name</q:path>
@@ -253,13 +250,13 @@
 									<expression>
 										<script>
 											<code>
-											
+
 												parent = input.tokenize('/').reverse()[0]
 												if (!parent) {
 													return "hogwarts";
 												} else {
 													return parent;
-												} 
+												}
 
 											</code>
 										</script>
@@ -272,7 +269,7 @@
 									<expression>
 										<script>
 											<code>
-											
+
 												input.tokenize('/').reverse()[0]
 											</code>
 										</script>
@@ -302,7 +299,7 @@
 									</target>
 								</populateItem>
 							</populateObject>
-			            </assignmentTargetSearch>    	
+			            </assignmentTargetSearch>
 						</expression>
 						<target>
 							<path>assignment</path>
@@ -312,7 +309,7 @@
 					                    <code>
 					                         import com.evolveum.midpoint.schema.constants.*
 					                         import com.evolveum.midpoint.xml.ns._public.common.common_3.OrgType;
-					                         
+
 					                        if (assignment.targetRef != null &amp;&amp; assignment.targetRef.type.localPart == "OrgType") {
 					                        	role = midpoint.getObject(OrgType.class, assignment.targetRef.oid)
 					                        	inRange = role.subtype?.contains('access') || role.subtype?.contains('team')
@@ -329,7 +326,7 @@
 							<assignmentTargetSearch>
 			            	<targetType>c:RoleType</targetType>
 			            	<oid>e2c88fea-db21-11e5-80ba-d7b2f1155264</oid>
-			            </assignmentTargetSearch>    	
+			            </assignmentTargetSearch>
 						</expression>
 						<target>
 							<path>assignment</path>
@@ -339,7 +336,7 @@
 					                    <code>
 					                         import com.evolveum.midpoint.schema.constants.*
 					                         import com.evolveum.midpoint.xml.ns._public.common.common_3.OrgType;
-					                        
+
 					                        if (assignment.targetRef != null &amp;&amp; assignment.targetRef.type.localPart == "OrgType") {
 					                        	role = midpoint.getObject(OrgType.class, assignment.targetRef.oid)
 					                        	inRange = role.subtype.contains('access')
@@ -352,13 +349,13 @@
 						</target>
 					</inbound>
 				</attribute>
-				
+
 				<activation>
 					<administrativeStatus>
 						<inbound/>
 					</administrativeStatus>
 				</activation>
-				
+
 				<credentials>
 					<password>
 						<inbound>
