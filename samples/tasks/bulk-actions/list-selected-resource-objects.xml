@@ -19,7 +19,8 @@
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
-      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+        oid="cdec8b43-2ccd-46a1-b003-cc6e5e8b25c7">
     <name>List selected resource objects</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>
@@ -28,21 +29,12 @@
             <nonIterativeScripting>
                 <scriptExecutionRequest>
                     <s:search>
-                        <s:type>c:ShadowType</s:type>
+                        <s:type>ShadowType</s:type>
                         <s:searchFilter>
-                            <q:and>
-                                <q:ref>
-                                    <q:path>resourceRef</q:path>
-                                    <q:value>
-                                        <oid>ef2bc95b-76e0-48e2-86d6-3d4f02d30001</oid>
-                                        <type>ResourceType</type>
-                                    </q:value>
-                                </q:ref>
-                                <q:equal>
-                                    <q:path>objectClass</q:path>
-                                    <q:value>ri:CustomAcceptedDomainObjectClass</q:value>
-                                </q:equal>
-                            </q:and>
+                            <q:text>
+                                resourceRef matches (oid = 'ef2bc95b-76e0-48e2-86d6-3d4f02d30001')
+                                and objectClass = ri:CustomAcceptedDomainObjectClass
+                            </q:text>
                         </s:searchFilter>
                         <s:action>
                             <s:type>log</s:type>

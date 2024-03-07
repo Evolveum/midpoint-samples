@@ -18,7 +18,8 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+        oid="53ff68c5-e931-4491-89e8-e010cf587eb8">
     <name>Recompute users without nickName</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>
@@ -27,11 +28,9 @@
             <nonIterativeScripting>
                 <scriptExecutionRequest>
                     <s:search>
-                        <s:type>c:UserType</s:type>
+                        <s:type>UserType</s:type>
                         <s:searchFilter>
-                            <q:equal>
-                                <q:path>c:nickName</q:path>
-                            </q:equal>
+                            <q:text>nickName not exists</q:text>
                         </s:searchFilter>
                         <s:action>
                             <s:type>recompute</s:type>

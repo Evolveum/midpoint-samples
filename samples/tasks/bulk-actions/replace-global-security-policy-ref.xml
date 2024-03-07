@@ -28,9 +28,7 @@
                         <s:search xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
                             <s:type>SystemConfigurationType</s:type>
                             <s:searchFilter>
-                                <q:inOid>
-                                    <q:value>00000000-0000-0000-0000-000000000001</q:value>
-                                </q:inOid>
+                                <q:text>. inOid '00000000-0000-0000-0000-000000000001'</q:text>
                             </s:searchFilter>
                             <s:action>
                                 <s:type>modify</s:type>

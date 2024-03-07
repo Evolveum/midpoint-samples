@@ -18,7 +18,8 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+        oid="637e8231-499e-4f3e-900f-d789ff42b8be">
     <name>Log information on users having the role 'Superuser'</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>
@@ -27,15 +28,9 @@
             <nonIterativeScripting>
                 <scriptExecutionRequest>
                     <s:search>
-                        <s:type>c:UserType</s:type>
+                        <s:type>UserType</s:type>
                         <s:searchFilter>
-                            <q:ref>
-                                <q:path>assignment/targetRef</q:path>
-                                <q:value>
-                                    <oid>00000000-0000-0000-0000-000000000004</oid>
-                                    <type>RoleType</type>
-                                </q:value>
-                            </q:ref>
+                            <q:text>assignment/targetRef matches (oid = '00000000-0000-0000-0000-000000000004')</q:text>
                         </s:searchFilter>
                         <s:action>
                             <s:type>log</s:type>
