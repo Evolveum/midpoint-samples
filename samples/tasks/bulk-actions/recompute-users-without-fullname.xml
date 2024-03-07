@@ -18,7 +18,8 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
-      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        oid="7df12819-bb01-4f7e-b387-e13b77683be3">
     <name>Recompute users without fullname</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>
@@ -27,11 +28,9 @@
             <nonIterativeScripting>
                 <scriptExecutionRequest>
                     <s:search>
-                        <s:type>c:UserType</s:type>
+                        <s:type>UserType</s:type>
                         <s:searchFilter>
-                            <q:equal>
-                                <q:path>c:fullName</q:path>
-                            </q:equal>
+                            <q:text>fullName not exists</q:text>
                         </s:searchFilter>
                         <s:action>
                             <s:type>recompute</s:type>
