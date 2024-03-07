@@ -19,7 +19,8 @@
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        oid="3a817f4a-687e-4bd1-846d-687f97800dce">
     <name>Execute given script for all orgs of type 'foo'</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>
@@ -28,12 +29,9 @@
             <nonIterativeScripting>
                 <scriptExecutionRequest>
                     <s:search>
-                        <s:type>c:OrgType</s:type>
+                        <s:type>OrgType</s:type>
                         <s:searchFilter>
-                            <q:equal>
-                                <q:path>subtype</q:path>
-                                <q:value>foo</q:value>
-                            </q:equal>
+                            <q:text>subtype = 'foo'</q:text>
                         </s:searchFilter>
                         <s:action>
                             <s:type>execute-script</s:type>
