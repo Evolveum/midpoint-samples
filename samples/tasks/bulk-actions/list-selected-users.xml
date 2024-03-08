@@ -18,7 +18,8 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+        oid="165e9cb1-b6a8-47e0-b6b4-a3531294873c">
     <name>Log information on users starting with 'b'</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>
@@ -30,14 +31,9 @@
             <nonIterativeScripting>
                 <scriptExecutionRequest>
                     <s:search>
-                        <s:type>c:UserType</s:type>
+                        <s:type>UserType</s:type>
                         <s:searchFilter>
-                            <q:substring>
-                                <q:matching>polyStringNorm</q:matching>
-                                <q:path>c:name</q:path>
-                                <q:value>b</q:value>
-                                <q:anchorStart>true</q:anchorStart>
-                            </q:substring>
+                            <q:text>name startsWith[polyStringNorm] 'b'</q:text>
                         </s:searchFilter>
                         <s:action>
                             <s:type>log</s:type>

@@ -18,7 +18,8 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
-      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        oid="5251333b-df79-43c8-b200-6ecb6d18c75d">
     <name>Recompute orgs having subtype=='test'</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>
@@ -30,12 +31,9 @@
             <nonIterativeScripting>
                 <scriptExecutionRequest>
                     <s:search>
-                        <s:type>c:OrgType</s:type>
+                        <s:type>OrgType</s:type>
                         <s:searchFilter>
-                            <q:equal>
-                                <q:path>subtype</q:path>
-                                <q:value>test</q:value>
-                            </q:equal>
+                            <q:text>subtype = 'test'</q:text>
                         </s:searchFilter>
                         <s:action>
                             <s:type>recompute</s:type>

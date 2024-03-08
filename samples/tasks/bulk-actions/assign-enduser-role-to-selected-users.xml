@@ -18,9 +18,11 @@
 <!-- TODO use iterative scripting instead -->
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+        oid="3a4db6e1-356f-4422-ace8-ab76f96d371f">
     <name>Assign Enduser role to users starting with 'a'</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>
@@ -32,14 +34,9 @@
             <nonIterativeScripting>
                 <scriptExecutionRequest>
                     <s:search>
-                        <s:type>c:UserType</s:type>
+                        <s:type>UserType</s:type>
                         <s:searchFilter>
-                            <q:substring>
-                                <q:matching>polyStringNorm</q:matching>
-                                <q:path>c:name</q:path>
-                                <q:value>a</q:value>
-                                <q:anchorStart>true</q:anchorStart>
-                            </q:substring>
+                            <q:text>name startsWith[polyStringNorm] 'a'</q:text>
                         </s:searchFilter>
                         <s:action>
                             <s:type>assign</s:type>
