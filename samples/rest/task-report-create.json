@@ -1,0 +1,30 @@
+{
+  "task" : {
+    "name" : "Export task for all error audit records in 24h ",
+    "assignment" : {
+      "targetRef" : {
+        "oid" : "00000000-0000-0000-0000-000000000511",
+        "relation" : "org:default",
+        "type" : "c:ArchetypeType"
+      }
+    },
+    "archetypeRef" : {
+      "oid" : "00000000-0000-0000-0000-000000000511",
+      "relation" : "org:default",
+      "type" : "c:ArchetypeType"
+    },
+    "schedulingState" : "ready",
+    "binding" : "loose",
+    "activity" : {
+      "work" : {
+        "reportExport" : {
+          "reportRef" : {
+            "oid" : "579b3765-a2d3-46bc-98e5-3a2414d0accd",
+            "relation" : "org:default",
+            "type" : "c:ReportType"
+          }
+        }
+      }
+    }
+  }
+}

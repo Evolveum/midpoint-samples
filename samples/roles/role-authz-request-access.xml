@@ -1,0 +1,111 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+        xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        oid="c19f0234-fbd0-4b69-9ef4-7847a4ff39e2"
+        version="1">
+
+    <name>Rest Self Request</name>
+    <description></description>
+    <activation/>
+    <authorization>
+        <name>rest</name>
+        <description></description>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-rest-3#all</action>
+    </authorization>
+
+    <authorization>
+        <name>read-requestable-roles</name>
+        <description>Allow to read requestable roles. This allows to search for requestable roles in user interface.</description>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
+        <object>
+            <type>RoleType</type>
+            <filter>
+                <q:equal>
+                    <q:path>requestable</q:path>
+                    <q:value>true</q:value>
+                </q:equal>
+            </filter>
+        </object>
+    </authorization>
+
+    <authorization>
+        <name>assign-requestable-roles</name>
+        <description>Allow to assign requestable roles. This allows to request roles in a request-and-approve process.
+            The requestable roles will be displayed in the role request dialog by default.
+            Please note that the roles also need an approval definition to go through the approval process.
+            Otherwise, they will be assigned automatically without any approval.</description>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#assign</action>
+        <phase>request</phase>
+        <object>
+            <special>self</special>
+        </object>
+        <target>
+            <type>RoleType</type>
+            <filter>
+                <q:text>requestable = true AND parentOrgRef matches (oid = "7878cf5d-9de2-486c-aeb7-41b438200a57")</q:text>
+            </filter>
+        </target>
+        <relation>org:default</relation>
+    </authorization>
+    <authorization>
+        <name>self-execution-modify</name>
+        <description>Authorization that allows to self-modification of some properties, but only in execution phase.
+            The real limitation of these operations is done in the request phase.
+            E.g. the modification of assignments is controlled in the request phase by using the #assign
+            authorization.</description>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>
+        <phase>execution</phase>
+        <object>
+            <special>self</special>
+        </object>
+        <item>assignment</item>
+    </authorization>
+
+    <authorization>
+        <name>assignment-target-get</name>
+        <description>Authorization that allows to read all the object that are possible assignment targets.
+            Note that this authorization may be too broad for production use. Normally it should be limited to just
+            selected properties such as name and description.</description>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#get</action>
+        <object>
+            <type>OrgType</type>
+        </object>
+        <object>
+            <type>RoleType</type>
+            <filter>
+                <q:text>requestable = true AND parentOrgRef matches (oid = "7878cf5d-9de2-486c-aeb7-41b438200a57")</q:text>
+            </filter>
+        </object>
+        <object>
+            <type>UserType</type>
+        </object>
+    </authorization>
+    <authorization>
+        <name>assignment-target-read-case</name>
+        <description>Authorization that allows to read approval status of cases. This is used to display requests
+            to the end users, especially in the "My Requests" box in user dashboard.</description>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
+        <object>
+            <type>CaseType</type>
+            <requester>
+                <special>self</special>
+            </requester>
+        </object>
+    </authorization>
+    <authorization>
+        <name>self-owned-task-read</name>
+        <description>Authorization that allows to see all tasks owned by a currently logged-in user.</description>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
+        <object>
+            <type>TaskType</type>
+            <owner>
+                <special>self</special>
+            </owner>
+        </object>
+    </authorization>
+</role>

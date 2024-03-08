@@ -1,0 +1,7 @@
+{
+  "query": {
+    "filter": {
+      "text": "state = \"open\" AND workItem/assigneeRef/@/name =\"JohnM\""
+    }
+  }
+}

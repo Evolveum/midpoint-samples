@@ -1,6 +1,7 @@
 {
   "report" : {
-    "name" : "all error audit records in 24h",
+    "oid" : "579b3765-a2d3-46bc-98e5-3a2414d0accd",
+    "name" : "All error audit records in 24h",
     "description" : "Report made from all audit records.",
     "assignment" : {
       "@id" : 1,
@@ -23,6 +24,56 @@
     },
     "objectCollection" : {
       "collection" : {
+        "filter" : {
+          "and" : {
+            "ref" : [ {
+              "path" : "targetRef",
+              "expression" : {
+                "queryInterpretationOfNoValue" : "filterAll",
+                "path" : "$targetRef"
+              }
+            }, {
+              "path" : "initiatorRef",
+              "expression" : {
+                "queryInterpretationOfNoValue" : "filterAll",
+                "path" : "$initiatorRef"
+              }
+            } ],
+            "equal" : [ {
+              "path" : "outcome",
+              "expression" : {
+                "queryInterpretationOfNoValue" : "filterAll",
+                "path" : "$outcome"
+              }
+            }, {
+              "path" : "eventType",
+              "expression" : {
+                "queryInterpretationOfNoValue" : "filterAll",
+                "path" : "$eventType"
+              }
+            }, {
+              "path" : "eventStage",
+              "expression" : {
+                "queryInterpretationOfNoValue" : "filterAll",
+                "path" : "$eventStage"
+              }
+            } ],
+            "greater" : {
+              "path" : "timestamp",
+              "expression" : {
+                "queryInterpretationOfNoValue" : "filterAll",
+                "path" : "$from"
+              }
+            },
+            "less" : {
+              "path" : "timestamp",
+              "expression" : {
+                "queryInterpretationOfNoValue" : "filterAll",
+                "path" : "$to"
+              }
+            }
+          }
+        },
         "baseCollectionRef" : {
           "collectionRef" : {
             "oid" : "00000000-0000-0000-0001-000000000004",

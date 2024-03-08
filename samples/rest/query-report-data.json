@@ -1,0 +1,7 @@
+{
+  "query": {
+    "filter": {
+      "text": "reportRef/@/name =\"All error audit records in 24h\""
+    }
+  }
+}
