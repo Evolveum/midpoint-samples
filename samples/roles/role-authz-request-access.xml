@@ -25,10 +25,7 @@
         <object>
             <type>RoleType</type>
             <filter>
-                <q:equal>
-                    <q:path>requestable</q:path>
-                    <q:value>true</q:value>
-                </q:equal>
+                <q:text>requestable = true AND parentOrgRef matches (oid = "7878cf5d-9de2-486c-aeb7-41b438200a57")</q:text>
             </filter>
         </object>
     </authorization>
@@ -77,9 +74,9 @@
         </object>
         <object>
             <type>RoleType</type>
-            <filter>
-                <q:text>requestable = true AND parentOrgRef matches (oid = "7878cf5d-9de2-486c-aeb7-41b438200a57")</q:text>
-            </filter>
+        </object>
+        <object>
+            <type>ArchetypeType</type>
         </object>
         <object>
             <type>UserType</type>

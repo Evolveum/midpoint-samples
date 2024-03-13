@@ -1,0 +1,7 @@
+{
+  "query": {
+    "filter": {
+      "text": "requestable = true AND parentOrgRef/@/name = \"Role Catalog\""
+    }
+  }
+}
