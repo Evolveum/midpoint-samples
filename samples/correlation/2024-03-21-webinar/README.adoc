@@ -1,0 +1,15 @@
+= Smart Correlation Webinar 2024-03-21
+
+Here are configuration objects used by the demonstration of smart correlation webinar presented on March 21, 2024.
+
+== How to Use
+
+. Prepare a clean midPoint 4.8.2 home directory, running against *native PostgreSQL database*.
+. Copy `correlation.xsd` file into `schema` subdirectory
+. Start midPoint.
+. Replace `/name/of/the/actual/directory/` in `resource-sis-campus-1.xml`, `resource-sis-campus-2.xml`, and `resource-sis-campus-3.xml` with the actual name of the directory where these files reside.
+. Provide some data to `sis-campus-1.csv`, `sis-campus-2.csv`, and `sis-campus-3.csv`.
+. Upload `template-person.xml` (preferably via MidPoint Studio).
+. Upload and test `resource-sis-campus-X.xml` files
+. Upload `task-import.xml`, `task-reload-sis-2.xml`, and `task-reload-sis-3.xml`.
+. Enjoy!

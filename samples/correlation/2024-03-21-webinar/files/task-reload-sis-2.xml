@@ -1,0 +1,20 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="949ff844-0df0-4043-b9ae-035ae41ed5cf" version="23">
+    <name>Reload objects on resource:851b6547-8288-4f32-96a6-5bb1f2a256fe(SIS Campus 2)</name>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+    <executionState>runnable</executionState>
+    <cleanupAfterCompletion>PT0S</cleanupAfterCompletion>
+    <activity>
+        <work>
+            <import>
+                <resourceObjects>
+                    <resourceRef oid="851b6547-8288-4f32-96a6-5bb1f2a256fe" relation="org:default" type="c:ResourceType"/>
+                    <kind>account</kind>
+                    <intent>default</intent>
+                </resourceObjects>
+            </import>
+        </work>
+        <execution>
+            <mode>none</mode>
+        </execution>
+    </activity>
+</task>

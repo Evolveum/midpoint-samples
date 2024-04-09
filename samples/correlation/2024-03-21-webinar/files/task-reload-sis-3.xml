@@ -1,0 +1,23 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      oid="edef69a9-bcf5-4bca-beac-1e308efb1997" version="23">
+    <name>Reload objects on resource:5fdb1f69-a331-4cb8-884b-7e97baba94de(SIS Campus 3)</name>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+    <executionState>runnable</executionState>
+    <cleanupAfterCompletion>PT0S</cleanupAfterCompletion>
+    <activity>
+        <work>
+            <import>
+                <resourceObjects>
+                    <resourceRef oid="5fdb1f69-a331-4cb8-884b-7e97baba94de" relation="org:default" type="c:ResourceType"/>
+                    <kind>account</kind>
+                    <intent>default</intent>
+                </resourceObjects>
+            </import>
+        </work>
+        <execution>
+            <mode>none</mode>
+        </execution>
+    </activity>
+</task>
