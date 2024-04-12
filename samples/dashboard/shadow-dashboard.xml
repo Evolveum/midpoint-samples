@@ -1,0 +1,87 @@
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<dashboard oid="72b1f98e-f587-4b9f-b92b-72e251da1234">
+    <name>shadow-dashboard</name>
+    <display>
+        <label>Shadow dashboard</label>
+    </display>
+    <widget>
+        <identifier>shadow</identifier>
+        <display>
+            <label>Resource R1; ACCOUNT</label>
+            <color>#00a65a</color>
+            <icon>
+                <cssClass>fa fa-user</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="72b1f98e-f587-4b9f-b92b-72e251dbb244" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>shadows</value>
+                </expression>
+            </dataField>
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                        <label>Name</label>
+                    </display>
+                </column>
+                <column>
+                    <name>kindColumn</name>
+                    <path>intent</path>
+                    <display>
+                        <label>Kind</label>
+                    </display>
+                    <previousColumn>nameColumn</previousColumn>
+                </column>
+                <column>
+                    <name>intentColumn</name>
+                    <path>kind</path>
+                    <display>
+                        <label>Intent</label>
+                    </display>
+                    <previousColumn>kindColumn</previousColumn>
+                </column>
+                <column>
+                    <name>synchronizationColumn</name>
+                    <path>synchronizationSituation</path>
+                    <display>
+                        <label>Synchronization</label>
+                    </display>
+                    <previousColumn>intentColumn</previousColumn>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+</dashboard>
