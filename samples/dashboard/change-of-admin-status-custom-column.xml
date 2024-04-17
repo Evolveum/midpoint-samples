@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   ~ Copyright (c) 2010-2024 Evolveum
   ~
@@ -14,7 +15,14 @@
   ~ limitations under the License.
   -->
 
-<dashboard oid="72b1f98e-f587-4b9f-b92b-72e251da4567">
+<dashboard xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+           xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+           xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+           xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+           oid="72b1f98e-f587-4b9f-b92b-72e251da4567">
     <name>changes-of-admin-status-r1</name>
     <display>
         <label>Changes of administrativeStatus(R1)</label>
