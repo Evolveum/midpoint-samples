@@ -2,10 +2,7 @@
 search:
  type: UserType
  searchFilter:
-  equal:
-   matching: polyStringNorm
-   path: name
-   value: "boss1"
+   text: 'name =[polyStringNorm] "boss1"'
  action:
   type: modify
   parameter:

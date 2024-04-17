@@ -22,25 +22,24 @@
            xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
            xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
            xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
-           oid="f89709f9-7313-494f-a600-69ea75d95106">
-    <name>Example one widget for enabled users</name>
+           oid="72b1f98e-f587-4b9f-b92b-72e251da4567">
+    <name>changes-of-admin-status-r1</name>
     <display>
-        <label>Enabled users</label>
+        <label>Changes of administrativeStatus(R1)</label>
     </display>
     <widget>
-        <identifier>enabled-users</identifier>
+        <identifier>adminstat</identifier>
         <display>
-            <label>Enabled users</label>
+            <label>Changes of administrativeStatus(R1)</label>
             <color>#00a65a</color>
             <icon>
-                <cssClass>fa fa-user</cssClass>
+                <cssClass>fa fa-database</cssClass>
             </icon>
         </display>
         <data>
-            <sourceType>objectCollection</sourceType>
-            <displaySourceType>widgetData</displaySourceType>
+            <sourceType>auditSearch</sourceType>
             <collection>
-                <collectionRef oid="00000000-0000-0000-0001-000000147896" type="ObjectCollectionType"/>
+                <collectionRef oid="72b1f98e-f587-4b9f-b92b-72e251dbb277" type="ObjectCollectionType"/>
             </collection>
         </data>
         <presentation>
@@ -55,7 +54,7 @@
             <dataField>
                 <fieldType>unit</fieldType>
                 <expression>
-                    <value>enabled</value>
+                    <value>changes</value>
                 </expression>
             </dataField>
         </presentation>

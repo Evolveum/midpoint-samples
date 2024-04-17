@@ -1,16 +1,19 @@
-<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
-oid="056e6f8c-23bd-43e3-93e2-5b0decba7ad0">
+<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+                  xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+                  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                  xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+                  xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+                  oid="056e6f8c-23bd-43e3-93e2-5b0decba7ad0">
     <name>Failed shadows resource HR(last 24hours)</name>
     <type>ShadowType</type>
     <filter>
         <q:text>kind = 'account' and
             resourceRef matches (oid = 'ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe') and
             operationExecution matches
-                (status = 'fatal_error'
-                and timestamp > ```
-                    calendar = basic.addDuration(basic.currentDateTime(), "-P1D");
-                    return calendar;
-                    ```)
+                (status = 'fatal_error' and
+                    timestamp > `basic.addDuration(basic.currentDateTime(), "-P1D")`)
         </q:text>
     </filter>
     <getOptions>

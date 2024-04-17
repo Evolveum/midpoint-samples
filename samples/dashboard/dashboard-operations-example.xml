@@ -1,4 +1,11 @@
-<dashboard xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3">
+<dashboard xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+           xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+           xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+           xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+            oid="9b4ca452-cb3b-4c9f-8422-bcb132f5f35b">
     <name>operations-dashboard</name>
     <display>
         <label>Operations dashboard</label>
@@ -113,5 +120,5 @@
             </view>
         </presentation>
     </widget>
-    
+
 </dashboard>

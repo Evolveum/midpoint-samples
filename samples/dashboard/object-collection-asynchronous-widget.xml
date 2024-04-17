@@ -1,7 +1,0 @@
-<objectCollection oid="00000000-0000-0000-0001-000000147896">
-    <name>All enabled users</name>
-    <type>UserType</type>
-    <filter>
-        <text>activation/effectiveStatus = "enabled"</text>
-    </filter>
-</objectCollection>
