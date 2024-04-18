@@ -17,7 +17,8 @@
 <!-- TODO convert to iterative bulk action -->
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        oid="0206f243-8fad-4c02-b8b4-8b575e423d36">
     <name>Log information on users starting with 'b'</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>

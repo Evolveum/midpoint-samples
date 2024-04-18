@@ -28,10 +28,7 @@
                                  xsi:type="c:SearchObjectRefExpressionEvaluatorType">
             <targetType>RoleType</targetType>
             <filter>
-               <q:equal>
-                  <q:path>name</q:path>
-                  <q:value>Box User</q:value>
-               </q:equal>
+                <q:text>name = "Box User"</q:text>
             </filter>
          </assignmentTargetSearch>
       </expression>

@@ -8,10 +8,7 @@
    <name>Google Apps</name>
    <connectorRef type="c:ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>c:connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.googleapps.GoogleAppsConnector</q:value>
-            </q:equal>
+            <q:text>c:connectorType = "com.evolveum.polygon.connector.googleapps.GoogleAppsConnector"</q:text>
         </filter>
    </connectorRef>
    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
@@ -780,7 +777,7 @@
          <cap:update>
             <cap:enabled>true</cap:enabled>
             <cap:addRemoveAttributeValues>false</cap:addRemoveAttributeValues> <!-- adding and removing values from multi-value attribute at the same time would cause problem if this is 'true'. Google API takes some small time to propagate changes between two consequent updates. -->
-         
+
          </cap:update>
          <cap:credentials>
             <cap:enabled>true</cap:enabled>

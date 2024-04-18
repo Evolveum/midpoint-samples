@@ -30,10 +30,7 @@
     <name>Grouper Resource</name>
     <connectorRef type="c:ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.grouper.rest.GrouperConnector</q:value>
-            </q:equal>
+            <q:text>c:connectorType = "com.evolveum.polygon.connector.grouper.rest.GrouperConnector"</q:text>
         </filter>
     </connectorRef>
     <connectorConfiguration>
@@ -54,10 +51,7 @@
         <name>AMQP async update connector</name>
         <connectorRef type="c:ConnectorType">
             <filter>
-                <q:equal>
-                    <q:path>connectorType</q:path>
-                    <q:value>AsyncUpdateConnector</q:value>
-                </q:equal>
+                <q:text>connectorType = "AsyncUpdateConnector"</q:text>
             </filter>
         </connectorRef>
         <connectorConfiguration>

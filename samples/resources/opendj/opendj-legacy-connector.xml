@@ -38,10 +38,7 @@
           OID during import. -->
     <connectorRef type="ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>c:connectorType</q:path>
-                <q:value>org.identityconnectors.ldap.LdapConnector</q:value>
-            </q:equal>
+            <q:text>c:connectorType = "org.identityconnectors.ldap.LdapConnector"</q:text>
         </filter>
     </connectorRef>
 

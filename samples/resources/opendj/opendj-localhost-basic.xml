@@ -41,10 +41,7 @@ This resource definition contains only the very basic definitions for midPoint t
          <!-- Reference to the ICF LDAP connector. OID is "virtual" for now. -->
         <connectorRef type="ConnectorType">
             <filter>
-                <q:equal>
-                <q:path>c:connectorType</q:path>
-                  <q:value>com.evolveum.polygon.connector.ldap.LdapConnector</q:value>
-                </q:equal>
+                <q:text>c:connectorType = "org.identityconnectors.ldap.LdapConnector"</q:text>
            </filter>
         </connectorRef>
 

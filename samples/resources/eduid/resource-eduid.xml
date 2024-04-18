@@ -6,10 +6,7 @@
     <name>SWITCH edu-ID</name>
     <connectorRef type="ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>c:connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.eduid.EduIdConnector</q:value>
-            </q:equal>
+            <q:text>c:connectorType = "com.evolveum.polygon.connector.eduid.EduIdConnector"</q:text>
         </filter>
     </connectorRef>
 

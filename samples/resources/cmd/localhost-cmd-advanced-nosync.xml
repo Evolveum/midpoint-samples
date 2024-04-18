@@ -34,10 +34,7 @@
 
         <connectorRef type="ConnectorType">
             <filter>
-                <q:equal>
-                    <q:path>c:connectorType</q:path>
-                    <q:value>net.tirasa.connid.bundles.cmd.CmdConnector</q:value>
-                </q:equal>
+                <q:text>c:connectorType = "net.tirasa.connid.bundles.cmd.CmdConnector"</q:text>
             </filter>
         </connectorRef>
 

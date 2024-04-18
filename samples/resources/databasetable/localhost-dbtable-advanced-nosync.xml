@@ -41,10 +41,7 @@ using an Identity Connector Framework DBTable connector.
          <!-- Reference to the ICF DatabaseTable connector. OID is "virtual" for now. -->
         <connectorRef type="ConnectorType">
             <filter>
-                <q:equal>
-                <q:path>c:connectorType</q:path>
-                  <q:value>org.identityconnectors.databasetable.DatabaseTableConnector</q:value>
-                </q:equal>
+                <q:text>c:connectorType = "org.identityconnectors.databasetable.DatabaseTableConnector"</q:text>
               </filter>
         </connectorRef>
 

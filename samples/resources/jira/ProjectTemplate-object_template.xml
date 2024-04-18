@@ -31,10 +31,7 @@
                                  xsi:type="c:SearchObjectRefExpressionEvaluatorType">
             <targetType>RoleType</targetType>
             <filter>
-               <q:equal>
-                  <q:path>name</q:path>
-                  <q:value>JIRA Project</q:value>
-               </q:equal>
+                <q:text>name = "JIRA Project"</q:text>
             </filter>
          </assignmentTargetSearch>
       </expression>
@@ -51,10 +48,7 @@
                                  xsi:type="c:SearchObjectRefExpressionEvaluatorType">
             <targetType>OrgType</targetType>
             <filter>
-               <q:equal>
-                  <q:path>name</q:path>
-                  <q:value>JIRA Projects</q:value>
-               </q:equal>
+                <q:text>name = "JIRA Projects"</q:text>
             </filter>
          </assignmentTargetSearch>
       </expression>

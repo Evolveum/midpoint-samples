@@ -26,10 +26,7 @@
 
     <connectorRef type="ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>c:connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.ldap.ad.AdLdapConnector</q:value>
-            </q:equal>
+            <q:text>c:connectorType = "com.evolveum.polygon.connector.ldap.ad.AdLdapConnector"</q:text>
         </filter>
     </connectorRef>
 

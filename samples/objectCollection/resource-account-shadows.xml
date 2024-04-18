@@ -15,12 +15,17 @@
   ~ limitations under the License.
   -->
 
-<objectCollection oid="72b1f98e-f587-4b9f-b92b-72e251dbb244">
+<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+                  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                  xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+                  oid="72b1f98e-f587-4b9f-b92b-72e251dbb244">
     <name>Account shadows 'Test CSV: username'</name>
     <type>ShadowType</type>
     <filter>
-        <text>
-        resourceRef matches (oid = 'ef2bc95b-76e0-59e2-86d6-9999cccccccc') and kind = 'account'
-        </text>
+        <q:text>
+            resourceRef matches (oid = 'ef2bc95b-76e0-59e2-86d6-9999cccccccc') and kind = 'account'
+        </q:text>
     </filter>
 </objectCollection>

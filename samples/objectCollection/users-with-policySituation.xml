@@ -15,13 +15,15 @@
   ~ limitations under the License.
   -->
 
-<objectCollection oid="72b1f98e-f587-4b9f-b92b-72e251dbb266">
+<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+                  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                  xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+                  oid="72b1f98e-f587-4b9f-b92b-72e251dbb266">
     <name>Users with policySituation</name>
     <type>UserType</type>
     <filter>
-        <equal>
-            <path>policySituation</path>
-            <value>#userCreatedByMidpoint</value>
-        </equal>
+        <q:text>policySituation = '#userCreatedByMidpoint'</q:text>
     </filter>
 </objectCollection>

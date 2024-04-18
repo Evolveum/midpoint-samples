@@ -17,7 +17,8 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
-      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        oid="37b86a86-7509-4b77-afca-9618e810de17">
     <name>Recompute users having names starting with 'a'</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>

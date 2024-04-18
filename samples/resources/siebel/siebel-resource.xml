@@ -8,10 +8,7 @@
    <name>SIEBEL</name>
    <connectorRef type="c:ConnectorType">
       <filter>
-          <q:equal>
-              <q:path>c:connectorType</q:path>
-              <q:value>com.evolveum.polygon.connector.siebel.SiebelConnector</q:value>
-          </q:equal>
+          <q:text>c:connectorType = "com.evolveum.polygon.connector.siebel.SiebelConnector"</q:text>
       </filter>
    </connectorRef>
    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"

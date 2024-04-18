@@ -28,10 +28,7 @@
 
     <connectorRef type="ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>c:connectorType</q:path>
-                <q:value>ManualConnector</q:value>
-            </q:equal>
+            <q:text>c:connectorType = "ManualConnector"</q:text>
         </filter>
     </connectorRef>
 

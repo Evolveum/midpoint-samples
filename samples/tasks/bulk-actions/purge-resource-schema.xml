@@ -18,6 +18,7 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
         oid="f6488915-23bb-40ad-944c-7d6dcdc30f2c">
     <name>Purge schema on OpenDJ resources</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>

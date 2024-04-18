@@ -12,12 +12,7 @@
 
     <connectorRef relation="org:default" type="c:ConnectorType">
         <filter>
-            <q:and>
-                <q:equal>
-                    <q:path>c:connectorType</q:path>
-                    <q:value>com.evolveum.polygon.connector.msgraphapi.MSGraphConnector</q:value>
-                </q:equal>
-            </q:and>
+            <q:text>c:connectorType = "com.evolveum.polygon.connector.msgraphapi.MSGraphConnector"</q:text>
         </filter>
     </connectorRef>
 

@@ -84,17 +84,12 @@
                   <associationTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                                            xsi:type="c:SearchObjectExpressionEvaluatorType">
                      <filter>
-                        <q:equal>
-                           <q:path>attributes/icfs:name</q:path>
-                           <expression>
-                              <script>
-                                 <code>
-                                    org = midpoint.getOrgByOid(orgUnit.getOid());
-                                    return org.getName()
-                            </code>
-                              </script>
-                           </expression>
-                        </q:equal>
+                         <q:text>
+                             attributes/icfs:name = ```
+                                 org = midpoint.getOrgByOid(orgUnit.getOid());
+                                 return org.getName()
+                                 ```
+                         </q:text>
                      </filter>
                      <searchStrategy>onResourceIfNeeded</searchStrategy>
                   </associationTargetSearch>
@@ -147,17 +142,12 @@
                   <associationTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                                            xsi:type="c:SearchObjectExpressionEvaluatorType">
                      <filter>
-                        <q:equal>
-                           <q:path>attributes/icfs:name</q:path>
-                           <expression>
-                              <script>
-                                 <code>
-                                    org = midpoint.getOrgByOid(orgUnit.getOid());
-                                    return org.getName()
-                            </code>
-                              </script>
-                           </expression>
-                        </q:equal>
+                         <q:text>
+                             attributes/icfs:name = ```
+                                 org = midpoint.getOrgByOid(orgUnit.getOid());
+                                 return org.getName()
+                                 ```
+                         </q:text>
                      </filter>
                      <searchStrategy>onResourceIfNeeded</searchStrategy>
                   </associationTargetSearch>
@@ -183,8 +173,8 @@
                             return true;
                         }
                    }
-                                     return false;
-                                     </code>
+                   return false;
+                </code>
             </script>
          </expression>
       </condition>

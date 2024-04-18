@@ -33,12 +33,7 @@
 
     <connectorRef type="ConnectorType">
         <filter>
-            <q:and>
-                <q:equal>
-                    <q:path>c:connectorType</q:path>
-                    <q:value>com.evolveum.polygon.connector.ldap.LdapConnector</q:value>
-                </q:equal>
-            </q:and>
+            <q:text>c:connectorType = "org.identityconnectors.ldap.LdapConnector"</q:text>
         </filter>
     </connectorRef>
 
@@ -197,12 +192,8 @@
             </iteration>
 
             <protected>
-                   <filter>
-                       <q:equal>
-                           <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#stringIgnoreCase</q:matching>
-                        <q:path>attributes/ri:dn</q:path>
-                        <q:value>cn=idm,ou=Administrators,dc=example,dc=com</q:value>
-                    </q:equal>
+                <filter>
+                   <q:text>attributes/ri:dn =[distinguishedName] "uid=idm,ou=Administrators,dc=example,dc=com"</q:text>
                 </filter>
             </protected>
 

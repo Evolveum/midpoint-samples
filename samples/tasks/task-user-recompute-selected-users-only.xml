@@ -15,7 +15,8 @@
   -->
 
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        oid="ef5c4412-11c3-40c6-bd27-033931a5ccd2">
     <name>User Recompute (users in Bratislava)</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>

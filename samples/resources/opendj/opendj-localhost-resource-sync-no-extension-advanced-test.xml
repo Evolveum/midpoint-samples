@@ -61,10 +61,7 @@ object.
                 OID during import.
             </description>
             <filter>
-                <q:equal>
-                <q:path>c:connectorType</q:path>
-                    <q:value>com.evolveum.polygon.connector.ldap.LdapConnector</q:value>
-                </q:equal>
+                <q:text>c:connectorType = "org.identityconnectors.ldap.LdapConnector"</q:text>
             </filter>
         </connectorRef>
 

@@ -3,10 +3,7 @@
 
     <connectorRef type="ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.scripted.sql.ScriptedSQLConnector</q:value>
-            </q:equal>
+            <q:text>connectorType = "com.evolveum.polygon.connector.scripted.sql.ScriptedSQLConnector"</q:text>
         </filter>
     </connectorRef>
 

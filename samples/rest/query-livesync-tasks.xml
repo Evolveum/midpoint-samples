@@ -17,9 +17,6 @@
 
 <q:query xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
     <q:filter>
-        <q:equal>
-            <q:path>category</q:path>
-            <q:value>LiveSynchronization</q:value>
-        </q:equal>
+        <q:text>category = 'LiveSynchronization'</q:text>
     </q:filter>
 </q:query>

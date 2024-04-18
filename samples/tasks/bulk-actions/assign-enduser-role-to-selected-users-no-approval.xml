@@ -17,7 +17,8 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        oid="329b2ce4-056f-4d3f-a844-96cf1e013897">
     <name>Assign Enduser role to users starting with 'a' (skipping approvals)</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>

@@ -7,10 +7,7 @@
     <lifecycleState>active</lifecycleState>
     <connectorRef type="ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.csv.CsvConnector</q:value>
-            </q:equal>
+            <q:text>connectorType = 'com.evolveum.polygon.connector.csv.CsvConnector'</q:text>
         </filter>
     </connectorRef>
     <connectorConfiguration xmlns:icfi="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
@@ -30,12 +27,7 @@
                 <objectClass>ri:AccountObjectClass</objectClass>
                 <filter>
                     <q:description>Everyone with non-empty last name is a person</q:description>
-                    <q:not>
-                        <q:equal>
-                            <q:path>attributes/ri:lastname</q:path>
-                            <!-- empty value -->
-                        </q:equal>
-                    </q:not>
+                    <q:text>attributes/ri:lastname exists</q:text>
                 </filter>
             </delineation>
             <attribute>
@@ -123,10 +115,7 @@
                 <objectClass>ri:AccountObjectClass</objectClass>
                 <filter>
                     <q:description>Everyone with empty last name is not a person</q:description>
-                    <q:equal>
-                        <q:path>attributes/ri:lastname</q:path>
-                        <!-- empty value -->
-                    </q:equal>
+                    <q:text>attributes/ri:lastname not exists</q:text>
                 </filter>
             </delineation>
         </objectType>

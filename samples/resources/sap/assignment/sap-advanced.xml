@@ -26,10 +26,7 @@
 
     <connectorRef type="ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>c:connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.sap.SapConnector</q:value>
-            </q:equal>
+            <q:text>c:connectorType = "com.evolveum.polygon.connector.sap.SapConnector"</q:text>
         </filter>
     </connectorRef>
     <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
@@ -320,13 +317,7 @@
             <!-- TODO -->
             <protected>
                 <filter>
-                    <q:equal>
-                        <q:path>
-                            declare namespace icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3";
-                            attributes/icfs:name
-                        </q:path>
-                        <q:value>IDMTUSAPR3</q:value>
-                    </q:equal>
+                    <q:text>attributes/icfs:name = "IDMTUSAPR3"</q:text>
                 </filter>
             </protected>
             <!-- TODO need it? -->

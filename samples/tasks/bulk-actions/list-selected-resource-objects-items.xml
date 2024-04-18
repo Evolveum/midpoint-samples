@@ -32,6 +32,7 @@
                                 resourceRef matches (oid = 'ef2bc95b-76e0-48e2-86d6-3d4f02d3fafe' and type = ResourceType) and
                                 objectClass = ri:AccountObjectClass
                             </q:text>
+                        </q:filter>
                     </s:query>
                     <s:pipeline>
                         <s:filterContent>

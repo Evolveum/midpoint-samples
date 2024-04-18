@@ -42,12 +42,7 @@
                     xsi:type="c:SearchObjectRefExpressionEvaluatorType">
                 <targetType>c:RoleType</targetType>
                 <filter>
-                    <q:equal>
-                        <q:path>c:name</q:path>
-                        <expression>
-                            <value>employee</value>
-                        </expression>
-                    </q:equal>
+                    <q:text>name='employee'</q:text>
                 </filter>
             </assignmentTargetSearch>
         </expression>
