@@ -38,7 +38,7 @@
     <objectCollection>
         <collection>
             <filter>
-                <text>roleMembershipRef matches (oid = '6f60f403-aba0-4718-aae9-b33b9d2a01df')</text>
+                <q:text>roleMembershipRef matches (oid = '6f60f403-aba0-4718-aae9-b33b9d2a01df')</q:text>
             </filter>
         </collection>
         <condition>
