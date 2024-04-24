@@ -79,7 +79,7 @@ public class TestSampleImport extends AbstractSampleTest {
         display("Result after good import", result);
         TestUtil.assertSuccessOrWarning("Import has failed (result)", result, 1);
 
-        ObjectQuery query = ObjectQueryUtil.createNameQuery(objectName, prismContext);
+        ObjectQuery query = ObjectQueryUtil.createNameQuery(type, objectName);
 
         List<PrismObject<T>> objects = repositoryService.searchObjects(type, query, null, result);
         for (PrismObject<T> o : objects) {
