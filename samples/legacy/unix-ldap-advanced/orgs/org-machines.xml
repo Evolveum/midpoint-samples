@@ -1,5 +1,0 @@
-<org oid="d10c1e42-7cda-44e0-9df9-45210194647b" version="8" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
-    <name>machines</name>
-    <displayName>Machines</displayName>
-    <subtype>machines</subtype>
-</org>
