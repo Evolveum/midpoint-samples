@@ -63,10 +63,7 @@
                        <expression>
                       <associationTargetSearch>
                          <filter>
-                        <q:equal>
-                           <q:path>attributes/cn</q:path>
-                           <q:value>jira-users</q:value>
-                        </q:equal>
+                             <q:text>attributes/cn = "jira-users"</q:text>
                          </filter>
                           <searchStrategy>onResource</searchStrategy>
                       </associationTargetSearch>
@@ -95,10 +92,7 @@
                        <expression>
                       <associationTargetSearch>
                          <filter>
-                        <q:equal>
-                           <q:path>attributes/cn</q:path>
-                           <q:value>jira-admins</q:value>
-                        </q:equal>
+                             <q:text>attributes/cn = "jira-admins"</q:text>
                          </filter>
                           <searchStrategy>onResource</searchStrategy>
                       </associationTargetSearch>
@@ -131,10 +125,7 @@
                        <expression>
                       <associationTargetSearch>
                          <filter>
-                        <q:equal>
-                           <q:path>attributes/cn</q:path>
-                           <q:value>jira-developers</q:value>
-                        </q:equal>
+                             <q:text>attributes/cn = "jira-developers"</q:text>
                          </filter>
                          <searchStrategy>onResource</searchStrategy>
                       </associationTargetSearch>
@@ -163,10 +154,7 @@
                        <expression>
                       <associationTargetSearch>
                          <filter>
-                        <q:equal>
-                           <q:path>attributes/cn</q:path>
-                           <q:value>jira-auditors</q:value>
-                        </q:equal>
+                             <q:text>attributes/cn = "jira-auditors"</q:text>
                          </filter>
                          <searchStrategy>onResource</searchStrategy>
                       </associationTargetSearch>

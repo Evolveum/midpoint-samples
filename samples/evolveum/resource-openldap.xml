@@ -47,10 +47,7 @@
             translated to OID during import.
         </description>
         <filter>
-            <q:equal>
-                <q:path>c:connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.ldap.LdapConnector</q:value>
-            </q:equal>
+            <q:text>connectorType = "com.evolveum.polygon.connector.ldap.LdapConnector"</q:text>
         </filter>
     </connectorRef>
 
@@ -274,11 +271,7 @@
 
             <protected>
                 <filter>
-                    <q:equal>
-                        <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#stringIgnoreCase</q:matching>
-                        <q:path>attributes/ri:dn</q:path>
-                        <q:value>cn=idm,ou=Administrators,dc=evolveum,dc=net</q:value>
-                    </q:equal>
+                    <q:text>attributes/ri:dn =[stringIgnoreCase] "cn=idm,ou=Administrators,dc=evolveum,dc=net"</q:text>
                 </filter>
             </protected>
 
@@ -323,10 +316,7 @@
             <baseContext>
                 <objectClass>ri:organizationalUnit</objectClass>
                 <filter>
-                    <q:equal>
-                        <q:path>attributes/dn</q:path>
-                        <q:value>ou=groups,dc=evolveum,dc=net</q:value>
-                    </q:equal>
+                    <q:text>attributes/dn = "ou=groups,dc=evolveum,dc=net"</q:text>
                 </filter>
             </baseContext>
 
@@ -379,10 +369,7 @@
             <baseContext>
                 <objectClass>ri:organizationalUnit</objectClass>
                 <filter>
-                    <q:equal>
-                        <q:path>attributes/dn</q:path>
-                        <q:value>ou=posixgroups,dc=evolveum,dc=net</q:value>
-                    </q:equal>
+                    <q:text>attributes/dn = "ou=posixgroups,dc=evolveum,dc=net"</q:text>
                 </filter>
             </baseContext>
 

@@ -21,10 +21,7 @@
     <description>OpenLDAP with posixAccount and posixGroup support</description>
         <connectorRef type="ConnectorType">
             <filter>
-                <q:equal>
-            <q:path>c:connectorType</q:path>
-                    <q:value>com.evolveum.polygon.connector.ldap.LdapConnector</q:value>
-                </q:equal>
+                <q:text>connectorType = "com.evolveum.polygon.connector.ldap.LdapConnector"</q:text>
             </filter>
         </connectorRef>
     <connectorConfiguration>
@@ -216,11 +213,7 @@
 
             <protected>
                 <filter>
-                    <q:equal>
-                        <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#stringIgnoreCase</q:matching>
-                        <q:path>attributes/ri:dn</q:path>
-                                   <q:value>cn=idm,ou=Administrators,dc=example,dc=com</q:value>
-                    </q:equal>
+                    <q:text>attributes/ri:dn =[stringIgnoreCase] "cn=idm,ou=Administrators,dc=example,dc=com"</q:text>
                 </filter>
             </protected>
 
@@ -250,10 +243,7 @@
             <baseContext>
                 <objectClass>ri:organizationalUnit</objectClass>
                 <filter>
-                    <q:equal>
-                        <q:path>attributes/dn</q:path>
-                        <q:value>ou=groups,dc=example,dc=com</q:value>
-                    </q:equal>
+                    <q:text>attributes/dn = "ou=groups,dc=example,dc=com"</q:text>
                 </filter>
             </baseContext>
             <attribute>
@@ -318,10 +308,7 @@
             <baseContext>
                 <objectClass>ri:organizationalUnit</objectClass>
                 <filter>
-                    <q:equal>
-                        <q:path>attributes/dn</q:path>
-                        <q:value>ou=unixgroups,dc=example,dc=com</q:value>
-                    </q:equal>
+                    <q:text>attributes/dn = "ou=unixgroups,dc=example,dc=com"</q:text>
                 </filter>
             </baseContext>
             <attribute>

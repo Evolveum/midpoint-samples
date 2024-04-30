@@ -35,19 +35,7 @@
                 <expression>
                     <associationTargetSearch>
                         <filter>
-                            <q:equal>
-                <q:matching>stringIgnoreCase</q:matching>
-                                <q:path>
-                    declare namespace icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3";
-                                        declare namespace ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3";
-                    attributes/ri:dn
-                </q:path>
-                                <expression>
-                                    <script><!-- FIXME fixed suffix -->
-                                        <code>return 'cn=' + organizationalUnit +'-admins,ou=' + organizationalUnit + ',ou=customers,dc=example,dc=com'</code>
-                                    </script>
-                                </expression>
-                            </q:equal>
+                            <q:text>attributes/ri:dn =[stringIgnoreCase] `"cn=" + organizationalUnit +"-admins,ou=" + organizationalUnit + ",ou=customers,dc=example,dc=com"`</q:text>
                         </filter>
                     <searchStrategy>onResourceIfNeeded</searchStrategy>
                     </associationTargetSearch>

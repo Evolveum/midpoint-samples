@@ -34,16 +34,7 @@
             <assignmentTargetSearch>
                 <targetType>c:OrgType</targetType>
                 <filter>
-                    <q:equal>
-                        <q:path>c:name</q:path>
-                        <expression>
-                            <script>
-                                <code>
-                                    return 'CUSTOMERS'
-                                </code>
-                            </script>
-                        </expression>
-                    </q:equal>
+                    <q:text>name= "CUSTOMERS"</q:text>
                 </filter>
             </assignmentTargetSearch>
         </expression>

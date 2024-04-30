@@ -82,12 +82,7 @@
             <assignmentTargetSearch>
                 <targetType>c:OrgType</targetType>
                 <filter>
-                    <q:equal>
-                        <q:path>name</q:path>
-                        <expression>
-                            <path>$organizationalUnit</path>
-                        </expression>
-                    </q:equal>
+                    <q:text>name = $organizationalUnit</q:text>
                 </filter>
             </assignmentTargetSearch>
         </expression>
@@ -106,12 +101,7 @@
             <assignmentTargetSearch>
                 <targetType>c:RoleType</targetType>
                 <filter>
-                    <q:equal>
-                        <q:path>name</q:path>
-                        <expression>
-                            <path>$title</path>
-                        </expression>
-                    </q:equal>
+                    <q:text>name = $title</q:text>
                 </filter>
             </assignmentTargetSearch>
         </expression>

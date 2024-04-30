@@ -59,10 +59,7 @@
             <target>
                 <type>RoleType</type>
                 <filter>
-                    <q:equal>
-                        <q:path>requestable</q:path>
-                        <q:value>true</q:value>
-                    </q:equal>
+                    <q:text>requestable = true</q:text>
                 </filter>
                 <tenant>
                     <sameAsSubject>true</sameAsSubject>
@@ -202,10 +199,7 @@
             <object>
                 <type>TaskType</type>
                 <filter>
-                    <q:equal>
-                        <q:path>handlerUri</q:path>
-                        <q:value>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/execute/handler-3</q:value>
-                    </q:equal>
+                    <q:text>handlerUri = "http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/execute/handler-3"</q:text>
                 </filter>
                 <owner>
                     <special>self</special>
@@ -239,10 +233,7 @@
             <object>
                 <type>OrgType</type>
                 <filter>
-                    <q:equal>
-                        <q:path>subtype</q:path>
-                        <q:value>root</q:value>
-                    </q:equal>
+                    <q:text>subtype = "root"</q:text>
                 </filter>
             </object>
         </authorization>
