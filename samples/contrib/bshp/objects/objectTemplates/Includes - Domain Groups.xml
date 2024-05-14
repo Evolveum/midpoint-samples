@@ -20,14 +20,7 @@
             <assignmentTargetSearch>
                 <targetType>c:OrgType</targetType>
                 <filter>
-                    <q:equal>
-                        <q:path>c:name</q:path>
-                        <expression>
-                            <script>
-                                <code>courseMembership</code>
-                            </script>
-                        </expression>
-                    </q:equal>
+                    <q:text>name = `courseMembership`</q:text>
                 </filter>
                 <createOnDemand>true</createOnDemand>
                 <populateObject>
@@ -138,14 +131,7 @@
             <assignmentTargetSearch>
                 <targetType>c:OrgType</targetType>
                 <filter>
-                    <q:equal>
-                        <q:path>c:name</q:path>
-                        <expression>
-                            <script>
-                                <code>courseMembership</code>
-                            </script>
-                        </expression>
-                    </q:equal>
+                    <q:text>name = `courseMembership`</q:text>
                 </filter>
                 <assignmentProperties>
                     <relation>org:manager</relation>

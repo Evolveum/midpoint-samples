@@ -13,10 +13,7 @@
     </operationalState>
     <connectorRef type="ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>c:connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.ldap.ad.AdLdapConnector</q:value>
-            </q:equal>
+            <q:text>connectorType = "com.evolveum.polygon.connector.ldap.ad.AdLdapConnector"</q:text>
         </filter>
     </connectorRef>
     <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
@@ -564,14 +561,7 @@
             </iteration>
             <protected>
                 <filter>
-                    <q:or>
-                        <q:substring>
-                            <q:matching>stringIgnoreCase</q:matching>
-                            <q:path>declare namespace ri='http://midpoint.evolveum.com/xml/ns/public/resource/instance-3'; attributes/ri:objectCategory</q:path>
-                            <q:value>CN=Computer,CN=Schema,CN=Configuration</q:value>
-                            <q:anchorEnd>true</q:anchorEnd>
-                        </q:substring>
-                    </q:or>
+                    <q:text>attributes/ri:objectCategory endsWith[stringIgnoreCase] "CN=Computer,CN=Schema,CN=Configuration"</q:text>
                 </filter>
             </protected>
             <activation>
@@ -792,14 +782,7 @@
             </association>
             <protected>
                 <filter>
-                    <q:or>
-                        <q:substring>
-                            <q:matching>stringIgnoreCase</q:matching>
-                            <q:path>declare namespace ri='http://midpoint.evolveum.com/xml/ns/public/resource/instance-3'; attributes/ri:dn</q:path>
-                            <q:value>CN=System Managed Accounts Group,CN=BUILTIN</q:value>
-                            <q:anchorEnd>true</q:anchorEnd>
-                        </q:substring>
-                    </q:or>
+                    <q:text>attributes/ri:dn endsWith[stringIgnoreCase] "CN=System Managed Accounts Group,CN=BUILTIN"</q:text>
                 </filter>
             </protected>
         </objectType>
@@ -812,10 +795,7 @@
             <baseContext>
                 <objectClass>ri:group</objectClass>
                 <filter>
-                    <q:equal>
-                        <q:path>attributes/dn</q:path>
-                        <q:value>OU=Courses,OU=Exchange</q:value>
-                    </q:equal>
+                    <q:text>attributes/dn = "OU=Courses,OU=Exchange"</q:text>
                 </filter>
             </baseContext>
             <attribute id="78">
