@@ -17,9 +17,7 @@
         </operationalState>
         <connectorRef type="c:ConnectorType">
             <filter>
-                <q:equal>
-                    <q:text>connectorType = "com.evolveum.polygon.connector.ldap.LdapConnector"</q:text>
-                </q:equal>
+                <q:text>connectorType = "com.evolveum.polygon.connector.ldap.LdapConnector"</q:text>
             </filter>
         </connectorRef>
         <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
