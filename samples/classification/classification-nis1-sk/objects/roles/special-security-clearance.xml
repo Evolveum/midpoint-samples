@@ -1,0 +1,7 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="147a93c6-c8c3-4430-9603-659ffeb5e544">
+    <name>Special security clearance</name>
+    <description>Special clearance awarded by security office, allowing access to sensitive information.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000331" type="ArchetypeType"/>
+    </assignment>
+</role>

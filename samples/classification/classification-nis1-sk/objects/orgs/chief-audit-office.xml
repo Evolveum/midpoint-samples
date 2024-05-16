@@ -1,0 +1,6 @@
+<org oid="03a7128d-42c8-4056-9f2e-171658562eeb" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Chief Audit Office</name>
+    <inducement>
+        <targetRef oid="147a93c6-c8c3-4430-9603-659ffeb5e544" type="RoleType" />
+    </inducement>
+</org>
