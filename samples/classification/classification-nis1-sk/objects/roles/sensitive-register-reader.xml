@@ -1,0 +1,10 @@
+<role oid="06c79d6c-3558-48e2-b49d-e406e8d87f1a" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Sensitive register reader</name>
+    <description>Read access to sensitive register</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType" />
+    </assignment>
+    <inducement>
+        <targetRef oid="1a0b9b4b-dd86-464c-b077-9b9971424351" type="ServiceType" />
+    </inducement>
+</role>

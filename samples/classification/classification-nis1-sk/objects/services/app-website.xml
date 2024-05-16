@@ -1,0 +1,9 @@
+<service oid="45bb3cea-fde9-4590-812a-e86b37492bcd" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Public Website</name>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
+    </assignment>
+    <assignment>
+        <targetRef oid="91a1bdf1-addc-4d34-b834-190938be3aca" type="RoleType" />
+    </assignment>
+</service>
