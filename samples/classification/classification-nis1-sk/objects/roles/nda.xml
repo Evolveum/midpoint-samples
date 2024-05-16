@@ -1,0 +1,7 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="09360ff0-d506-4751-b13f-4e01422693ac">
+    <name>NDA</name>
+    <description>Non-disclosure agreement clearance, applied to organizations/users that have signed the agreement.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000331" type="ArchetypeType"/>
+    </assignment>
+</role>

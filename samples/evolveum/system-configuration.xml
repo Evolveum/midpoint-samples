@@ -76,10 +76,7 @@
         <focusSelector>
             <type>RoleType</type>
             <filter>
-                <q:equal>
-                        <q:path>riskLevel</q:path>
-                        <q:value>high</q:value>
-                    </q:equal>
+                <q:text>riskLevel = "high"</q:text>
             </filter>
         </focusSelector>
     </globalPolicyRule>

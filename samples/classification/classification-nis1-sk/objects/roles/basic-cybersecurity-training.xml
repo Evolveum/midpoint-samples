@@ -1,0 +1,7 @@
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="5bb5c5b5-eca2-4129-b73f-34c0b0bd2736">
+    <name>Basic cybersecurity training</name>
+    <description>Clearance that attests that the user passed through training of basic information security practices.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000331" type="ArchetypeType"/>
+    </assignment>
+</role>

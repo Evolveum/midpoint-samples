@@ -45,10 +45,7 @@ object.
         <!-- Reference to the ICF CSVFile connector. -->
         <connectorRef type="ConnectorType">
             <filter>
-                <q:equal>
-                    <q:path>c:connectorType</q:path>
-                    <q:value>com.evolveum.polygon.csvfile.CSVFileConnector</q:value>
-                </q:equal>
+                <q:text>connectorType = "com.evolveum.polygon.csvfile.CSVFileConnector"</q:text>
             </filter>
         </connectorRef>
 

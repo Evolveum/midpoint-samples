@@ -1,0 +1,8 @@
+= Information Classification Sample: SK NIS1
+
+This is midPoint configuration sample, modeling information classification setting roughly following Slovak cybersecurity legislation, which is based on EU NIS directive.
+The sample defines classification for systems of Category I, Category II and Category III, together with appropriate clearances and policy rules.
+
+For further details see: https://docs.evolveum.com/midpoint/reference/master/roles-policies/classification/
+
+The sample is created for midPoint 4.9 and later.

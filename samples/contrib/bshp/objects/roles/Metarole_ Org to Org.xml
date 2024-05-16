@@ -1,12 +1,12 @@
-<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-      xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3" 
-      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
-      xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" 
-      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" 
-      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" 
-      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" 
-      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" 
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:apti="http://midpoint.evolveum.com/xml/ns/public/common/api-types-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       oid="metarole-OrgToOrg">
       <name>Metarole: Org to Org</name>
       <description>This will add, create, or update the organization attribute on the focus object</description>
@@ -52,10 +52,7 @@
                 <exclusion id="21">
                     <targetRef relation="org:default" type="c:OrgType">
                         <filter>
-                            <q:ref>
-                                <q:path>assignment/targetRef</q:path>
-                                <q:value oid="metarole-OrgToOrg" relation="org:default" type="c:RoleType"/>
-                            </q:ref>
+                            <q:text>assignment/targetRef matches (oid="metarole-OrgToOrg" and targetType = RoleType and relation = org:default)</q:text>
                         </filter>
                         <resolutionTime>run</resolutionTime>
                     </targetRef>

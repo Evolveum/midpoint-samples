@@ -214,10 +214,7 @@
         <object id="30">
             <type>TaskType</type>
             <filter>
-                <q:equal>
-                    <q:path>handlerUri</q:path>
-                    <q:value>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/execute/handler-3</q:value>
-                </q:equal>
+                <q:text>handlerUri = "http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/execute/handler-3"</q:text>
             </filter>
             <owner>
                 <special>self</special>

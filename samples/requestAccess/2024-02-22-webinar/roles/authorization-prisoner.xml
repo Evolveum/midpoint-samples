@@ -40,10 +40,7 @@
         <target>
             <type>RoleType</type>
             <filter>
-                <q:equal>
-                    <q:path>requestable</q:path>
-                    <q:value>true</q:value>
-                </q:equal>
+                <q:text>requestable = true</q:text>
             </filter>
         </target>
         <relation>org:default</relation>
