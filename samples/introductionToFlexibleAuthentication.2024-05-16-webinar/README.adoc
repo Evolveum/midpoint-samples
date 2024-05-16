@@ -1,0 +1,12 @@
+= Introduction to Flexible Authentication Webinar 2024-05-16
+
+Here are configuration objects used by the demonstration of flexible authentication webinar presented on May 16, 2024.
+
+== How to Use
+
+. Prepare a clean midPoint 4.8.3 home directory, running against *native PostgreSQL database*.
+. Copy `user-extension.xsd` file into `schema` subdirectory
+. Start midPoint.
+. For simple example with emergency sequence upload `emergency-policy.csv` and go to `https://MIDPOINT_ADDRESS/midpoint/auth/emergency`.
+. For complex demo upload other object in order by name of file and go to `https://MIDPOINT_ADDRESS/midpoint`.
+. Enjoy!
