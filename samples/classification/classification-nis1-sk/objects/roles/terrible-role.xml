@@ -1,6 +1,6 @@
 <role oid="9d9912ef-f090-45ad-8507-7c7e746783a8" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
-    <name>Security officer</name>
-    <description>Business role giving access to pretty much all the systems.</description>
+    <name>Terrible role</name>
+    <description>Nightmarish business role giving access to all the systems we have.</description>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType" />
     </assignment>

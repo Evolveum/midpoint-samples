@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (C) 2010-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"  oid="8abf784c-fe4a-41a7-87cb-479b0b1f5354">
+    <name>External Worker</name>
+    <description>Archetype for suppliers, consultants, contractors and other external workers.</description>
+    <archetypePolicy>
+        <display>
+            <label>External worker</label>
+            <pluralLabel>External workers</pluralLabel>
+            <tooltip>External worker</tooltip>
+            <icon>
+                <cssClass>fa fa-user</cssClass>
+                <color>orange</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+<!--    <archetypeType>auxiliary</archetypeType> -->
+    <assignment id="1">
+        <identifier>holderType</identifier>
+        <assignmentRelation id="2">
+            <holderType>UserType</holderType>
+        </assignmentRelation>
+    </assignment>
+</archetype>

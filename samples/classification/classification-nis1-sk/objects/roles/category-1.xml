@@ -13,10 +13,10 @@
             <mapping>
                 <strength>strong</strength>
                 <expression>
-                    <value>Cat.I</value>
+                    <value>Category I</value>
                 </expression>
                 <target>
-                    <path>organizationalUnit</path>
+                    <path>extension/accessCategory</path>
                 </target>
             </mapping>
         </focusMappings>

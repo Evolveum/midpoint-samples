@@ -1,0 +1,10 @@
+<role oid="ec228b76-3f87-4a49-be53-56ddb26cde1e" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Website statistics access</name>
+    <description>Read access to website statistics. Still not very sensitive access.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType" />
+    </assignment>
+    <inducement>
+        <targetRef oid="45bb3cea-fde9-4590-812a-e86b37492bcd" type="ServiceType" />
+    </inducement>
+</role>

@@ -1,0 +1,10 @@
+<user xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="a283d44b-9384-48e8-a8e5-9a42ebe43fae">
+    <name>emma</name>
+    <description>Perfectly ordinary employee.</description>
+    <assignment id="5">
+        <targetRef oid="7f7c8cb1-9da4-4845-bd17-49d705b8546a" type="ArchetypeType"/>
+    </assignment>
+    <fullName>Emma Employee</fullName>
+    <givenName>Emma</givenName>
+    <familyName>Employee</familyName>
+</user>

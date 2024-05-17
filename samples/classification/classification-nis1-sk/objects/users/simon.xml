@@ -1,0 +1,13 @@
+<user xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="6b8bb953-42ac-460d-8369-6ccf4bdce409">
+    <name>simon</name>
+    <description>System administrator, has some privileged access.</description>
+    <assignment id="3">
+        <targetRef oid="d342631f-0c1f-47f7-9b1a-9fec36a311b6" type="RoleType"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="7f7c8cb1-9da4-4845-bd17-49d705b8546a" type="ArchetypeType"/>
+    </assignment>
+    <fullName>Simon Sysadmin</fullName>
+    <givenName>Simon</givenName>
+    <familyName>Sysadmin</familyName>
+</user>

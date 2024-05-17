@@ -1,0 +1,10 @@
+<user xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="c89e0707-a65b-43e9-a108-f7ee7eb250c3">
+    <name>tom</name>
+    <description>Temporary worker. Does not have NDA, does not need NDA.</description>
+    <assignment id="1">
+        <targetRef oid="8abf784c-fe4a-41a7-87cb-479b0b1f5354" type="ArchetypeType"/>
+    </assignment>
+    <fullName>Tom Temporary</fullName>
+    <givenName>Tom</givenName>
+    <familyName>Temporary</familyName>
+</user>
