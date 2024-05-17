@@ -1,0 +1,13 @@
+<user xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="c27e86e5-e423-43e8-abd2-4e7297f9f13d">
+    <name>charlie</name>
+    <description>Business consultant with a long-term engagement. Needs access to internal data, hence he has NDA signed.</description>
+    <assignment id="1">
+        <targetRef oid="8abf784c-fe4a-41a7-87cb-479b0b1f5354" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <targetRef oid="09360ff0-d506-4751-b13f-4e01422693ac" type="RoleType"/>
+    </assignment>
+    <fullName>Charlie Consultant</fullName>
+    <givenName>Charlie</givenName>
+    <familyName>Consultant</familyName>
+</user>

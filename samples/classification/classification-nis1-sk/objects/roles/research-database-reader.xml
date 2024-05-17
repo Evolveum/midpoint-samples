@@ -1,6 +1,6 @@
 <role oid="06c79d6c-3558-48e2-b49d-e406e8d87f1a" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
-    <name>Sensitive register reader</name>
-    <description>Read access to sensitive register</description>
+    <name>Research database reader</name>
+    <description>Read access to research database</description>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType" />
     </assignment>

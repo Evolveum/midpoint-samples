@@ -1,6 +1,6 @@
 <service oid="1a0b9b4b-dd86-464c-b077-9b9971424351" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
-    <name>Sensitive Register</name>
-    <description>Database containing sensitive data.</description>
+    <name>Restricted research database</name>
+    <description>Database containing sensitive data on secret research projects.</description>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
     </assignment>

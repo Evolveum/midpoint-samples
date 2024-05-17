@@ -1,6 +1,6 @@
 <role oid="ca718b71-b116-4340-b90b-000629cd5c81" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
-    <name>Regular database reader</name>
-    <description>Read access to regular database</description>
+    <name>Collaboration platform user</name>
+    <description>Regular user access to collaboration platform. Common access rights suitable for most users.</description>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType" />
     </assignment>

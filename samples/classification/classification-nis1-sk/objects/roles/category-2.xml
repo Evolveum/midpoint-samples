@@ -17,11 +17,11 @@
                 <hasNoAssignment>
                     <presentation>
                         <message>
-                            <fallbackMessage>Cybersecurity Training Required</fallbackMessage>
+                            <fallbackMessage>NDA required</fallbackMessage>
                         </message>
                     </presentation>
-                    <!-- Basic cybersecurity training clearance -->
-                    <targetRef oid="5bb5c5b5-eca2-4129-b73f-34c0b0bd2736" type="RoleType" />
+                    <!-- NDA clearance -->
+                    <targetRef oid="09360ff0-d506-4751-b13f-4e01422693ac" type="RoleType" />
                 </hasNoAssignment>
             </policyConstraints>
             <policyActions>
@@ -38,10 +38,10 @@
             <mapping>
                 <strength>strong</strength>
                 <expression>
-                    <value>Cat.II</value>
+                    <value>Category II</value>
                 </expression>
                 <target>
-                    <path>organizationalUnit</path>
+                    <path>extension/accessCategory</path>
                 </target>
             </mapping>
         </focusMappings>
