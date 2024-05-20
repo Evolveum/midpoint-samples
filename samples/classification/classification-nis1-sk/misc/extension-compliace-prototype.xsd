@@ -52,4 +52,24 @@
         </xsd:sequence>
     </xsd:complexType>
 
+    <xsd:complexType name="ServiceExtensionType">
+        <xsd:annotation>
+            <xsd:appinfo>
+                <a:extension ref="c:ServiceType"/>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="accessCategory" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+                <xsd:annotation>
+                    <xsd:documentation>
+                        Access categories of a user, computed from classifications.
+                    </xsd:documentation>
+                    <xsd:appinfo>
+                        <a:displayName>Access category</a:displayName>
+                    </xsd:appinfo>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
 </xsd:schema>

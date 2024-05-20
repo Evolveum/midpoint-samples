@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+
+<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  oid="b2ecef69-6d48-4619-98ed-5e3943a411e9">
+    <name>Privileged users</name>
+    <type>UserType</type>
+    <filter>
+        <q:text>extension/privilegedAccess = true</q:text>
+    </filter>
+    <domain>
+    </domain>
+</objectCollection>
