@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+
+<dashboard xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+           oid="118b5d33-93b8-4ef1-8c15-9bb9984ffa8b">
+    <name>compliance-dashboard</name>
+    <display>
+        <label>
+            <orig>Compliance dashboard</orig>
+            <translation>
+                <key>ComplianceDashboard.title</key>
+            </translation>
+        </label>
+    </display>
+    <widget id="1">
+        <identifier>privileged-users</identifier>
+        <description>Users with privileged access.</description>
+        <display>
+            <label>
+                <orig>Privileged users</orig>
+                <translation>
+                    <key>ComplianceDashboard.privilegedUsers</key>
+                </translation>
+            </label>
+            <color>#dc3545</color>
+            <icon>
+                <cssClass>fa fa-user-secret</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="b2ecef69-6d48-4619-98ed-5e3943a411e9" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField id="5">
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-slash-domain</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField id="6">
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>users</value>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+    <widget>
+        <identifier>cat1-users</identifier>
+        <description>Users with access to Category I systems.</description>
+        <display>
+            <label>
+                <orig>Category I users</orig>
+            </label>
+            <color>#00a65a</color>
+            <icon>
+                <cssClass>fa fa-dice-one</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="8974e899-cbde-4a1f-8af1-0265450879f8" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>cat.I users</value>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+    <widget>
+        <identifier>cat2-users</identifier>
+        <description>Users with access to Category II systems.</description>
+        <display>
+            <label>
+                <orig>Category II users</orig>
+            </label>
+            <color>#ffc107</color>
+            <icon>
+                <cssClass>fa fa-dice-two</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="1f2456e1-7793-4beb-a4ac-961814366628" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>cat.II users</value>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+    <widget>
+        <identifier>cat3-users</identifier>
+        <description>Users with access to Category III systems.</description>
+        <display>
+            <label>
+                <orig>Category III users</orig>
+            </label>
+            <color>#ff851b</color>
+            <icon>
+                <cssClass>fa fa-dice-three</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="cb192ef1-be6f-43f7-839d-93d4ef34dcca" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>cat.III users</value>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+</dashboard>

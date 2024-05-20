@@ -45,4 +45,28 @@
             </mapping>
         </focusMappings>
     </inducement>
+    <inducement>
+        <focusType>ServiceType</focusType>
+        <focusMappings>
+            <mapping>
+                <strength>strong</strength>
+                <expression>
+                    <value>Category III</value>
+                </expression>
+                <condition>
+                    <description>
+                        Dirty hack.
+                        We want to store this value only if it is direct assignment.
+                        We do not want to show classification hierarchy.
+                    </description>
+                    <script>
+                        <code>immediateRole instanceof com.evolveum.midpoint.xml.ns._public.common.common_3.ServiceType</code>
+                    </script>
+                </condition>
+                <target>
+                    <path>extension/accessCategory</path>
+                </target>
+            </mapping>
+        </focusMappings>
+    </inducement>
 </role>

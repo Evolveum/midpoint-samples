@@ -1,0 +1,10 @@
+<service oid="c6fe76ed-102b-4736-8e32-7c1e57c852c7" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Management information system</name>
+    <description>Internal information for management decision-making.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
+    </assignment>
+    <assignment>
+        <targetRef oid="71a7cb99-3a69-48e3-9521-d9a933c2b5c5" type="RoleType" />
+    </assignment>
+</service>
