@@ -162,4 +162,39 @@
             </dataField>
         </presentation>
     </widget>
+    <widget>
+        <identifier>privileged-roles</identifier>
+        <description>Roles with (direct) privileged access.</description>
+        <display>
+            <label>
+                <orig>Privileged roles</orig>
+            </label>
+            <color>#dc3545</color>
+            <icon>
+                <cssClass>fa fa-circle-radiation</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="514f0c5d-fab6-4c80-b363-371d23306752" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>roles</value>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
 </dashboard>
