@@ -12,7 +12,7 @@
             <order>2</order>
         </orderConstraint>
         <policyRule>
-            <name>required-nda</name>
+            <name>required-advanced-training</name>
             <policyConstraints>
                 <hasNoAssignment>
                     <presentation>

@@ -12,7 +12,7 @@
             <order>2</order>
         </orderConstraint>
         <policyRule>
-            <name>required-cybersecurity-training</name>
+            <name>required-nda</name>
             <policyConstraints>
                 <hasNoAssignment>
                     <presentation>
