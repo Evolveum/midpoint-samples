@@ -12,12 +12,12 @@
             <order>2</order>
         </orderConstraint>
         <policyRule>
-            <name>required-advanced-training</name>
+            <name>required-special-training</name>
             <policyConstraints>
                 <hasNoAssignment>
                     <presentation>
                         <message>
-                            <fallbackMessage>Advanced cybersecurity training required</fallbackMessage>
+                            <fallbackMessage>Special cybersecurity training required</fallbackMessage>
                         </message>
                     </presentation>
                     <targetRef oid="5bb5c5b5-eca2-4129-b73f-34c0b0bd2736" type="RoleType" />
