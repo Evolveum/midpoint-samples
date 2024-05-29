@@ -25,7 +25,9 @@
                 </hasNoAssignment>
             </policyConstraints>
             <policyActions>
-                <enforcement/>
+                <enforcement>
+                    <documentation>This documentation must be there to make sure midPoint 4.8/4.9 GUI displays enforcement element.</documentation>
+                </enforcement>
             </policyActions>
         </policyRule>
     </inducement>
