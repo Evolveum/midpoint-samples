@@ -1,4 +1,4 @@
-<report>
+<report oid="3ae6eed9-531b-45ca-9561-0863f109a3ac">
     <name>Enabled users report</name>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000170" type="ArchetypeType"/>

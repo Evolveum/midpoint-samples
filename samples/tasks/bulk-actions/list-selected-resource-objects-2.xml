@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2017 Evolveum
+  ~ Copyright (c) 2010-2024 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -18,28 +18,33 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
         oid="431b6e5d-ba34-4f05-974a-359dd5b57645">
     <name>List selected resource objects (by name)</name>
-    <extension>
-        <scext:executeScript xmlns:scext="http://midpoint.evolveum.com/xml/ns/public/model/scripting/extension-3">
-            <s:search xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
-                <s:type>ShadowType</s:type>
-                <s:searchFilter>
-                    <q:text>
-                        resourceRef matches (oid = 'ef2bc95b-76e0-48e2-86d6-3d4f02d30001' and type = ResourceType) and
-                            objectClass = ri:CustomAcceptedDomainObjectClass and attributes/icfs:name = 'test domain'
-                    </q:text>
-                </s:searchFilter>
-                <s:action>
-                    <s:type>log</s:type>
-                </s:action>
-            </s:search>
-        </scext:executeScript>
-    </extension>
+    <activity>
+        <work>
+            <iterativeScripting>
+                <objects>
+                    <type>ShadowType</type>
+                    <query>
+                        <q:filter>
+                            <q:text>
+                                resourceRef matches (oid = 'ef2bc95b-76e0-48e2-86d6-3d4f02d30001' and targetType = ResourceType) and
+                                objectClass = 'ri:CustomAcceptedDomainObjectClass' and attributes/icfs:name = 'test domain'
+                            </q:text>
+                        </q:filter>
+                    </query>
+                </objects>
+                <scriptExecutionRequest>
+                    <s:action>
+                        <s:type>log</s:type>
+                    </s:action>
+                </scriptExecutionRequest>
+            </iterativeScripting>
+        </work>
+    </activity>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionStatus>runnable</executionStatus>
-
-    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/scripting/handler-3</handlerUri>
     <schedule>
       <recurrence>single</recurrence>
     </schedule>

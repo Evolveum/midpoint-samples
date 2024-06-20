@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2021 Evolveum
+  ~ Copyright (c) 2024 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -21,27 +21,18 @@
         xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
         xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
         xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
-        oid="c5b5e08c-0fa7-4ec3-a82f-34c951eab2d8">
-    <name>Failed all shadow last 24 hours</name>
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        oid="0cca4aec-22ca-4a7d-9f8a-770dc75c3d36">
+    <name>Users created by midPoint dashboard report</name>
     <assignment>
-        <targetRef oid="00000000-0000-0000-0000-000000000171" relation="org:default" type="c:ArchetypeType">
-            <!-- Collection report -->
-        </targetRef>
+        <targetRef oid="00000000-0000-0000-0000-000000000170" relation="org:default" type="c:ArchetypeType"/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
     </assignment>
-    <objectCollection>
-        <collection>
-            <collectionRef oid="5f16bd0b-c590-408a-9546-3eda9a78e605" relation="org:default" type="c:ObjectCollectionType">
-                <!-- Failed shadows (all - last 24hours) -->
-            </collectionRef>
-        </collection>
-    </objectCollection>
-    <fileFormat>
-        <type>csv</type>
-        <csv>
-            <multivalueDelimiter>,</multivalueDelimiter>
-            <fieldDelimiter>;</fieldDelimiter>
-            <quoteMode>all</quoteMode>
-            <header>true</header>
-        </csv>
-    </fileFormat>
+    <archetypeRef oid="00000000-0000-0000-0000-000000000170" relation="org:default" type="c:ArchetypeType"/>
+    <roleMembershipRef oid="00000000-0000-0000-0000-000000000170" relation="org:default" type="c:ArchetypeType"></roleMembershipRef>
+    <dashboard>
+        <dashboardRef oid="72b1f98e-f587-4b9f-b92b-72e251da3456" relation="org:default" type="c:DashboardType"/>
+    </dashboard>
 </report>

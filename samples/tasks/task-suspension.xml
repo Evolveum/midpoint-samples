@@ -33,15 +33,20 @@ so please do not edit unless you know what you are doing.
 
     <task oid="00000002-0000-0000-0000-123450000001">
         <name>Task1: long-running task (3600x1s, a 3600s)</name>
-        <extension>
-            <noop:delay xsi:type="xsd:int">1000</noop:delay>    <!--  delay simulates a non-interruptible processing -->
-            <noop:steps xsi:type="xsd:int">3600</noop:steps>        <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
-        </extension>
+
+        <activity>
+        <work>
+            <noOp>
+                <steps>3600</steps> <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
+                <delay>1000</delay> <!--  delay simulates a non-interruptible processing -->
+            </noOp>
+        </work>
+        </activity>
+
         <taskIdentifier>10000002-0000-0000-0000-123450000001</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
 
-        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
         <binding>loose</binding>
         <schedule>
             <recurrence>recurring</recurrence>
@@ -51,15 +56,17 @@ so please do not edit unless you know what you are doing.
 
     <task oid="00000002-0000-0000-0000-123450000002">
         <name>Task2: long-running, ill-behaved task (360x10s, a 3600s)</name>
-        <extension>
-            <noop:delay xsi:type="xsd:int">10000</noop:delay>    <!--  delay simulates a non-interruptible processing -->
-            <noop:steps xsi:type="xsd:int">360</noop:steps>        <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
-        </extension>
+        <activity>
+            <work>
+                <noOp>
+                    <steps>360</steps> <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
+                    <delay>10000</delay> <!--  delay simulates a non-interruptible processing -->
+                </noOp>
+            </work>
+        </activity>
         <taskIdentifier>10000002-0000-0000-0000-123450000002</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
-
-        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
         <binding>loose</binding>
         <schedule>
             <recurrence>recurring</recurrence>
@@ -69,15 +76,17 @@ so please do not edit unless you know what you are doing.
 
     <task oid="00000002-0000-0000-0000-123450000003">
         <name>Task3: short-running, tightly-bound task (1x1s, a 5s)</name>
-        <extension>
-            <noop:delay xsi:type="xsd:int">1000</noop:delay>    <!--  delay simulates a non-interruptible processing -->
-            <noop:steps xsi:type="xsd:int">1</noop:steps>        <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
-        </extension>
+        <activity>
+            <work>
+                <noOp>
+                    <steps>1000</steps> <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
+                    <delay>1</delay> <!--  delay simulates a non-interruptible processing -->
+                </noOp>
+            </work>
+        </activity>
         <taskIdentifier>10000002-0000-0000-0000-123450000003</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
-
-        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
         <schedule>
             <recurrence>recurring</recurrence>
             <interval>5</interval>
@@ -86,16 +95,18 @@ so please do not edit unless you know what you are doing.
 
     <task oid="00000002-0000-0000-0000-123450000004">
         <name>Task4: non-resilient task (3600x1s, a 3600s)</name>
-        <extension>
-            <noop:delay xsi:type="xsd:int">1000</noop:delay>    <!--  delay simulates a non-interruptible processing -->
-            <noop:steps xsi:type="xsd:int">3600</noop:steps>        <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
-        </extension>
+        <activity>
+            <work>
+                <noOp>
+
+                    <steps>3600</steps> <!--  at the end of each step, the NoOp handler looks for shutdown signal -->
+                    <delay>1000</delay> <!--  delay simulates a non-interruptible processing -->
+                </noOp>
+            </work>
+        </activity>
         <taskIdentifier>10000002-0000-0000-0000-123450000004</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <executionStatus>runnable</executionStatus>
-
-        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
-        
         <binding>loose</binding>
         <schedule>
             <recurrence>recurring</recurrence>
@@ -103,8 +114,5 @@ so please do not edit unless you know what you are doing.
         </schedule>
         <threadStopAction>suspend</threadStopAction>
     </task>
-
-
-
 
 </objects>

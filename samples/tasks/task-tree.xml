@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2017 Evolveum
+  ~ Copyright (c) 2010-2024 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ so please do not edit unless you know what you are doing.
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns:xsd="http://www.w3.org/2001/XMLSchema"
          xmlns:noop="http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3"
-        >
+>
 
     <task oid="91919191-76e0-59e2-86d6-556655660021"
           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
@@ -53,17 +53,20 @@ so please do not edit unless you know what you are doing.
           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <name>DeleteTaskTree-child1</name>
-        <extension>
-            <noop:delay xsi:type="xsd:int">1500</noop:delay>
-            <noop:steps xsi:type="xsd:int">10000000</noop:steps>
-        </extension>
+        <activity>
+            <work>
+                <noOp>
+                    <delay>1500</delay>
+                    <steps>10000000</steps>
+                </noOp>
+            </work>
+        </activity>
 
         <taskIdentifier>10000000-0000-0000-0000-123450000021-1</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <parent>10000000-0000-0000-0000-123450000021</parent>
         <executionStatus>runnable</executionStatus>
 
-        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
         <schedule>
             <recurrence>single</recurrence>
         </schedule>
@@ -75,17 +78,19 @@ so please do not edit unless you know what you are doing.
           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <name>DeleteTaskTree-child2</name>
-        <extension>
-            <noop:delay xsi:type="xsd:int">1500</noop:delay>
-            <noop:steps xsi:type="xsd:int">10000000</noop:steps>
-        </extension>
-
+        <activity>
+            <work>
+                <noOp>
+                    <delay>1500</delay>
+                    <steps>10000000</steps>
+                </noOp>
+            </work>
+        </activity>
         <taskIdentifier>10000000-0000-0000-0000-123450000021-2</taskIdentifier>
         <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
         <parent>10000000-0000-0000-0000-123450000021</parent>
         <executionStatus>runnable</executionStatus>
 
-        <handlerUri>http://midpoint.evolveum.com/xml/ns/public/task/noop/handler-3</handlerUri>
         <schedule>
             <recurrence>single</recurrence>
         </schedule>

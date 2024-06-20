@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2010-2024 Evolveum
+  ~ Copyright (c) 2010-2021 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -13,33 +13,34 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
+
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
-      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-        oid="cdec8b43-2ccd-46a1-b003-cc6e5e8b25c7">
-    <name>List selected resource objects</name>
+      oid="172b3d9f-66f8-4731-b023-0e2d8ca5cd6f">
+    <name>Reencrypt selected objects</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>
+    <schedule>
+        <recurrence>single</recurrence>
+    </schedule>
     <activity>
         <work>
             <iterativeScripting>
                 <objects>
-                    <type>ShadowType</type>
-                    <query>
-                        <q:filter>
-                            <q:text>
-                                resourceRef matches (oid = 'ef2bc95b-76e0-48e2-86d6-3d4f02d30001')
-                                and objectClass = ri:CustomAcceptedDomainObjectClass
-                            </q:text>
-                        </q:filter>
-                    </query>
+                    <useRepositoryDirectly>true</useRepositoryDirectly>
                 </objects>
                 <scriptExecutionRequest>
-                    <s:action>
-                        <s:type>log</s:type>
-                    </s:action>
+                    <s:pipeline>
+                        <s:action>
+                            <s:type>apply-definition</s:type>
+                            <!-- needed for ResourceType and ShadowType objects -->
+                        </s:action>
+                        <s:action>
+                            <s:type>reencrypt</s:type>
+                            <!-- remove the following or set to false to execute the reencryption -->
+                        </s:action>
+                    </s:pipeline>
                 </scriptExecutionRequest>
             </iterativeScripting>
         </work>

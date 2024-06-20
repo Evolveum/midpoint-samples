@@ -1,5 +1,5 @@
 <dashboard oid="f89709f9-7313-494f-a600-69ea75d95106">
-    <name>Example one widget for enabled users</name>
+    <name>Example widget for enabled users</name>
     <display>
         <label>Enabled users</label>
     </display>

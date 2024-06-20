@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2010-2024 Evolveum
+  ~ Copyright (c) 2010-2021 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -13,35 +13,48 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
+
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
-      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-        oid="cdec8b43-2ccd-46a1-b003-cc6e5e8b25c7">
-    <name>List selected resource objects</name>
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <name>Set preferredLanguage for all users (multinode)</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>
     <activity>
         <work>
             <iterativeScripting>
                 <objects>
-                    <type>ShadowType</type>
-                    <query>
-                        <q:filter>
-                            <q:text>
-                                resourceRef matches (oid = 'ef2bc95b-76e0-48e2-86d6-3d4f02d30001')
-                                and objectClass = ri:CustomAcceptedDomainObjectClass
-                            </q:text>
-                        </q:filter>
-                    </query>
+                    <type>UserType</type>
                 </objects>
                 <scriptExecutionRequest>
                     <s:action>
-                        <s:type>log</s:type>
+                        <s:type>modify</s:type>
+                        <s:parameter>
+                            <s:name>delta</s:name>
+                            <c:value xsi:type="t:ObjectDeltaType">
+                                <t:itemDelta>
+                                    <t:modificationType>replace</t:modificationType>
+                                    <t:path>c:preferredLanguage</t:path>
+                                    <t:value>sk_SK</t:value>
+                                </t:itemDelta>
+                            </c:value>
+                        </s:parameter>
                     </s:action>
                 </scriptExecutionRequest>
             </iterativeScripting>
         </work>
+        <distribution>
+            <buckets>
+                <oidSegmentation>
+                    <depth>3</depth>
+                </oidSegmentation>
+            </buckets>
+            <workers>
+                <workersPerNode>
+                    <count>2</count>
+                </workersPerNode>
+            </workers>
+        </distribution>
     </activity>
 </task>

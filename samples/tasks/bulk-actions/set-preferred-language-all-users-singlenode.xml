@@ -6,7 +6,7 @@
   ~ you may not use this file except in compliance with the License.
   ~ You may obtain a copy of the License at
   ~
-  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~     http://www.apache.org/licenses/LICENSE-2.0
   ~
   ~ Unless required by applicable law or agreed to in writing, software
   ~ distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,36 +14,42 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
-        oid="7ff61267-c19d-441b-900e-3dbcd70ffd3d">
-    <name>List selected resource objects (by uid)</name>
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <name>Set preferredLanguage for all users (singlenode)</name>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
+    <executionState>runnable</executionState>
+    <schedule>
+        <recurrence>single</recurrence>
+    </schedule>
     <activity>
         <work>
             <iterativeScripting>
                 <objects>
-                    <type>ShadowType</type>
-                    <query>
-                        <q:filter>
-                            <q:text>
-                                resourceRef matches (oid = 'ef2bc95b-76e0-48e2-86d6-3d4f02d30001' and targetType = ResourceType) and
-                                objectClass = 'ri:CustomAcceptedDomainObjectClass' and attributes/icfs:uid = 'ec51c25e-1de6-4747-872e-f5f58203ef22'
-                            </q:text>
-                        </q:filter>
-                    </query>
+                    <type>UserType</type>
                 </objects>
                 <scriptExecutionRequest>
                     <s:action>
-                        <s:type>log</s:type>
+                        <s:type>modify</s:type>
+                        <s:parameter>
+                            <s:name>delta</s:name>
+                            <c:value xsi:type="t:ObjectDeltaType">
+                                <t:changeType>modify</t:changeType>
+                                <t:objectType>UserType</t:objectType>
+                                <t:itemDelta>
+                                    <t:modificationType>replace</t:modificationType>
+                                    <t:path>c:preferredLanguage</t:path>
+                                    <t:value>sk_SK</t:value>
+                                </t:itemDelta>
+                            </c:value>
+                        </s:parameter>
                     </s:action>
                 </scriptExecutionRequest>
             </iterativeScripting>
         </work>
     </activity>
-    <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
-    <executionStatus>runnable</executionStatus>
-    <recurrence>single</recurrence>
 </task>
