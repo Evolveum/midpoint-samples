@@ -2,11 +2,7 @@
     <expression xsiType="SearchExpressionType">
         <type>UserType</type>
         <searchFilter>
-            <equal>
-                <matching>polyStringNorm</matching>
-                <path>name</path>
-                <value>boss1</value>
-            </equal>
+            <text>name =[polyStringNorm] 'boss1'</text>
         </searchFilter>
         <action>
             <type>modify</type>
@@ -32,11 +28,7 @@
     <expression xsiType="SearchExpressionType">
         <type>UserType</type>
         <searchFilter>
-            <equal>
-                <matching>polyStringNorm</matching>
-                <path>name</path>
-                <value>boss2</value>
-            </equal>
+            <text>name =[polyStringNorm] 'boss2'</text>
         </searchFilter>
         <action>
             <type>modify</type>

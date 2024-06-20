@@ -22,7 +22,6 @@
    xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
    xmlns:ext="http://midpoint.evolveum.com/xml/ns/story/orgsync/ext">
     <name>Org Template</name>
-
     <mapping>
         <name>Org-org mapping</name>
         <authoritative>true</authoritative>
@@ -37,21 +36,16 @@
             <assignmentTargetSearch>
                 <targetType>c:OrgType</targetType>
                 <filter>
-                    <q:equal>
-                        <q:path>c:name</q:path>
-                        <expression>
-                            <script>
-                                <code>
+                    <q:text>
+                        c:name = ```
                                     parent = orgpath.tokenize('/')[1]
                                     if (!parent) {
-                                        return "TOP";
+                                        return "TOP"
                                     } else {
-                                        return parent;
+                                        return parent
                                     }
-                                </code>
-                            </script>
-                        </expression>
-                    </q:equal>
+                                ```
+                    </q:text>
                 </filter>
                 <createOnDemand>true</createOnDemand>
                 <populateObject>

@@ -17,7 +17,8 @@
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
-        xmlns:piracy="http://midpoint.evolveum.com/xml/ns/samples/piracy">
+        xmlns:piracy="http://midpoint.evolveum.com/xml/ns/samples/piracy"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
     <name>System Status Dashboard</name>
     <display>
         <!-- May be also given by archetype ... and display may be part of ObjectType later. -->
@@ -168,10 +169,7 @@
                     <!-- This condition relies on policySituation, as this is consistent with the policy rules.
                          But we can have condition that directly queries IntegerStatType, e.g. to change color to yellow for warning. -->
                     <filter>
-                        <equal>
-                            <path>policySituation</path>
-                            <value>#resourceHealthDanger</value>
-                        </equal>
+                        <q:text>policySituation = "#resourceHealthDanger"</q:text>
                     </filter>
                 </condition>
                 <display>
@@ -217,10 +215,7 @@
         <variation>
             <condition>
                 <filter>
-                    <equal>
-                        <path>executionStatus</path>
-                        <value>runnable</value>
-                    </equal>
+                    <q:text>executionStatus = "runnable"</q:text>
                 </filter>
             </condition>
             <display>

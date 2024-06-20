@@ -276,10 +276,7 @@
                         <expression>
                             <associationTargetSearch>
                                 <filter>
-                                    <q:equal>
-                                        <q:path>attributes/cn</q:path>
-                                        <q:value>devel</q:value>
-                                    </q:equal>
+                                    <q:text>attributes/cn = "devel"</q:text>
                                 </filter>
                                 <searchStrategy>onResource</searchStrategy>
                             </associationTargetSearch>
@@ -510,10 +507,7 @@
             <target>
                 <type>RoleType</type>
                 <filter>
-                    <q:equal>
-                        <q:path>requestable</q:path>
-                        <q:value>true</q:value>
-                    </q:equal>
+                    <q:text>requestable = true</q:text>
                 </filter>
             </target>
         </authorization>
@@ -610,10 +604,7 @@
             <object>
                 <type>TaskType</type>
                 <filter>
-                    <q:equal>
-                        <q:path>handlerUri</q:path>
-                        <q:value>http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/execute/handler-3</q:value>
-                    </q:equal>
+                    <q:text>handlerUri = "http://midpoint.evolveum.com/xml/ns/public/model/synchronization/task/execute/handler-3"</q:text>
                 </filter>
                 <owner>
                     <special>self</special>

@@ -46,7 +46,7 @@ import com.evolveum.midpoint.xml.ns._public.model.scripting_3.ScriptingExpressio
 public class TestSamples extends AbstractSampleTest {
 
     public static final String[] IGNORE_PATTERNS = new String[] {
-            "META-INF", "experimental", "json", "misc", "rest", "samples-test", "model-.*", "bulk-actions", "bulk", "legacy", "audit"
+            "META-INF", "experimental", "json", "misc", "rest", "samples-test", "model-.*", "bulk-actions", "bulk", "legacy", "audit", "pom.xml"
     };
     public static final String[] CHECK_PATTERNS = new String[] { ".*.xml" };
     public static final String OBJECT_RESULT_OPERATION_NAME = TestSamples.class.getName() + ".validateObject";

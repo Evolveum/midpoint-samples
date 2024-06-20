@@ -41,10 +41,7 @@ This resource definition contains also definition to enable synchronization.
         <!-- Reference to the ICF LDAP connector. OID is "virtual" for now. -->
         <connectorRef type="ConnectorType">
             <filter>
-                <q:equal>
-                    <q:path>connectorType</q:path>
-                    <q:value>org.identityconnectors.ldap.LdapConnector</q:value>
-                </q:equal>
+                <q:text>c:connectorType = "org.identityconnectors.ldap.LdapConnector"</q:text>
             </filter>
         </connectorRef>
 

@@ -32,10 +32,7 @@
                 	<expression>
 						<associationTargetSearch>
 							<filter>
-								<q:equal>
-									<q:path>attributes/ri:cn</q:path>
-									<q:value>potionsTeacher</q:value>
-								</q:equal>
+                                <q:text>attributes/ri:cn = "potionsTeacher"</q:text>
 							</filter>
 							<searchStrategy>onResourceIfNeeded</searchStrategy>
 						</associationTargetSearch>

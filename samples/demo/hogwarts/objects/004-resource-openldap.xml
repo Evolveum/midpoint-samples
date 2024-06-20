@@ -187,11 +187,7 @@
 
 			<protected>
        			<filter>
-	       			<q:equal>
-	       				<q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#stringIgnoreCase</q:matching>
-		            	<q:path>attributes/ri:dn</q:path>
-		                <q:value>cn=idm,ou=Administrators,dc=example,dc=com</q:value>
-		            </q:equal>
+                    <q:text>attributes/ri:dn =[stringIgnoreCase] "cn=idm,ou=Administrators,dc=example,dc=com"</q:text>
 	            </filter>
 			</protected>
 

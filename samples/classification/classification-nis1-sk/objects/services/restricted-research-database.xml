@@ -1,0 +1,10 @@
+<service oid="1a0b9b4b-dd86-464c-b077-9b9971424351" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Restricted research database</name>
+    <description>Database containing sensitive data on secret research projects.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
+    </assignment>
+    <assignment>
+        <targetRef oid="8296304e-4722-4792-b6bd-9693b2a42d70" type="RoleType" />
+    </assignment>
+</service>

@@ -42,10 +42,7 @@ This contains configuration for a federated Office 365 domain
 
         <connectorRef type="ConnectorType">
             <filter>
-                <q:equal>
-                <q:path>c:connectorType</q:path>
-                    <q:value>org.identityconnectors.office365.Office365Connector</q:value>
-                </q:equal>
+                <q:text>c:connectorType = "org.identityconnectors.office365.Office365Connector"</q:text>
             </filter>
         </connectorRef>
 

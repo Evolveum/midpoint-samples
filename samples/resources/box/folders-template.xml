@@ -8,14 +8,6 @@
                 oid="83cc1d77-dedc-4269-a051-b006821a9c79"
                 version="33">
    <name>Folders Template</name>
-   <metadata>
-      <createTimestamp>2017-07-25T14:38:13.517+02:00</createTimestamp>
-      <creatorRef xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
-                  oid="00000000-0000-0000-0000-000000000002"
-                  relation="org:default"
-                  type="c:UserType"><!-- administrator --></creatorRef>
-      <createChannel>http://midpoint.evolveum.com/xml/ns/public/model/channels-3#objectImport</createChannel>
-   </metadata>
    <mapping>
       <name>Assign Basic role to Box Folders</name>
       <authoritative>true</authoritative>
@@ -25,10 +17,7 @@
                                  xsi:type="c:SearchObjectRefExpressionEvaluatorType">
             <targetType>RoleType</targetType>
             <filter>
-               <q:equal>
-                  <q:path>name</q:path>
-                  <q:value>Box Folder</q:value>
-               </q:equal>
+                <q:text>name = "Box Folde"</q:text>
             </filter>
          </assignmentTargetSearch>
       </expression>
@@ -49,21 +38,15 @@
                                  xsi:type="c:SearchObjectRefExpressionEvaluatorType">
             <targetType>c:OrgType</targetType>
             <filter>
-               <q:equal>
-                  <q:path>c:name</q:path>
-                  <expression>
-                     <script>
-                        <code>
-                                    parent = hostname
-                                    if (parent.equals("All Files")) {
-                                        return "Folders";
-                                    } else {
-                                        return parent;
-                                    }
-                                </code>
-                     </script>
-                  </expression>
-               </q:equal>
+                <q:text>c:name = ```
+                        parent = hostname
+                        if (parent.equals("All Files")) {
+                        return "Folders";
+                        } else {
+                        return parent;
+                        }
+                        ```
+                </q:text>
             </filter>
             <createOnDemand>true</createOnDemand>
             <populateObject>
@@ -84,12 +67,7 @@
                      <assignmentTargetSearch xsi:type="c:SearchObjectRefExpressionEvaluatorType">
                         <targetType>c:OrgType</targetType>
                         <filter>
-                           <q:equal>
-                              <q:path>c:name</q:path>
-                              <expression>
-                                 <value>Folders</value>
-                              </expression>
-                           </q:equal>
+                            <q:text>c:name = "Folders"</q:text>
                         </filter>
                      </assignmentTargetSearch>
                   </expression>

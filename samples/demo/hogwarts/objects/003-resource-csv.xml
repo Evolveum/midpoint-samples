@@ -119,24 +119,16 @@
                             <assignmentTargetSearch>
                                 <targetType>c:ArchetypeType</targetType>
 			            	    <filter>
-                                    <q:equal>
-                                        <q:path>name</q:path>
-                                        <expression>
-                                            <script>
-                                                <code>
+                                    <q:text>name = ```
                                                     if (input.contains("Professors") || input.contains("Auxiliary")) {
                                                         return "Teacher";
                                                     }
-
                                                     if (input.contains("Gryffindor") || input.contains("Hufflepuff") || input.contains("Ravenclaw") || input.contains("Slytherin")) {
                                                         return "Student";
                                                     }
-
                                                     return null
-                                                </code>
-                                            </script>
-                                        </expression>
-                                    </q:equal>
+                                                ```
+                                    </q:text>
                                 </filter>
                             </assignmentTargetSearch>
                         </expression>
@@ -149,23 +141,16 @@
 							<assignmentTargetSearch>
 			            	<targetType>c:OrgType</targetType>
 			        		<filter>
-								<q:equal>
-									<q:path>c:name</q:path>
-									<q:matching>polyStringNorm</q:matching>
-									<expression>
-										<script>
-											<code>
-												parent = input.tokenize('/').reverse()[0]
-												if (!parent) {
-													return "hogwarts";
-												} else {
-													return parent;
-												}
-												return "TOP"
-											</code>
-										</script>
-									</expression>
-								</q:equal>
+                                <q:text>name =[polyStringNorm] ```
+                                            parent = input.tokenize('/').reverse()[0]
+                                            if (!parent) {
+                                                return "hogwarts";
+                                            } else {
+                                                return parent;
+                                            }
+                                            return "TOP"
+                                            ```
+                                </q:text>
 							</filter>
 							<createOnDemand>true</createOnDemand>
 							<populateObject>
@@ -244,24 +229,15 @@
                                 </assignmentProperties>
 
 			        		<filter>
-								<q:equal>
-									<q:path>c:name</q:path>
-									<q:matching>polyStringNorm</q:matching>
-									<expression>
-										<script>
-											<code>
-
-												parent = input.tokenize('/').reverse()[0]
-												if (!parent) {
-													return "hogwarts";
-												} else {
-													return parent;
-												}
-
-											</code>
-										</script>
-									</expression>
-								</q:equal>
+                                <q:text>name =[polyStringNorm] ```
+                                    parent = input.tokenize('/').reverse()[0]
+                                    if (!parent) {
+                                        return "hogwarts";
+                                    } else {
+                                        return parent;
+                                    }
+                                    ```
+                                </q:text>
 							</filter>
 							<createOnDemand>true</createOnDemand>
 							<populateObject>
@@ -269,7 +245,6 @@
 									<expression>
 										<script>
 											<code>
-
 												input.tokenize('/').reverse()[0]
 											</code>
 										</script>

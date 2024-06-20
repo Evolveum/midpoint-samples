@@ -6,10 +6,7 @@
     "connectorRef" : {
       "type" : "c:ConnectorType",
       "filter" : {
-        "equal" : {
-          "path" : "c:connectorType",
-          "value" : "com.evolveum.polygon.connector.csv.CsvConnector"
-        }
+        "text": "c:connectorType = \"com.evolveum.polygon.connector.csv.CsvConnector\"",
       }
     },
     "connectorConfiguration" : {

@@ -1,0 +1,10 @@
+<role oid="dfa92bcc-b1c6-470f-bd56-beee31e17cba" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Website blogger</name>
+    <description>Access to personal blog on website. Fairly basic, non-sensitive access.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType" />
+    </assignment>
+    <inducement>
+        <targetRef oid="45bb3cea-fde9-4590-812a-e86b37492bcd" type="ServiceType" />
+    </inducement>
+</role>

@@ -27,16 +27,7 @@
                                  xsi:type="c:SearchObjectRefExpressionEvaluatorType">
             <targetType>c:OrgType</targetType>
             <filter>
-               <q:equal>
-                  <q:path>c:name</q:path>
-                  <expression>
-                     <script>
-                        <code>
-                return 'Groups'
-                </code>
-                     </script>
-                  </expression>
-               </q:equal>
+                <q:text>name = "Groups"</q:text>
             </filter>
          </assignmentTargetSearch>
       </expression>
@@ -51,16 +42,7 @@
                                  xsi:type="c:SearchObjectRefExpressionEvaluatorType">
             <targetType>c:RoleType</targetType>
             <filter>
-               <q:equal>
-                  <q:path>c:name</q:path>
-                  <expression>
-                     <script>
-                        <code>
-                return 'Basic GitLab role for group'
-                </code>
-                     </script>
-                  </expression>
-               </q:equal>
+                <q:text>name = "Basic GitLab role for group"</q:text>
             </filter>
          </assignmentTargetSearch>
       </expression>

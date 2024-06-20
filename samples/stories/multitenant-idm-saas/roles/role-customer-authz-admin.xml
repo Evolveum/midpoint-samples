@@ -110,20 +110,7 @@
         <object>
             <type>RoleType</type>
             <filter>
-                <q:or>
-                    <q:equal>
-                        <q:path>subtype</q:path>
-                        <q:value>customer</q:value>
-                    </q:equal>
-                    <q:equal>
-                        <q:path>name</q:path>
-                        <q:value>End user</q:value>
-                    </q:equal>
-                    <q:equal>
-                        <q:path>name</q:path>
-                        <q:value>Delegated Administration Role</q:value><!-- To see also this role -->
-                    </q:equal>
-                </q:or>
+                <q:text>subtype = "customer" or name = "End user" or name = "Delegated Administration Role"</q:text>
             </filter>
         </object>
     </authorization>
@@ -135,12 +122,7 @@
         <object>
             <type>OrgType</type>
             <filter>
-                <q:or>
-                    <q:equal>
-                        <q:path>subtype</q:path>
-                        <q:value>functional</q:value>
-                    </q:equal>
-                </q:or>
+                <q:text>subtype = "functional"</q:text>
             </filter>
         </object>
     </authorization>
@@ -235,16 +217,7 @@
         <target>
             <type>RoleType</type>
             <filter>
-                <q:or>
-                    <q:equal>
-                        <q:path>subtype</q:path>
-                        <q:value>customer</q:value>
-                    </q:equal>
-                    <q:equal>
-                        <q:path>name</q:path>
-                        <q:value>End user</q:value>
-                    </q:equal>
-                </q:or>
+                <q:text>subtype = "customer" or name = "End user"</q:text>
             </filter>
         </target>
     </authorization>
@@ -259,16 +232,7 @@
             <owner>
                 <type>UserType</type>
                 <filter>
-                    <q:or>
-                        <q:equal>
-                            <q:path>subtype</q:path>
-                            <q:value>customer-admin</q:value>
-                        </q:equal>
-                        <q:equal>
-                            <q:path>subtype</q:path>
-                            <q:value>customer-user</q:value>
-                        </q:equal>
-                    </q:or>
+                    <q:text>subtype = "customer-admin" or subtype = "customer-user"</q:text>
                 </filter>
             </owner>
         </object>
@@ -281,16 +245,7 @@
         <object>
             <type>ShadowType</type>
             <filter>
-                <q:or>
-                    <q:equal>
-                        <q:path>kind</q:path>
-                        <q:value>entitlement</q:value>
-                    </q:equal>
-                    <q:equal>
-                        <q:path>kind</q:path>
-                        <q:value>generic</q:value>
-                    </q:equal>
-                </q:or>
+                <q:text>kind = "entitlement" or kind = "generic"</q:text>
             </filter>
         </object>
     </authorization>
@@ -303,16 +258,7 @@
         <object>
             <type>UserType</type>
             <filter>
-                <q:or>
-                    <q:equal>
-                        <q:path>subtype</q:path>
-                        <q:value>customer-admin</q:value>
-                    </q:equal>
-                    <q:equal>
-                        <q:path>subtype</q:path>
-                        <q:value>customer-user</q:value>
-                    </q:equal>
-                </q:or>
+                <q:text>subtype = "customer-admin" or subtype = "customer-user"</q:text>
             </filter>
         </object>
     </authorization>
@@ -328,16 +274,7 @@
             <owner>
                 <type>UserType</type>
                 <filter>
-                    <q:or>
-                        <q:equal>
-                            <q:path>subtype</q:path>
-                            <q:value>customer-admin</q:value>
-                        </q:equal>
-                        <q:equal>
-                            <q:path>subtype</q:path>
-                            <q:value>customer-user</q:value>
-                        </q:equal>
-                    </q:or>
+                    <q:text>subtype = "customer-admin" or subtype = "customer-user"</q:text>
                 </filter>
             </owner>
         </object>
@@ -353,12 +290,7 @@
             <owner>
                 <type>OrgType</type>
                 <filter>
-                    <q:or>
-                        <q:equal>
-                            <q:path>subtype</q:path>
-                            <q:value>customer</q:value>
-                        </q:equal>
-                    </q:or>
+                    <q:text>subtype = "customer"</q:text>
                 </filter>
             </owner>
         </object>

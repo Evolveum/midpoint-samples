@@ -37,10 +37,7 @@
 
     <connectorRef type="ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>c:connectorType</q:path>
-                <q:value>com.evolveum.polygon.connector.csv.CsvConnector</q:value>
-            </q:equal>
+            <q:text>connectorType = "com.evolveum.polygon.connector.csv.CsvConnector"</q:text>
         </filter>
     </connectorRef>
 
@@ -124,12 +121,7 @@
                         <assignmentTargetSearch>
                             <targetType>OrgType</targetType>
                             <filter>
-                                <q:equal>
-                                    <q:path>identifier</q:path>
-                                    <expression>
-                                        <path>$input</path>
-                                    </expression>
-                                </q:equal>
+                                <q:text>identifier = $input</q:text>
                             </filter>
                         </assignmentTargetSearch>
                     </expression>

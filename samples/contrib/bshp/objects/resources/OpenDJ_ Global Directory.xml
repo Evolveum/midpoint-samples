@@ -17,10 +17,7 @@
         </operationalState>
         <connectorRef type="c:ConnectorType">
             <filter>
-                <q:equal>
-                    <q:path>c:connectorType</q:path>
-                    <q:value>com.evolveum.polygon.connector.ldap.LdapConnector</q:value>
-                </q:equal>
+                <q:text>connectorType = "com.evolveum.polygon.connector.ldap.LdapConnector"</q:text>
             </filter>
         </connectorRef>
         <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
@@ -521,11 +518,7 @@
                 </iteration>
                 <protected>
                     <filter>
-                        <q:equal>
-                            <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#distinguishedName</q:matching>
-                            <q:path>attributes/ri:dn</q:path>
-                            <q:value>uid=idm,ou=accounts,dc=bshp,dc=edu</q:value>
-                        </q:equal>
+                        <q:text>attributes/ri:dn =[distinguishedName] "uid=idm,ou=accounts,dc=bshp,dc=edu"</q:text>
                     </filter>
                 </protected>
                 <activation>
@@ -570,10 +563,7 @@
                 <baseContext>
                     <objectClass>ri:groupOfNames</objectClass>
                     <filter>
-                        <q:equal>
-                            <q:path>attributes/dn</q:path>
-                            <q:value>ou=groups,dc=bshp,dc=edu</q:value>
-                        </q:equal>
+                        <q:text>attributes/dn = "ou=groups,dc=bshp,dc=edu"</q:text>
                     </filter>
                 </baseContext>
                 <attribute>
@@ -619,10 +609,7 @@
                 <baseContext>
                     <objectClass>ri:groupOfNames</objectClass>
                     <filter>
-                        <q:equal>
-                            <q:path>attributes/dn</q:path>
-                            <q:value>ou=courses,dc=bshp,dc=edu</q:value>
-                        </q:equal>
+                        <q:text>attributes/dn = "ou=courses,dc=bshp,dc=edu"</q:text>
                     </filter>
                 </baseContext>
                 <attribute>

@@ -1,0 +1,72 @@
+
+            <objectCollectionView id="98"> <!-- TODO: change id as needed -->
+                <identifier>application-roles-view</identifier>
+                <display>
+                    <label>Application roles</label>
+                    <singularLabel>Application role</singularLabel>
+                    <tooltip>Application roles</tooltip>
+                </display>
+                <displayOrder>180</displayOrder>
+                <type>RoleType</type>
+                <collection>
+                    <collectionRef oid="00000000-0000-0000-0000-000000000328" relation="org:default" type="c:ArchetypeType">
+                    </collectionRef>
+                </collection>
+            </objectCollectionView>
+            <objectCollectionView id="99"> <!-- TODO: change id as needed -->
+                <identifier>business-roles-view</identifier>
+                <display>
+                    <label>Business roles</label>
+                    <singularLabel>Business role</singularLabel>
+                    <tooltip>Business roles</tooltip>
+                </display>
+                <displayOrder>190</displayOrder>
+                <type>RoleType</type>
+                <collection>
+                    <collectionRef oid="00000000-0000-0000-0000-000000000321" relation="org:default" type="c:ArchetypeType">
+                    </collectionRef>
+                </collection>
+            </objectCollectionView>
+
+
+        <configurableUserDashboard id="1214">
+            <identifier>compliance-dashboard</identifier>
+            <configurableDashboardRef oid="118b5d33-93b8-4ef1-8c15-9bb9984ffa8b" relation="org:default" type="c:DashboardType"/>
+        </configurableUserDashboard>
+
+
+
+
+            <objectCollectionView id="77">
+                <identifier>application</identifier>
+                <display>
+                    <label>Application.panel.applications</label>
+                </display>
+                <type>ServiceType</type>
+                <collection>
+                    <collectionRef oid="00000000-0000-0000-0000-000000000329" relation="org:default" type="c:ArchetypeType"/>
+                </collection>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                       <label>Name</label>
+                    </display>
+                 </column>
+                <column>
+                    <name>descriptionColumn</name>
+                    <path>description</path>
+                    <display>
+                       <label>Description</label>
+                    </display>
+                    <previousColumn>nameColumn</previousColumn>
+                 </column>
+                <column>
+                    <name>categoryColumn</name>
+                    <path>extension/accessCategory</path>
+                    <display>
+                       <label>Category</label>
+                    </display>
+                    <previousColumn>descriptionColumn</previousColumn>
+                 </column>
+            </objectCollectionView>

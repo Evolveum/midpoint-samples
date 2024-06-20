@@ -28,10 +28,7 @@
                                  xsi:type="c:SearchObjectRefExpressionEvaluatorType">
             <targetType>RoleType</targetType>
             <filter>
-               <q:equal>
-                  <q:path>name</q:path>
-                  <q:value>Box Group</q:value>
-               </q:equal>
+                <q:text>name = "Box Group"</q:text>
             </filter>
          </assignmentTargetSearch>
       </expression>
@@ -48,10 +45,7 @@
                                  xsi:type="c:SearchObjectRefExpressionEvaluatorType">
             <targetType>OrgType</targetType>
             <filter>
-               <q:equal>
-                  <q:path>name</q:path>
-                  <q:value>Groups</q:value>
-               </q:equal>
+                <q:text>name = "Groups"</q:text>
             </filter>
          </assignmentTargetSearch>
       </expression>

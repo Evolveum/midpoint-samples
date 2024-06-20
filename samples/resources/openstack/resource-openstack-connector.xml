@@ -3,12 +3,7 @@
 
    <connectorRef type="ConnectorType">
         <filter>
-            <q:and>
-                <q:equal>
-                    <q:path>c:connectorType</q:path>
-                    <q:value>com.evolveum.polygon.connector.openstackkeystone.rest.OpenStackConnector</q:value>
-                </q:equal>
-            </q:and>
+            <q:text>c:connectorType = "com.evolveum.polygon.connector.openstackkeystone.rest.OpenStackConnector"</q:text>
         </filter>
     </connectorRef>
     <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
@@ -198,11 +193,7 @@
             </association>
             <protected>
                 <filter>
-                    <q:equal>
-                        <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#stringIgnoreCase</q:matching>
-                        <q:path>attributes/icfs:name</q:path>
-                        <q:value>root</q:value>
-                    </q:equal>
+                    <q:text>attributes/icfs:name =[stringIgnoreCase] "root"</q:text>
                 </filter>
             </protected>
             <activation>

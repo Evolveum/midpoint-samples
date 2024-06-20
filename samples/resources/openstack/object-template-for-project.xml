@@ -14,16 +14,7 @@ oid="99cc8d77-dedc-4444-a081-b006821a9c79" version="58">
             <assignmentTargetSearch xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="c:AssignmentTargetSearchExpressionEvaluatorType">
                 <targetType>c:OrgType</targetType>
                 <filter>
-                    <q:equal>
-                        <q:path>c:name</q:path>
-                        <expression>
-                            <script>
-                                <code>
-                                           return 'Projects'
-                                </code>
-                            </script>
-                        </expression>
-                    </q:equal>
+                    <q:text>c:name = "Projects"</q:text>
                 </filter>
             </assignmentTargetSearch>
         </expression>

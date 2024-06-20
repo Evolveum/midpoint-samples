@@ -33,10 +33,7 @@
                 	<expression>
 						<associationTargetSearch>
 							<filter>
-								<q:equal>
-									<q:path>attributes/ri:cn</q:path>
-									<q:value>duellingClassroomAccess</q:value>
-								</q:equal>
+                                <q:text>attributes/ri:cn = "duellingClassroomAccess"</q:text>
 							</filter>
 							<searchStrategy>onResourceIfNeeded</searchStrategy>
 						</associationTargetSearch>
@@ -44,7 +41,7 @@
 				</outbound>
             </association>
     	</construction>
-    	
+
     </inducement>
     <assignment>
     	<targetRef oid="2dadd243-687d-4b4c-80cd-09ddfe4cbf59" type="RoleType" />

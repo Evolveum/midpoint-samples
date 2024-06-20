@@ -1462,11 +1462,7 @@
          </association>
          <protected>
             <filter>
-               <q:equal>
-                  <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#stringIgnoreCase</q:matching>
-                  <q:path>attributes/icfs:name</q:path>
-                  <q:value>root</q:value>
-               </q:equal>
+                <q:text>attributes/icfs:name =[stringIgnoreCase] "root"</q:text>
             </filter>
          </protected>
          <activation>

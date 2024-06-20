@@ -2,6 +2,7 @@
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+      xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp"
       oid="3126290b-730e-40e0-83c0-5ffef2cbe4af" version="54599">
     <name>Task: Validate Assignments</name>
     <description>Validates current assignment, if invalid, item is removed, this happens from time to time.</description>
@@ -26,16 +27,7 @@
                     <type>UserType</type>
                     <query>
                         <q:filter>
-                            <q:and>
-                                <q:equal>
-                                    <q:path>organization</q:path>
-                                    <q:value>OU=_DISABLED</q:value>
-                                </q:equal>
-                                <q:equal>
-                                    <q:path xmlns:bshp="http://midpoint.bshp.edu/xml/ns/bshp">extension/bshp:standing</q:path>
-                                    <q:value>INACTIVE</q:value>
-                                </q:equal>
-                            </q:and>
+                            <q:text>organization = "OU=_DISABLED" and extension/bshp:standing = "INACTIVE"</q:text>
                         </q:filter>
                     </query>
                 </objects>

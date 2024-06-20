@@ -18,7 +18,8 @@
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
-      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        oid="f7ba3546-00d1-4c21-b047-6a51181e538f">
     <name>Unassign "End User" role from users starting with 'a'</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>

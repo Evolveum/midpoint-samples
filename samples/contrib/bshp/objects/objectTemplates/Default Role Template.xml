@@ -278,17 +278,12 @@
             <assignmentTargetSearch>
                 <targetType>c:RoleType</targetType>
                 <filter>
-                    <q:equal>
-                        <q:path>c:identifier</q:path>
-                        <expression>
-                            <script>
-                                <code>
+                    <q:text>
+                        identifier = ```
                                     log.info("-- Assigning Group: " + groupMembership + "; From Default Role Template");
                                     return groupMembership;
-                                </code>
-                            </script>
-                        </expression>
-                    </q:equal>
+                                    ```
+                    </q:text>
                 </filter>
             </assignmentTargetSearch>
         </expression>

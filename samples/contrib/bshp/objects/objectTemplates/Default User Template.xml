@@ -415,18 +415,12 @@
             <assignmentTargetSearch>
                 <targetType>c:OrgType</targetType>
                 <filter>
-                    <q:equal>
-                        <q:path>c:name</q:path>
-                        <expression>
-                            <script>
-                                <includeNullInputs>false</includeNullInputs>
-                                <code>
-                                    log.info("Assigning Org: " + organization + "; From Default User Template");
-                                    return organization;
-                                </code>
-                            </script>
-                        </expression>
-                    </q:equal>
+                    <q:text>
+                        name = ```
+                        log.info("Assigning Org: " + organization + "; From Default User Template");
+                        return organization;
+                        ```
+                    </q:text>
                 </filter>
             </assignmentTargetSearch>
         </expression>

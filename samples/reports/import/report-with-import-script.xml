@@ -23,17 +23,10 @@
                 <s:continueOnAnyError>true</s:continueOnAnyError>
             </s:options>
             <s:pipeline>
-                <s:search  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+                <s:search xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
                     <s:type>UserType</s:type>
                     <s:searchFilter>
-                        <q:equal>
-                            <q:path>name</q:path>
-                            <c:expression>
-                                <c:script>
-                                    <c:code>username</c:code>
-                                </c:script>
-                            </c:expression>
-                        </q:equal>
+                        <q:text>name = `username`</q:text>
                     </s:searchFilter>
                 </s:search>
                 <s:execute>

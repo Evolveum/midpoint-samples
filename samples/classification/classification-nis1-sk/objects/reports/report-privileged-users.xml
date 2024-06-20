@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+
+<report xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        oid="b0e67255-e02a-4873-b740-d012a56fe8c8">
+    <name>Privileged Users</name>
+    <description>List of users with privileged access rights.</description>
+    <objectCollection>
+        <collection>
+            <collectionRef oid="b2ecef69-6d48-4619-98ed-5e3943a411e9" type="ObjectCollectionType"/>
+        </collection>
+        <parameter id="2">
+            <name>activation</name>
+            <type>ActivationStatusType</type>
+            <display>
+                <label>
+                    <orig>activation</orig>
+                    <translation>
+                        <key>ActivationType.administrativeStatus</key>
+                    </translation>
+                </label>
+            </display>
+        </parameter>
+        <parameter id="3">
+            <name>organizationRef</name>
+            <type>c:ObjectReferenceType</type>
+            <targetType>c:OrgType</targetType>
+            <display>
+                <label>
+                    <orig>organization</orig>
+                    <translation>
+                        <key>ObjectTypeGuiDescriptor.org</key>
+                    </translation>
+                </label>
+            </display>
+        </parameter>
+        <parameter id="4">
+            <name>roleRef</name>
+            <type>c:ObjectReferenceType</type>
+            <targetType>c:RoleType</targetType>
+            <display>
+                <label>
+                    <orig>role</orig>
+                    <translation>
+                        <key>ObjectTypeGuiDescriptor.role</key>
+                    </translation>
+                </label>
+            </display>
+        </parameter>
+        <parameter id="5">
+            <name>resourceRef</name>
+            <type>c:ObjectReferenceType</type>
+            <targetType>c:ResourceType</targetType>
+            <display>
+                <label>
+                    <orig>resource</orig>
+                    <translation>
+                        <key>ObjectTypeGuiDescriptor.resource</key>
+                    </translation>
+                </label>
+            </display>
+        </parameter>
+        <view>
+            <column id="6">
+                <name>nameColumn</name>
+                <path>name</path>
+            </column>
+            <column id="7">
+                <name>fullNameColumn</name>
+                <path>fullName</path>
+                <previousColumn>nameColumn</previousColumn>
+            </column>
+            <column id="8">
+                <name>activationColumn</name>
+                <path>activation/effectiveStatus</path>
+                <previousColumn>fullNameColumn</previousColumn>
+            </column>
+            <column id="9">
+                <name>roleColumn</name>
+                <path>assignment</path>
+                <display>
+                    <label>Role</label>
+                </display>
+                <export>
+                    <expression>
+                        <script>
+                            <code>
+                                if (input != null){
+                                    roles = report.resolveRoles(input);
+                                    if (roles.isEmpty()) {
+                                        return null;
+                                    }
+                                    list = new ArrayList();
+                                    for (role in roles) {
+                                        list.add(role.getName());
+                                    }
+                                    return list;
+                                }
+                            </code>
+                        </script>
+                    </expression>
+                </export>
+                <previousColumn>activationColumn</previousColumn>
+            </column>
+            <column id="10">
+                <name>orgColumn</name>
+                <path>assignment</path>
+                <display>
+                    <label>Organization</label>
+                </display>
+                <export>
+                    <expression>
+                        <script>
+                            <code>
+                                if (input != null){
+                                    orgs = report.resolveOrgs(input);
+                                    if (orgs.isEmpty()) {
+                                        return null;
+                                    }
+                                    list = new ArrayList();
+                                    for (org in orgs) {
+                                        list.add(org.getName());
+                                    }
+                                    return list;
+                                }
+                            </code>
+                        </script>
+                    </expression>
+                </export>
+                <previousColumn>roleColumn</previousColumn>
+            </column>
+            <column id="11">
+                <name>accountColumn</name>
+                <path>linkRef</path>
+                <display>
+                    <label>Account</label>
+                </display>
+                <export>
+                    <expression>
+                        <script>
+                            <code>
+                                import com.evolveum.midpoint.schema.SelectorOptions;
+                                import com.evolveum.midpoint.schema.GetOperationOptions;
+                                import com.evolveum.midpoint.xml.ns._public.common.common_3.ShadowType;
+
+                                if (input != null){
+                                    list = new ArrayList();
+                                    for (linkRef in input){
+                                        shadow = midpoint.getObject(ShadowType.class, linkRef.getOid(),
+                                        SelectorOptions.createCollection(GetOperationOptions.createNoFetch().resolveNames(true)));
+                                        list.add(shadow.getName().getOrig() + "(Resource: " + shadow.getResourceRef().getTargetName()?.getOrig() + ")");
+                                    }
+                                    return list;
+                                }
+                            </code>
+                        </script>
+                    </expression>
+                </export>
+                <previousColumn>orgColumn</previousColumn>
+            </column>
+            <type>UserType</type>
+        </view>
+    </objectCollection>
+</report>

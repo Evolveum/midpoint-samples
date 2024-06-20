@@ -18,14 +18,10 @@
 <objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                   xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
                   xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-                  oid="d2521d0b-6784-4540-bdff-086858ae0cc7"
-                  version="68157">
+                  oid="d2521d0b-6784-4540-bdff-086858ae0cc7">
     <name>Users view collection</name>
     <type>c:UserType</type>
     <filter>
-        <q:equal>
-            <q:path>subtype</q:path>
-            <q:value>EMP</q:value>
-        </q:equal>
+        <q:text>subtype='EMP'</q:text>
     </filter>
 </objectCollection>

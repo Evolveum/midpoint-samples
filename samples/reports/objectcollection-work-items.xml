@@ -24,9 +24,7 @@
     <description>Currently open work items.</description>
     <type>c:CaseWorkItemType</type>
     <filter>
-        <q:equal>
-            <q:path>closeTimestamp</q:path>
-        </q:equal>
+        <q:text>closeTimestamp not exists</q:text>
     </filter>
     <getOptions>
         <option>

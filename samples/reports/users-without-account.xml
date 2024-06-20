@@ -14,7 +14,15 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<report>
+<report xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+        xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        oid="dd6d6a32-596b-4512-aa18-f1f0c1e7c19b">
     <name>Users without account</name>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000171" relation="default" type="ArchetypeType">
@@ -30,7 +38,7 @@
     <objectCollection>
         <collection>
             <filter>
-                <text>roleMembershipRef matches (oid = '6f60f403-aba0-4718-aae9-b33b9d2a01df')</text>
+                <q:text>roleMembershipRef matches (oid = '6f60f403-aba0-4718-aae9-b33b9d2a01df')</q:text>
             </filter>
         </collection>
         <condition>

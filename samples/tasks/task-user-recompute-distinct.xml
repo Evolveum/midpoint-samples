@@ -17,7 +17,8 @@
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        oid="3f2edac5-5727-4fe0-a9c1-57a43c464db2">
     <name>User Recompute (distinct)</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
     <executionState>runnable</executionState>
@@ -33,9 +34,9 @@
                         <q:filter>
                             <q:text>
                                 assignment/targetRef/@ matches
-                                ( . type RoleType and
-                                (name = "Approver" or name = "Delegator" or
-                                name = "End user" or name = "Reviewer" or name = "Superuser") )
+                                    ( . type RoleType and
+                                        (name = "Approver" or name = "Delegator" or
+                                        name = "End user" or name = "Reviewer" or name = "Superuser") )
                             </q:text>
                         </q:filter>
                     </query>

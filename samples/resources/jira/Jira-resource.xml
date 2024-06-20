@@ -12,10 +12,7 @@
    </operationalState>
    <connectorRef type="ConnectorType">
       <filter>
-         <q:equal>
-            <q:path>c:connectorType</q:path>
-            <q:value>com.evolveum.polygon.connector.jira.rest.JiraConnector</q:value>
-         </q:equal>
+          <q:text>c:connectorType = "com.evolveum.polygon.connector.jira.rest.JiraConnector"</q:text>
       </filter>
      </connectorRef>
    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
@@ -645,11 +642,7 @@
          </association>
          <protected>
             <filter>
-               <q:equal>
-                  <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#stringIgnoreCase</q:matching>
-                  <q:path>attributes/icfs:name</q:path>
-                  <q:value>administrator</q:value>
-               </q:equal>
+                <q:text>attributes/icfs:name =[stringIgnoreCase] "administrator"</q:text>
             </filter>
          </protected>
          <credentials>
@@ -722,20 +715,12 @@
          </association>
          <protected>
             <filter>
-               <q:equal>
-                  <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#stringIgnoreCase</q:matching>
-                  <q:path>attributes/icfs:name</q:path>
-                  <q:value>jira-administrators</q:value>
-               </q:equal>
+                <q:text>attributes/icfs:name =[stringIgnoreCase] "jira-administrators"</q:text>
             </filter>
          </protected>
          <protected>
             <filter>
-               <q:equal>
-                  <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#stringIgnoreCase</q:matching>
-                  <q:path>attributes/icfs:name</q:path>
-                  <q:value>jira-software-users</q:value>
-               </q:equal>
+                <q:text>attributes/icfs:name =[stringIgnoreCase] "jira-software-users"</q:text>
             </filter>
          </protected>
       </objectType>

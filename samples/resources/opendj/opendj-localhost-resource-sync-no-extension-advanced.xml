@@ -61,10 +61,7 @@ object.
                 OID during import.
             </description>
             <filter>
-                <q:equal>
-                    <q:path>c:connectorType</q:path>
-                    <q:value>com.evolveum.polygon.connector.ldap.LdapConnector</q:value>
-                </q:equal>
+                <q:text>c:connectorType = "org.identityconnectors.ldap.LdapConnector"</q:text>
             </filter>
         </connectorRef>
 
@@ -315,12 +312,7 @@ object.
 
                 <protected>
                     <filter>
-                        <q:equal>
-                            <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#distinguishedName</q:matching>
-                            <q:path>attributes/ri:dn</q:path>
-                            <!-- WilDCapiTaLIzaTioN and spacing makes sure that this is matched properly -->
-                            <q:value>uid=idm,ou=Administrators,dc=example,dc=com</q:value>
-                        </q:equal>
+                        <q:text>attributes/ri:dn =[distinguishedName] "uid=idm,ou=Administrators,dc=example,dc=com"</q:text>
                     </filter>
                 </protected>
 

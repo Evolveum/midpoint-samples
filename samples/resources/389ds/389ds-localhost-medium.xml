@@ -58,10 +58,7 @@ It also contains inbound mappings and definition to enable synchronization.
                 OID during import.
             </description>
             <filter>
-                <q:equal>
-                <q:path>c:connectorType</q:path>
-                    <q:value>com.evolveum.polygon.connector.ldap.LdapConnector</q:value>
-                </q:equal>
+                <q:text>c:connectorType = "com.evolveum.polygon.connector.ldap.LdapConnector"</q:text>
             </filter>
         </connectorRef>
 
@@ -238,12 +235,8 @@ It also contains inbound mappings and definition to enable synchronization.
             </iteration>
 
             <protected>
-                   <filter>
-                       <q:equal>
-                           <q:matching>http://prism.evolveum.com/xml/ns/public/matching-rule-3#distinguishedName</q:matching>
-                        <q:path>attributes/ri:dn</q:path>
-                        <q:value>cn=idm,ou=Special Users,dc=example,dc=com</q:value>
-                    </q:equal>
+               <filter>
+                   <q:text>attributes/ri:dn =[distinguishedName] "cn=idm,ou=Special Users,dc=example,dc=com"</q:text>
                 </filter>
             </protected>
 

@@ -1,0 +1,13 @@
+<role oid="a0e4e644-d9b0-4bf3-9afd-f8fb1f509a9d" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Webmaster</name>
+    <description>Access to website administration, also common access to collaboration tools.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType" />
+    </assignment>
+    <inducement>
+        <targetRef oid="c08eb236-626d-42f4-a305-7e800ed123d8" type="RoleType" />
+    </inducement>
+    <inducement>
+        <targetRef oid="ca718b71-b116-4340-b90b-000629cd5c81" type="RoleType" />
+    </inducement>
+</role>

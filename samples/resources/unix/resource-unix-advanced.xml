@@ -28,10 +28,7 @@
     <name>Unix Resource</name>   <!-- Rename -->
     <connectorRef type="c:ConnectorType">
         <filter>
-            <q:equal>
-                <q:path>connectorType</q:path>
-                <q:value>org.connid.bundles.unix.UnixConnector</q:value>
-            </q:equal>
+            <q:text>connectorType = "org.connid.bundles.unix.UnixConnector"</q:text>
         </filter>
     </connectorRef>
     <connectorConfiguration>
@@ -162,24 +159,12 @@
             </association>
             <protected>
                 <filter>
-                    <q:equal>
-                        <q:path>
-                            declare namespace icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3";
-                            attributes/icfs:name
-                        </q:path>
-                        <q:value>midpoint</q:value>
-                    </q:equal>
+                    <q:text>attributes/icfs:name = "midpoint"</q:text>
                 </filter>
             </protected>
             <protected>
                 <filter>
-                    <q:equal>
-                        <q:path>
-                            declare namespace icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3";
-                            attributes/icfs:name
-                        </q:path>
-                        <q:value>root</q:value>
-                    </q:equal>
+                    <q:text>attributes/icfs:name = "root"</q:text>
                 </filter>
             </protected>
             <activation>

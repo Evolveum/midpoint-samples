@@ -20,10 +20,7 @@
                                  xsi:type="c:SearchObjectRefExpressionEvaluatorType">
             <targetType>RoleType</targetType>
             <filter>
-               <q:equal>
-                  <q:path>name</q:path>
-                  <q:value>JIRA Group</q:value>
-               </q:equal>
+                <q:text>name = "JIRA Group"</q:text>
             </filter>
          </assignmentTargetSearch>
       </expression>
@@ -40,10 +37,7 @@
                                  xsi:type="c:SearchObjectRefExpressionEvaluatorType">
             <targetType>RoleType</targetType>
             <filter>
-               <q:equal>
-                  <q:path>name</q:path>
-                  <q:value>Group Membership Metarole</q:value>
-               </q:equal>
+                <q:text>name = "Group Membership Metarole"</q:text>
             </filter>
          </assignmentTargetSearch>
       </expression>
