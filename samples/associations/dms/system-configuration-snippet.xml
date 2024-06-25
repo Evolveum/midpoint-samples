@@ -1,0 +1,23 @@
+<!-- add this to system configuration object -->
+<roleManagement>
+    <relations>
+        <relation>
+            <ref>dms:read</ref>
+            <kind>member</kind>
+            <category>administration</category>
+            <category>governance</category>
+        </relation>
+        <relation>
+            <ref>dms:write</ref>
+            <kind>member</kind>
+            <category>administration</category>
+            <category>governance</category>
+        </relation>
+        <relation>
+            <ref>dms:admin</ref>
+            <kind>manager</kind>
+            <category>administration</category>
+            <category>governance</category>
+        </relation>
+    </relations>
+</roleManagement>
