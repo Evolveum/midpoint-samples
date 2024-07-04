@@ -2,7 +2,7 @@
     <name>petra</name>
     <description>Extraordinary employee, cleared for access to the most secret of secrets.</description>
     <assignment id="3">
-        <targetRef oid="5bb5c5b5-eca2-4129-b73f-34c0b0bd2736" type="RoleType"/>
+        <targetRef oid="5bb5c5b5-eca2-4129-b73f-34c0b0bd2736" type="PolicyType"/>
     </assignment>
     <assignment id="5">
         <targetRef oid="7f7c8cb1-9da4-4845-bd17-49d705b8546a" type="ArchetypeType"/>

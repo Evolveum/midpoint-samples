@@ -1,11 +1,11 @@
-<role oid="71a7cb99-3a69-48e3-9521-d9a933c2b5c5" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+<policy oid="71a7cb99-3a69-48e3-9521-d9a933c2b5c5" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Category II</name>
     <description>Classified for internal access.</description>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
     </assignment>
     <inducement>
-        <targetRef oid="91a1bdf1-addc-4d34-b834-190938be3aca" type="RoleType"/>
+        <targetRef oid="91a1bdf1-addc-4d34-b834-190938be3aca" type="PolicyType"/>
     </inducement>
     <inducement>
         <orderConstraint>
@@ -21,7 +21,7 @@
                         </message>
                     </presentation>
                     <!-- NDA clearance -->
-                    <targetRef oid="09360ff0-d506-4751-b13f-4e01422693ac" type="RoleType" />
+                    <targetRef oid="09360ff0-d506-4751-b13f-4e01422693ac" type="PolicyType" />
                 </hasNoAssignment>
             </policyConstraints>
             <policyActions>
@@ -72,4 +72,4 @@
             </mapping>
         </focusMappings>
     </inducement>
-</role>
+</policy>

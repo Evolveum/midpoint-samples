@@ -5,7 +5,7 @@
         <targetRef oid="8abf784c-fe4a-41a7-87cb-479b0b1f5354" type="ArchetypeType"/>
     </assignment>
     <assignment id="2">
-        <targetRef oid="09360ff0-d506-4751-b13f-4e01422693ac" type="RoleType"/>
+        <targetRef oid="09360ff0-d506-4751-b13f-4e01422693ac" type="PolicyType"/>
     </assignment>
     <fullName>Charlie Consultant</fullName>
     <givenName>Charlie</givenName>
