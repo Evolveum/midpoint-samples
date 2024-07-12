@@ -1,0 +1,16 @@
+<user xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="6232b3a9-d94d-4a9a-a0da-fac3ba90d3b1">
+    <name>susie</name>
+    <description>Suspicious user</description>
+    <assignment id="1">
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+
+    <policyStatement>
+        <markRef oid="00000000-0000-0000-0000-000000000810"/>
+        <type>apply</type>
+    </policyStatement>
+
+    <fullName>Susie Suspicious</fullName>
+    <givenName>Susie</givenName>
+    <familyName>Suspicious</familyName>
+</user>

@@ -1,0 +1,13 @@
+<user xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="37df39f1-6128-4750-878f-c7d6d9ae77ef">
+    <name>audrey</name>
+    <description>Cybersecurity auditor</description>
+    <assignment id="1">
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <targetRef oid="44449c67-82af-427f-b11c-520427b922ac" type="RoleType"/>
+    </assignment>
+    <fullName>Audrey Auditor</fullName>
+    <givenName>Audrey</givenName>
+    <familyName>Auditor</familyName>
+</user>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+
+<dashboard xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+           oid="118b5d33-93b8-4ef1-8c15-9bb9984ffa8b">
+    <name>compliance-dashboard</name>
+    <display>
+        <label>
+            <orig>Compliance dashboard</orig>
+            <translation>
+                <key>ComplianceDashboard.title</key>
+            </translation>
+        </label>
+    </display>
+    <widget id="1">
+        <identifier>users-with-sod-violations</identifier>
+        <description>Users with SoD violations.</description>
+        <display>
+            <label>
+                <orig>Users with SoD violations</orig>
+                <translation>
+                    <key>ComplianceDashboard.usersWithSodViolations</key>
+                </translation>
+            </label>
+            <color>#dc3545</color>
+            <icon>
+                <cssClass>fa fa-people-arrows</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="c8cf8c17-92d2-4b84-baea-0d73138a8f39" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField id="5">
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField id="6">
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>users</value>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+</dashboard>
