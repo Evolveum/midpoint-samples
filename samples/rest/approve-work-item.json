@@ -1,0 +1,7 @@
+{
+    "output" : {
+        "@type" : "c:AbstractWorkItemOutputType",
+        "comment" : "sample comment",
+        "outcome" : "http://midpoint.evolveum.com/xml/ns/public/model/approval/outcome#approve"
+    }
+}
