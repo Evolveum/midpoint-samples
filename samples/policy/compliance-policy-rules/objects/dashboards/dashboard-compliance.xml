@@ -20,6 +20,39 @@
         </label>
     </display>
     <widget id="1">
+        <identifier>security-understaffing</identifier>
+        <description>Security responsibilities that are not properly staffed.</description>
+        <display>
+            <label>
+                <orig>Security understaffing</orig>
+                <translation>
+                    <key>ComplianceDashboard.securityUnderstaffing</key>
+                </translation>
+            </label>
+            <color>#dc3545</color>
+            <icon>
+                <cssClass>fa fa-person-arrow-down-to-line</cssClass>
+            </icon>
+            <tooltip>Security responsibilities that are not properly staffed.</tooltip>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="a39c6244-35df-443c-8935-681c58d67a4d" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField id="5">
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+    <widget id="2">
         <identifier>users-with-sod-violations</identifier>
         <description>Users with SoD violations.</description>
         <display>
@@ -49,10 +82,62 @@
                     </proportional>
                 </expression>
             </dataField>
-            <dataField id="6">
-                <fieldType>unit</fieldType>
+        </presentation>
+    </widget>
+    <widget id="3">
+        <identifier>suspicious-objects</identifier>
+        <description>Objects marked as "suspicious".</description>
+        <display>
+            <label>
+                <orig>Suspicious objects</orig>
+            </label>
+            <icon>
+                <cssClass>fa fa-handcuffs</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="e634a778-9b33-4862-ba09-0aeae8549a75" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField id="5">
+                <fieldType>value</fieldType>
                 <expression>
-                    <value>users</value>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+
+
+    <widget id="100">
+        <identifier>all-information-security-responsibilities</identifier>
+        <description>All objects that are classified as information security responsibilities.</description>
+        <display>
+            <label>
+                <orig>All information security responsibilities</orig>
+            </label>
+            <icon>
+                <cssClass>fa fa-building-shield</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="95deed29-e647-455f-b9b6-56058bce59bd" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField id="5">
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
                 </expression>
             </dataField>
         </presentation>

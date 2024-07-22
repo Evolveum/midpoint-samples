@@ -6,12 +6,12 @@
   ~ and European Union Public License. See LICENSE file for details.
   -->
 
-<mark xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"  oid="00000000-0000-0000-0000-000000000810" >
-    <name>Suspicious</name>
-    <description>Suspicious object. It should be (manually) investigated.</description>
+<mark xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"  oid="00000000-0000-0000-0000-000000000812" >
+    <name>Requirement violation</name>
+    <description>Violation of requirement policy, such as insufficient clearance</description>
     <display>
         <icon>
-            <cssClass>fa fa-handcuffs</cssClass>
+            <cssClass>fa fa-hand</cssClass>
         </icon>
     </display>
     <assignment id="1">

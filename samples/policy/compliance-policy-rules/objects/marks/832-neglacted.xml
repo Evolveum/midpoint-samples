@@ -6,12 +6,12 @@
   ~ and European Union Public License. See LICENSE file for details.
   -->
 
-<mark xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"  oid="00000000-0000-0000-0000-000000000811" >
-    <name>SoD violation</name>
-    <description>Segregation of duty violation</description>
+<mark xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"  oid="00000000-0000-0000-0000-000000000832" >
+    <name>Neglected</name>
+    <description>Object that is not properly cared for, such as application that does not have an owner or role that was not reviewed for a long time.</description>
     <display>
         <icon>
-            <cssClass>fa fa-people-arrows</cssClass>
+            <cssClass>fa fa-bomb</cssClass>
         </icon>
     </display>
     <assignment id="1">

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+
+<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                  oid="a39c6244-35df-443c-8935-681c58d67a4d">
+    <name>Security understaffing</name>
+    <description>Security responsibilities that are not properly staffed.</description>
+    <type>ObjectType</type>
+    <filter>
+        <q:text>effectiveMarkRef matches ( oid = "00000000-0000-0000-0000-000000000831" )</q:text>
+    </filter>
+    <domain>
+    </domain>
+</objectCollection>
