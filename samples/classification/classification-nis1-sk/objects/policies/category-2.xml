@@ -8,25 +8,17 @@
         <targetRef oid="91a1bdf1-addc-4d34-b834-190938be3aca" type="PolicyType"/>
     </inducement>
     <inducement>
-        <orderConstraint>
-            <order>2</order>
-        </orderConstraint>
         <policyRule>
             <name>required-nda</name>
             <policyConstraints>
-                <hasNoAssignment>
-                    <presentation>
-                        <message>
-                            <fallbackMessage>NDA required</fallbackMessage>
-                        </message>
-                    </presentation>
+                <requirement>
                     <!-- NDA clearance -->
                     <targetRef oid="09360ff0-d506-4751-b13f-4e01422693ac" type="PolicyType" />
-                </hasNoAssignment>
+                </requirement>
             </policyConstraints>
             <policyActions>
                 <enforcement>
-                    <documentation>This documentation must be there to make sure midPoint 4.8/4.9 GUI displays enforcement element.</documentation>
+                    <documentation>Strict requirement, policy rule is enforced.</documentation>
                 </enforcement>
             </policyActions>
         </policyRule>
