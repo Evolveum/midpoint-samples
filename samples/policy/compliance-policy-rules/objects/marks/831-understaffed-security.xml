@@ -8,7 +8,7 @@
 
 <mark xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"  oid="00000000-0000-0000-0000-000000000831" >
     <name>Understaffed security</name>
-    <description>Security role or responsibility is not properly staffed, it is not assigned to the users according to policy.</description>
+    <description>Mark for security role or responsibility which is not properly staffed, it is not assigned to the users according to policy.</description>
     <display>
         <icon>
             <cssClass>fa fa-person-arrow-down-to-line</cssClass>

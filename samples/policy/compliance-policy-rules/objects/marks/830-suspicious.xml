@@ -8,7 +8,7 @@
 
 <mark xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"  oid="00000000-0000-0000-0000-000000000830" >
     <name>Suspicious</name>
-    <description>Suspicious object. It should be (manually) investigated.</description>
+    <description>Mark for Suspicious object. It should be (manually) investigated.</description>
     <display>
         <icon>
             <cssClass>fa fa-handcuffs</cssClass>

@@ -14,4 +14,7 @@
             </policyActions>
         </policyRule>
     </assignment>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000333" type="PolicyType"/>
+    </assignment>
 </role>

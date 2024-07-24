@@ -1,0 +1,21 @@
+<role oid="b539dfe7-b298-49c8-bb1e-e0d63f5c6e34" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Experimental security</name>
+    <assignment>
+        <policyRule>
+            <name>Role understaffing</name>
+            <description>We require that every information security role is staffed.</description>
+            <policyConstraints>
+                <minAssignees>
+                    <multiplicity>2</multiplicity>
+                </minAssignees>
+            </policyConstraints>
+            <markRef oid="00000000-0000-0000-0000-000000000813" />
+            <markRef oid="00000000-0000-0000-0000-000000000831"/>
+            <policyActions>
+                <record>
+                    <description>Record the marks for use in dashboards and reports.</description>
+                </record>
+            </policyActions>
+        </policyRule>
+    </assignment>
+</role>

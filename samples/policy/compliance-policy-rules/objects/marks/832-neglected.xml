@@ -8,7 +8,7 @@
 
 <mark xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"  oid="00000000-0000-0000-0000-000000000832" >
     <name>Neglected</name>
-    <description>Object that is not properly cared for, such as application that does not have an owner or role that was not reviewed for a long time.</description>
+    <description>Mark for object that is not properly cared for, such as application that does not have an owner or role that was not reviewed for a long time.</description>
     <display>
         <icon>
             <cssClass>fa fa-bomb</cssClass>

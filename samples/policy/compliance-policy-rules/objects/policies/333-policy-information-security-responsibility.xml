@@ -4,7 +4,9 @@
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
-<policy xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'
+<policy xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'
         oid="00000000-0000-0000-0000-000000000333">
     <name>Information security responsibility</name>
     <description>Classification used to label roles, orgs, applications and services that are related to information security roles and responsibilities.</description>
@@ -12,8 +14,8 @@
         <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
     </assignment>
     <inducement id="2">
-        <focusType>RoleType</focusType>
         <policyRule>
+            <name>Role understaffing</name>
             <description>We require that every information security role is staffed.</description>
             <policyConstraints>
                 <minAssignees>
@@ -28,10 +30,11 @@
                 </record>
             </policyActions>
         </policyRule>
+        <focusType>RoleType</focusType>
     </inducement>
     <inducement id="3">
-        <focusType>RoleType</focusType>
         <policyRule>
+            <name>Role ownership</name>
             <description>We require that every information security role has an owner.</description>
             <policyConstraints>
                 <minAssignees>
@@ -47,10 +50,11 @@
                 </record>
             </policyActions>
         </policyRule>
+        <focusType>RoleType</focusType>
     </inducement>
     <inducement id="4">
-        <focusType>OrgType</focusType>
         <policyRule>
+            <name>Org understaffing</name>
             <description>We require that every organizational unit related to information security has manager.</description>
             <policyConstraints>
                 <minAssignees>
@@ -66,10 +70,11 @@
                 </record>
             </policyActions>
         </policyRule>
+        <focusType>OrgType</focusType>
     </inducement>
     <inducement id="5">
-        <focusType>ServiceType</focusType>
         <policyRule>
+            <name>Service ownership</name>
             <description>We require that every service (e.g. application) related to information security has an owner.</description>
             <policyConstraints>
                 <minAssignees>
@@ -85,5 +90,6 @@
                 </record>
             </policyActions>
         </policyRule>
+        <focusType>ServiceType</focusType>
     </inducement>
 </policy>

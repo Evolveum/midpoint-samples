@@ -9,7 +9,7 @@
 <dashboard xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
            xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
            xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-           oid="118b5d33-93b8-4ef1-8c15-9bb9984ffa8b">
+           oid="00000000-0000-0000-0001-000000001001">
     <name>compliance-dashboard</name>
     <display>
         <label>
@@ -29,16 +29,16 @@
                     <key>ComplianceDashboard.securityUnderstaffing</key>
                 </translation>
             </label>
-            <color>#dc3545</color>
             <icon>
                 <cssClass>fa fa-person-arrow-down-to-line</cssClass>
             </icon>
             <tooltip>Security responsibilities that are not properly staffed.</tooltip>
+            <color>var(--success)</color>
         </display>
         <data>
             <sourceType>objectCollection</sourceType>
             <collection>
-                <collectionRef oid="a39c6244-35df-443c-8935-681c58d67a4d" type="c:ObjectCollectionType"/>
+                <collectionRef oid="00000000-0000-0000-0001-000000000351" type="c:ObjectCollectionType"/>
             </collection>
         </data>
         <presentation>
@@ -52,6 +52,7 @@
             </dataField>
         </presentation>
     </widget>
+
     <widget id="2">
         <identifier>users-with-sod-violations</identifier>
         <description>Users with SoD violations.</description>
@@ -62,7 +63,7 @@
                     <key>ComplianceDashboard.usersWithSodViolations</key>
                 </translation>
             </label>
-            <color>#dc3545</color>
+            <color>#28a745</color>
             <icon>
                 <cssClass>fa fa-people-arrows</cssClass>
             </icon>
@@ -70,7 +71,7 @@
         <data>
             <sourceType>objectCollection</sourceType>
             <collection>
-                <collectionRef oid="c8cf8c17-92d2-4b84-baea-0d73138a8f39" type="c:ObjectCollectionType"/>
+                <collectionRef oid="00000000-0000-0000-0001-000000000353" type="c:ObjectCollectionType"/>
             </collection>
         </data>
         <presentation>
@@ -84,6 +85,7 @@
             </dataField>
         </presentation>
     </widget>
+
     <widget id="3">
         <identifier>suspicious-objects</identifier>
         <description>Objects marked as "suspicious".</description>
@@ -94,11 +96,12 @@
             <icon>
                 <cssClass>fa fa-handcuffs</cssClass>
             </icon>
+            <color>var(--success)</color>
         </display>
         <data>
             <sourceType>objectCollection</sourceType>
             <collection>
-                <collectionRef oid="e634a778-9b33-4862-ba09-0aeae8549a75" type="c:ObjectCollectionType"/>
+                <collectionRef oid="00000000-0000-0000-0001-000000000352" type="c:ObjectCollectionType"/>
             </collection>
         </data>
         <presentation>
@@ -110,6 +113,26 @@
                     </proportional>
                 </expression>
             </dataField>
+            <variation>
+                <condition>
+                    <script>
+                        <code>proportional.value > 0</code>
+                    </script>
+                </condition>
+                <display>
+                    <color>var(--orange)</color>
+                </display>
+            </variation>
+<!--            <variation>
+                <condition>
+                    <script>
+                        <code>proportional.value > 3</code>
+                    </script>
+                </condition>
+                <display>
+                    <color>#dc3545</color>
+                </display>
+            </variation> -->
         </presentation>
     </widget>
 
@@ -124,11 +147,12 @@
             <icon>
                 <cssClass>fa fa-building-shield</cssClass>
             </icon>
+            <color>var(--secondary)</color>
         </display>
         <data>
             <sourceType>objectCollection</sourceType>
             <collection>
-                <collectionRef oid="95deed29-e647-455f-b9b6-56058bce59bd" type="c:ObjectCollectionType"/>
+                <collectionRef oid="00000000-0000-0000-0001-000000000350" type="c:ObjectCollectionType"/>
             </collection>
         </data>
         <presentation>
