@@ -12,7 +12,7 @@
                   oid="00000000-0000-0000-0001-000000000351">
     <name>Security understaffing</name>
     <description>Security responsibilities that are not properly staffed.</description>
-    <type>c:ObjectType</type>
+    <type>c:AbstractRoleType</type>
     <filter>
         <q:text>effectiveMarkRef matches ( oid = "00000000-0000-0000-0000-000000000831" )</q:text>
     </filter>
