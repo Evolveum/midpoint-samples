@@ -1,4 +1,0 @@
-        <configurableUserDashboard id="1214">
-            <identifier>compliance-dashboard</identifier>
-            <configurableDashboardRef oid="00000000-0000-0000-0001-000000001001" relation="org:default" type="c:DashboardType"/>
-        </configurableUserDashboard>

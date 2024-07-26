@@ -1,0 +1,5 @@
+= Compliance and Policy Rule Sample
+
+This is midPoint configuration sample, demonstrating use of policy rules for compliance.
+
+The sample is created for midPoint 4.9 and later.
