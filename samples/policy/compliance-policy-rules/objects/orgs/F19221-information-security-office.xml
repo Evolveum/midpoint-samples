@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="4201f838-836a-11ec-991c-0f2e83dd3d36"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>F19221</name>
+    <description>Heavenly seat of Security Officer.</description>
+    <displayName>Information Security Office</displayName>
+    <identifier>19221</identifier>
+    <assignment>
+        <identifier>superorg</identifier>
+        <targetRef oid="293fe73e-472a-11ea-b04f-274374b2c5e2" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000370" type="ArchetypeType"/>
+    </assignment>
+</org>

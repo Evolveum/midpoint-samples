@@ -4,6 +4,12 @@
     <assignment id="1">
         <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="5a4b54ec-4727-11ea-a323-4fcdff560934" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="1954d496-f6ad-11ea-a96a-8bfa569f5fff" type="OrgType"/>
+    </assignment>
 
     <policyStatement>
         <markRef oid="00000000-0000-0000-0000-000000000830"/>

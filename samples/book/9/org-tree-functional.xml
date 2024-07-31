@@ -23,6 +23,7 @@
 
     <org oid="4d12c1ac-440c-11ea-80af-2b314d06ba95">
         <name>F10000</name>
+        <description>Exemplary Amplified Placeholder Enterprise</description>
         <displayName>ExAmPLE, Inc.</displayName>
         <identifier>10000</identifier>
     </org>

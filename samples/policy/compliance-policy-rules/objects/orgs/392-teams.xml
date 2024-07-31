@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="00000000-0000-0000-0000-000000000392"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Teams</name>
+    <description>Root object of all teams.</description>
+    <assignment id="1">
+        <identifier>teams</identifier>
+        <assignmentRelation id="2">
+            <description>We want teams here, nothing else.</description>
+            <holderType>OrgType</holderType>
+            <holderArchetypeRef oid="00000000-0000-0000-0000-000000000372"/>
+            <relation>org:default</relation>
+        </assignmentRelation>
+    </assignment>
+
+</org>

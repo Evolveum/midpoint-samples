@@ -7,6 +7,9 @@
     <assignment id="2">
         <targetRef oid="44449c67-82af-427f-b11c-520427b922ac" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="293fe73e-472a-11ea-b04f-274374b2c5e2" type="OrgType"/>
+    </assignment>
     <fullName>Audrey Auditor</fullName>
     <givenName>Audrey</givenName>
     <familyName>Auditor</familyName>

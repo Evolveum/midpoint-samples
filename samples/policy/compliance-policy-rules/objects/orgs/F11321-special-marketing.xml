@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="93f771f8-4727-11ea-b454-af128c9e17dd"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>F11321</name>
+    <description>We have twisted mind and we are not afraid to use it!</description>
+    <displayName>Special Marketing Task Force</displayName>
+    <identifier>11321</identifier>
+    <assignment>
+        <identifier>superorg</identifier>
+        <targetRef oid="5a4b54ec-4727-11ea-a323-4fcdff560934" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000370" type="ArchetypeType"/>
+    </assignment>
+</org>
