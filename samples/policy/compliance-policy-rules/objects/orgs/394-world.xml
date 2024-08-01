@@ -9,6 +9,7 @@
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>World</name>
     <description>Root object of all locations, representing the "world". All other locations are part of this location.</description>
+    <displayOrder>400</displayOrder>
     <assignment id="1">
         <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000374" type="ArchetypeType"/>

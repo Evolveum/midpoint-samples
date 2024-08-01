@@ -1,0 +1,35 @@
+<policy oid="e4464c00-18ec-4d58-90b2-b2b6c961a2ca"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Approval by line manager</name>
+    <description>Line manager of the user for whom the request is made must approve the request.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000395" type="OrgType"/>
+    </assignment>
+    <inducement>
+        <policyRule>
+            <policyConstraints>
+                <assignment/>
+            </policyConstraints>
+            <policyActions>
+                <approval>
+                    <compositionStrategy>
+                        <order>10</order>
+                    </compositionStrategy>
+                    <approvalSchema>
+                        <stage>
+                            <name>Line managers</name>
+                            <approverExpression>
+                                <trace>true</trace>
+                                <script>
+                                    <code>midpoint.getManagersOidsExceptUser(object)</code>
+                                </script>
+                            </approverExpression>
+                            <evaluationStrategy>allMustApprove</evaluationStrategy>
+                            <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
+                        </stage>
+                    </approvalSchema>
+                </approval>
+            </policyActions>
+        </policyRule>
+    </inducement>
+</policy>

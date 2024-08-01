@@ -10,6 +10,7 @@
     <name>F10000</name>
     <description>Exemplary Amplified Placeholder Enterprise</description>
     <displayName>ExAmPLE, Inc.</displayName>
+    <displayOrder>100</displayOrder>
     <identifier>10000</identifier>
     <assignment id="1">
         <identifier>archetype</identifier>

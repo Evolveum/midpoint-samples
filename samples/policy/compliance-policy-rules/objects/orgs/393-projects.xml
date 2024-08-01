@@ -9,6 +9,7 @@
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Projects</name>
     <description>Root object of all projects.</description>
+    <displayOrder>300</displayOrder>
     <assignment id="1">
         <identifier>projects</identifier>
         <assignmentRelation id="2">

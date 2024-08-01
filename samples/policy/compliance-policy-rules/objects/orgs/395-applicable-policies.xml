@@ -4,20 +4,18 @@
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
-<org oid="00000000-0000-0000-0000-000000000392"
+<org oid="00000000-0000-0000-0000-000000000395"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-    <name>Teams</name>
-    <description>Root object of all teams.</description>
-    <displayOrder>200</displayOrder>
+    <name>Applicable policies</name>
+    <description>Root object of applicable policies, policies that can be easily applied to roles and other objects.</description>
+    <displayOrder>1000</displayOrder>
     <assignment id="1">
-        <identifier>teams</identifier>
+        <identifier>policies</identifier>
         <assignmentRelation id="2">
-            <description>We want teams here, nothing else.</description>
-            <holderType>OrgType</holderType>
-            <holderArchetypeRef oid="00000000-0000-0000-0000-000000000372"/>
+            <description>We want policies here, nothing else.</description>
+            <holderType>PolicyType</holderType>
             <relation>org:default</relation>
         </assignmentRelation>
     </assignment>
-
 </org>
