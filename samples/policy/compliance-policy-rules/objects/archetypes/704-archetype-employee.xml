@@ -17,6 +17,7 @@ oid="00000000-0000-0000-0000-000000000704">
                 <cssClass>fa fa-user</cssClass>
                 <color>blue</color>
             </icon>
+            <tooltip>Employee</tooltip>
         </display>
     </archetypePolicy>
     <archetypeType>auxiliary</archetypeType>

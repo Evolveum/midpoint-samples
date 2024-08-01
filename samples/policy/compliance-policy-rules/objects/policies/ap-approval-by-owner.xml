@@ -3,6 +3,7 @@
     <name>Approval by owner</name>
     <description>Owner of the requested object (role, service) must approve the request.</description>
     <assignment>
+        <identifier>org-approval-policies</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000395" type="OrgType"/>
     </assignment>
     <inducement>

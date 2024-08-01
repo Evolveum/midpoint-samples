@@ -11,7 +11,7 @@
     <description>Root object of all projects.</description>
     <displayOrder>300</displayOrder>
     <assignment id="1">
-        <identifier>projects</identifier>
+        <identifier>assignment-relation-projects</identifier>
         <assignmentRelation id="2">
             <description>We want projects here, nothing else.</description>
             <holderType>OrgType</holderType>

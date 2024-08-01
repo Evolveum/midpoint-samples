@@ -2,6 +2,7 @@
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Approval by experiment</name>
     <assignment>
+        <identifier>org-approval-policies</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000395" type="OrgType"/>
     </assignment>
     <inducement>

@@ -3,6 +3,7 @@
     <name>Approval by line manager</name>
     <description>Line manager of the user for whom the request is made must approve the request.</description>
     <assignment>
+        <identifier>org-approval-policies</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000395" type="OrgType"/>
     </assignment>
     <inducement>

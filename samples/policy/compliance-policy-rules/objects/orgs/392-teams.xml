@@ -11,7 +11,7 @@
     <description>Root object of all teams.</description>
     <displayOrder>200</displayOrder>
     <assignment id="1">
-        <identifier>teams</identifier>
+        <identifier>assignment-relation-teams</identifier>
         <assignmentRelation id="2">
             <description>We want teams here, nothing else.</description>
             <holderType>OrgType</holderType>

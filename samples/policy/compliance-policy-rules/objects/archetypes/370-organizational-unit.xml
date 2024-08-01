@@ -17,6 +17,7 @@
                 <cssClass>fa fa-sitemap</cssClass>
                 <color>#ffc107</color>
             </icon>
+            <tooltip>Organizational unit</tooltip>
         </display>
     </archetypePolicy>
     <assignment id="1">
