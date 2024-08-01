@@ -58,16 +58,6 @@
         </assignment>
     </org>
 
-    <org oid="f5e619a6-4726-11ea-888c-ab25c098d8b3">
-        <name>F11210</name>
-        <description>People that deal with agents (no James Bond here).</description>
-        <displayName>Agent Management Section</displayName>
-        <identifier>11210</identifier>
-        <assignment>
-            <targetRef oid="8887e0b0-4726-11ea-96b0-5f5ced221e42" type="OrgType"/>
-        </assignment>
-    </org>
-
     <org oid="a0c7d92c-4722-11ea-bc8d-d79a6cefb1bf">
         <name>F11300</name>
         <description>Creative bunch that spends money to get more money.</description>
@@ -90,21 +80,11 @@
 
     <org oid="5a4b54ec-4727-11ea-a323-4fcdff560934">
         <name>F11320</name>
-        <description>We are all mad here.</description>
+        <description>We have twisted mind and we are not afraid to use it!</description>
         <displayName>Creative Section</displayName>
         <identifier>11320</identifier>
         <assignment>
             <targetRef oid="a0c7d92c-4722-11ea-bc8d-d79a6cefb1bf" type="OrgType"/>
-        </assignment>
-    </org>
-
-    <org oid="93f771f8-4727-11ea-b454-af128c9e17dd">
-        <name>F11321</name>
-        <description>We have twisted mind and we are not afraid to use it!</description>
-        <displayName>Special Marketing Task Force</displayName>
-        <identifier>11321</identifier>
-        <assignment>
-            <targetRef oid="5a4b54ec-4727-11ea-a323-4fcdff560934" type="OrgType"/>
         </assignment>
     </org>
 
@@ -120,7 +100,7 @@
 
     <org oid="0878ec00-4728-11ea-a745-0b989d121cb9">
         <name>F12100</name>
-        <description>Suits sans sense of humor.</description>
+        <description>Dangerous suits. Do not feed.</description>
         <displayName>Legal Department</displayName>
         <identifier>12100</identifier>
         <assignment>
@@ -128,20 +108,10 @@
         </assignment>
     </org>
 
-    <org oid="5d92bcac-4728-11ea-b314-0720890970e0">
-        <name>F12110</name>
-        <description>Dangerous suits. Do not feed.</description>
-        <displayName>Corporate Counsel Section</displayName>
-        <identifier>12110</identifier>
-        <assignment>
-            <targetRef oid="0878ec00-4728-11ea-a745-0b989d121cb9" type="OrgType"/>
-        </assignment>
-    </org>
-
     <org oid="b26a39c6-4728-11ea-b17c-cbf8b228962c">
         <name>F12200</name>
         <description>Paperwork on top, paperwork on bottom and paperwork in between.</description>
-        <displayName>Backoffice Section</displayName>
+        <displayName>Backoffice Department</displayName>
         <identifier>12200</identifier>
         <assignment>
             <targetRef oid="e1cd3d4a-4727-11ea-9e30-eb8c3002a37c" type="OrgType"/>
