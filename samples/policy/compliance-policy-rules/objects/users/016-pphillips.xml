@@ -1,0 +1,26 @@
+<user oid="2c34a48f-d8ea-4ee0-aaa6-56f54bb4b2ed"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>pphillips</name>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="d809c8c2-4728-11ea-8fba-ebdb0607d4c2" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="d809c8c2-4728-11ea-8fba-ebdb0607d4c2" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>Peter Phillips</fullName>
+    <givenName>Peter</givenName>
+    <familyName>Phillips</familyName>
+    <personalNumber>016</personalNumber>
+</user>

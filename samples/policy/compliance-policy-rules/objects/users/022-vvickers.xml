@@ -1,0 +1,26 @@
+<user oid="74e41251-0c86-4d03-ac03-d7a3f53caae2"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>vvickers</name>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="b26a39c6-4728-11ea-b17c-cbf8b228962c" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="b26a39c6-4728-11ea-b17c-cbf8b228962c" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>Violet Vickers</fullName>
+    <givenName>Violet</givenName>
+    <familyName>Vickers</familyName>
+    <personalNumber>022</personalNumber>
+</user>

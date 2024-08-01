@@ -8,7 +8,7 @@
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>F12100</name>
-    <description>Suits sans sense of humor.</description>
+    <description>Dangerous suits. Do not feed.</description>
     <displayName>Legal Department</displayName>
     <identifier>12100</identifier>
     <assignment>

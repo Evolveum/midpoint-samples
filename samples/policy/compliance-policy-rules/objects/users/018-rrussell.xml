@@ -1,0 +1,23 @@
+<user oid="1d885b20-ccf0-444a-9443-9ef14f17d79d"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>rrussell</name>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="fca2e4ac-4728-11ea-be3a-4f6f8d567435" type="OrgType"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>Roger Russell</fullName>
+    <givenName>Roger</givenName>
+    <familyName>Russell</familyName>
+    <personalNumber>018</personalNumber>
+</user>

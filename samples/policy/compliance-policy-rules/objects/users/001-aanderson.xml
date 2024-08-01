@@ -1,0 +1,27 @@
+<user oid="74ddc2f7-5c2b-4f80-ab15-cb757d21ae86"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>aanderson</name>
+    <title>CSO</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="7a1feb50-471f-11ea-8aab-1b2627541f15" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="7a1feb50-471f-11ea-8aab-1b2627541f15" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>Alice Anderson</fullName>
+    <givenName>Alice</givenName>
+    <familyName>Anderson</familyName>
+    <personalNumber>001</personalNumber>
+</user>

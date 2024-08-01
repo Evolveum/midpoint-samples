@@ -1,0 +1,23 @@
+<user oid="14b8fab5-98da-4bb2-8b41-5f677b281d0a"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>xxanadu</name>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="5a4b54ec-4727-11ea-a323-4fcdff560934" type="OrgType"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="1993199d-457b-4406-b9b5-e453d6d0cd0f" type="OrgType"/>
+    </assignment>
+    <fullName>Xenia Xanadu</fullName>
+    <givenName>Xenia</givenName>
+    <familyName>Xanadu</familyName>
+    <personalNumber>024</personalNumber>
+</user>

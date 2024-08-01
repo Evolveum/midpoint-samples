@@ -1,0 +1,27 @@
+<user oid="7b3ebf0f-441c-4fc7-9443-4f16772c5c95"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>nnewman</name>
+    <documentation>Nathan is software architect. He is also manager of his own department, with no other persons in it.</documentation>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="347fbeea-4729-11ea-a8c4-af1e0d2f06ad" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="347fbeea-4729-11ea-a8c4-af1e0d2f06ad" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>Nathan Newman</fullName>
+    <givenName>Nathan</givenName>
+    <familyName>Newman</familyName>
+    <personalNumber>014</personalNumber>
+</user>

@@ -9,7 +9,7 @@
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>F12200</name>
     <description>Paperwork on top, paperwork on bottom and paperwork in between.</description>
-    <displayName>Backoffice Section</displayName>
+    <displayName>Backoffice Department</displayName>
     <identifier>12200</identifier>
     <assignment>
         <identifier>superorg</identifier>

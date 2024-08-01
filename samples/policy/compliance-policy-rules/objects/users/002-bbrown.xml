@@ -1,0 +1,24 @@
+<user oid="c32ea1db-1a77-4dcc-8c0a-c72ffb91eec7"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>bbrown</name>
+    <title>Corporate counsel</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="0878ec00-4728-11ea-a745-0b989d121cb9" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>Bob Brown</fullName>
+    <givenName>Bob</givenName>
+    <familyName>Brown</familyName>
+    <personalNumber>002</personalNumber>
+</user>
