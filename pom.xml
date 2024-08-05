@@ -21,7 +21,7 @@
 
     <groupId>com.evolveum.midpoint</groupId>
     <artifactId>midpoint-samples</artifactId>
-    <version>4.9-M6</version>
+    <version>4.9-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>midPoint Samples</name>
