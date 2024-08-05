@@ -1,0 +1,38 @@
+<policy oid="82097028-5688-4fcc-93f4-e7c756bb10b9"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Approval by experiment</name>
+    <assignment>
+        <identifier>org-approval-policies</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000395" type="OrgType"/>
+    </assignment>
+    <inducement>
+        <policyRule>
+            <policyConstraints>
+                <assignment/>
+            </policyConstraints>
+            <policyActions>
+                <approval>
+                    <compositionStrategy>
+                        <order>10</order>
+                    </compositionStrategy>
+                    <approvalSchema>
+                        <stage>
+                            <name>Line managers</name>
+                            <approverExpression>
+                                <trace>true</trace>
+                                <script>
+                                    <code>
+                                        log.info("MODEL CONTEXT:\n {}", midpoint.getModelContext()?.debugDump())
+                                        midpoint.getManagersOidsExceptUser(object)
+                                    </code>
+                                </script>
+                            </approverExpression>
+                            <evaluationStrategy>allMustApprove</evaluationStrategy>
+                            <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
+                        </stage>
+                    </approvalSchema>
+                </approval>
+            </policyActions>
+        </policyRule>
+    </inducement>
+</policy>

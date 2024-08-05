@@ -1,0 +1,67 @@
+<policy oid="71a7cb99-3a69-48e3-9521-d9a933c2b5c5" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Category II</name>
+    <description>Classified for internal access.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="91a1bdf1-addc-4d34-b834-190938be3aca" type="PolicyType"/>
+    </inducement>
+    <inducement>
+        <policyRule>
+            <name>required-nda</name>
+            <policyConstraints>
+                <requirement>
+                    <!-- NDA clearance -->
+                    <targetRef oid="09360ff0-d506-4751-b13f-4e01422693ac" type="PolicyType" />
+                </requirement>
+            </policyConstraints>
+            <policyActions>
+                <enforcement>
+                    <documentation>Strict requirement, policy rule is enforced.</documentation>
+                </enforcement>
+            </policyActions>
+        </policyRule>
+    </inducement>
+    <inducement id="4">
+        <orderConstraint>
+            <order>2</order>
+        </orderConstraint>
+        <focusType>UserType</focusType>
+        <focusMappings>
+            <mapping>
+                <strength>strong</strength>
+                <expression>
+                    <value>Category II</value>
+                </expression>
+                <target>
+                    <path>extension/accessCategory</path>
+                </target>
+            </mapping>
+        </focusMappings>
+    </inducement>
+    <inducement>
+        <focusType>ServiceType</focusType>
+        <focusMappings>
+            <mapping>
+                <strength>strong</strength>
+                <expression>
+                    <value>Category II</value>
+                </expression>
+                <condition>
+                    <description>
+                        Dirty hack.
+                        We want to store this value only if it is direct assignment.
+                        We do not want to show classification hierarchy.
+                    </description>
+                    <script>
+                        <code>immediateRole instanceof com.evolveum.midpoint.xml.ns._public.common.common_3.ServiceType</code>
+                    </script>
+                </condition>
+                <target>
+                    <path>extension/accessCategory</path>
+                </target>
+            </mapping>
+        </focusMappings>
+    </inducement>
+</policy>

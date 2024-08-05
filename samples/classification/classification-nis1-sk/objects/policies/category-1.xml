@@ -1,0 +1,48 @@
+<policy oid="91a1bdf1-addc-4d34-b834-190938be3aca" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Category I</name>
+    <description>Classified for public access.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
+    </assignment>
+    <inducement id="4">
+        <orderConstraint>
+            <order>2</order>
+        </orderConstraint>
+        <focusType>UserType</focusType>
+        <focusMappings>
+            <mapping>
+                <strength>strong</strength>
+                <expression>
+                    <value>Category I</value>
+                </expression>
+                <target>
+                    <path>extension/accessCategory</path>
+                </target>
+            </mapping>
+        </focusMappings>
+    </inducement>
+    <inducement>
+        <focusType>ServiceType</focusType>
+        <focusMappings>
+            <mapping>
+                <strength>strong</strength>
+                <expression>
+                    <value>Category I</value>
+                </expression>
+                <condition>
+                    <description>
+                        Dirty hack.
+                        We want to store this value only if it is direct assignment.
+                        We do not want to show classification hierarchy.
+                    </description>
+                    <script>
+                        <code>immediateRole instanceof com.evolveum.midpoint.xml.ns._public.common.common_3.ServiceType</code>
+                    </script>
+                </condition>
+                <target>
+                    <path>extension/accessCategory</path>
+                </target>
+            </mapping>
+        </focusMappings>
+    </inducement>
+</policy>

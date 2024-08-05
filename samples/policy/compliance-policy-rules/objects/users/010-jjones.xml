@@ -1,0 +1,23 @@
+<user oid="7c3be838-1f99-4d2d-8175-1f24f764f22b"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>jjones</name>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="832f409a-4726-11ea-b0be-8b8eab99c1ed" type="OrgType"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>Jack Jones</fullName>
+    <givenName>Jack</givenName>
+    <familyName>Jones</familyName>
+    <personalNumber>010</personalNumber>
+</user>

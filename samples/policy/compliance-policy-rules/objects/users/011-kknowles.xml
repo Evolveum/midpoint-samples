@@ -1,0 +1,26 @@
+<user oid="28141c97-00bf-473a-85c2-1914c9be2d74"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>kknowles</name>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="fca2e4ac-4728-11ea-be3a-4f6f8d567435" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="fca2e4ac-4728-11ea-be3a-4f6f8d567435" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>Kate Knowles</fullName>
+    <givenName>Kate</givenName>
+    <familyName>Knowles</familyName>
+    <personalNumber>011</personalNumber>
+</user>

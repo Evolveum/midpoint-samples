@@ -1,0 +1,26 @@
+<user oid="b098abb3-dc82-4d4f-8e7b-93742a7eeb35"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>ccooper</name>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="3be09f12-4727-11ea-9480-0f471030d570" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="3be09f12-4727-11ea-9480-0f471030d570" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>Carol Cooper</fullName>
+    <givenName>Carol</givenName>
+    <familyName>Cooper</familyName>
+    <personalNumber>003</personalNumber>
+</user>

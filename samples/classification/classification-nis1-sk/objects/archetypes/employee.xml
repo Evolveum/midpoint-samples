@@ -29,6 +29,6 @@ oid="7f7c8cb1-9da4-4845-bd17-49d705b8546a">
     </assignment>
     <inducement>
         <description>Employees have non-disclosure clause in their contracts, therefore NDA clearance is assumed.</description>
-        <targetRef oid="09360ff0-d506-4751-b13f-4e01422693ac" type="RoleType"/>
+        <targetRef oid="09360ff0-d506-4751-b13f-4e01422693ac" type="PolicyType"/>
     </inducement>
 </archetype>

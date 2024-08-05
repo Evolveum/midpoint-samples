@@ -1,0 +1,27 @@
+<user oid="447d4828-ab3d-48e6-9758-c989d9705e24"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>ssimpson</name>
+    <title>CEO</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="4d12c1ac-440c-11ea-80af-2b314d06ba95" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="4d12c1ac-440c-11ea-80af-2b314d06ba95" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>Sophia Simpson</fullName>
+    <givenName>Sophia</givenName>
+    <familyName>Simpson</familyName>
+    <personalNumber>019</personalNumber>
+</user>

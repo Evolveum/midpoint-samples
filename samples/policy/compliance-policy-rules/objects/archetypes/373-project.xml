@@ -1,0 +1,41 @@
+<!--
+  ~ Copyright (c) 2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<archetype oid="00000000-0000-0000-0000-000000000373"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Project</name>
+    <description>Archetype for projects.</description>
+    <archetypePolicy>
+        <display>
+            <label>Project</label>
+            <pluralLabel>Projects</pluralLabel>
+            <icon>
+                <cssClass>fa fa-chart-gantt</cssClass>
+                <color>#ffc107</color>
+            </icon>
+            <tooltip>Project</tooltip>
+        </display>
+    </archetypePolicy>
+    <assignment id="1">
+        <identifier>holderType</identifier>
+        <description>This archetype can be applied to orgs (OrgType).</description>
+        <assignmentRelation id="2">
+            <holderType>OrgType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <inducement id="3">
+        <identifier>membership</identifier>
+        <description>Projects are flat (no sub-teams), have members and manager. May have owner (sponsor).</description>
+        <assignmentRelation id="4">
+            <description>User can be direct member of project, as well as manager and owner.</description>
+            <holderType>UserType</holderType>
+            <relation>org:default</relation>
+            <relation>org:manager</relation>
+            <relation>org:owner</relation>
+        </assignmentRelation>
+    </inducement>
+</archetype>

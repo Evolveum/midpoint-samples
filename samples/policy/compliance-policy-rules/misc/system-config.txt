@@ -1,0 +1,7 @@
+    <defaultObjectPolicyConfiguration>
+       <type>RoleType</type>
+        <applicablePolicies>
+            <policyGroupRef oid="00000000-0000-0000-0000-000000000395"/>
+            <policyGroupRef oid="00000000-0000-0000-0000-000000000396"/>
+        </applicablePolicies>
+    </defaultObjectPolicyConfiguration>

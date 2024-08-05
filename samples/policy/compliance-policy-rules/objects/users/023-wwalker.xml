@@ -1,0 +1,26 @@
+<user oid="ae9bc8e2-ab88-48e6-b6a2-5132240d7c7f"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>wwalker</name>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="ec450da0-4729-11ea-909c-0b931d9f0927" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="ec450da0-4729-11ea-909c-0b931d9f0927" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>William Walker</fullName>
+    <givenName>William</givenName>
+    <familyName>Walker</familyName>
+    <personalNumber>023</personalNumber>
+</user>

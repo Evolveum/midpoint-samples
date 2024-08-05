@@ -1,0 +1,27 @@
+<user oid="e54d3680-8df8-40b9-bb69-1f2daa9c4a15"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>qquinn</name>
+    <title>Physical security manager</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="19e371a2-472a-11ea-95de-5725f879ca5f" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="19e371a2-472a-11ea-95de-5725f879ca5f" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="1c42e1c4-1c9e-491e-b9c0-97f10c189346" type="OrgType"/>
+    </assignment>
+    <fullName>Quentin Quinn</fullName>
+    <givenName>Quentin</givenName>
+    <familyName>Quinn</familyName>
+    <personalNumber>017</personalNumber>
+</user>

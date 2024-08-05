@@ -1,0 +1,12 @@
+{
+    "delegate" : {
+        "@type" : "c:WorkItemDelegationRequestType",
+        "comment" : "Delegating this item to you",
+        "delegate" : {
+            "@ns" : "http://prism.evolveum.com/xml/ns/public/types-3",
+            "oid" : "229487cb-59b6-490b-879d-7a6d925dd08c",
+            "type" : "c:UserType"
+        },
+        "method" : "addAssignees"
+    }
+}

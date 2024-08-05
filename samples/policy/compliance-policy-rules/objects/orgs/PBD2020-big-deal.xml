@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="9c1b8464-edfd-11ea-87b8-db467c5ae301"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>PBD2020</name>
+    <description>Make money fast.</description>
+    <displayName>Big Deal</displayName>
+    <identifier>BD2020</identifier>
+    <assignment>
+        <identifier>root</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000393" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000373" type="ArchetypeType"/>
+    </assignment>
+</org>

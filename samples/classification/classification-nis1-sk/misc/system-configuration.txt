@@ -1,41 +1,4 @@
-
-            <objectCollectionView id="98"> <!-- TODO: change id as needed -->
-                <identifier>application-roles-view</identifier>
-                <display>
-                    <label>Application roles</label>
-                    <singularLabel>Application role</singularLabel>
-                    <tooltip>Application roles</tooltip>
-                </display>
-                <displayOrder>180</displayOrder>
-                <type>RoleType</type>
-                <collection>
-                    <collectionRef oid="00000000-0000-0000-0000-000000000328" relation="org:default" type="c:ArchetypeType">
-                    </collectionRef>
-                </collection>
-            </objectCollectionView>
-            <objectCollectionView id="99"> <!-- TODO: change id as needed -->
-                <identifier>business-roles-view</identifier>
-                <display>
-                    <label>Business roles</label>
-                    <singularLabel>Business role</singularLabel>
-                    <tooltip>Business roles</tooltip>
-                </display>
-                <displayOrder>190</displayOrder>
-                <type>RoleType</type>
-                <collection>
-                    <collectionRef oid="00000000-0000-0000-0000-000000000321" relation="org:default" type="c:ArchetypeType">
-                    </collectionRef>
-                </collection>
-            </objectCollectionView>
-
-
-        <configurableUserDashboard id="1214">
-            <identifier>compliance-dashboard</identifier>
-            <configurableDashboardRef oid="118b5d33-93b8-4ef1-8c15-9bb9984ffa8b" relation="org:default" type="c:DashboardType"/>
-        </configurableUserDashboard>
-
-
-
+Following system configuration snippet extends "Applications" list, adding column for "Category" displaying classification of the application.
 
             <objectCollectionView id="77">
                 <identifier>application</identifier>

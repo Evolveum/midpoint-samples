@@ -1,0 +1,26 @@
+<user oid="e50841ca-6122-4163-a387-0b95c2609d66"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>tturner</name>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="8887e0b0-4726-11ea-96b0-5f5ced221e42" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="8887e0b0-4726-11ea-96b0-5f5ced221e42" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="1c42e1c4-1c9e-491e-b9c0-97f10c189346" type="OrgType"/>
+    </assignment>
+    <fullName>Thomas Turner</fullName>
+    <givenName>Thomas</givenName>
+    <familyName>Turner</familyName>
+    <personalNumber>020</personalNumber>
+</user>

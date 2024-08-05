@@ -5,7 +5,7 @@
         <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType" />
     </assignment>
     <assignment>
-        <targetRef oid="00000000-0000-0000-0000-000000000332" type="RoleType" />
+        <targetRef oid="00000000-0000-0000-0000-000000000332" type="PolicyType" />
     </assignment>
     <inducement>
         <targetRef oid="183cdca7-91da-424c-9ef6-8b481f6aa57f" type="ServiceType" />

@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="00000000-0000-0000-0000-000000000395"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Approval policies</name>
+    <description>Approval policies that can be individually applied to roles.</description>
+    <documentation>Root object of applicable approval policies, approval policies that can be easily applied to roles (and possibly other objects).</documentation>
+    <displayOrder>1000</displayOrder>
+    <assignment id="1">
+        <identifier>assignment-relation-policies</identifier>
+        <assignmentRelation id="2">
+            <description>We want policies here, nothing else.</description>
+            <holderType>PolicyType</holderType>
+            <relation>org:default</relation>
+        </assignmentRelation>
+    </assignment>
+</org>

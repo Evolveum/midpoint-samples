@@ -1,0 +1,23 @@
+<user oid="08c804a4-845e-4a2e-97d0-3e354ea4d97d"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>hharris</name>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="b26a39c6-4728-11ea-b17c-cbf8b228962c" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="1c42e1c4-1c9e-491e-b9c0-97f10c189346" type="OrgType"/>
+    </assignment>
+    <fullName>Harry Harris</fullName>
+    <givenName>Harry</givenName>
+    <familyName>Haris</familyName>
+    <personalNumber>008</personalNumber>
+</user>

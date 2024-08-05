@@ -1,0 +1,27 @@
+<user oid="631009e9-f48e-4b04-80d6-d05ed6583370"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>eevans</name>
+    <title>Marketing director</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="a0c7d92c-4722-11ea-bc8d-d79a6cefb1bf" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="a0c7d92c-4722-11ea-bc8d-d79a6cefb1bf" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>Erin Evans</fullName>
+    <givenName>Erin</givenName>
+    <familyName>Evans</familyName>
+    <personalNumber>005</personalNumber>
+</user>

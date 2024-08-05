@@ -1,0 +1,27 @@
+<user oid="8a9b0896-068a-4691-8256-c54839406675"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>llewis</name>
+    <title>COO</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="e1cd3d4a-4727-11ea-9e30-eb8c3002a37c" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="e1cd3d4a-4727-11ea-9e30-eb8c3002a37c" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>Lily Lewis</fullName>
+    <givenName>Lily</givenName>
+    <familyName>Lewis</familyName>
+    <personalNumber>012</personalNumber>
+</user>

@@ -1,0 +1,24 @@
+<user oid="9f7919d9-e707-4de5-a2fe-0c37eab34d89"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>ddavies</name>
+    <title>Information security specialist</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="293fe73e-472a-11ea-b04f-274374b2c5e2" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <fullName>David Davies</fullName>
+    <givenName>David</givenName>
+    <familyName>Davies</familyName>
+    <personalNumber>004</personalNumber>
+</user>
