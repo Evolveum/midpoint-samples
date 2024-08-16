@@ -8,6 +8,8 @@ package com.evolveum.midpoint.samples.test;
 
 import java.io.File;
 
+import com.evolveum.midpoint.repo.api.RepoAddOptions;
+
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.annotation.DirtiesContext.ClassMode;
 import org.springframework.test.context.ContextConfiguration;
@@ -44,7 +46,11 @@ public abstract class AbstractSampleTest extends AbstractModelIntegrationTest {
         logger.trace("initSystem: modelService.postInit() done");
 
         PrismObject<UserType> userAdministrator =
-                repoAddObjectFromFile(USER_ADMINISTRATOR_FILE, initResult);
+                repoAddObjectFromFile(
+                        USER_ADMINISTRATOR_FILE,
+                        RepoAddOptions.createOverwrite(),
+                        false,
+                        initResult);
         loginSuperUser(userAdministrator);
     }
 }

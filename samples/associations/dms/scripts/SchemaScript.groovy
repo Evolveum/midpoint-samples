@@ -6,11 +6,8 @@ import org.identityconnectors.framework.common.objects.ConnectorObjectReference
 import org.identityconnectors.framework.common.objects.OperationOptionInfoBuilder
 import org.identityconnectors.framework.spi.operations.SearchOp
 
+import static org.identityconnectors.framework.common.objects.AttributeInfo.*
 import static org.identityconnectors.framework.common.objects.AttributeInfo.Flags.MULTIVALUED
-import static org.identityconnectors.framework.common.objects.AttributeInfo.Flags.NOT_CREATABLE
-import static org.identityconnectors.framework.common.objects.AttributeInfo.Flags.NOT_READABLE
-import static org.identityconnectors.framework.common.objects.AttributeInfo.Flags.NOT_RETURNED_BY_DEFAULT
-import static org.identityconnectors.framework.common.objects.AttributeInfo.Flags.NOT_UPDATEABLE
 
 def log = log as Log
 def operation = operation as OperationType
@@ -26,7 +23,7 @@ builder.schema({
         attributes {
             fullname()
             email()
-            access ConnectorObjectReference, 'userAccess#1', MULTIVALUED
+            access ConnectorObjectReference, '->access', MULTIVALUED, RoleInReference.SUBJECT
         }
     }
 
@@ -34,18 +31,15 @@ builder.schema({
         type 'documentStore'
         attributes {
             description()
-            access ConnectorObjectReference, 'accessDocumentStore#2', NOT_READABLE, NOT_UPDATEABLE, NOT_CREATABLE, NOT_RETURNED_BY_DEFAULT, MULTIVALUED
         }
     }
 
     objectClass {
         type 'access'
-        associated()
+        embedded()
         attributes {
             level()
-            //noinspection GroovyAssignabilityCheck
-            user ConnectorObjectReference, 'userAccess#2', NOT_READABLE, NOT_UPDATEABLE, NOT_CREATABLE, NOT_RETURNED_BY_DEFAULT
-            documentStore ConnectorObjectReference, 'accessDocumentStore#1'
+            documentStore ConnectorObjectReference, '->documentStore', RoleInReference.SUBJECT
         }
     }
 
