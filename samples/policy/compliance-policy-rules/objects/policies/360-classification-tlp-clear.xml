@@ -1,0 +1,8 @@
+<policy oid="00000000-0000-0000-0000-000000000360" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>TLP:CLEAR</name>
+    <description>Disclosure is not limited. Recipients may share this information without restriction. Information is subject to standard copyright rules.</description>
+    <documentation>Classification according to Traffic Light Protocol (TLP).</documentation>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
+    </assignment>
+</policy>

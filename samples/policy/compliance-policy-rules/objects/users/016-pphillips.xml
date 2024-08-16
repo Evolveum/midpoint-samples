@@ -19,6 +19,9 @@
     <assignment id="5">
         <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
     </assignment>
+    <assignment id="6">
+        <targetRef oid="183cdca7-91da-424c-9ef6-8b481f6aa57f" type="ServiceType" relation="org:owner"/>
+    </assignment>
     <fullName>Peter Phillips</fullName>
     <givenName>Peter</givenName>
     <familyName>Phillips</familyName>

@@ -1,0 +1,11 @@
+<policy oid="00000000-0000-0000-0000-000000000364" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>TLP:RED</name>
+    <description>Not for disclosure, restricted to participants only. Recipients may not share TLP:RED information with any parties outside of the specific exchange, meeting, or conversation in which it was originally disclosed.</description>
+    <documentation>Classification according to Traffic Light Protocol (TLP).</documentation>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="00000000-0000-0000-0000-000000000363" type="PolicyType"/>
+    </inducement>
+</policy>

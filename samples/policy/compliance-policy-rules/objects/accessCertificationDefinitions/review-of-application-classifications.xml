@@ -1,0 +1,39 @@
+<accessCertificationDefinition oid="f76513f0-7790-4a17-9af3-6e9d06ce6357"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <name>Review of application classifications</name>
+    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/certification/handlers-3#direct-assignment</handlerUri>
+    <scopeDefinition xsi:type="c:AccessCertificationAssignmentReviewScopeType">
+        <name>Application classifications</name>
+        <includeAssignments>true</includeAssignments>
+        <includeInducements>false</includeInducements>
+        <includeResources>false</includeResources>
+        <includeRoles>true</includeRoles>
+        <includeOrgs>false</includeOrgs>
+        <includeServices>false</includeServices>
+        <includeUsers>false</includeUsers>
+        <enabledItemsOnly>true</enabledItemsOnly>
+        <objectType>ServiceType</objectType>
+    </scopeDefinition>
+    <remediationDefinition>
+        <style>reportOnly</style>
+    </remediationDefinition>
+    <stageDefinition id="2">
+        <number>1</number>
+        <name>Stage 1</name>
+        <duration>P1M</duration>
+        <notifyOnlyWhenNoDecision>false</notifyOnlyWhenNoDecision>
+        <reviewerSpecification>
+            <useTargetOwner>false</useTargetOwner>
+            <useTargetApprover>false</useTargetApprover>
+            <useObjectOwner>true</useObjectOwner>
+            <useObjectApprover>false</useObjectApprover>
+        </reviewerSpecification>
+    </stageDefinition>
+    <reviewStrategy>
+        <outcomeStrategy>oneDenyDenies</outcomeStrategy>
+    </reviewStrategy>
+</accessCertificationDefinition>

@@ -1,0 +1,10 @@
+<service oid="183cdca7-91da-424c-9ef6-8b481f6aa57f" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Collaboration platform</name>
+    <description>System for team collaboration, used for internal collaboration, as well as collaboration with partners and suppliers. Contains meeting notes, memos, plans ...</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
+    </assignment>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000362" type="PolicyType" />
+    </assignment>
+</service>
