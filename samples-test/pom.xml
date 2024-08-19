@@ -267,12 +267,12 @@
         <repository>
             <id>evolveum</id>
             <name>Evolveum Public Releases</name>
-            <url>https://nexus.evolveum.com/nexus/content/groups/public/</url>
+            <url>https://nexus.evolveum.com/nexus/repository/public/</url>
         </repository>
         <repository>
             <id>evolveum-snapshots</id>
             <name>Evolveum Snapshots</name>
-            <url>https://nexus.evolveum.com/nexus/content/repositories/snapshots/</url>
+            <url>https://nexus.evolveum.com/nexus/repository/snapshots/</url>
         </repository>
         <repository>
             <id>spring-milestone</id>
