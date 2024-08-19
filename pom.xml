@@ -50,12 +50,12 @@
         <repository>
             <id>evolveum-nexus</id>
             <name>Internal Releases</name>
-            <url>https://nexus.evolveum.com/nexus/content/repositories/releases/</url>
+            <url>https://nexus.evolveum.com/nexus/repository/releases/</url>
         </repository>
         <snapshotRepository>
             <id>evolveum-nexus</id>
             <name>Internal Snapshots</name>
-            <url>https://nexus.evolveum.com/nexus/content/repositories/snapshots/</url>
+            <url>https://nexus.evolveum.com/nexus/repository/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
