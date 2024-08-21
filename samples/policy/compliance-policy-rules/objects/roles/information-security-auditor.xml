@@ -1,6 +1,9 @@
 <role oid="44449c67-82af-427f-b11c-520427b922ac" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Information security auditor</name>
     <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
         <policyRule>
             <name>excluded-dpo</name>
             <policyConstraints>
