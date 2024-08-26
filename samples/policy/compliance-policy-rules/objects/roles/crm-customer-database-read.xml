@@ -1,0 +1,13 @@
+<role oid="eb107649-0e2a-4c4a-b58e-1d4b5729a1c2"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>CRM: Customer database read</name>
+    <description>Read-only access to customer database.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="d630eb6e-eee6-4cbe-84e4-23ed247132bf" type="ServiceType"/>
+    </inducement>
+    <requestable>true</requestable>
+</role>

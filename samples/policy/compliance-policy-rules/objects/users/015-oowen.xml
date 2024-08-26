@@ -17,6 +17,9 @@
     <assignment id="5">
         <targetRef oid="1c42e1c4-1c9e-491e-b9c0-97f10c189346" type="OrgType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="00864c66-7ef7-4b65-a539-d17704a8841e" type="RoleType"/>
+    </assignment>
     <fullName>Oliver Owen</fullName>
     <givenName>Oliver</givenName>
     <familyName>Owen</familyName>

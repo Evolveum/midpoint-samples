@@ -1,0 +1,22 @@
+<role oid="00864c66-7ef7-4b65-a539-d17704a8841e" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Financial auditor</name>
+    <description>Responsible for review of financial statements, documents, data, and accounting entries.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
+        <policyRule>
+            <name>excluded-invoice-clerk</name>
+            <description>Financial audit must be segregated from backoffice/accounting</description>
+            <policyConstraints>
+                <exclusion>
+                    <targetRef oid="82d0d8a6-9459-46e3-87e8-3f469f34fd2d" type="RoleType"/>
+                </exclusion>
+            </policyConstraints>
+            <markRef oid="00000000-0000-0000-0000-000000000811"/>
+            <policyActions>
+                <record/>
+            </policyActions>
+        </policyRule>
+    </assignment>
+</role>

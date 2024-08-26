@@ -1,4 +1,6 @@
-<service oid="183cdca7-91da-424c-9ef6-8b481f6aa57f" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+<service oid="183cdca7-91da-424c-9ef6-8b481f6aa57f"
+         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Collaboration platform</name>
     <description>System for team collaboration, used for internal collaboration, as well as collaboration with partners and suppliers. Contains meeting notes, memos, plans ...</description>
     <assignment>

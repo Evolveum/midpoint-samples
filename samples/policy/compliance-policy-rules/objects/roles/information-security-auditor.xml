@@ -4,20 +4,6 @@
         <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
     </assignment>
     <assignment>
-        <policyRule>
-            <name>excluded-dpo</name>
-            <policyConstraints>
-                <exclusion>
-                    <targetRef oid="362ff95e-25ef-4635-b497-96566037f4f1" type="RoleType"/>
-                </exclusion>
-            </policyConstraints>
-            <markRef oid="00000000-0000-0000-0000-000000000811"/>
-            <policyActions>
-                <record/>
-            </policyActions>
-        </policyRule>
-    </assignment>
-    <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000333" type="PolicyType"/>
     </assignment>
 </role>

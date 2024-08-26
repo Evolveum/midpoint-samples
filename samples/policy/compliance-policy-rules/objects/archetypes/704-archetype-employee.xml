@@ -27,4 +27,7 @@ oid="00000000-0000-0000-0000-000000000704">
             <holderType>UserType</holderType>
         </assignmentRelation>
     </assignment>
+    <inducement>
+        <targetRef oid="00000000-0000-0000-0000-000000000008" type="RoleType"/>
+    </inducement>
 </archetype>

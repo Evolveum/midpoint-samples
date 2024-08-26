@@ -1,0 +1,37 @@
+<role oid="d9f9a7f4-e48c-46b9-b103-76c213068b4f"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Maintainer of owned roles</name>
+    <description>Allows access to role maintenance of all roles that the user owns.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <authorization>
+        <name>role-owner-read-all</name>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#read</action>
+        <object>
+            <type>RoleType</type>
+            <owner>
+                <special>self</special>
+            </owner>
+        </object>
+    </authorization>
+    <authorization>
+        <name>role-owner-modify</name>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-model-3#modify</action>
+        <object>
+            <type>RoleType</type>
+            <owner>
+                <special>self</special>
+            </owner>
+        </object>
+        <item>description</item>
+    </authorization>
+    <authorization>
+        <name>gui-role-management</name>
+        <description>
+            Allow access to all necessary role management pages.
+        </description>
+        <action>http://midpoint.evolveum.com/xml/ns/public/security/authorization-ui-3#rolesAll</action>
+    </authorization>
+</role>

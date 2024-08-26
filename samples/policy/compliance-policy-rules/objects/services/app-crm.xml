@@ -1,4 +1,6 @@
-<service oid="d630eb6e-eee6-4cbe-84e4-23ed247132bf" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+<service oid="d630eb6e-eee6-4cbe-84e4-23ed247132bf"
+         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>CRM</name>
     <description>Customer relationship management system. Contains customer database and internal sales information.</description>
     <assignment>

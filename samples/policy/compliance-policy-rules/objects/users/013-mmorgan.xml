@@ -20,8 +20,21 @@
     <assignment id="5">
         <targetRef oid="1c42e1c4-1c9e-491e-b9c0-97f10c189346" type="OrgType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="00864c66-7ef7-4b65-a539-d17704a8841e" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="d9f9a7f4-e48c-46b9-b103-76c213068b4f" type="RoleType"/>
+    </assignment>
     <fullName>Max Morgan</fullName>
     <givenName>Max</givenName>
     <familyName>Morgan</familyName>
     <personalNumber>013</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>qwe123</clearValue>
+            </value>
+        </password>
+    </credentials>
 </user>

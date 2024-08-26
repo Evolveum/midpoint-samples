@@ -1,4 +1,6 @@
-<service oid="45bb3cea-fde9-4590-812a-e86b37492bcd" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+<service oid="45bb3cea-fde9-4590-812a-e86b37492bcd"
+         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Public Website</name>
     <description>Company website, contains public information only. Access to the website is managed using LDAP groups.</description>
     <assignment>

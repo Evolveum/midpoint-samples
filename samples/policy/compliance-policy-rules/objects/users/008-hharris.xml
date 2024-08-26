@@ -16,8 +16,12 @@
     <assignment id="4">
         <targetRef oid="1c42e1c4-1c9e-491e-b9c0-97f10c189346" type="OrgType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="82d0d8a6-9459-46e3-87e8-3f469f34fd2d" type="RoleType"/>
+    </assignment>
     <fullName>Harry Harris</fullName>
     <givenName>Harry</givenName>
     <familyName>Haris</familyName>
+    <title>Invoice clerk</title>
     <personalNumber>008</personalNumber>
 </user>
