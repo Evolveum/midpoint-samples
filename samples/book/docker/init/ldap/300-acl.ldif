@@ -1,0 +1,26 @@
+dn:  olcDatabase={1}{{ LDAP_BACKEND }},cn=config
+changetype: modify
+replace: olcAccess
+olcAccess: {0}to dn="cn=admin,{{ LDAP_BASE_DN }}"
+  by anonymous auth
+  by self write
+  by * none
+olcAccess: {1}to attrs=userPassword dn.subtree="ou=people,{{ LDAP_BASE_DN }}" filter="roomNumber=disabled" by dn.subtree="ou=Services,{{ LDAP_BASE_DN }}" none by anonymous none by * break
+olcAccess: {2}to attrs=userPassword,shadowLastChange
+  by dn="cn=idm,ou=Administrators,{{ LDAP_BASE_DN }}" write
+  by dn="cn=admin,{{ LDAP_BASE_DN }}" write
+  by anonymous auth
+  by self write
+  by * none
+olcAccess: {3}to dn.base=""
+  by * read
+olcAccess: {4}to dn.subtree="ou=people,{{ LDAP_BASE_DN }}"
+  by dn="cn=idm,ou=Administrators,{{ LDAP_BASE_DN }}" write
+  by self read
+olcAccess: {5}to dn.subtree="ou=groups,{{ LDAP_BASE_DN }}"
+  by dn="cn=idm,ou=Administrators,{{ LDAP_BASE_DN }}" write
+olcAccess: {7}to *
+  by dn="cn=admin,{{ LDAP_BASE_DN }}" write
+  by dn="cn=idm,ou=Administrators,{{ LDAP_BASE_DN }}" read
+  by self read
+  by * none

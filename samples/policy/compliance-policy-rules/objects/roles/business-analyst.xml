@@ -1,0 +1,11 @@
+<role oid="aaa6cde4-0471-11e9-9b50-c743da469067" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Business analyst</name>
+    <description>TODO.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <!-- TODO: OpenLDAP -->
+    <inducement>
+        <targetRef oid="d630eb6e-eee6-4cbe-84e4-23ed247132bf" type="ServiceType"/>
+    </inducement>
+</role>

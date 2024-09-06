@@ -1,0 +1,32 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="692a1bea-2414-4475-8e6c-513f192877c6">
+    <name>HR import</name>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000503" relation="org:default" type="c:ArchetypeType">
+            <!-- Import task -->
+        </targetRef>
+    </assignment>
+    <taskIdentifier>1725549225105-12820-1</taskIdentifier>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType">
+        <!-- administrator -->
+    </ownerRef>
+    <executionState>suspended</executionState>
+    <schedulingState>suspended</schedulingState>
+    <objectRef oid="03c3ceea-78e2-11e6-954d-dfdfa9ace0cf" relation="org:default" type="c:ResourceType">
+        <!-- HR System -->
+    </objectRef>
+    <binding>loose</binding>
+    <activity>
+        <work>
+            <import>
+                <resourceObjects>
+                    <resourceRef oid="03c3ceea-78e2-11e6-954d-dfdfa9ace0cf" relation="org:default" type="c:ResourceType">
+                        <!-- HR System -->
+                    </resourceRef>
+                    <kind>account</kind>
+                    <intent>default</intent>
+                </resourceObjects>
+            </import>
+        </work>
+    </activity>
+</task>
+

@@ -1,0 +1,12 @@
+#load sssvlv module
+dn: cn=module{0},cn=config
+changetype: modify
+add: olcModuleLoad
+olcModuleLoad: {3}sssvlv
+
+#configure sssvlv module
+dn: olcOverlay=sssvlv,olcDatabase={1}{{ LDAP_BACKEND }},cn=config
+changetype: add
+objectClass: olcSssVlvConfig
+objectClass: olcOverlayConfig
+olcOverlay: sssvlv

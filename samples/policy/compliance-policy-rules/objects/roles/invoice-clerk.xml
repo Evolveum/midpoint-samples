@@ -1,4 +1,4 @@
-<role oid="82d0d8a6-9459-46e3-87e8-3f469f34fd2d" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+<role oid="48d4ef98-20e3-46ab-cd78-548d38364a6b" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Invoice clerk</name>
     <description>Responsible for processing invoices, invoice payments, corrections, etc.</description>
     <assignment>

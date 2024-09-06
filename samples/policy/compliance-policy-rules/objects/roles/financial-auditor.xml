@@ -10,7 +10,7 @@
             <description>Financial audit must be segregated from backoffice/accounting</description>
             <policyConstraints>
                 <exclusion>
-                    <targetRef oid="82d0d8a6-9459-46e3-87e8-3f469f34fd2d" type="RoleType"/>
+                    <targetRef oid="48d4ef98-20e3-46ab-cd78-548d38364a6b" type="RoleType"/>
                 </exclusion>
             </policyConstraints>
             <markRef oid="00000000-0000-0000-0000-000000000811"/>

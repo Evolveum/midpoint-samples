@@ -1,0 +1,30 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="fd91ff73-352e-41d5-b538-bd9f7b609bf9">
+    <name>HR reconciliation</name>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000501" relation="org:default" type="c:ArchetypeType"/>
+    </assignment>
+    <taskIdentifier>1725550259488-12820-1</taskIdentifier>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType">
+        <!-- administrator -->
+    </ownerRef>
+    <executionState>suspended</executionState>
+    <schedulingState>suspended</schedulingState>
+    <objectRef oid="03c3ceea-78e2-11e6-954d-dfdfa9ace0cf" relation="org:default" type="c:ResourceType">
+        <!-- HR System -->
+    </objectRef>
+    <binding>loose</binding>
+    <activity>
+        <work>
+            <reconciliation>
+                <resourceObjects>
+                    <resourceRef oid="03c3ceea-78e2-11e6-954d-dfdfa9ace0cf" relation="org:default" type="c:ResourceType">
+                        <!-- HR System -->
+                    </resourceRef>
+                    <kind>account</kind>
+                    <intent>default</intent>
+                </resourceObjects>
+            </reconciliation>
+        </work>
+    </activity>
+</task>
+
