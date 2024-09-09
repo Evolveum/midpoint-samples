@@ -29,7 +29,10 @@
 
     <name>HR System</name>
 
-    <description>Resource definition for HR source resource. It is based on CSV exports from the HR system.</description>
+    <description>
+        Resource definition for HR source resource. It is based on CSV exports from the HR system.
+        This is a sample used in the "Practical Identity Management with MidPoint" book, chapter 5.
+    </description>
 
     <connectorRef type="ConnectorType">
         <filter>
@@ -38,20 +41,23 @@
     </connectorRef>
 
     <connectorConfiguration>
-
+        <!-- Configuration specific for the CSV connector -->
         <icfc:configurationProperties
-                    xmlns:icfccsvfile="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
+                xmlns:icfccsvfile="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
             <icfccsvfile:filePath>/opt/midpoint/var/resources/hr.csv</icfccsvfile:filePath>
+            <icfccsvfile:encoding>utf-8</icfccsvfile:encoding>
             <icfccsvfile:fieldDelimiter>,</icfccsvfile:fieldDelimiter>
+            <icfccsvfile:multivalueDelimiter>;</icfccsvfile:multivalueDelimiter>
             <icfccsvfile:uniqueAttribute>empno</icfccsvfile:uniqueAttribute>
+            <icfccsvfile:passwordAttribute>password</icfccsvfile:passwordAttribute>
         </icfc:configurationProperties>
-
     </connectorConfiguration>
 
     <schemaHandling>
 
         <objectType>
-            <displayName>HR Record</displayName>
+            <displayName>Default Account</displayName>
+            <default>true</default>
             <delineation>
                 <objectClass>AccountObjectClass</objectClass>
             </delineation>
@@ -60,7 +66,12 @@
                 <displayName>Employee number</displayName>
                 <inbound>
                     <target>
-                        <path>name</path>
+                        <path>$focus/name</path>
+                    </target>
+                </inbound>
+                <inbound>
+                    <target>
+                        <path>$focus/personalNumber</path>
                     </target>
                 </inbound>
             </attribute>
@@ -69,7 +80,7 @@
                 <displayName>First name</displayName>
                 <inbound>
                     <target>
-                        <path>givenName</path>
+                        <path>$focus/givenName</path>
                     </target>
                 </inbound>
             </attribute>
@@ -78,7 +89,7 @@
                 <displayName>Last name</displayName>
                 <inbound>
                     <target>
-                        <path>familyName</path>
+                        <path>$focus/familyName</path>
                     </target>
                 </inbound>
             </attribute>
@@ -98,6 +109,16 @@
                     </inbound>
                 </password>
             </credentials>
+
+            <correlation>
+                <correlators>
+                    <items>
+                        <item>
+                            <ref>personalNumber</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
 
             <synchronization>
                 <reaction>
@@ -125,6 +146,7 @@
                     </actions>
                 </reaction>
             </synchronization>
+
         </objectType>
 
     </schemaHandling>
@@ -134,3 +156,4 @@
     </projection>
 
 </resource>
+

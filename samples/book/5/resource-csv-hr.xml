@@ -64,14 +64,6 @@
             <attribute>
                 <ref>empno</ref>
                 <displayName>Employee number</displayName>
-                <limitations>
-                    <minOccurs>0</minOccurs>
-                    <access>
-                        <read>true</read>
-                        <add>true</add>
-                        <modify>true</modify>
-                    </access>
-                </limitations>
                 <inbound>
                     <target>
                         <path>$focus/name</path>
@@ -130,15 +122,9 @@
 
             <synchronization>
                 <reaction>
-                    <situation>linked</situation>
+                    <situation>unmatched</situation>
                     <actions>
-                        <synchronize/>
-                    </actions>
-                </reaction>
-                <reaction>
-                    <situation>deleted</situation>
-                    <actions>
-                        <deleteFocus/>
+                        <addFocus/>
                     </actions>
                 </reaction>
                 <reaction>
@@ -148,9 +134,15 @@
                     </actions>
                 </reaction>
                 <reaction>
-                    <situation>unmatched</situation>
+                    <situation>linked</situation>
                     <actions>
-                        <addFocus/>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <actions>
+                        <deleteFocus/>
                     </actions>
                 </reaction>
             </synchronization>
