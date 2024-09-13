@@ -5,6 +5,7 @@
 #
 dn: uid=anderson,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: anderson
 cn: Alice Anderson
 sn: Anderson
@@ -14,6 +15,7 @@ userPassword: qwe123
 
 dn: uid=brown,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: brown
 cn: Robert Brown
 sn: Brown
@@ -23,6 +25,7 @@ userPassword: qwe123
 
 dn: uid=carol,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: carol
 cn: Carol Cooper
 sn: Cooper
@@ -32,6 +35,7 @@ userPassword: qwe123
 
 dn: uid=davies,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: davies
 cn: David Davies
 sn: Davies
@@ -41,6 +45,7 @@ userPassword: qwe123
 
 dn: uid=evans,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: evans
 cn: Erin Evans
 sn: Evans
@@ -50,6 +55,7 @@ userPassword: qwe123
 
 dn: uid=fox,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: fox
 cn: Frank Fox
 sn: Fox
@@ -58,6 +64,7 @@ userPassword: qwe123
 
 dn: uid=green,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: green
 cn: Goerge Green
 sn: Green
@@ -67,6 +74,7 @@ userPassword: qwe123
 
 dn: uid=harris,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: harris
 cn: Harry Harris
 sn: Harris
@@ -76,6 +84,7 @@ userPassword: qwe123
 
 dn: uid=irvine,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: irvine
 cn: Isabella Irvine
 sn: Irvine
@@ -85,6 +94,7 @@ userPassword: qwe123
 
 dn: uid=jones,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: jones
 cn: Jack Jones
 sn: Jones
@@ -94,6 +104,7 @@ userPassword: qwe123
 
 dn: uid=knowles,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: knowles
 cn: Kate Knowles
 sn: Knowles
@@ -103,6 +114,7 @@ userPassword: qwe123
 
 dn: uid=lewis,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: lewis
 cn: Lily Lewis
 sn: Lewis
@@ -112,6 +124,7 @@ userPassword: qwe123
 
 dn: uid=morgan,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: morgan
 cn: Max Morgan
 sn: Morgan
@@ -121,6 +134,7 @@ userPassword: qwe123
 
 dn: uid=newman,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: newman
 cn: Nathan Newman
 sn: Newman
@@ -130,6 +144,7 @@ userPassword: qwe123
 
 dn: uid=owen,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: owen
 cn: Oliver Owens
 sn: Owen
@@ -139,6 +154,7 @@ userPassword: qwe123
 
 dn: uid=phillips,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: phillips
 cn: Peter Phillips
 sn: Phillips
@@ -148,6 +164,7 @@ userPassword: qwe123
 
 dn: uid=quin,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: quin
 cn: Quentin Quin
 sn: Quin
@@ -157,6 +174,7 @@ userPassword: qwe123
 
 dn: uid=russell,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: russell
 cn: Roger Russell
 sn: Russell
@@ -166,6 +184,7 @@ userPassword: qwe123
 
 dn: uid=simpson,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: simpson
 cn: Sophia Simpson
 sn: Simpson
@@ -175,6 +194,7 @@ userPassword: qwe123
 
 dn: uid=turner,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: turner
 cn: Thomas Turner
 sn: Turner
@@ -184,6 +204,7 @@ userPassword: qwe123
 
 dn: uid=underhill,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: underhill
 cn: Uma Underhill
 sn: Underhill
@@ -193,6 +214,7 @@ userPassword: qwe123
 
 dn: uid=violet,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: violet
 cn: Violet Vickers
 sn: Vickers
@@ -201,6 +223,7 @@ userPassword: qwe123
 
 dn: uid=walker,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: walker
 cn: Johny Walker
 sn: Walker
@@ -210,6 +233,7 @@ userPassword: qwe123
 
 dn: uid=xanadu,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: xanadu
 cn: Xenia Xanadu
 sn: Xanadu
@@ -219,6 +243,7 @@ userPassword: qwe123
 
 dn: uid=young,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: young
 cn: Yasmine Young
 sn: Young
@@ -228,9 +253,33 @@ userPassword: qwe123
 
 dn: uid=zimmerman,ou=People,dc=example,dc=com
 objectclass: inetOrgPerson
+objectclass: midPointPerson
 uid: zimmerman
 cn: Zed Zimmerman
 sn: Zimmerman
 givenName: Zed
 employeeNumber: 026
 userPassword: qwe123
+
+# former employee, this is disabled, as it should be
+dn: uid=john,ou=People,dc=example,dc=com
+objectclass: inetOrgPerson
+objectclass: midPointPerson
+uid: john
+cn: John Smith
+sn: Smith
+givenName: John
+employeeNumber: 223
+userPassword: dammit
+midPointAccountStatus: disabled
+
+# former employee, this one is still enabled
+dn: uid=oscar,ou=People,dc=example,dc=com
+objectclass: inetOrgPerson
+objectclass: midPointPerson
+uid: oscar
+cn: Oscar Menace
+sn: Menace
+givenName: Oscar
+employeeNumber: 222
+userPassword: dammit

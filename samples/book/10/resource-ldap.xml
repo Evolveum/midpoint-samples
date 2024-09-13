@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2019 Evolveum
+  ~ Copyright (c) 2010-2020 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -163,6 +163,17 @@
                     </expression>
                 </outbound>
             </attribute>
+            <attribute>
+                <ref>ri:employeeNumber</ref>
+                <limitations>
+                    <maxOccurs>1</maxOccurs>
+                </limitations>
+                <outbound>
+                    <source>
+                        <path>$focus/employeeNumber</path>
+                    </source>
+                </outbound>
+            </attribute>
 
             <activation>
                 <administrativeStatus>
@@ -175,6 +186,68 @@
                     <outbound/>
                 </password>
             </credentials>
+
+        </objectType>
+
+        <objectType>
+            <kind>generic</kind>
+            <intent>ou</intent>
+            <displayName>Organizational Unit</displayName>
+            <objectClass>ri:organizationalUnit</objectClass>
+
+            <attribute>
+                <ref>ri:dn</ref>
+                <displayName>Distinguished Name</displayName>
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                    <maxOccurs>1</maxOccurs>
+                </limitations>
+                <outbound>
+                    <name>ldap-ou-dn</name>
+                    <trace>true</trace>
+                    <source>
+                        <path>$focus/name</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>
+                                import javax.naming.ldap.Rdn
+                                import javax.naming.ldap.LdapName
+
+                                // We will collect names of the org units in the orgpath list
+                                // We cannot add them to dn yet as we need their order to be reversed
+                                def orgpath = []
+                                def node = focus
+                                while (true) {
+                                    log.debug("processing node {}", node)
+                                    orgpath.add(node.displayName.orig)
+                                    if (node.parentOrgRef == null || node.parentOrgRef.isEmpty()) {
+                                        break
+                                    } else {
+                                        node = midpoint.resolveReference(node.parentOrgRef[0])
+                                    }
+                                }
+
+                                log.debug("orgpath={}", orgpath)
+                                def dn = new LdapName('ou=org,dc=example,dc=com')
+                                orgpath.reverse().each { ouname -> dn.add(new Rdn('ou',ouname)) }
+                                return dn.toString()
+                            </code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:ou</ref>
+                <limitations>
+                    <maxOccurs>1</maxOccurs>
+                </limitations>
+                <outbound>
+                    <source>
+                        <path>$focus/displayName</path>
+                    </source>
+                </outbound>
+            </attribute>
 
         </objectType>
 

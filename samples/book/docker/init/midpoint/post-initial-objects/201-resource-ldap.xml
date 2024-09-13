@@ -69,6 +69,7 @@
             <default>true</default>
             <delineation>
                 <objectClass>inetOrgPerson</objectClass>
+                <auxiliaryObjectClass>midPointPerson</auxiliaryObjectClass>
             </delineation>
 
             <attribute>
@@ -139,6 +140,13 @@
                 <limitations>
                     <maxOccurs>1</maxOccurs>
                 </limitations>
+                <inbound>
+                    <lifecycleState>draft</lifecycleState>
+                    <strength>strong</strength>
+                    <target>
+                        <path>name</path>
+                    </target>
+                </inbound>
                 <outbound>
                     <strength>weak</strength>
                     <source>
@@ -216,6 +224,19 @@
         </objectType>
 
     </schemaHandling>
+
+    <capabilities>
+        <configured>
+            <cap:activation>
+                <cap:status>
+                    <cap:attribute>ri:midPointAccountStatus</cap:attribute>
+                    <cap:enableValue></cap:enableValue>
+                    <cap:enableValue>enabled</cap:enableValue>
+                    <cap:disableValue>disabled</cap:disableValue>
+                </cap:status>
+            </cap:activation>
+        </configured>
+    </capabilities>
 
 </resource>
 

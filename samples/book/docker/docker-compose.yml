@@ -68,6 +68,7 @@ services:
   ldap:
     image: osixia/openldap:1.5.0
     entrypoint: [ "/container/tool/run", "--copy-service" ]
+#    entrypoint: [ "/container/tool/run", "--copy-service", "--loglevel", "debug" ]
     ports:
       - "11389:389"
     environment:
@@ -79,7 +80,8 @@ services:
     volumes:
       - ldap_conf:/etc/ldap/slapd.d
       - ldap_data:/var/lib/ldap
-      - ./init/ldap/:/container/service/slapd/assets/config/bootstrap/ldif/custom/:ro
+      - ./init/ldap/ldif/:/container/service/slapd/assets/config/bootstrap/ldif/custom/:ro
+      - ./init/ldap/schema/:/container/service/slapd/assets/config/bootstrap/schema/custom/:ro
 
 
 networks:

@@ -61,6 +61,10 @@
             <delineation>
                 <objectClass>AccountObjectClass</objectClass>
             </delineation>
+            <focus>
+                <type>UserType</type>
+                <archetypeRef oid="00000000-0000-0000-0000-000000000702"/>
+            </focus>
             <attribute>
                 <ref>empno</ref>
                 <displayName>Employee number</displayName>

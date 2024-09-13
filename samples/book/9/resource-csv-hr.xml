@@ -32,7 +32,7 @@
     <description>
         HR resource using CSV connector. This is the HR feed (source) resource.
         This is a sample used in the "Practical Identity Management with MidPoint"
-        book, chapter 5.
+        book, chapter 8.
     </description>
 
     <connectorRef type="ConnectorType">
@@ -111,22 +111,6 @@
                 <inbound>
                     <target>
                         <path>$focus/extension/jobCode</path>
-                    </target>
-                </inbound>
-            </attribute>
-            <attribute>
-                <ref>ri:orgnum</ref>
-                <inbound>
-                    <expression>
-                        <assignmentTargetSearch>
-                            <targetType>OrgType</targetType>
-                            <filter>
-                                <q:text>identifier = $input</q:text>
-                            </filter>
-                        </assignmentTargetSearch>
-                    </expression>
-                    <target>
-                        <path>$focus/assignment</path>
                     </target>
                 </inbound>
             </attribute>
