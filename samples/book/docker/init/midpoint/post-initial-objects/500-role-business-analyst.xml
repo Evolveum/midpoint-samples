@@ -14,27 +14,24 @@
   ~ limitations under the License.
   -->
 
-<role oid="b9d2b604-b9b9-11e9-bbc4-17d8e85623b4"
+<role oid="aaa6cde4-0471-11e9-9b50-c743da469067"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema">
-    <name>Sales Assistant</name>
-    <extension>
-        <exmpl:autoassignJobCode>S008</exmpl:autoassignJobCode>
-    </extension>
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
+    <name>Business Analyst</name>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
     </assignment>
     <inducement>
         <construction>
-            <!-- OpenLDAP -->
-            <resourceRef oid="8a83b1a4-be18-11e6-ae84-7301fdab1d7c" />
+            <!-- OpenLDAP resource -->
+            <resourceRef oid="8a83b1a4-be18-11e6-ae84-7301fdab1d7c"/>
+            <kind>account</kind>
             <attribute>
                 <ref>ri:title</ref>
                 <outbound>
                     <expression>
-                        <value>Sales Assistant</value>
+                        <value>Business Analyst</value>
                     </expression>
                 </outbound>
             </attribute>
@@ -42,16 +39,9 @@
     </inducement>
     <inducement>
         <construction>
-            <!-- CRM -->
-            <resourceRef oid="04afeda6-394b-11e6-8cbe-abf7ff430056" />
-            <attribute>
-                <ref>ri:accesslevel</ref>
-                <outbound>
-                    <expression>
-                        <value>ASSISTANT</value>
-                    </expression>
-                </outbound>
-            </attribute>
+            <!-- CRM resource -->
+            <resourceRef oid="04afeda6-394b-11e6-8cbe-abf7ff430056"/>
+            <kind>account</kind>
         </construction>
     </inducement>
 </role>

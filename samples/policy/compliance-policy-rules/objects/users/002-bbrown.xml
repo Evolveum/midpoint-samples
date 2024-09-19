@@ -1,8 +1,12 @@
 <user oid="c32ea1db-1a77-4dcc-8c0a-c72ffb91eec7"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>bbrown</name>
-    <title>Corporate counsel</title>
+    <extension>
+        <exmpl:jobCode>O302</exmpl:jobCode>
+    </extension>
+    <title>Corporate Counsel</title>
     <assignment id="1">
         <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>

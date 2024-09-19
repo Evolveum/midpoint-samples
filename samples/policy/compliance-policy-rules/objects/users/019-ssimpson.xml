@@ -1,7 +1,11 @@
 <user oid="447d4828-ab3d-48e6-9758-c989d9705e24"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>ssimpson</name>
+    <extension>
+        <exmpl:jobCode>B001</exmpl:jobCode>
+    </extension>
     <title>CEO</title>
     <assignment id="1">
         <identifier>archetype</identifier>

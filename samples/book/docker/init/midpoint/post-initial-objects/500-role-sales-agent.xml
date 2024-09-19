@@ -14,18 +14,15 @@
   ~ limitations under the License.
   -->
 
-<role oid="b9d2b604-b9b9-11e9-bbc4-17d8e85623b4"
+<role oid="b93af850-b9b9-11e9-8c2c-dfb9a89635a0"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
       xmlns:exmpl="http://example.com/xml/ns/midpoint/schema">
-    <name>Sales Assistant</name>
+    <name>Sales Agent</name>
     <extension>
-        <exmpl:autoassignJobCode>S008</exmpl:autoassignJobCode>
+        <exmpl:autoassignJobCode>S007</exmpl:autoassignJobCode>
     </extension>
-    <assignment>
-        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
-    </assignment>
     <inducement>
         <construction>
             <!-- OpenLDAP -->
@@ -34,7 +31,7 @@
                 <ref>ri:title</ref>
                 <outbound>
                     <expression>
-                        <value>Sales Assistant</value>
+                        <value>Sales Agent</value>
                     </expression>
                 </outbound>
             </attribute>
@@ -48,7 +45,7 @@
                 <ref>ri:accesslevel</ref>
                 <outbound>
                     <expression>
-                        <value>ASSISTANT</value>
+                        <value>AGENT</value>
                     </expression>
                 </outbound>
             </attribute>

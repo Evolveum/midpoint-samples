@@ -1,5 +1,10 @@
-<role oid="00864c66-7ef7-4b65-a539-d17704a8841e" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+<role oid="00864c66-7ef7-4b65-a539-d17704a8841e"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema">
     <name>Financial auditor</name>
+    <extension>
+        <exmpl:autoassignJobCode>C011</exmpl:autoassignJobCode>
+    </extension>
     <description>Responsible for review of financial statements, documents, data, and accounting entries.</description>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>

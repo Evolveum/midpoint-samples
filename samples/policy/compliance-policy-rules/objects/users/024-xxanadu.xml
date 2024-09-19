@@ -1,5 +1,6 @@
 <user oid="14b8fab5-98da-4bb2-8b41-5f677b281d0a"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>xxanadu</name>
     <assignment id="1">

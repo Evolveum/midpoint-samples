@@ -23,6 +23,9 @@
     <extension>
         <exmpl:autoassignJobCode>S007</exmpl:autoassignJobCode>
     </extension>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
     <inducement>
         <construction>
             <!-- OpenLDAP -->

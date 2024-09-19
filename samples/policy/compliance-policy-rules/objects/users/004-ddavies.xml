@@ -1,8 +1,12 @@
 <user oid="9f7919d9-e707-4de5-a2fe-0c37eab34d89"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>ddavies</name>
-    <title>Information security specialist</title>
+    <extension>
+        <exmpl:jobCode>C112</exmpl:jobCode>
+    </extension>
+    <title>Information Security Specialist</title>
     <assignment id="1">
         <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>

@@ -1,7 +1,11 @@
 <user oid="08c804a4-845e-4a2e-97d0-3e354ea4d97d"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>hharris</name>
+    <extension>
+        <exmpl:jobCode>O105</exmpl:jobCode>
+    </extension>
     <assignment id="1">
         <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
@@ -22,6 +26,6 @@
     <fullName>Harry Harris</fullName>
     <givenName>Harry</givenName>
     <familyName>Haris</familyName>
-    <title>Invoice clerk</title>
+    <title>Invoice Clerk</title>
     <personalNumber>008</personalNumber>
 </user>

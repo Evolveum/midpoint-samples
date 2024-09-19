@@ -1,7 +1,12 @@
 <user oid="a9363449-4269-4f64-b133-218e6fe7329d"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>ggreen</name>
+    <extension>
+        <exmpl:jobCode>O232</exmpl:jobCode>
+    </extension>
+    <title>System Administrator</title>
     <assignment id="1">
         <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>

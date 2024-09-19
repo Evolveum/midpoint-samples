@@ -1,7 +1,11 @@
 <user oid="7c3be838-1f99-4d2d-8175-1f24f764f22b"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>jjones</name>
+    <extension>
+        <exmpl:jobCode>S007</exmpl:jobCode>
+    </extension>
     <assignment id="1">
         <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
@@ -19,9 +23,13 @@
     <assignment>
         <targetRef oid="eb107649-0e2a-4c4a-b58e-1d4b5729a1c2" relation="org:approver" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="b93af850-b9b9-11e9-8c2c-dfb9a89635a0" type="RoleType"/>
+    </assignment>
     <fullName>Jack Jones</fullName>
     <givenName>Jack</givenName>
     <familyName>Jones</familyName>
+    <title>Sales Agent</title>
     <personalNumber>010</personalNumber>
     <credentials>
         <password>

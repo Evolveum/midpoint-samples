@@ -1,7 +1,12 @@
 <user oid="7b3ebf0f-441c-4fc7-9443-4f16772c5c95"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>nnewman</name>
+    <extension>
+        <exmpl:jobCode>O211</exmpl:jobCode>
+    </extension>
+    <title>Software Architect</title>
     <documentation>Nathan is software architect. He is also manager of his own department, with no other persons in it.</documentation>
     <assignment id="1">
         <identifier>archetype</identifier>

@@ -1,7 +1,11 @@
 <user oid="7497ab53-6ab5-4c1a-8001-66c48185f5ef"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>oowen</name>
+    <extension>
+        <exmpl:jobCode>C011</exmpl:jobCode>
+    </extension>
     <title>Financial auditor</title>
     <assignment id="1">
         <identifier>archetype</identifier>

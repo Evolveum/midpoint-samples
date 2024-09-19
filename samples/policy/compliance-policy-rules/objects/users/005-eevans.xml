@@ -1,8 +1,12 @@
 <user oid="631009e9-f48e-4b04-80d6-d05ed6583370"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>eevans</name>
-    <title>Marketing director</title>
+    <extension>
+        <exmpl:jobCode>S106</exmpl:jobCode>
+    </extension>
+    <title>Marketing Director</title>
     <assignment id="1">
         <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
@@ -22,6 +26,9 @@
     </assignment>
     <assignment id="6">
         <targetRef oid="45bb3cea-fde9-4590-812a-e86b37492bcd" type="ServiceType" relation="org:owner"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="b5828699-34ac-41c9-97ef-3ee3d17ef3ce" type="RoleType"/>
     </assignment>
     <fullName>Erin Evans</fullName>
     <givenName>Erin</givenName>

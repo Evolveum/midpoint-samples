@@ -1,7 +1,11 @@
 <user oid="74ddc2f7-5c2b-4f80-ab15-cb757d21ae86"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>aanderson</name>
+    <extension>
+        <exmpl:jobCode>B002</exmpl:jobCode>
+    </extension>
     <title>CSO</title>
     <assignment id="1">
         <identifier>archetype</identifier>
@@ -22,6 +26,12 @@
     </assignment>
     <assignment id="6">
         <targetRef oid="d630eb6e-eee6-4cbe-84e4-23ed247132bf" type="ServiceType" relation="org:owner"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="a1572de4-b9b9-11e9-af3e-5f68b3207f97" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="b5828699-34ac-41c9-97ef-3ee3d17ef3ce" type="RoleType"/>
     </assignment>
     <fullName>Alice Anderson</fullName>
     <givenName>Alice</givenName>
