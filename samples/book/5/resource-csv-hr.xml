@@ -49,7 +49,6 @@
             <icfccsvfile:fieldDelimiter>,</icfccsvfile:fieldDelimiter>
             <icfccsvfile:multivalueDelimiter>;</icfccsvfile:multivalueDelimiter>
             <icfccsvfile:uniqueAttribute>empno</icfccsvfile:uniqueAttribute>
-            <icfccsvfile:passwordAttribute>password</icfccsvfile:passwordAttribute>
         </icfc:configurationProperties>
     </connectorConfiguration>
 

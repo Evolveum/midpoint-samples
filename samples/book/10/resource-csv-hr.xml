@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2019 Evolveum
+  ~ Copyright (c) 2010-2023 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -17,22 +17,21 @@
 
 
 <resource oid="03c3ceea-78e2-11e6-954d-dfdfa9ace0cf"
-            xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-            xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-            xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-            xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
-            xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
-            xmlns:ext="http://midpoint.evolveum.com/xml/ns/story/orgsync/ext"
-            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+          xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+          xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+          xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+          xmlns:ext="http://midpoint.evolveum.com/xml/ns/story/orgsync/ext"
+          xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
 
     <name>HR System</name>
 
     <description>
-        HR resource using CSV connector. This is the HR feed (source) resource.
-        This is a sample used in the "Practical Identity Management with MidPoint"
-        book, chapter 5.
+        Resource definition for HR source resource. It is based on CSV exports from the HR system.
+        This is a sample used in the "Practical Identity Management with MidPoint" book, chapter 9.
     </description>
 
     <connectorRef type="ConnectorType">
@@ -58,21 +57,19 @@
         <objectType>
             <displayName>Default Account</displayName>
             <default>true</default>
-            <objectClass>ri:AccountObjectClass</objectClass>
+            <delineation>
+                <objectClass>AccountObjectClass</objectClass>
+            </delineation>
+            <focus>
+                <type>UserType</type>
+                <archetypeRef oid="00000000-0000-0000-0000-000000000702"/>
+            </focus>
             <attribute>
-                <ref>ri:empno</ref>
+                <ref>empno</ref>
                 <displayName>Employee number</displayName>
-                <limitations>
-                    <minOccurs>0</minOccurs>
-                    <access>
-                        <read>true</read>
-                        <add>true</add>
-                        <modify>true</modify>
-                    </access>
-                </limitations>
                 <inbound>
                     <target>
-                        <path>$focus/employeeNumber</path>
+                        <path>$focus/personalNumber</path>
                     </target>
                 </inbound>
                 <inbound>
@@ -88,7 +85,7 @@
                 </inbound>
             </attribute>
             <attribute>
-                <ref>ri:firstname</ref>
+                <ref>firstname</ref>
                 <displayName>First name</displayName>
                 <inbound>
                     <target>
@@ -97,7 +94,7 @@
                 </inbound>
             </attribute>
             <attribute>
-                <ref>ri:lastname</ref>
+                <ref>lastname</ref>
                 <displayName>Last name</displayName>
                 <inbound>
                     <target>
@@ -106,7 +103,7 @@
                 </inbound>
             </attribute>
             <attribute>
-                <ref>ri:jobcode</ref>
+                <ref>jobcode</ref>
                 <displayName>Job code</displayName>
                 <inbound>
                     <target>
@@ -115,7 +112,7 @@
                 </inbound>
             </attribute>
             <attribute>
-                <ref>ri:orgnum</ref>
+                <ref>orgnum</ref>
                 <inbound>
                     <expression>
                         <assignmentTargetSearch>
@@ -147,6 +144,43 @@
                 </password>
             </credentials>
 
+            <correlation>
+                <correlators>
+                    <items>
+                        <item>
+                            <ref>personalNumber</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+
+            <synchronization>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <actions>
+                        <deleteFocus/>
+                    </actions>
+                </reaction>
+            </synchronization>
+
         </objectType>
 
     </schemaHandling>
@@ -155,43 +189,4 @@
         <assignmentPolicyEnforcement>none</assignmentPolicyEnforcement>
     </projection>
 
-    <synchronization>
-        <objectSynchronization>
-            <enabled>true</enabled>
-            <correlation>
-                <q:equal>
-                    <q:path>employeeNumber</q:path>
-                    <expression>
-                        <path>$projection/attributes/empno</path>
-                    </expression>
-                </q:equal>
-            </correlation>
-            <reaction>
-                <situation>linked</situation>
-                <synchronize>true</synchronize>
-            </reaction>
-            <reaction>
-                <situation>deleted</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#deleteFocus</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unlinked</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unmatched</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-                </action>
-            </reaction>
-        </objectSynchronization>
-    </synchronization>
 </resource>
-

@@ -1,0 +1,69 @@
+= Docker Compose Configuration - Book Samples
+
+This is a docker compose configuration following the configuration used in midPoint book.
+
+Use the `book-example.sh` script to set up and start the environment:
+
+* `book-example.sh start` starts the containers up.
+It also initializes the environment (midPoint home directory) before first start.
+
+* `book-example.sh reset` resets everything to initial state.
+All data will be lost.
+
+== Steps To Proceed
+
+The initial state corresponds roughly to the beginning of chapter 5 (Synchronization) of the book.
+However, the resources are pre-configured for later chapters (e.g. job codes, org units)
+
+Following steps can be used to proceed to state for later chapters:
+
+. Start/resume `LDAP Reconciliation` task.
+
+. Navigate to LDAP accounts, manually correlate unmatched accounts (`fox` -> `006`, `irvine` -> `009`, `violet` -> `022`).
+Some accounts are left unmatched (`john`, `oscar`).
+
+. Activate LDAP inbound mapping `uid` -> `name`.
+
+. Activate delete reaction for _unmatched_ situation.
+
+. Run `LDAP Reconciliation` task again.
+
+. Check that users have human-friendly usernames.
+Unmatched LDAP accounts should be gone.
+We are roughly at the state that corresponds to the end of chapter 5 (Synchronization).
+
+. Disable LDAP inbound mapping `uid` -> `name`.
+
+. Disable `empno` -> `name` inbound mapping in HR resource, to make sure HR is not going to ruin our usernames.
+
+. There is no need to do anything for Chapter 6 (Schema), schema extensions are already in the container.
+
+. There is no need to do anything for Chapter 7 (RBAC), the roles are already imported in midPoint.
+
+. There is no need to do anything for Chapter 8 (Archetypes), the chapter deals with initial objects only.
+
+. Change `fullName` mapping in Person object template to active.
+
+. Change `autoassign-jobcode` mapping for `assignment` in Person object template to active.
+
+. Activate role autoassignment in system configuration.
+
+. Recompute all users. Run `Recompute users` task.
+
+
+== Structure
+
+Subdirectories:
+
+* `init` has initial configuration used by the containers.
+
+** `midpoint` initial configuration for midPoint (post-initial objects, schema, CSV resources)
+
+** `ldap` initial configuration for OpenLDAP (schema, config and basic entries)
+
+** `postgres` initial configuration for PostgreSQL (DB schema for database resources CRM and Portal)
+
+* `midpoint_home` is midPoint home directory, used by midPoint container.
+It is created by the `book-example.sh` script, to make sure it has correct owenership and permissions.
+It is then populated by midPoint container at first start.
+It is writable, you can modify the resource CSV files and copy connector JARs here.
