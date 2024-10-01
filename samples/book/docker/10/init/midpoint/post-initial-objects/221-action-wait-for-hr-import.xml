@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<s:executeScript
+    xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+    xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+<s:execute>
+    <s:forWholeInput>true</s:forWholeInput>
+    <s:script>
+        <code>
+            import com.evolveum.midpoint.xml.ns._public.common.common_3.*
+        </code>
+    </s:script>
+</s:execute>
+</s:executeScript>

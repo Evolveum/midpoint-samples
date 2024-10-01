@@ -1,0 +1,95 @@
+services:
+  midpoint_data:
+    image: postgres:16-alpine
+    environment:
+     - POSTGRES_PASSWORD=db.secret.pw.007
+     - POSTGRES_USER=midpoint
+     - POSTGRES_INITDB_ARGS=--lc-collate=en_US.utf8 --lc-ctype=en_US.utf8
+    networks:
+     - net
+    volumes:
+     - midpoint_data:/var/lib/postgresql/data
+     - ./init/postgres:/docker-entrypoint-initdb.d
+
+  data_init:
+    image: evolveum/midpoint:${MP_VER:-latest}-alpine
+    command: >
+      bash -c "
+      cd /opt/midpoint ;
+      bin/midpoint.sh init-native ;
+      echo ' - - - - - - ' ;
+      bin/ninja.sh -B info >/dev/null 2>/tmp/ninja.log ;
+      grep -q \"ERROR\" /tmp/ninja.log && (
+      bin/ninja.sh run-sql --create --mode REPOSITORY  ;
+      bin/ninja.sh run-sql --create --mode AUDIT
+      ) ||
+      echo -e '\\n Repository init is not needed...' ;
+      "
+    depends_on:
+     - midpoint_data
+    environment:
+     - MP_SET_midpoint_repository_jdbcUsername=midpoint
+     - MP_SET_midpoint_repository_jdbcPassword=db.secret.pw.007
+     - MP_SET_midpoint_repository_jdbcUrl=jdbc:postgresql://midpoint_data:5432/midpoint
+     - MP_SET_midpoint_repository_database=postgresql
+     - MP_INIT_CFG=/opt/midpoint/var
+     - UMASK=0007
+    networks:
+     - net
+    volumes:
+     - ./midpoint_home:/opt/midpoint/var
+
+  midpoint_server:
+    image: evolveum/midpoint:${MP_VER:-latest}-alpine
+    depends_on:
+      data_init:
+        condition: service_completed_successfully
+      midpoint_data:
+        condition: service_started
+    command: [ "/opt/midpoint/bin/midpoint.sh", "container" ]
+    ports:
+      - 8080:8080
+    environment:
+     - MP_SET_midpoint_repository_jdbcUsername=midpoint
+     - MP_SET_midpoint_repository_jdbcPassword=db.secret.pw.007
+     - MP_SET_midpoint_repository_jdbcUrl=jdbc:postgresql://midpoint_data:5432/midpoint
+     - MP_SET_midpoint_repository_database=postgresql
+     - MP_SET_midpoint_administrator_initialPassword=Test5ecr3t
+     - MP_UNSET_midpoint_repository_hibernateHbm2ddl=1
+     - MP_ENTRY_POINT=/opt/midpoint-dirs-docker-entrypoint
+     - MP_NO_ENV_COMPAT=1
+     - UMASK=0007
+    networks:
+     - net
+    volumes:
+     - ./midpoint_home:/opt/midpoint/var
+     - ./init/midpoint/:/opt/midpoint-dirs-docker-entrypoint/:ro
+
+  ldap:
+    image: osixia/openldap:1.5.0
+    entrypoint: [ "/container/tool/run", "--copy-service" ]
+#    entrypoint: [ "/container/tool/run", "--copy-service", "--loglevel", "debug" ]
+    ports:
+      - "11389:389"
+    environment:
+      - LDAP_DOMAIN=example.com
+      - LDAP_ADMIN_PASSWORD=secret
+      - LDAP_TLS=false
+    networks:
+      - net
+    volumes:
+      - ldap_conf:/etc/ldap/slapd.d
+      - ldap_data:/var/lib/ldap
+      - ./init/ldap/ldif/:/container/service/slapd/assets/config/bootstrap/ldif/custom/:ro
+      - ./init/ldap/schema/:/container/service/slapd/assets/config/bootstrap/schema/custom/:ro
+
+
+networks:
+  net:
+    driver: bridge
+
+volumes:
+  midpoint_data:
+  ldap_conf:
+  ldap_data:
+

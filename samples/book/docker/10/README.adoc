@@ -1,0 +1,47 @@
+= Docker Compose Configuration - Book Samples, Chapter 10
+
+This is a docker compose configuration following the configuration used in midPoint book.
+
+Use the `book-example.sh` script to set up and start the environment:
+
+* `book-example.sh start` starts the containers up.
+It also initializes the environment (midPoint home directory) before first start.
+
+* `book-example.sh reset` resets everything to initial state.
+All data will be lost.
+
+== Steps To Proceed
+
+The initial state corresponds roughly to the end of chapter 10 (Organizational Structure) of the book.
+
+Following steps can be used to fully initialize the configuration:
+
+. Start/resume `LDAP Reconciliation` task.
+
+. Disable LDAP inbound mapping `uid` -> `name`.
+
+. Change `autoassign-jobcode` mapping for `assignment` in Person object template to active.
+
+. Activate role autoassignment in system configuration.
+
+. Activate `assignment` mapping for `Employee` role in HR resources (in `empno` attribute).
+
+. Reconcile HR resource.
+
+
+== Structure
+
+Subdirectories:
+
+* `init` has initial configuration used by the containers.
+
+** `midpoint` initial configuration for midPoint (post-initial objects, schema, CSV resources)
+
+** `ldap` initial configuration for OpenLDAP (schema, config and basic entries)
+
+** `postgres` initial configuration for PostgreSQL (DB schema for database resources CRM and Portal)
+
+* `midpoint_home` is midPoint home directory, used by midPoint container.
+It is created by the `book-example.sh` script, to make sure it has correct owenership and permissions.
+It is then populated by midPoint container at first start.
+It is writable, you can modify the resource CSV files and copy connector JARs here.

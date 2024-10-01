@@ -1,4 +1,4 @@
-= Docker Compose Configuration - Book Samples
+= Docker Compose Configuration - Book Samples, Chapter 5
 
 This is a docker compose configuration following the configuration used in midPoint book.
 
