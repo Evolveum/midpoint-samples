@@ -7,7 +7,9 @@ See samples/contrib/README for the instructions.
 
 ## Testing samples
 
-To test the samples use `test.bat` or `test.sh` scripts which run included test build.
+To test the samples fill out `test-setenv.sh` or `test-setenv.bat` to set-up connection parameters for
+Native Postgresql repository with database schema already prepared.
+Use `test.bat` or `test.sh` scripts which run included test build.
 The test project `samples-test` is separate and not directly part of the samples project,
 but it depends on both midPoint (to run the tests) and on the samples project (tested stuff).
 
