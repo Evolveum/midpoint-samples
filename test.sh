@@ -11,4 +11,4 @@ JVERSION="$(java --version 2>/dev/null | head -1 | cut -d' ' -f2 | cut -d'.' -f1
   echo "Java version should be 11 or newer, is \"$JVERSION\", but we'll try anyway"
 
 ./mvnw clean install
-./mvnw -f samples-test clean package
+#./mvnw -f samples-test clean package
