@@ -1,8 +1,11 @@
-<user oid="b098abb3-dc82-4d4f-8e7b-93742a7eeb35"
+<user oid="74e41251-0c86-4d03-ac03-d7a3f53caae2"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-    <name>ccooper</name>
+    <name>violet</name>
+    <extension>
+        <exmpl:jobCode>O101</exmpl:jobCode>
+    </extension>
     <assignment id="1">
         <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
@@ -12,16 +15,19 @@
         <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
     </assignment>
     <assignment id="3">
-        <targetRef oid="3be09f12-4727-11ea-9480-0f471030d570" type="OrgType"/>
+        <targetRef oid="b26a39c6-4728-11ea-b17c-cbf8b228962c" type="OrgType"/>
     </assignment>
     <assignment id="4">
-        <targetRef oid="3be09f12-4727-11ea-9480-0f471030d570" type="OrgType" relation="org:manager"/>
+        <targetRef oid="b26a39c6-4728-11ea-b17c-cbf8b228962c" type="OrgType" relation="org:manager"/>
     </assignment>
     <assignment id="5">
         <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
     </assignment>
-    <fullName>Carol Cooper</fullName>
-    <givenName>Carol</givenName>
-    <familyName>Cooper</familyName>
-    <personalNumber>003</personalNumber>
+    <assignment>
+        <targetRef oid="86e58643-d5e7-36a8-04f6-38dc3754f04e" type="RoleType"/>
+    </assignment>
+    <fullName>Violet Vickers</fullName>
+    <givenName>Violet</givenName>
+    <familyName>Vickers</familyName>
+    <personalNumber>022</personalNumber>
 </user>

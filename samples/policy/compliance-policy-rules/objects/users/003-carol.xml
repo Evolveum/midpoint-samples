@@ -1,11 +1,8 @@
-<user oid="2c34a48f-d8ea-4ee0-aaa6-56f54bb4b2ed"
+<user oid="b098abb3-dc82-4d4f-8e7b-93742a7eeb35"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-    <name>pphillips</name>
-    <extension>
-        <exmpl:jobCode>O231</exmpl:jobCode>
-    </extension>
+    <name>carol</name>
     <assignment id="1">
         <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
@@ -15,19 +12,16 @@
         <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
     </assignment>
     <assignment id="3">
-        <targetRef oid="d809c8c2-4728-11ea-8fba-ebdb0607d4c2" type="OrgType"/>
+        <targetRef oid="3be09f12-4727-11ea-9480-0f471030d570" type="OrgType"/>
     </assignment>
     <assignment id="4">
-        <targetRef oid="d809c8c2-4728-11ea-8fba-ebdb0607d4c2" type="OrgType" relation="org:manager"/>
+        <targetRef oid="3be09f12-4727-11ea-9480-0f471030d570" type="OrgType" relation="org:manager"/>
     </assignment>
     <assignment id="5">
         <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
     </assignment>
-    <assignment id="6">
-        <targetRef oid="183cdca7-91da-424c-9ef6-8b481f6aa57f" type="ServiceType" relation="org:owner"/>
-    </assignment>
-    <fullName>Peter Phillips</fullName>
-    <givenName>Peter</givenName>
-    <familyName>Phillips</familyName>
-    <personalNumber>016</personalNumber>
+    <fullName>Carol Cooper</fullName>
+    <givenName>Carol</givenName>
+    <familyName>Cooper</familyName>
+    <personalNumber>003</personalNumber>
 </user>

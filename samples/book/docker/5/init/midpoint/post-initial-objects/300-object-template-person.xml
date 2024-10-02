@@ -98,6 +98,7 @@
         <ref>emailAddress</ref>
         <mapping>
             <name>generate-email</name>
+            <lifecycleState>draft</lifecycleState>
             <strength>weak</strength>
             <source>
                 <path>givenName</path>

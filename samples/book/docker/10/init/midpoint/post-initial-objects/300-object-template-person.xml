@@ -45,7 +45,7 @@
                         tmpGivenName = basic.trim(basic.norm(basic.stringify(givenName)))
                         tmpFamilyName  = basic.trim(basic.norm(basic.stringify(familyName)))
                         tmpGivenNameInitial = tmpGivenName?.take(1)
-                        return (tmpGivenNameInitial + tmpFamilyName?.replaceAll(" ", "")) + iterationToken // no spaces
+                        return (tmpGivenNameInitial + tmpFamilyName?.replaceAll(" ", ""))?.take(8) + iterationToken // no spaces
                     </code>
                 </script>
             </expression>

@@ -2,7 +2,7 @@
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-    <name>aanderson</name>
+    <name>aanderso</name>
     <extension>
         <exmpl:jobCode>B002</exmpl:jobCode>
     </extension>
