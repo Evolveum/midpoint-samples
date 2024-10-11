@@ -31,7 +31,7 @@
     <description>
         Resource that contains organization chart (org tree) in a from of CSV file.
         This is a sample used in the "Practical Identity Management with MidPoint"
-        book, chapter 9.
+        book, chapter 10.
     </description>
 
     <connectorRef type="ConnectorType">
@@ -64,7 +64,7 @@
             <intent>orgunit</intent>
             <focus>
                 <type>OrgType</type>
-                <archetypeRef oid="475106e4-1dfe-11eb-8429-534869969212"/>
+                <archetypeRef oid="99fa4b3c-8702-11ef-896e-0b7221540b8b"/>
             </focus>
             <attribute>
                 <ref>orgnum</ref>

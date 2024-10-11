@@ -14,6 +14,6 @@
     <identifier>10000</identifier>
     <assignment id="1">
         <identifier>archetype</identifier>
-        <targetRef oid="00000000-0000-0000-0000-000000000371" type="ArchetypeType"/>
+        <targetRef oid="886bfa6e-8702-11ef-9c40-6fce51f54b0d" type="ArchetypeType"/>
     </assignment>
 </org>

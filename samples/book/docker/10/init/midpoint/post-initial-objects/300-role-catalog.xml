@@ -1,0 +1,12 @@
+<!--
+  ~ Copyright (c) 2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="945315a6-fc23-11ea-832e-1f9945adb481"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Role Catalog</name>
+    <displayOrder>500</displayOrder>
+</org>

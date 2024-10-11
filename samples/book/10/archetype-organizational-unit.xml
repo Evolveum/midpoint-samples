@@ -1,0 +1,54 @@
+<!--
+  ~ Copyright (c) 2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<archetype oid="99fa4b3c-8702-11ef-896e-0b7221540b8b"
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Organizational unit</name>
+    <description>Archetype for organizational unit (departments, divisions, sections), usually forming functional organizational structure.</description>
+    <archetypePolicy>
+        <display>
+            <label>Organizational unit</label>
+            <pluralLabel>Organizational units</pluralLabel>
+            <icon>
+                <cssClass>fa fa-sitemap</cssClass>
+                <color>#ffc107</color>
+            </icon>
+            <tooltip>Organizational unit</tooltip>
+        </display>
+    </archetypePolicy>
+    <assignment id="1">
+        <identifier>holderType</identifier>
+        <description>This archetype can be applied to orgs (OrgType).</description>
+        <assignmentRelation id="2">
+            <holderType>OrgType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <inducement id="3">
+        <identifier>membership</identifier>
+        <description>Organizational units are hierarchical, have members and manager.</description>
+        <assignmentRelation id="4">
+            <description>User can be direct member of organizational unit, as well as manager.</description>
+            <holderType>UserType</holderType>
+            <relation>org:default</relation>
+            <relation>org:manager</relation>
+        </assignmentRelation>
+        <assignmentRelation id="5">
+            <description>Organizational units that are part of this organization. Organizational units are hierarchical, there can be organizational units within organizational units.</description>
+            <holderType>OrgType</holderType>
+            <holderArchetypeRef oid="99fa4b3c-8702-11ef-896e-0b7221540b8b"/>
+            <relation>org:default</relation>
+        </assignmentRelation>
+    </inducement>
+    <inducement>
+        <construction>
+            <!-- LDAP resource -->
+            <resourceRef oid="8a83b1a4-be18-11e6-ae84-7301fdab1d7c"/>
+            <kind>generic</kind>
+            <intent>ou</intent>
+        </construction>
+    </inducement>
+</archetype>

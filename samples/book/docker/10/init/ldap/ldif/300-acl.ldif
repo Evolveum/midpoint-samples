@@ -19,6 +19,8 @@ olcAccess: {4}to dn.subtree="ou=people,{{ LDAP_BASE_DN }}"
   by self read
 olcAccess: {5}to dn.subtree="ou=groups,{{ LDAP_BASE_DN }}"
   by dn="cn=idm,ou=Administrators,{{ LDAP_BASE_DN }}" write
+olcAccess: {6}to dn.subtree="ou=org,{{ LDAP_BASE_DN }}"
+  by dn="cn=idm,ou=Administrators,{{ LDAP_BASE_DN }}" write
 olcAccess: {7}to *
   by dn="cn=admin,{{ LDAP_BASE_DN }}" write
   by dn="cn=idm,ou=Administrators,{{ LDAP_BASE_DN }}" read

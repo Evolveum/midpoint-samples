@@ -9,6 +9,16 @@ objectClass: top
 objectClass: organizationalUnit
 ou: groups
 
+dn: ou=org,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: org
+
+dn: ou=ExAmPLE,ou=org,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: ExAmPLE
+
 dn: ou=administrators,{{ LDAP_BASE_DN }}
 objectClass: top
 objectClass: organizationalUnit

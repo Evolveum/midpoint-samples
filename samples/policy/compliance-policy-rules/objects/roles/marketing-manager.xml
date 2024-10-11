@@ -24,6 +24,11 @@
         <exmpl:autoassignJobCode>S106</exmpl:autoassignJobCode>
     </extension>
     <assignment>
+        <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
+        <identifier>role-catalog</identifier>
+        <targetRef oid="b7e4cd0c-fc23-11ea-a79a-079cad42b39b" type="OrgType"/>
     </assignment>
 </role>

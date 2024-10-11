@@ -4,7 +4,7 @@
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
-<archetype oid="00000000-0000-0000-0000-000000000370"
+<archetype oid="99fa4b3c-8702-11ef-896e-0b7221540b8b"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Organizational unit</name>
@@ -39,7 +39,7 @@
         <assignmentRelation id="5">
             <description>Organizational units that are part of this organization. Organizational units are hierarchical, there can be organizational units within organizational units.</description>
             <holderType>OrgType</holderType>
-            <holderArchetypeRef oid="00000000-0000-0000-0000-000000000370"/>
+            <holderArchetypeRef oid="99fa4b3c-8702-11ef-896e-0b7221540b8b"/>
             <relation>org:default</relation>
         </assignmentRelation>
     </inducement>

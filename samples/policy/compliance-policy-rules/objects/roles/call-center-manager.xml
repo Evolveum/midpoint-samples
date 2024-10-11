@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2020 Evolveum
+  ~ Copyright (c) 2019 Evolveum
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -14,17 +14,18 @@
   ~ limitations under the License.
   -->
 
-<archetype oid="475106e4-1dfe-11eb-8429-534869969212"
+<role oid="e1bc89e8-fc24-11ea-972e-774cfddb9e76"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3">
-    <name>Functional Organizational Unit</name>
-    <inducement>
-        <construction>
-            <!-- LDAP resource -->
-            <resourceRef oid="8a83b1a4-be18-11e6-ae84-7301fdab1d7c"/>
-            <kind>generic</kind>
-            <intent>ou</intent>
-        </construction>
-    </inducement>
-</archetype>
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema">
+    <name>Call center manager</name>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
+        <identifier>role-catalog</identifier>
+        <targetRef oid="259625ee-fc24-11ea-8bae-1bfdce011faf" type="OrgType"/>
+    </assignment>
+</role>

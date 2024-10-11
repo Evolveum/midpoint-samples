@@ -23,6 +23,7 @@
 
     <org oid="945315a6-fc23-11ea-832e-1f9945adb481">
         <name>Role catalog</name>
+        <displayOrder>500</displayOrder>
     </org>
 
     <org oid="b7e4cd0c-fc23-11ea-a79a-079cad42b39b">
@@ -34,7 +35,7 @@
     </org>
 
     <role oid="704d4a90-fc24-11ea-ae44-bbd7d89473b3">
-        <name>Market specialist</name>
+        <name>Marketing specialist</name>
         <assignment>
             <targetRef oid="b7e4cd0c-fc23-11ea-a79a-079cad42b39b" type="OrgType"/>
         </assignment>

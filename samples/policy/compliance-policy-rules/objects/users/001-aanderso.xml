@@ -33,6 +33,9 @@
     <assignment>
         <targetRef oid="b5828699-34ac-41c9-97ef-3ee3d17ef3ce" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="aaa6cde4-0471-11e9-9b50-c743da469067" type="RoleType" relation="org:owner"/>
+    </assignment>
     <fullName>Alice Anderson</fullName>
     <givenName>Alice</givenName>
     <familyName>Anderson</familyName>

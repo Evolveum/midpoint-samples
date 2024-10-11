@@ -4,7 +4,7 @@
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
-<org oid="00000000-0000-0000-0000-000000000393"
+<org oid="2eb69bc4-87c4-11ef-944d-1b43f452e147"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Projects</name>
@@ -15,7 +15,7 @@
         <assignmentRelation id="2">
             <description>We want projects here, nothing else.</description>
             <holderType>OrgType</holderType>
-            <holderArchetypeRef oid="00000000-0000-0000-0000-000000000373"/>
+            <holderArchetypeRef oid="5c2c123e-86ff-11ef-9f50-ab1904c498f6"/>
             <relation>org:default</relation>
         </assignmentRelation>
     </assignment>

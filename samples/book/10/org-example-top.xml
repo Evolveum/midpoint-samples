@@ -16,8 +16,14 @@
   -->
 
 <org oid="4d12c1ac-440c-11ea-80af-2b314d06ba95"
-    xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
-       xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
+     xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+     xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
     <name>F10000</name>
-    <displayName>ExAmPLE, Inc.</displayName>
+    <displayName>ExAmPLE</displayName>
+    <displayOrder>100</displayOrder>
+    <identifier>10000</identifier>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="886bfa6e-8702-11ef-9c40-6fce51f54b0d" type="ArchetypeType"/>
+    </assignment>
 </org>

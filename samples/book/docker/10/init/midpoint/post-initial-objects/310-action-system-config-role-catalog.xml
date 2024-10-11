@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<s:search xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+          xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+          xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3">
+    <s:options>
+        <option>
+            <options>
+                <raw>true</raw>
+            </options>
+        </option>
+    </s:options>
+    <s:type>c:SystemConfigurationType</s:type>
+    <s:action>
+        <s:type>modify</s:type>
+        <s:parameter>
+            <s:name>delta</s:name>
+            <c:value>
+                <s:itemDelta>
+                    <t:modificationType>add</t:modificationType>
+                    <t:path>adminGuiConfiguration/accessRequest/roleCatalog/roleCatalogRef</t:path>
+                    <t:value oid="945315a6-fc23-11ea-832e-1f9945adb481" type="OrgType"/>
+                </s:itemDelta>
+            </c:value>
+        </s:parameter>
+    </s:action>
+</s:search>

@@ -13,10 +13,10 @@
     <identifier>WL2</identifier>
     <assignment>
         <identifier>root</identifier>
-        <targetRef oid="00000000-0000-0000-0000-000000000393" type="OrgType"/>
+        <targetRef oid="2eb69bc4-87c4-11ef-944d-1b43f452e147" type="OrgType"/>
     </assignment>
     <assignment>
         <identifier>archetype</identifier>
-        <targetRef oid="00000000-0000-0000-0000-000000000373" type="ArchetypeType"/>
+        <targetRef oid="5c2c123e-86ff-11ef-9f50-ab1904c498f6" type="ArchetypeType"/>
     </assignment>
 </org>
