@@ -18,11 +18,23 @@ Following steps can be used to fully initialize the configuration:
 
 . Start/resume `LDAP Reconciliation` task.
 
-. Disable LDAP inbound mapping `uid` -> `name`.
+. Disable LDAP inbound mapping `uid` -> `name`. (optional)
 
 . Change `autoassign-jobcode` mapping for `assignment` in Person object template to active.
+Do not forget to click `Save`.
 
 . Activate role autoassignment in system configuration.
++
+[source,xml]
+----
+<systemConfiguration>
+    ...
+    <roleManagement>
+        <autoassignEnabled>true</autoassignEnabled>
+    </roleManagement>
+    ...
+</systemConfiguration>
+----
 
 . Activate `assignment` mapping for `Employee` role in HR resources (in `empno` attribute).
 

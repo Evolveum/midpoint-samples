@@ -73,7 +73,7 @@ mpreset () {
 	mpinit
 }
 
-mpstart () {
+mpup () {
 	if [ ! -d "$MIDPOINT_HOME" ]; then
 	  mpinit
 	fi
@@ -87,8 +87,8 @@ case $1 in
     reset)
       mpreset
       ;;
-    start)
-      mpstart
+    up)
+      mpup
       ;;
     clean)
       mpclean
