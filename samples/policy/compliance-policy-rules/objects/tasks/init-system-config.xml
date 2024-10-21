@@ -1,0 +1,59 @@
+<task oid="04397fed-fba1-4425-bed9-b056ebf1fc39"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
+    <name>Init system config</name>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
+    <executionState>runnable</executionState>
+    <schedule>
+        <recurrence>single</recurrence>
+    </schedule>
+    <activity>
+        <work>
+            <nonIterativeScripting>
+                <scriptExecutionRequest>
+                    <s:search>
+                        <s:type>c:SystemConfigurationType</s:type>
+                        <s:options>
+                            <option>
+                                <options>
+                                    <raw>true</raw>
+                                </options>
+                            </option>
+                        </s:options>
+                        <s:action>
+                            <s:type>modify</s:type>
+                            <s:parameter>
+                                <s:name>delta</s:name>
+                                <c:value>
+                                    <s:itemDelta>
+                                        <t:modificationType>add</t:modificationType>
+                                        <t:path>adminGuiConfiguration/configurableUserDashboard</t:path>
+                                        <t:value>
+                                            <identifier>compliance-dashboard</identifier>
+                                            <configurableDashboardRef oid="00000000-0000-0000-0001-000000001001" type="c:DashboardType"/>
+                                        </t:value>
+                                    </s:itemDelta>
+                                    <s:itemDelta>
+                                        <t:modificationType>add</t:modificationType>
+                                        <t:path>defaultObjectPolicyConfiguration</t:path>
+                                        <t:value>
+                                            <type>RoleType</type>
+                                            <applicablePolicies>
+                                                <policyGroupRef oid="00000000-0000-0000-0000-000000000395"/>
+                                                <policyGroupRef oid="00000000-0000-0000-0000-000000000396"/>
+                                            </applicablePolicies>
+                                        </t:value>
+                                    </s:itemDelta>
+                                </c:value>
+                            </s:parameter>
+                        </s:action>
+                    </s:search>
+                </scriptExecutionRequest>
+            </nonIterativeScripting>
+        </work>
+    </activity>
+</task>

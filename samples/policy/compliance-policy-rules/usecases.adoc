@@ -1,0 +1,75 @@
+= Use cases
+
+== SoD
+
+Roles: `Financial auditor` -SoD- `Invoice clerk`, defined in `Financial auditor`
+
+oowen is _financial auditor_
+hharis is _invoice clerk_
+
+. Assign `Financial auditor` to `hharis` -> SoD violation (not enforced)
+
+. See SoD violation in compliance dashboard
+
+PROBLEM: user is not marked! Not visible in GUI.
+
+DESIRE: I want the violation mark to be red in GUI.
+
+== Object governance
+
+Show roles/applications without owner on dashboard.
+
+PROBLEM: minAssigned does not work
+
+== Classifications
+
+Classify applications - assign classifications to applications
+
+PROBLEM: cannot see classifications in object details, not even an "assignments" panel.
+
+DESIRE: Want colors for classifications - now reasonable way to do it?
+
+== Privileged access
+
+`CRM: Customer database admin` is a privileged application role (classified as privileged)
+
+PROBLEM: I cannot really see that this role is privileged in GUI
+
+TODO: add `Classifications` panel to role object details (object details for all objects?)
+
+`Database administrator` business role contains privileged application role `CRM: Customer database admin`
+
+PROBLEM: I cannot see that the `Database administrator` role includes privileged access.
+
+PROBLEM: I cannot business roles with privileged access in dashboard.
+
+`ggreen` is _database administrator_.
+
+PROBLEM: I cannot see that `ggreen` has privileged access.
+
+PROBLEM: I cannot list all users with privileged access in dashboard.
+
+== Security Responsibility
+
+Config: minAssignee policy rule defined in `Information security responsibility` classification.
+Setting `Understaffed security` mark.
+
+`Information security auditor` and `Data protection officer` are _information security responsibilities_.
+
+PROBLEM: We do not see in GUI that these roles are special.
+
+. You can see "Information security roles" in compliance dashboard.
+
+`Data protection officer` is not assigned to anyone -> should be marked as `Understaffed security`.
+
+. We would like to see "Understaffed security roles" in compliance dashboard.
+
+PROBLEM: minAssigned does not work
+
+== Classification Certification
+
+PROBLEM(minor): cannot specify target filter to limit certification to classifications.
+
+PROBLEM: cannot set availableResponse per certification campaign, can set only globally?
+
+QUESTION: Can we make certification that does not revoke anything, just provides a report?

@@ -21,6 +21,9 @@
     <assignment id="4">
         <targetRef oid="1c42e1c4-1c9e-491e-b9c0-97f10c189346" type="OrgType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="20c4912a-ec10-4231-b9e2-54431864de66" type="RoleType"/>
+    </assignment>
     <fullName>George Green</fullName>
     <givenName>George</givenName>
     <familyName>Green</familyName>

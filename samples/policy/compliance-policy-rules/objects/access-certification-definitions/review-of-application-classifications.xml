@@ -11,12 +11,16 @@
         <includeAssignments>true</includeAssignments>
         <includeInducements>false</includeInducements>
         <includeResources>false</includeResources>
-        <includeRoles>true</includeRoles>
+        <includeRoles>false</includeRoles>
         <includeOrgs>false</includeOrgs>
         <includeServices>false</includeServices>
         <includeUsers>false</includeUsers>
+        <includePolicies>true</includePolicies>
         <enabledItemsOnly>true</enabledItemsOnly>
         <objectType>ServiceType</objectType>
+        <searchFilter>
+            <q:text>archetypeRef matches ( oid = "00000000-0000-0000-0000-000000000329" )</q:text>
+        </searchFilter>
     </scopeDefinition>
     <remediationDefinition>
         <style>reportOnly</style>

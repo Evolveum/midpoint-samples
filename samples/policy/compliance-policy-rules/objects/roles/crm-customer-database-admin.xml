@@ -1,0 +1,15 @@
+<role oid="4160ff17-9647-4bde-b0b4-e950fc53c90f"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>CRM: Customer database admin</name>
+    <description>Administration access to customer database.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000332" type="PolicyType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="d630eb6e-eee6-4cbe-84e4-23ed247132bf" type="ServiceType"/>
+    </inducement>
+</role>
