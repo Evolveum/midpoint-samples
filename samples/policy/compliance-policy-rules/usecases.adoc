@@ -19,7 +19,8 @@ DESIRE: I want the violation mark to be red in GUI.
 
 Show roles/applications without owner on dashboard.
 
-PROBLEM: minAssigned does not work
+PROBLEM: minAssignees does not work
+SOLUTION: minAssignees works (mostly), just need to specify that the rule is "object" rule
 
 == Classifications
 
@@ -27,7 +28,7 @@ Classify applications - assign classifications to applications
 
 PROBLEM: cannot see classifications in object details, not even an "assignments" panel.
 
-DESIRE: Want colors for classifications - now reasonable way to do it?
+DESIRE: Want colors for classifications - no reasonable way to do it?
 
 == Privileged access
 
@@ -41,13 +42,15 @@ TODO: add `Classifications` panel to role object details (object details for all
 
 PROBLEM: I cannot see that the `Database administrator` role includes privileged access.
 
-PROBLEM: I cannot business roles with privileged access in dashboard.
+PROBLEM: I cannot see business roles with privileged access in dashboard.
 
 `ggreen` is _database administrator_.
 
 PROBLEM: I cannot see that `ggreen` has privileged access.
+IDEA: use mark for "privileged" users ("privileged access"?) set by policy rule in privileged classification.
 
 PROBLEM: I cannot list all users with privileged access in dashboard.
+IDEA: use the mark.
 
 == Security Responsibility
 
@@ -65,6 +68,7 @@ PROBLEM: We do not see in GUI that these roles are special.
 . We would like to see "Understaffed security roles" in compliance dashboard.
 
 PROBLEM: minAssigned does not work
+SOLUTION: it should work now
 
 == Classification Certification
 
@@ -73,3 +77,4 @@ PROBLEM(minor): cannot specify target filter to limit certification to classific
 PROBLEM: cannot set availableResponse per certification campaign, can set only globally?
 
 QUESTION: Can we make certification that does not revoke anything, just provides a report?
+SOLUTION: use View definition in campaign def.
