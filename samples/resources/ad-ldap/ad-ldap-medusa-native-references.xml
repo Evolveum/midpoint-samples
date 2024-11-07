@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2017-2019 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+          xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+          xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+          oid="648da342-108c-4c70-b88a-4ca06f53e756">
+    <name>Medusa Active Directory (LDAP) with native references</name>
+    <documentation>Requires midPoint 4.9 and LDAP/AD connector 3.8.</documentation>
+
+    <connectorRef type="ConnectorType">
+        <filter>
+            <q:text>c:connectorType = "com.evolveum.polygon.connector.ldap.ad.AdLdapConnector"</q:text>
+        </filter>
+    </connectorRef>
+
+    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+        <icfc:configurationProperties xmlns:icfcldap="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-ldap/com.evolveum.polygon.connector.ldap.ad.AdLdapConnector">
+            <icfcldap:host>medusa.lab.evolveum.com</icfcldap:host>
+            <icfcldap:port>636</icfcldap:port>
+            <icfcldap:baseContext>DC=win,DC=evolveum,DC=com</icfcldap:baseContext>
+            <icfcldap:bindDn>CN=midpoint admin1,CN=Users,DC=win,DC=evolveum,DC=com</icfcldap:bindDn>
+            <icfcldap:connectionSecurity>ssl</icfcldap:connectionSecurity>
+            <icfcldap:bindPassword>
+                <t:clearValue>secret</t:clearValue>
+            </icfcldap:bindPassword>
+            <icfcldap:pagingBlockSize>5</icfcldap:pagingBlockSize> <!-- ridiculously small, just to test paging -->
+            <icfcldap:managedAssociationPairs>"user"+memberOf -# "group"+member</icfcldap:managedAssociationPairs>
+        </icfc:configurationProperties>
+    </connectorConfiguration>
+
+    <schema>
+        <generationConstraints>
+            <generateObjectClass>ri:user</generateObjectClass>
+            <generateObjectClass>ri:group</generateObjectClass>
+        </generationConstraints>
+    </schema>
+
+    <schemaHandling>
+        <objectType>
+            <kind>account</kind>
+            <intent>default</intent>
+            <displayName>Default Account</displayName>
+            <default>true</default>
+            <delineation>
+                <objectClass>ri:user</objectClass>
+            </delineation>
+            <focus>
+                <type>UserType</type>
+            </focus>
+            <attribute>
+                <ref>ri:dn</ref>
+                <displayName>Distinguished Name</displayName>
+                <outbound>
+                    <name>dn-outbound</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>fullName</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>
+                                'CN=' + fullName + iterationToken + ',CN=Users,DC=win,DC=evolveum,DC=com'
+                            </code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:sAMAccountName</ref>
+                <displayName>Login name</displayName>
+                <correlator/>
+                <outbound>
+                    <name>sAMAccountName-outbound</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>name</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>sAMAccountName-inbound</name>
+                    <target>
+                        <path>name</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:cn</ref>
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                </limitations>
+                <outbound>
+                    <name>cn-outbound</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>fullName</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>cn-inbound</name>
+                    <target>
+                        <path>fullName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:sn</ref>
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                </limitations>
+                <outbound>
+                    <name>sn-outbound</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>familyName</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>sn-inbound</name>
+                    <target>
+                        <path>familyName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:givenName</ref>
+                <outbound>
+                    <name>givenName-outbound</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>givenName</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>givenName-inbound</name>
+                    <target>
+                        <path>givenName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:userPrincipalName</ref>
+                <outbound>
+                    <source>
+                        <path>$user/name</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>
+                                name + iterationToken + '@win.evolveum.com'
+                            </code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <!-- Password expired: -1: not expired; 0: expired ("User must change password at next logon") -->
+                <ref>ri:pwdLastSet</ref>
+                <outbound>
+                    <name>pwdLastSet-outbound</name>
+                    <expression>
+                        <value>-1</value>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:createTimeStamp</ref>
+                <fetchStrategy>explicit</fetchStrategy>
+            </attribute>
+            <attribute>
+                <ref>ri:nTSecurityDescriptor</ref>
+                <!-- This is defined as mandatory in top object class. But it is not really mandatory. Well done Microsoft. -->
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                </limitations>
+            </attribute>
+            <attribute>
+                <ref>ri:instanceType</ref>
+                <!-- This is defined as mandatory in top object class. But it is not really mandatory. Well done Microsoft. -->
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                </limitations>
+            </attribute>
+            <attribute>
+                <ref>ri:objectCategory</ref>
+                <!-- This is defined as mandatory in top object class. But it is not really mandatory. Well done Microsoft. -->
+                <!-- Be sure to update the suffix/value for your domain !!! -->
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                </limitations>
+                <outbound>
+                    <expression>
+                        <value>CN=Person,CN=Schema,CN=Configuration,DC=win,DC=evolveum,DC=com</value>
+                    </expression>
+                </outbound>
+            </attribute>
+            <activation>
+                <administrativeStatus>
+                    <outbound/>
+                </administrativeStatus>
+            </activation>
+            <credentials>
+                <password>
+                    <outbound/>
+                </password>
+            </credentials>
+            <synchronization>
+                <reaction>
+                    <name>linked</name>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>deleted</name>
+                    <situation>deleted</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>unlinked</name>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>unmatched</name>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus/>
+                    </actions>
+                </reaction>
+            </synchronization>
+        </objectType>
+        <objectType>
+            <kind>entitlement</kind>
+            <intent>group</intent>
+            <displayName>AD Group</displayName>
+            <default>true</default>
+            <delineation>
+                <objectClass>ri:group</objectClass>
+            </delineation>
+            <focus>
+                <type>RoleType</type>
+            </focus>
+            <attribute>
+                <ref>ri:dn</ref>
+                <outbound>
+                    <name>dn-outbound</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>name</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>
+                                'CN=' + name + ',CN=Users,DC=win,DC=evolveum,DC=com'
+                            </code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:cn</ref>
+                <correlator/>
+                <outbound>
+                    <name>cn-outbound</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>name</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>cn-inbound</name>
+                    <target>
+                        <path>name</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:description</ref>
+                <outbound>
+                    <name>description-outbound</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>description</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>description-inbound</name>
+                    <target>
+                        <path>description</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <synchronization>
+                <reaction>
+                    <name>linked</name>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>deleted</name>
+                    <situation>deleted</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>unlinked</name>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>unmatched</name>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus/>
+                    </actions>
+                </reaction>
+            </synchronization>
+        </objectType>
+        <associationType>
+            <name>membership</name>
+            <subject>
+                <objectType>
+                    <kind>account</kind>
+                    <intent>default</intent>
+                </objectType>
+                <association>
+                    <ref>ri:group</ref>
+                    <sourceAttributeRef>ri:group</sourceAttributeRef> <!-- this is the default (the same as "ref") -->
+                    <outbound>
+                        <name>group-outbound</name>
+                        <documentation>
+                            Creates an association value from each role that has appropriate projection (to entitlement/group).
+                        </documentation>
+                        <expression>
+                            <associationConstruction>
+                                <objectRef>
+                                    <mapping>
+                                        <expression>
+                                            <associationFromLink/>
+                                        </expression>
+                                    </mapping>
+                                </objectRef>
+                            </associationConstruction>
+                        </expression>
+                    </outbound>
+                    <inbound>
+                        <name>group-inbound</name>
+                        <documentation>
+                            Creates an assignment from each association value (a group) that has appropriate owner (a role);
+                            except for situations where related assignment exists, or where an indirect assignment of the group
+                            exists.
+
+                            When the association value is removed, this mapping removes only those assignments that were created
+                            by it (in the past).
+                        </documentation>
+                        <expression>
+                            <associationSynchronization>
+                                <objectRef>
+                                    <correlator/>
+                                    <mapping>
+                                        <expression>
+                                            <shadowOwnerReferenceSearch/>
+                                        </expression>
+                                        <target>
+                                            <path>targetRef</path>
+                                        </target>
+                                    </mapping>
+                                </objectRef>
+                                <synchronization>
+                                    <reaction>
+                                        <situation>unmatched</situation>
+                                        <actions>
+                                            <addFocusValue/>
+                                        </actions>
+                                    </reaction>
+                                    <reaction>
+                                        <situation>matched</situation>
+                                        <actions>
+                                            <synchronize/>
+                                        </actions>
+                                    </reaction>
+                                    <reaction>
+                                        <situation>matchedIndirectly</situation>
+                                        <!-- no actions here -->
+                                    </reaction>
+                                </synchronization>
+                            </associationSynchronization>
+                        </expression>
+                    </inbound>
+                    <tolerant>true</tolerant>
+                </association>
+            </subject>
+            <object>
+                <objectType>
+                    <kind>entitlement</kind>
+                    <intent>group</intent>
+                </objectType>
+            </object>
+        </associationType>
+    </schemaHandling>
+</resource>
