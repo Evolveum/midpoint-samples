@@ -75,7 +75,7 @@ output from the log.
                                     localCount = 0
                                     for (secQuestion in secPol.getCredentials()?.getSecurityQuestions()?.getQuestion()) {
                                         localCount += 1
-                                        if (identifiers.indexOf(secQuestion.getIdentifier()) &gt;= 0) {
+				        if (identifiers.indexOf(secQuestion.getIdentifier()) >= 0) {
                                             log.info(logPrefix + "FOUND DUPLICITY - already used identifier : {}", secQuestion.getIdentifier())
                                         } else {
                                             identifiers.add(secQuestion.getIdentifier())
@@ -100,7 +100,7 @@ output from the log.
                                     if (!secQ) continue
                                     for (secAnswer in secQ.getQuestionAnswer()) {
                                         int answerIndex = identifiers.indexOf(secAnswer.getQuestionIdentifier())
-                                        if (answerIndex &gt;= 0) {
+				    if (answerIndex >= 0) {
                                             idCount[answerIndex] += 1
                                         } else {
                                             log.info(logPrefix + "Found invalid answer : {} @ {} ( {} )", secAnswer.getQuestionIdentifier(), user.oid, user.name.toString())
@@ -131,7 +131,7 @@ output from the log.
                                     String listOut = ""
                                     Integer step = 0
                                     Integer listSize = identifiers.size()
-                                    while ((listSize - step) &gt; 0) {
+				    while ((listSize - step) > 0) {
                                         listOut += "\n" + identifiers[step] + ":" + idCount[step]
                                         step += 1
                                     }
