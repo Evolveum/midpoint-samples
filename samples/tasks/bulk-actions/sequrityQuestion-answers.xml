@@ -39,7 +39,7 @@ output from the log.
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      oid="20241112-cafe-0000-7A53-000000000001">
+      oid="20241112-cafe-0000-7a53-000000000001">
     <name>Search and cleanup security question answers</name>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000508" relation="org:default" type="c:ArchetypeType"/>
