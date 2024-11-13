@@ -1,0 +1,24 @@
+= Introduction fo Group Synchronization Webinar 2024-11-07
+
+These configuration objects were used in demonstration of group synchronization during webinar presented on November 7, 2024
+
+== How to Use
+
+. Prepare a clean midPoint 4.9 installation with native PostgreSQL repository
+
+. review and update the connector configuration in the following resource objects before uploading:
+.. `objects/205-resource-hr.xml`
+.. `objects/210-resource-ad.xml`
+
+. upload the files from `objects/` subdirectory in the lexical order (filenames are prefixed with numbers)
++
+NOTE: The files are ready to be used as the content of "post-initial" configuration.
+There is also a bulk task which test both resources during execution.
+
+. log in to midPoint as `administrator`
+
+. review the `AD` resource configuration using resource wizard
+
+In the webinar, midPoint was already populated with users from HR data (using CSV connector) and there were already users' accounts in AD (OpenLDAP) resource created and linked.
+
+Now you are ready to start importing groups as presented in the webinar.

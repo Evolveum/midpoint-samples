@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum and contributors
+  ~
+ ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<dashboard xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           oid="fcf57686-edca-48e6-bb20-6d1ebd17dfc7">
+    <name>ad-accounts-dashboard</name>
+    <description>Dashboard for showing important facts about AD accounts.</description>
+    <!-- TODO https://docs.evolveum.com/midpoint/reference/admin-gui/dashboards/configuration/ -->
+    <display>
+        <label>AD account notices</label>
+    </display>
+
+
+    <widget>
+        <identifier>users-with-accounts-with-triggers</identifier>
+        <display>
+            <label>Users with accounts with triggers</label>
+            <color>darkorange</color>
+            <icon>
+                <cssClass>fas fa-clock</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="d714107b-249a-4dbe-87d1-22573d9c53cf" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <!--            <dataField>-->
+            <!--                <fieldType>unit</fieldType>-->
+            <!--                <expression>-->
+            <!--                    <value>decommission later</value>-->
+            <!--                </expression>-->
+            <!--            </dataField>-->
+        </presentation>
+    </widget>
+
+    <widget>
+        <identifier>accounts-with-triggers</identifier>
+        <display>
+            <label>Accounts with triggers</label>
+            <color>orange</color>
+            <icon>
+                <cssClass>far fa-clock</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="8a518089-c824-4b9b-af02-72690b6fce89" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <!--            <dataField>-->
+            <!--                <fieldType>unit</fieldType>-->
+            <!--                <expression>-->
+            <!--                    <value>decommission later</value>-->
+            <!--                </expression>-->
+            <!--            </dataField>-->
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                        <label>Account ID</label>
+                    </display>
+                </column>
+                <column>
+                    <name>situationColumn</name>
+                    <path>synchronizationSituation</path>
+                    <previousColumn>nameColumn</previousColumn>
+                    <sortProperty>synchronizationSituation</sortProperty>
+                </column>
+                <column>
+                    <name>resourceColumn</name>
+                    <path>resourceRef</path>
+                    <previousColumn>situationColumn</previousColumn>
+                    <sortProperty>resourceRef/@/name</sortProperty>
+                </column>
+                <column>
+                    <name>kindColumn</name>
+                    <path>kind</path>
+                    <previousColumn>resourceColumn</previousColumn>
+                    <sortProperty>kind</sortProperty>
+                </column>
+                <column>
+                    <name>intentColumn</name>
+                    <path>intent</path>
+                    <previousColumn>kindColumn</previousColumn>
+                    <sortProperty>intent</sortProperty>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+
+    <widget>
+        <identifier>users-without-ad-accounts</identifier>
+        <display>
+            <label>Users without AD accounts</label>
+            <color>gray</color>
+            <icon>
+                <cssClass>fas fa-user-times</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="84a4103f-83a8-46b0-9d7e-fcdd7b0507aa" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <!--            <dataField>-->
+            <!--                <fieldType>unit</fieldType>-->
+            <!--                <expression>-->
+            <!--                    <value>decommission later</value>-->
+            <!--                </expression>-->
+            <!--            </dataField>-->
+        </presentation>
+    </widget>
+
+    <widget>
+        <identifier>groups-without-owners</identifier>
+        <display>
+            <label>Groups without owners</label>
+            <color>darkred</color>
+            <icon>
+                <cssClass>fas fa-frown</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="41a2a619-a2f9-4f00-80a3-813ef39a1cd7" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <!--            <dataField>-->
+            <!--                <fieldType>unit</fieldType>-->
+            <!--                <expression>-->
+            <!--                    <value>decommission later</value>-->
+            <!--                </expression>-->
+            <!--            </dataField>-->
+        </presentation>
+    </widget>
+
+</dashboard>

@@ -1,0 +1,1076 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum and contributors
+  ~
+ ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+          xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="052a29b1-cde5-4546-9787-916e4a846f2e" version="84">
+    <name>AD</name>
+    <description>ExAmPLE, Inc. AD resource</description>
+    <lifecycleState>active</lifecycleState>
+    <connectorRef>
+        <description>Reference to the ConnId LDAP connector. This is dynamic reference, it will be translated to
+            OID during import.
+            Only connector which is available is used (connector objects without existing JAR are ignored).
+        </description>
+        <filter>
+            <q:text>connectorType = "com.evolveum.polygon.connector.ldap.LdapConnector" and available = "true"</q:text>
+        </filter>
+    </connectorRef>
+    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+        <icfc:configurationProperties
+                xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-ldap/com.evolveum.polygon.connector.ldap.LdapConnector">
+            <cfg:host>ad</cfg:host>
+            <cfg:port>389</cfg:port>
+            <cfg:bindDn>cn=idm,ou=administrators,dc=example,dc=com</cfg:bindDn>
+            <cfg:bindPassword>
+                <t:clearValue>secret</t:clearValue>
+            </cfg:bindPassword>
+            <cfg:baseContext>dc=example,dc=com</cfg:baseContext>
+            <cfg:passwordHashAlgorithm>SSHA</cfg:passwordHashAlgorithm>
+            <cfg:pagingStrategy>auto</cfg:pagingStrategy>
+            <cfg:vlvSortAttribute>uid,cn</cfg:vlvSortAttribute>
+            <cfg:vlvSortOrderingRule>2.5.13.3</cfg:vlvSortOrderingRule>
+            <cfg:operationalAttributes>memberOf</cfg:operationalAttributes>
+            <cfg:operationalAttributes>createTimestamp</cfg:operationalAttributes>
+            <cfg:usePermissiveModify>always</cfg:usePermissiveModify>
+            <cfg:managedAssociationPairs>"inetOrgPerson"+memberOf -# "groupOfNames"+member</cfg:managedAssociationPairs>
+            <cfg:lockoutStrategy>openldap</cfg:lockoutStrategy>
+            <cfg:placeholderMember>cn=dummy,o=whatever</cfg:placeholderMember>
+        </icfc:configurationProperties>
+    </connectorConfiguration>
+    <schema>
+        <generationConstraints>
+            <generateObjectClass>ri:inetOrgPerson</generateObjectClass>
+            <generateObjectClass>ri:groupOfUniqueNames</generateObjectClass>
+            <generateObjectClass>ri:groupOfNames</generateObjectClass>
+            <generateObjectClass>ri:organizationalUnit</generateObjectClass>
+        </generationConstraints>
+    </schema>
+    <schemaHandling>
+        <objectType id="2">
+            <kind>account</kind>
+            <displayName>Normal Account</displayName>
+            <lifecycleState>active</lifecycleState>
+            <default>true</default>
+            <delineation>
+                <objectClass>ri:inetOrgPerson</objectClass>
+            </delineation>
+            <focus>
+                <type>UserType</type>
+            </focus>
+            <attribute id="4">
+                <ref>ri:dn</ref>
+                <displayName>Distinguished Name</displayName>
+                <limitations id="17">
+                    <minOccurs>0</minOccurs>
+                </limitations>
+                <outbound>
+                    <name>mapping-dn</name>
+                    <description>Returns either CN=John Smith,... or CN=John Smith (jsmith2),... to make it unique and avoid iterator in CN/DN.</description>
+                    <lifecycleState>active</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>name</path>
+                    </source>
+                    <source>
+                        <path>fullName</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>def cn
+                            if (iteration == 0) {
+                                cn = fullName
+                            } else {
+                                cn = fullName + ' (' + name + ')'
+                            }
+                            return basic.composeDnWithSuffix('cn', cn,
+                                    'ou=users,' + basic.getResourceIcfConfigurationPropertyValue(resource, 'baseContext')
+                            )</code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute id="5">
+                <ref>ri:cn</ref>
+                <displayName>Common Name</displayName>
+                <limitations id="18">
+                    <minOccurs>0</minOccurs>
+                    <maxOccurs>1</maxOccurs>
+                </limitations>
+                <outbound>
+                    <name>mapping-cn-weak</name>
+                    <description>Returns user's fullName or fullName with username to make it unique and avoid iterator in CN.</description>
+                    <lifecycleState>active</lifecycleState>
+                    <strength>weak</strength>
+                    <source>
+                        <path>name</path>
+                    </source>
+                    <source>
+                        <path>fullName</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>def cn
+                            if (iteration == 0) {
+                                cn = fullName
+                            } else {
+                                cn = fullName + ' (' + name + ')'
+                            }
+                            return cn</code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute id="6">
+                <ref>ri:entryUUID</ref>
+                <displayName>Entry UUID</displayName>
+                <limitations id="19">
+                    <access>
+                        <read>true</read>
+                        <add>false</add>
+                        <modify>true</modify>
+                    </access>
+                </limitations>
+            </attribute>
+            <attribute id="7">
+                <ref>ri:displayName</ref>
+                <displayName>Display Name</displayName>
+                <limitations id="20">
+                    <minOccurs>0</minOccurs>
+                    <maxOccurs>1</maxOccurs>
+                </limitations>
+                <outbound>
+                    <name>mapping-displayName</name>
+                    <lifecycleState>active</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>fullName</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute id="8">
+                <ref>ri:sn</ref>
+                <displayName>Surname</displayName>
+                <limitations id="21">
+                    <maxOccurs>1</maxOccurs>
+                </limitations>
+                <outbound>
+                    <name>mapping-sn</name>
+                    <lifecycleState>active</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>familyName</path>
+                    </source>
+                </outbound>
+                <inbound id="22">
+                    <name>mapping-inbound-familyName-for-correlation</name>
+                    <target>
+                        <path>familyName</path>
+                    </target>
+                    <use>correlation</use>
+                </inbound>
+            </attribute>
+            <attribute id="9">
+                <ref>ri:givenName</ref>
+                <displayName>Given Name</displayName>
+                <limitations id="23">
+                    <maxOccurs>1</maxOccurs>
+                </limitations>
+                <outbound>
+                    <name>mapping-givenName</name>
+                    <lifecycleState>active</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>givenName</path>
+                    </source>
+                </outbound>
+                <inbound id="24">
+                    <name>mapping-inbound-givenName-for-correlation</name>
+                    <target>
+                        <path>givenName</path>
+                    </target>
+                    <use>correlation</use>
+                </inbound>
+            </attribute>
+            <attribute id="10">
+                <ref>ri:uid</ref>
+                <displayName>Login Name (sAMAccountName)</displayName>
+                <limitations id="25">
+                    <maxOccurs>1</maxOccurs>
+                </limitations>
+                <secondaryIdentifier>true</secondaryIdentifier>
+                <outbound>
+                    <name>mapping-uid</name>
+                    <lifecycleState>active</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>name</path>
+                    </source>
+                </outbound>
+                <inbound id="57">
+                    <name>mapping-inbound-username-to-name-for-import</name>
+                    <lifecycleState>archived</lifecycleState>
+                    <strength>strong</strength>
+                    <target>
+                        <path>name</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="11">
+                <ref>ri:mail</ref>
+                <displayName>E-mail address</displayName>
+                <outbound>
+                    <name>mapping-mail</name>
+                    <lifecycleState>draft</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>emailAddress</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute id="12">
+                <ref>ri:description</ref>
+                <limitations id="26">
+                    <minOccurs>0</minOccurs>
+                    <maxOccurs>1</maxOccurs>
+                </limitations>
+                <outbound>
+                    <name>mapping-description</name>
+                    <lifecycleState>draft</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>description</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute id="13">
+                <ref>ri:title</ref>
+                <limitations id="27">
+                    <minOccurs>0</minOccurs>
+                    <maxOccurs>1</maxOccurs>
+                </limitations>
+                <outbound>
+                    <name>mapping-title</name>
+                    <lifecycleState>active</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>title</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute id="14">
+                <ref>ri:jpegPhoto</ref>
+                <displayName>User photo</displayName>
+                <limitations id="28">
+                    <maxOccurs>1</maxOccurs>
+                </limitations>
+                <outbound>
+                    <name>mapping-jpegPhoto</name>
+                    <lifecycleState>draft</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>jpegPhoto</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute id="15">
+                <ref>ri:l</ref>
+                <displayName>Locality</displayName>
+                <limitations id="29">
+                    <minOccurs>0</minOccurs>
+                    <maxOccurs>1</maxOccurs>
+                </limitations>
+                <outbound>
+                    <name>mapping-l</name>
+                    <lifecycleState>active</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>locality</path>
+                    </source>
+                </outbound>
+                <inbound id="30">
+                    <name>mapping-inbound-locality-for-correlation</name>
+                    <target>
+                        <path>locality</path>
+                    </target>
+                    <use>correlation</use>
+                </inbound>
+            </attribute>
+            <attribute id="16">
+                <ref>ri:employeeNumber</ref>
+                <displayName>Employee number</displayName>
+                <outbound>
+                    <name>mapping-employeeNumber</name>
+                    <lifecycleState>active</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>personalNumber</path>
+                    </source>
+                </outbound>
+                <inbound id="31">
+                    <name>mapping-inbound-employeeNumber-for-correlation</name>
+                    <target>
+                        <path>personalNumber</path>
+                    </target>
+                    <use>correlation</use>
+                </inbound>
+            </attribute>
+            <attribute id="73">
+                <ref>ri:initials</ref>
+                <outbound>
+                    <name>mapping-initials</name>
+                    <lifecycleState>active</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>givenName</path>
+                    </source>
+                    <source>
+                        <path>familyName</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>basic.uc(
+                                    basic.stringify(givenName)?.take(1) +
+                                            basic.stringify(familyName)?.take(1)
+                            )</code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <iteration>
+                <maxIterations>2</maxIterations>
+            </iteration>
+            <marking id="75">
+                <markRef oid="00000000-0000-0000-0000-000000000800" relation="org:default" type="c:MarkType"/>
+                <applicationTime>always</applicationTime>
+                <pattern id="76">
+                    <filter>
+                        <q:text>attributes/ri:dn =[stringIgnoreCase] 'cn=idm,ou=Administrators,dc=example,dc=com'</q:text>
+                    </filter>
+                </pattern>
+                <pattern id="77">
+                    <filter>
+                        <q:text>attributes/ri:dn =[stringIgnoreCase] 'cn=admin,dc=example,dc=com'</q:text>
+                    </filter>
+                </pattern>
+                <pattern id="79">
+                    <filter>
+                        <q:text>attributes/ri:dn =[stringIgnoreCase] 'cn=Mail Service Account,ou=users,dc=example,dc=com'</q:text>
+                    </filter>
+                </pattern>
+                <pattern id="80">
+                    <filter>
+                        <q:text>attributes/ri:dn =[stringIgnoreCase] 'cn=Spam Assassin Service Account,ou=users,dc=example,dc=com'</q:text>
+                    </filter>
+                </pattern>
+                <pattern>
+                    <filter>
+                        <q:text>attributes/ri:dn =[stringIgnoreCase] 'cn=WWW Service Account,ou=users,dc=example,dc=com'</q:text>
+                    </filter>
+                </pattern>
+            </marking>
+            <marking id="85">
+                <markRef oid="00000000-0000-0000-0000-000000000803" relation="org:default" type="c:MarkType"/>
+                <applicationTime>always</applicationTime>
+                <pattern id="86">
+                    <filter>
+                        <q:text>attributes/ri:dn =[stringIgnoreCase] 'cn=Test123,ou=users,dc=example,dc=com'</q:text>
+                        <q:description>This is the Test123 account (present in training LDAP), marked as Do not touch</q:description>
+                    </filter>
+                </pattern>
+            </marking>
+            <activation>
+                <administrativeStatus>
+                    <outbound id="33">
+                        <name>set-account-status-based-on-midpoint-user</name>
+                        <lifecycleState>active</lifecycleState>
+                        <strength>strong</strength>
+                    </outbound>
+                </administrativeStatus>
+                <disableInsteadOfDelete>
+                    <lifecycleState>active</lifecycleState>
+                </disableInsteadOfDelete>
+                <delayedDelete>
+                    <lifecycleState>active</lifecycleState>
+                    <deleteAfter>PT5M</deleteAfter>
+                </delayedDelete>
+            </activation>
+            <credentials>
+                <password>
+                    <outbound id="34">
+                        <name>initial-passwd-generate</name>
+                        <description>Set initial password if empty</description>
+                        <lifecycleState>active</lifecycleState>
+                        <strength>weak</strength>
+                        <expression>
+                            <generate/>
+                        </expression>
+                    </outbound>
+                    <outbound id="35">
+                        <name>passwd-change</name>
+                        <description>Copy password from midPoint when changed</description>
+                        <lifecycleState>active</lifecycleState>
+                        <strength>normal</strength>
+                    </outbound>
+                </password>
+            </credentials>
+            <correlation>
+                <correlators>
+                    <items id="36">
+                        <name>personalNumber-correlation</name>
+                        <description>Correlation using personalNumber. Please note: inbound mapping for personalNumber is used only during correlation.</description>
+                        <enabled>true</enabled>
+                        <item id="38">
+                            <ref>personalNumber</ref>
+                        </item>
+                        <composition>
+                            <tier>1</tier>
+                        </composition>
+                    </items>
+                    <items id="37">
+                        <name>last-resort-correlation</name>
+                        <description>Correlation using givenName, familyName and locality. We trust it only for 50% (manual correlation/confirmation is needed).
+                            Please note: inbound mappings are used only during correlation. This correlator is disabled by default.
+                        </description>
+                        <enabled>true</enabled>
+                        <item id="39">
+                            <ref>givenName</ref>
+                        </item>
+                        <item id="40">
+                            <ref>familyName</ref>
+                        </item>
+                        <item id="41">
+                            <ref>locality</ref>
+                        </item>
+                        <composition>
+                            <tier>10</tier>
+                            <weight>0.5</weight>
+                        </composition>
+                    </items>
+                </correlators>
+            </correlation>
+            <synchronization>
+                <reaction id="42">
+                    <name>unlinked-link</name>
+                    <lifecycleState>active</lifecycleState>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link id="46"/>
+                    </actions>
+                </reaction>
+                <reaction id="43">
+                    <name>linked-synchronize</name>
+                    <lifecycleState>active</lifecycleState>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize id="47"/>
+                    </actions>
+                </reaction>
+                <reaction id="44">
+                    <name>deleted-synchronize</name>
+                    <description>Synchronize causes also account to be recreated if assigned. This requires the dead shadow exist.</description>
+                    <lifecycleState>active</lifecycleState>
+                    <situation>deleted</situation>
+                    <actions>
+                        <synchronize id="48"/>
+                    </actions>
+                </reaction>
+                <reaction id="45">
+                    <name>unmatched-deleteResourceObject</name>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <deleteResourceObject id="49"/>
+                    </actions>
+                </reaction>
+                <reaction id="62">
+                    <name>disputed-create-case</name>
+                    <situation>disputed</situation>
+                    <actions>
+                        <createCorrelationCase id="63"/>
+                    </actions>
+                </reaction>
+            </synchronization>
+        </objectType>
+        <objectType id="89">
+            <kind>entitlement</kind>
+            <intent>ad-group</intent>
+            <displayName>AD Group</displayName>
+            <description>Internal AD Groups</description>
+            <lifecycleState>active</lifecycleState>
+            <default>true</default>
+            <delineation>
+                <objectClass>ri:groupOfNames</objectClass>
+                <filter>
+                    <q:text>attributes/cn not startsWith "app:"</q:text>
+                </filter>
+            </delineation>
+            <focus>
+                <type>c:RoleType</type>
+                <archetypeRef oid="8053bbaa-6578-442d-a7a6-9c5b39b8a389" relation="org:default" type="c:ArchetypeType"/>
+            </focus>
+            <attribute id="105">
+                <ref>ri:cn</ref>
+                <outbound>
+                    <name>identifier-to-cn</name>
+                    <strength>weak</strength>
+                    <source>
+                        <path>identifier</path>
+                    </source>
+                </outbound>
+                <inbound id="106">
+                    <name>cn-into-identifier</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>identifier</path>
+                    </target>
+                </inbound>
+                <inbound id="107">
+                    <name>cn-into-name</name>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>"ad:" + input</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>name</path>
+                    </target>
+                </inbound>
+                <inbound id="108">
+                    <name>cn-into-displayName</name>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>"AD: " + input?.replace('-', ' ')?.capitalize()</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>displayName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="109">
+                <ref>ri:description</ref>
+                <tolerant>false</tolerant>
+                <outbound>
+                    <name>description-to-description</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>description</path>
+                    </source>
+                </outbound>
+                <inbound id="110">
+                    <name>description-into-description</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>description</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="111">
+                <ref>ri:businessCategory</ref>
+                <inbound id="112">
+                    <name>businessCategory-into-costCenter</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>costCenter</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="171">
+                <ref>ri:dn</ref>
+                <outbound>
+                    <name>identifier-to-dn</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>identifier</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>basic.composeDnWithSuffix('cn', identifier,
+                                    'ou=groups,' + basic.getResourceIcfConfigurationPropertyValue(resource,
+                                            'baseContext')
+                            )</code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <marking id="209">
+                <markRef oid="00000000-0000-0000-0000-000000000805" relation="org:default" type="c:MarkType"/>
+                <applicationTime>always</applicationTime>
+                <pattern>
+                    <filter>
+                        <q:text>attributes/businessCategory = "legacy-group"</q:text>
+                    </filter>
+                </pattern>
+            </marking>
+            <marking>
+                <markRef oid="00000000-0000-0000-0000-000000000800" relation="org:default" type="c:MarkType"/>
+                <applicationTime>always</applicationTime>
+                <pattern>
+                    <filter>
+                        <q:text>attributes/ri:dn =[stringIgnoreCase] 'cn=printers-for-juniors,ou=groups,dc=example,dc=com'</q:text>
+                    </filter>
+                </pattern>
+                <pattern>
+                    <filter>
+                        <q:text>attributes/ri:dn =[stringIgnoreCase] 'cn=big-brothers,ou=groups,dc=example,dc=com'</q:text>
+                    </filter>
+                </pattern>
+            </marking>
+            <defaultOperationPolicy id="91">
+                <policyRef oid="00000000-0000-0000-0000-000000000805" relation="org:default" type="c:MarkType"/>
+                <lifecycleState>active</lifecycleState>
+            </defaultOperationPolicy>
+            <correlation>
+                <correlators>
+                    <items id="114">
+                        <name>group-correlation-by-identifier</name>
+                        <enabled>true</enabled>
+                        <item id="115">
+                            <ref>identifier</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+            <synchronization>
+                <reaction id="96">
+                    <name>unmatched-add</name>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus id="97"/>
+                    </actions>
+                </reaction>
+                <reaction id="98">
+                    <name>unlinked-link</name>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link id="99"/>
+                    </actions>
+                </reaction>
+                <reaction id="100">
+                    <name>linked-synchronize</name>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize id="101"/>
+                    </actions>
+                </reaction>
+                <reaction id="102">
+                    <name>deleted-inactivate</name>
+                    <situation>deleted</situation>
+                    <actions>
+                        <inactivateFocus id="103"/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>unmatched-nothing</name>
+                    <lifecycleState>draft</lifecycleState>
+                    <situation>unmatched</situation>
+                </reaction>
+                <reaction>
+                    <name>deleted-synchronize</name>
+                    <lifecycleState>draft</lifecycleState>
+                    <situation>deleted</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+            </synchronization>
+        </objectType>
+        <!--
+        <objectType id="118">
+            <kind>entitlement</kind>
+            <intent>app-group</intent>
+            <displayName>AD Application Group</displayName>
+            <description>Application groups provided by AD</description>
+            <lifecycleState>active</lifecycleState>
+            <default>false</default>
+            <delineation>
+                <objectClass>ri:groupOfNames</objectClass>
+                <filter>
+                    <q:text>attributes/cn startsWith "app:"</q:text>
+                </filter>
+            </delineation>
+            <focus>
+                <type>c:RoleType</type>
+                <archetypeRef oid="c43e59cf-c2ff-4dc8-93c9-bc32c6ce308a" relation="org:default" type="c:ArchetypeType"/>
+            </focus>
+            <attribute id="119">
+                <ref>ri:cn</ref>
+                <outbound>
+                    <name>identifier-to-cn</name>
+                    <strength>weak</strength>
+                    <source>
+                        <path>identifier</path>
+                    </source>
+                </outbound>
+                <inbound id="120">
+                    <name>cn-into-identifier</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>identifier</path>
+                    </target>
+                </inbound>
+                <inbound id="121">
+                    <name>cn-into-name</name>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>"ad:" + input</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>name</path>
+                    </target>
+                </inbound>
+                <inbound id="122">
+                    <name>cn-into-displayName</name>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>separator = ':'
+                            parsed = input?.split(separator)
+                            if (parsed?.size() == 3 &amp;&amp; input?.startsWith('app:')) {
+                                appName = parsed[1] // second component (application name)
+                                roleName = parsed[2] // everything after second component is role name
+                                return "AD app: " +
+                                        appName?.replace('-', ' ')?.capitalize() +
+                                        separator +
+                                        roleName?.replace('-', ' ')?.capitalize()
+                            } else {
+                                return "AD app: " + input?.replace('-', ' ')?.capitalize()
+                            }</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>displayName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="123">
+                <ref>ri:description</ref>
+                <tolerant>false</tolerant>
+                <outbound>
+                    <name>description-to-description</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>description</path>
+                    </source>
+                </outbound>
+                <inbound id="124">
+                    <name>description-into-description</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>description</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="125">
+                <ref>ri:businessCategory</ref>
+            </attribute>
+            <attribute id="188">
+                <ref>ri:dn</ref>
+                <outbound>
+                    <name>identifier-to-dn</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>identifier</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>basic.composeDnWithSuffix('cn', identifier,
+                                    'ou=appgroups,' + basic.getResourceIcfConfigurationPropertyValue(resource,
+                                            'baseContext')
+                            )</code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <defaultOperationPolicy id="129">
+                <policyRef oid="00000000-0000-0000-0000-000000000805" relation="org:default" type="c:MarkType"/>
+                <lifecycleState>archived</lifecycleState>
+            </defaultOperationPolicy>
+            <defaultOperationPolicy id="201">
+                <policyRef oid="00000000-0000-0000-0000-000000000806" relation="org:default" type="c:MarkType"/>
+                <lifecycleState>active</lifecycleState>
+            </defaultOperationPolicy>
+            <correlation>
+                <correlators>
+                    <items id="130">
+                        <name>group-correlation-by-identifier</name>
+                        <enabled>true</enabled>
+                        <item id="131">
+                            <ref>identifier</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+            <synchronization>
+                <reaction id="132">
+                    <name>unmatched-add</name>
+                    <lifecycleState>archived</lifecycleState>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus id="133"/>
+                    </actions>
+                </reaction>
+                <reaction id="134">
+                    <name>unlinked-link</name>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link id="135"/>
+                    </actions>
+                </reaction>
+                <reaction id="136">
+                    <name>linked-synchronize</name>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize id="137"/>
+                    </actions>
+                </reaction>
+                <reaction id="138">
+                    <name>deleted-inactivate</name>
+                    <lifecycleState>archived</lifecycleState>
+                    <situation>deleted</situation>
+                    <actions>
+                        <inactivateFocus id="139"/>
+                    </actions>
+                </reaction>
+                <reaction id="196">
+                    <name>unmatched-deleteResourceObject</name>
+                    <lifecycleState>active</lifecycleState>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <deleteResourceObject id="197"/>
+                    </actions>
+                </reaction>
+                <reaction id="198">
+                    <name>deleted-synchronize</name>
+                    <lifecycleState>active</lifecycleState>
+                    <situation>deleted</situation>
+                    <actions>
+                        <synchronize id="199"/>
+                    </actions>
+                </reaction>
+            </synchronization>
+        </objectType>
+        -->
+        <associationType id="144">
+            <name>adGroup-association</name>
+            <displayName>AD Group Association</displayName>
+            <description>Association for AD groups (under ou=groups)</description>
+            <lifecycleState>active</lifecycleState>
+            <subject>
+                <objectType id="145">
+                    <kind>account</kind>
+                    <intent>default</intent>
+                </objectType>
+                <association>
+                    <ref>adGroup</ref>
+                    <sourceAttributeRef>ri:group</sourceAttributeRef>
+                    <outbound id="180">
+                        <name>role-assignments-to-ad-group-membership</name>
+                        <strength>strong</strength>
+                        <expression>
+                            <associationConstruction xsi:type="c:AssociationConstructionExpressionEvaluatorType">
+                                <objectRef id="182">
+                                    <ref>ri:group</ref>
+                                    <mapping id="183">
+                                        <name>associationFromLink</name>
+                                        <strength>strong</strength>
+                                        <expression>
+                                            <associationFromLink/>
+                                        </expression>
+                                    </mapping>
+                                </objectRef>
+                            </associationConstruction>
+                        </expression>
+                    </outbound>
+                    <inbound id="149">
+                        <name>group-membership-to-role-assignments</name>
+                        <strength>strong</strength>
+                        <expression>
+                            <associationSynchronization xsi:type="c:AssociationSynchronizationExpressionEvaluatorType">
+                                <objectRef id="157">
+                                    <ref>ri:group</ref>
+                                    <mapping id="158">
+                                        <name>shadowOwner-into-targetRef</name>
+                                        <strength>strong</strength>
+                                        <expression>
+                                            <shadowOwnerReferenceSearch/>
+                                        </expression>
+                                        <target>
+                                            <path>targetRef</path>
+                                        </target>
+                                    </mapping>
+                                </objectRef>
+                                <correlation>
+                                    <correlators>
+                                        <items id="160">
+                                            <name>membership-correlation</name>
+                                            <enabled>true</enabled>
+                                            <item id="161">
+                                                <ref>targetRef</ref>
+                                            </item>
+                                        </items>
+                                    </correlators>
+                                </correlation>
+                                <synchronization>
+                                    <reaction id="151">
+                                        <name>unmatched-add</name>
+                                        <situation>unmatched</situation>
+                                        <actions>
+                                            <addFocusValue id="152"/>
+                                        </actions>
+                                    </reaction>
+                                    <reaction id="153">
+                                        <name>matched-synchronize</name>
+                                        <situation>matched</situation>
+                                        <actions>
+                                            <synchronize id="154"/>
+                                        </actions>
+                                    </reaction>
+                                    <reaction id="155">
+                                        <name>indirectly-matched-ignore</name>
+                                        <situation>matchedIndirectly</situation>
+                                    </reaction>
+                                </synchronization>
+                            </associationSynchronization>
+                        </expression>
+                    </inbound>
+                </association>
+            </subject>
+            <object id="146">
+                <objectType id="147">
+                    <kind>entitlement</kind>
+                    <intent>ad-group</intent>
+                </objectType>
+            </object>
+        </associationType>
+        <!--
+        <associationType id="164">
+            <name>appgroup-association</name>
+            <displayName>AD Application Group Association</displayName>
+            <description>Association for AD application groups (under ou=appgroups)</description>
+            <lifecycleState>active</lifecycleState>
+            <subject>
+                <objectType id="165">
+                    <kind>account</kind>
+                    <intent>default</intent>
+                </objectType>
+                <association>
+                    <ref>appGroup</ref>
+                    <sourceAttributeRef>ri:group</sourceAttributeRef>
+                    <outbound id="191">
+                        <name>role-assignments-to-app-group-membership</name>
+                        <strength>strong</strength>
+                        <expression>
+                            <associationConstruction xsi:type="c:AssociationConstructionExpressionEvaluatorType">
+                                <objectRef id="193">
+                                    <ref>ri:group</ref>
+                                    <mapping id="194">
+                                        <name>associationFromLink</name>
+                                        <strength>strong</strength>
+                                        <expression>
+                                            <associationFromLink/>
+                                        </expression>
+                                    </mapping>
+                                </objectRef>
+                            </associationConstruction>
+                        </expression>
+                    </outbound>
+                    <inbound id="166">
+                        <name>group-membership-to-role-assignments</name>
+                        <strength>strong</strength>
+                        <expression>
+                            <associationSynchronization xsi:type="c:AssociationSynchronizationExpressionEvaluatorType">
+                                <objectRef id="157">
+                                    <ref>ri:group</ref>
+                                    <mapping id="158">
+                                        <name>shadowOwner-into-targetRef</name>
+                                        <strength>strong</strength>
+                                        <expression>
+                                            <shadowOwnerReferenceSearch/>
+                                        </expression>
+                                        <target>
+                                            <path>targetRef</path>
+                                        </target>
+                                    </mapping>
+                                </objectRef>
+                                <correlation>
+                                    <correlators>
+                                        <items id="160">
+                                            <name>membership-correlation</name>
+                                            <enabled>true</enabled>
+                                            <item id="161">
+                                                <ref>targetRef</ref>
+                                            </item>
+                                        </items>
+                                    </correlators>
+                                </correlation>
+                                <synchronization>
+                                    <reaction id="151">
+                                        <name>unmatched-add</name>
+                                        <situation>unmatched</situation>
+                                        <actions>
+                                            <addFocusValue id="152"/>
+                                        </actions>
+                                    </reaction>
+                                    <reaction id="153">
+                                        <name>matched-synchronize</name>
+                                        <situation>matched</situation>
+                                        <actions>
+                                            <synchronize id="154"/>
+                                        </actions>
+                                    </reaction>
+                                    <reaction id="155">
+                                        <name>indirectly-matched-ignore</name>
+                                        <situation>matchedIndirectly</situation>
+                                    </reaction>
+                                </synchronization>
+                            </associationSynchronization>
+                        </expression>
+                    </inbound>
+                </association>
+            </subject>
+            <object id="167">
+                <objectType id="168">
+                    <kind>entitlement</kind>
+                    <intent>app-group</intent>
+                </objectType>
+            </object>
+        </associationType>
+        -->
+    </schemaHandling>
+    <capabilities>
+        <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
+            <cap:activation>
+                <cap:status>
+                    <cap:attribute>ri:roomNumber</cap:attribute>
+                    <cap:enableValue/>
+                    <cap:disableValue>disabled</cap:disableValue>
+                </cap:status>
+            </cap:activation>
+            <cap:countObjects>
+                <cap:simulate>pagedSearchEstimate</cap:simulate>
+            </cap:countObjects>
+        </configured>
+    </capabilities>
+    <business>
+        <correlatorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+    </business>
+</resource>
