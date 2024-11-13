@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum and contributors
+  ~
+ ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<dashboard xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           oid="b0fdc3d8-6dc9-419c-adac-53a2833a6869">
+    <name>object-marks-dashboard</name>
+    <description>Dashboard for showing marked objects (accounts, groups, ...) in all resources.</description>
+    <!-- TODO https://docs.evolveum.com/midpoint/reference/admin-gui/dashboards/configuration/ -->
+    <display>
+        <label>Object marks</label>
+    </display>
+    <widget>
+        <identifier>protected-accounts</identifier>
+        <display>
+            <label>Protected</label>
+            <color>orange</color>
+            <icon>
+                <cssClass>fa fa-shield</cssClass>
+            </icon>
+        </display>
+        <displayOrder>1</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="76a21d93-5a52-4630-89dd-ddb580a0d611" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+<!--            <dataField>-->
+<!--                <fieldType>unit</fieldType>-->
+<!--                <expression>-->
+<!--                    <value>protected</value>-->
+<!--                </expression>-->
+<!--            </dataField>-->
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                        <label>Account ID</label>
+                    </display>
+                </column>
+                <column>
+                    <name>situationColumn</name>
+                    <path>synchronizationSituation</path>
+                    <previousColumn>nameColumn</previousColumn>
+                    <sortProperty>synchronizationSituation</sortProperty>
+                </column>
+                <column>
+                    <name>resourceColumn</name>
+                    <path>resourceRef</path>
+                    <previousColumn>situationColumn</previousColumn>
+                    <sortProperty>resourceRef/@/name</sortProperty>
+                </column>
+                <column>
+                    <name>kindColumn</name>
+                    <path>kind</path>
+                    <previousColumn>resourceColumn</previousColumn>
+                    <sortProperty>kind</sortProperty>
+                </column>
+                <column>
+                    <name>intentColumn</name>
+                    <path>intent</path>
+                    <previousColumn>kindColumn</previousColumn>
+                    <sortProperty>intent</sortProperty>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+
+    <widget>
+        <identifier>correlate-later-accounts</identifier>
+        <display>
+            <label>Correlate later</label>
+            <color>gray</color>
+            <icon>
+                <cssClass>fa fa-tag</cssClass>
+            </icon>
+        </display>
+        <displayOrder>10</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="ed92e232-3741-450e-8e1b-913d8d54b7a1" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <!--            <dataField>-->
+            <!--                <fieldType>unit</fieldType>-->
+            <!--                <expression>-->
+            <!--                    <value>protected</value>-->
+            <!--                </expression>-->
+            <!--            </dataField>-->
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                        <label>Account ID</label>
+                    </display>
+                </column>
+                <column>
+                    <name>situationColumn</name>
+                    <path>synchronizationSituation</path>
+                    <previousColumn>nameColumn</previousColumn>
+                    <sortProperty>synchronizationSituation</sortProperty>
+                </column>
+                <column>
+                    <name>resourceColumn</name>
+                    <path>resourceRef</path>
+                    <previousColumn>situationColumn</previousColumn>
+                    <sortProperty>resourceRef/@/name</sortProperty>
+                </column>
+                <column>
+                    <name>kindColumn</name>
+                    <path>kind</path>
+                    <previousColumn>resourceColumn</previousColumn>
+                    <sortProperty>kind</sortProperty>
+                </column>
+                <column>
+                    <name>intentColumn</name>
+                    <path>intent</path>
+                    <previousColumn>kindColumn</previousColumn>
+                    <sortProperty>intent</sortProperty>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+
+    <widget>
+        <identifier>do-not-touch-accounts</identifier>
+        <display>
+            <label>Do not touch</label>
+            <color>red</color>
+            <icon>
+                <cssClass>fa fa-exclamation-triangle</cssClass>
+            </icon>
+        </display>
+        <displayOrder>20</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="ea799497-79de-49f9-8395-6b2dd2b9382d" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+<!--            <dataField>-->
+<!--                <fieldType>unit</fieldType>-->
+<!--                <expression>-->
+<!--                    <value>do not touch</value>-->
+<!--                </expression>-->
+<!--            </dataField>-->
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                        <label>Account ID</label>
+                    </display>
+                </column>
+                <column>
+                    <name>situationColumn</name>
+                    <path>synchronizationSituation</path>
+                    <previousColumn>nameColumn</previousColumn>
+                    <sortProperty>synchronizationSituation</sortProperty>
+                </column>
+                <column>
+                    <name>resourceColumn</name>
+                    <path>resourceRef</path>
+                    <previousColumn>situationColumn</previousColumn>
+                    <sortProperty>resourceRef/@/name</sortProperty>
+                </column>
+                <column>
+                    <name>kindColumn</name>
+                    <path>kind</path>
+                    <previousColumn>resourceColumn</previousColumn>
+                    <sortProperty>kind</sortProperty>
+                </column>
+                <column>
+                    <name>intentColumn</name>
+                    <path>intent</path>
+                    <previousColumn>kindColumn</previousColumn>
+                    <sortProperty>intent</sortProperty>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+
+    <widget>
+        <identifier>decommission-later-accounts</identifier>
+        <display>
+            <label>Decommission later</label>
+            <color>salmon</color>
+            <icon>
+                <cssClass>fa fa-trash</cssClass>
+            </icon>
+        </display>
+        <displayOrder>30</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="6b06c69b-2d5b-4cb6-808b-8cb6f8aa1433" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+<!--            <dataField>-->
+<!--                <fieldType>unit</fieldType>-->
+<!--                <expression>-->
+<!--                    <value>decommission later</value>-->
+<!--                </expression>-->
+<!--            </dataField>-->
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                        <label>Account ID</label>
+                    </display>
+                </column>
+                <column>
+                    <name>situationColumn</name>
+                    <path>synchronizationSituation</path>
+                    <previousColumn>nameColumn</previousColumn>
+                    <sortProperty>synchronizationSituation</sortProperty>
+                </column>
+                <column>
+                    <name>resourceColumn</name>
+                    <path>resourceRef</path>
+                    <previousColumn>situationColumn</previousColumn>
+                    <sortProperty>resourceRef/@/name</sortProperty>
+                </column>
+                <column>
+                    <name>kindColumn</name>
+                    <path>kind</path>
+                    <previousColumn>resourceColumn</previousColumn>
+                    <sortProperty>kind</sortProperty>
+                </column>
+                <column>
+                    <name>intentColumn</name>
+                    <path>intent</path>
+                    <previousColumn>kindColumn</previousColumn>
+                    <sortProperty>intent</sortProperty>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+
+    <widget>
+        <identifier>invalid-data-accounts</identifier>
+        <display>
+            <label>Invalid data</label>
+            <color>darkorchid</color>
+            <icon>
+                <cssClass>fa fa-times</cssClass>
+            </icon>
+        </display>
+        <displayOrder>40</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="d4d41331-fae5-434d-8a01-287cb6a2ff9b" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <!--            <dataField>-->
+            <!--                <fieldType>unit</fieldType>-->
+            <!--                <expression>-->
+            <!--                    <value>decommission later</value>-->
+            <!--                </expression>-->
+            <!--            </dataField>-->
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                        <label>Account ID</label>
+                    </display>
+                </column>
+                <column>
+                    <name>situationColumn</name>
+                    <path>synchronizationSituation</path>
+                    <previousColumn>nameColumn</previousColumn>
+                    <sortProperty>synchronizationSituation</sortProperty>
+                </column>
+                <column>
+                    <name>resourceColumn</name>
+                    <path>resourceRef</path>
+                    <previousColumn>situationColumn</previousColumn>
+                    <sortProperty>resourceRef/@/name</sortProperty>
+                </column>
+                <column>
+                    <name>kindColumn</name>
+                    <path>kind</path>
+                    <previousColumn>resourceColumn</previousColumn>
+                    <sortProperty>kind</sortProperty>
+                </column>
+                <column>
+                    <name>intentColumn</name>
+                    <path>intent</path>
+                    <previousColumn>kindColumn</previousColumn>
+                    <sortProperty>intent</sortProperty>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+
+    <widget>
+        <identifier>unmanaged-objects</identifier>
+        <display>
+            <label>Explicitly unmanaged</label>
+            <color>darkred</color>
+            <icon>
+                <cssClass>fa-regular fa-circle-xmark</cssClass>
+            </icon>
+        </display>
+        <displayOrder>50</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="fc869180-4725-4f36-b7fb-f40406be7390" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <!--            <dataField>-->
+            <!--                <fieldType>unit</fieldType>-->
+            <!--                <expression>-->
+            <!--                    <value>decommission later</value>-->
+            <!--                </expression>-->
+            <!--            </dataField>-->
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                        <label>Object ID</label>
+                    </display>
+                </column>
+                <column>
+                    <name>situationColumn</name>
+                    <path>synchronizationSituation</path>
+                    <previousColumn>nameColumn</previousColumn>
+                    <sortProperty>synchronizationSituation</sortProperty>
+                </column>
+                <column>
+                    <name>resourceColumn</name>
+                    <path>resourceRef</path>
+                    <previousColumn>situationColumn</previousColumn>
+                    <sortProperty>resourceRef/@/name</sortProperty>
+                </column>
+                <column>
+                    <name>kindColumn</name>
+                    <path>kind</path>
+                    <previousColumn>resourceColumn</previousColumn>
+                    <sortProperty>kind</sortProperty>
+                </column>
+                <column>
+                    <name>intentColumn</name>
+                    <path>intent</path>
+                    <previousColumn>kindColumn</previousColumn>
+                    <sortProperty>intent</sortProperty>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+
+    <widget>
+        <identifier>managed-objects</identifier>
+        <display>
+            <label>Explicitly managed</label>
+            <color>darkgreen</color>
+            <icon>
+                <cssClass>fa fa-check</cssClass>
+            </icon>
+        </display>
+        <displayOrder>60</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="e4e3fe3b-ed51-462f-86ba-054d1d3dd6a9" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <!--            <dataField>-->
+            <!--                <fieldType>unit</fieldType>-->
+            <!--                <expression>-->
+            <!--                    <value>decommission later</value>-->
+            <!--                </expression>-->
+            <!--            </dataField>-->
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                        <label>Object ID</label>
+                    </display>
+                </column>
+                <column>
+                    <name>situationColumn</name>
+                    <path>synchronizationSituation</path>
+                    <previousColumn>nameColumn</previousColumn>
+                    <sortProperty>synchronizationSituation</sortProperty>
+                </column>
+                <column>
+                    <name>resourceColumn</name>
+                    <path>resourceRef</path>
+                    <previousColumn>situationColumn</previousColumn>
+                    <sortProperty>resourceRef/@/name</sortProperty>
+                </column>
+                <column>
+                    <name>kindColumn</name>
+                    <path>kind</path>
+                    <previousColumn>resourceColumn</previousColumn>
+                    <sortProperty>kind</sortProperty>
+                </column>
+                <column>
+                    <name>intentColumn</name>
+                    <path>intent</path>
+                    <previousColumn>kindColumn</previousColumn>
+                    <sortProperty>intent</sortProperty>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+    <widget>
+        <identifier>suspicious-objects</identifier>
+        <display>
+            <label>Suspicious</label>
+            <color>red</color>
+            <icon>
+                <cssClass>fa fa-handcuffs</cssClass>
+            </icon>
+        </display>
+        <displayOrder>70</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="b5848116-8ff1-4bc0-a8d5-b31b34e2e840" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <!--            <dataField>-->
+            <!--                <fieldType>unit</fieldType>-->
+            <!--                <expression>-->
+            <!--                    <value>decommission later</value>-->
+            <!--                </expression>-->
+            <!--            </dataField>-->
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                        <label>Object ID</label>
+                    </display>
+                </column>
+                <column>
+                    <name>situationColumn</name>
+                    <path>synchronizationSituation</path>
+                    <previousColumn>nameColumn</previousColumn>
+                    <sortProperty>synchronizationSituation</sortProperty>
+                </column>
+                <column>
+                    <name>resourceColumn</name>
+                    <path>resourceRef</path>
+                    <previousColumn>situationColumn</previousColumn>
+                    <sortProperty>resourceRef/@/name</sortProperty>
+                </column>
+                <column>
+                    <name>kindColumn</name>
+                    <path>kind</path>
+                    <previousColumn>resourceColumn</previousColumn>
+                    <sortProperty>kind</sortProperty>
+                </column>
+                <column>
+                    <name>intentColumn</name>
+                    <path>intent</path>
+                    <previousColumn>kindColumn</previousColumn>
+                    <sortProperty>intent</sortProperty>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+
+    <widget>
+        <identifier>unmatched-objects</identifier>
+        <display>
+            <label>Unmatched groups</label>
+            <color>gray</color>
+            <icon>
+                <cssClass>fa fa-not-equal</cssClass>
+            </icon>
+        </display>
+        <displayOrder>80</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="41a2a619-a2f9-4f00-80a3-813ef39a1cd7" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <!--            <dataField>-->
+            <!--                <fieldType>unit</fieldType>-->
+            <!--                <expression>-->
+            <!--                    <value>decommission later</value>-->
+            <!--                </expression>-->
+            <!--            </dataField>-->
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                        <label>Object ID</label>
+                    </display>
+                </column>
+                <column>
+                    <name>situationColumn</name>
+                    <path>synchronizationSituation</path>
+                    <previousColumn>nameColumn</previousColumn>
+                    <sortProperty>synchronizationSituation</sortProperty>
+                </column>
+                <column>
+                    <name>resourceColumn</name>
+                    <path>resourceRef</path>
+                    <previousColumn>situationColumn</previousColumn>
+                    <sortProperty>resourceRef/@/name</sortProperty>
+                </column>
+                <column>
+                    <name>kindColumn</name>
+                    <path>kind</path>
+                    <previousColumn>resourceColumn</previousColumn>
+                    <sortProperty>kind</sortProperty>
+                </column>
+                <column>
+                    <name>intentColumn</name>
+                    <path>intent</path>
+                    <previousColumn>kindColumn</previousColumn>
+                    <sortProperty>intent</sortProperty>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+
+
+    <widget>
+        <identifier>any-marked-accounts</identifier>
+        <display>
+            <label>All marked objects</label>
+            <color>lightskyblue</color>
+            <icon>
+                <cssClass>fa fa-infinity</cssClass>
+            </icon>
+        </display>
+        <displayOrder>100</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="036df742-cce4-4292-a911-b8ffb23240f5" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <!--            <dataField>-->
+            <!--                <fieldType>unit</fieldType>-->
+            <!--                <expression>-->
+            <!--                    <value>decommission later</value>-->
+            <!--                </expression>-->
+            <!--            </dataField>-->
+            <view>
+                <column>
+                    <name>nameColumn</name>
+                    <path>name</path>
+                    <display>
+                        <label>Account ID</label>
+                    </display>
+                </column>
+                <column>
+                    <name>situationColumn</name>
+                    <path>synchronizationSituation</path>
+                    <previousColumn>nameColumn</previousColumn>
+                    <sortProperty>synchronizationSituation</sortProperty>
+                </column>
+                <column>
+                    <name>resourceColumn</name>
+                    <path>resourceRef</path>
+                    <previousColumn>situationColumn</previousColumn>
+                    <sortProperty>resourceRef/@/name</sortProperty>
+                </column>
+                <column>
+                    <name>kindColumn</name>
+                    <path>kind</path>
+                    <previousColumn>resourceColumn</previousColumn>
+                    <sortProperty>kind</sortProperty>
+                </column>
+                <column>
+                    <name>intentColumn</name>
+                    <path>intent</path>
+                    <previousColumn>kindColumn</previousColumn>
+                    <sortProperty>intent</sortProperty>
+                </column>
+            </view>
+        </presentation>
+    </widget>
+
+</dashboard>

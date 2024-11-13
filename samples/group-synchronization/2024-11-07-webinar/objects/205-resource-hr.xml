@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum and contributors
+  ~
+ ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="07b20755-5b61-4fd9-afed-a819eb2ac686" version="32">
+    <name>HR</name>
+    <lifecycleState>active</lifecycleState>
+    <connectorRef>
+        <description>
+                Reference to the ConnId CSV file connector. This is dynamic reference, it will be translated to
+                OID during import.
+                Only connector which is available is used (connector objects without existing JAR are ignored).
+            </description>
+        <filter>
+            <q:text>connectorType = "com.evolveum.polygon.connector.csv.CsvConnector" and available = "true"</q:text>
+        </filter>
+    </connectorRef>
+    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+        <icfc:configurationProperties xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
+            <cfg:fieldDelimiter>,</cfg:fieldDelimiter>
+            <cfg:quote>"</cfg:quote>
+            <cfg:filePath>/opt/midpoint/var/resources/export.csv</cfg:filePath>
+            <cfg:uniqueAttribute>empnum</cfg:uniqueAttribute>
+        </icfc:configurationProperties>
+    </connectorConfiguration>
+    <schema>
+        <generationConstraints>
+            <generateObjectClass>ri:AccountObjectClass</generateObjectClass>
+        </generationConstraints>
+    </schema>
+    <schemaHandling>
+        <objectType id="5">
+            <kind>account</kind>
+            <displayName>HR Person</displayName>
+            <default>true</default>
+            <delineation>
+                <objectClass>ri:AccountObjectClass</objectClass>
+                <filter>
+                    <q:text>attributes/empnum not startsWith "8"</q:text>
+                </filter>
+            </delineation>
+            <focus>
+                <type>c:UserType</type>
+                <archetypeRef oid="00000000-0000-0000-0000-000000000702" relation="org:default" type="c:ArchetypeType"/>
+            </focus>
+            <attribute id="14">
+                <ref>ri:empnum</ref>
+                <inbound id="15">
+                    <name>empnum-to-name</name>
+                    <lifecycleState>archived</lifecycleState>
+                    <strength>weak</strength>
+                    <target>
+                        <path>name</path>
+                    </target>
+                </inbound>
+                <inbound id="16">
+                    <name>empnum-to-persNumber</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>personalNumber</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="17">
+                <ref>ri:firstname</ref>
+                <inbound id="18">
+                    <name>firstname-to-givenName</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>givenName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="19">
+                <ref>ri:surname</ref>
+                <inbound id="20">
+                    <name>surname-to-familyName</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>familyName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="23">
+                <ref>ri:locality</ref>
+                <inbound id="24">
+                    <name>locality-to-locality</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>locality</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="25">
+                <ref>ri:status</ref>
+                <inbound id="26">
+                    <name>status-to-lifecycle-state</name>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>switch (input) {
+case 'In':
+'active'
+break
+case 'Long-term leave':
+'suspended'
+break
+case 'Former employee':
+'archived'
+break
+//default:
+//'suspended'
+//break
+}</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>lifecycleState</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute id="32">
+                <ref>ri:job</ref>
+                <inbound id="33">
+                    <name>job-to-title</name>
+                    <lifecycleState>archived</lifecycleState>
+                    <strength>strong</strength>
+                    <target>
+                        <path>title</path>
+                    </target>
+                </inbound>
+                <inbound id="36">
+                    <name>job-to-title-nice</name>
+                    <lifecycleState>active</lifecycleState>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>def separator = '#'
+if (input == null || input.indexOf(separator) == -1) {
+return input
+} else {
+return input.tokenize(separator)[1]
+}</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>title</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <synchronization>
+                <reaction id="8">
+                    <name>unmatched-add</name>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus id="9"/>
+                    </actions>
+                </reaction>
+                <reaction id="11">
+                    <name>linked-synchronize</name>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize id="12"/>
+                    </actions>
+                </reaction>
+            </synchronization>
+        </objectType>
+    </schemaHandling>
+    <capabilities>
+        <configured xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
+            <cap:create>
+                <cap:enabled>false</cap:enabled>
+            </cap:create>
+            <cap:update>
+                <cap:enabled>false</cap:enabled>
+            </cap:update>
+            <cap:delete>
+                <cap:enabled>false</cap:enabled>
+            </cap:delete>
+        </configured>
+    </capabilities>
+</resource>

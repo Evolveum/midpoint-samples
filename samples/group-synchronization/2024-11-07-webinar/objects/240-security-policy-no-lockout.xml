@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum and contributors
+  ~
+ ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<securityPolicy xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+                xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+                xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="125c77dc-9c10-40da-8f06-65e06fd73fec"
+                version="1">
+    <name>Copy of Default Security Policy (no lockout)</name>
+    <description>To be used during training to prevent administrator's lockout. This policy must be "assigned" to administrator via organization.</description>
+    <authentication>
+        <modules>
+            <loginForm id="1">
+                <identifier>loginForm</identifier>
+            </loginForm>
+            <httpBasic id="2">
+                <identifier>httpBasic</identifier>
+            </httpBasic>
+        </modules>
+        <sequence id="3">
+            <identifier>admin-gui-default</identifier>
+            <displayName>Default gui sequence</displayName>
+            <channel>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</channelId>
+                <default>true</default>
+                <urlSuffix>gui-default</urlSuffix>
+            </channel>
+            <module id="6">
+                <identifier>loginForm</identifier>
+                <order>1</order>
+                <necessity>sufficient</necessity>
+            </module>
+        </sequence>
+        <sequence id="4">
+            <identifier>rest-default</identifier>
+            <channel>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#rest</channelId>
+                <default>true</default>
+                <urlSuffix>rest-default</urlSuffix>
+            </channel>
+            <module id="7">
+                <identifier>httpBasic</identifier>
+                <order>1</order>
+                <necessity>sufficient</necessity>
+            </module>
+        </sequence>
+        <sequence id="5">
+            <identifier>actuator-default</identifier>
+            <channel>
+                <channelId>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#actuator</channelId>
+                <default>true</default>
+                <urlSuffix>actuator-default</urlSuffix>
+            </channel>
+            <module id="8">
+                <identifier>httpBasic</identifier>
+                <order>1</order>
+                <necessity>sufficient</necessity>
+            </module>
+        </sequence>
+        <ignoredLocalPath>/actuator/health</ignoredLocalPath>
+    </authentication>
+    <credentials>
+        <password>
+            <minOccurs>0</minOccurs>
+<!--            <lockoutMaxFailedAttempts>3</lockoutMaxFailedAttempts>-->
+<!--            <lockoutFailedAttemptsDuration>PT3M</lockoutFailedAttemptsDuration>-->
+<!--            <lockoutDuration>PT15M</lockoutDuration>-->
+            <valuePolicyRef oid="00000000-0000-0000-0000-000000000003" relation="org:default" type="c:ValuePolicyType"/>
+        </password>
+    </credentials>
+</securityPolicy>
