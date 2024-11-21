@@ -1,0 +1,29 @@
+<user xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      oid="29e7cee7-6d81-440d-acdb-3c802f843994" version="1">
+    <name>tstevens</name>
+    <description>Reviewer</description>
+    <assignment id="1">
+        <targetRef oid="00000000-0000-0000-0000-000000000008" relation="org:default" type="c:RoleType"/>
+        <activation/>
+    </assignment>
+    <assignment id="2">
+        <targetRef oid="00000000-0000-0000-0000-00000000000b" relation="org:default" type="c:RoleType"/>
+        <activation/>
+    </assignment>
+    <credentials>
+        <password>
+            <value>
+                <t:clearValue>Password123!</t:clearValue>
+            </value>
+        </password>
+    </credentials>
+    <fullName>Tom Stevens</fullName>
+    <givenName>Tom</givenName>
+    <familyName>Stevens</familyName>
+</user>

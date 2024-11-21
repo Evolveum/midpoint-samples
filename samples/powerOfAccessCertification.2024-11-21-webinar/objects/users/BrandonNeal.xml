@@ -1,0 +1,64 @@
+<user xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      oid="9de21743-680f-413a-a586-b99e31c56a79" version="6">
+    <_metadata id="63">
+        <storage>
+            <modifyTimestamp>2024-11-20T11:18:32.613+01:00</modifyTimestamp>
+            <modifierRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+            <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
+            <modifyTaskRef oid="cf256ca3-c53b-466d-abb7-eec7028fe6c9" relation="org:default" type="c:TaskType"/>
+        </storage>
+    </_metadata>
+    <name>Brandon Neal</name>
+    <assignment id="1">
+        <_metadata id="71">
+            <storage>
+                <modifyTimestamp>2024-11-20T11:18:32.613+01:00</modifyTimestamp>
+                <modifierRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+                <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
+                <modifyTaskRef oid="cf256ca3-c53b-466d-abb7-eec7028fe6c9" relation="org:default" type="c:TaskType"/>
+            </storage>
+        </_metadata>
+        <targetRef oid="fef8090c-06e3-4ca3-b706-1401f2f679e9" relation="org:default" type="c:ArchetypeType"/>
+        <activation/>
+    </assignment>
+    <assignment id="2">
+        <_metadata id="64">
+            <storage>
+                <modifyTimestamp>2024-11-20T11:18:32.613+01:00</modifyTimestamp>
+                <modifierRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+                <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
+                <modifyTaskRef oid="cf256ca3-c53b-466d-abb7-eec7028fe6c9" relation="org:default" type="c:TaskType"/>
+            </storage>
+        </_metadata>
+        <targetRef oid="95feba24-bd40-45d4-b9ea-9b074b454c1b" relation="org:default" type="c:OrgType"/>
+        <activation/>
+    </assignment>
+    <assignment id="22">
+        <targetRef oid="95feba24-bd40-45d4-b9ea-9b074b454c1b" relation="org:manager" type="c:OrgType"/>
+        <activation/>
+    </assignment>
+    <assignment id="123">
+        <targetRef oid="00000000-0000-0000-0000-000000000008" relation="org:default" type="c:RoleType"/>
+        <activation/>
+    </assignment>
+    <assignment id="211">
+        <targetRef oid="00000000-0000-0000-0000-00000000000b" relation="org:default" type="c:RoleType"/>
+        <activation/>
+    </assignment>
+    <credentials>
+        <password>
+            <value>
+                <t:clearValue>Password123!</t:clearValue>
+            </value>
+        </password>
+    </credentials>
+    <activation/>
+    <locality>New York</locality>
+    <title>manager</title>
+</user>

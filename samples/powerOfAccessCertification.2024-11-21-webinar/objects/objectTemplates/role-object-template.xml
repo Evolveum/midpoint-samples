@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2013-2019 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<objectTemplate oid="fc0ace70-688f-11e3-ab09-001e8c717e5b"
+   xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+   xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+   xmlns:t='http://prism.evolveum.com/xml/ns/public/types-3'>
+    <name>Risk Level Role Template</name>
+
+    <item>
+        <ref>riskLevel</ref>
+        <mapping>
+            <strength>weak</strength>
+            <source>
+                <path>name</path>
+            </source>
+            <expression>
+                <script>
+                    <code>
+                        def roleName = name.orig;
+                        if (roleName.contains("Admin")) {
+                            return 'critical';
+                        }
+                        if (roleName.contains("Audit") || roleName.contains("audit")) {
+                            return 'high';
+                        }
+                        return '';
+                    </code>
+                 </script>
+            </expression>
+
+        </mapping>
+    </item>
+    <item>
+        <ref>description</ref>
+        <mapping>
+            <strength>weak</strength>
+            <source>
+                <path>archetypeRef</path>
+            </source>
+            <expression>
+                <script>
+                    <code>
+                        import com.evolveum.midpoint.xml.ns._public.common.common_3.*
+                        import com.evolveum.midpoint.schema.util.CertCampaignTypeUtil
+
+                        if (archetypeRef != null) {
+                            def arch = midpoint.resolveReferenceIfExists(archetypeRef)
+                            if (arch != null) {
+                                return 'Referenced with the archetype ' + arch.name
+                            }
+                        }
+                        return ''
+                    </code>
+                </script>
+            </expression>
+        </mapping>
+    </item>
+
+</objectTemplate>
