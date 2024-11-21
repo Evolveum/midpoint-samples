@@ -1,0 +1,70 @@
+<accessCertificationDefinition xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                               xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                               xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                               xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+                               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                               oid="350ff2aa-38e9-4ab9-a129-5ee56a2ea3f6" version="8">
+    <name>Review all non-critical user assignments</name>
+    <description>Certifies all non-critical users' assignments within 2 stages.</description>
+    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/certification/handlers-3#direct-assignment</handlerUri>
+    <scopeDefinition xsi:type="c:AccessCertificationAssignmentReviewScopeType">
+        <objectType>UserType</objectType>
+        <itemSelectionExpression>
+            <script>
+                <code>
+                    role = midpoint.resolveReferenceIfExists(assignment.targetRef)
+                    return role != null &amp;&amp; role.riskLevel != 'critical'
+                </code>
+            </script>
+        </itemSelectionExpression>
+        <searchFilter>
+            <q:text>name != "administrator"</q:text>
+        </searchFilter>
+        <includeAssignments>true</includeAssignments>
+        <includeInducements>false</includeInducements>
+        <includeRoles>true</includeRoles>
+        <includeOrgs>false</includeOrgs>
+        <includeServices>false</includeServices>
+        <includeUsers>false</includeUsers>
+        <enabledItemsOnly>true</enabledItemsOnly>
+    </scopeDefinition>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+    <remediationDefinition>
+        <style>automated</style>
+    </remediationDefinition>
+    <stageDefinition id="8">
+        <number>1</number>
+        <name>Administrator's review</name>
+        <description>In this stage, the administrator has to review all the assignments of all users.</description>
+        <duration>P14D</duration>
+        <notifyOnlyWhenNoDecision>false</notifyOnlyWhenNoDecision>
+        <reviewerSpecification>
+            <useTargetOwner>false</useTargetOwner>
+            <useTargetApprover>false</useTargetApprover>
+            <useObjectOwner>false</useObjectOwner>
+            <useObjectApprover>false</useObjectApprover>
+            <defaultReviewerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+        </reviewerSpecification>
+    </stageDefinition>
+    <stageDefinition id="10">
+        <number>2</number>
+        <name>Review by user managers</name>
+        <description>In this stage, all user's managers should approve.</description>
+        <duration>P7D</duration>
+        <notifyOnlyWhenNoDecision>false</notifyOnlyWhenNoDecision>
+        <reviewerSpecification>
+            <useTargetOwner>false</useTargetOwner>
+            <useTargetApprover>false</useTargetApprover>
+            <useObjectOwner>false</useObjectOwner>
+            <useObjectApprover>false</useObjectApprover>
+            <defaultReviewerRef oid="608d6545-587f-4e7d-92ea-137e0d2bf989" relation="org:default" type="c:UserType"/>
+            <useObjectManager>
+                <allowSelf>true</allowSelf>
+            </useObjectManager>
+        </reviewerSpecification>
+        <outcomeStrategy>allMustAccept</outcomeStrategy>
+    </stageDefinition>
+    <reviewStrategy>
+        <outcomeStrategy>oneDenyDenies</outcomeStrategy>
+    </reviewStrategy>
+</accessCertificationDefinition>

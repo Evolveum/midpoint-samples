@@ -1,0 +1,136 @@
+<accessCertificationDefinition xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                               xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+                               xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+                               xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+                               xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+                               xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+                               xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+                               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                               oid="982ff2aa-38e9-4ab9-a129-5ee56a2ea3f6" version="8">
+    <name>Review critical risk level assignments</name>
+    <description>Certifies all users' assignments which have critical risk level</description>
+    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/certification/handlers-3#direct-assignment</handlerUri>
+    <scopeDefinition xsi:type="c:AccessCertificationAssignmentReviewScopeType">
+        <objectType>UserType</objectType>
+        <itemSelectionExpression>
+            <script>
+                <code>
+                    role = midpoint.resolveReferenceIfExists(assignment.targetRef)
+                    return role != null &amp;&amp; role.riskLevel == 'critical'
+                </code>
+            </script>
+        </itemSelectionExpression>
+        <searchFilter>
+            <q:text>name != "administrator"</q:text>
+        </searchFilter>
+        <includeAssignments>true</includeAssignments>
+        <includeInducements>true</includeInducements>
+        <includeRoles>true</includeRoles>
+        <includeOrgs>true</includeOrgs>
+        <includeServices>true</includeServices>
+        <includeUsers>true</includeUsers>
+        <enabledItemsOnly>true</enabledItemsOnly>
+    </scopeDefinition>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+    <remediationDefinition>
+        <style>automated</style>
+    </remediationDefinition>
+    <stageDefinition id="8">
+        <number>1</number>
+        <name>Administrator's review</name>
+        <description>In this stage, the administrator has to review all the assignments of all users.</description>
+        <duration>P3D</duration>
+        <notifyOnlyWhenNoDecision>false</notifyOnlyWhenNoDecision>
+        <reviewerSpecification>
+            <useTargetOwner>false</useTargetOwner>
+            <useTargetApprover>false</useTargetApprover>
+            <useObjectOwner>false</useObjectOwner>
+            <useObjectApprover>false</useObjectApprover>
+            <defaultReviewerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+        </reviewerSpecification>
+    </stageDefinition>
+    <reviewStrategy>
+        <outcomeStrategy>oneDenyDenies</outcomeStrategy>
+    </reviewStrategy>
+    <view>
+        <identifier>certItemsView</identifier>
+        <column>
+            <name>certItemResponse</name>
+            <visibility>hidden</visibility>
+        </column>
+       <column>
+            <name>certItemReviewers</name>
+            <visibility>hidden</visibility>
+        </column>
+       <column>
+            <name>certItemEditableComment</name>
+        </column>
+        <column>
+            <name>riskLevel</name>
+            <display>
+                <label>Risk level</label>
+            </display>
+            <previousColumn>stage</previousColumn>
+            <export>
+                <expression>
+                    <script>
+                        <code>
+                            import com.evolveum.midpoint.xml.ns._public.common.common_3.*
+                            import com.evolveum.midpoint.schema.util.CertCampaignTypeUtil
+
+                            if (object == null) {
+                                return "";
+                            }
+                            AccessCertificationCaseType certCase = CertCampaignTypeUtil.getCase(object);
+                            if (certCase == null) {
+                                return "";
+                            }
+                            def targetRef = certCase.targetRef;
+                            if (targetRef == null) {
+                                return "";
+                            }
+                            def targetObj = midpoint.resolveReferenceIfExists(targetRef)
+                            if (targetObj == null) {
+                                return "";
+                            }
+
+                            return targetObj.riskLevel;
+                        </code>
+                    </script>
+                </expression>
+            </export>
+        </column>
+        <column>
+            <name>stage</name>
+            <visibility>hidden</visibility>
+        </column>
+        <includeDefaultColumns>true</includeDefaultColumns>
+        <type>AccessCertificationWorkItemType</type>
+        <action>
+            <identifier>certItemAccept</identifier>
+            <panel>
+                <display>
+                    <label>Do you really want to accept the item(s)?</label>
+                </display>
+                <container>
+                    <identifier>comment</identifier>
+                    <display>
+                        <label>Please, provide a comment (required)</label>
+                    </display>
+                    <item>
+                        <path>output/comment</path>
+                        <mandatory>true</mandatory>
+                    </item>
+                </container>
+                <type>AccessCertificationWorkItemType</type>
+            </panel>
+        </action>
+        <action>
+            <identifier>certItemNotDecided</identifier>
+        </action>
+        <action>
+            <identifier>certItemHistory</identifier>
+            <visibility>hidden</visibility>
+        </action>
+    </view>
+</accessCertificationDefinition>

@@ -1,0 +1,83 @@
+<user xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      oid="5acdf24f-022f-421a-97eb-3e1f9576482f" version="6">
+    <_metadata id="57">
+        <storage>
+            <modifyTimestamp>2024-11-20T11:47:40.131+01:00</modifyTimestamp>
+            <modifierRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+            <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
+            <modifyTaskRef oid="cc0f8f42-26a6-445f-905e-796088409dfa" relation="org:default" type="c:TaskType"/>
+        </storage>
+    </_metadata>
+    <name>Emily Wallace</name>
+    <assignment id="1">
+        <_metadata id="62">
+            <storage>
+                <modifyTimestamp>2024-11-20T11:47:40.131+01:00</modifyTimestamp>
+                <modifierRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+                <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
+                <modifyTaskRef oid="cc0f8f42-26a6-445f-905e-796088409dfa" relation="org:default" type="c:TaskType"/>
+            </storage>
+        </_metadata>
+        <targetRef oid="e3b84663-1f37-46fa-ab06-70cbac038885" relation="org:default" type="c:ArchetypeType"/>
+        <activation/>
+    </assignment>
+    <assignment id="2">
+        <_metadata id="73">
+            <storage>
+                <modifyTimestamp>2024-11-20T11:47:40.131+01:00</modifyTimestamp>
+                <modifierRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+                <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
+                <modifyTaskRef oid="cc0f8f42-26a6-445f-905e-796088409dfa" relation="org:default" type="c:TaskType"/>
+            </storage>
+        </_metadata>
+        <targetRef oid="9685e38d-df23-4d8b-9c2c-24d634c45adb" relation="org:default" type="c:OrgType"/>
+        <activation/>
+    </assignment>
+    <assignment id="20">
+        <_metadata id="21">
+            <storage>
+                <createTimestamp>2024-11-20T11:47:40.131+01:00</createTimestamp>
+                <creatorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</createChannel>
+                <createTaskRef oid="cc0f8f42-26a6-445f-905e-796088409dfa" relation="org:default" type="c:TaskType"/>
+            </storage>
+            <process>
+                <requestTimestamp>2024-11-20T11:47:40.091+01:00</requestTimestamp>
+                <requestorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+            </process>
+            <provenance>
+                <acquisition id="22">
+                    <actorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</channel>
+                    <timestamp>2024-11-20T11:47:40.091+01:00</timestamp>
+                </acquisition>
+            </provenance>
+        </_metadata>
+        <targetRef oid="9685e38d-df23-4d8b-9c2c-24d634c45adb" relation="org:manager" type="c:OrgType"/>
+        <activation/>
+    </assignment>
+    <assignment id="123">
+        <targetRef oid="00000000-0000-0000-0000-000000000008" relation="org:default" type="c:RoleType"/>
+        <activation/>
+    </assignment>
+    <assignment id="211">
+        <targetRef oid="00000000-0000-0000-0000-00000000000b" relation="org:default" type="c:RoleType"/>
+        <activation/>
+    </assignment>
+    <credentials>
+        <password>
+            <value>
+                <t:clearValue>Password123!</t:clearValue>
+            </value>
+        </password>
+    </credentials>
+    <activation/>
+    <locality>Tokyo</locality>
+    <title>analyst</title>
+</user>

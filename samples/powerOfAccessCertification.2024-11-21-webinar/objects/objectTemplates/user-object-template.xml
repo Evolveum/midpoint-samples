@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2013-2019 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<objectTemplate oid="f923ce70-688f-11e3-ab09-001e8c717e5b"
+   xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+   xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+   xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+   xmlns:t='http://prism.evolveum.com/xml/ns/public/types-3'>
+    <name>User Template</name>
+
+    <item>
+        <ref>description</ref>
+        <mapping>
+            <strength>weak</strength>
+            <source>
+                <path>parentOrgRef</path>
+            </source>
+            <expression>
+                <script>
+                    <code>
+                        import com.evolveum.midpoint.xml.ns._public.common.common_3.*
+                        import com.evolveum.midpoint.schema.util.CertCampaignTypeUtil
+
+                        if (parentOrgRef != null) {
+                            def org = midpoint.resolveReferenceIfExists(parentOrgRef)
+                            if (org != null) {
+                                return org.name + ' user'
+                            }
+                        }
+                        return ''
+                    </code>
+                 </script>
+            </expression>
+        </mapping>
+    </item>
+
+</objectTemplate>

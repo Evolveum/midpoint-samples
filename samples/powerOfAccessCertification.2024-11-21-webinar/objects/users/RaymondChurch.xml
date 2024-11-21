@@ -1,0 +1,67 @@
+<user xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      oid="c01277b4-f022-46f6-be04-9e4365829aba" version="7">
+    <_metadata id="50">
+        <storage>
+            <modifyTimestamp>2024-11-20T13:01:26.701+01:00</modifyTimestamp>
+            <modifierRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+            <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</modifyChannel>
+        </storage>
+        <process/>
+    </_metadata>
+    <name>Raymond Church</name>
+    <assignment id="2">
+        <_metadata id="61">
+            <storage>
+                <modifyTimestamp>2024-11-20T12:48:05.029+01:00</modifyTimestamp>
+                <modifierRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+                <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#rest</modifyChannel>
+            </storage>
+        </_metadata>
+        <targetRef oid="020e866e-a5ac-40bb-8644-24525203bb03" relation="org:default" type="c:OrgType"/>
+        <activation/>
+    </assignment>
+    <assignment id="24">
+        <targetRef oid="020e866e-a5ac-40bb-8644-24525203bb03" relation="org:manager" type="c:OrgType"/>
+        <activation/>
+    </assignment>
+    <assignment id="123">
+        <_metadata id="222">
+            <storage>
+                <modifyTimestamp>2024-11-20T12:48:05.029+01:00</modifyTimestamp>
+                <modifierRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+                <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#rest</modifyChannel>
+            </storage>
+        </_metadata>
+        <targetRef oid="00000000-0000-0000-0000-000000000008" relation="org:default" type="c:RoleType"/>
+        <activation/>
+    </assignment>
+    <assignment id="211">
+        <_metadata id="223">
+            <storage>
+                <modifyTimestamp>2024-11-20T12:48:05.029+01:00</modifyTimestamp>
+                <modifierRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+                <modifyChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#rest</modifyChannel>
+            </storage>
+        </_metadata>
+        <targetRef oid="00000000-0000-0000-0000-00000000000b" relation="org:default" type="c:RoleType"/>
+        <activation/>
+    </assignment>
+    <assignment id="1">
+        <targetRef oid="cffd833f-78a5-4cc0-92dc-06a9e2787e64" relation="org:default" type="c:ArchetypeType"/>
+        <activation/>
+    </assignment>
+    <activation/>
+    <credentials>
+        <password>
+            <value>
+                <t:clearValue>Password123!</t:clearValue>
+            </value>
+        </password>
+    </credentials>
+</user>
