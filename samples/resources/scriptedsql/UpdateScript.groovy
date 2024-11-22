@@ -45,14 +45,25 @@ Uid handleAccount(Sql sql) {
                 continue
             }
 
-            Object value
-            if (attribute.getValue() != null && attribute.getValue().size() > 1) {
-                value = attribute.getValue()
-            } else {
-                value = AttributeUtil.getSingleValue(attribute)
+            switch (attribute.getName()) {
+                case "__ENABLE__" :
+                    params.put("disabled", !AttributeUtil.getBooleanValue(attribute))
+                    break
+                case "__PASSWORD__" :
+                    params.put("password", AttributeUtil.getGuardedStringValue(attribute).decryptChars().toString())
+                    break
+                default:
+                    Object value
+                    if (attribute.getValue() != null && attribute.getValue().size() > 1) {
+                        value = attribute.getValue()
+                    } else {
+                        value = AttributeUtil.getSingleValue(attribute)
+                    }
+
+                    params.put(attribute.getName(), value)
+                    break
             }
 
-            params.put(attribute.getName(), value)
         }
 
         ScriptedSqlUtils.buildAndExecuteUpdateQuery(sql, BaseScript.TABLE_USER, params, [id: uid.getUidValue() as Integer])

@@ -1,4 +1,14 @@
-<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3" xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3" xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"           xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3" oid="093ba5b5-7b15-470a-a147-889d09c2850f" version="0">
+<resource 
+	xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" 
+	xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+	xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+	xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+	xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+	xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+	xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
+	oid="00000000-cafe-08e5-0000-000000000001">
     <name>ScriptedSQL</name>
 
     <connectorRef type="ConnectorType">
@@ -15,7 +25,6 @@
             <icfc:enableAttributesToGetSearchResultsHandler>false</icfc:enableAttributesToGetSearchResultsHandler>
         </icfc:resultsHandlerConfiguration>
 
-
         <!-- Configuration specific for the ScriptedSQL connector -->
         <icfc:configurationProperties xmlns:icscscriptedsql="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-scripted-sql/com.evolveum.polygon.connector.scripted.sql.ScriptedSQLConnector">
             <icscscriptedsql:createScriptFileName>CreateScript.groovy</icscscriptedsql:createScriptFileName>
@@ -25,26 +34,20 @@
             <icscscriptedsql:searchScriptFileName>SearchScript.groovy</icscscriptedsql:searchScriptFileName>
             <icscscriptedsql:testScriptFileName>TestScript.groovy</icscscriptedsql:testScriptFileName>
             <icscscriptedsql:syncScriptFileName>SyncScript.groovy</icscscriptedsql:syncScriptFileName>
-            <icscscriptedsql:scriptRoots>
-                <expression>
-                    <const>scriptedSqlScriptPath</const>
-                </expression>
-            </icscscriptedsql:scriptRoots>
+	    <icscscriptedsql:scriptRoots>/opt/midpoint/var/scripts/</icscscriptedsql:scriptRoots>
             <icscscriptedsql:classpath>.</icscscriptedsql:classpath>
             <icscscriptedsql:scriptBaseClass>BaseScript</icscscriptedsql:scriptBaseClass>
-
-            <icscscriptedsql:user>postgres</icscscriptedsql:user>
-            <icscscriptedsql:password><clearValue>postgres</clearValue></icscscriptedsql:password>
+            <icscscriptedsql:user>mdp_scriptedsql</icscscriptedsql:user>
+            <icscscriptedsql:password><clearValue>password</clearValue></icscscriptedsql:password>
             <icscscriptedsql:jdbcDriver>org.postgresql.Driver</icscscriptedsql:jdbcDriver>
-<!--            <icscscriptedsql:jdbcUrlTemplate>jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified</icscscriptedsql:jdbcUrlTemplate>-->
-            <icscscriptedsql:jdbcUrlTemplate>jdbc:postgresql://localhost:5432/postgres</icscscriptedsql:jdbcUrlTemplate>
+            <icscscriptedsql:jdbcUrlTemplate>jdbc:postgresql://res-data:5432/mdp_scriptedsql</icscscriptedsql:jdbcUrlTemplate>
         </icfc:configurationProperties>
     </c:connectorConfiguration>
 
     <capabilities xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
-        <configured>
+	    <configured>
             <cap:pagedSearch/>
-            <cap:countObjects/>
+<!--    	    <cap:countObjects/>-->
             <cap:create>
                 <cap:enabled>true</cap:enabled>
             </cap:create>
@@ -66,23 +69,204 @@
             <intent>default</intent>
             <default>true</default>
             <objectClass>ri:AccountObjectClass</objectClass>
+            <focus>
+                <type>UserType</type>
+            </focus>
+
+            <attribute>
+                <ref>icfs:uid</ref>
+                <inbound>
+                    <name>uid</name>
+                    <target>
+                        <path>personalNumber</path>
+                    </target>
+                </inbound>
+            </attribute>
 
             <attribute>
                 <ref>icfs:name</ref>
                 <outbound>
+                    <name>Name</name>
                     <source>
                         <path>name</path>
                     </source>
                 </outbound>
                 <inbound>
+                    <name>Name</name>
                     <target>
                         <path>name</path>
                     </target>
                 </inbound>
             </attribute>
 
-        </objectType>
+            <attribute>
+                <ref>ri:firstname</ref>
+                <outbound>
+                    <name>First Name</name>
+                    <source>
+                        <path>givenName</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>First Name</name>
+                    <target>
+                        <path>givenName</path>
+                    </target>
+                </inbound>
+            </attribute>
 
+            <attribute>
+                <ref>ri:lastname</ref>
+                <outbound>
+                    <name>Last Name</name>
+                    <source>
+                        <path>familyName</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>Last Name</name>
+                    <target>
+                        <path>familyName</path>
+                    </target>
+                </inbound>
+            </attribute>
+
+            <attribute>
+                <ref>ri:fullname</ref>
+                <outbound>
+                    <name>Full Name</name>
+                    <source>
+                        <path>fullName</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>Full Name</name>
+                    <target>
+                        <path>fullName</path>
+                    </target>
+                </inbound>
+            </attribute>
+
+            <attribute>
+                <ref>ri:email</ref>
+                <outbound>
+                    <name>E-mail</name>
+                    <source>
+                        <path>emailAddress</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>E-mail</name>
+                    <target>
+                        <path>emailAddress</path>
+                    </target>
+                </inbound>
+            </attribute>
+
+            <attribute>
+                <ref>ri:organization</ref>
+                <outbound>
+                    <name>Organization</name>
+                    <source>
+                        <path>organization</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>Organization</name>
+                    <target>
+                        <path>organization</path>
+                    </target>
+                </inbound>
+            </attribute>
+
+            <activation>
+                <administrativeStatus>
+                    <outbound>
+                        <expression>
+                            <asIs/>
+                        </expression>
+                    </outbound>
+                    <inbound>
+                        <expression>
+                            <asIs/>
+                        </expression>
+                    </inbound>
+                </administrativeStatus>
+            </activation>
+
+            <credentials>
+                <password>
+                    <outbound>
+                        <expression>
+                            <asIs/>
+                        </expression>
+                    </outbound>
+                    <inbound>
+                        <expression>
+                            <asIs/>
+                        </expression>
+                    </inbound>
+                </password>
+            </credentials>
+
+            <configuredCapabilities xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
+                <cap:activation>
+                    <cap:enabled>true</cap:enabled>
+                    <cap:status>
+                        <cap:enabled>true</cap:enabled>
+                    </cap:status>
+                </cap:activation>
+                <cap:credentials>
+                    <cap:enabled>true</cap:enabled>
+                    <cap:password>
+                        <cap:enabled>true</cap:enabled>
+                    </cap:password>
+                </cap:credentials>
+            </configuredCapabilities>
+
+            <correlation>
+                <correlators>
+                    <items>
+                        <name>name - correlation</name>
+                        <item>
+                            <ref>c:name</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+
+            <synchronization>
+                <reaction>
+                    <name>linked</name>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize />
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>unlinked</name>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>deleted</name>
+                    <situation>deleted</situation>
+                    <actions>
+                        <unlink />
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>unmatched</name>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus/>
+                    </actions>
+                </reaction>
+            </synchronization>
+
+        </objectType>
 
         <objectType>
             <kind>entitlement</kind>
@@ -90,108 +274,84 @@
             <default>false</default>
             <objectClass>ri:CustomGroupObjectClass</objectClass>
 
+            <focus>
+                <type>RoleType</type>
+            </focus>
+
             <attribute>
                 <ref>icfs:name</ref>
                 <outbound>
+                    <name>Name</name>
                     <source>
                         <path>name</path>
                     </source>
                 </outbound>
                 <inbound>
+                    <name>Name</name>
                     <target>
                         <path>name</path>
                     </target>
                 </inbound>
             </attribute>
 
+            <attribute>
+                <ref>ri:description</ref>
+                <outbound>
+                    <name>Description</name>
+                    <source>
+                        <path>description</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>Description</name>
+                    <target>
+                        <path>description</path>
+                    </target>
+                </inbound>
+            </attribute>
+
+            <correlation>
+                <correlators>
+                    <items>
+                        <name>name - correlation</name>
+                        <item>
+                            <ref>c:name</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+
+            <synchronization>
+                <reaction>
+                    <name>linked</name>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize />
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>unlinked</name>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>deleted</name>
+                    <situation>deleted</situation>
+                    <actions>
+                        <unlink />
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>unmatched</name>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus/>
+                    </actions>
+                </reaction>
+            </synchronization>
+
         </objectType>
     </schemaHandling>
-
-    <synchronization>
-
-        <objectSynchronization>
-            <name>Default account</name>
-            <kind>account</kind>
-            <intent>default</intent>
-            <enabled>true</enabled>
-
-            <correlation>
-                <q:equal>
-                    <q:path>name</q:path>
-                    <expression>
-                        <path>$projection/attributes/icfs:name</path>
-                    </expression>
-                </q:equal>
-            </correlation>
-            <reaction>
-                <situation>linked</situation>
-                <synchronize>true</synchronize>
-            </reaction>
-            <reaction>
-                <situation>deleted</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlink</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unlinked</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unmatched</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-                </action>
-            </reaction>
-        </objectSynchronization>
-
-
-        <objectSynchronization>
-            <name>Custom group</name>
-            <kind>entitlement</kind>
-            <intent>default</intent>
-            <focusType>GroupType</focusType>
-            <enabled>true</enabled>
-
-            <correlation>
-                <q:equal>
-                    <q:path>name</q:path>
-                    <expression>
-                        <path>$projection/attributes/icfs:name</path>
-                    </expression>
-                </q:equal>
-            </correlation>
-            <reaction>
-                <situation>linked</situation>
-                <synchronize>true</synchronize>
-            </reaction>
-            <reaction>
-                <situation>deleted</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlink</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unlinked</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unmatched</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-                </action>
-            </reaction>
-        </objectSynchronization>
-
-    </synchronization>
 </resource>

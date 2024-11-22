@@ -138,7 +138,7 @@ class ScriptedSqlFilterVisitor implements FilterVisitor<String, Void> {
             // if we switched to varchar2 comparation (slower)
             // left = "cast (" + DISCRIMINATOR_MAX_BUCKET + " + ORA_HASH(" + translateAttributeName(uidColumn) + ", " + (DISCRIMINATOR_MAX_BUCKET - 1) + ") as varchar2(6))"
 
-            left = "(" + DISCRIMINATOR_MAX_BUCKET + " + ORA_HASH(" + translateAttributeName(uidColumn) + ", " + (DISCRIMINATOR_MAX_BUCKET - 1) + "))"
+            left = "(" + DISCRIMINATOR_MAX_BUCKET + " + hashtext(concat(" + translateAttributeName(uidColumn) + ", " + (DISCRIMINATOR_MAX_BUCKET - 1) + ")))"
         }
 
         left = left.toLowerCase()

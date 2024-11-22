@@ -40,5 +40,5 @@ builder.schema({
     }
 
     defineOperationOption OperationOptionInfoBuilder.buildPagedResultsOffset(), SearchOp
-    defineOperationOption OperationOptionInfoBuilder.buildPageSize(), SearchOp
+//    defineOperationOption OperationOptionInfoBuilder.buildPageSize(), SearchOp
 })

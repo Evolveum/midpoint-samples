@@ -49,8 +49,8 @@ Uid handleAccount(Sql sql) {
             fullname            : getString(attributes, "fullname"),
             email               : getString(attributes, "email"),
             organization        : getString(attributes, "organization"),
-            password            : getString(attributes, "password"),
-            disabled            : getBoolean(attributes, "__ENABLE__")
+            password            : getPassword(attributes, "__PASSWORD__"),
+            disabled            : !getBoolean(attributes, "__ENABLE__")
     ]
 
     def uid = null

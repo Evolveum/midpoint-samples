@@ -60,6 +60,7 @@ static ConnectorObject buildAccount(Sql sql, GroovyObject row) {
         id row.login
 
         attribute '__ENABLE__', !row.disabled
+        attribute '__PASSWORD__', stringToGuarded(row.password)
         attribute 'fullname', row.fullname
         attribute 'firstname', row.firstname
         attribute 'lastname', row.lastname

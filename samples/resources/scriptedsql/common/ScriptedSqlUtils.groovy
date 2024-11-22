@@ -206,6 +206,11 @@ class ScriptedSqlUtils {
         return attr != null ? AttributeUtil.getBooleanValue(attr) : null
     }
 
+    static String getPassword(Set attributes, String name) {
+        Attribute attr = AttributeUtil.find(name, attributes)
+        return attr != null ? AttributeUtil.getGuardedStringValue(attr).decryptChars().toString() : null
+    }
+
     static Date getDate(Set attributes, String name) {
         Attribute attr = AttributeUtil.find(name, attributes)
         if (attr == null || AttributeUtil.getSingleValue(attr) == null) {
