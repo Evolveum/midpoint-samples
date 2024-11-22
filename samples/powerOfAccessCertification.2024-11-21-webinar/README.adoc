@@ -1,0 +1,21 @@
+= Securing Access: The Power of Access Certification in IGA Webinar 2024-11-21
+
+Here are configuration objects used by the demonstration of access certification webinar presented on November 21, 2024.
+
+== How to Use
+
+* Prepare a clean midPoint 4.9 (better 4.9.1-SNAPSHOT or 4.9.1 if available) installation with native PostgreSQL repository
+
+* Generate the data with the help of rbac data generator. You can use the next command:
+
+java -jar ninja.jar -m {path-to-midpoint-home} generate-rbac-data --import --transform --role-multiplier 2 --users-count 100 --archetype-role-enabled --archetype-user-enabled --user-division "10:10:20:20:20:10:10" -op 40 -om 5 -oj 5 -oz 5 -oe 5 -pd --name-csv-file {path-to-users-csv}/users_names_for_generator.csv
+
+The path to the ninja.jar within midpoint project is /tools/ninja/target/ninja.jar (after building the project with mvn clean install -DskipTests -P -dist)
+
+* Upload the files from `objects/` subdirectory in the following order: object templates, system configuration, users, access certification definitions.
+
+* In midpoint, reconcile all users and roles.
+
+* In midpoint, from the Campaign definition page create a campaign for each definition.
+
+* Enjoy!
