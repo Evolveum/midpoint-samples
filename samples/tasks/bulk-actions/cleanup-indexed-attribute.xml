@@ -1,0 +1,80 @@
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<!--
+Task search for the User objects containing any value for personalNumber.
+The item cannot be deleted. The removal of the value is done by replacing
+value with "nothing" - there is no value defined.
+This operation correspond with clicking "minus" sign right of the value
+field in GUI.
+The task is defined as one time task - no recurrence. It can be repeatedly
+run with "run now". Anyway if there is a need to schedule the task there is
+other issue (e.g. mapping on resource, object template)
+-->
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      oid="20241205-cafe-0000-7A53-000000000001">
+    <name>Clean up Personal Number</name>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000509" type="c:ArchetypeType"/>
+    </assignment>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" type="c:UserType"/>
+    <executionState>runnable</executionState>
+    <schedule>
+        <recurrence>single</recurrence>
+    </schedule>
+    <activity>
+        <work>
+            <iterativeScripting>
+                <objects>
+                    <type>UserType</type>
+                    <query>
+                        <!--
+                        To search over the attribute it has to be indexed.
+                        List of searchable Items is available in docs :
+                        https://docs.evolveum.com/midpoint/reference/concepts/query/midpoint-query-language/searchable-items/
+                        -->
+                        <q:filter>
+                            <q:text>personalNumber exists</q:text>
+                        </q:filter>
+                        <q:paging>
+                            <q:orderBy>c:name</q:orderBy>
+                            <q:orderDirection>ascending</q:orderDirection>
+                            <q:offset>0</q:offset>
+                        </q:paging>
+                    </query>
+                </objects>
+                <scriptExecutionRequest>
+                    <s:action>
+                        <s:type>modify</s:type>
+                        <s:parameter>
+                            <s:name>delta</s:name>
+                            <c:value xsi:type="t:ObjectDeltaType">
+                                <t:itemDelta>
+                                    <t:modificationType>replace</t:modificationType>
+                                    <t:path>personalNumber</t:path>
+                                </t:itemDelta>
+                            </c:value>
+                        </s:parameter>
+                    </s:action>
+                </scriptExecutionRequest>
+            </iterativeScripting>
+        </work>
+    </activity>
+</task>
