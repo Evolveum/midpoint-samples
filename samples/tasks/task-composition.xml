@@ -1,0 +1,131 @@
+<!--
+  ~ Copyright (c) 2010-2024 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<!--
+This sample task is defined as composition task.
+https://docs.evolveum.com/midpoint/reference/tasks/activities/#configuring-custom-composite-activities
+
+Task search for two roles replacing displayName. Next step is search for user
+replacing personalNumber.
+
+For the demonstration purpose the processed objects were selected from the list of objects
+created during initial start.
+-->
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+      oid="20241216-cafe-0000-7A53-000000000001" >
+    <name>Composition task sample</name>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" />
+    <executionState>runnable</executionState>
+    <activity>
+        <composition>
+            <activity>
+                <work>
+                    <iterativeScripting>
+                        <objects>
+                            <type>RoleType</type>
+                            <query>
+                                <q:filter>
+                                    <q:text>name='End user'</q:text>
+                                </q:filter>
+                            </query>
+                        </objects>
+                        <scriptExecutionRequest>
+                            <s:action>
+                                <s:type>modify</s:type>
+                                <s:parameter>
+                                    <s:name>delta</s:name>
+                                    <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="t:ObjectDeltaType">
+                                        <t:changeType>modify</t:changeType>
+                                        <t:objectType>RoleType</t:objectType>
+                                        <t:itemDelta>
+                                            <t:modificationType>replace</t:modificationType>
+                                            <t:path>displayName</t:path>
+                                            <t:value>End User Role</t:value>
+                                        </t:itemDelta>
+                                    </value>
+                                </s:parameter>
+                            </s:action>
+                        </scriptExecutionRequest>
+                    </iterativeScripting>
+                </work>
+            </activity>
+            <activity>
+                <work>
+                    <iterativeScripting>
+                        <objects>
+                            <type>RoleType</type>
+                            <query>
+                                <q:filter>
+                                    <q:text>name='Superuser'</q:text>
+                                </q:filter>
+                            </query>
+                        </objects>
+                        <scriptExecutionRequest>
+                            <s:action>
+                                <s:type>modify</s:type>
+                                <s:parameter>
+                                    <s:name>delta</s:name>
+                                    <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="t:ObjectDeltaType">
+                                        <t:changeType>modify</t:changeType>
+                                        <t:objectType>RoleType</t:objectType>
+                                        <t:itemDelta>
+                                            <t:modificationType>replace</t:modificationType>
+                                            <t:path>displayName</t:path>
+                                            <t:value>Super User Role</t:value>
+                                        </t:itemDelta>
+                                    </value>
+                                </s:parameter>
+                            </s:action>
+                        </scriptExecutionRequest>
+                    </iterativeScripting>
+                </work>
+            </activity>
+            <activity>
+                <work>
+                    <iterativeScripting>
+                        <objects>
+                            <type>UserType</type>
+                            <query>
+                                <q:filter>
+                                    <q:text>name='administrator'</q:text>
+                                </q:filter>
+                            </query>
+                        </objects>
+                        <scriptExecutionRequest>
+                            <s:action>
+                                <s:type>modify</s:type>
+                                <s:parameter>
+                                    <s:name>delta</s:name>
+                                    <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="t:ObjectDeltaType">
+                                        <t:changeType>modify</t:changeType>
+                                        <t:objectType>UserType</t:objectType>
+                                        <t:itemDelta>
+                                            <t:modificationType>replace</t:modificationType>
+                                            <t:path>personalNumber</t:path>
+                                            <t:value>1</t:value>
+                                        </t:itemDelta>
+                                    </value>
+                                </s:parameter>
+                            </s:action>
+                        </scriptExecutionRequest>
+                    </iterativeScripting>
+                </work>
+            </activity>
+        </composition>
+    </activity>
+</task>
