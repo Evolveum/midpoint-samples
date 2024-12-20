@@ -1,0 +1,5 @@
+= Object Counts Sample - how to use
+
+This is midPoint configuration sample, describing configuration for computing counts of related objects and storing it in midPoint objects.
+
+It is described in docs in https://docs.evolveum.com/midpoint/reference/support-4.9/samples/.

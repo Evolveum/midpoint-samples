@@ -1,0 +1,16 @@
+
+
+.... configure in systemConfiguration.xml
+
+    <defaultObjectPolicyConfiguration>
+        <objectTemplateRef type="ObjectTemplateType" oid="a5a2c13d-a549-43eb-b260-fbfacbc834fc"/>
+        <type>UserType</type>
+    </defaultObjectPolicyConfiguration>
+    <defaultObjectPolicyConfiguration>
+        <objectTemplateRef type="ObjectTemplateType" oid="d3f48222-63ff-4c9b-bcfa-e06903045b26"/>
+        <type>RoleType</type>
+    </defaultObjectPolicyConfiguration>
+    <defaultObjectPolicyConfiguration>
+        <objectTemplateRef type="ObjectTemplateType" oid="f05a2559-6ed8-4879-99b6-d34db28841f7"/>
+        <type>ServiceType</type>
+    </defaultObjectPolicyConfiguration>

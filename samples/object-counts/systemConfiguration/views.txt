@@ -1,0 +1,135 @@
+.... copy to systemConfiguration.xml :adminGuiConfiguration/objectCollectionViews
+
+
+
+            <!-- User statistics view -->
+            <objectCollectionView>
+                <identifier>user-statistics-view</identifier>
+                <description>User statistics</description>
+                <display>
+                    <label>User statistics</label>
+                    <icon>
+                        <cssClass>fa fa-user</cssClass>
+                    </icon>
+                </display>
+                <type>UserType</type>
+                <column>
+                    <name>name</name>
+                    <path>name</path>
+                </column>
+                <column>
+                    <name>personalNumber</name>
+                    <path>personalNumber</path>
+                    <previousColumn>name</previousColumn>
+                </column>
+                <column>
+                    <name>fullName</name>
+                    <path>fullName</path>
+                    <previousColumn>personalNumber</previousColumn>
+                </column>
+                <column>
+                    <name>email</name>
+                    <path>email</path>
+                    <previousColumn>fullName</previousColumn>
+                </column>
+                <column>
+                    <name>accountsCount</name>
+                    <path>extension/accountsCount</path>
+                    <previousColumn>email</previousColumn>
+                    <sortProperty>extension/accountsCount</sortProperty>
+                </column>
+                <column>
+                    <name>rolesCount</name>
+                    <path>extension/rolesCount</path>
+                    <previousColumn>accountsCount</previousColumn>
+                    <sortProperty>extension/rolesCount</sortProperty>
+                </column>
+                <column>
+                    <name>appsCount</name>
+                    <path>extension/appsCount</path>
+                    <previousColumn>rolesCount</previousColumn>
+                    <sortProperty>extension/appsCount</sortProperty>
+                </column>
+                <column>
+                    <name>lifecycleStateColumn</name>
+                    <path>lifecycleState</path>
+                    <previousColumn>membersCount</previousColumn>
+                </column>
+            </objectCollectionView>
+
+            <!-- Role statistics view -->
+            <objectCollectionView>
+                <identifier>role-statistics-view</identifier>
+                <description>Role statistics</description>
+                <display>
+                    <label>Role statistics</label>
+                    <icon>
+                        <cssClass>fe fe-role</cssClass>
+                    </icon>
+                </display>
+                <type>RoleType</type>
+                <column>
+                    <name>name</name>
+                    <path>name</path>
+                </column>
+                <column>
+                    <name>description</name>
+                    <path>description</path>
+                    <previousColumn>name</previousColumn>
+                </column>
+                <column>
+                    <name>membersCount</name>
+                    <path>extension/membersCount</path>
+                    <previousColumn>description</previousColumn>
+                    <sortProperty>extension/membersCount</sortProperty>
+                </column>
+                <column>
+                    <name>lifecycleStateColumn</name>
+                    <path>lifecycleState</path>
+                    <previousColumn>membersCount</previousColumn>
+                </column>
+            </objectCollectionView>
+
+            <!-- Service statistics view -->
+            <objectCollectionView>
+                <identifier>service-statistics-view</identifier>
+                <description>Service statistics</description>
+                <display>
+                    <label>Service statistics</label>
+                    <icon>
+                        <cssClass>fa fa-cloud</cssClass>
+                    </icon>
+                </display>
+                <type>ServiceType</type>
+                <column>
+                    <name>name</name>
+                    <path>name</path>
+                </column>
+                <column>
+                    <name>description</name>
+                    <path>description</path>
+                    <previousColumn>name</previousColumn>
+                </column>
+                <column>
+                    <name>identifier</name>
+                    <path>identifier</path>
+                    <previousColumn>description</previousColumn>
+                </column>
+                <column>
+                    <name>rolesCount</name>
+                    <path>extension/rolesCount</path>
+                    <previousColumn>identifier</previousColumn>
+                    <sortProperty>extension/rolesCount</sortProperty>
+                </column>
+                <column>
+                    <name>membersCount</name>
+                    <path>extension/membersCount</path>
+                    <previousColumn>rolesCount</previousColumn>
+                    <sortProperty>extension/membersCount</sortProperty>
+                </column>
+                <column>
+                    <name>lifecycleStateColumn</name>
+                    <path>lifecycleState</path>
+                    <previousColumn>membersCount</previousColumn>
+                </column>
+            </objectCollectionView>
