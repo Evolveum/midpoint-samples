@@ -1,0 +1,36 @@
+<!--
+  ~ Copyright (c) 2023-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<mark xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+    oid="24e42ec5-ee5d-41b8-9b36-295b3800b469">
+    <name>LDAP account modified</name>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000700" type="ArchetypeType"/> <!-- event mark -->
+    </assignment>
+    <displayOrder>900</displayOrder> <!-- show this mark at the end -->
+    <policyRule>
+        <policyConstraints>
+            <objectState>
+                <filter>
+                    <q:text>resourceRef matches (oid = '32531590-4606-4333-9cc2-0faa1ae68509')</q:text> <!-- LDAP -->
+                </filter>
+            </objectState>
+            <or> <!-- copied from "resource object affected" event mark -->
+                <modification>
+                    <operation>modify</operation>
+                    <specialItem>resourceObjectItem</specialItem>
+                </modification>
+                <modification>
+                    <!-- We assume that ADD/DELETE always modifies the state of the resource -->
+                    <operation>add</operation>
+                    <operation>delete</operation>
+                </modification>
+            </or>
+        </policyConstraints>
+        <evaluationTarget>projection</evaluationTarget>
+    </policyRule>
+</mark>

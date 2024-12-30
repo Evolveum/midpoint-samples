@@ -1,0 +1,35 @@
+<!--
+  ~ Copyright (c) 2023-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      oid="3f5198c4-806d-4725-a383-5c752d2a2f89">
+    <name>Import task: HR: Account/default</name>
+    <assignment id="1">
+        <targetRef oid="00000000-0000-0000-0000-000000000503"
+                   type="c:ArchetypeType"/>
+        <activation/>
+    </assignment>
+    <taskIdentifier>1701864056590-39575-1</taskIdentifier>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002"
+              type="c:UserType"/>
+    <executionState>closed</executionState>
+    <schedulingState>closed</schedulingState>
+    <objectRef oid="fd4e5dce-b4c4-4777-b7cb-facc6ed8cec8"
+               type="c:ResourceType"/>
+    <binding>loose</binding>
+    <activity>
+        <work>
+            <import>
+                <resourceObjects>
+                    <resourceRef oid="fd4e5dce-b4c4-4777-b7cb-facc6ed8cec8"/>
+                    <kind>account</kind>
+                    <intent>default</intent>
+                </resourceObjects>
+            </import>
+        </work>
+    </activity>
+</task>

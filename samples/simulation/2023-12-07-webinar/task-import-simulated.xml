@@ -1,0 +1,50 @@
+<!--
+  ~ Copyright (c) 2023-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      oid="8e7141b6-0f62-4ab5-83c2-54a4224533a1">
+    <name>Import task: OpenLDAP: Account/default (simulated) TEST</name>
+    <assignment id="1">
+        <targetRef oid="00000000-0000-0000-0000-000000000503"
+                   type="c:ArchetypeType"/>
+        <activation/>
+    </assignment>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002"
+              type="c:UserType"/>
+    <executionState>closed</executionState>
+    <schedulingState>closed</schedulingState>
+    <objectRef oid="32531590-4606-4333-9cc2-0faa1ae68509"
+               type="c:ResourceType"/>
+    <binding>loose</binding>
+    <activity>
+        <work>
+            <import>
+                <resourceObjects>
+                    <resourceRef oid="32531590-4606-4333-9cc2-0faa1ae68509"/>
+                    <kind>account</kind>
+                    <intent>default</intent>
+                </resourceObjects>
+            </import>
+        </work>
+        <execution>
+            <mode>preview</mode>
+            <configurationToUse>
+                <predefined>development</predefined>
+            </configurationToUse>
+        </execution>
+        <distribution>
+            <workerThreads>8</workerThreads>
+        </distribution>
+        <reporting>
+            <simulationResult>
+                <definition>
+                    <useOwnPartitionForProcessedObjects>false</useOwnPartitionForProcessedObjects>
+                </definition>
+            </simulationResult>
+        </reporting>
+    </activity>
+</task>
