@@ -1,0 +1,40 @@
+dn: uid=gleming,ou=people,dc=example,dc=com
+changetype: modify
+add: telephoneNumber
+telephoneNumber: +421-817-886-557
+
+dn: uid=farnett,ou=people,dc=example,dc=com
+changetype: modify
+add: telephoneNumber
+telephoneNumber: +421-554-897-424
+
+dn: uid=lporath,ou=people,dc=example,dc=com
+changetype: modify
+add: telephoneNumber
+telephoneNumber: +421-495-748-208
+
+dn: uid=dmeunier,ou=people,dc=example,dc=com
+changetype: modify
+add: telephoneNumber
+telephoneNumber: +421-504-580-648
+
+dn: uid=gleming,ou=people,dc=example,dc=com
+changetype: modify
+delete: ou
+ou: Finance
+
+dn: uid=farnett,ou=people,dc=example,dc=com
+changetype: modify
+delete: ou
+ou: Professional Services
+
+dn: uid=lporath,ou=people,dc=example,dc=com
+changetype: modify
+delete: ou
+ou: Information Technology
+
+dn: uid=dmeunier,ou=people,dc=example,dc=com
+changetype: modify
+delete: ou
+ou: Human Resources
+

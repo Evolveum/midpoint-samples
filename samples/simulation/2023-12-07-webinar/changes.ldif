@@ -1,0 +1,73 @@
+dn: uid=zimbra,dc=example,dc=com
+cn: zimbra service account
+employeetype: service
+objectclass: inetOrgPerson
+objectclass: top
+sn: zimbra
+uid: zimbra
+
+dn: uid=apache,dc=example,dc=com
+cn: apache service account
+employeetype: service
+objectclass: inetOrgPerson
+objectclass: top
+sn: apache
+uid: apache
+
+dn: uid=midpoint,dc=example,dc=com
+cn: midPoint service account
+employeetype: service
+objectclass: inetOrgPerson
+objectclass: top
+sn: midpoint
+uid: midpoint
+
+dn: cn=vpn,ou=groups,dc=example,dc=com
+cn: vpn
+member: uid=abernhar,ou=people,dc=example,dc=com
+member: uid=abyrnes,ou=people,dc=example,dc=com
+member: uid=aclay,ou=people,dc=example,dc=com
+member: uid=acourson,ou=people,dc=example,dc=com
+member: uid=acusick,ou=people,dc=example,dc=com
+member: uid=adelay,ou=people,dc=example,dc=com
+member: uid=afrances,ou=people,dc=example,dc=com
+member: uid=agarett,ou=people,dc=example,dc=com
+member: uid=aketcham,ou=people,dc=example,dc=com
+member: uid=alough,ou=people,dc=example,dc=com
+member: uid=amahaney,ou=people,dc=example,dc=com
+member: uid=amcnicho,ou=people,dc=example,dc=com
+member: uid=ameli,ou=people,dc=example,dc=com
+member: uid=amontes,ou=people,dc=example,dc=com
+member: uid=apiazza,ou=people,dc=example,dc=com
+member: uid=apreciad,ou=people,dc=example,dc=com
+member: uid=arailey,ou=people,dc=example,dc=com
+member: uid=aserio,ou=people,dc=example,dc=com
+member: uid=astull,ou=people,dc=example,dc=com
+member: uid=asweeny,ou=people,dc=example,dc=com
+member: uid=aswigert,ou=people,dc=example,dc=com
+member: uid=atomberl,ou=people,dc=example,dc=com
+member: uid=aurso,ou=people,dc=example,dc=com
+member: uid=babshire,ou=people,dc=example,dc=com
+member: uid=bbagwell,ou=people,dc=example,dc=com
+member: uid=bfields,ou=people,dc=example,dc=com
+member: uid=bflaughe,ou=people,dc=example,dc=com
+member: uid=blarocqu,ou=people,dc=example,dc=com
+member: uid=bmatsumu,ou=people,dc=example,dc=com
+member: uid=brubino,ou=people,dc=example,dc=com
+member: uid=bsobel,ou=people,dc=example,dc=com
+member: uid=bvandegr,ou=people,dc=example,dc=com
+member: uid=bwasham,ou=people,dc=example,dc=com
+member: uid=cbainter,ou=people,dc=example,dc=com
+member: uid=cbowser,ou=people,dc=example,dc=com
+member: uid=ccasados,ou=people,dc=example,dc=com
+member: uid=cchafin,ou=people,dc=example,dc=com
+member: uid=ccroy,ou=people,dc=example,dc=com
+member: uid=cgallimo,ou=people,dc=example,dc=com
+member: uid=cgarr,ou=people,dc=example,dc=com
+objectclass: groupOfNames
+objectclass: top
+
+dn: uid=abyrnes,ou=people,dc=example,dc=com
+changetype: modify
+replace: mail
+mail: byrnes1@ext.example.org
