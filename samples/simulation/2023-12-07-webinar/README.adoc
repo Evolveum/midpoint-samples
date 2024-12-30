@@ -1,0 +1,23 @@
+= Simulations Webinar
+
+This directory contains configuration objects that were used during the Simulations webinar.
+
+== How to Use
+
+. Manually apply relevant parts of the system configuration from `system-configuration-parts.txt`.
+. Import the `template-person.xml` object.
+. Import the `archetype-person.xml` object.
+. Set the correct path to `hr.csv` in `hr.xml` file (see `TODO-PATH` placeholder).
+. Import and test the HR resource.
+. Update the configuration of `openldap.xml` to match your needs, in particular the location of the server and the credentials used to connect to it.
+Do *not* change the base context. It should be `dc=example,dc=com`.
+. Import and test the OpenLDAP resource.
+. Import `mark-ldap-account.xml` and `mark-ldap-service-account.xml` files.
+. Import `task-import-HR-real.xml` file, manually run the task and wait for its completion. It should be successful.
+Accounts on the LDAP resource should be created.
+. Apply LDIF files manually to the LDAP data. (Also, manually change the employee number of `amontes` from 1230 to 230.)
+. Run the simulation from `task-import-simulated.xml` and observe the results (see the recorded video from the webinar).
+
+== Requirements
+
+These files require midPoint 4.8 and later, and the native repository.

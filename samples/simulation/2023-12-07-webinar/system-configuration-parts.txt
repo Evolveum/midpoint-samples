@@ -1,0 +1,61 @@
+<!--
+  ~ Copyright (c) 2023-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<!-- To be added to the system configuration object. -->
+<simulation>
+    <metric>
+        <identifier>attribute-modifications</identifier>
+        <display>
+            <label>Attributes modified</label>
+        </display>
+        <computation>
+            <domain>
+                <expression>
+                    <script>
+                        <code>processedObject.shadow</code>
+                    </script>
+                </expression>
+            </domain>
+            <valueExpression>
+                <script>
+                    <code>processedObject.attributeModificationsCount</code>
+                </script>
+            </valueExpression>
+        </computation>
+    </metric>
+    <metric>
+        <identifier>modifications-per-account-modified</identifier>
+        <display>
+            <label>Attributes modified per account</label>
+        </display>
+        <aggregation>
+            <aggregationFunction>selectionTotalValueToSelectionSize</aggregationFunction>
+            <source>
+                <identifier>attribute-modifications</identifier>
+            </source>
+        </aggregation>
+    </metric>
+    <metric>
+        <identifier>ldap-accounts-modified-ratio</identifier>
+        <display>
+            <label>Ratio of LDAP accounts modified</label>
+        </display>
+        <aggregation>
+            <aggregationFunction>selectionSizeToDomainSize</aggregationFunction>
+            <source>
+                <eventMarkRef oid="24e42ec5-ee5d-41b8-9b36-295b3800b469"
+                              type="c:MarkType"/>
+            </source>
+            <domainRestriction>
+                <expression>
+                    <script>
+                        <code>processedObject.resourceOid == '32531590-4606-4333-9cc2-0faa1ae68509'</code>
+                    </script>
+                </expression>
+            </domainRestriction>
+        </aggregation>
+    </metric>
+</simulation>

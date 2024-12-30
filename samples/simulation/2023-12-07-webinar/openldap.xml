@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2023-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+
+<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+          xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
+          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+          xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3"
+          oid="32531590-4606-4333-9cc2-0faa1ae68509">
+
+    <name>OpenLDAP</name>
+
+    <connectorRef type="ConnectorType">
+        <filter>
+            <q:equal>
+                <q:path>c:connectorType</q:path>
+                <q:value>com.evolveum.polygon.connector.ldap.LdapConnector</q:value>
+            </q:equal>
+        </filter>
+    </connectorRef>
+
+    <connectorConfiguration
+            xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
+            xmlns:icfcldap="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-ldap/com.evolveum.polygon.connector.ldap.LdapConnector">
+        <icfc:configurationProperties>
+            <icfcldap:port>389</icfcldap:port>
+            <icfcldap:host>localhost</icfcldap:host>
+            <icfcldap:baseContext>dc=example,dc=com</icfcldap:baseContext>
+            <icfcldap:bindDn>cn=admin,dc=example,dc=com</icfcldap:bindDn>
+            <icfcldap:bindPassword>secret</icfcldap:bindPassword>
+            <icfcldap:usePermissiveModify>always</icfcldap:usePermissiveModify>
+            <icfcldap:pagingStrategy>none</icfcldap:pagingStrategy>
+            <icfcldap:passwordHashAlgorithm>SSHA</icfcldap:passwordHashAlgorithm>
+            <!-- <icfcldap:vlvSortAttribute>uid</icfcldap:vlvSortAttribute>
+            <icfcldap:vlvSortOrderingRule>2.5.13.3</icfcldap:vlvSortOrderingRule>  -->
+            <icfcldap:operationalAttributes>memberOf</icfcldap:operationalAttributes>
+            <icfcldap:operationalAttributes>createTimestamp</icfcldap:operationalAttributes>
+        </icfc:configurationProperties>
+    </connectorConfiguration>
+
+    <schema>
+        <generationConstraints>
+            <generateObjectClass>ri:inetOrgPerson</generateObjectClass>
+            <generateObjectClass>ri:groupOfUniqueNames</generateObjectClass>
+            <generateObjectClass>ri:groupOfNames</generateObjectClass>
+            <generateObjectClass>ri:organizationalUnit</generateObjectClass>
+        </generationConstraints>
+    </schema>
+
+    <schemaHandling>
+        <objectType>
+            <kind>account</kind>
+            <default>true</default>
+            <objectClass>ri:inetOrgPerson</objectClass>
+            <attribute>
+                <ref>ri:dn</ref>
+                <displayName>Distinguished Name</displayName>
+                <matchingRule>mr:stringIgnoreCase</matchingRule>
+                <outbound>
+                    <source>
+                        <path>name</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>
+                                'uid=' + name + ',ou=people,dc=example,dc=com'
+                            </code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:entryUUID</ref>
+                <displayName>Entry UUID</displayName>
+                <limitations>
+                    <access>
+                        <read>true</read>
+                        <add>false</add>
+                        <modify>true</modify>
+                    </access>
+                </limitations>
+                <matchingRule>mr:stringIgnoreCase</matchingRule>
+            </attribute>
+            <attribute>
+                <ref>ri:cn</ref>
+                <displayName>Common Name</displayName>
+                <outbound>
+                    <source>
+                        <path>fullName</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:sn</ref>
+                <limitations>
+                    <minOccurs>0</minOccurs>
+                </limitations>
+                <outbound>
+                    <source>
+                        <path>familyName</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:givenName</ref>
+                <outbound>
+                    <source>
+                        <path>givenName</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:uid</ref>
+                <matchingRule>mr:stringIgnoreCase</matchingRule>
+            </attribute>
+            <attribute>
+                <ref>ri:description</ref>
+                <tolerant>false</tolerant>
+            </attribute>
+            <attribute>
+                <ref>ri:l</ref>
+                <displayName>Location</displayName>
+                <outbound>
+                    <source>
+                        <path>$user/locality</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:employeeNumber</ref>
+                <outbound>
+                    <strength>strong</strength>
+                    <source>
+                        <path>personalNumber</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <target>
+                        <path>personalNumber</path>
+                    </target>
+                    <use>correlation</use>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:mail</ref>
+                <tolerant>false</tolerant>
+                <outbound>
+                    <lifecycleState>active</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>emailAddress</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:telephoneNumber</ref>
+                <tolerant>false</tolerant>
+                <outbound>
+                    <lifecycleState>proposed</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>telephoneNumber</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <attribute>
+                <ref>ri:ou</ref>
+                <tolerant>false</tolerant>
+                <outbound>
+                    <lifecycleState>deprecated</lifecycleState>
+                    <strength>strong</strength>
+                    <source>
+                        <path>organizationalUnit</path>
+                    </source>
+                </outbound>
+            </attribute>
+            <association>
+                <ref>ri:group</ref>
+                <displayName>LDAP Group Membership</displayName>
+                <kind>entitlement</kind>
+                <intent>ldapGroup</intent>
+                <direction>objectToSubject</direction>
+                <associationAttribute>ri:member</associationAttribute>
+                <valueAttribute>ri:dn</valueAttribute>
+                <tolerant>false</tolerant>
+            </association>
+            <synchronization>
+                <reaction>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <actions>
+                        <unlink/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <deleteResourceObject/>
+                    </actions>
+                </reaction>
+            </synchronization>
+        </objectType>
+        <objectType>
+            <kind>entitlement</kind>
+            <intent>ldapGroup</intent>
+            <displayName>LDAP Group</displayName>
+            <objectClass>ri:groupOfNames</objectClass>
+        </objectType>
+    </schemaHandling>
+</resource>
