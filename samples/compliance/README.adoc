@@ -1,0 +1,8 @@
+= Compliance Configuration
+
+This project is focused at developing and testing midPoint compliance configuration.
+It is a *WORK IN PROGRESS*.
+
+This is midPoint Studio project.
+
+The sample is created for midPoint 4.10 (master branch).
