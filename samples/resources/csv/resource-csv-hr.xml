@@ -1,0 +1,143 @@
+<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+          xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+          oid="a3090e6a-dd57-11ef-9cd2-aba8ad3dfa6e">
+    <name>HR CSV Data</name>
+    <description>CSV Resource for importing fictional HR data</description>
+    <connectorRef>
+        <filter>
+            <q:text>connectorType = "com.evolveum.polygon.connector.csv.CsvConnector"</q:text>
+        </filter>
+    </connectorRef>
+    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+        <icfc:configurationProperties
+                xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
+            <cfg:multivalueDelimiter>;</cfg:multivalueDelimiter>
+            <cfg:fieldDelimiter>,</cfg:fieldDelimiter>
+            <cfg:quote>"</cfg:quote>
+            <cfg:filePath>/opt/midpoint/var/resource_files/midpoint-hr.csv</cfg:filePath>
+            <cfg:quoteMode>ALL</cfg:quoteMode>
+            <cfg:encoding>utf-8</cfg:encoding>
+            <cfg:uniqueAttribute>login</cfg:uniqueAttribute>
+        </icfc:configurationProperties>
+    </connectorConfiguration>
+
+    <schemaHandling>
+        <objectType>
+
+            <displayName>HR Account</displayName>
+            <default>true</default>
+            <objectClass>ri:AccountObjectClass</objectClass>
+            <kind>account</kind>
+
+            <focus>
+                <archetypeRef oid="00000000-0000-0000-0000-000000000702"/>
+            </focus>
+
+            <attribute>
+                <ref>ri:login</ref>
+                <inbound>
+                    <name>Login to name</name>
+                    <lifecycleState>active</lifecycleState>
+                    <target>
+                        <path>$focus/name</path>
+                    </target>
+                </inbound>
+                <inbound>
+                    <name>Login to personalNumber</name>
+                    <lifecycleState>active</lifecycleState>
+                    <target>
+                        <path>$focus/personalNumber</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:firstname</ref>
+                <inbound>
+                    <name>Firstname to givenName</name>
+                    <lifecycleState>active</lifecycleState>
+                    <target>
+                        <path>$focus/givenName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:lastname</ref>
+                <inbound>
+                    <name>Lastname to familyName</name>
+                    <lifecycleState>active</lifecycleState>
+                    <target>
+                        <path>$focus/familyName</path>
+                    </target>
+                </inbound>
+            </attribute>
+
+            <correlation>
+                <correlators>
+                    <items>
+                        <name>Login correlation</name>
+                        <description>Correlation using employee login</description>
+                        <item>
+                            <ref>name</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+
+            <synchronization>
+                <reaction>
+                    <name>Linked synchronize</name>
+                    <lifecycleState>active</lifecycleState>
+                    <situation>linked</situation>
+                    <actions><synchronize/></actions>
+                </reaction>
+                <reaction>
+                    <name>Unmatched add focus</name>
+                    <lifecycleState>active</lifecycleState>
+                    <situation>unmatched</situation>
+                    <actions><addFocus/></actions>
+                </reaction>
+                <reaction>
+                    <name>Deleted remove focus</name>
+                    <lifecycleState>active</lifecycleState>
+                    <situation>deleted</situation>
+                    <actions><deleteFocus/></actions>
+                </reaction>
+                <reaction>
+                    <name>Unlinked link</name>
+                    <lifecycleState>active</lifecycleState>
+                    <situation>unlinked</situation>
+                    <actions><link/></actions>
+                </reaction>
+            </synchronization>
+
+            <activation>
+                <administrativeStatus>
+                    <inbound>
+                        <expression>
+                            <asIs/>
+                        </expression>
+                    </inbound>
+                </administrativeStatus>
+            </activation>
+
+            <defaultOperationPolicy>
+                <policyRef oid="00000000-0000-0000-0000-000000000805"/>
+            </defaultOperationPolicy>
+
+        </objectType>
+    </schemaHandling>
+
+    <capabilities xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
+        <configured>
+            <cap:activation>
+                <cap:enabled>true</cap:enabled>
+                <cap:status>
+                    <cap:attribute>ri:disabled</cap:attribute>
+                    <cap:enableValue/>
+                    <cap:disableValue>true</cap:disableValue>
+                </cap:status>
+            </cap:activation>
+        </configured>
+    </capabilities>
+</resource>
