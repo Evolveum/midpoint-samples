@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2022 Evolveum
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<!--
+   Sample resource for CSV connector.
+
+   It consists of two csv file where:
+
+   - User.csv
+     "Primary" csv file containing information about the user and org membership ("default" relation - member)
+
+   - Organization.csv
+     "Additional" csv file containing information about the organizations and their manager ("manager" relation)
+
+   As all the Associations are relevant for the userType object - the assignments are stored in user object.
+
+   There are available inbound mappings for the associations. It is mapped to the assignment once the orgType object
+   exists. In case the orgType object not exists yet the assignment is kept just on shadowType object level - projection.
+   With each recalculation ( reconciliation, import, change on userType object) it is rechecked and once the orgType
+   object is available the proper assignment is created for the userType object.
+
+   There are two assignmentTypes defined.
+   - subjectToObject ( User / organization => Org / name ) - User/orgMember
+     The mapping handle this association to the relation default - member.
+
+   - objectToSubject ( User / name <= Org / manager ) - User/orgManager
+     The mapping handle this association to the relation manager - manager.
+
+   [NOTE] In this sample the associations are represented by configured Capability. The native capability is not yet
+    available in CSV connector 2.8. The connector is being updated to (not only) offer the association as native
+    capability. In the future the capability part will not be needed.
+
+    ...:: sample files ::...
+     /opt/midpoint/var/resource/User.csv
+
+userid;name;password;organization
+001;user1;;org1#org2
+002;user2;;org1
+003;user3;;org2
+004;user4;;
+005;user5;;org3
+
+     /opt/midpoint/var/resource/Organization.csv
+
+orgid;name;manager
+001;org1;user1
+002;org2;user2
+003;org3;user5
+
+      /opt/midpoint/var/resource/sourceOfTruth.prop
+
+Org.filePath=/opt/midpoint/var/resource/Organization.csv
+Org.trim=true
+Org.headerExists=true
+Org.fieldDelimiter=;
+Org.uniqueAttribute=orgid
+Org.nameAttribute=name
+Org.auxiliary=true
+Org.container=true
+
+-->
+<resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+          xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+          xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+          xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+          xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+          xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          oid="20250113-cafe-0000-0000-000000000001">
+    <name>source of truth</name>
+    <connectorRef>
+        <filter>
+            <q:text>connectorType = 'com.evolveum.polygon.connector.csv.CsvConnector'</q:text>
+        </filter>
+    </connectorRef>
+    <connectorConfiguration xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3">
+        <icfc:configurationProperties
+                xmlns:cfg="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/bundle/com.evolveum.polygon.connector-csv/com.evolveum.polygon.connector.csv.CsvConnector">
+            <cfg:multivalueDelimiter>#</cfg:multivalueDelimiter>
+            <cfg:fieldDelimiter>;</cfg:fieldDelimiter>
+            <cfg:headerExists>true</cfg:headerExists>
+            <cfg:filePath>/opt/midpoint/var/resource/User.csv</cfg:filePath>
+            <cfg:multivalueAttributes>organization</cfg:multivalueAttributes>
+            <cfg:nameAttribute>name</cfg:nameAttribute>
+            <cfg:uniqueAttribute>userid</cfg:uniqueAttribute>
+            <cfg:passwordAttribute>password</cfg:passwordAttribute>
+            <cfg:objectClassDefinition>/opt/midpoint/var/resource/sourceOfTruth.prop</cfg:objectClassDefinition>
+        </icfc:configurationProperties>
+    </connectorConfiguration>
+    <schema/>
+    <schemaHandling>
+        <objectType>
+            <kind>account</kind>
+            <intent>default</intent>
+            <displayName>user</displayName>
+            <default>true</default>
+            <delineation>
+                <objectClass>ri:AccountObjectClass</objectClass>
+            </delineation>
+            <focus>
+                <type>c:UserType</type>
+            </focus>
+            <attribute>
+                <ref>ri:name</ref>
+                <displayName>Username</displayName>
+                <inbound>
+                    <name>name</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>name</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:organization</ref>
+                <displayName>Organization(s)</displayName>
+                <limitations>
+                    <maxOccurs>unbounded</maxOccurs>
+                </limitations>
+                <inbound>
+                    <name>org</name>
+                    <authoritative>true</authoritative>
+                    <exclusive>true</exclusive>
+                    <strength>strong</strength>
+                    <target>
+                        <path>organization</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:userid</ref>
+                <displayName>User ID</displayName>
+                <inbound>
+                    <name>user-id</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>personalNumber</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <credentials>
+                <password>
+                    <inbound>
+                        <strength>weak</strength>
+                        <expression>
+                            <generate />
+                        </expression>
+                    </inbound>
+                </password>
+            </credentials>
+            <correlation>
+                <correlators>
+                    <items>
+                        <name>name</name>
+                        <item>
+                            <ref>name</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+            <synchronization>
+                <reaction>
+                    <situation>deleted</situation>
+                    <actions>
+                        <deleteFocus />
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize />
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link />
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus />
+                    </actions>
+                </reaction>
+            </synchronization>
+        </objectType>
+        <objectType>
+            <kind>entitlement</kind>
+            <displayName>organization</displayName>
+            <default>false</default>
+            <delineation>
+                <objectClass>ri:CustomOrgObjectClass</objectClass>
+            </delineation>
+            <focus>
+                <type>c:OrgType</type>
+            </focus>
+            <attribute>
+                <ref>ri:name</ref>
+                <displayName>Organization name</displayName>
+                <inbound>
+                    <name>name</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>name</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:orgid</ref>
+                <displayName>Organization ID</displayName>
+                <inbound>
+                    <name>org-id</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>costCenter</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:manager</ref>
+                <displayName>Organization Manager</displayName>
+            </attribute>
+            <correlation>
+                <correlators>
+                    <items>
+                        <name>name</name>
+                        <item>
+                            <ref>name</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+            <synchronization>
+                <reaction>
+                    <situation>deleted</situation>
+                    <actions>
+                        <deleteFocus />
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize />
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link />
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus />
+                    </actions>
+                </reaction>
+            </synchronization>
+        </objectType>
+        <associationType>
+            <name>orgManager</name>
+            <displayName>Organization Manager</displayName>
+            <subject>
+                <objectType>
+                    <kind>account</kind>
+                    <intent>default</intent>
+                </objectType>
+                <association>
+                    <ref>ri:orgManager</ref>
+                    <inbound>
+                        <name>Org-Manager</name>
+                        <strength>strong</strength>
+                        <expression>
+                            <associationSynchronization>
+                                <objectRef>
+                                    <ref>ri:orgManager</ref>
+                                    <correlator/>
+                                    <mapping>
+                                        <name>OrgManager</name>
+                                        <expression>
+                                            <shadowOwnerReferenceSearch>
+                                                <relation>manager</relation>
+                                            </shadowOwnerReferenceSearch>
+                                        </expression>
+                                        <target>
+                                            <path>targetRef</path>
+                                        </target>
+                                    </mapping>
+                                </objectRef>
+                                <synchronization>
+                                    <reaction>
+                                        <situation>unmatched</situation>
+                                        <actions>
+                                            <addFocusValue/>
+                                        </actions>
+                                    </reaction>
+                                    <reaction>
+                                        <situation>matched</situation>
+                                        <actions>
+                                            <synchronize/>
+                                        </actions>
+                                    </reaction>
+                                </synchronization>
+                            </associationSynchronization>
+                        </expression>
+                    </inbound>
+                    <sourceAttributeRef>ri:orgManager</sourceAttributeRef>
+                </association>
+            </subject>
+            <object>
+                <objectType>
+                    <kind>entitlement</kind>
+                    <intent>default</intent>
+                </objectType>
+            </object>
+        </associationType>
+        <associationType>
+            <name>orgMember</name>
+            <displayName>Organization Member</displayName>
+            <subject>
+                <objectType>
+                    <kind>account</kind>
+                    <intent>default</intent>
+                </objectType>
+                <association>
+                    <ref>ri:orgMember</ref>
+                    <inbound>
+                        <name>Org-Member</name>
+                        <strength>strong</strength>
+                        <expression>
+                            <associationSynchronization>
+                                <objectRef>
+                                    <ref>ri:orgMember</ref>
+                                    <correlator/>
+                                    <mapping>
+                                        <name>OrgMember</name>
+                                        <expression>
+                                            <shadowOwnerReferenceSearch />
+                                        </expression>
+                                        <target>
+                                            <path>targetRef</path>
+                                        </target>
+                                    </mapping>
+                                </objectRef>
+                                <synchronization>
+                                    <reaction>
+                                        <situation>unmatched</situation>
+                                        <actions>
+                                            <addFocusValue/>
+                                        </actions>
+                                    </reaction>
+                                    <reaction>
+                                        <situation>matched</situation>
+                                        <actions>
+                                            <synchronize/>
+                                        </actions>
+                                    </reaction>
+                                </synchronization>
+                            </associationSynchronization>
+                        </expression>
+                    </inbound>
+                    <sourceAttributeRef>ri:orgMember</sourceAttributeRef>
+                </association>
+            </subject>
+            <object>
+                <objectType>
+                    <kind>entitlement</kind>
+                    <intent>default</intent>
+                </objectType>
+            </object>
+        </associationType>
+    </schemaHandling>
+    <capabilities>
+        <c:configured xmlns="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
+        <references>
+            <type>
+                <name>ri:orgManager</name>
+                <subject>
+                    <delineation>
+                        <objectClass>ri:AccountObjectClass</objectClass>
+                    </delineation>
+                    <primaryBindingAttributeRef>ri:name</primaryBindingAttributeRef>
+                    <localItemName>ri:orgManager</localItemName>
+                </subject>
+                <object>
+                    <delineation>
+                        <objectClass>ri:CustomOrgObjectClass</objectClass>
+                    </delineation>
+                    <primaryBindingAttributeRef>ri:manager</primaryBindingAttributeRef>
+                </object>
+                <direction>objectToSubject</direction>
+            </type>
+            <type>
+                <name>ri:orgMember</name>
+                <subject>
+                    <delineation>
+                        <objectClass>ri:AccountObjectClass</objectClass>
+                    </delineation>
+                    <primaryBindingAttributeRef>ri:organization</primaryBindingAttributeRef>
+                    <localItemName>ri:orgMember</localItemName>
+                </subject>
+                <object>
+                    <delineation>
+                        <objectClass>ri:CustomOrgObjectClass</objectClass>
+                    </delineation>
+                    <primaryBindingAttributeRef>ri:name</primaryBindingAttributeRef>
+                </object>
+                <direction>subjectToObject</direction>
+            </type>
+        </references>
+        </c:configured>
+    </capabilities>
+</resource>
+

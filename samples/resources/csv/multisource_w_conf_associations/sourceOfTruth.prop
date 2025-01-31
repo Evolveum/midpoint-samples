@@ -1,0 +1,8 @@
+Org.filePath=/opt/midpoint/var/resource/Organization.csv
+Org.trim=true
+Org.headerExists=true
+Org.fieldDelimiter=;
+Org.uniqueAttribute=orgid
+Org.nameAttribute=name
+Org.auxiliary=true
+Org.container=true
