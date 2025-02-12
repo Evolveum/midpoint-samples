@@ -1,0 +1,28 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3" xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3" xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" oid="742302de-39bb-40fe-9f1b-59ebc569927c">
+    <name>Grouper Livesync</name>
+    <description>Grouper live synchronization task for groups and users.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000504" relation="org:default" type="c:ArchetypeType"/>
+        <activation/>
+    </assignment>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+    <executionState>runnable</executionState>
+    <category>Live Sync</category>
+    <objectRef oid="TODO" relation="org:default" type="c:ResourceType"/>
+    <binding>tight</binding>
+    <schedule>
+        <interval>5</interval>
+    </schedule>
+    <activity>
+        <work>
+            <liveSynchronization>
+                <resourceObjects>
+                    <resourceRef oid="TODO" relation="org:default" type="c:ResourceType"/>
+                </resourceObjects>
+            </liveSynchronization>
+        </work>
+    </activity>
+</task>
