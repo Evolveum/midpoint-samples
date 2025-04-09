@@ -1,4 +1,4 @@
-<policy oid="00000000-0000-0000-0000-000000000362" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+<policy oid="c06d394f-cb9b-49f9-b190-fbf5281e501a" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>TLP:AMBER</name>
     <description>Limited disclosure, restricted to participants&amp; organization and its clients. Recipients may share TLP:AMBER information with members of their own organization and its clients on a need-to-know basis to protect their organization and its clients and prevent further harm.</description>
     <documentation>Classification according to Traffic Light Protocol (TLP).</documentation>
@@ -6,6 +6,6 @@
         <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
     </assignment>
     <inducement>
-        <targetRef oid="00000000-0000-0000-0000-000000000361" type="PolicyType"/>
+        <targetRef oid="a943669f-c752-45c2-8a0c-23813d433f9d" type="PolicyType"/>
     </inducement>
 </policy>

@@ -1,4 +1,4 @@
-<policy oid="00000000-0000-0000-0000-000000000361" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+<policy oid="a943669f-c752-45c2-8a0c-23813d433f9d" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>TLP:GREEN</name>
     <description>Limited disclosure, restricted to the community. Recipients may share TLP:GREEN information with peers and partner organizations within their community, but not via publicly accessible channels.</description>
     <documentation>Classification according to Traffic Light Protocol (TLP).</documentation>
@@ -6,6 +6,6 @@
         <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
     </assignment>
     <inducement>
-        <targetRef oid="00000000-0000-0000-0000-000000000360" type="PolicyType"/>
+        <targetRef oid="15fdca7a-de3b-47da-ab2d-e0f7825caa24" type="PolicyType"/>
     </inducement>
 </policy>
