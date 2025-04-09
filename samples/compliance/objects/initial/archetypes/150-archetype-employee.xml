@@ -5,8 +5,7 @@
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
-<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-oid="00000000-0000-0000-0000-000000000704">
+<archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="7135e68c-ee53-11e8-8025-170b77da3fd6">
     <name>Employee</name>
     <description>Archetype for employee users.</description>
     <archetypePolicy>

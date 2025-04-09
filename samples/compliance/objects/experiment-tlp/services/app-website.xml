@@ -7,6 +7,9 @@
         <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
     </assignment>
     <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000360" type="PolicyType" />
+    </assignment>
+    <assignment>
         <targetRef oid="d8cd3e86-0705-4eda-8cc0-e67fda02c3ea" type="RoleType" />
     </assignment>
 </service>

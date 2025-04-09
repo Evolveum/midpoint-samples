@@ -6,17 +6,17 @@
   ~ and European Union Public License. See LICENSE file for details.
   -->
 
-<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+<objectCollection oid="86107b19-4315-4c7c-b33a-647c2dfae828"
+                  xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                   xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-                  oid="00000000-0000-0000-0001-000000000351">
+                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Understaffed security roles</name>
     <description>Security roles that are not properly staffed.</description>
     <type>RoleType</type>
     <filter>
-        <q:text>effectiveMarkRef matches ( oid = "00000000-0000-0000-0000-000000000831" )</q:text>
+        <q:text>effectiveMarkRef matches ( oid = "29ee8246-8a6f-4858-872e-7134ac99877b" )</q:text>
     </filter>
     <domain>
-        <collectionRef oid="00000000-0000-0000-0001-000000000359" type="ObjectCollectionType"/>
+        <collectionRef oid="58a23dec-d306-4b3c-bcd3-b8f97c698681" type="ObjectCollectionType"/>
     </domain>
 </objectCollection>

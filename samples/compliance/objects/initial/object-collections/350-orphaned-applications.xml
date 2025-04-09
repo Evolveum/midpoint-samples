@@ -6,13 +6,13 @@
   ~ and European Union Public License. See LICENSE file for details.
   -->
 
-<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+<objectCollection oid="cc8c1397-e5c4-456c-bd98-f07b3dca97ec"
+                  xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                   xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-                  oid="00000000-0000-0000-0001-000000000356">
+                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Orphaned applications</name>
     <type>ServiceType</type>
     <filter>
-        <q:text>effectiveMarkRef matches ( oid = "00000000-0000-0000-0000-000000000832" ) and archetypeRef matches ( oid = "00000000-0000-0000-0000-000000000329" )</q:text>
+        <q:text>effectiveMarkRef matches ( oid = "5508aca4-2aef-47a6-ad50-892389823c91" ) and archetypeRef matches ( oid = "00000000-0000-0000-0000-000000000329" )</q:text>
     </filter>
 </objectCollection>

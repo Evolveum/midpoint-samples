@@ -6,13 +6,13 @@
   ~ and European Union Public License. See LICENSE file for details.
   -->
 
-<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+<objectCollection oid="6d9d98f5-9182-4d2d-89e8-32ab23704199"
+                  xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                   xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-                  oid="00000000-0000-0000-0001-000000000355">
+                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Orphaned roles</name>
     <type>RoleType</type>
     <filter>
-        <q:text>effectiveMarkRef matches ( oid = "00000000-0000-0000-0000-000000000832" )</q:text>
+        <q:text>effectiveMarkRef matches ( oid = "5508aca4-2aef-47a6-ad50-892389823c91" )</q:text>
     </filter>
 </objectCollection>

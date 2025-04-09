@@ -17,6 +17,6 @@
     </assignment>
     <assignment>
         <identifier>archetype</identifier>
-        <targetRef oid="99fa4b3c-8702-11ef-896e-0b7221540b8b" type="ArchetypeType"/>
+        <targetRef oid="6a12b965-a1c2-47c9-87bd-19e84c71d814" type="ArchetypeType"/>
     </assignment>
 </org>

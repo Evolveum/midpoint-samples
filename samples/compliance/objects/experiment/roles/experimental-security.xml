@@ -10,7 +10,7 @@
                 </minAssignees>
             </policyConstraints>
             <markRef oid="00000000-0000-0000-0000-000000000813" />
-            <markRef oid="00000000-0000-0000-0000-000000000831"/>
+            <markRef oid="29ee8246-8a6f-4858-872e-7134ac99877b"/>
             <policyActions>
                 <record>
                     <description>Record the marks for use in dashboards and reports.</description>

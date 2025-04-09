@@ -4,6 +4,6 @@
         <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
     </assignment>
     <assignment>
-        <targetRef oid="00000000-0000-0000-0000-000000000333" type="PolicyType"/>
+        <targetRef oid="552043f0-e981-43c5-9ab6-c1bafafbee92" type="PolicyType"/>
     </assignment>
 </role>

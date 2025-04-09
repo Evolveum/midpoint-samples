@@ -6,15 +6,15 @@
   ~ and European Union Public License. See LICENSE file for details.
   -->
 
-<objectCollection xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+<objectCollection oid="58a23dec-d306-4b3c-bcd3-b8f97c698681"
+                  xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                   xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-                  oid="00000000-0000-0000-0001-000000000359">
+                  xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Information security roles</name>
     <description>All roles that are classified as information security responsibilities.</description>
     <type>RoleType</type>
     <filter>
-        <q:text>roleMembershipRef matches ( oid = "00000000-0000-0000-0000-000000000333" )</q:text>
+        <q:text>roleMembershipRef matches ( oid = "552043f0-e981-43c5-9ab6-c1bafafbee92" )</q:text>
     </filter>
     <domain>
     </domain>

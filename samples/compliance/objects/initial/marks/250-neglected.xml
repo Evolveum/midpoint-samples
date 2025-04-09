@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~ Copyright (c) 2010-2024 Evolveum and contributors
+  ~ Copyright (c) 2010-2025 Evolveum and contributors
   ~
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
 
-<mark xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"  oid="00000000-0000-0000-0000-000000000832" >
-    <name>Orphaned</name>
-    <description>Mark for object which does not have an owner.</description>
+<mark oid="934bd3f1-1a02-4b29-a66c-c39ad9f2f729"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Neglected</name>
+    <description>Mark for object that is not properly cared for, such as role that was not reviewed for a long time.</description>
     <display>
         <icon>
-            <cssClass>fa fa-user-xmark</cssClass>
+            <cssClass>fa fa-bomb</cssClass>
         </icon>
     </display>
     <assignment id="1">

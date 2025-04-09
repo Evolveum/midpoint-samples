@@ -4,20 +4,20 @@
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
-<archetype oid="00000000-0000-0000-0000-000000000374"
+<archetype oid="886bfa6e-8702-11ef-9c40-6fce51f54b0d"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-    <name>Location</name>
-    <description>Archetype for locations, such as regions, countries, areas, cities, sites, campuses, buildings, offices, etc.</description>
+    <name>Organization</name>
+    <description>Archetype for organizations (companies, ministries, agencies, schools, etc.)</description>
     <archetypePolicy>
         <display>
-            <label>Location</label>
-            <pluralLabel>Locations</pluralLabel>
+            <label>Organization</label>
+            <pluralLabel>Organizations</pluralLabel>
             <icon>
-                <cssClass>fa fa-location-dot</cssClass>
+                <cssClass>fa fa-building-flag</cssClass>
                 <color>#ffc107</color>
             </icon>
-            <tooltip>Location</tooltip>
+            <tooltip>Organization</tooltip>
         </display>
     </archetypePolicy>
     <assignment id="1">
@@ -29,16 +29,17 @@
     </assignment>
     <inducement id="3">
         <identifier>membership</identifier>
-        <description>Locations are hierarchical and have "members" (users) located in them.</description>
+        <description>Organization can have organizational units, (direct) members and manager (director, CEO, headmaster, etc.)</description>
         <assignmentRelation id="4">
-            <description>User can belong to a location (be located here).</description>
+            <description>User can be direct member of organization, as well as manager.</description>
             <holderType>UserType</holderType>
             <relation>org:default</relation>
+            <relation>org:manager</relation>
         </assignmentRelation>
         <assignmentRelation id="5">
-            <description>Sub-locations. Locations are hierarchical, there can be locations within locations. Offices are located within campuses, which are located within cities, which are located within countries, which are located within regions.</description>
+            <description>Organizational units in this organization.</description>
             <holderType>OrgType</holderType>
-            <holderArchetypeRef oid="00000000-0000-0000-0000-000000000374"/>
+            <holderArchetypeRef oid="6a12b965-a1c2-47c9-87bd-19e84c71d814"/>
             <relation>org:default</relation>
         </assignmentRelation>
     </inducement>

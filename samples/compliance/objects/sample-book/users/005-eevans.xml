@@ -13,7 +13,7 @@
     </assignment>
     <assignment id="2">
         <identifier>archetype-employee</identifier>
-        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+        <targetRef oid="7135e68c-ee53-11e8-8025-170b77da3fd6" type="ArchetypeType"/>
     </assignment>
     <assignment id="3">
         <targetRef oid="a0c7d92c-4722-11ea-bc8d-d79a6cefb1bf" type="OrgType"/>
@@ -30,8 +30,18 @@
     <assignment>
         <targetRef oid="b5828699-34ac-41c9-97ef-3ee3d17ef3ce" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-00000000000b" type="RoleType"/>
+    </assignment>
     <fullName>Erin Evans</fullName>
     <givenName>Erin</givenName>
     <familyName>Evans</familyName>
     <personalNumber>005</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>NotS3cr3t</clearValue>
+            </value>
+        </password>
+    </credentials>
 </user>

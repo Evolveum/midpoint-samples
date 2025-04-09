@@ -34,7 +34,7 @@
                                         <t:path>adminGuiConfiguration/configurableUserDashboard</t:path>
                                         <t:value>
                                             <identifier>compliance-dashboard</identifier>
-                                            <configurableDashboardRef oid="00000000-0000-0000-0001-000000001001" type="c:DashboardType"/>
+                                            <configurableDashboardRef oid="f941f3fc-dcef-4415-9e79-ae56b185a501" type="c:DashboardType"/>
                                         </t:value>
                                     </s:itemDelta>
                                     <s:itemDelta>
@@ -43,8 +43,8 @@
                                         <t:value>
                                             <type>RoleType</type>
                                             <applicablePolicies>
-                                                <policyGroupRef oid="00000000-0000-0000-0000-000000000395"/>
-                                                <policyGroupRef oid="00000000-0000-0000-0000-000000000396"/>
+                                                <policyGroupRef oid="e7a48bb0-5361-4862-bf44-cd970c7ad021"/>
+                                                <policyGroupRef oid="f9259e1c-30af-4f69-b1f1-a2dd66234316"/>
                                             </applicablePolicies>
                                         </t:value>
                                     </s:itemDelta>

@@ -9,7 +9,7 @@
 <dashboard xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-        oid="00000000-0000-0000-0001-000000001001">
+        oid="f941f3fc-dcef-4415-9e79-ae56b185a501">
     <name>compliance-dashboard</name>
     <display>
         <label>
@@ -39,7 +39,7 @@
         <data>
             <sourceType>objectCollection</sourceType>
             <collection>
-                <collectionRef oid="00000000-0000-0000-0001-000000000351" type="c:ObjectCollectionType"/>
+                <collectionRef oid="86107b19-4315-4c7c-b33a-647c2dfae828" type="c:ObjectCollectionType"/>
             </collection>
         </data>
         <presentation>
@@ -107,7 +107,7 @@
         <data>
             <sourceType>objectCollection</sourceType>
             <collection>
-                <collectionRef oid="00000000-0000-0000-0001-000000000355" type="c:ObjectCollectionType"/>
+                <collectionRef oid="6d9d98f5-9182-4d2d-89e8-32ab23704199" type="c:ObjectCollectionType"/>
             </collection>
         </data>
         <presentation>
@@ -161,7 +161,7 @@
         <data>
             <sourceType>objectCollection</sourceType>
             <collection>
-                <collectionRef oid="00000000-0000-0000-0001-000000000356" type="c:ObjectCollectionType"/>
+                <collectionRef oid="cc8c1397-e5c4-456c-bd98-f07b3dca97ec" type="c:ObjectCollectionType"/>
             </collection>
         </data>
         <presentation>
@@ -323,7 +323,7 @@
         <data>
             <sourceType>objectCollection</sourceType>
             <collection>
-                <collectionRef oid="00000000-0000-0000-0001-000000000359" type="c:ObjectCollectionType"/>
+                <collectionRef oid="58a23dec-d306-4b3c-bcd3-b8f97c698681" type="c:ObjectCollectionType"/>
             </collection>
         </data>
         <presentation>

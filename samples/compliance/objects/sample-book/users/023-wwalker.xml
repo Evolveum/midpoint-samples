@@ -13,7 +13,7 @@
     </assignment>
     <assignment id="2">
         <identifier>archetype-employee</identifier>
-        <targetRef oid="00000000-0000-0000-0000-000000000704" type="ArchetypeType"/>
+        <targetRef oid="7135e68c-ee53-11e8-8025-170b77da3fd6" type="ArchetypeType"/>
     </assignment>
     <assignment id="3">
         <targetRef oid="ec450da0-4729-11ea-909c-0b931d9f0927" type="OrgType"/>

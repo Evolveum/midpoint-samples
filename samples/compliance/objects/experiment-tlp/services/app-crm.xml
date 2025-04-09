@@ -1,12 +1,12 @@
-<service oid="45bb3cea-fde9-4590-812a-e86b37492bcd"
+<service oid="d630eb6e-eee6-4cbe-84e4-23ed247132bf"
          xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
          xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-    <name>Public Website</name>
-    <description>Company website, contains public information only. Access to the website is managed using LDAP groups.</description>
+    <name>CRM</name>
+    <description>Customer relationship management system. Contains customer database and internal sales information.</description>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
     </assignment>
     <assignment>
-        <targetRef oid="d8cd3e86-0705-4eda-8cc0-e67fda02c3ea" type="RoleType" />
+        <targetRef oid="00000000-0000-0000-0000-000000000363" type="PolicyType" />
     </assignment>
 </service>

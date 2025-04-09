@@ -4,18 +4,19 @@
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
-<org oid="2eb69bc4-87c4-11ef-944d-1b43f452e147"
+<org oid="2328b6ae-f30b-4701-a1d7-92fb617c9e59"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-    <name>Projects</name>
-    <description>Root object of all projects.</description>
-    <displayOrder>300</displayOrder>
+    <name>Teams</name>
+    <description>Root object of all teams.</description>
+    <indestructible>true</indestructible>
+    <displayOrder>200</displayOrder>
     <assignment id="1">
-        <identifier>assignment-relation-projects</identifier>
+        <identifier>assignment-relation-teams</identifier>
         <assignmentRelation id="2">
-            <description>We want projects here, nothing else.</description>
+            <description>We want teams here, nothing else.</description>
             <holderType>OrgType</holderType>
-            <holderArchetypeRef oid="5c2c123e-86ff-11ef-9f50-ab1904c498f6"/>
+            <holderArchetypeRef oid="3cc72762-030e-4161-bd9a-5fa9cb4fd935"/>
             <relation>org:default</relation>
         </assignmentRelation>
     </assignment>

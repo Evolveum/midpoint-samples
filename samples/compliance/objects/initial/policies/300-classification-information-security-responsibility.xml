@@ -1,13 +1,13 @@
 <!--
-  ~ Copyright (c) 2024 Evolveum and contributors
+  ~ Copyright (c) 2024-2025 Evolveum and contributors
   ~
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
-<policy xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+<policy oid="552043f0-e981-43c5-9ab6-c1bafafbee92"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'
-        oid="00000000-0000-0000-0000-000000000333">
+        xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
     <name>Information security responsibility</name>
     <description>Classification used to label roles, orgs, applications and services that are related to information security roles and responsibilities.</description>
     <assignment id="1">
@@ -16,7 +16,7 @@
     </assignment>
     <assignment id="2">
         <identifier>org-ad-hoc-classifications</identifier>
-        <targetRef oid="00000000-0000-0000-0000-000000000396" type="OrgType"/>
+        <targetRef oid="f9259e1c-30af-4f69-b1f1-a2dd66234316" type="OrgType"/>
     </assignment>
     <inducement id="3">
         <identifier>rule-role-undertaffing</identifier>
@@ -29,7 +29,7 @@
                 </minAssignees>
             </policyConstraints>
             <markRef oid="00000000-0000-0000-0000-000000000813" />
-            <markRef oid="00000000-0000-0000-0000-000000000831"/>
+            <markRef oid="29ee8246-8a6f-4858-872e-7134ac99877b"/>
             <policyActions>
                 <record>
                     <description>Record the marks for use in dashboards and reports.</description>
@@ -50,7 +50,7 @@
                 </minAssignees>
             </policyConstraints>
             <markRef oid="00000000-0000-0000-0000-000000000813" />
-            <markRef oid="00000000-0000-0000-0000-000000000832"/>
+            <markRef oid="5508aca4-2aef-47a6-ad50-892389823c91"/>
             <policyActions>
                 <record>
                     <description>Record the marks for use in dashboards and reports.</description>
@@ -71,7 +71,7 @@
                 </minAssignees>
             </policyConstraints>
             <markRef oid="00000000-0000-0000-0000-000000000813" />
-            <markRef oid="00000000-0000-0000-0000-000000000831"/>
+            <markRef oid="29ee8246-8a6f-4858-872e-7134ac99877b"/>
             <policyActions>
                 <record>
                     <description>Record the marks for use in dashboards and reports.</description>
@@ -92,7 +92,7 @@
                 </minAssignees>
             </policyConstraints>
             <markRef oid="00000000-0000-0000-0000-000000000813" />
-            <markRef oid="00000000-0000-0000-0000-000000000832"/>
+            <markRef oid="5508aca4-2aef-47a6-ad50-892389823c91"/>
             <policyActions>
                 <record>
                     <description>Record the marks for use in dashboards and reports.</description>

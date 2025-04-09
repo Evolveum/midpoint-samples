@@ -4,7 +4,7 @@
     <description>Owner(s) of applications included in request must approve the request.</description>
     <assignment>
         <identifier>org-approval-policies</identifier>
-        <targetRef oid="00000000-0000-0000-0000-000000000395" type="OrgType"/>
+        <targetRef oid="e7a48bb0-5361-4862-bf44-cd970c7ad021" type="OrgType"/>
     </assignment>
     <inducement>
         <policyRule>

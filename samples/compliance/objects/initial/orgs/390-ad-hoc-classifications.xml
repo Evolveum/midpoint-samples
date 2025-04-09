@@ -4,13 +4,14 @@
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
-<org oid="00000000-0000-0000-0000-000000000395"
+<org oid="f9259e1c-30af-4f69-b1f1-a2dd66234316"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-    <name>Approval policies</name>
-    <description>Approval policies that can be individually applied to roles.</description>
-    <documentation>Root object of applicable approval policies, approval policies that can be easily applied to roles (and possibly other objects).</documentation>
-    <displayOrder>1000</displayOrder>
+    <name>Ad-hoc classifications</name>
+    <description>Classifications that can be applied in ad-hoc manner.</description>
+    <documentation>Root objects for applicable policies, grouping all classifications that are supposed to be assigned to roles in ad-hoc fashion, i.e. administrator manually decides for each role whether it should have this classification.</documentation>
+    <indestructible>true</indestructible>
+    <displayOrder>1100</displayOrder>
     <assignment id="1">
         <identifier>assignment-relation-policies</identifier>
         <assignmentRelation id="2">

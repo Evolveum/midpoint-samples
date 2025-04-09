@@ -4,20 +4,20 @@
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
-<archetype oid="5c2c123e-86ff-11ef-9f50-ab1904c498f6"
+<archetype oid="3cc72762-030e-4161-bd9a-5fa9cb4fd935"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-    <name>Project</name>
-    <description>Archetype for projects.</description>
+    <name>Team</name>
+    <description>Archetype for general-purpose teams, that are either stand-alone, or cross organizational boundaries. E.g. expert panels, committees, task force, advisory groups, interest groups, etc.</description>
     <archetypePolicy>
         <display>
-            <label>Project</label>
-            <pluralLabel>Projects</pluralLabel>
+            <label>Team</label>
+            <pluralLabel>Teams</pluralLabel>
             <icon>
-                <cssClass>fa fa-chart-gantt</cssClass>
+                <cssClass>fa fa-people-group</cssClass>
                 <color>#ffc107</color>
             </icon>
-            <tooltip>Project</tooltip>
+            <tooltip>Team</tooltip>
         </display>
     </archetypePolicy>
     <assignment id="1">
@@ -29,13 +29,12 @@
     </assignment>
     <inducement id="3">
         <identifier>membership</identifier>
-        <description>Projects are flat (no sub-teams), have members and manager. May have owner (sponsor).</description>
+        <description>Teams are flat (no sub-teams), have members and manager.</description>
         <assignmentRelation id="4">
-            <description>User can be direct member of project, as well as manager and owner.</description>
+            <description>User can be direct member of team, as well as manager.</description>
             <holderType>UserType</holderType>
             <relation>org:default</relation>
             <relation>org:manager</relation>
-            <relation>org:owner</relation>
         </assignmentRelation>
     </inducement>
 </archetype>
