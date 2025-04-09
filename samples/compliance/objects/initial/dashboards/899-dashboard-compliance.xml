@@ -249,6 +249,7 @@
             </variation>
         </presentation>
     </widget>
+
     <widget id="141">
         <identifier>suspicious-users</identifier>
         <description>Users marked as "suspicious".</description>
@@ -303,7 +304,6 @@
         </presentation>
     </widget>
 
-
     <widget id="1000">
         <identifier>information-security-roles</identifier>
         <description>All roles that are classified as information security responsibilities.</description>
@@ -337,6 +337,7 @@
             </dataField>
         </presentation>
     </widget>
+
     <widget id="1010">
         <identifier>privileged-roles</identifier>
         <description>Roles with (direct) privileged access.</description>
@@ -370,4 +371,39 @@
             </dataField>
         </presentation>
     </widget>
+
+    <widget id="1011">
+        <identifier>privileged-users</identifier>
+        <description>Users with privileged access.</description>
+        <display>
+            <label>
+                <orig>Privileged users</orig>
+                <translation>
+                    <key>PrivilegedUsers.label</key>
+                </translation>
+            </label>
+            <icon>
+                <cssClass>fa fa-circle-radiation</cssClass>
+            </icon>
+            <color>var(--secondary)</color>
+        </display>
+        <displayOrder>1011</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="f968f2ca-1c61-421c-b3d9-6925a8f31983" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+
 </dashboard>

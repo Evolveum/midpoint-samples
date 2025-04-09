@@ -16,4 +16,42 @@
         <identifier>org-ad-hoc-classifications</identifier>
         <targetRef oid="f9259e1c-30af-4f69-b1f1-a2dd66234316" type="OrgType"/>
     </assignment>
+    <inducement id="3">
+        <identifier>mark-focus</identifier>
+        <documentation>
+            Any object (focus) which is classified with this classification will be also marked with the corresponding "Privileged access" mark.
+        </documentation>
+        <policyRule>
+            <policyConstraints>
+                <alwaysTrue>
+                    <name>mark-focus-always-true</name>
+                </alwaysTrue>
+            </policyConstraints>
+            <markRef oid="c58394cd-c883-4e41-927c-f90a7c7a0c97"/>
+            <policyActions>
+                <record/>
+            </policyActions>
+        </policyRule>
+    </inducement>
+    <inducement id="4">
+        <identifier>mark-user</identifier>
+        <documentation>
+            Mark users that are (indirectly) affected by any role classified as privileged with "Privileged access" mark.
+        </documentation>
+        <policyRule>
+            <policyConstraints>
+                <alwaysTrue>
+                    <name>mark-user-always-true</name>
+                </alwaysTrue>
+            </policyConstraints>
+            <markRef oid="c58394cd-c883-4e41-927c-f90a7c7a0c97"/>
+            <policyActions>
+                <record/>
+            </policyActions>
+        </policyRule>
+        <orderConstraint>
+            <order>2</order>
+        </orderConstraint>
+        <focusType>UserType</focusType>
+    </inducement>
 </policy>
