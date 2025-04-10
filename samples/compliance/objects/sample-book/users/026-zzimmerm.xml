@@ -22,7 +22,7 @@
         <targetRef oid="293fe73e-472a-11ea-b04f-274374b2c5e2" type="OrgType" relation="org:manager"/>
     </assignment>
     <assignment id="5">
-        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+        <targetRef oid="3e4b1ce5-8e30-491f-9d3b-ec90d754671c" type="OrgType"/>
     </assignment>
     <fullName>Zed Zimmerman</fullName>
     <givenName>Zed</givenName>

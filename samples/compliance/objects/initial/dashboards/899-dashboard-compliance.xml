@@ -341,6 +341,7 @@
     <widget id="1010">
         <identifier>privileged-roles</identifier>
         <description>Roles with (direct) privileged access.</description>
+        <documentation>(ISO27001/8.2)</documentation>
         <display>
             <label>
                 <orig>Privileged roles</orig>
@@ -375,6 +376,7 @@
     <widget id="1011">
         <identifier>privileged-users</identifier>
         <description>Users with privileged access.</description>
+        <documentation>(ISO27001/8.2)</documentation>
         <display>
             <label>
                 <orig>Privileged users</orig>

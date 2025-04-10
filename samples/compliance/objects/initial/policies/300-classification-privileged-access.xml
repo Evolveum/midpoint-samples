@@ -8,6 +8,7 @@
         oid="00000000-0000-0000-0000-000000000332">
     <name>Privileged access</name>
     <description>Classification used to label roles providing privileged access.</description>
+    <documentation>(ISO27001/8.2)</documentation>
     <assignment id="1">
         <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>

@@ -10,6 +10,6 @@
     <name>RC002</name>
     <displayName>Customer support</displayName>
     <assignment>
-        <targetRef oid="945315a6-fc23-11ea-832e-1f9945adb481" type="OrgType"/>
+        <targetRef oid="2b4d8734-3ffe-4262-bfc8-dbfadaeb6043" type="OrgType"/>
     </assignment>
 </org>
