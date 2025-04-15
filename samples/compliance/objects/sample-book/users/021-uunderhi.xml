@@ -24,6 +24,9 @@
     <assignment id="5">
         <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="0a7b667e-fc25-11ea-b92d-d7693b8b10eb" relation="org:owner" type="RoleType"/>
+    </assignment>
     <fullName>Uma Underhill</fullName>
     <givenName>Uma</givenName>
     <familyName>Underhill</familyName>

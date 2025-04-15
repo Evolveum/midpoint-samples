@@ -26,6 +26,12 @@
     <assignment>
         <targetRef oid="86e58643-d5e7-36a8-04f6-38dc3754f04e" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="48d4ef98-20e3-46ab-cd78-548d38364a6b" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="86e58643-d5e7-36a8-04f6-38dc3754f04e" relation="org:owner" type="RoleType"/>
+    </assignment>
     <fullName>Violet Vickers</fullName>
     <givenName>Violet</givenName>
     <familyName>Vickers</familyName>

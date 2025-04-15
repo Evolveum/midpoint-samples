@@ -40,6 +40,12 @@
         <documentation>Reviewer role, to be able to do classification certifications (apps).</documentation>
         <targetRef oid="00000000-0000-0000-0000-00000000000b" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="a1572de4-b9b9-11e9-af3e-5f68b3207f97" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="b9d2b604-b9b9-11e9-bbc4-17d8e85623b4" relation="org:owner" type="RoleType"/>
+    </assignment>
     <fullName>Alice Anderson</fullName>
     <givenName>Alice</givenName>
     <familyName>Anderson</familyName>

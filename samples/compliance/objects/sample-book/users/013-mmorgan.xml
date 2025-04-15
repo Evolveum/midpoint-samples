@@ -30,6 +30,9 @@
     <assignment>
         <targetRef oid="d9f9a7f4-e48c-46b9-b103-76c213068b4f" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="362ff95e-25ef-4635-b497-96566037f4f1" relation="org:owner" type="RoleType"/>
+    </assignment>
     <fullName>Max Morgan</fullName>
     <givenName>Max</givenName>
     <familyName>Morgan</familyName>

@@ -33,6 +33,15 @@
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-00000000000b" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="aaa6cde4-0471-11e9-9b50-c743da469067" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="704d4a90-fc24-11ea-ae44-bbd7d89473b3" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="b5828699-34ac-41c9-97ef-3ee3d17ef3ce" relation="org:owner" type="RoleType"/>
+    </assignment>
     <fullName>Erin Evans</fullName>
     <givenName>Erin</givenName>
     <familyName>Evans</familyName>

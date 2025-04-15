@@ -26,6 +26,9 @@
     <assignment>
         <targetRef oid="a1572de4-b9b9-11e9-af3e-5f68b3207f97" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="b93af850-b9b9-11e9-8c2c-dfb9a89635a0" relation="org:owner" type="RoleType"/>
+    </assignment>
     <fullName>Isabella Irvine</fullName>
     <givenName>Isabella</givenName>
     <familyName>Irvine</familyName>

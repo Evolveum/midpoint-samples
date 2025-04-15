@@ -24,6 +24,9 @@
     <assignment id="5">
         <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="44449c67-82af-427f-b11c-520427b922ac" relation="org:owner" type="RoleType"/>
+    </assignment>
     <fullName>William Walker</fullName>
     <givenName>William</givenName>
     <familyName>Walker</familyName>

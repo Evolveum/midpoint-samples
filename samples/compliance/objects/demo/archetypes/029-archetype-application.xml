@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2019-2024 Evolveum and contributors
+  ~ Copyright (c) 2019-2025 Evolveum and contributors
   ~
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
@@ -17,6 +17,7 @@
         Application is an administrative object describing application
         as a business target that the access relates to.
     </description>
+    <documentation>(ISO27001/5.1,ISO27001/5.2,ISO27001/5.9,ISO27001/5.13,ISO27001/5.16,ISO27001/5.18,ISO27001/5.20,ISO27001/5.21,ISO27001/5.22,ISO27001/5.25,ISO27001/5.30,ISO27001/5.32,ISO27001/5.33,ISO27001/5.36,ISO27001/7.1,ISO27001/8.1,ISO27001/8.2,ISO27001/8.6,ISO27001/8.7,ISO27001/8.8,ISO27001/8.9,ISO27001/8.12,ISO27001/8.18,ISO27001/8.19,ISO27001/8.20,ISO27001/8.31)</documentation>
     <archetypePolicy>
         <display>
             <label>
@@ -188,6 +189,7 @@
     </assignment>
     <inducement>
         <identifier>application-owner-record</identifier>
+        <documentation>(ISO27001/5.9,ISO27001/5.36)</documentation>
         <policyRule>
             <name>require-application-owner</name>
             <policyConstraints>

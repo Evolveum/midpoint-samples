@@ -1,0 +1,84 @@
+<!--
+  ~ Copyright (c) 2019-2025 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+
+<!--
+  Activate view for this archetype in adminGuiConfiguration like this:
+
+  <adminGuiConfiguration>
+    <objectCollectionViews>
+        <objectCollectionView>
+            <identifier>business-roles</identifier>
+            <type>RoleType</type>
+            <collection>
+                <collectionRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+            </collection>
+        </objectCollectionView>
+    </objectCollectionViews>
+  </adminGuiConfiguration>
+
+-->
+<archetype oid="00000000-0000-0000-0000-000000000321"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+        xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
+    <name>Business role</name>
+    <description>
+        Archetype for roles that have meaning from the business perspective.
+        Business roles are usually assigned directly to users, often by using
+        request-and-approve processes. Business roles are usually composed of
+        smaller roles.
+    </description>
+    <documentation>(ISO27001/5.15,ISO27001/5.16,ISO27001/5.18,ISO27001/5.23,ISO27001/5.34,ISO27001/5.37,ISO27001/8.2,ISO27001/8.3,ISO27001/8.4,ISO27001/8.9,ISO27001/8.18,ISO27001/8.20)</documentation>
+    <archetypePolicy>
+        <display>
+            <label>
+                <orig>Business role</orig>
+                <translation>
+                    <key>businessRole.label</key>
+                </translation>
+            </label>
+            <pluralLabel>
+                <orig>Business roles</orig>
+                <translation>
+                    <key>businessRole.pluralLabel</key>
+                </translation>
+            </pluralLabel>
+            <icon>
+                <cssClass>fe fe-role</cssClass>
+                <color>green</color>
+            </icon>
+        </display>
+    </archetypePolicy>
+    <assignment id="1">
+        <identifier>holderType</identifier>
+        <assignmentRelation id="2">
+            <holderType>RoleType</holderType>
+        </assignmentRelation>
+    </assignment>
+    <inducement>
+        <identifier>business-role-owner-record</identifier>
+        <documentation>(ISO27001/5.1,ISO27001/5.2,ISO27001/5.9,ISO27001/5.36)</documentation>
+        <policyRule>
+            <name>require-business-role-owner</name>
+            <policyConstraints>
+                <minAssignees>
+                    <name>business-role-owner</name>
+                    <multiplicity>1</multiplicity>
+                    <relation>org:owner</relation>
+                </minAssignees>
+            </policyConstraints>
+            <markRef oid="5508aca4-2aef-47a6-ad50-892389823c91"/>
+            <policyActions>
+                <record>
+                    <description>Record the mark for use in dashboards and reports.</description>
+                </record>
+            </policyActions>
+            <evaluationTarget>object</evaluationTarget>
+        </policyRule>
+    </inducement>
+</archetype>
