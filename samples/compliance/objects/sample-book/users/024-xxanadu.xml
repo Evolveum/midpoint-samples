@@ -17,6 +17,9 @@
     <assignment id="5">
         <targetRef oid="1993199d-457b-4406-b9b5-e453d6d0cd0f" type="OrgType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="704d4a90-fc24-11ea-ae44-bbd7d89473b3" type="RoleType"/>
+    </assignment>
     <fullName>Xenia Xanadu</fullName>
     <givenName>Xenia</givenName>
     <familyName>Xanadu</familyName>

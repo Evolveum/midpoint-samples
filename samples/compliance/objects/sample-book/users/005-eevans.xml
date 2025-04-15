@@ -42,6 +42,9 @@
     <assignment>
         <targetRef oid="b5828699-34ac-41c9-97ef-3ee3d17ef3ce" relation="org:owner" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="4acc567f-fe4f-4897-a997-97c1b81bacbb" relation="org:owner" type="RoleType"/>
+    </assignment>
     <fullName>Erin Evans</fullName>
     <givenName>Erin</givenName>
     <familyName>Evans</familyName>

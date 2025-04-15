@@ -16,4 +16,24 @@
     <filter>
         <q:text>effectiveMarkRef matches ( oid = "c58394cd-c883-4e41-927c-f90a7c7a0c97" )</q:text>
     </filter>
+    <defaultView>
+        <display>
+            <label>
+                <orig>Privileged role</orig>
+                <translation>
+                    <key>privilegedRole.label</key>
+                </translation>
+            </label>
+            <pluralLabel>
+                <orig>Privileged roles</orig>
+                <translation>
+                    <key>privilegedRole.pluralLabel</key>
+                </translation>
+            </pluralLabel>
+            <icon>
+                <cssClass>fe fe-role</cssClass>
+                <color>red</color>
+            </icon>
+        </display>
+    </defaultView>
 </objectCollection>

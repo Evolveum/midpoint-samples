@@ -33,8 +33,16 @@
                                         <t:modificationType>add</t:modificationType>
                                         <t:path>adminGuiConfiguration/objectCollectionViews/objectCollectionView</t:path>
                                         <t:value>
-                                            <identifier>information-security-responsibilities-roles</identifier>
+                                            <identifier>privileged-roles</identifier>
                                             <displayOrder>300</displayOrder>
+                                            <type>RoleType</type>
+                                            <collection>
+                                                <collectionRef oid="00000000-0000-0000-0001-000000000354" relation="org:default" type="c:ObjectCollectionType"/>
+                                            </collection>
+                                        </t:value>
+                                        <t:value>
+                                            <identifier>information-security-responsibilities-roles</identifier>
+                                            <displayOrder>310</displayOrder>
                                             <type>RoleType</type>
                                             <collection>
                                                 <collectionRef oid="58a23dec-d306-4b3c-bcd3-b8f97c698681" relation="org:default" type="c:ObjectCollectionType"/>

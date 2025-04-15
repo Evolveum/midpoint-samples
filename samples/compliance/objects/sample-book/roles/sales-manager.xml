@@ -26,4 +26,7 @@
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
     </assignment>
+    <inducement>
+        <targetRef oid="cc4fb6a4-232a-49cc-89b4-5561feec0d39" type="RoleType"/>
+    </inducement>
 </role>

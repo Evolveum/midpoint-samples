@@ -31,4 +31,7 @@
         <identifier>role-catalog</identifier>
         <targetRef oid="b7e4cd0c-fc23-11ea-a79a-079cad42b39b" type="OrgType"/>
     </assignment>
+    <inducement>
+        <targetRef oid="704d4a90-fc24-11ea-ae44-bbd7d89473b3" type="RoleType"/>
+    </inducement>
 </role>

@@ -30,7 +30,13 @@
         <targetRef oid="20c4912a-ec10-4231-b9e2-54431864de66" relation="org:owner" type="RoleType"/>
     </assignment>
     <assignment>
-        <targetRef oid="eb107649-0e2a-4c4a-b58e-1d4b5729a1c2" relation="org:owner" type="RoleType"/>
+        <targetRef oid="70e53ac1-28b2-40d0-8642-27f3176ada03" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="6fe78119-f42e-4961-ba29-e515687b57f5" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="aab1d0c7-634e-4872-9d3c-fa487a20c41b" relation="org:owner" type="RoleType"/>
     </assignment>
     <fullName>Peter Phillips</fullName>
     <givenName>Peter</givenName>

@@ -30,4 +30,7 @@
     <inducement>
         <targetRef oid="00000000-0000-0000-0000-000000000008" type="RoleType"/>
     </inducement>
+    <inducement>
+        <targetRef oid="d5eb6a0c-c0ae-421d-8d36-2df8051566ee" type="RoleType"/>
+    </inducement>
 </archetype>

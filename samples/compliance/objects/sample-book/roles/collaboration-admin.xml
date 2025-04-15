@@ -1,0 +1,15 @@
+<role oid="6fe78119-f42e-4961-ba29-e515687b57f5"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Collaboration platform: Administrator</name>
+    <description>Administration access to collaboration platform.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000332" type="PolicyType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="183cdca7-91da-424c-9ef6-8b481f6aa57f" type="ServiceType"/>
+    </inducement>
+</role>

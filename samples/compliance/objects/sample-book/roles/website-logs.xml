@@ -1,0 +1,13 @@
+<role oid="740c9935-3cce-40ff-84f9-ceede086f835"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Public website: Log access</name>
+    <description>Read-only access to content, logs and other records</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="45bb3cea-fde9-4590-812a-e86b37492bcd" type="ServiceType"/>
+    </inducement>
+    <requestable>true</requestable>
+</role>

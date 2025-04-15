@@ -1,0 +1,16 @@
+<role oid="aab1d0c7-634e-4872-9d3c-fa487a20c41b"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Collaboration platform: Power user</name>
+    <description>Read-write access to collaboration platform, access to files, including some unusual ones, more applications, etc.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="d5eb6a0c-c0ae-421d-8d36-2df8051566ee" type="RoleType"/>
+    </inducement>
+    <inducement>
+        <targetRef oid="183cdca7-91da-424c-9ef6-8b481f6aa57f" type="ServiceType"/>
+    </inducement>
+    <requestable>true</requestable>
+</role>

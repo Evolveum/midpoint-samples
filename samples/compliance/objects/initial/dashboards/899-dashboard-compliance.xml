@@ -336,7 +336,7 @@
             <icon>
                 <cssClass>fa fa-building-shield</cssClass>
             </icon>
-            <color>var(--secondary)</color>
+            <color>var(--lightblue)</color>
         </display>
         <displayOrder>1000</displayOrder>
         <data>
@@ -371,7 +371,7 @@
             <icon>
                 <cssClass>fa fa-circle-radiation</cssClass>
             </icon>
-            <color>var(--secondary)</color>
+            <color>var(--lightblue)</color>
         </display>
         <displayOrder>1010</displayOrder>
         <data>
@@ -406,7 +406,7 @@
             <icon>
                 <cssClass>fa fa-circle-radiation</cssClass>
             </icon>
-            <color>var(--secondary)</color>
+            <color>var(--lightblue)</color>
         </display>
         <displayOrder>1011</displayOrder>
         <data>
