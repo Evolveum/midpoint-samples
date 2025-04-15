@@ -9,6 +9,7 @@
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Organization</name>
     <description>Archetype for organizations (companies, ministries, agencies, schools, etc.)</description>
+    <documentation>(ISO27001/5.15,ISO27001/5.16)</documentation>
     <archetypePolicy>
         <display>
             <label>Organization</label>

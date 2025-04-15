@@ -11,6 +11,7 @@
                   xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
                   xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Orphaned roles</name>
+    <documentation>(ISO27001/5.16,ISO27001/5.36)</documentation>
     <type>RoleType</type>
     <filter>
         <q:text>effectiveMarkRef matches ( oid = "5508aca4-2aef-47a6-ad50-892389823c91" )</q:text>

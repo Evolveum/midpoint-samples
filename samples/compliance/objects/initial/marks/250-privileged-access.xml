@@ -14,7 +14,7 @@
         The mark is usually set by "Privileged access" classification.
         The mark is used for easier searching of objects (as opposed to classification), also for GUI visibility.
         Unlike the classification (which is an assignment), the mark can mark objects that are indirectly affected by the classification.
-        (ISO27001/8.2)
+        (ISO27001/5.15,ISO27001/5.18,ISO27001/8.2,ISO27001/8.9)
     </documentation>
     <display>
         <icon>

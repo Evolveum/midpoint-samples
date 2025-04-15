@@ -6,14 +6,13 @@
   ~ and European Union Public License. See LICENSE file for details.
   -->
 
-<mark oid="934bd3f1-1a02-4b29-a66c-c39ad9f2f729"
-      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
-    <name>Neglected</name>
-    <description>Mark for object that is not properly cared for, such as role that was not reviewed for a long time.</description>
-    <documentation>(ISO27001/5.36)</documentation>
+<mark xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"  oid="00000000-0000-0000-0000-000000000830" >
+    <name>Suspicious</name>
+    <description>Mark for Suspicious object. It should be (manually) investigated.</description>
+    <documentation>(ISO27001/5.27,ISO27001/5.28,ISO27001/5.29,ISO27001/6.8)</documentation>
     <display>
         <icon>
-            <cssClass>fa fa-bomb</cssClass>
+            <cssClass>fa fa-handcuffs</cssClass>
         </icon>
     </display>
     <assignment id="1">

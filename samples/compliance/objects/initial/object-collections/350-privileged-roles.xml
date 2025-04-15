@@ -11,7 +11,7 @@
                   xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
                   xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Privileged roles</name>
-    <documentation>(ISO27001/8.2)</documentation>
+    <documentation>(ISO27001/5.15,ISO27001/5.18,ISO27001/8.2)</documentation>
     <type>RoleType</type>
     <filter>
         <q:text>effectiveMarkRef matches ( oid = "c58394cd-c883-4e41-927c-f90a7c7a0c97" )</q:text>
