@@ -24,6 +24,12 @@
     <assignment id="5">
         <targetRef oid="3e4b1ce5-8e30-491f-9d3b-ec90d754671c" type="OrgType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="fc4b9c01-3d61-4ecf-9057-ede0e9563ac0" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="3c0554af-b5d8-4bc7-9dc4-2720c325f24c" relation="org:owner" type="RoleType"/>
+    </assignment>
     <fullName>Zed Zimmerman</fullName>
     <givenName>Zed</givenName>
     <familyName>Zimmerman</familyName>

@@ -21,6 +21,9 @@
     <assignment id="4">
         <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="3c0554af-b5d8-4bc7-9dc4-2720c325f24c" type="RoleType"/>
+    </assignment>
     <fullName>David Davies</fullName>
     <givenName>David</givenName>
     <familyName>Davies</familyName>

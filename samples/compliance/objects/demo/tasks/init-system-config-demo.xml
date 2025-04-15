@@ -1,0 +1,52 @@
+<task oid="93fe5f38-4b29-4160-a60a-d1046cd43626"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
+    <name>Init system config - Demo</name>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
+    <executionState>runnable</executionState>
+    <schedule>
+        <recurrence>single</recurrence>
+    </schedule>
+    <activity>
+        <work>
+            <nonIterativeScripting>
+                <scriptExecutionRequest>
+                    <s:search>
+                        <s:type>c:SystemConfigurationType</s:type>
+                        <s:options>
+                            <option>
+                                <options>
+                                    <raw>true</raw>
+                                </options>
+                            </option>
+                        </s:options>
+                        <s:action>
+                            <s:type>modify</s:type>
+                            <s:parameter>
+                                <s:name>delta</s:name>
+                                <c:value>
+                                    <s:itemDelta>
+                                        <t:modificationType>add</t:modificationType>
+                                        <t:path>adminGuiConfiguration/objectCollectionViews/objectCollectionView</t:path>
+                                        <t:value>
+                                            <identifier>information-security-responsibilities-roles</identifier>
+                                            <displayOrder>300</displayOrder>
+                                            <type>RoleType</type>
+                                            <collection>
+                                                <collectionRef oid="58a23dec-d306-4b3c-bcd3-b8f97c698681" relation="org:default" type="c:ObjectCollectionType"/>
+                                            </collection>
+                                        </t:value>
+                                    </s:itemDelta>
+                                </c:value>
+                            </s:parameter>
+                        </s:action>
+                    </s:search>
+                </scriptExecutionRequest>
+            </nonIterativeScripting>
+        </work>
+    </activity>
+</task>

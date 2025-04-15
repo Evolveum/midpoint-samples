@@ -53,6 +53,17 @@
                     </proportional>
                 </expression>
             </dataField>
+            <variation>
+                <condition>
+                    <script>
+                        <code>proportional.value &gt; 0</code>
+                    </script>
+                </condition>
+                <display>
+                    <color>var(--red)</color>
+                </display>
+            </variation>
+
         </presentation>
     </widget>
 

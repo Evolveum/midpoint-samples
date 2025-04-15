@@ -36,6 +36,7 @@
                     <description>Record the marks for use in dashboards and reports.</description>
                 </record>
             </policyActions>
+            <evaluationTarget>object</evaluationTarget>
         </policyRule>
         <focusType>RoleType</focusType>
     </inducement>
@@ -57,6 +58,7 @@
                     <description>Record the marks for use in dashboards and reports.</description>
                 </record>
             </policyActions>
+            <evaluationTarget>object</evaluationTarget>
         </policyRule>
         <focusType>RoleType</focusType>
     </inducement>
@@ -78,6 +80,7 @@
                     <description>Record the marks for use in dashboards and reports.</description>
                 </record>
             </policyActions>
+            <evaluationTarget>object</evaluationTarget>
         </policyRule>
         <focusType>OrgType</focusType>
     </inducement>
@@ -99,6 +102,7 @@
                     <description>Record the marks for use in dashboards and reports.</description>
                 </record>
             </policyActions>
+            <evaluationTarget>object</evaluationTarget>
         </policyRule>
         <focusType>ServiceType</focusType>
     </inducement>

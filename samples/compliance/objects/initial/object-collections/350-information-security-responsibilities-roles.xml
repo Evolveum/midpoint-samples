@@ -19,4 +19,24 @@
     </filter>
     <domain>
     </domain>
+    <defaultView>
+        <display>
+            <label>
+                <orig>Information security role</orig>
+                <translation>
+                    <key>informationSecurityRole.label</key>
+                </translation>
+            </label>
+            <pluralLabel>
+                <orig>Information security roles</orig>
+                <translation>
+                    <key>informationSecurityRole.pluralLabel</key>
+                </translation>
+            </pluralLabel>
+            <icon>
+                <cssClass>fe fe-role</cssClass>
+                <color>orange</color>
+            </icon>
+        </display>
+    </defaultView>
 </objectCollection>
