@@ -5,7 +5,8 @@
   ~ and European Union Public License. See LICENSE file for details.
   -->
 <archetype oid="00000000-0000-0000-0000-000000000330"
-        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
     <name>Classification</name>
     <description>Archetype for information classifications (labels, levels, compartments).</description>
     <documentation>(ISO27001/5.12,ISO27001/5.13)</documentation>

@@ -6,6 +6,5 @@
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
     </assignment>
-    <!-- There is no owner -->
     <!-- There is no classification -->
 </service>

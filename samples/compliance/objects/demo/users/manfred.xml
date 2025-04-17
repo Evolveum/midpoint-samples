@@ -1,0 +1,40 @@
+<user oid="89579499-b5ac-487c-8489-b1fb5acf5d20"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>manfred</name>
+    <description>Head of all project managers, owner of project management app.</description>
+    <extension>
+        <exmpl:jobCode>O106</exmpl:jobCode>
+    </extension>
+    <title>Head Project Manager</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="7135e68c-ee53-11e8-8025-170b77da3fd6" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="b26a39c6-4728-11ea-b17c-cbf8b228962c" type="OrgType"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="1c42e1c4-1c9e-491e-b9c0-97f10c189346" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="166e7f96-9432-45e3-8038-1022ba19da21" relation="org:owner" type="ServiceType"/>
+    </assignment>
+    <fullName>Manfred P. Manager</fullName>
+    <givenName>Manfred</givenName>
+    <familyName>Manager</familyName>
+    <additionalName>Project</additionalName>
+    <personalNumber>106</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>qwe123</clearValue>
+            </value>
+        </password>
+    </credentials>
+</user>
