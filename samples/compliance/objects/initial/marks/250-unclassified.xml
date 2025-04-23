@@ -13,7 +13,7 @@
     <documentation>(ISO27001/5.12,ISO27001/5.13)</documentation>
     <display>
         <icon>
-            <cssClass>fa fa-times-circle-o</cssClass>
+            <cssClass>fa fa-times-circle</cssClass>
         </icon>
     </display>
     <assignment id="1">

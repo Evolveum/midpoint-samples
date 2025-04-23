@@ -212,6 +212,61 @@
         </presentation>
     </widget>
 
+    <widget id="132">
+        <identifier>unclassified-applications</identifier>
+        <description>Unclassified applications: applications without classifications</description>
+        <documentation>(ISO27001/5.12,ISO27001/5.13)</documentation>
+        <display>
+            <label>
+                <orig>Unclassified applications</orig>
+                <translation>
+                    <key>UnclassifiedApplications.label</key>
+                </translation>
+            </label>
+            <icon>
+                <cssClass>fa fa-times-circle</cssClass>
+            </icon>
+            <color>var(--success)</color>
+        </display>
+        <displayOrder>132</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="d7887599-3f3a-4d51-80ae-ee8567cd51aa" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <variation>
+                <condition>
+                    <script>
+                        <code>proportional.value &gt; 0 &amp;&amp; proportional.value &lt; 3</code>
+                    </script>
+                </condition>
+                <display>
+                    <color>var(--orange)</color>
+                </display>
+            </variation>
+            <variation>
+                <condition>
+                    <script>
+                        <code>proportional.value &gt;= 3</code>
+                    </script>
+                </condition>
+                <display>
+                    <color>var(--danger)</color>
+                </display>
+            </variation>
+        </presentation>
+    </widget>
+
     <widget id="140">
         <identifier>suspicious-roles</identifier>
         <description>Roles marked as "suspicious".</description>
