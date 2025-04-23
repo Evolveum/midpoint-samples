@@ -49,6 +49,73 @@
                                             </collection>
                                         </t:value>
                                     </s:itemDelta>
+                                    <s:itemDelta>
+                                        <t:modificationType>delete</t:modificationType>
+                                        <t:path>adminGuiConfiguration/objectCollectionViews/objectCollectionView</t:path>
+                                        <t:value>
+                                            <identifier>application</identifier>
+                                            <type>ServiceType</type>
+                                            <collection>
+                                                <collectionRef oid="00000000-0000-0000-0000-000000000329" relation="org:default" type="c:ArchetypeType">
+                                                    <!-- Application -->
+                                                </collectionRef>
+                                            </collection>
+                                        </t:value>
+                                    </s:itemDelta>
+                                    <s:itemDelta>
+                                        <t:modificationType>add</t:modificationType>
+                                        <t:path>adminGuiConfiguration/objectCollectionViews/objectCollectionView</t:path>
+                                        <t:value>
+                                            <identifier>application</identifier>
+                                            <display>
+                                                <label>Application.panel.applications</label>
+                                            </display>
+                                            <type>ServiceType</type>
+                                            <collection>
+                                                <collectionRef oid="00000000-0000-0000-0000-000000000329" relation="org:default" type="c:ArchetypeType"/>
+                                            </collection>
+                                            <column>
+                                                <name>nameColumn</name>
+                                                <path>name</path>
+                                                <display>
+                                                    <label>Name</label>
+                                                </display>
+                                            </column>
+                                            <column>
+                                                <name>descriptionColumn</name>
+                                                <path>description</path>
+                                                <display>
+                                                    <label>Description</label>
+                                                </display>
+                                                <previousColumn>nameColumn</previousColumn>
+                                            </column>
+                                            <column>
+                                                <name>classificationColumn</name>
+                                                <display>
+                                                    <label>Classification</label>
+                                                </display>
+                                                <previousColumn>descriptionColumn</previousColumn>
+                                                <export>
+                                                    <expression>
+                                                        <script>
+                                                            <code>
+                                                                for ( assignment in object.assignment ) {
+                                                                    if (assignment.targetRef.type == com.evolveum.midpoint.xml.ns._public.common.common_3.PolicyType.COMPLEX_TYPE) {
+                                                                        policy = midpoint.getObject(com.evolveum.midpoint.xml.ns._public.common.common_3.PolicyType, assignment.targetRef.oid)
+                                                                        policyArchetypes = midpoint.getArchetypeOids(policy)
+                                                                        if ("00000000-0000-0000-0000-000000000330" in policyArchetypes) {
+                                                                            return policy.name
+                                                                        }
+                                                                    }
+                                                                }
+                                                                return ""
+                                                            </code>
+                                                        </script>
+                                                    </expression>
+                                                </export>
+                                            </column>
+                                        </t:value>
+                                    </s:itemDelta>
                                 </c:value>
                             </s:parameter>
                         </s:action>
