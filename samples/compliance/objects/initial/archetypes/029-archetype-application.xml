@@ -1,14 +1,14 @@
 <!--
-  ~ Copyright (c) 2019-2024 Evolveum and contributors
+  ~ Copyright (c) 2019-2025 Evolveum and contributors
   ~
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
 <archetype oid="00000000-0000-0000-0000-000000000329"
-        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <name>Application</name>
     <description>
         Applications are basic building blocks for defining access.
@@ -112,7 +112,7 @@
                         </icon>
                     </display>
                     <displayOrder>92</displayOrder>
-                    <panelType>roleAssignments</panelType>
+                    <panelType>policyAssignments</panelType>
                     <listView>
                         <identifier>classifications-view</identifier>
                         <type>c:AssignmentType</type>
@@ -184,6 +184,27 @@
             <holderType>ServiceType</holderType>
         </assignmentRelation>
     </assignment>
+    <inducement>
+        <identifier>application-owner-record</identifier>
+        <documentation>(ISO27001/5.9,ISO27001/5.36)</documentation>
+        <policyRule>
+            <name>require-application-owner</name>
+            <policyConstraints>
+                <minAssignees>
+                    <name>application-owner</name>
+                    <multiplicity>1</multiplicity>
+                    <relation>org:owner</relation>
+                </minAssignees>
+            </policyConstraints>
+            <markRef oid="5508aca4-2aef-47a6-ad50-892389823c91"/>
+            <policyActions>
+                <record>
+                    <description>Record the mark for use in dashboards and reports.</description>
+                </record>
+            </policyActions>
+            <evaluationTarget>object</evaluationTarget>
+        </policyRule>
+    </inducement>
     <inducement>
         <identifier>application-classified</identifier>
         <documentation>(ISO27001/5.12,ISO27001/5.13,ISO27001/5.36)</documentation>

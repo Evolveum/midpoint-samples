@@ -5,11 +5,11 @@
   ~ and European Union Public License. See LICENSE file for details.
   -->
 <archetype oid="00000000-0000-0000-0000-000000000329"
-        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+           xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <name>Application</name>
     <description>
         Applications are basic building blocks for defining access.
@@ -17,7 +17,6 @@
         Application is an administrative object describing application
         as a business target that the access relates to.
     </description>
-    <documentation>(ISO27001/5.1,ISO27001/5.2,ISO27001/5.9,ISO27001/5.13,ISO27001/5.16,ISO27001/5.18,ISO27001/5.20,ISO27001/5.21,ISO27001/5.22,ISO27001/5.25,ISO27001/5.30,ISO27001/5.32,ISO27001/5.33,ISO27001/5.36,ISO27001/7.1,ISO27001/8.1,ISO27001/8.2,ISO27001/8.6,ISO27001/8.7,ISO27001/8.8,ISO27001/8.9,ISO27001/8.12,ISO27001/8.18,ISO27001/8.19,ISO27001/8.20,ISO27001/8.31)</documentation>
     <archetypePolicy>
         <display>
             <label>
@@ -51,11 +50,10 @@
                         </label>
                     </display>
                 </panel>
-                <!--
-                <panel id="4">
-                    <identifier>assignments</identifier>
-                    <visibility>hidden</visibility>
-                </panel> -->
+<!--                <panel id="4">-->
+<!--                    <identifier>assignments</identifier>-->
+<!--                    <visibility>hidden</visibility>-->
+<!--                </panel>-->
                 <panel id="5">
                     <identifier>password</identifier>
                     <visibility>hidden</visibility>
@@ -115,7 +113,7 @@
                         </icon>
                     </display>
                     <displayOrder>92</displayOrder>
-                    <panelType>roleAssignments</panelType>
+                    <panelType>policyAssignments</panelType>
                     <listView>
                         <identifier>classifications-view</identifier>
                         <type>c:AssignmentType</type>
@@ -206,6 +204,25 @@
                 </record>
             </policyActions>
             <evaluationTarget>object</evaluationTarget>
+        </policyRule>
+    </inducement>
+    <inducement>
+        <identifier>application-classified</identifier>
+        <documentation>(ISO27001/5.12,ISO27001/5.13,ISO27001/5.36)</documentation>
+        <policyRule>
+            <name>require-application-classification</name>
+            <policyConstraints>
+                <hasNoAssignment>
+                    <name>application-classification</name>
+                    <targetArchetypeRef oid="00000000-0000-0000-0000-000000000330"/>
+                </hasNoAssignment>
+            </policyConstraints>
+            <markRef oid="2bb936a6-91b4-4439-82ac-1b3e89c2a26a"/>
+            <policyActions>
+                <record>
+                    <description>Record the mark for use in dashboards and reports.</description>
+                </record>
+            </policyActions>
         </policyRule>
     </inducement>
 </archetype>
