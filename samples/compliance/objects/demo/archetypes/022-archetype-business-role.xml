@@ -69,7 +69,7 @@
                 <minAssignees>
                     <name>business-role-owner</name>
                     <multiplicity>1</multiplicity>
-                    <relation>org:owner</relation>
+                    <relation>owner</relation>
                 </minAssignees>
             </policyConstraints>
             <markRef oid="5508aca4-2aef-47a6-ad50-892389823c91"/>
@@ -80,5 +80,19 @@
             </policyActions>
             <evaluationTarget>object</evaluationTarget>
         </policyRule>
+    </inducement>
+    <inducement>
+        <identifier>approver-inducement-2</identifier>
+        <documentation>Anyone who has an approver relation to any business role will automatically get (induced) Approver role.</documentation>
+        <targetRef oid="00000000-0000-0000-0000-00000000000a" type="RoleType"/>
+        <orderConstraint>
+            <order>1</order>
+            <relation>default</relation>
+        </orderConstraint>
+        <orderConstraint>
+            <order>1</order>
+            <relation>approver</relation>
+        </orderConstraint>
+        <focusType>UserType</focusType>
     </inducement>
 </archetype>

@@ -1,0 +1,23 @@
+<user oid="fe33d641-a8fb-449f-b42b-3f747360d949"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>kk</name>
+    <title>Software Development Teamleader KK</title>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000008" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="77d49dbe-92ca-45f2-9df6-4b5018cbfa88" type="RoleType" relation="org:approver"/>
+    </assignment>
+    <fullName>KK</fullName>
+    <givenName>K</givenName>
+    <familyName>K</familyName>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>qwe123</clearValue>
+            </value>
+        </password>
+    </credentials>
+</user>

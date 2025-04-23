@@ -24,8 +24,30 @@
     <assignment id="5">
         <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="76b824f9-b7fd-4a20-a2fa-52940959e3d1" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="76b824f9-b7fd-4a20-a2fa-52940959e3d1" type="RoleType" relation="org:owner"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="77d49dbe-92ca-45f2-9df6-4b5018cbfa88" type="RoleType" relation="org:owner"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="77d49dbe-92ca-45f2-9df6-4b5018cbfa88" type="RoleType" relation="org:approver"/>
+    </assignment>
+<!--    <assignment>-->
+<!--        <targetRef oid="00000000-0000-0000-0000-00000000000a" type="RoleType"/>-->
+<!--    </assignment>-->
     <fullName>Kate Knowles</fullName>
     <givenName>Kate</givenName>
     <familyName>Knowles</familyName>
     <personalNumber>011</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>qwe123</clearValue>
+            </value>
+        </password>
+    </credentials>
 </user>

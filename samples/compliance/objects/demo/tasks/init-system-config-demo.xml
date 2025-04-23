@@ -4,6 +4,7 @@
       xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
       xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+      xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'
       xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3">
     <name>Init system config - Demo</name>
     <ownerRef oid="00000000-0000-0000-0000-000000000002"/>
@@ -114,6 +115,14 @@
                                                     </expression>
                                                 </export>
                                             </column>
+                                        </t:value>
+                                    </s:itemDelta>
+                                    <s:itemDelta>
+                                        <t:modificationType>add</t:modificationType>
+                                        <t:path>roleManagement/relations/relation</t:path>
+                                        <t:value>
+                                            <ref>org:approver</ref>
+                                            <processedOnLogin>true</processedOnLogin>
                                         </t:value>
                                     </s:itemDelta>
                                 </c:value>

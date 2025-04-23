@@ -1,8 +1,8 @@
-<user oid="1d885b20-ccf0-444a-9443-9ef14f17d79d"
+<user oid="d254f46d-15ae-4ede-85ed-18444876f6ea"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
       xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
-    <name>rrussell</name>
+    <name>ddevelis</name>
     <extension>
         <exmpl:jobCode>O222</exmpl:jobCode>
     </extension>
@@ -19,13 +19,20 @@
         <targetRef oid="fca2e4ac-4728-11ea-be3a-4f6f8d567435" type="OrgType"/>
     </assignment>
     <assignment id="5">
-        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+        <targetRef oid="1c42e1c4-1c9e-491e-b9c0-97f10c189346" type="OrgType"/>
     </assignment>
     <assignment>
         <targetRef oid="76b824f9-b7fd-4a20-a2fa-52940959e3d1" type="RoleType"/>
     </assignment>
-    <fullName>Roger Russell</fullName>
-    <givenName>Roger</givenName>
-    <familyName>Russell</familyName>
-    <personalNumber>018</personalNumber>
+    <fullName>Dexter Develis</fullName>
+    <givenName>Dexter</givenName>
+    <familyName>Develis</familyName>
+    <personalNumber>107</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>qwe123</clearValue>
+            </value>
+        </password>
+    </credentials>
 </user>

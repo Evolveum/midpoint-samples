@@ -1,0 +1,7 @@
+<role oid="76b824f9-b7fd-4a20-a2fa-52940959e3d1" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Software developer</name>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <!-- TODO: OpenLDAP, other apps -->
+</role>
