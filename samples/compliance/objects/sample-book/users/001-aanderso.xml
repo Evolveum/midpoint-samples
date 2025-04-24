@@ -49,6 +49,16 @@
     <assignment>
         <targetRef oid="cc4fb6a4-232a-49cc-89b4-5561feec0d39" relation="org:owner" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="b00ecf65-f0a8-45b9-97e8-4299070b7c39" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="7cdcc670-2b0e-43eb-a67e-0be0e9809b89" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <documentation>We need explicit Approver role assignment here, as owner relation does not grant that (yet).</documentation>
+        <targetRef oid="00000000-0000-0000-0000-00000000000a" type="RoleType"/>
+    </assignment>
     <fullName>Alice Anderson</fullName>
     <givenName>Alice</givenName>
     <familyName>Anderson</familyName>

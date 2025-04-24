@@ -31,4 +31,11 @@
     <givenName>Yasmine</givenName>
     <familyName>Young</familyName>
     <personalNumber>025</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>qwe123</clearValue>
+            </value>
+        </password>
+    </credentials>
 </user>

@@ -8,4 +8,7 @@
     <inducement>
         <targetRef oid="5f09176f-895d-464f-b5de-248d5fab8361" type="PolicyType"/>
     </inducement>
+    <inducement>
+        <targetRef oid="9dc3ea25-7de0-43ad-8792-7810f3d2efd3" type="PolicyType"/>
+    </inducement>
 </policy>

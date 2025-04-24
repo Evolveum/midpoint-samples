@@ -24,4 +24,11 @@
     <givenName>Xenia</givenName>
     <familyName>Xanadu</familyName>
     <personalNumber>024</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>qwe123</clearValue>
+            </value>
+        </password>
+    </credentials>
 </user>

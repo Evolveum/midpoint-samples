@@ -1,0 +1,13 @@
+<role oid="b00ecf65-f0a8-45b9-97e8-4299070b7c39" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Influencer</name>
+    <description>Influencer, improving company public relations on social media.</description>
+    <documentation>
+        Ad-hoc role, not given by any kind of work position or organization. It has to be requested and approved.
+        It may be granted to external cooperators as well.
+    </documentation>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <!-- TODO: OpenLDAP, other apps -->
+    <requestable>true</requestable>
+</role>

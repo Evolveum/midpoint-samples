@@ -1,0 +1,13 @@
+<role oid="7cdcc670-2b0e-43eb-a67e-0be0e9809b89"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Portfolio management: User</name>
+    <description>Common user access to Portfolio management system.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="c71554c8-1750-4743-b10c-bf8cd4ce64c8" type="ServiceType"/>
+    </inducement>
+    <requestable>true</requestable>
+</role>

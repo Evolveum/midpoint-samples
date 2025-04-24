@@ -45,6 +45,9 @@
     <assignment>
         <targetRef oid="4acc567f-fe4f-4897-a997-97c1b81bacbb" relation="org:owner" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="b00ecf65-f0a8-45b9-97e8-4299070b7c39" relation="org:approver" type="RoleType"/>
+    </assignment>
     <fullName>Erin Evans</fullName>
     <givenName>Erin</givenName>
     <familyName>Evans</familyName>
@@ -52,7 +55,7 @@
     <credentials>
         <password>
             <value>
-                <clearValue>NotS3cr3t</clearValue>
+                <clearValue>qwe123</clearValue>
             </value>
         </password>
     </credentials>

@@ -73,7 +73,7 @@
                                                             <name>Role Approver</name>
                                                             <approverRelation>approver</approverRelation>
                                                             <evaluationStrategy>firstDecides</evaluationStrategy>
-                                                            <outcomeIfNoApprovers>reject</outcomeIfNoApprovers>
+                                                            <outcomeIfNoApprovers>skip</outcomeIfNoApprovers>
                                                         </stage>
                                                     </approvalSchema>
                                                 </approval>

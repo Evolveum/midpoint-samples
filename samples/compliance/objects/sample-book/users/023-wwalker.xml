@@ -34,4 +34,11 @@
     <givenName>William</givenName>
     <familyName>Walker</familyName>
     <personalNumber>023</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>qwe123</clearValue>
+            </value>
+        </password>
+    </credentials>
 </user>

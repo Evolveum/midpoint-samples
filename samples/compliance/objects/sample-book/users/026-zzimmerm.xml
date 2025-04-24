@@ -34,4 +34,11 @@
     <givenName>Zed</givenName>
     <familyName>Zimmerman</familyName>
     <personalNumber>026</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>qwe123</clearValue>
+            </value>
+        </password>
+    </credentials>
 </user>

@@ -32,8 +32,18 @@
     <assignment>
         <targetRef oid="86e58643-d5e7-36a8-04f6-38dc3754f04e" relation="org:owner" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="7cdcc670-2b0e-43eb-a67e-0be0e9809b89" relation="org:approver" type="RoleType"/>
+    </assignment>
     <fullName>Violet Vickers</fullName>
     <givenName>Violet</givenName>
     <familyName>Vickers</familyName>
     <personalNumber>022</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>qwe123</clearValue>
+            </value>
+        </password>
+    </credentials>
 </user>

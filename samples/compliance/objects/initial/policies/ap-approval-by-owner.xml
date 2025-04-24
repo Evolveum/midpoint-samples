@@ -8,6 +8,7 @@
     </assignment>
     <inducement>
         <policyRule>
+            <name>approval-by-owner</name>
             <policyConstraints>
                 <assignment/>
             </policyConstraints>
