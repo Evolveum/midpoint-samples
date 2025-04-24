@@ -91,11 +91,28 @@
                                                 <previousColumn>nameColumn</previousColumn>
                                             </column>
                                             <column>
+                                                <name>ownerColumn</name>
+                                                <display>
+                                                    <label>Owner</label>
+                                                </display>
+                                                <previousColumn>descriptionColumn</previousColumn>
+                                                <export>
+                                                    <expression>
+                                                        <script>
+                                                            <code>
+                                                                owners = midpoint.getServiceMemberUsers(object.oid, com.evolveum.midpoint.schema.constants.RelationTypes.OWNER.relation)
+                                                                return owners.collect{owner -&gt; owner.name}.join(", ")
+                                                            </code>
+                                                        </script>
+                                                    </expression>
+                                                </export>
+                                            </column>
+                                            <column>
                                                 <name>classificationColumn</name>
                                                 <display>
                                                     <label>Classification</label>
                                                 </display>
-                                                <previousColumn>descriptionColumn</previousColumn>
+                                                <previousColumn>ownerColumn</previousColumn>
                                                 <export>
                                                     <expression>
                                                         <script>
@@ -123,6 +140,11 @@
                                         <t:value>
                                             <ref>org:approver</ref>
                                             <processedOnLogin>true</processedOnLogin>
+                                            <!-- Categories need to be explicitly mentioned here. Categories are overridden even if no category is specified. -->
+                                            <category>administration</category>
+                                            <category>governance</category>
+                                            <category>organization</category>
+                                            <category>selfService</category>
                                         </t:value>
                                     </s:itemDelta>
                                 </c:value>
