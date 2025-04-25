@@ -3,9 +3,11 @@
     <description>Limited disclosure, restricted to participants&amp; organization and its clients. Recipients may share TLP:AMBER information with members of their own organization and its clients on a need-to-know basis to protect their organization and its clients and prevent further harm.</description>
     <documentation>Classification according to Traffic Light Protocol (TLP).</documentation>
     <assignment>
+        <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
     </assignment>
     <inducement>
+        <identifier>included-classification-tlp-green</identifier>
         <targetRef oid="a943669f-c752-45c2-8a0c-23813d433f9d" type="PolicyType"/>
     </inducement>
 </policy>

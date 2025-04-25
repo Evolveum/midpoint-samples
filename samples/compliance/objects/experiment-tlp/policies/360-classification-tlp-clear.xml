@@ -3,6 +3,7 @@
     <description>Disclosure is not limited. Recipients may share this information without restriction. Information is subject to standard copyright rules.</description>
     <documentation>Classification according to Traffic Light Protocol (TLP).</documentation>
     <assignment>
+        <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
     </assignment>
 </policy>

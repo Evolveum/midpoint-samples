@@ -3,12 +3,16 @@
     <description>Not for disclosure, restricted to participants only. Recipients may not share TLP:RED information with any parties outside of the specific exchange, meeting, or conversation in which it was originally disclosed.</description>
     <documentation>Classification according to Traffic Light Protocol (TLP).</documentation>
     <assignment>
+        <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
     </assignment>
     <inducement>
+        <identifier>included-classification-tlp-amber-strict</identifier>
         <targetRef oid="5f09176f-895d-464f-b5de-248d5fab8361" type="PolicyType"/>
     </inducement>
     <inducement>
+        <identifier>approval-by-security-team</identifier>
+        <documentation>Require additional approval by security team for all roles that grant access to the applications classified as TLP:RED.</documentation>
         <targetRef oid="9dc3ea25-7de0-43ad-8792-7810f3d2efd3" type="PolicyType"/>
     </inducement>
 </policy>
