@@ -12,7 +12,7 @@
 
     <artifactId>samples-test</artifactId>
     <groupId>com.evolveum.midpoint</groupId>
-    <version>4.8.8-SNAPSHOT</version>
+    <version>4.8.8</version>
 
     <name>midPoint Samples - Test</name>
 
