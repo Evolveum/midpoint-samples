@@ -8,6 +8,7 @@
            xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
            xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
            xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+           xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <name>Application</name>
     <description>
