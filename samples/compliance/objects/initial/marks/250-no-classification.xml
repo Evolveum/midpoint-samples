@@ -8,9 +8,17 @@
 
 <mark oid="2bb936a6-91b4-4439-82ac-1b3e89c2a26a"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
-    <name>Unclassified</name>
+    <name>No classification</name>
     <description>Mark for objects (usually applications) that are not properly classified.</description>
-    <documentation>(ISO27001/5.12,ISO27001/5.13)</documentation>
+    <documentation>
+        (ISO27001/5.12,ISO27001/5.13)
+        This mark is named "No classification" rather than "Unclassified" to avoid confusion.
+        The term "unclassified" is commonly used to describe objects that are not classified for any secrecy class,
+        e.i. objects that are not restricted, secret or top secret.
+        This means that "unclassified" usually means "unrestricted" or "public".
+        However, this means that "unclassified" is a classification on its own.
+        Therefore, this mark and all other related configuration using term "no classification" rather than "unclassified".
+    </documentation>
     <display>
         <icon>
             <cssClass>fa fa-times-circle</cssClass>

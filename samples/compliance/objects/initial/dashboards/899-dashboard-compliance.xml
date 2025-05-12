@@ -113,14 +113,22 @@
     </widget>
 
     <widget id="120">
-        <identifier>unclassified-applications</identifier>
-        <description>Unclassified applications: applications without classifications</description>
-        <documentation>(ISO27001/5.12,ISO27001/5.13)</documentation>
+        <identifier>applications-without-classification</identifier>
+        <description>Applications without classifications</description>
+        <documentation>
+            (ISO27001/5.12,ISO27001/5.13)
+            This dashboard widget is named "without classification" rather than "Unclassified" to avoid confusion.
+            The term "unclassified" is commonly used to describe objects that are not classified for any secrecy class,
+            e.i. objects that are not restricted, secret or top secret.
+            This means that "unclassified" usually means "unrestricted" or "public".
+            However, this means that "unclassified" is a classification on its own.
+            Therefore, this mark and all other related configuration using term "no classification" rather than "unclassified".
+        </documentation>
         <display>
             <label>
-                <orig>Unclassified applications</orig>
+                <orig>Applications without classification</orig>
                 <translation>
-                    <key>UnclassifiedApplications.label</key>
+                    <key>ApplicationsWithoutClassification.label</key>
                 </translation>
             </label>
             <icon>
@@ -631,7 +639,7 @@
                 <fieldType>value</fieldType>
                 <expression>
                     <proportional>
-                        <style>value-slash-domain</style>
+                        <style>value-only</style>
                     </proportional>
                 </expression>
             </dataField>
