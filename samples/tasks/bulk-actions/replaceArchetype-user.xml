@@ -25,12 +25,7 @@ configuration require to apply multiple one.
 == Assumptions for the "automatic" transition using this task directly ==
 
 The "original" Archetype suppose to be Person (filter in <object>).
-Newly used archetype has name arch-000000 ... arch-000100 .
-
-The example transformation is driven by the value of the Title field ( newVal calculation in the task).
-There is stored the suffix for new Archetype:
-  Title :  8 => Archetype : arch-000008
-  Title : 24 => Archetype : arch-000024
+Newly used archetype is based on value available on the user object ( newVal calculation in the task).
 
 == Technical background ==
 
@@ -97,10 +92,19 @@ change processing.
                                         if (!basic.isEmpty(input.getTitle())) {
 
                                             // condition for newly applied Archetype name
-                                            // in this example Title is suffix : 8 => arch-000008 , 24 => arch-000024, etc.
-                                            String newVal = "arch-000000"
-                                            String newSubVal = input.getTitle().toString()
-                                            newVal = newVal.substring(0, newVal.length() - newSubVal.length()) + newSubVal
+                                            // e.g. New name is set based on the value of Title
+                                            String newVal = "N/A"
+                                            switch(input.getTitle().toString()) {
+                                                case "5":
+                                                    newVal = "arch-000005"
+                                                    break
+                                                case "8":
+                                                    newVal = "arch-000008"
+                                                    break
+                                                case "10":
+                                                    newVal = "arch-000010"
+                                                    break
+                                            }
 
                                             // search for the Archetype to
                                             //  - confirm proper calculation
