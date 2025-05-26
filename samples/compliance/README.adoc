@@ -1,8 +1,20 @@
 = Compliance Configuration
 
 This project is focused at developing and testing midPoint compliance configuration.
-It is a *WORK IN PROGRESS*.
+
+It is a *WORK IN PROGRESS*, yet it is suitable for demo usage.
 
 This is midPoint Studio project.
+The objects need to be uploaded in correct order, and in some cases several times (there are dependencies between objects that Studio cannot handle).
+Recommended order of directory upload:
+
+. initial
+. sample-book
+. experiment-tlp
+. demo
+
+If you get errors while uploading any particular directory, just try one more time, until the upload is clean.
+The `demo` directory should be uploaded or re-uploaded last.
 
 The sample is created for midPoint 4.10 (master branch).
+It is tested with midPoint docker image ("devel" tag).
