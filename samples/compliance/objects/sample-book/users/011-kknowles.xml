@@ -36,7 +36,10 @@
     <assignment>
         <targetRef oid="77d49dbe-92ca-45f2-9df6-4b5018cbfa88" type="RoleType" relation="org:approver"/>
     </assignment>
-<!--    <assignment>-->
+    <assignment>
+        <targetRef oid="1954d496-f6ad-11ea-a96a-8bfa569f5fff" type="OrgType"/>
+    </assignment>
+    <!--    <assignment>-->
 <!--        <targetRef oid="00000000-0000-0000-0000-00000000000a" type="RoleType"/>-->
 <!--    </assignment>-->
     <fullName>Kate Knowles</fullName>

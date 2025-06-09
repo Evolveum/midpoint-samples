@@ -25,6 +25,12 @@
     <assignment id="5">
         <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="1954d496-f6ad-11ea-a96a-8bfa569f5fff" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="1954d496-f6ad-11ea-a96a-8bfa569f5fff" type="OrgType" relation="org:manager"/>
+    </assignment>
     <fullName>Nathan Newman</fullName>
     <givenName>Nathan</givenName>
     <familyName>Newman</familyName>

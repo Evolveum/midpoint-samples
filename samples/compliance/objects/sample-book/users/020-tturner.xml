@@ -26,6 +26,9 @@
     <assignment>
         <targetRef oid="a1572de4-b9b9-11e9-af3e-5f68b3207f97" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="9c1b8464-edfd-11ea-87b8-db467c5ae301" type="OrgType"/>
+    </assignment>
     <fullName>Thomas Turner</fullName>
     <givenName>Thomas</givenName>
     <familyName>Turner</familyName>

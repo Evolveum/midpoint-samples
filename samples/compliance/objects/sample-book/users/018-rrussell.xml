@@ -24,6 +24,9 @@
     <assignment>
         <targetRef oid="76b824f9-b7fd-4a20-a2fa-52940959e3d1" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="22dc2bd4-edfe-11ea-a904-5be54dda2e46" type="OrgType"/>
+    </assignment>
     <fullName>Roger Russell</fullName>
     <givenName>Roger</givenName>
     <familyName>Russell</familyName>

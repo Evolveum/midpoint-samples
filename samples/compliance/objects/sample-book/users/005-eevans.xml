@@ -48,6 +48,12 @@
     <assignment>
         <targetRef oid="b00ecf65-f0a8-45b9-97e8-4299070b7c39" relation="org:approver" type="RoleType"/>
     </assignment>
+    <assignment>
+        <targetRef oid="9c1b8464-edfd-11ea-87b8-db467c5ae301" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="22dc2bd4-edfe-11ea-a904-5be54dda2e46" type="OrgType"/>
+    </assignment>
     <fullName>Erin Evans</fullName>
     <givenName>Erin</givenName>
     <familyName>Evans</familyName>
