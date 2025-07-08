@@ -16,5 +16,5 @@ Recommended order of directory upload:
 If you get errors while uploading any particular directory, just try one more time, until the upload is clean.
 The `demo` directory should be uploaded or re-uploaded last.
 
-The sample is created for midPoint 4.10 (master branch).
+The sample is created for midPoint 4.11 (master branch).
 It is tested with midPoint docker image ("devel" tag).
