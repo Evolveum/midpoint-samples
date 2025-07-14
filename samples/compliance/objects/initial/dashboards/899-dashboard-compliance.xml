@@ -58,14 +58,14 @@
     </widget>
 
     <widget id="110">
-        <identifier>orphaned-applications</identifier>
-        <description>Orphaned applications: applications without owner</description>
+        <identifier>unowned-applications</identifier>
+        <description>Unowned applications: applications without owner</description>
         <documentation>(ISO27001/5.1,ISO27001/5.16,ISO27001/5.36)</documentation>
         <display>
             <label>
-                <orig>Orphaned applications</orig>
+                <orig>Unowned applications</orig>
                 <translation>
-                    <key>OrphanedApplications.label</key>
+                    <key>UnownedApplications.label</key>
                 </translation>
             </label>
             <icon>
@@ -267,14 +267,14 @@
     </widget>
 
     <widget id="210">
-        <identifier>orphaned-roles</identifier>
-        <description>Orphaned roles: roles without owner</description>
+        <identifier>unowned-roles</identifier>
+        <description>Unowned roles: roles without owner</description>
         <documentation>(ISO27001/5.1,ISO27001/5.16,ISO27001/5.36)</documentation>
         <display>
             <label>
-                <orig>Orphaned roles</orig>
+                <orig>Unowned roles</orig>
                 <translation>
-                    <key>OrphanedRoles.label</key>
+                    <key>UnownedRoles.label</key>
                 </translation>
             </label>
             <icon>

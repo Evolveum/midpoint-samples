@@ -8,7 +8,7 @@
 
 <mark oid="5508aca4-2aef-47a6-ad50-892389823c91"
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
-    <name>Orphaned</name>
+    <name>Unowned</name>
     <description>Mark for object which does not have an owner.</description>
     <documentation>(ISO27001/5.16,ISO27001/5.36)</documentation>
     <display>
