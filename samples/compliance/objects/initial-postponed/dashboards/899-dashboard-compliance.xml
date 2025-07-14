@@ -574,4 +574,89 @@
     </widget>
 
 
+    <widget id="900">
+        <identifier>information-security-roles</identifier>
+        <description>All roles that are classified as information security responsibilities.</description>
+        <documentation>(ISO27001/5.1,ISO27001/5.2,ISO27001/5.36)</documentation>
+        <display>
+            <label>
+                <orig>Information security roles</orig>
+                <translation>
+                    <key>InformationSecurityRoles.label</key>
+                </translation>
+            </label>
+            <icon>
+                <cssClass>fa fa-building-shield</cssClass>
+            </icon>
+            <color>var(--lightblue)</color>
+        </display>
+        <displayOrder>900</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="58a23dec-d306-4b3c-bcd3-b8f97c698681" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+
+
+    <widget id="910">
+        <identifier>understaffed-security-roles</identifier>
+        <description>Security roles that are not properly staffed.</description>
+        <documentation>(ISO27001/5.1,ISO27001/5.2,ISO27001/5.36)</documentation>
+        <display>
+            <label>
+                <orig>Understaffed security roles</orig>
+                <translation>
+                    <key>UnderstaffedSecurityRoles.label</key>
+                </translation>
+            </label>
+            <icon>
+                <cssClass>fa fa-person-arrow-down-to-line</cssClass>
+            </icon>
+            <tooltip>Security roles that are not properly staffed.</tooltip>
+            <color>var(--success)</color>
+        </display>
+        <displayOrder>910</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="86107b19-4315-4c7c-b33a-647c2dfae828" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <variation>
+                <condition>
+                    <script>
+                        <code>proportional.value &gt; 0</code>
+                    </script>
+                </condition>
+                <display>
+                    <color>var(--red)</color>
+                </display>
+            </variation>
+
+        </presentation>
+    </widget>
+
+
+
 </dashboard>
