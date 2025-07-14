@@ -1,0 +1,26 @@
+<!--
+  ~ Copyright (c) 2024-2025 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<archetype oid="77ac18db-a9e3-4084-b05c-aa63f680ca22"
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+    <name>Role policy</name>
+    <description>Archetype for policies that apply to roles.</description>
+    <archetypePolicy>
+        <display>
+            <label>Role policy</label>
+            <pluralLabel>Role policies</pluralLabel>
+            <tooltip>Role policy</tooltip>
+        </display>
+    </archetypePolicy>
+    <archetypeType>auxiliary</archetypeType>
+    <assignment id="1">
+        <identifier>holderType</identifier>
+        <assignmentRelation id="2">
+            <holderType>PolicyType</holderType>
+        </assignmentRelation>
+    </assignment>
+</archetype>

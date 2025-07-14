@@ -1,0 +1,26 @@
+<!--
+  ~ Copyright (c) 2024-2025 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<archetype oid="a6a805f6-81df-4e80-aa45-0db02da99ef4"
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+    <name>Application policy</name>
+    <description>Archetype for policies that apply to applications.</description>
+    <archetypePolicy>
+        <display>
+            <label>Application policy</label>
+            <pluralLabel>Application policies</pluralLabel>
+            <tooltip>Application policy</tooltip>
+        </display>
+    </archetypePolicy>
+    <archetypeType>auxiliary</archetypeType>
+    <assignment id="1">
+        <identifier>holderType</identifier>
+        <assignmentRelation id="2">
+            <holderType>PolicyType</holderType>
+        </assignmentRelation>
+    </assignment>
+</archetype>

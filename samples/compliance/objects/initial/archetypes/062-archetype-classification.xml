@@ -1,23 +1,32 @@
 <!--
-  ~ Copyright (c) 2024-2025 Evolveum and contributors
+  ~ Copyright (c) 2024 Evolveum and contributors
   ~
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
   -->
 <archetype oid="00000000-0000-0000-0000-000000000330"
-           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
-           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Classification</name>
     <description>Archetype for information classifications (labels, levels, compartments).</description>
     <documentation>(ISO27001/5.12,ISO27001/5.13)</documentation>
     <archetypePolicy>
         <display>
-            <label>Classification</label>
-            <pluralLabel>Classifications</pluralLabel>
+            <label>
+                <orig>Classification</orig>
+                <translation>
+                    <key>classification.label</key>
+                </translation>
+            </label>
+            <pluralLabel>
+                <orig>Classifications</orig>
+                <translation>
+                    <key>classifications.pluralLabel</key>
+                </translation>
+            </pluralLabel>
             <icon>
                 <cssClass>fa fa-tags</cssClass>
+                <color>green</color>
             </icon>
-            <tooltip>Classification</tooltip>
         </display>
     </archetypePolicy>
     <assignment id="1">

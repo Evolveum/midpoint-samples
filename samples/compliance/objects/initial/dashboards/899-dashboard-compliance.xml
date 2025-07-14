@@ -63,7 +63,7 @@
         <documentation>(ISO27001/5.1,ISO27001/5.16,ISO27001/5.36)</documentation>
         <display>
             <label>
-                <orig>Unowned applications</orig>
+                <orig>Applications without owner</orig>
                 <translation>
                     <key>UnownedApplications.label</key>
                 </translation>
@@ -272,7 +272,7 @@
         <documentation>(ISO27001/5.1,ISO27001/5.16,ISO27001/5.36)</documentation>
         <display>
             <label>
-                <orig>Unowned roles</orig>
+                <orig>Roles without owner</orig>
                 <translation>
                     <key>UnownedRoles.label</key>
                 </translation>
