@@ -10,7 +10,7 @@
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Neglected</name>
     <description>Mark for object that is not properly cared for, such as role that was not reviewed for a long time.</description>
-    <documentation>(ISO27001/5.36)</documentation>
+    <documentation>(ISO27001/A.5.36)</documentation>
     <display>
         <icon>
             <cssClass>fa fa-bomb</cssClass>

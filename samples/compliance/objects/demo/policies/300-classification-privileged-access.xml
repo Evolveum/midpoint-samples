@@ -12,7 +12,7 @@
         This classification is meant to be applied to application roles, authorization roles and similar "leaf" roles.
         This classification sets "Privileged access" mark to roles that the mark is assigned to, and to users affected by the roles.
         Note: As of midPoint 4.10 and earlier, we cannot easily mark intermediary roles (such as business roles).
-        (ISO27001/5.15,ISO27001/5.18,ISO27001/8.2,ISO27001/8.9)
+        (ISO27001/A.5.15,ISO27001/A.5.18,ISO27001/A.8.2,ISO27001/A.8.9)
     </documentation>
     <assignment id="1">
         <identifier>archetype</identifier>

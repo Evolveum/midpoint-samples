@@ -11,7 +11,7 @@
         xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
         oid="f941f3fc-dcef-4415-9e79-ae56b185a501">
     <name>compliance-dashboard</name>
-    <documentation>(ISO27001/5.36)</documentation>
+    <documentation>(ISO27001/A.5.36)</documentation>
     <display>
         <label>
             <orig>Compliance dashboard</orig>
@@ -25,7 +25,7 @@
     <widget id="100">
         <identifier>active-applications</identifier>
         <description>Active applications</description>
-        <documentation>(ISO27001/5.1,ISO27001/5.16,ISO27001/5.36)</documentation>
+        <documentation>(ISO27001/A.5.1,ISO27001/A.5.16,ISO27001/A.5.36)</documentation>
         <display>
             <label>
                 <orig>Active applications</orig>
@@ -60,7 +60,7 @@
     <widget id="110">
         <identifier>unowned-applications</identifier>
         <description>Unowned applications: applications without owner</description>
-        <documentation>(ISO27001/5.1,ISO27001/5.16,ISO27001/5.36)</documentation>
+        <documentation>(ISO27001/A.5.1,ISO27001/A.5.16,ISO27001/A.5.36)</documentation>
         <display>
             <label>
                 <orig>Applications without owner</orig>
@@ -116,7 +116,7 @@
         <identifier>applications-without-classification</identifier>
         <description>Applications without classifications</description>
         <documentation>
-            (ISO27001/5.12,ISO27001/5.13)
+            (ISO27001/A.5.12,ISO27001/A.5.13)
             This dashboard widget is named "without classification" rather than "Unclassified" to avoid confusion.
             The term "unclassified" is commonly used to describe objects that are not classified for any secrecy class,
             e.i. objects that are not restricted, secret or top secret.
@@ -178,7 +178,7 @@
     <widget id="130">
         <identifier>suspicious-applications</identifier>
         <description>Applications marked as "suspicious".</description>
-        <documentation>(ISO27001/5.1,ISO27001/5.16,ISO27001/5.36)</documentation>
+        <documentation>(ISO27001/A.5.1,ISO27001/A.5.16,ISO27001/A.5.36)</documentation>
         <display>
             <label>
                 <orig>Suspicious applications</orig>
@@ -234,7 +234,7 @@
     <widget id="200">
         <identifier>active-roles</identifier>
         <description>Active roles</description>
-        <documentation>(ISO27001/5.1,ISO27001/5.16,ISO27001/5.36)</documentation>
+        <documentation>(ISO27001/A.5.1,ISO27001/A.5.16,ISO27001/A.5.36)</documentation>
         <display>
             <label>
                 <orig>Active roles</orig>
@@ -269,7 +269,7 @@
     <widget id="210">
         <identifier>unowned-roles</identifier>
         <description>Unowned roles: roles without owner</description>
-        <documentation>(ISO27001/5.1,ISO27001/5.16,ISO27001/5.36)</documentation>
+        <documentation>(ISO27001/A.5.1,ISO27001/A.5.16,ISO27001/A.5.36)</documentation>
         <display>
             <label>
                 <orig>Roles without owner</orig>
@@ -324,7 +324,7 @@
     <widget id="220">
         <identifier>privileged-roles</identifier>
         <description>Roles with (direct) privileged access.</description>
-        <documentation>(ISO27001/5.15,ISO27001/5.18,ISO27001/8.2,ISO27001/8.9)</documentation>
+        <documentation>(ISO27001/A.5.15,ISO27001/A.5.18,ISO27001/A.8.2,ISO27001/A.8.9)</documentation>
         <display>
             <label>
                 <orig>Privileged roles</orig>
@@ -359,7 +359,7 @@
     <widget id="230">
         <identifier>suspicious-roles</identifier>
         <description>Roles marked as "suspicious".</description>
-        <documentation>(ISO27001/5.27,ISO27001/5.28,ISO27001/5.29,ISO27001/6.8)</documentation>
+        <documentation>(ISO27001/A.5.27,ISO27001/A.5.28,ISO27001/A.5.29,ISO27001/A.6.8)</documentation>
         <display>
             <label>
                 <orig>Suspicious roles</orig>
@@ -451,7 +451,7 @@
     <widget id="310">
         <identifier>users-with-sod-violations</identifier>
         <description>Users with SoD violations.</description>
-        <documentation>(ISO27001/5.3,ISO27001/5.36)</documentation>
+        <documentation>(ISO27001/A.5.3,ISO27001/A.5.36)</documentation>
         <display>
             <label>
                 <orig>Users with SoD violations</orig>
@@ -486,7 +486,7 @@
     <widget id="320">
         <identifier>privileged-users</identifier>
         <description>Users with privileged access.</description>
-        <documentation>(ISO27001/5.15,ISO27001/5.18,ISO27001/8.2,ISO27001/8.9)</documentation>
+        <documentation>(ISO27001/A.5.15,ISO27001/A.5.18,ISO27001/A.8.2,ISO27001/A.8.9)</documentation>
         <display>
             <label>
                 <orig>Privileged users</orig>
@@ -521,7 +521,7 @@
     <widget id="330">
         <identifier>suspicious-users</identifier>
         <description>Users marked as "suspicious".</description>
-        <documentation>(ISO27001/5.27,ISO27001/5.28,ISO27001/5.29,ISO27001/6.8)</documentation>
+        <documentation>(ISO27001/A.5.27,ISO27001/A.5.28,ISO27001/A.5.29,ISO27001/A.6.8)</documentation>
         <display>
             <label>
                 <orig>Suspicious users</orig>
@@ -577,7 +577,7 @@
     <widget id="900">
         <identifier>information-security-roles</identifier>
         <description>All roles that are classified as information security responsibilities.</description>
-        <documentation>(ISO27001/5.1,ISO27001/5.2,ISO27001/5.36)</documentation>
+        <documentation>(ISO27001/A.5.1,ISO27001/A.5.2,ISO27001/A.5.36)</documentation>
         <display>
             <label>
                 <orig>Information security roles</orig>
@@ -613,7 +613,7 @@
     <widget id="910">
         <identifier>understaffed-security-roles</identifier>
         <description>Security roles that are not properly staffed.</description>
-        <documentation>(ISO27001/5.1,ISO27001/5.2,ISO27001/5.36)</documentation>
+        <documentation>(ISO27001/A.5.1,ISO27001/A.5.2,ISO27001/A.5.36)</documentation>
         <display>
             <label>
                 <orig>Understaffed security roles</orig>

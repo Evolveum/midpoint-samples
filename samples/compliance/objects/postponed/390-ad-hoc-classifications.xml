@@ -11,7 +11,7 @@
     <description>Classifications that can be applied in ad-hoc manner.</description>
     <documentation>
         Root objects for applicable policies, grouping all classifications that are supposed to be assigned to roles in ad-hoc fashion, i.e. administrator manually decides for each role whether it should have this classification.
-        (ISO27001/5.12,ISO27001/5.13)
+        (ISO27001/A.5.12,ISO27001/A.5.13)
     </documentation>
     <indestructible>true</indestructible>
     <displayOrder>1100</displayOrder>

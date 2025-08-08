@@ -11,7 +11,7 @@
     <description>Approval policies that can be individually applied to roles.</description>
     <documentation>
         Root object of applicale approval policies, approval policies that can be easily applied to roles (and possibly other objects).
-        (ISO27001/5.1,ISO27001/5.2,ISO27001/5.15,ISO27001/5.16,ISO27001/5.18,ISO27001/5.31,ISO27001/5.34,ISO27001/5.37,ISO27001/8.9)
+        (ISO27001/A.5.1,ISO27001/A.5.2,ISO27001/A.5.15,ISO27001/A.5.16,ISO27001/A.5.18,ISO27001/A.5.31,ISO27001/A.5.34,ISO27001/A.5.37,ISO27001/A.8.9)
     </documentation>
     <indestructible>true</indestructible>
     <displayOrder>1000</displayOrder>

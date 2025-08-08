@@ -11,7 +11,7 @@
                   xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                   oid="00000000-0000-0000-0001-000000000358">
     <name>Suspicious users</name>
-    <documentation>(ISO27001/5.27,ISO27001/5.28,ISO27001/5.29,ISO27001/6.8)</documentation>
+    <documentation>(ISO27001/A.5.27,ISO27001/A.5.28,ISO27001/A.5.29,ISO27001/A.6.8)</documentation>
     <type>UserType</type>
     <filter>
         <q:text>effectiveMarkRef matches ( oid = "00000000-0000-0000-0000-000000000830" )</q:text>

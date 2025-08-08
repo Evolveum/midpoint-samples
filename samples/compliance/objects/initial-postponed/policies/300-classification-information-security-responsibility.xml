@@ -10,7 +10,7 @@
         xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
     <name>Information security responsibility</name>
     <description>Classification used to label roles, orgs, applications and services that are related to information security roles and responsibilities.</description>
-    <documentation>(ISO27001/5.1,ISO27001/5.2,ISO27001/5.36)</documentation>
+    <documentation>(ISO27001/A.5.1,ISO27001/A.5.2,ISO27001/A.5.36)</documentation>
     <assignment id="1">
         <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>

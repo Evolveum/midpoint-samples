@@ -10,7 +10,7 @@
       xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Understaffed security</name>
     <description>Mark for security role or responsibility which is not properly staffed, it is not assigned to the users according to policy.</description>
-    <documentation>(ISO27001/5.1,ISO27001/5.2,ISO27001/5.36)</documentation>
+    <documentation>(ISO27001/A.5.1,ISO27001/A.5.2,ISO27001/A.5.36)</documentation>
     <display>
         <icon>
             <cssClass>fa fa-person-arrow-down-to-line</cssClass>

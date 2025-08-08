@@ -11,7 +11,7 @@
     <name>No classification</name>
     <description>Mark for objects (usually applications) that are not properly classified.</description>
     <documentation>
-        (ISO27001/5.12,ISO27001/5.13)
+        (ISO27001/A.5.12,ISO27001/A.5.13)
         This mark is named "No classification" rather than "Unclassified" to avoid confusion.
         The term "unclassified" is commonly used to describe objects that are not classified for any secrecy class,
         e.i. objects that are not restricted, secret or top secret.

@@ -9,7 +9,7 @@
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Projects</name>
     <description>Root object of all projects.</description>
-    <documentation>(ISO27001/5.8,ISO27001/5.15,ISO27001/5.16)</documentation>
+    <documentation>(ISO27001/A.5.8,ISO27001/A.5.15,ISO27001/A.5.16)</documentation>
     <indestructible>true</indestructible>
     <displayOrder>300</displayOrder>
     <assignment id="1">

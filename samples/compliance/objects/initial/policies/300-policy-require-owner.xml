@@ -17,11 +17,11 @@
         NOTE: This policy can only be applied to archetypes.
         Support for application directly to affected objects (roles, applications) is likely to come later.
 
-        (ISO27001/5.1,ISO27001/5.2,ISO27001/5.9,ISO27001/5.36)
+        (ISO27001/A.5.1,ISO27001/A.5.2,ISO27001/A.5.9,ISO27001/A.5.36)
     </documentation>
     <inducement>
         <identifier>policy-require-owner</identifier>
-        <documentation>(ISO27001/5.1,ISO27001/5.2,ISO27001/5.9,ISO27001/5.36)</documentation>
+        <documentation>(ISO27001/A.5.1,ISO27001/A.5.2,ISO27001/A.5.9,ISO27001/A.5.36)</documentation>
         <orderConstraint>
             <order>2</order>
         </orderConstraint>

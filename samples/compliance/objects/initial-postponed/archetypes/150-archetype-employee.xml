@@ -8,7 +8,7 @@
 <archetype xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3" oid="7135e68c-ee53-11e8-8025-170b77da3fd6">
     <name>Employee</name>
     <description>Archetype for employee users.</description>
-    <documentation>(ISO27001/5.16)</documentation>
+    <documentation>(ISO27001/A.5.16)</documentation>
     <archetypePolicy>
         <display>
             <label>Employee</label>

@@ -12,7 +12,7 @@
                   xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Applications without classification</name>
     <documentation>
-        (ISO27001/5.12,ISO27001/5.13)
+        (ISO27001/A.5.12,ISO27001/A.5.13)
         This collection is named "without classification" rather than "Unclassified" to avoid confusion.
         The term "unclassified" is commonly used to describe objects that are not classified for any secrecy class,
         e.i. objects that are not restricted, secret or top secret.

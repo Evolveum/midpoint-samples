@@ -9,7 +9,7 @@
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Team</name>
     <description>Archetype for general-purpose teams, that are either stand-alone, or cross organizational boundaries. E.g. expert panels, committees, task force, advisory groups, interest groups, etc.</description>
-    <documentation>(ISO27001/5.15,ISO27001/5.16)</documentation>
+    <documentation>(ISO27001/A.5.15,ISO27001/A.5.16)</documentation>
     <archetypePolicy>
         <display>
             <label>Team</label>

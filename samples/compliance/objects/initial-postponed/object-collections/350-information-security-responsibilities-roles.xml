@@ -12,7 +12,7 @@
                   xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Information security roles</name>
     <description>All roles that are classified as information security responsibilities.</description>
-    <documentation>(ISO27001/5.1,ISO27001/5.2,ISO27001/5.36)</documentation>
+    <documentation>(ISO27001/A.5.1,ISO27001/A.5.2,ISO27001/A.5.36)</documentation>
     <type>RoleType</type>
     <filter>
         <q:text>roleMembershipRef matches ( oid = "552043f0-e981-43c5-9ab6-c1bafafbee92" )</q:text>

@@ -11,7 +11,7 @@
                   xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
                   oid="89c49f7f-2b3e-4319-8b19-a8ed651394f4">
     <name>Suspicious applications</name>
-    <documentation>(ISO27001/5.27,ISO27001/5.28,ISO27001/5.29,ISO27001/6.8)</documentation>
+    <documentation>(ISO27001/A.5.27,ISO27001/A.5.28,ISO27001/A.5.29,ISO27001/A.6.8)</documentation>
     <type>ServiceType</type>
     <filter>
         <q:text>effectiveMarkRef matches ( oid = "00000000-0000-0000-0000-000000000830" ) and archetypeRef matches (oid = "00000000-0000-0000-0000-000000000329" and targetType = ArchetypeType)</q:text>

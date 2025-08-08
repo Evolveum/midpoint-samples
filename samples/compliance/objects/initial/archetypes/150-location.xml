@@ -9,7 +9,7 @@
         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Location</name>
     <description>Archetype for locations, such as regions, countries, areas, cities, sites, campuses, buildings, offices, etc.</description>
-    <documentation>(ISO27001/5.14,ISO27001/5.15,ISO27001/5.16,ISO27001/7.1,ISO27001/7.2,ISO27001/7.3,ISO27001/7.4,ISO27001/7.9,ISO27001/8.3)</documentation>
+    <documentation>(ISO27001/A.5.14,ISO27001/A.5.15,ISO27001/A.5.16,ISO27001/A.7.1,ISO27001/A.7.2,ISO27001/A.7.3,ISO27001/A.7.4,ISO27001/A.7.9,ISO27001/A.8.3)</documentation>
     <archetypePolicy>
         <display>
             <label>Location</label>
