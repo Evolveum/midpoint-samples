@@ -152,7 +152,7 @@
             <dataField>
                 <fieldType>value</fieldType>
                 <expression>
-                    <c:path xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="t:ItemPathType">$object/executionStatus</c:path>
+                    <c:path xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="t:ItemPathType">$object/executionState</c:path>
                 </expression>
             </dataField>
             <variation>
