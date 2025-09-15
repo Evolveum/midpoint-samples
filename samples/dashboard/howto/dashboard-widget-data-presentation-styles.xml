@@ -1,0 +1,150 @@
+<dashboard xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+           xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+           xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+           xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+           oid="0d0e7151-8a8c-4228-a1f1-fb09ced85133">
+    <name>dashboard-users</name>
+    <display>
+        <label>Archived users presented in different styles</label>
+    </display>
+
+    <!-- The number of objects in the collection without showing the collection domain -->
+    <widget>
+        <identifier>archive-users-percentage</identifier>
+        <display>
+            <label>Number archived users</label>
+            <color>#FF9B05</color>
+            <icon>
+                <cssClass>fa fa-user-lock</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="a0c7fa21-2b0a-4a78-9de6-39acf9a79dcd" type="c:ObjectCollectionType" />
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>archived users</value>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+
+    <!-- The percentage of collection domain objects matching the specified object collection criteria -->
+    <widget>
+        <identifier>archive-users-percentage</identifier>
+        <display>
+            <label>Percentage of archived users</label>
+            <color>#265DA6</color>
+            <icon>
+                <cssClass>fa fa-user-lock</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="a0c7fa21-2b0a-4a78-9de6-39acf9a79dcd" type="c:ObjectCollectionType" />
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>percentage</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>of users archived</value>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+
+    <!-- The slash notation: "X/Y" where X is the collection object count and Y is the collection domain -->
+    <widget>
+        <identifier>archived-users-value-slash-domain</identifier>
+        <display>
+            <label>Number of archived users</label>
+            <color>#767171</color>
+            <icon>
+                <cssClass>fa fa-user-lock</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="a0c7fa21-2b0a-4a78-9de6-39acf9a79dcd" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-slash-domain</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>users archived</value>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+
+    <!-- The "of" notation: "X of Y" where X is the collection object count and Y is the collection domain -->
+    <widget>
+        <identifier>archived-users-value-of-domain</identifier>
+        <display>
+            <label>Number of archived users</label>
+            <color>#14205F</color>
+            <icon>
+                <cssClass>fa fa-user-lock</cssClass>
+            </icon>
+        </display>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="a0c7fa21-2b0a-4a78-9de6-39acf9a79dcd" type="ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-of-domain</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <dataField>
+                <fieldType>unit</fieldType>
+                <expression>
+                    <value>users archived</value>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+</dashboard>
