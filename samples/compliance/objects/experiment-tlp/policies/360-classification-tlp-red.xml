@@ -10,9 +10,4 @@
         <identifier>included-classification-tlp-amber-strict</identifier>
         <targetRef oid="5f09176f-895d-464f-b5de-248d5fab8361" type="PolicyType"/>
     </inducement>
-    <inducement>
-        <identifier>approval-by-security-team</identifier>
-        <documentation>Require additional approval by security team for all roles that grant access to the applications classified as TLP:RED.</documentation>
-        <targetRef oid="9dc3ea25-7de0-43ad-8792-7810f3d2efd3" type="PolicyType"/>
-    </inducement>
 </policy>
