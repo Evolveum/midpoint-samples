@@ -1,0 +1,127 @@
+<!--
+  ~ Copyright (c) 2019-2025 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+
+<!--
+ Task is composed by two activities:
+
+ 1) reload the object list
+    This operation correspond with the situation when you click on "Reload" button bellow the
+    Account / Entitlements / Generic object list in the context of the resource definition.
+    The shadows are created for the new objects on the resource without any future processing.
+
+ 2) selective import of the shadows
+    There is realized "raw" search in repository with the focus on Object Type (kind & intent)
+    on the specific resource. There is no communication with the resource during the search.
+    The result contain only not dead and not linked shadows - in regular operation it could mean
+    the newly created objects on the resource. For these shadows is call import process so the
+    configuration related to the mapping - correlating - synchronization action are applied.
+    During processing of the shadows, there is normal communication with the resource.
+    In other words there is no special handling except skipping linked or already identified dead
+    shadows.
+    The import definition contain distribution setting so in case of the midPoint cluster the
+    work load will be distributed on the relevant midPoint nodes.
+-->
+
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+      oid="bb7ceb32-3049-44c9-8231-f4b2e2366d06">
+    <name>Reload and import unlinked : users</name>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+    <executionState>runnable</executionState>
+    <activity>
+        <composition>
+            <!--
+                refresh the object list of the Object Type (kind & intent) without any other processing
+                there is also no dead shadow detection (it will be detected with the future processing if it's relevant)
+            -->
+            <activity>
+                <work>
+                    <import>
+                        <resourceObjects>
+                            <!-- Update the resource OID !!!! -->
+                            <resourceRef oid="c3ecdd13-e5e7-45eb-b7c5-1df645852a5a" relation="org:default"
+                                         type="c:ResourceType"/>
+                            <kind>account</kind>
+                            <intent>user</intent>
+                        </resourceObjects>
+                    </import>
+                </work>
+                <execution>
+                    <mode>none</mode>
+                </execution>
+            </activity>
+            <!-- import selectively object of the Object Type which is not currently in the state linked -->
+            <activity>
+                <work>
+                    <iterativeScripting>
+                        <objects>
+                            <type>ShadowType</type>
+                            <query>
+                                <q:filter>
+                                    <!-- Update the resource OID !!!! -->
+                                    <q:text>
+                                        resourceRef matches ( oid="c3ecdd13-e5e7-45eb-b7c5-1df645852a5a" ) and
+                                        kind = "account" and intent = "user" and
+                                        synchronizationSituation != "linked" and
+                                        exists = true and dead != true
+                                    </q:text>
+                                </q:filter>
+                            </query>
+                            <!--
+                                Use the raw search to search only in the repository - do not contact resource because
+                                of the search (current status refreshed by the previous action)
+                            -->
+                            <searchOptions>
+                                <option>
+                                    <options>
+                                        <raw>true</raw>
+                                    </options>
+                                </option>
+                            </searchOptions>
+                        </objects>
+                        <scriptExecutionRequest>
+                            <s:execute>
+                                <s:script>
+                                    <code>
+                                        import com.evolveum.midpoint.model.impl.controller.ModelController
+                                        import com.evolveum.midpoint.model.impl.expr.SpringApplicationContextHolder
+
+                                        SpringApplicationContextHolder.getBean(ModelController.class)
+                                            .importFromResource(
+                                                input.getOid(),
+                                                midpoint.getCurrentTask(),
+                                                midpoint.getCurrentResult()
+                                            )
+                                    </code>
+                                </s:script>
+                            </s:execute>
+                        </scriptExecutionRequest>
+                    </iterativeScripting>
+                </work>
+                <!--
+                    technically there could be many empty buckets but in case of bigger update the workload is
+                    distributed
+                -->
+                <distribution>
+                    <buckets>
+                        <oidSegmentation>
+                            <depth>2</depth>
+                        </oidSegmentation>
+                    </buckets>
+                    <workers>
+                        <workersPerNode>
+                            <count>3</count>
+                        </workersPerNode>
+                    </workers>
+                </distribution>
+            </activity>
+        </composition>
+    </activity>
+</task>
