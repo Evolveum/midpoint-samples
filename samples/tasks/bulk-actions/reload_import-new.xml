@@ -6,24 +6,23 @@
   -->
 
 <!--
- Task is composed by two activities:
+ The following task is composed of two activities:
 
- 1) reload the object list
-    This operation correspond with the situation when you click on "Reload" button bellow the
-    Account / Entitlements / Generic object list in the context of the resource definition.
-    The shadows are created for the new objects on the resource without any future processing.
+ 1) A reload of the object list
+    This operation corresponds to the situation when you click the "Reload" button bellow the
+    Account > Entitlements > Generic object list in the context of a resource definition.
+    Shadows are created for new objects on the resource without any further processing.
 
- 2) selective import of the shadows
-    There is realized "raw" search in repository with the focus on Object Type (kind & intent)
-    on the specific resource. There is no communication with the resource during the search.
-    The result contain only not dead and not linked shadows - in regular operation it could mean
-    the newly created objects on the resource. For these shadows is call import process so the
-    configuration related to the mapping - correlating - synchronization action are applied.
-    During processing of the shadows, there is normal communication with the resource.
-    In other words there is no special handling except skipping linked or already identified dead
-    shadows.
-    The import definition contain distribution setting so in case of the midPoint cluster the
-    work load will be distributed on the relevant midPoint nodes.
+ 2) A selective import of shadows
+    This performs a "raw" search in the repository with the focus on Object Type (kind & intent)
+    on a specific resource. There is no communication with the resource during the search.
+    The results contain only unlinked shadows that are not dead - in a regular operation, it could mean
+    the newly created objects on the resource. For these shadows, an import process is then started, during 
+    which the configuration of mapping - correlation - synchronization is used.
+    When processing the shadows, there is normal communication with the resource, i.e., there is no special handling
+    except for skipping linked or already identified dead shadows.
+    The import definition contains a distribution setting, i.e., when you run this in a midPoint cluster,
+    the work load will be distributed to the relevant midPoint nodes.
 -->
 
 <task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
@@ -38,8 +37,8 @@
     <activity>
         <composition>
             <!--
-                refresh the object list of the Object Type (kind & intent) without any other processing
-                there is also no dead shadow detection (it will be detected with the future processing if it's relevant)
+                Refresh the object list of the Object Type (kind & intent) without any other processing.
+                There is no dead shadow detection (dead shadows will be detected in a future processing if relevant).
             -->
             <activity>
                 <work>
@@ -57,7 +56,7 @@
                     <mode>none</mode>
                 </execution>
             </activity>
-            <!-- import selectively object of the Object Type which is not currently in the state linked -->
+            <!-- Selectively import objects of the Object Type that are not currently in the state linked. -->
             <activity>
                 <work>
                     <iterativeScripting>
@@ -75,8 +74,8 @@
                                 </q:filter>
                             </query>
                             <!--
-                                Use the raw search to search only in the repository - do not contact resource because
-                                of the search (current status refreshed by the previous action)
+                                Use the raw search to search only in the repository - do not contact the resource
+                                (the current status is refreshed by the previous action).
                             -->
                             <searchOptions>
                                 <option>
@@ -106,8 +105,8 @@
                     </iterativeScripting>
                 </work>
                 <!--
-                    technically there could be many empty buckets but in case of bigger update the workload is
-                    distributed
+                    Technically, there could be many empty buckets but in the case of bigger updates, the workload is
+                    distributed.
                 -->
                 <distribution>
                     <buckets>
