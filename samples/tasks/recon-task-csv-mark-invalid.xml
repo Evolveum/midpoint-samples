@@ -1,0 +1,96 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:icfs="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/resource-schema-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+      xmlns:ri="http://midpoint.evolveum.com/xml/ns/public/resource/instance-3"
+      xmlns:t="http://prism.evolveum.com/xml/ns/public/types-3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+      oid="f327ec63-28bf-4765-9aac-48e0c17ae09c">
+
+    <name>Reconciliation task: csv: Users (Mark Invalid-data)</name>
+    <assignment id="1">
+        <targetRef oid="00000000-0000-0000-0000-000000000501" relation="org:default" type="c:ArchetypeType"/>
+        <activation>
+            <effectiveStatus>enabled</effectiveStatus>
+        </activation>
+    </assignment>
+    <iteration>0</iteration>
+    <iterationToken/>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType"/>
+    <executionState>closed</executionState>
+    <schedulingState>closed</schedulingState>
+    <objectRef oid="b13181b7-627c-495a-af4a-148cb657effd" relation="org:default" type="c:ResourceType"/>
+    <binding>loose</binding>
+    <activity>
+        <composition>
+            <activity>
+                <order>1</order>
+                <work>
+                    <reconciliation>
+                        <resourceObjects>
+                            <resourceRef oid="b13181b7-627c-495a-af4a-148cb657effd" relation="org:default" type="c:ResourceType"/>
+                            <kind>account</kind>
+                            <intent>default</intent>
+                            <objectclass>ri:AccountObjectClass</objectclass>
+                        </resourceObjects>
+                    </reconciliation>
+                </work>
+                <distribution>
+                    <workerThreads>2</workerThreads>
+                </distribution>
+            </activity>
+            <activity>
+                <order>2</order>
+                <work>
+                    <iterativeScripting>
+                        <objects>
+                            <type>c:ShadowType</type>
+
+                            <!-- Keep it scoped to your resource (and optionally kind/intent),
+                                 and avoid re-processing already-marked shadows. -->
+                            <query>
+                                <q:filter>
+                                    <q:text>
+                                        resourceRef matches (oid = 'b13181b7-627c-495a-af4a-148cb657effd')
+                                        and kind = 'account'
+                                        and intent = 'default'
+                                        and effectiveMarkRef not matches (oid = '00000000-0000-0000-0000-000000000804')
+                                    </q:text>
+                                </q:filter>
+                            </query>
+                            <!-- This is the key: select objects that FAILED in the reconciliation activity run -->
+                            <failedObjectsSelector>
+                                <selectionMethod>fetchFailedObjects</selectionMethod>
+                                <status>fatal_error</status>
+                                <taskRef oid="f327ec63-28bf-4765-9aac-48e0c17ae09c" type="c:TaskType"/>
+                            </failedObjectsSelector>
+                        </objects>
+                        <scriptExecutionRequest>
+                            <s:action>
+                                <s:type>modify</s:type>
+                                <s:parameter>
+                                    <s:name>delta</s:name>
+                                    <c:value xsi:type="t:ObjectDeltaType">
+                                        <t:changeType>modify</t:changeType>
+                                        <t:objectType>c:ShadowType</t:objectType>
+                                        <!-- Add policyStatement = apply Invalid-data mark -->
+                                        <t:itemDelta>
+                                            <t:modificationType>add</t:modificationType>
+                                            <t:path>c:policyStatement</t:path>
+                                            <t:value>
+                                                <c:markRef oid="00000000-0000-0000-0000-000000000804" relation="org:default" type="c:MarkType"/>
+                                                <c:type>apply</c:type>
+                                            </t:value>
+                                        </t:itemDelta>
+                                    </c:value>
+                                </s:parameter>
+                            </s:action>
+                        </scriptExecutionRequest>
+                    </iterativeScripting>
+                </work>
+            </activity>
+        </composition>
+    </activity>
+</task>
