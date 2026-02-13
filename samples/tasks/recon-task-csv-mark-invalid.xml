@@ -33,13 +33,9 @@
                             <resourceRef oid="b13181b7-627c-495a-af4a-148cb657effd" relation="org:default" type="c:ResourceType"/>
                             <kind>account</kind>
                             <intent>default</intent>
-                            <objectclass>ri:AccountObjectClass</objectclass>
                         </resourceObjects>
                     </reconciliation>
                 </work>
-                <distribution>
-                    <workerThreads>2</workerThreads>
-                </distribution>
             </activity>
             <activity>
                 <order>2</order>
@@ -47,19 +43,6 @@
                     <iterativeScripting>
                         <objects>
                             <type>c:ShadowType</type>
-
-                            <!-- Keep it scoped to your resource (and optionally kind/intent),
-                                 and avoid re-processing already-marked shadows. -->
-                            <query>
-                                <q:filter>
-                                    <q:text>
-                                        resourceRef matches (oid = 'b13181b7-627c-495a-af4a-148cb657effd')
-                                        and kind = 'account'
-                                        and intent = 'default'
-                                        and effectiveMarkRef not matches (oid = '00000000-0000-0000-0000-000000000804')
-                                    </q:text>
-                                </q:filter>
-                            </query>
                             <!-- This is the key: select objects that FAILED in the reconciliation activity run -->
                             <failedObjectsSelector>
                                 <selectionMethod>fetchFailedObjects</selectionMethod>
