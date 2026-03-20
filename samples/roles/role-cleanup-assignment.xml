@@ -1,0 +1,61 @@
+<!--
+  ~ Copyright (c) 2019-2026 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<role xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+      oid="101d50da-af83-452d-83e1-bd28088c9ba9">
+    <name>MAINTENANCE : clean up assignment from obsolete mapping</name>
+<!--
+ - - - sample data located in the assignment element on the related focus object - e.g. User
+        <_metadata id="138">
+            <storage>
+                <createTimestamp>2026-03-20T10:04:48.545Z</createTimestamp>
+                <creatorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType" />
+                <createChannel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#user</createChannel>
+            </storage>
+            <process>
+                <requestTimestamp>2026-03-20T10:04:48.483Z</requestTimestamp>
+                <requestorRef oid="00000000-0000-0000-0000-000000000002" relation="org:default" type="c:UserType" />
+           </process>
+            <provenance>
+                <mappingSpecification>
+                    <definitionObjectRef oid="4a86b950-575f-4923-90c6-bf04e6b7f9c4" relation="org:default" type="c:ResourceType" />
+                    <objectType>
+                        <kind>account</kind>
+                        <intent>user</intent>
+                    </objectType>
+                    <mappingName>group-import#1</mappingName>
+                </mappingSpecification>
+            </provenance>
+        </_metadata>
+-->
+    <inducement>
+        <focusMappings>
+            <mapping>
+                <expression>
+                    <script>
+                        <code>return null</code>
+                    </script>
+                </expression>
+                <target>
+                    <path>assignment</path>
+                    <set>
+                        <additionalMappingSpecification>
+                            <!-- place here the content of the mappingSpecification you want to address -->
+                            <definitionObjectRef oid="4a86b950-575f-4923-90c6-bf04e6b7f9c4"  relation="org:default" type="c:ResourceType" />
+                            <objectType>
+                                <kind>account</kind>
+                                <intent>user</intent>
+                            </objectType>
+                            <mappingName>group-import#1</mappingName>
+                        </additionalMappingSpecification>
+                    </set>
+                </target>
+            </mapping>
+        </focusMappings>
+    </inducement>
+</role>
