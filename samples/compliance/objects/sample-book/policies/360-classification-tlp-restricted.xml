@@ -1,0 +1,19 @@
+<policy oid="d5ab4f6e-e911-4f1b-9cfd-fe14e6137a4e" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Restricted</name>
+    <description>
+        Not for disclosure: Restricted to participants only.
+        This information is restricted to selected audience only.
+        Recipients may not share the information with any parties outside of the specific exchange, meeting, or conversation in which it was originally disclosed.
+    </description>
+    <documentation>
+        Roughly corresponds to TLP:RED, and the information is supposed to be labeled as such when shared.
+    </documentation>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
+    </assignment>
+    <inducement>
+        <identifier>included-classification-internal</identifier>
+        <targetRef oid="5f09176f-895d-464f-b5de-248d5fab8361" type="PolicyType"/>
+    </inducement>
+</policy>

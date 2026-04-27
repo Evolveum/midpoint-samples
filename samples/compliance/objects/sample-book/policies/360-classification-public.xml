@@ -1,0 +1,16 @@
+<policy oid="15fdca7a-de3b-47da-ab2d-e0f7825caa24" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Public</name>
+    <description>
+        Public information: Disclosure is not limited.
+        Recipients may share this information without restriction.
+        This information can be made publicly available (published).
+        Information is subject to standard copyright rules.
+    </description>
+    <documentation>
+        Roughly corresponds to TLP:CLEAR, and the information is supposed to be labeled as such when shared.
+    </documentation>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
+    </assignment>
+</policy>

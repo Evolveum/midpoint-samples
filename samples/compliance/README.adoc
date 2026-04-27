@@ -9,7 +9,6 @@ The objects need to be uploaded in correct order, and in some cases several time
 Recommended order of directory upload:
 
 . sample-book
-. experiment-tlp
 . demo
 
 If you get errors while uploading any particular directory, just try one more time, until the upload is clean.
