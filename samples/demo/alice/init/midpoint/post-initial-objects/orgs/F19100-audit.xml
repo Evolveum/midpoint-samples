@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="cce83f54-4729-11ea-bd77-af4213206590"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>F19100</name>
+    <description>Number-crunching detectives.</description>
+    <displayName>Financial Audit Department</displayName>
+    <identifier>19100</identifier>
+    <assignment>
+        <identifier>superorg</identifier>
+        <targetRef oid="9ce420ac-4729-11ea-ae6a-df283aed2cb7" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="6a12b965-a1c2-47c9-87bd-19e84c71d814" type="ArchetypeType"/>
+    </assignment>
+</org>

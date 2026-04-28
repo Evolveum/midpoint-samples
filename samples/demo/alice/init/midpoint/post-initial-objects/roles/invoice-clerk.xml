@@ -1,0 +1,7 @@
+<role oid="48d4ef98-20e3-46ab-cd78-548d38364a6b" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Invoice clerk</name>
+    <description>Responsible for processing invoices, invoice payments, corrections, etc.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+</role>

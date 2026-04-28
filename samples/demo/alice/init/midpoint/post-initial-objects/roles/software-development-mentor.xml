@@ -1,0 +1,9 @@
+<role oid="77d49dbe-92ca-45f2-9df6-4b5018cbfa88" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Software development mentor</name>
+    <documentation>Ad-hoc role, not given by any kind of work position or organization. It has to be requested and approved.</documentation>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <!-- TODO: OpenLDAP, other apps -->
+    <requestable>true</requestable>
+</role>

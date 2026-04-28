@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="832f409a-4726-11ea-b0be-8b8eab99c1ed"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>F11100</name>
+    <description>Suits that talk to customers directly.</description>
+    <displayName>Direct Sales Department</displayName>
+    <identifier>11100</identifier>
+    <assignment>
+        <identifier>superorg</identifier>
+        <targetRef oid="7a1feb50-471f-11ea-8aab-1b2627541f15" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="6a12b965-a1c2-47c9-87bd-19e84c71d814" type="ArchetypeType"/>
+    </assignment>
+</org>

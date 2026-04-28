@@ -1,0 +1,16 @@
+<role oid="20c4912a-ec10-4231-b9e2-54431864de66" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>System administrator</name>
+    <description>Incredibly powerful, very privileged role. Too dangerous.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="4160ff17-9647-4bde-b0b4-e950fc53c90f" type="RoleType"/>
+    </inducement>
+    <inducement>
+        <targetRef oid="6fe78119-f42e-4961-ba29-e515687b57f5" type="RoleType"/>
+    </inducement>
+    <inducement>
+        <targetRef oid="70e53ac1-28b2-40d0-8642-27f3176ada03" type="RoleType"/>
+    </inducement>
+</role>

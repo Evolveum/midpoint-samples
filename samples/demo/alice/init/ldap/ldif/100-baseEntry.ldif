@@ -1,0 +1,35 @@
+
+dn: ou=people,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: people
+
+dn: ou=groups,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: groups
+
+dn: ou=org,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: org
+
+dn: ou=ExAmPLE,ou=org,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: ExAmPLE
+
+dn: ou=administrators,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: administrators
+
+dn: cn=idm,ou=Administrators,{{ LDAP_BASE_DN }}
+objectclass: top
+objectclass: person
+cn: idm
+sn: IDM Administrator
+description: Special LDAP account used by the IDM
+  to access the LDAP data.
+userPassword: {SSHA}R5KF3K4X2FX5gkWKuDxm4M6gZyO0QgNF
+

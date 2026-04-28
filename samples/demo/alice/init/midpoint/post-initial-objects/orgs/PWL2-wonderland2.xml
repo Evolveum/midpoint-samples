@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="1954d496-f6ad-11ea-a96a-8bfa569f5fff"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>PWL2</name>
+    <description>Second generation wonderland. We are all mad here.</description>
+    <displayName>Wonderland 2.0</displayName>
+    <identifier>WL2</identifier>
+    <assignment>
+        <identifier>root</identifier>
+        <targetRef oid="90cc2089-6f00-4fd9-9394-10debdd019eb" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="89a34123-1db7-4fc1-a053-6c42b82ef2ab" type="ArchetypeType"/>
+    </assignment>
+</org>

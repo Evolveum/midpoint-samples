@@ -1,0 +1,11 @@
+<role oid="86e58643-d5e7-36a8-04f6-38dc3754f04e" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Invoice Supervisor</name>
+    <!-- Privileges that are unique to supervisor’s work will be here. -->
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <inducement>
+        <!-- This "includes" all the clerk’s privileges in this role -->
+        <targetRef oid="48d4ef98-20e3-46ab-cd78-548d38364a6b" type="RoleType"/>
+    </inducement>
+</role>

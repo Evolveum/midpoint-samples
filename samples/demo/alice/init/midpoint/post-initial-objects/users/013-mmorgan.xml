@@ -1,0 +1,47 @@
+<user oid="187d8aca-a14e-478c-a3f7-c65c6b1d1567"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>mmorgan</name>
+    <extension>
+        <exmpl:jobCode>B003</exmpl:jobCode>
+    </extension>
+    <title>CCO</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="7135e68c-ee53-11e8-8025-170b77da3fd6" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="9ce420ac-4729-11ea-ae6a-df283aed2cb7" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="9ce420ac-4729-11ea-ae6a-df283aed2cb7" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="1c42e1c4-1c9e-491e-b9c0-97f10c189346" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="00864c66-7ef7-4b65-a539-d17704a8841e" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="d9f9a7f4-e48c-46b9-b103-76c213068b4f" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="362ff95e-25ef-4635-b497-96566037f4f1" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <fullName>Max Morgan</fullName>
+    <givenName>Max</givenName>
+    <familyName>Morgan</familyName>
+    <personalNumber>013</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>Test5ecr3t</clearValue>
+            </value>
+        </password>
+    </credentials>
+</user>

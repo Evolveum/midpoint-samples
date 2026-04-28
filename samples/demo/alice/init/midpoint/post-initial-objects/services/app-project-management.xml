@@ -1,0 +1,10 @@
+<service oid="166e7f96-9432-45e3-8038-1022ba19da21"
+         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Project Management</name>
+    <description>Project management application. Tracks and coordinates projects and tasks.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
+    </assignment>
+    <!-- There is no classification -->
+</service>

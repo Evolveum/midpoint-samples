@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="19e371a2-472a-11ea-95de-5725f879ca5f"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>F19210</name>
+    <description>Locks and guns.</description>
+    <displayName>Physical Security Section</displayName>
+    <identifier>19210</identifier>
+    <assignment>
+        <identifier>superorg</identifier>
+        <targetRef oid="ec450da0-4729-11ea-909c-0b931d9f0927" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="6a12b965-a1c2-47c9-87bd-19e84c71d814" type="ArchetypeType"/>
+    </assignment>
+</org>

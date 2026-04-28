@@ -1,0 +1,15 @@
+<role oid="c08f3fd3-f1b9-4c12-93c7-ecece239cf0f"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Portfolio management: Administrator</name>
+    <description>Administration access to Portfolio management system.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000332" type="PolicyType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="c71554c8-1750-4743-b10c-bf8cd4ce64c8" type="ServiceType"/>
+    </inducement>
+</role>

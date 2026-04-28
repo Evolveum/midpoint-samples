@@ -1,0 +1,38 @@
+<user oid="d254f46d-15ae-4ede-85ed-18444876f6ea"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>ddevelis</name>
+    <extension>
+        <exmpl:jobCode>O222</exmpl:jobCode>
+    </extension>
+    <title>Software Developer</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="7135e68c-ee53-11e8-8025-170b77da3fd6" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="fca2e4ac-4728-11ea-be3a-4f6f8d567435" type="OrgType"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="1c42e1c4-1c9e-491e-b9c0-97f10c189346" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="76b824f9-b7fd-4a20-a2fa-52940959e3d1" type="RoleType"/>
+    </assignment>
+    <fullName>Dexter Develis</fullName>
+    <givenName>Dexter</givenName>
+    <familyName>Develis</familyName>
+    <personalNumber>107</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>Test5ecr3t</clearValue>
+            </value>
+        </password>
+    </credentials>
+</user>

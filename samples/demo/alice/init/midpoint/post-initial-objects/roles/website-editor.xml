@@ -1,0 +1,13 @@
+<role oid="4acc567f-fe4f-4897-a997-97c1b81bacbb"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Public website: Editor</name>
+    <description>Editor of website content, content manager (read-write access to almost everything, except configuration)</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="45bb3cea-fde9-4590-812a-e86b37492bcd" type="ServiceType"/>
+    </inducement>
+    <requestable>true</requestable>
+</role>

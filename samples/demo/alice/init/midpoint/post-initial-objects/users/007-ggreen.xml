@@ -1,0 +1,50 @@
+<user oid="a9363449-4269-4f64-b133-218e6fe7329d"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>ggreen</name>
+    <extension>
+        <exmpl:jobCode>O232</exmpl:jobCode>
+    </extension>
+    <title>System Administrator</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="7135e68c-ee53-11e8-8025-170b77da3fd6" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="d809c8c2-4728-11ea-8fba-ebdb0607d4c2" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="1c42e1c4-1c9e-491e-b9c0-97f10c189346" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="20c4912a-ec10-4231-b9e2-54431864de66" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="eb107649-0e2a-4c4a-b58e-1d4b5729a1c2" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="d5eb6a0c-c0ae-421d-8d36-2df8051566ee" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="0ae6456e-6bf7-44c9-ae3b-1c56a53ecac5" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="740c9935-3cce-40ff-84f9-ceede086f835" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <fullName>George Green</fullName>
+    <givenName>George</givenName>
+    <familyName>Green</familyName>
+    <personalNumber>007</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>Test5ecr3t</clearValue>
+            </value>
+        </password>
+    </credentials>
+</user>

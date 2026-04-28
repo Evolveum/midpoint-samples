@@ -1,0 +1,109 @@
+<!--
+  ~ Copyright (c) 2024-2025 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<policy oid="552043f0-e981-43c5-9ab6-c1bafafbee92"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'>
+    <name>Information security responsibility</name>
+    <description>Classification used to label roles, orgs, applications and services that are related to information security roles and responsibilities.</description>
+    <documentation>(ISO27001/A.5.1,ISO27001/A.5.2,ISO27001/A.5.36)</documentation>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000330" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>org-ad-hoc-classifications</identifier>
+        <targetRef oid="f9259e1c-30af-4f69-b1f1-a2dd66234316" type="OrgType"/>
+    </assignment>
+    <inducement id="3">
+        <identifier>rule-role-undertaffing</identifier>
+        <policyRule>
+            <name>Role understaffing</name>
+            <description>We require that every information security role is staffed.</description>
+            <policyConstraints>
+                <minAssignees>
+                    <multiplicity>1</multiplicity>
+                </minAssignees>
+            </policyConstraints>
+            <markRef oid="00000000-0000-0000-0000-000000000813" />
+            <markRef oid="29ee8246-8a6f-4858-872e-7134ac99877b"/>
+            <policyActions>
+                <record>
+                    <description>Record the marks for use in dashboards and reports.</description>
+                </record>
+            </policyActions>
+            <evaluationTarget>object</evaluationTarget>
+        </policyRule>
+        <focusType>RoleType</focusType>
+    </inducement>
+    <inducement id="4">
+        <identifier>rule-role-ownership</identifier>
+        <policyRule>
+            <name>Role ownership</name>
+            <description>We require that every information security role has an owner.</description>
+            <policyConstraints>
+                <minAssignees>
+                    <multiplicity>1</multiplicity>
+                    <relation>org:owner</relation>
+                </minAssignees>
+            </policyConstraints>
+            <markRef oid="00000000-0000-0000-0000-000000000813" />
+            <markRef oid="5508aca4-2aef-47a6-ad50-892389823c91"/>
+            <policyActions>
+                <record>
+                    <description>Record the marks for use in dashboards and reports.</description>
+                </record>
+            </policyActions>
+            <evaluationTarget>object</evaluationTarget>
+        </policyRule>
+        <focusType>RoleType</focusType>
+    </inducement>
+    <inducement id="5">
+        <identifier>rule-org-understaffing</identifier>
+        <policyRule>
+            <name>Org understaffing</name>
+            <description>We require that every organizational unit related to information security has manager.</description>
+            <policyConstraints>
+                <minAssignees>
+                    <multiplicity>1</multiplicity>
+                    <relation>org:manager</relation>
+                </minAssignees>
+            </policyConstraints>
+            <markRef oid="00000000-0000-0000-0000-000000000813" />
+            <markRef oid="29ee8246-8a6f-4858-872e-7134ac99877b"/>
+            <policyActions>
+                <record>
+                    <description>Record the marks for use in dashboards and reports.</description>
+                </record>
+            </policyActions>
+            <evaluationTarget>object</evaluationTarget>
+        </policyRule>
+        <focusType>OrgType</focusType>
+    </inducement>
+    <inducement id="6">
+        <identifier>rule-service-ownership</identifier>
+        <policyRule>
+            <name>Service ownership</name>
+            <description>We require that every service (e.g. application) related to information security has an owner.</description>
+            <policyConstraints>
+                <minAssignees>
+                    <multiplicity>1</multiplicity>
+                    <relation>org:owner</relation>
+                </minAssignees>
+            </policyConstraints>
+            <markRef oid="00000000-0000-0000-0000-000000000813" />
+            <markRef oid="5508aca4-2aef-47a6-ad50-892389823c91"/>
+            <policyActions>
+                <record>
+                    <description>Record the marks for use in dashboards and reports.</description>
+                </record>
+            </policyActions>
+            <evaluationTarget>object</evaluationTarget>
+        </policyRule>
+        <focusType>ServiceType</focusType>
+    </inducement>
+</policy>

@@ -1,0 +1,21 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="1993199d-457b-4406-b9b5-e453d6d0cd0f"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>LPA</name>
+    <displayName>Paris</displayName>
+    <identifier>PA</identifier>
+    <assignment>
+        <identifier>eu</identifier>
+        <targetRef oid="f24ca887-39b0-4597-8ef7-331534ecf1fd" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="54b098b4-f6dc-44dd-8a05-ffd6c2f2c5b5" type="ArchetypeType"/>
+    </assignment>
+</org>

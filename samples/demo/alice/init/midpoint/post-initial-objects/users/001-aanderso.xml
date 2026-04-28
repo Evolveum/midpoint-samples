@@ -1,0 +1,73 @@
+<user oid="74ddc2f7-5c2b-4f80-ab15-cb757d21ae86"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>aanderso</name>
+    <extension>
+        <exmpl:jobCode>B002</exmpl:jobCode>
+    </extension>
+    <title>CSO</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="7135e68c-ee53-11e8-8025-170b77da3fd6" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="7a1feb50-471f-11ea-8aab-1b2627541f15" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="7a1feb50-471f-11ea-8aab-1b2627541f15" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <assignment id="6">
+        <targetRef oid="d630eb6e-eee6-4cbe-84e4-23ed247132bf" type="ServiceType" relation="org:owner"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="a1572de4-b9b9-11e9-af3e-5f68b3207f97" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="b5828699-34ac-41c9-97ef-3ee3d17ef3ce" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="aaa6cde4-0471-11e9-9b50-c743da469067" type="RoleType" relation="org:owner"/>
+    </assignment>
+    <assignment>
+        <documentation>Reviewer role, to be able to do classification certifications (apps).</documentation>
+        <targetRef oid="00000000-0000-0000-0000-00000000000b" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="a1572de4-b9b9-11e9-af3e-5f68b3207f97" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="b9d2b604-b9b9-11e9-bbc4-17d8e85623b4" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="cc4fb6a4-232a-49cc-89b4-5561feec0d39" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="b00ecf65-f0a8-45b9-97e8-4299070b7c39" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="7cdcc670-2b0e-43eb-a67e-0be0e9809b89" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <documentation>We need explicit Approver role assignment here, as owner relation does not grant that (yet).</documentation>
+        <targetRef oid="00000000-0000-0000-0000-00000000000a" type="RoleType"/>
+    </assignment>
+    <fullName>Alice Anderson</fullName>
+    <givenName>Alice</givenName>
+    <familyName>Anderson</familyName>
+    <personalNumber>001</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>Test5ecr3t</clearValue>
+            </value>
+        </password>
+    </credentials>
+</user>

@@ -1,0 +1,13 @@
+<role oid="d5eb6a0c-c0ae-421d-8d36-2df8051566ee"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Collaboration platform: Ordinary user</name>
+    <description>Read-write access to collaboration platform, access to usual (non-secret) files, own files, own e-mails, shared calendars, notes, etc.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="183cdca7-91da-424c-9ef6-8b481f6aa57f" type="ServiceType"/>
+    </inducement>
+    <requestable>true</requestable>
+</role>

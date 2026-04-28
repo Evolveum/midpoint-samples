@@ -1,0 +1,21 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>LNY</name>
+    <displayName>New York</displayName>
+    <identifier>NY</identifier>
+    <assignment>
+        <identifier>world</identifier>
+        <targetRef oid="1d0ce5fc-cf45-4c0f-b1d6-781476242a6e" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="54b098b4-f6dc-44dd-8a05-ffd6c2f2c5b5" type="ArchetypeType"/>
+    </assignment>
+</org>

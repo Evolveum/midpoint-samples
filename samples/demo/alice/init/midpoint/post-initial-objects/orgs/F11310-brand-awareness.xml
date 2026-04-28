@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="3be09f12-4727-11ea-9480-0f471030d570"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>F11310</name>
+    <description>People that get all mad about missing (TM) in our logo.</description>
+    <displayName>Brand Awareness Section</displayName>
+    <identifier>11310</identifier>
+    <assignment>
+        <identifier>superorg</identifier>
+        <targetRef oid="a0c7d92c-4722-11ea-bc8d-d79a6cefb1bf" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="6a12b965-a1c2-47c9-87bd-19e84c71d814" type="ArchetypeType"/>
+    </assignment>
+</org>

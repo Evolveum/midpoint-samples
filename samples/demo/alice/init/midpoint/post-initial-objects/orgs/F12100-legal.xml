@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="0878ec00-4728-11ea-a745-0b989d121cb9"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>F12100</name>
+    <description>Dangerous suits. Do not feed.</description>
+    <displayName>Legal Department</displayName>
+    <identifier>12100</identifier>
+    <assignment>
+        <identifier>superorg</identifier>
+        <targetRef oid="e1cd3d4a-4727-11ea-9e30-eb8c3002a37c" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="6a12b965-a1c2-47c9-87bd-19e84c71d814" type="ArchetypeType"/>
+    </assignment>
+</org>

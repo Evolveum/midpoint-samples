@@ -1,0 +1,12 @@
+<role oid="fc4b9c01-3d61-4ecf-9057-ede0e9563ac0" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Information security manager</name>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="552043f0-e981-43c5-9ab6-c1bafafbee92" type="PolicyType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="3c0554af-b5d8-4bc7-9dc4-2720c325f24c" type="RoleType"/>
+    </inducement>
+</role>

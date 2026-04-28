@@ -1,0 +1,18 @@
+<role oid="362ff95e-25ef-4635-b497-96566037f4f1" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Data protection officer</name>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="552043f0-e981-43c5-9ab6-c1bafafbee92" type="PolicyType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="eb107649-0e2a-4c4a-b58e-1d4b5729a1c2" type="RoleType"/>
+    </inducement>
+    <inducement>
+        <targetRef oid="aab1d0c7-634e-4872-9d3c-fa487a20c41b" type="RoleType"/>
+    </inducement>
+    <inducement>
+        <targetRef oid="aab1d0c7-634e-4872-9d3c-fa487a20c41b" type="RoleType"/>
+    </inducement>
+</role>

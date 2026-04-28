@@ -1,0 +1,8 @@
+<role oid="457aa34d-17a4-4bbc-9a3c-62e63319311c" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
+    <name>Random role</name>
+    <description>Random business role, for playing around with.</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
+    </assignment>
+    <requestable>true</requestable>
+</role>

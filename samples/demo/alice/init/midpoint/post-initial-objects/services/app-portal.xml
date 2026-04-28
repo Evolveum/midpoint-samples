@@ -1,0 +1,17 @@
+<service oid="3795bcae-430f-11f1-aeb8-5f5f00db4d2e"
+         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+         xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Portal</name>
+    <description>Employee portal system.</description>
+    <documentation>Alice is owner of this application by default.</documentation>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
+    </assignment>
+    <inducement>
+        <construction>
+            <resourceRef oid="23118a3a-7c0c-11e6-8635-cf5d040d4698"/>
+            <kind>account</kind>
+            <intent>default</intent>
+        </construction>
+    </inducement>
+</service>

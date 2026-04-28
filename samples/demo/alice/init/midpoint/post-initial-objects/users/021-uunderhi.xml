@@ -1,0 +1,44 @@
+<user oid="a534d7f9-2077-4b41-b1af-aaa6d16e40fe"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:exmpl="http://example.com/xml/ns/midpoint/schema"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>uunderhi</name>
+    <extension>
+        <exmpl:jobCode>O201</exmpl:jobCode>
+    </extension>
+    <title>IT Director</title>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="00000000-0000-0000-0000-000000000702" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="2">
+        <identifier>archetype-employee</identifier>
+        <targetRef oid="7135e68c-ee53-11e8-8025-170b77da3fd6" type="ArchetypeType"/>
+    </assignment>
+    <assignment id="3">
+        <targetRef oid="b807964e-4728-11ea-8fe2-1fa2724ecb76" type="OrgType"/>
+    </assignment>
+    <assignment id="4">
+        <targetRef oid="b807964e-4728-11ea-8fe2-1fa2724ecb76" type="OrgType" relation="org:manager"/>
+    </assignment>
+    <assignment id="5">
+        <targetRef oid="28e5ed87-0dad-4f1c-942f-9662cec0f7fb" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="0a7b667e-fc25-11ea-b92d-d7693b8b10eb" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="c08f3fd3-f1b9-4c12-93c7-ecece239cf0f" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <fullName>Uma Underhill</fullName>
+    <givenName>Uma</givenName>
+    <familyName>Underhill</familyName>
+    <personalNumber>021</personalNumber>
+    <credentials>
+        <password>
+            <value>
+                <clearValue>Test5ecr3t</clearValue>
+            </value>
+        </password>
+    </credentials>
+</user>

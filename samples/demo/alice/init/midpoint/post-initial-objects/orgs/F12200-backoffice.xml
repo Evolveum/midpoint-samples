@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="b26a39c6-4728-11ea-b17c-cbf8b228962c"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>F12200</name>
+    <description>Paperwork on top, paperwork on bottom and paperwork in between.</description>
+    <displayName>Backoffice Department</displayName>
+    <identifier>12200</identifier>
+    <assignment>
+        <identifier>superorg</identifier>
+        <targetRef oid="e1cd3d4a-4727-11ea-9e30-eb8c3002a37c" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="6a12b965-a1c2-47c9-87bd-19e84c71d814" type="ArchetypeType"/>
+    </assignment>
+</org>

@@ -1,0 +1,19 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="4d12c1ac-440c-11ea-80af-2b314d06ba95"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>F10000</name>
+    <description>Exemplary Amplified Placeholder Enterprise</description>
+    <displayName>ExAmPLE, Inc.</displayName>
+    <displayOrder>100</displayOrder>
+    <identifier>10000</identifier>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="886bfa6e-8702-11ef-9c40-6fce51f54b0d" type="ArchetypeType"/>
+    </assignment>
+</org>

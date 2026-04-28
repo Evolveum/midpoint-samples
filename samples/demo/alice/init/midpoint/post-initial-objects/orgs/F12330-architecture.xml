@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="347fbeea-4729-11ea-a8c4-af1e0d2f06ad"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>F12330</name>
+    <description>Whiteboard meets theory.</description>
+    <displayName>Enterprise Architecture Section</displayName>
+    <identifier>12330</identifier>
+    <assignment>
+        <identifier>superorg</identifier>
+        <targetRef oid="b807964e-4728-11ea-8fe2-1fa2724ecb76" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="6a12b965-a1c2-47c9-87bd-19e84c71d814" type="ArchetypeType"/>
+    </assignment>
+</org>

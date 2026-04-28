@@ -1,0 +1,16 @@
+<role oid="70e53ac1-28b2-40d0-8642-27f3176ada03"
+      xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Public website: Admin</name>
+    <description>Administration access to website</description>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
+        <targetRef oid="00000000-0000-0000-0000-000000000332" type="PolicyType"/>
+    </assignment>
+    <inducement>
+        <targetRef oid="45bb3cea-fde9-4590-812a-e86b37492bcd" type="ServiceType"/>
+    </inducement>
+    <requestable>true</requestable>
+</role>

@@ -1,0 +1,22 @@
+<!--
+  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~
+  ~ This work is dual-licensed under the Apache License 2.0
+  ~ and European Union Public License. See LICENSE file for details.
+  -->
+<org oid="5a4b54ec-4727-11ea-a323-4fcdff560934"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>F11320</name>
+    <description>We are all mad here.</description>
+    <displayName>Creative Section</displayName>
+    <identifier>11320</identifier>
+    <assignment>
+        <identifier>superorg</identifier>
+        <targetRef oid="a0c7d92c-4722-11ea-bc8d-d79a6cefb1bf" type="OrgType"/>
+    </assignment>
+    <assignment>
+        <identifier>archetype</identifier>
+        <targetRef oid="6a12b965-a1c2-47c9-87bd-19e84c71d814" type="ArchetypeType"/>
+    </assignment>
+</org>
