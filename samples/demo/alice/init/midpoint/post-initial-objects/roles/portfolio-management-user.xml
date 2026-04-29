@@ -3,6 +3,7 @@
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Portfolio management: User</name>
     <description>Common user access to Portfolio management system.</description>
+    <identifier>portman-user</identifier>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
     </assignment>

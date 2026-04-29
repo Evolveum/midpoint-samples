@@ -26,6 +26,7 @@
           xmlns:icfc="http://midpoint.evolveum.com/xml/ns/public/connector/icf-1/connector-schema-3"
           xmlns:my="http://whatever.com/my"
           xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+          xmlns:org='http://midpoint.evolveum.com/xml/ns/public/common/org-3'
           xmlns:mr="http://prism.evolveum.com/xml/ns/public/matching-rule-3"
           xmlns:cap="http://midpoint.evolveum.com/xml/ns/public/resource/capabilities-3">
 
@@ -59,6 +60,8 @@
             <icfcldap:vlvSortOrderingRule>2.5.13.3</icfcldap:vlvSortOrderingRule>
             <icfcldap:operationalAttributes>memberOf</icfcldap:operationalAttributes>
             <icfcldap:operationalAttributes>createTimestamp</icfcldap:operationalAttributes>
+            <icfcldap:managedAssociationPairs>"inetOrgPerson"+memberOf -# "groupOfNames"+member</icfcldap:managedAssociationPairs>
+            <icfcldap:placeholderMember>cn=dummy,o=whatever</icfcldap:placeholderMember>
         </icfc:configurationProperties>
     </connectorConfiguration>
 
@@ -233,6 +236,139 @@
                 </cap:activation>
             </configuredCapabilities>
 
+        </objectType>
+
+        <objectType>
+            <kind>entitlement</kind>
+            <intent>ad-group</intent>
+            <displayName>LDAP Group</displayName>
+            <default>true</default>
+            <delineation>
+                <objectClass>ri:groupOfNames</objectClass>
+            </delineation>
+<!--            <focus>-->
+<!--                <type>c:RoleType</type>-->
+<!--                <archetypeRef oid="00000000-0000-0000-0000-000000000328" relation="org:default" type="c:ArchetypeType"/>-->
+<!--            </focus>-->
+            <attribute>
+                <ref>ri:cn</ref>
+                <outbound>
+                    <name>identifier-to-cn</name>
+                    <strength>weak</strength>
+                    <source>
+                        <path>identifier</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>cn-into-identifier</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>identifier</path>
+                    </target>
+                </inbound>
+                <inbound>
+                    <name>cn-into-name</name>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>"LDAP: " + input</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>name</path>
+                    </target>
+                </inbound>
+                <inbound>
+                    <name>cn-into-displayName</name>
+                    <strength>strong</strength>
+                    <expression>
+                        <script>
+                            <code>"LDAP: " + input?.replace('-', ' ')?.capitalize()</code>
+                        </script>
+                    </expression>
+                    <target>
+                        <path>displayName</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:description</ref>
+                <tolerant>false</tolerant>
+                <outbound>
+                    <name>description-to-description</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>description</path>
+                    </source>
+                </outbound>
+                <inbound>
+                    <name>description-into-description</name>
+                    <strength>strong</strength>
+                    <target>
+                        <path>description</path>
+                    </target>
+                </inbound>
+            </attribute>
+            <attribute>
+                <ref>ri:dn</ref>
+                <outbound>
+                    <name>identifier-to-dn</name>
+                    <strength>strong</strength>
+                    <source>
+                        <path>identifier</path>
+                    </source>
+                    <expression>
+                        <script>
+                            <code>basic.composeDnWithSuffix('cn', identifier,
+                                'ou=groups,' + basic.getResourceIcfConfigurationPropertyValue(resource,
+                                'baseContext')
+                                )</code>
+                        </script>
+                    </expression>
+                </outbound>
+            </attribute>
+            <correlation>
+                <correlators>
+                    <items>
+                        <name>group-correlation-by-identifier</name>
+                        <description>Use inbound mapping for identifier also for correlator</description>
+                        <enabled>true</enabled>
+                        <item>
+                            <ref>identifier</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+<!--            <synchronization>-->
+<!--                <reaction>-->
+<!--                    <name>unlinked-link</name>-->
+<!--                    <situation>unlinked</situation>-->
+<!--                    <actions>-->
+<!--                        <link/>-->
+<!--                    </actions>-->
+<!--                </reaction>-->
+<!--                <reaction>-->
+<!--                    <name>linked-synchronize</name>-->
+<!--                    <situation>linked</situation>-->
+<!--                    <actions>-->
+<!--                        <synchronize/>-->
+<!--                    </actions>-->
+<!--                </reaction>-->
+<!--                <reaction>-->
+<!--                    <name>unmatched-deleteResourceObject</name>-->
+<!--                    <situation>unmatched</situation>-->
+<!--                    <actions>-->
+<!--                        <deleteResourceObject id="199"/>-->
+<!--                    </actions>-->
+<!--                </reaction>-->
+<!--                <reaction>-->
+<!--                    <name>deleted-synchronize</name>-->
+<!--                    <situation>deleted</situation>-->
+<!--                    <actions>-->
+<!--                        <synchronize/>-->
+<!--                    </actions>-->
+<!--                </reaction>-->
+<!--            </synchronization>-->
         </objectType>
 
         <objectType>
