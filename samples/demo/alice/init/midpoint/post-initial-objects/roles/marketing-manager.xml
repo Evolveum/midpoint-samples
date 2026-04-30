@@ -27,10 +27,6 @@
         <identifier>archetype</identifier>
         <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
     </assignment>
-    <assignment>
-        <identifier>role-catalog</identifier>
-        <targetRef oid="b7e4cd0c-fc23-11ea-a79a-079cad42b39b" type="OrgType"/>
-    </assignment>
     <inducement>
         <targetRef oid="704d4a90-fc24-11ea-ae44-bbd7d89473b3" type="RoleType"/>
     </inducement>

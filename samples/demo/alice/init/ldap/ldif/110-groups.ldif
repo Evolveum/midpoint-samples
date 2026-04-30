@@ -3,3 +3,23 @@ dn: cn=portman-user,ou=groups,{{ LDAP_BASE_DN }}
 objectclass: groupOfNames
 cn: portman-user
 member: cn=dummy,o=whatever
+
+dn: cn=portman-admin,ou=groups,{{ LDAP_BASE_DN }}
+objectclass: groupOfNames
+cn: portman-admin
+member: cn=dummy,o=whatever
+
+dn: cn=website-editor,ou=groups,{{ LDAP_BASE_DN }}
+objectclass: groupOfNames
+cn: website-editor
+member: cn=dummy,o=whatever
+
+dn: cn=website-logs,ou=groups,{{ LDAP_BASE_DN }}
+objectclass: groupOfNames
+cn: website-logs
+member: cn=dummy,o=whatever
+
+dn: cn=website-admin,ou=groups,{{ LDAP_BASE_DN }}
+objectclass: groupOfNames
+cn: website-admin
+member: cn=dummy,o=whatever

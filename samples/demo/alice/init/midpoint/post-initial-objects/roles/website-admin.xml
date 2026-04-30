@@ -3,6 +3,7 @@
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Public website: Admin</name>
     <description>Administration access to website</description>
+    <identifier>website-admin</identifier>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
     </assignment>

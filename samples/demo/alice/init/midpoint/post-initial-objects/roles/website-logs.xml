@@ -3,6 +3,7 @@
       xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Public website: Log access</name>
     <description>Read-only access to content, logs and other records</description>
+    <identifier>website-logs</identifier>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
     </assignment>

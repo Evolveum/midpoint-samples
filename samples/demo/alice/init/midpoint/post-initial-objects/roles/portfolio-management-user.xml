@@ -8,6 +8,7 @@
         <targetRef oid="00000000-0000-0000-0000-000000000328" type="ArchetypeType"/>
     </assignment>
     <inducement>
+        <identifier>application-portman</identifier>
         <targetRef oid="c71554c8-1750-4743-b10c-bf8cd4ce64c8" type="ServiceType"/>
     </inducement>
     <requestable>true</requestable>

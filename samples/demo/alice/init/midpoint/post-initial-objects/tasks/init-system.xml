@@ -206,18 +206,56 @@
             </activity>
 
             <activity>
-                <order>30</order>
+                <order>40</order>
+                <work>
+                    <!-- LDAP group reconciliation -->
+                    <reconciliation>
+                        <resourceObjects>
+                            <resourceRef oid="8a83b1a4-be18-11e6-ae84-7301fdab1d7c"/>
+                            <kind>entitlement</kind>
+                            <intent>ldapgroup</intent>
+                        </resourceObjects>
+                    </reconciliation>
+                </work>
+            </activity>
+
+            <activity>
+                <order>100</order>
+                <work>
+                    <!-- LDAP account reconciliation -->
+                    <reconciliation>
+                        <resourceObjects>
+                            <resourceRef oid="8a83b1a4-be18-11e6-ae84-7301fdab1d7c"/>
+                            <kind>account</kind>
+                        </resourceObjects>
+                    </reconciliation>
+                </work>
+            </activity>
+
+            <activity>
+                <order>300</order>
                 <work>
                     <recomputation>
                         <objects>
-                            <type>UserType</type>
+                            <type>ServiceType</type>
                         </objects>
                     </recomputation>
                 </work>
             </activity>
 
             <activity>
-                <order>40</order>
+                <order>310</order>
+                <work>
+                    <recomputation>
+                        <objects>
+                            <type>RoleType</type>
+                        </objects>
+                    </recomputation>
+                </work>
+            </activity>
+
+            <activity>
+                <order>440</order>
                 <work>
                     <!-- HR reconciliation -->
                     <reconciliation>
@@ -230,15 +268,14 @@
             </activity>
 
             <activity>
-                <order>50</order>
+                <order>500</order>
                 <work>
-                    <!-- LDAP account reconciliation -->
-                    <reconciliation>
-                        <resourceObjects>
-                            <resourceRef oid="8a83b1a4-be18-11e6-ae84-7301fdab1d7c"/>
-                            <kind>account</kind>
-                        </resourceObjects>
-                    </reconciliation>
+                    <!-- User recompute. We want this to come last, as we need all roles/orgs to be properly linked first -->
+                    <recomputation>
+                        <objects>
+                            <type>UserType</type>
+                        </objects>
+                    </recomputation>
                 </work>
             </activity>
 

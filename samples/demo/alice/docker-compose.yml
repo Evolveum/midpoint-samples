@@ -67,8 +67,7 @@ services:
 
   ldap:
     image: osixia/openldap:1.5.0
-    entrypoint: [ "/container/tool/run", "--copy-service" ]
-#    entrypoint: [ "/container/tool/run", "--copy-service", "--loglevel", "debug" ]
+    entrypoint: [ "/container/tool/run", "--copy-service", "--loglevel", "error" ]
     ports:
       - "11389:389"
     environment:

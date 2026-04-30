@@ -19,4 +19,9 @@
         <identifier>archetype</identifier>
         <targetRef oid="6a12b965-a1c2-47c9-87bd-19e84c71d814" type="ArchetypeType"/>
     </assignment>
+    <inducement>
+        <identifier>portman-user</identifier>
+        <!-- Portfolio Management User -->
+        <targetRef oid="7cdcc670-2b0e-43eb-a67e-0be0e9809b89" type="RoleType"/>
+    </inducement>
 </org>

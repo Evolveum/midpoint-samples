@@ -240,16 +240,16 @@
 
         <objectType>
             <kind>entitlement</kind>
-            <intent>ad-group</intent>
+            <intent>ldapgroup</intent>
             <displayName>LDAP Group</displayName>
             <default>true</default>
             <delineation>
                 <objectClass>ri:groupOfNames</objectClass>
             </delineation>
-<!--            <focus>-->
-<!--                <type>c:RoleType</type>-->
-<!--                <archetypeRef oid="00000000-0000-0000-0000-000000000328" relation="org:default" type="c:ArchetypeType"/>-->
-<!--            </focus>-->
+            <focus>
+                <type>c:RoleType</type>
+                <archetypeRef oid="00000000-0000-0000-0000-000000000328" relation="org:default" type="c:ArchetypeType"/>
+            </focus>
             <attribute>
                 <ref>ri:cn</ref>
                 <outbound>
@@ -268,7 +268,7 @@
                 </inbound>
                 <inbound>
                     <name>cn-into-name</name>
-                    <strength>strong</strength>
+                    <strength>weak</strength>
                     <expression>
                         <script>
                             <code>"LDAP: " + input</code>
@@ -276,18 +276,6 @@
                     </expression>
                     <target>
                         <path>name</path>
-                    </target>
-                </inbound>
-                <inbound>
-                    <name>cn-into-displayName</name>
-                    <strength>strong</strength>
-                    <expression>
-                        <script>
-                            <code>"LDAP: " + input?.replace('-', ' ')?.capitalize()</code>
-                        </script>
-                    </expression>
-                    <target>
-                        <path>displayName</path>
                     </target>
                 </inbound>
             </attribute>
@@ -339,21 +327,21 @@
                     </items>
                 </correlators>
             </correlation>
-<!--            <synchronization>-->
-<!--                <reaction>-->
-<!--                    <name>unlinked-link</name>-->
-<!--                    <situation>unlinked</situation>-->
-<!--                    <actions>-->
-<!--                        <link/>-->
-<!--                    </actions>-->
-<!--                </reaction>-->
-<!--                <reaction>-->
-<!--                    <name>linked-synchronize</name>-->
-<!--                    <situation>linked</situation>-->
-<!--                    <actions>-->
-<!--                        <synchronize/>-->
-<!--                    </actions>-->
-<!--                </reaction>-->
+            <synchronization>
+                <reaction>
+                    <name>unlinked-link</name>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <name>linked-synchronize</name>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
 <!--                <reaction>-->
 <!--                    <name>unmatched-deleteResourceObject</name>-->
 <!--                    <situation>unmatched</situation>-->
@@ -361,14 +349,14 @@
 <!--                        <deleteResourceObject id="199"/>-->
 <!--                    </actions>-->
 <!--                </reaction>-->
-<!--                <reaction>-->
-<!--                    <name>deleted-synchronize</name>-->
-<!--                    <situation>deleted</situation>-->
-<!--                    <actions>-->
-<!--                        <synchronize/>-->
-<!--                    </actions>-->
-<!--                </reaction>-->
-<!--            </synchronization>-->
+                <reaction>
+                    <name>deleted-synchronize</name>
+                    <situation>deleted</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+            </synchronization>
         </objectType>
 
         <objectType>
@@ -434,6 +422,47 @@
             </attribute>
 
         </objectType>
+
+        <associationType>
+            <name>ldapgroup-association</name>
+            <displayName>LDAP Group Association</displayName>
+            <description>Association for LDAP groups (under ou=groups)</description>
+            <subject>
+                <objectType>
+                    <kind>account</kind>
+                    <intent>default</intent>
+                </objectType>
+                <association>
+                    <ref>ldapgroup</ref>
+                    <sourceAttributeRef>ri:group</sourceAttributeRef>
+                    <outbound>
+                        <name>role-assignments-to-ldap-group-membership</name>
+                        <strength>strong</strength>
+                        <expression>
+                            <associationConstruction xsi:type="c:AssociationConstructionExpressionEvaluatorType">
+                                <objectRef>
+                                    <ref>ri:group</ref>
+                                    <mapping>
+                                        <name>associationFromLink</name>
+                                        <strength>strong</strength>
+                                        <expression>
+                                            <associationFromLink/>
+                                        </expression>
+                                    </mapping>
+                                </objectRef>
+                            </associationConstruction>
+                        </expression>
+                    </outbound>
+                </association>
+            </subject>
+            <object>
+                <objectType>
+                    <kind>entitlement</kind>
+                    <intent>ldapgroup</intent>
+                </objectType>
+            </object>
+        </associationType>
+
 
     </schemaHandling>
 
