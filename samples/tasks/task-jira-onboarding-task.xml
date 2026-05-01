@@ -1,0 +1,181 @@
+<task xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+      xmlns:s="http://midpoint.evolveum.com/xml/ns/public/model/scripting-3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      oid="e7aace37-0a2b-44ef-8e23-ebb3c7c5439d">
+    <name>Jira ticket creation task</name>
+    <ownerRef oid="00000000-0000-0000-0000-000000000002" type="UserType"/>
+    <executionState>suspended</executionState>
+    <schedule>
+        <recurrence>recurring</recurrence>
+        <interval>3600</interval>
+        <misfireAction>executeImmediately</misfireAction>
+    </schedule>
+    <activity>
+        <work>
+            <iterativeScripting>
+                <objects>
+                    <type>UserType</type>
+                </objects>
+                <scriptExecutionRequest>
+                    <s:action>
+                        <s:type>execute-script</s:type>
+                        <s:parameter>
+                            <s:name>script</s:name>
+                            <c:value xsi:type="c:ScriptExpressionEvaluatorType">
+                                <c:code>
+                                    import com.github.openjson.JSONObject
+                                    import org.apache.commons.codec.binary.Base64
+                                    import org.apache.http.HttpHeaders
+                                    import org.apache.http.Consts
+                                    import org.apache.http.HttpStatus
+                                    import org.apache.http.client.config.RequestConfig
+                                    import org.apache.http.client.methods.HttpPost
+                                    import org.apache.http.conn.ConnectTimeoutException
+                                    import org.apache.http.entity.StringEntity
+                                    import org.apache.http.impl.client.CloseableHttpClient
+                                    import org.apache.http.impl.client.HttpClientBuilder
+                                    import org.apache.http.util.EntityUtils
+
+                                    import java.nio.charset.StandardCharsets
+
+                                    log.info("[ONBOARDING TASK] Enter task")
+
+                                    def hasOnboardingRole = false
+                                    def hasEmptyTicketKey = false
+
+                                    def onboardingRole = '9822a7fe-7362-4d65-b383-b8018c335d37'
+                                    for (role in input.getRoleMembershipRef()) {
+                                        roleOid = role.getOid()
+                                        if (onboardingRole == onboardingRole) {
+                                            hasOnboardingRole = true
+                                            break
+                                        }
+                                    }
+
+                                    def onboardingJiraTicket = basic.getPropertyValue(input, "extension/onboardingJiraTicket")
+                                    hasEmptyTicketKey = onboardingJiraTicket == null || basic.isEmpty(onboardingJiraTicket)
+
+                                    if (hasOnboardingRole &amp;&amp; hasEmptyTicketKey) {
+                                        // ------------------------------------------------------------------------------
+                                        //                             EMPLOYEE INFO                                   //
+                                        // ------------------------------------------------------------------------------
+                                        def givenName = basic.getPropertyValue(input, "givenName")
+                                        def familyName = basic.getPropertyValue(input, "familyName")
+                                        def emailAddress = input.getEmailAddress()
+
+                                        // ------------------------------------------------------------------------------
+                                        //                             CREDENTIALS VARS                                //
+                                        // ------------------------------------------------------------------------------
+
+                                        def final BEARER_TOKEN = "Bearer 301bf498dd45d800842af0b84230f1bb58606c1" // fake
+                                        // ------------------------------------------------------------------------------
+                                        //                             HTTP CONNECTION VARS                            //
+                                        // ------------------------------------------------------------------------------
+
+                                        def final URL = "https://test-sandbox-001.atlassian.net/rest/api/2/issue" // fake
+                                        def final CONNECT_TIMEOUT = 5000
+                                        def final REQUEST_TIMEOUT = 5000
+                                        def final SOCKET_TIMEOUT = 5000
+
+                                        def config = RequestConfig.custom()
+                                                .setConnectTimeout(CONNECT_TIMEOUT)
+                                                .setConnectionRequestTimeout(REQUEST_TIMEOUT)
+                                                .setSocketTimeout(SOCKET_TIMEOUT)
+                                                .build()
+
+                                        // ------------------------------------------------------------------------------
+                                        //                             REQUEST PREPARATION                             //
+                                        // ------------------------------------------------------------------------------
+
+                                        def final ISSUE_TYPE = 10002
+                                        def final PROJECT_ID = 10000
+                                        def final SUMMARY = "Newcomer ${givenName} ${familyName}, ${emailAddress}"
+
+                                        def httpPost = new HttpPost(URL)
+                                        httpPost.setHeader(HttpHeaders.ACCEPT, "application/json")
+                                        httpPost.setHeader(HttpHeaders.CONTENT_TYPE, "application/json")
+
+                                        httpPost.setHeader(HttpHeaders.AUTHORIZATION, authHeader)
+                                        def ticketPayload = new JSONObject()
+                                        ticketPayload.put(
+                                                "fields",
+                                                new JSONObject()
+                                                        .put("issuetype", new JSONObject().put("id", ISSUE_TYPE))
+                                                        .put("project", new JSONObject().put("id", PROJECT_ID))
+                                                        .put("summary", SUMMARY.toString())
+                                        )
+                                        httpPost.setEntity(new StringEntity(ticketPayload.toString(), Consts.UTF_8))
+
+                                        // ------------------------------------------------------------------------------
+                                        //                             HTTP CLIENT PREPARATION                         //
+                                        // ------------------------------------------------------------------------------
+
+                                        CloseableHttpClient httpClient = HttpClientBuilder.create().setDefaultRequestConfig(config).build()
+
+                                        // ------------------------------------------------------------------------------
+                                        //                             HTTP REQUEST PROCESS                             //
+                                        // ------------------------------------------------------------------------------
+                                        try {
+                                            log.info("[ONBOARDING TASK] Creating ticket for employee")
+                                            def response = httpClient.execute(httpPost)
+                                            try {
+                                                def code = response.getStatusLine().getStatusCode()
+                                                if (code == HttpStatus.SC_CREATED) {
+                                                    def entity = response.getEntity()
+                                                    def json = EntityUtils.toString(entity, StandardCharsets.UTF_8)
+                                                    def responsePayload = new JSONObject(json)
+                                                    def ticketKey = responsePayload.getString("key")
+                                                    log.info("[ONBOARDING TASK] Ticket created, key: {}")
+                                                    def deltas = midpoint.deltaFor(UserType.class)
+                                                            .item(ItemPath.create('extension', 'onboardingJiraTicket'))
+                                                            .replace(ticketKey)
+                                                            .asObjectDeltas(input.oid)
+                                                    midpoint.executeChanges(deltas, null)
+                                                } else {
+                                                    def errors = responsePayload.getJSONObject("errors")
+                                                    log.info("[ONBOARDING TASK] Failed to create ticket, reason: {} code: {}", errors.toString(), code)
+                                                }
+                                            } catch (ConnectTimeoutException ex) {
+                                                log.info("Connection timed out after " + CONNECT_TIMEOUT + " ms: " + URL)
+                                            } finally {
+                                                response.close()
+                                            }
+                                        } finally {
+                                            httpClient.close()
+                                        }
+                                    }
+                                    log.info("[ONBOARDING TASK] Quit task")
+                                </c:code>
+                            </c:value>
+                        </s:parameter>
+                    </s:action>
+                </scriptExecutionRequest>
+            </iterativeScripting>
+        </work>
+        <controlFlow>
+            <errorHandling>
+                <entry>
+                    <situation>
+                        <status>partial_error</status>
+                    </situation>
+                    <reaction>
+                        <ignore/>
+                    </reaction>
+                </entry>
+                <entry>
+                    <situation>
+                        <status>fatal_error</status>
+                    </situation>
+                    <reaction>
+                        <retryLater>
+                            <initialInterval>PT30M</initialInterval>
+                            <nextInterval>PT1H</nextInterval>
+                            <retryLimit>3</retryLimit>
+                        </retryLater>
+                    </reaction>
+                </entry>
+            </errorHandling>
+        </controlFlow>
+    </activity>
+</task>
