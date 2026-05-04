@@ -4,6 +4,7 @@
     <name>Portal</name>
     <description>Employee portal system.</description>
     <documentation>Alice is owner of this application by default.</documentation>
+    <identifier>A013</identifier>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
     </assignment>
@@ -14,4 +15,5 @@
             <intent>default</intent>
         </construction>
     </inducement>
+    <url>https://portal.example.com/</url>
 </service>

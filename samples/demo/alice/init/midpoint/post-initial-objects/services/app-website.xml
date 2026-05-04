@@ -4,10 +4,12 @@
     <name>Public Website</name>
     <description>Company website, contains public information only. Access to the website is managed using LDAP groups.</description>
     <documentation>Erin is owner of this application by default.</documentation>
+    <identifier>A015</identifier>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
     </assignment>
     <assignment>
         <targetRef oid="15fdca7a-de3b-47da-ab2d-e0f7825caa24" type="PolicyType" />
     </assignment>
+    <url>https://www.example.com/</url>
 </service>

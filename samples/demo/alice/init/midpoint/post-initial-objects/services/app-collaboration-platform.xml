@@ -4,10 +4,12 @@
     <name>Collaboration platform</name>
     <description>System for team collaboration, used for internal collaboration, as well as collaboration with partners and suppliers. Contains meeting notes, memos, plans ...</description>
     <documentation>Peter is owner of this application by default.</documentation>
+    <identifier>A010</identifier>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
     </assignment>
     <assignment>
         <targetRef oid="c06d394f-cb9b-49f9-b190-fbf5281e501a" type="PolicyType" />
     </assignment>
+    <url>https://colab.example.com/</url>
 </service>

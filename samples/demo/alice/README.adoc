@@ -61,3 +61,10 @@ Subdirectories:
 It is created by the `book-example.sh` script, to make sure it has correct owenership and permissions.
 It is then populated by midPoint container at first start.
 It is writable, you can modify the resource CSV files and copy connector JARs here.
+
+== Ideas
+
+Ideas for further development of the demo:
+
+* Applications can have locations, either physical on-prem data center, or virtual/zone for cloud apps (e.g. Amazon/Azure, US/EU, etc.)
+* Link planned/pilot apps and projects that develop them

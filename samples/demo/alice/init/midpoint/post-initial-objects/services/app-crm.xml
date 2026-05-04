@@ -4,6 +4,7 @@
     <name>CRM</name>
     <description>Customer relationship management system. Contains customer database and internal sales information.</description>
     <documentation>Alice is owner of this application by default.</documentation>
+    <identifier>A012</identifier>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
     </assignment>
@@ -17,4 +18,5 @@
             <intent>default</intent>
         </construction>
     </inducement>
+    <url>https://crm.example.com/</url>
 </service>

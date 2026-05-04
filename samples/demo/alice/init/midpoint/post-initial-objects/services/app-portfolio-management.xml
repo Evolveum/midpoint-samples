@@ -3,6 +3,7 @@
          xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Portfolio Management</name>
     <description>Portfolio management application. Manages client portfolios, tracks performance, and ensure compliance with investment strategies and regulations.</description>
+    <identifier>A020</identifier>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
     </assignment>
@@ -10,4 +11,5 @@
         <targetRef oid="d5ab4f6e-e911-4f1b-9cfd-fe14e6137a4e" type="PolicyType"/>
     </assignment>
     <!-- There is no owner -->
+    <url>https://portman.example.com/</url>
 </service>

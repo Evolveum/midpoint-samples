@@ -3,8 +3,10 @@
          xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
     <name>Project Management</name>
     <description>Project management application. Tracks and coordinates projects and tasks.</description>
+    <identifier>A019</identifier>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000329" type="ArchetypeType" />
     </assignment>
     <!-- There is no classification -->
+    <url>https://project.example.com/</url>
 </service>
