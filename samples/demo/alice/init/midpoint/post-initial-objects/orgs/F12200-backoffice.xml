@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2020-2024 Evolveum and contributors
+  ~ Copyright (c) 2020-2026 Evolveum and contributors
   ~
   ~ This work is dual-licensed under the Apache License 2.0
   ~ and European Union Public License. See LICENSE file for details.
@@ -18,5 +18,13 @@
     <assignment>
         <identifier>archetype</identifier>
         <targetRef oid="6a12b965-a1c2-47c9-87bd-19e84c71d814" type="ArchetypeType"/>
+    </assignment>
+    <assignment>
+        <identifier>cc-agent-owner</identifier>
+        <targetRef oid="9c55ff88-fc24-11ea-977a-e39adc8e1bd4" relation="org:owner" type="RoleType"/>
+    </assignment>
+    <assignment>
+        <identifier>cc-manager-owner</identifier>
+        <targetRef oid="e1bc89e8-fc24-11ea-972e-774cfddb9e76" relation="org:owner" type="RoleType"/>
     </assignment>
 </org>

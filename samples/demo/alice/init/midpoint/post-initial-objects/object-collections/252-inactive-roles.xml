@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2026 Evolveum and contributors
+  ~
+  ~ Licensed under the EUPL-1.2 or later.
+  -->
+
+<objectCollection oid="1664b446-393f-4a5d-baa4-35e20371881b"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+    <name>Inactive roles</name>
+    <type>RoleType</type>
+    <filter>
+        <q:text>activation/effectiveStatus = "disabled"</q:text>
+    </filter>
+</objectCollection>

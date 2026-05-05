@@ -1,0 +1,41 @@
+<!--
+  ~ Copyright (c) 2025-2026 Evolveum and contributors
+  ~
+  ~ Licensed under the EUPL-1.2 or later.
+  -->
+
+<policy oid="73b20ed0-3100-4ae5-9014-1c406f88ce69"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+    <name>Require description</name>
+    <description>Policy requiring affected objects to have a description.</description>
+    <documentation>
+        When this policy is applied, the affected objects are required to have a description.
+        Objects with no description are marked with "No description" mark.
+    </documentation>
+    <assignment id="1">
+        <identifier>archetype</identifier>
+        <targetRef oid="4f3084ae-4308-11f1-a19e-a357d787ee05" type="ArchetypeType"/>
+    </assignment>
+    <inducement>
+        <identifier>policy-require-description</identifier>
+        <policyRule>
+            <name>rule-require-description</name>
+            <policyConstraints>
+                <objectState>
+                    <name>constraint-require-description</name>
+                    <filter>
+                        <q:text>description not exists</q:text>
+                    </filter>
+                </objectState>
+            </policyConstraints>
+            <markRef oid="2cdf5d6c-9fab-4936-aacb-e484d58e3a12" type="MarkType"/>
+            <policyActions>
+                <record>
+                    <description>Record the mark for use in dashboards and reports.</description>
+                </record>
+            </policyActions>
+        </policyRule>
+    </inducement>
+</policy>

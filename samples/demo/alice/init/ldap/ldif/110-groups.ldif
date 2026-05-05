@@ -23,3 +23,13 @@ dn: cn=website-admin,ou=groups,{{ LDAP_BASE_DN }}
 objectclass: groupOfNames
 cn: website-admin
 member: cn=dummy,o=whatever
+
+dn: cn=jabberwock-users,ou=groups,{{ LDAP_BASE_DN }}
+objectclass: groupOfNames
+cn: jabberwock-users
+member: cn=dummy,o=whatever
+
+dn: cn=jabberwock-admins,ou=groups,{{ LDAP_BASE_DN }}
+objectclass: groupOfNames
+cn: jabberwock-admins
+member: cn=dummy,o=whatever

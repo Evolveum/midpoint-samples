@@ -37,6 +37,14 @@
                                         <c:value>
                                             <s:itemDelta>
                                                 <t:modificationType>add</t:modificationType>
+                                                <t:path>adminGuiConfiguration/configurableUserDashboard</t:path>
+                                                <t:value>
+                                                    <identifier>role-management-dashboard</identifier>
+                                                    <configurableDashboardRef oid="5688c753-a5d9-41c8-8375-c5d2b523daa4" type="c:DashboardType"/>
+                                                </t:value>
+                                            </s:itemDelta>
+                                            <s:itemDelta>
+                                                <t:modificationType>add</t:modificationType>
                                                 <t:path>adminGuiConfiguration/objectCollectionViews/objectCollectionView</t:path>
                                                 <t:value>
                                                     <identifier>privileged-roles</identifier>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2025 Evolveum and contributors
+  ~
+  ~ Licensed under the EUPL-1.2 or later.
+  -->
+
+<dashboard oid="5688c753-a5d9-41c8-8375-c5d2b523daa4"
+        xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:c="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
+        xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3">
+    <name>role-management-dashboard</name>
+    <display>
+        <label>
+            <orig>Role management</orig>
+        </label>
+    </display>
+
+    <widget id="100">
+        <identifier>active-roles</identifier>
+        <description>Active roles</description>
+        <documentation>(ISO27001/A.5.1,ISO27001/A.5.16,ISO27001/A.5.36)</documentation>
+        <display>
+            <label>
+                <orig>Active roles</orig>
+                <translation>
+                    <key>activeRole.pluralLabel</key>
+                </translation>
+            </label>
+            <icon>
+                <cssClass>fe fe-role</cssClass>
+            </icon>
+            <color>var(--lightblue)</color>
+        </display>
+        <displayOrder>100</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="8494d5a9-5ce9-4795-813b-0e424b9e4d42" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+
+    <widget id="110">
+        <identifier>business-roles</identifier>
+        <description>Business roles</description>
+        <display>
+            <label>
+                <orig>Business roles</orig>
+            </label>
+            <icon>
+                <cssClass>fe fe-role</cssClass>
+            </icon>
+            <color>var(--lightblue)</color>
+        </display>
+        <displayOrder>110</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="ab60e77d-e2c1-4dbd-a3c0-2d9042f745a1" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+
+    <widget id="120">
+        <identifier>application-roles</identifier>
+        <description>Application roles</description>
+        <display>
+            <label>
+                <orig>Application roles</orig>
+            </label>
+            <icon>
+                <cssClass>fe fe-role</cssClass>
+            </icon>
+            <color>var(--lightblue)</color>
+        </display>
+        <displayOrder>110</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="00000000-0000-0000-0001-000000000016" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+
+    <widget id="130">
+        <identifier>inactive-roles</identifier>
+        <description>Inactive roles</description>
+        <documentation>(ISO27001/A.5.1,ISO27001/A.5.16,ISO27001/A.5.36)</documentation>
+        <display>
+            <label>
+                <orig>Inactive roles</orig>
+            </label>
+            <icon>
+                <cssClass>fe fe-role</cssClass>
+            </icon>
+            <color>var(--gray)</color>
+        </display>
+        <displayOrder>130</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="1664b446-393f-4a5d-baa4-35e20371881b" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+
+    <widget id="200">
+        <identifier>unowned-roles</identifier>
+        <description>Unowned roles: roles without owner</description>
+        <documentation>(ISO27001/A.5.1,ISO27001/A.5.16,ISO27001/A.5.36)</documentation>
+        <display>
+            <label>
+                <orig>Roles without owner</orig>
+                <translation>
+                    <key>rolesWithoutOwner.label</key>
+                </translation>
+            </label>
+            <icon>
+                <cssClass>fa fa-user-xmark</cssClass>
+            </icon>
+            <color>var(--success)</color>
+        </display>
+        <displayOrder>200</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="6d9d98f5-9182-4d2d-89e8-32ab23704199" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <variation>
+                <condition>
+                    <script>
+                        <code>proportional.value &gt; 0 &amp;&amp; proportional.value &lt; 3</code>
+                    </script>
+                </condition>
+                <display>
+                    <color>var(--orange)</color>
+                </display>
+            </variation>
+            <variation>
+                <condition>
+                    <script>
+                        <code>proportional.value &gt;= 3</code>
+                    </script>
+                </condition>
+                <display>
+                    <color>var(--danger)</color>
+                </display>
+            </variation>
+        </presentation>
+    </widget>
+
+    <widget id="210">
+        <identifier>roles-without-description</identifier>
+        <description>Roles without description</description>
+        <documentation>(ISO27001/A.5.1,ISO27001/A.5.16,ISO27001/A.5.36)</documentation>
+        <display>
+            <label>
+                <orig>Roles without description</orig>
+            </label>
+            <icon>
+                <cssClass>fa fa-file-circle-xmark</cssClass>
+            </icon>
+            <color>var(--success)</color>
+        </display>
+        <displayOrder>210</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="66b4f22b-ca42-44e0-89c3-61814460204b" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <variation>
+                <condition>
+                    <script>
+                        <code>proportional.value &gt; 0 &amp;&amp; proportional.value &lt; 3</code>
+                    </script>
+                </condition>
+                <display>
+                    <color>var(--orange)</color>
+                </display>
+            </variation>
+            <variation>
+                <condition>
+                    <script>
+                        <code>proportional.value &gt;= 3</code>
+                    </script>
+                </condition>
+                <display>
+                    <color>var(--danger)</color>
+                </display>
+            </variation>
+        </presentation>
+    </widget>
+
+    <widget id="220">
+        <identifier>privileged-roles</identifier>
+        <description>Roles with (direct) privileged access.</description>
+        <documentation>(ISO27001/A.5.15,ISO27001/A.5.18,ISO27001/A.8.2,ISO27001/A.8.9)</documentation>
+        <display>
+            <label>
+                <orig>Privileged roles</orig>
+                <translation>
+                    <key>privilegedRole.pluralLabel</key>
+                </translation>
+            </label>
+            <icon>
+                <cssClass>fa fa-circle-radiation</cssClass>
+            </icon>
+            <color>var(--lightblue)</color>
+        </display>
+        <displayOrder>220</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="00000000-0000-0000-0001-000000000354" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+        </presentation>
+    </widget>
+
+    <widget id="230">
+        <identifier>suspicious-roles</identifier>
+        <description>Roles marked as "suspicious".</description>
+        <documentation>(ISO27001/A.5.27,ISO27001/A.5.28,ISO27001/A.5.29,ISO27001/A.6.8)</documentation>
+        <display>
+            <label>
+                <orig>Suspicious roles</orig>
+                <translation>
+                    <key>suspiciousRole.pluralLabel</key>
+                </translation>
+            </label>
+            <icon>
+                <cssClass>fa fa-handcuffs</cssClass>
+            </icon>
+            <color>var(--success)</color>
+        </display>
+        <displayOrder>230</displayOrder>
+        <data>
+            <sourceType>objectCollection</sourceType>
+            <collection>
+                <collectionRef oid="00000000-0000-0000-0001-000000000357" type="c:ObjectCollectionType"/>
+            </collection>
+        </data>
+        <presentation>
+            <dataField>
+                <fieldType>value</fieldType>
+                <expression>
+                    <proportional>
+                        <style>value-only</style>
+                    </proportional>
+                </expression>
+            </dataField>
+            <variation>
+                <condition>
+                    <script>
+                        <code>proportional.value &gt; 0 &amp;&amp; proportional.value &lt; 3</code>
+                    </script>
+                </condition>
+                <display>
+                    <color>var(--orange)</color>
+                </display>
+            </variation>
+            <variation>
+                <condition>
+                    <script>
+                        <code>proportional.value &gt;= 3</code>
+                    </script>
+                </condition>
+                <display>
+                    <color>var(--danger)</color>
+                </display>
+            </variation>
+        </presentation>
+    </widget>
+
+</dashboard>

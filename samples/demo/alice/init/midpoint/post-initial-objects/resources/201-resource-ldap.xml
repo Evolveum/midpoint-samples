@@ -342,13 +342,14 @@
                         <synchronize/>
                     </actions>
                 </reaction>
-<!--                <reaction>-->
-<!--                    <name>unmatched-deleteResourceObject</name>-->
-<!--                    <situation>unmatched</situation>-->
-<!--                    <actions>-->
-<!--                        <deleteResourceObject id="199"/>-->
-<!--                    </actions>-->
-<!--                </reaction>-->
+                <reaction>
+                    <name>unmatched-import</name>
+                    <situation>unmatched</situation>
+                    <channel>http://midpoint.evolveum.com/xml/ns/public/common/channels-3#import</channel>
+                    <actions>
+                        <addFocus/>
+                    </actions>
+                </reaction>
                 <reaction>
                     <name>deleted-synchronize</name>
                     <situation>deleted</situation>

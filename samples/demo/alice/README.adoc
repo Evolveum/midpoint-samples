@@ -1,4 +1,4 @@
-= Alice in MidPointland Demo
+= Alice in MidPointLand Demo
 
 TODO: Demo roughly inspired by the book, ExAmPLE, Inc.
 
