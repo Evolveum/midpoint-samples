@@ -1,5 +1,6 @@
 <role oid="aaa6cde4-0471-11e9-9b50-c743da469067" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Business analyst</name>
+    <!-- Description contains "TODO" by purpose - to demonstrate "no description" policy rule. -->
     <description>TODO.</description>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>

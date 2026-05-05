@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2010-2026 Evolveum and contributors
+  ~
+  ~ Licensed under the EUPL-1.2 or later.
+  -->
+
+<functionLibrary oid="8631cbb4-ee12-42b9-aafc-f91347fe6ed4"
+        xmlns='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+        xmlns:c='http://midpoint.evolveum.com/xml/ns/public/common/common-3'
+        xmlns:t='http://prism.evolveum.com/xml/ns/public/types-3'
+        xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+        xmlns:piracy='http://midpoint.evolveum.com/xml/ns/samples/piracy'>
+    <name>util</name>
+    <description>MidPoint utilities library.</description>
+    <function>
+        <name>hasMeaningfulText</name>
+        <parameter>
+            <name>text</name>
+            <type>xsd:string</type>
+        </parameter>
+        <returnType>xsd:boolean</returnType>
+        <script>
+            <language>http://midpoint.evolveum.com/xml/ns/public/expression/language#mel</language>
+            <code>
+                isPresent(text) &amp;&amp;
+                ! isBlank(text)
+            </code>
+        </script>
+    </function>
+</functionLibrary>

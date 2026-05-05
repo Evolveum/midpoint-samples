@@ -1,5 +1,6 @@
 <role oid="44449c67-82af-427f-b11c-520427b922ac" xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3">
     <name>Information security auditor</name>
+    <description>This description is still TODO, but I want to game the system and avoid being detected by "no description" rule.</description>
     <assignment>
         <targetRef oid="00000000-0000-0000-0000-000000000321" type="ArchetypeType"/>
     </assignment>

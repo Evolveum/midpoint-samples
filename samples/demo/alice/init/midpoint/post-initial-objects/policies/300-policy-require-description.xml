@@ -7,7 +7,8 @@
 <policy oid="73b20ed0-3100-4ae5-9014-1c406f88ce69"
         xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
         xmlns:q="http://prism.evolveum.com/xml/ns/public/query-3"
-        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3">
+        xmlns:org="http://midpoint.evolveum.com/xml/ns/public/common/org-3"
+        xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
     <name>Require description</name>
     <description>Policy requiring affected objects to have a description.</description>
     <documentation>
@@ -25,9 +26,18 @@
             <policyConstraints>
                 <objectState>
                     <name>constraint-require-description</name>
-                    <filter>
-                        <q:text>description not exists</q:text>
-                    </filter>
+                    <expression>
+                        <script>
+                            <trace>true</trace>
+                            <language>http://midpoint.evolveum.com/xml/ns/public/expression/language#mel</language>
+                            <code>
+                                isNull(object.?description)
+                                || isBlank(str(object.?description))
+                                || size(stringify(object.?description).trim()) &lt; 3
+                                || stringify(object.?description).matches('\\b(?i:TODO)\\b')
+                            </code>
+                        </script>
+                    </expression>
                 </objectState>
             </policyConstraints>
             <markRef oid="2cdf5d6c-9fab-4936-aacb-e484d58e3a12" type="MarkType"/>
