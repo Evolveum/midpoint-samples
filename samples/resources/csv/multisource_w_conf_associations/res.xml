@@ -68,8 +68,8 @@ Org.headerExists=true
 Org.fieldDelimiter=;
 Org.uniqueAttribute=orgid
 Org.nameAttribute=name
-Org.auxiliary=true
-Org.container=true
+Org.auxiliary=false
+Org.container=false
 
 -->
 <resource xmlns="http://midpoint.evolveum.com/xml/ns/public/common/common-3"
