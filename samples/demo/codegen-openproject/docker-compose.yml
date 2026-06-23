@@ -1,0 +1,164 @@
+name: midpilot-codegen-example
+
+services:
+
+  midpoint-data:
+    image: postgres:17-alpine
+    environment:
+      - POSTGRES_PASSWORD=s00perS3creet
+      - POSTGRES_USER=midpoint
+      - POSTGRES_INITDB_ARGS=--lc-collate=en_US.utf8 --lc-ctype=en_US.utf8
+    networks:
+      - net
+    volumes:
+      - midpoint_data:/var/lib/postgresql/data
+
+  data-init:
+    image: registry.evolveum.com/public/midpoint:mcm2026-codegen
+    command: >
+      bash -c "
+      cd /opt/midpoint ;
+      bin/midpoint.sh init-native ;
+      echo ' - - - - - - ' ;
+      bin/ninja.sh -B info >/dev/null 2>/tmp/ninja.log ;
+      grep -q \"ERROR\" /tmp/ninja.log && (
+      bin/ninja.sh run-sql --create --mode REPOSITORY  ;
+      bin/ninja.sh run-sql --create --mode AUDIT
+      ) ||
+      echo -e '\\n Repository init is not needed...' ;
+      "
+    depends_on:
+      - midpoint-data
+    environment:
+      - MP_INIT_CFG=/opt/midpoint/var
+      - MP_SET_midpoint_repository_jdbcUsername=midpoint
+      - MP_SET_midpoint_repository_database=postgresql
+      - MP_SET_midpoint_repository_jdbcPassword=s00perS3creet
+      - MP_SET_midpoint_repository_jdbcUrl=jdbc:postgresql://midpoint-data:5432/midpoint
+    networks:
+      - net
+    volumes:
+      - midpoint_home:/opt/midpoint/var
+
+  midpoint-server:
+      image: registry.evolveum.com/public/midpoint:mcm2026-codegen
+      hostname: midpoint
+      depends_on:
+        data-init:
+          condition: service_completed_successfully
+        midpoint-data:
+          condition: service_started
+      command: [ "/opt/midpoint/bin/midpoint.sh", "container" ]
+      ports:
+        - 8080:8080
+      environment:
+        - MP_SET_midpoint_administrator_initialPassword=op3nS*sam#
+        - MP_SET_midpoint_repository_jdbcUsername=midpoint
+        - MP_SET_midpoint_repository_database=postgresql
+        - MP_SET_midpoint_repository_jdbcPassword=s00perS3creet
+        - MP_SET_midpoint_repository_jdbcUrl=jdbc:postgresql://midpoint-data:5432/midpoint
+        - MP_SET_server_servlet_session_timeout=4h
+        - MP_MEM_MAX=4096M
+        - MP_UNSET_midpoint_repository_hibernateHbm2ddl=1
+        - MP_ENTRY_POINT=/opt/midpoint-dirs-docker-entrypoint
+      networks:
+        - net
+      volumes:
+        - midpoint_home:/opt/midpoint/var
+        - ./midpoint_server/container_files/mp-home:/opt/midpoint-dirs-docker-entrypoint/:ro
+
+  midpilot-connector-gen:
+    image: registry.evolveum.com/public/midpilot-connector-gen:mcm2026
+    container_name: midpilot-connector-gen-api
+    depends_on:
+      midpilot-connector-gen-db:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      LOGGING__LEVEL: info
+      DATABASE__HOST: midpilot-connector-gen-db
+      DATABASE__PORT: ${DATABASE__INT_PORT}
+      DATABASE__URL: postgresql+asyncpg://${DATABASE__USER}:${DATABASE__PASSWORD}@midpilot-connector-gen-db:${DATABASE__INT_PORT}/${DATABASE__NAME}
+      LLM_OPENAI_API_KEY: ${LLM__OPENAI_API_KEY}
+    ports:
+      - "${HOST_PORT:-8090}:8090"
+    networks:
+      - net
+    volumes:
+        - ./lf-cert:/opt/cert
+    command:
+        - /bin/sh
+        - -c
+        - |
+            uv run alembic upgrade head &&
+            python server.py
+
+  midpilot-connector-gen-db:
+    image: postgres:17-alpine
+    container_name: midpilot-connector-gen-db
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${DATABASE__NAME}
+      POSTGRES_USER: ${DATABASE__USER}
+      POSTGRES_PASSWORD: ${DATABASE__PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DATABASE__USER} -d ${DATABASE__NAME}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 5s
+    ports:
+      - ${DATABASE__EXT_PORT}:${DATABASE__INT_PORT}
+    networks:
+      - net
+
+  openproject-app:
+    image: openproject/openproject:${OP_TAG:-17}
+    container_name: openproject-app
+    restart: unless-stopped
+    environment:
+      OPENPROJECT_ADDITIONAL__HOST__NAMES: openproject,localhost,openproject-https
+      OPENPROJECT_SECRET_KEY_BASE: "op3nS*sam#"
+      OPENPROJECT_HOST__NAME:  "localhost:8443"
+      OPENPROJECT_HTTPS: "true"
+    expose:
+        - "80"
+    volumes:
+      - opdata:/var/openproject/pgdata
+      - opassets:/var/openproject/assets
+    networks:
+      - net
+
+  openproject:
+      image: nginx:alpine
+      container_name: openproject-https
+      restart: unless-stopped
+      ports:
+          - "${HTTPS_PORT:-8443}:443"
+      expose:
+          - "443"
+      volumes:
+          - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+          - ./nginx/selfsigned.crt:/etc/nginx/selfsigned.crt:ro
+          - ./nginx/selfsigned.key:/etc/nginx/selfsigned.key:ro
+      depends_on:
+          - openproject-app
+      networks:
+          - net
+
+networks:
+  net:
+    driver: bridge
+
+volumes:
+  midpoint_data:
+  midpoint_home:
+  opdata:
+  opassets:
+  postgres_data:
+    driver: local

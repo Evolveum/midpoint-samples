@@ -1,0 +1,20 @@
+= MidPilot Connector Generator - OpenProject
+
+Demo environment based on the connector development workshop which was delivered at mcm2.
+
+== Service access and links
+The services have the following access:
+
+* The midPoint service:
+** a web API on , link:http://localhost:8080/midpoint/[localhost:8080].
+*** Username: Administrator
+*** Password: op3nS*sam#
+* The midPilot service:
+** a documentation endpoint with swagger UI on link:http://localhost:8090/docs[localhost:8090/docs],
+** a REST api endpoint on, "http://midpilot-connector-gen:8090/api/v1".
+* A openProject instance:
+** a web API on, link:https://localhost:8443/[localhost:8443],
+*** Username: admin
+*** Password: admin
+** REST api endpoint on, "https://openproject/api/v3/" (Basic Auth),
+*** Credentials have to be set up in the web Ui of openProject, please consult the official openProject link:https://www.openproject.org/docs/api/example/[documentation].
