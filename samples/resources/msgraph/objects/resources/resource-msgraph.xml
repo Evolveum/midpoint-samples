@@ -141,7 +141,15 @@
                 <ref>ri:memberOfGroup</ref>
                 <fetchStrategy>explicit</fetchStrategy>
             </attribute>
-
+            <!--Uncomment and configure usageLocation mapping if you encounter error 'License assignment cannot be done for user with invalid usage location.'-->
+            <!--<attribute>-->
+            <!--    <ref>ri:usageLocation</ref>-->
+            <!--    <outbound>-->
+            <!--        <expression>-->
+            <!--            <value>US</value>-->
+            <!--        </expression>-->
+            <!--    </outbound>-->
+            <!--</attribute>-->
             <association>
                 <ref>ri:group</ref>
                 <kind>entitlement</kind>
@@ -168,6 +176,43 @@
                     </outbound>
                 </password>
             </credentials>
+
+            <correlation>
+                <correlators>
+                    <items>
+                        <item>
+                            <ref>name</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+
+            <synchronization>
+                <reaction>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <actions>
+                        <inactivateFocus/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus/>
+                    </actions>
+                </reaction>
+            </synchronization>
         </objectType>
 
         <objectType>
@@ -243,6 +288,48 @@
                 </outbound>
             </attribute>
 
+            <correlation>
+                <correlators>
+                    <items>
+                        <item>
+                            <ref>name</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+
+            <synchronization>
+                <reaction>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <actions>
+                        <unlink/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus/>
+                    </actions>
+                </reaction>
+            </synchronization>
         </objectType>
 
         <objectType>
@@ -308,6 +395,49 @@
                     </target>
                 </inbound>
             </attribute>
+
+            <correlation>
+                <correlators>
+                    <items>
+                        <item>
+                            <ref>name</ref>
+                        </item>
+                    </items>
+                </correlators>
+            </correlation>
+
+            <synchronization>
+                <reaction>
+                    <situation>linked</situation>
+                    <actions>
+                        <synchronize/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>deleted</situation>
+                    <actions>
+                        <unlink/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unlinked</situation>
+                    <actions>
+                        <link/>
+                    </actions>
+                </reaction>
+                <reaction>
+                    <situation>unmatched</situation>
+                    <actions>
+                        <addFocus/>
+                    </actions>
+                </reaction>
+            </synchronization>
         </objectType>
     </schemaHandling>
 
@@ -322,132 +452,4 @@
             </cap:activation>
         </configured>
     </capabilities>
-
-    <synchronization>
-        <objectSynchronization>
-            <objectClass>ri:AccountObjectClass</objectClass>
-            <kind>account</kind>
-            <intent>default</intent>
-            <enabled>true</enabled>
-            <focusType>c:UserType</focusType>
-            <correlation>
-                <q:equal>
-                    <q:path>name</q:path>
-                    <expression>
-                        <path>$projection/attributes/icfs:name</path>
-                    </expression>
-                </q:equal>
-            </correlation>
-            <reaction>
-                <situation>linked</situation>
-                <synchronize>true</synchronize>
-            </reaction>
-            <reaction>
-                <situation>deleted</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#inactivateFocus</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unlinked</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unmatched</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-                </action>
-            </reaction>
-        </objectSynchronization>
-
-        <objectSynchronization>
-            <kind>entitlement</kind>
-            <intent>group</intent>
-            <enabled>true</enabled>
-            <objectClass>ri:GroupObjectClass</objectClass>
-            <focusType>c:RoleType</focusType>
-
-            <correlation>
-                <q:equal>
-                    <q:path>name</q:path>
-                    <expression>
-                        <path>$projection/attributes/icfs:name</path>
-                    </expression>
-                </q:equal>
-            </correlation>
-            <reaction>
-                <situation>linked</situation>
-                <synchronize>true</synchronize>
-            </reaction>
-            <reaction>
-                <situation>deleted</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlink</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unlinked</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unmatched</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-                </action>
-            </reaction>
-        </objectSynchronization>
-
-        <objectSynchronization>
-            <kind>entitlement</kind>
-            <intent>license</intent>
-            <enabled>true</enabled>
-            <objectClass>ri:CustomlicenseObjectClass</objectClass>
-            <focusType>c:ServiceType</focusType>
-
-            <correlation>
-                <q:equal>
-                    <q:path>name</q:path>
-                    <expression>
-                        <path>$projection/attributes/icfs:name</path>
-                    </expression>
-                </q:equal>
-            </correlation>
-            <reaction>
-                <situation>linked</situation>
-                <synchronize>true</synchronize>
-            </reaction>
-            <reaction>
-                <situation>deleted</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#unlink</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unlinked</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#link</handlerUri>
-                </action>
-            </reaction>
-            <reaction>
-                <situation>unmatched</situation>
-                <synchronize>true</synchronize>
-                <action>
-                    <handlerUri>http://midpoint.evolveum.com/xml/ns/public/model/action-3#addFocus</handlerUri>
-                </action>
-            </reaction>
-        </objectSynchronization>
-    </synchronization>
-
 </resource>
