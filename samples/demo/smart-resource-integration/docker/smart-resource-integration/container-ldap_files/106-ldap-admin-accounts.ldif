@@ -1,0 +1,31 @@
+# uid simulates sAMAccountName
+# TODO uid _can_ simulate userPrincipalName, but if we do not want to create inbound mapping with script to import existing usernames, we do not want that
+# cn must be unique within the same container
+
+dn: uid=geena-admin,ou=administrators,{{ LDAP_BASE_DN }}
+cn: Geena Green
+displayname: Geena Green
+employeenumber: 1001
+givenname: Geena
+initials: GG
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Green
+st: Rocky State
+title: CEO (Example, Inc.)
+uid: geena-admin
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+dn: uid=opeterso-admin,ou=administrators,{{ LDAP_BASE_DN }}
+cn: Olaf Peterson
+displayname: Olaf Peterson
+employeenumber: 1013
+givenname: Olaf
+initials: OP
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Peterson
+st: Lava State
+title: CTO (Example, Inc.)
+uid: opeterso-admin
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY

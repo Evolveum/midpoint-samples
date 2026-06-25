@@ -1,0 +1,24 @@
+dn: cn=administrators,ou=admin-groups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: adm:administrators
+description: Allows administrator access for group members. Standard AD management tasks are permitted.
+member: cn=dummy,o=whatever
+member: uid=opeterso-admin,ou=administrators,{{ LDAP_BASE_DN }}
+
+dn: cn=super-administrators,ou=admin-groups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: adm:super-administrators
+description: Only privileged administrators might be members, based on CEO approval. Access to all AD management is permitted.
+member: cn=dummy,o=whatever
+member: uid=opeterso-admin,ou=administrators,{{ LDAP_BASE_DN }}
+
+dn: cn=big-brothers,ou=admin-groups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: adm:big-brothers
+description: Wise men and women, band of brothers and sisters. We are watching you!
+member: cn=dummy,o=whatever
+member: uid=opeterso-admin,ou=administrators,{{ LDAP_BASE_DN }}
+member: uid=geena-admin,ou=administrators,{{ LDAP_BASE_DN }}

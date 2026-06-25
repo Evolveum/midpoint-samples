@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Evolveum, s.r.o." />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>Workshop Cheatsheet</title>
+    </head>
+    <body>
+        <div class="navbar">
+            <h1 class="center">MidPoint Demo Main Navigation Page with Workshop Cheatsheet</h1>
+        </div>
+        <div class="main">
+            <p>
+                Welcome to midPoint demo!
+            </p>
+            <p>
+                Please choose where you want to go (all links open in new window/tab).
+            </p>
+            <div class="menu">
+                <a href="/midpoint/" target="_blank" title="midPoint"><img src="pictures/midpoint_logo_black_white_180.png" alt="[midPoint]"/></a>
+                <a href="/hris" target="_blank" title="HRIS application"><img src="pictures/hris_180x50.png" alt="[HRIS application]"/></a>
+                <a href="/phpldapadmin" target="_blank" title="AD LDAP Browser"><img src="pictures/phpldapadmin-logo-small-white.png" alt="[AD LDAP browser]"/></a>
+                <a href="/midpilot-smart-integration/health" target="_blank" title="MidPilot Smart Integration Service Healthcheck"><img src="pictures/stetostope-h50.png" alt="[MidPilot Smart Integration Service Healthcheck]"/></a>
+            </div>
+            <p>
+                Back to <a href="/">index without cheatsheet</a>.
+            </p>
+
+
+            <h2>HR export (CSV)</h2>
+            <p>Configuration parameters used to configure HR resource and/or object type(s) in midPoint.</p>
+
+            <div class="centered-container">
+                <dl class="cheatsheet">
+                    <dt>File path ${midpoint.home/resources}</dt>
+                    <dd>export.csv</dd>
+
+                    <dt>"Unique ID" column</dt>
+                    <dd>empnum</dd>
+
+                    <dt>"Name" column</dt>
+                    <dd>empnum</dd>
+
+                    <dt>Filter for Employees</dt>
+                    <dd>c:attributes/ri:emptype="FTE"</dd>
+
+                    <dt>Inbound mapping (MEL): job</dt>
+                    <dd>
+                        <pre>input.substring(input.indexOf('#')+1)</pre>
+                    </dd>
+
+                    <dt><b>Inbound mapping (MEL): status</b></dt>
+                    <dd><pre>// Map status values to lifecycleState
+{
+  'Active': 'active',
+  'Long-term leave': 'suspended',
+  'Former employee': 'archived'
+}[?input]</pre>
+                    </dd>
+                </dl>
+            </div>
+
+        <h2>Directory server (LDAP)</h2>
+            <p>Configuration parameters used to configure LDAP resource and/or object type(s) in midPoint.</p>
+            <div class="centered-container">
+                <dl class="cheatsheet">
+                    <dt>Host</dt>
+                    <dd>ldap</dd>
+
+                    <dt>Port</dt>
+                    <dd>389</dd>
+
+                    <dt>Bind DN</dt>
+                    <dd>cn=idm,ou=service-accounts,dc=example,dc=com</dd>
+
+                    <dt>Bind password - Use secret provider - Docker Secret</dt>
+                    <dd>ldap_password</dd>
+
+                    <dt>(Alternative) Bind password - cleartext</dt>
+                    <dd>secret</dd>
+
+                    <dt>Base context</dt>
+                    <dd>dc=example,dc=com</dd>
+
+                    <dt>Employee accounts suffix</dt>
+                    <dd>ou=Users,dc=example,dc=com</dd>
+
+                    <dt>Outbound mapping (MEL): dn</dt>
+                    <dd>
+                        <pre>ldap.composeDnWithSuffix(['uid', name, 'ou=users,dc=example,dc=com'])</pre>
+                    </dd>
+
+                    <dt>Outbound mapping (MEL): title</dt>
+                    <dd>
+                        <pre>default(title, '') + ' (Example, Inc.)'</pre>
+                    </dd>
+                </dl>
+            </div>
+
+            <h2>New HRIS records</h2>
+            <p>Test data for new HR records in the HRIS application.</p>
+            <p>Used in stage 8.</p>
+            <div class="lists-container">
+                <div class="centered-container">
+                    <dl class="cheatsheet">
+                        <dt>Employee Number</dt>
+                        <dd>9000</dd>
+
+                        <dt>First Name</dt>
+                        <dd>Louise</dd>
+
+                        <dt>Surname</dt>
+                        <dd>Callahan</dd>
+
+                        <dt>Status</dt>
+                        <dd>Active</dd>
+
+                        <dt>Employee Type</dt>
+                        <dd>FTE</dd>
+
+                        <dt>Locality</dt>
+                        <dd>White Stone City</dd>
+
+                        <dt>Country</dt>
+                        <dd></dd>
+
+                        <dt>Job</dt>
+                        <dd>222#Export/Import Coordinator</dd>
+                    </dl>
+                </div>
+
+                <div class="centered-container">
+                    <dl class="cheatsheet">
+                        <dt>Employee Number</dt>
+                        <dd>9001</dd>
+
+                        <dt>First Name</dt>
+                        <dd>Andreas</dd>
+
+                        <dt>Surname</dt>
+                        <dd>Baker</dd>
+
+                        <dt>Status</dt>
+                        <dd>Active</dd>
+
+                        <dt>Employee Type</dt>
+                        <dd>FTE</dd>
+
+                        <dt>Locality</dt>
+                        <dd>White Stone City</dd>
+
+                        <dt>Country</dt>
+                        <dd></dd>
+
+                        <dt>Job</dt>
+                        <dd>222#Export/Import Coordinator</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

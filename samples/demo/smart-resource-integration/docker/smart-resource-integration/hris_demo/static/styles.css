@@ -1,0 +1,69 @@
+nav.navbar-dark {
+    background-color: #1f2556 !important;
+    color: white !important;
+    font-weight: bold;
+    padding-left: 2em;
+}
+
+.table thead th.totals {
+    text-align: right;
+    background-color: white !important;
+    color: black !important;
+}
+.table tfoot th.totals {
+    text-align: right;
+    background-color: white !important;
+    color: black !important;
+}
+
+thead.thead-darkblue th {
+    background-color: dimgray !important;
+    color: white !important;
+    text-align: center;
+}
+
+td.centered {
+    text-align: center;
+}
+
+td.status-active span {
+    background-color: darkseagreen !important;
+    color: black;
+    padding: 2px;
+    border: thin solid green;
+    border-radius: 4px;
+}
+
+td.status-long-term-leave span {
+    background-color: #B7D9AB !important;
+    color: black;
+    padding: 4px;
+    border: thin solid darkgreen;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+td.status-former-employee span {
+    background-color: lightgray !important;
+    color: black;
+    padding: 4px;
+    border: thin solid black;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+ td.emptype-fte span {
+    background-color: #D3E0F5 !important;
+    color: black;
+    padding: 4px;
+    border: thin solid darkblue;
+    border-radius: 4px;
+}
+
+td.emptype-contractor span {
+    background-color: #F5E8D3 !important;
+    color: black;
+    padding: 4px;
+    border: thin solid sandybrown;
+    border-radius: 4px;
+}

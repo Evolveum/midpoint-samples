@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mb-4">Confirm Delete</h1>
+<p>Are you sure you want to delete this employee?</p>
+<ul class="mb-4">
+    {% for field in fields if field.displayed %}
+    <li><strong>{{field.display_name}}</strong>: {{employee[field.csv_name]}}</li>
+
+    {% endfor %}
+</ul>
+<form method="POST">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

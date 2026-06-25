@@ -1,0 +1,33 @@
+dn: cn=idm,ou=service-accounts,{{ LDAP_BASE_DN }}
+objectclass: top
+objectclass: person
+cn: idm
+sn: IDM Administrator
+description: Special LDAP account used by the IDM
+  to access the LDAP data.
+userPassword: {SSHA}R5KF3K4X2FX5gkWKuDxm4M6gZyO0QgNF
+
+dn: uid=mail-svc,ou=service-accounts,{{ LDAP_BASE_DN }}
+objectClass: inetOrgPerson
+cn: Mail Service Account
+sn: Service Account
+givenName: Mail
+uid: mail-svc
+userPassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+dn: uid=spam-svc,ou=service-accounts,{{ LDAP_BASE_DN }}
+objectClass: inetOrgPerson
+cn: Spam Assassin Service Account
+sn: Assassin
+givenName: Spam
+uid: spam-svc
+userPassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+dn: uid=www-svc,ou=service-accounts,{{ LDAP_BASE_DN }}
+objectClass: inetOrgPerson
+cn: WWW Service Account
+sn: Service Account
+givenName: WWW
+uid: www-svc
+userPassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+

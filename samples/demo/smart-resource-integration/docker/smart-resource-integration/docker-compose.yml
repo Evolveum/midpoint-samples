@@ -1,0 +1,202 @@
+services:
+
+  midpoint-data:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_PASSWORD=s00perS3creet
+      - POSTGRES_USER=midpoint
+      - POSTGRES_INITDB_ARGS=--lc-collate=en_US.utf8 --lc-ctype=en_US.utf8
+    #    ports:
+    #      - 15432:5432
+#    user: "70:70"
+    networks:
+      - net
+    volumes:
+      - midpoint_data:/var/lib/postgresql/data
+
+  data-init:
+    image: registry.evolveum.com/public/midpoint:smart-integration-demo
+    command: >
+      bash -c "
+      cd /opt/midpoint ;
+      bin/midpoint.sh init-native ;
+      echo ' - - - - - - ' ;
+      bin/ninja.sh -B info >/dev/null 2>/tmp/ninja.log ;
+      grep -q \"ERROR\" /tmp/ninja.log && (
+      bin/ninja.sh run-sql --create --mode REPOSITORY  ;
+      bin/ninja.sh run-sql --create --mode AUDIT
+      ) ||
+      echo -e '\\n Repository init is not needed...' ;
+      "
+    depends_on:
+      - midpoint-data
+    environment:
+      - MP_INIT_CFG=/opt/midpoint/var
+      - MP_SET_midpoint_repository_jdbcUsername=midpoint
+      - MP_SET_midpoint_repository_database=postgresql
+      - MP_SET_midpoint_repository_jdbcPassword=s00perS3creet
+      - MP_SET_midpoint_repository_jdbcUrl=jdbc:postgresql://midpoint-data:5432/midpoint
+    networks:
+      - net
+    volumes:
+      - midpoint_home:/opt/midpoint/var
+
+  ad:
+    image: osixia/openldap:1.5.0
+    entrypoint: [ "/container/tool/run", "--copy-service" ]
+# No ports exposed, http proxy used.
+#    ports:
+#      - "11389:389"
+    environment:
+      - LDAP_DOMAIN=example.com
+      - LDAP_ADMIN_PASSWORD=secret
+      - LDAP_TLS=false
+    networks:
+#      - net
+# FYI I want to have "DNS" alias for this server: "ldap" (and "ad")
+      net:
+        aliases:
+          - ldap
+    volumes:
+      - ad_conf:/etc/ldap/slapd.d
+      - ad_data:/var/lib/ldap
+# "ad": cn=fullName,ou=users,...
+###      - ./container-ad_files:/container/service/slapd/assets/config/bootstrap/ldif/custom/:ro
+# "ldap": uid=name,ou=users,...
+      - ./container-ldap_files:/container/service/slapd/assets/config/bootstrap/ldif/custom/:ro
+
+  midpoint-server:
+    image: registry.evolveum.com/public/midpoint:smart-integration-demo
+    hostname: midpoint
+    depends_on:
+      data-init:
+        condition: service_completed_successfully
+      midpoint-data:
+        condition: service_started
+    command: [ "/opt/midpoint/bin/midpoint.sh", "container" ]
+# No ports exposed, http proxy used.
+# If using MidPoint Studio, use http://localhost/midpoint (reverse proxy) instead of 8080!
+#    ports:
+#      - 8080:8080
+    environment:
+     - MP_SET_midpoint_administrator_initialPassword=T00secret!
+     - MP_SET_midpoint_repository_jdbcUsername=midpoint
+     - MP_SET_midpoint_repository_database=postgresql
+     - MP_SET_midpoint_repository_jdbcPassword=s00perS3creet
+     - MP_SET_midpoint_repository_jdbcUrl=jdbc:postgresql://midpoint-data:5432/midpoint
+##     - MP_SET_midpoint_keystore_keyStorePassword_FILE=/opt/midpoint/var/keystorepw
+     - MP_SET_server_servlet_session_timeout=4h
+## Moved smart integration service URL to System configuration post-initial object
+##     - MP_SET_midpoint_smartIntegration_serviceUrlOverride=http://midpilot-smart-integration:8090/
+     - MP_MEM_MAX=${MEM_MAX:-4096m}
+     - MP_MEM_INIT=${MEM_INIT:-2048m}
+     - MP_UNSET_midpoint_repository_hibernateHbm2ddl=1
+##########     - MP_NO_ENV_COMPAT=1
+     - MP_ENTRY_POINT=/opt/midpoint-dirs-docker-entrypoint
+    networks:
+     - net
+    volumes:
+     - midpoint_home:/opt/midpoint/var
+     - ./midpoint_server/container_files/mp-home:/opt/midpoint-dirs-docker-entrypoint/:ro
+     - hr_export:/opt/midpoint/var/resources
+
+# Docker secret for AD/LDAP resource
+    secrets:
+      - ad_password
+      - ldap_password
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:stable
+    hostname: phpldapadmin
+    command: "--loglevel debug"
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: "#PYTHON2BASH:[{'ad': [{'server': [{'tls': False}]},{'login': [{'auth_type': 'config'}, {'bind_id': 'cn=admin,dc=example,dc=com'}, {'bind_pass': 'secret'}]}]}]"
+      PHPLDAPADMIN_HTTPS: "false"
+# No ports exposed, http proxy used.
+#    ports:
+#      - "8081:80"
+    networks:
+      - net
+    volumes:
+      - phpldapadmin_data:/var/www/phpldapadmin
+    depends_on:
+      - ad
+
+
+  portal:
+    image: nginx:1.24.0-alpine
+    hostname: portal
+    mem_limit: 512m
+    ports:
+      - 80:80
+    networks:
+      - net
+    volumes:
+      - ./portal/html/:/usr/share/nginx/html/
+      - ./portal/conf/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - midpoint-server
+      - hris_demo
+      - phpldapadmin
+    healthcheck:
+      test: ["CMD-SHELL", "curl -so /dev/null http://localhost/ || exit 1"]
+      interval: 60s
+      timeout: 5s
+      retries: 5
+  midpilot-smart-integration:
+    image: registry.evolveum.com/public/midpilot-smart-integration:smart-integration-demo
+    #ports:
+    #  - 8090:8090
+    environment:
+      LOGGING__LEVEL: info
+      LLM__OPENAI_API_BASE: https://openrouter.ai/api/v1
+      LLM__MODEL_NAME: openai/gpt-oss-120b
+      LLM__EXTRA_BODY: "{\"provider\":{\"sort\":\"throughput\"}}"
+      LLM__OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      # enable langfuse for debugging purposes
+      LANGFUSE__TRACING_ENABLED: false
+    networks:
+      - net
+
+  hris_demo:
+    build: ./hris_demo
+    image: evolveum/hris-demo:smart-integration-demo
+    pull_policy: never
+    mem_limit: 256m
+    environment:
+      - FLASK_APP=/src/hris.py
+      - DATABASE=/var/opt/hris/hris.db # Stored in volume hris_demo_data
+      - INITIAL_CSV_FILE=/src/initial_data.csv # Initial data
+      - EXPORT_CSV_FILE=/var/tmp/export.csv # /var/tmp/ directory mapped to volume hr_export
+    networks:
+      - net
+    volumes:
+      - ./hris_demo:/src # FYI "./hris/" directory becomes the content of "/src/" in the container
+      - hr_export:/var/tmp # CSV export location - shared with midPoint
+      - hris_demo_data:/var/opt/hris # Database is stored here
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -so /dev/null http://localhost:8000/hris || exit 1" ]
+    # Python/gunicorn runs on port 8000
+    # ports:
+    #   - 8000:8000
+
+################### Global Docker configuration directives for whole environment
+networks:
+  net:
+    driver: bridge
+
+volumes:
+  midpoint_data:
+  midpoint_home:
+  ad_data:
+  ad_conf:
+  phpldapadmin_data:
+  hr_export:
+# hris testing (at this time, built during startup using its own Dockerfile)
+  hris_demo_data:
+# Secret, to be used in midPoint (AD/LDAP resource password)
+secrets:
+  ad_password:
+    file: ad_password.txt
+  ldap_password:
+    file: ad_password.txt

@@ -1,0 +1,584 @@
+# uid simulates sAMAccountName
+# TODO uid _can_ simulate userPrincipalName, but if we do not want to create inbound mapping with script to import existing usernames, we do not want that
+# cn must be unique within the same container
+
+# FYI Deliberately incorrect CN, givenName and displayName (should be "Alexander") to show in provisioning simulation
+dn: uid=afreeman,ou=users,{{ LDAP_BASE_DN }}
+cn: Alex Freeman
+displayname: Alex Freeman
+employeenumber: 1010
+givenname: Alex
+initials: AF
+l: Fast River City
+objectclass: inetOrgPerson
+sn: Freeman
+# deliberately missing suffix in "title"
+title: Sales Rep.
+uid: afreeman
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=abaker,ou=users,{{ LDAP_BASE_DN }}
+cn: Alice Baker
+displayname: Alice Baker
+employeenumber: 1021
+givenname: Alice
+initials: AB
+l: White Stone City
+objectclass: inetOrgPerson
+sn: Baker
+st: Stone Sstate
+title: Chief Recruiting Officer (Example, Inc.)
+uid: abaker
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=adewries,ou=users,{{ LDAP_BASE_DN }}
+cn: Amanda de Wries
+displayname: Amanda de Wries
+employeenumber: 1030
+givenname: Amanda
+initials: AD
+l: Small Red Rock City
+objectclass: inetOrgPerson
+sn: de Wries
+st: Rocky State
+title: Senior Consultant (Example, Inc.)
+uid: adewries
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+dn: uid=alopez,ou=users,{{ LDAP_BASE_DN }}
+cn: Ana Lopez
+displayname: Ana Lopez
+employeenumber: 1002
+givenname: Ana
+initials: AL
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Lopez
+st: Lava State
+title: CFO (Example, Inc.)
+uid: alopez
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=ajackson,ou=users,{{ LDAP_BASE_DN }}
+cn: Ashley Jackson
+displayname: Ashley Jackson
+employeenumber: 1029
+givenname: Ashley
+initials: AJ
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Jackson
+st: Lava State
+title: Contract Termination Specialist (Example, Inc.)
+uid: ajackson
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=bcarpenter,ou=users,{{ LDAP_BASE_DN }}
+cn: Brad Carpenter
+displayname: Brad Carpenter
+employeenumber: 1024
+givenname: Brad
+initials: BC
+l: Fast River City
+objectclass: inetOrgPerson
+sn: Carpenter
+st: Two River State
+title: Airborne Unit Coordinator (Example, Inc.)
+uid: bcarpenter
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+
+dn: uid=cwhitehe,ou=users,{{ LDAP_BASE_DN }}
+cn: Charles Whitehead
+displayname: Charles Whitehead
+employeenumber: 1039
+givenname: Charles
+initials: CW
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Whitehead
+st: Lava State
+title: Environment Adaptation Specialist (Example, Inc.)
+uid: cwhitehe
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=diverson,ou=users,{{ LDAP_BASE_DN }}
+cn: David Iverson
+displayname: David Iverson
+employeenumber: 1022
+givenname: David
+initials: DI
+l: Small Red Rock City
+objectclass: inetOrgPerson
+roomnumber: disabled
+sn: Iverson
+st: Rocky State
+title: Service Development Specialist (Example, Inc.)
+uid: diverson
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=ddavis,ou=users,{{ LDAP_BASE_DN }}
+cn: Diane Davis
+displayname: Diane Davis
+employeenumber: 1007
+givenname: Diane
+initials: DD
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Davis
+st: Lava State
+title: Junior Consultant (Example, Inc.)
+uid: ddavis
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=emason,ou=users,{{ LDAP_BASE_DN }}
+cn: Elisabeth Mason
+displayname: Elisabeth Mason
+employeenumber: 1008
+givenname: Elisabeth
+initials: EM
+l: Small Red Rock City
+objectclass: inetOrgPerson
+sn: Mason
+st: Rocky State
+title: Accountant (Example, Inc.)
+uid: emason
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=ejones,ou=users,{{ LDAP_BASE_DN }}
+cn: Ellen Jones
+displayname: Ellen Jones
+employeenumber: 1023
+givenname: Ellen
+initials: EJ
+l: Small Red Rock City
+objectclass: inetOrgPerson
+sn: Jones
+st: Rocky State
+title: Contract Termination Specialist (Example, Inc.)
+uid: ejones
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+# FYI Deliberately incorrect CN (should be "Emma Jones" just like the displayName) to show in provisioning simulation
+dn: uid=ejones27,ou=users,{{ LDAP_BASE_DN }}
+cn: Ema Jones
+displayname: Emma Jones
+employeenumber: 1027
+givenname: Emma
+initials: EJ
+l: Fast River City
+objectclass: inetOrgPerson
+sn: Jones
+st: 2 River State
+title: Careers Advisor (Example, Inc.)
+uid: ejones27
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=emendez,ou=users,{{ LDAP_BASE_DN }}
+cn: Eva Mendez
+displayname: Eva Mendez
+employeenumber: 1037
+givenname: Eva
+initials: EM
+l: Hot Lava City
+objectclass: inetOrgPerson
+roomnumber: disabled
+sn: Mendez
+st: Lava State
+title: Junior Consultant (Example, Inc.)
+uid: emendez
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=fusher,ou=users,{{ LDAP_BASE_DN }}
+cn: Frank Usher
+displayname: Frank Usher
+employeenumber: 1017
+givenname: Frank
+initials: FU
+l: White Stone City
+objectclass: inetOrgPerson
+sn: Usher
+st: Stone State
+title: Agent Recruitment Specialist (Example, Inc.)
+uid: fusher
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=fsmith,ou=users,{{ LDAP_BASE_DN }}
+cn: Frederick Smith
+displayname: Frederick Smith
+employeenumber: 1040
+givenname: Frederick
+initials: FS
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Smith
+st: Lava State
+title: Environment Adaptation Specialist (Example, Inc.)
+uid: fsmith
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=geena,ou=users,{{ LDAP_BASE_DN }}
+cn: Geena Green
+displayname: Geena Green
+employeenumber: 1001
+givenname: Geena
+initials: GG
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Green
+st: Rocky State
+title: CEO (Example, Inc.)
+uid: geena
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+# FYI Deliberately incorrect / missing roomNumber: disabled to show in provisioning simulation
+dn: uid=janderso,ou=users,{{ LDAP_BASE_DN }}
+cn: Jane Anderson
+displayname: Jane Anderson
+employeenumber: 1016
+givenname: Jane
+initials: JA
+l: Hot Lava City
+objectclass: inetOrgPerson
+#roomnumber: disabled
+sn: Anderson
+st: Lava State
+title: Junior Consultant (Example, Inc.)
+uid: janderso
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=jjameson,ou=users,{{ LDAP_BASE_DN }}
+cn: Jennifer Jameson
+displayname: Jennifer Jameson
+employeenumber: 1031
+givenname: Jennifer
+initials: JJ
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Jameson
+st: Lava State
+title: Senior Consultant (Example, Inc.)
+uid: jjameson
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=jsmith,ou=users,{{ LDAP_BASE_DN }}
+cn: John Smith
+displayname: John Smith
+employeenumber: 1019
+givenname: John
+initials: JS
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Smith
+st: Lava State
+title: International Intervention Coordinator (Example, Inc.)
+uid: jsmith
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+# FYI Deliberately incorrect CN, givenName and displayName (should be: John Smith-Walker) to show in provisioning simulation
+dn: uid=jsmithwa,ou=users,{{ LDAP_BASE_DN }}
+cn: Jack Smith-Walker
+displayname: Jack Smith-Walker
+employeenumber: 1035
+givenname: Jack
+initials: JS
+l: White Stone City
+objectclass: inetOrgPerson
+sn: Smith-Walker
+st: Stone tate
+title: Sales Representative (Example, Inc.)
+uid: jsmithwa
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=jtaylor2,ou=users,{{ LDAP_BASE_DN }}
+cn: Jonathan Taylor
+displayname: Jonathan Taylor
+employeenumber: 1028
+givenname: Jonathan
+initials: JT
+l: Fast River City
+objectclass: inetOrgPerson
+sn: Taylor
+st: Two River State
+title: Domestic Intervention Coordinator (Example, Inc.)
+uid: jtaylor2
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+# FYI Deliberately incorrect CN (should be: Josef) to show in provisioning simulation
+dn: uid=jzimmer,ou=users,{{ LDAP_BASE_DN }}
+cn: Joseph Zimmer
+displayname: Josef Zimmer
+employeenumber: 1009
+givenname: Josef
+initials: JZ
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Zimmer
+st: Lava State
+title: Sales Representative (Example, Inc.)
+uid: jzimmer
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+# FYI Deliberately incorrect CN, givenName and displayName (should be "Joseph Smith") to show in provisioning simulation
+dn: uid=jsmith2,ou=users,{{ LDAP_BASE_DN }}
+cn: Joe Smith
+displayname: Joe Smith
+employeenumber: 1026
+givenname: Joe
+initials: JS
+l: White Stone City
+objectclass: inetOrgPerson
+sn: Smith
+st: Stone State
+title: Expert Specialist (Example, Inc.)
+uid: jsmith2
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+# FYI Deliberately incorrect / missing roomNumber: disabled to show in provisioning simulation
+dn: uid=lshepher,ou=users,{{ LDAP_BASE_DN }}
+cn: Laura Shepherd
+displayname: Laura Shepherd
+employeenumber: 1034
+givenname: Laura
+initials: LS
+l: Hot Lava City
+objectclass: inetOrgPerson
+#roomnumber: disabled
+sn: Shepherd
+st: Lava State
+title: Sales Representative (Example, Inc.)
+uid: lshepher
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=lrider,ou=users,{{ LDAP_BASE_DN }}
+cn: Lucy Rider
+displayname: Lucy Rider
+employeenumber: 1015
+givenname: Lucy
+initials: LR
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Rider
+title: HR Director (Example, Inc.)
+uid: lrider
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=mschmitt,ou=users,{{ LDAP_BASE_DN }}
+cn: Maria Schmitt
+displayname: Maria Schmitt
+employeenumber: 1036
+givenname: Maria
+initials: MS
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Schmitt
+st: Lava State
+title: Junior Consultant (Example, Inc.)
+uid: mschmitt
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+dn: uid=mknight,ou=users,{{ LDAP_BASE_DN }}
+cn: Martin Knight
+displayname: Martin Knight
+employeenumber: 1006
+givenname: Martin
+initials: MK
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Knight
+title: Junior Specialist (Example, Inc.)
+uid: mknight
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+dn: uid=opeterso,ou=users,{{ LDAP_BASE_DN }}
+cn: Olaf Peterson
+displayname: Olaf Peterson
+employeenumber: 1013
+givenname: Olaf
+initials: OP
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Peterson
+st: Lava State
+title: CTO (Example, Inc.)
+uid: opeterso
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=oxander,ou=users,{{ LDAP_BASE_DN }}
+cn: Olivia Xander
+displayname: Olivia Xander
+employeenumber: 1020
+givenname: Olivia
+initials: OX
+l: Hot Lava City
+objectclass: inetOrgPerson
+roomnumber: disabled
+sn: Xander
+st: Lava State
+title: Agent Recruitment Specialist (Example, Inc.)
+uid: oxander
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=panderson,ou=users,{{ LDAP_BASE_DN }}
+cn: Patrick Anderson
+displayname: Patrick Anderson
+employeenumber: 1032
+givenname: Patrick
+initials: PA
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Anderson
+st: Lava State
+title: Negotiation Specialist (Example, Inc.)
+uid: panderson
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=hunter,ou=users,{{ LDAP_BASE_DN }}
+cn: Peter Hunter
+displayname: Peter Hunter
+employeenumber: 1004
+givenname: Peter
+initials: PH
+l: White Stone City
+objectclass: inetOrgPerson
+sn: Hunter
+st: Stone State
+title: HR Consultant (Example, Inc.)
+uid: hunter
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=rpedroso,ou=users,{{ LDAP_BASE_DN }}
+cn: Ricardo Pedroso
+displayname: Ricardo Pedroso
+employeenumber: 1038
+givenname: Ricardo
+initials: RP
+l: Hot Lava City
+objectclass: inetOrgPerson
+sn: Pedroso
+st: Lava State
+title: Expert Accountant (Example, Inc.)
+uid: rpedroso
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=rnelson,ou=users,{{ LDAP_BASE_DN }}
+cn: Robert Nelson
+displayname: Robert Nelson
+employeenumber: 1012
+givenname: Robert
+initials: RN
+l: Fast River City
+objectclass: inetOrgPerson
+sn: Nelson
+st: Two Rivrr State
+title: Service Development Specialist (Example, Inc.)
+uid: rnelson
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=rriley,ou=users,{{ LDAP_BASE_DN }}
+cn: Robert Riley
+displayname: Robert Riley
+employeenumber: 1025
+givenname: Robert
+initials: RR
+l: Fast River City
+objectclass: inetOrgPerson
+sn: Riley
+st: Two River State
+title: Careers Advisor (Example, Inc.)
+uid: rriley
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=sbrown,ou=users,{{ LDAP_BASE_DN }}
+cn: Sam Brown
+displayname: Sam Brown
+employeenumber: 1018
+givenname: Sam
+initials: SB
+l: White Stone City
+objectclass: inetOrgPerson
+sn: Brown
+st: Stone State
+title: Agent Recruitment Specialist (Example, Inc.)
+uid: sbrown
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=shoover,ou=users,{{ LDAP_BASE_DN }}
+cn: Scott Hoover
+displayname: Scott Hoover
+employeenumber: 1033
+givenname: Scott
+initials: SH
+l: Fast River City
+objectclass: inetOrgPerson
+sn: Hoover
+st: Two River State
+title: Negotiation Specialist (Example, Inc.)
+uid: shoover
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=twalker,ou=users,{{ LDAP_BASE_DN }}
+cn: Tom Walker
+displayname: Tom Walker
+employeenumber: 1014
+givenname: Tom
+initials: TW
+l: White Stone City
+objectclass: inetOrgPerson
+sn: Walker
+st: Stone State
+title: Junior Consultant (Example, Inc.)
+uid: twalker
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+
+dn: uid=vviolet,ou=users,{{ LDAP_BASE_DN }}
+cn: Victoria Violet
+displayname: Victoria Violet
+employeenumber: 1011
+givenname: Victoria
+initials: VV
+l: White Stone City
+objectclass: inetOrgPerson
+sn: Violet
+st: Stone State
+title: Sales Director (Example, Inc.)
+uid: vviolet
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY
+
+# Extra account to be protected later
+dn: uid=test123,ou=users,{{ LDAP_BASE_DN }}
+cn: Test123
+displayname: Test123
+givenname: Test123
+objectclass: inetOrgPerson
+sn: Test123
+uid: test123
+userpassword: {SSHA}nbiCSFRf7D89b9wZYLqzOKT6PBVHd4YY

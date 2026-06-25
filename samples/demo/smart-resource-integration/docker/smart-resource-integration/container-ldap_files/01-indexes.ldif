@@ -1,0 +1,6 @@
+#define indexes to resolve warning: mdb_substring_candidates: (cn) not indexed
+
+dn: olcDatabase={1}{{ LDAP_BACKEND }},cn=config
+changetype: modify
+add: olcDbIndex
+olcDbIndex: cn sub,eq

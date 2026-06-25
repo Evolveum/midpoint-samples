@@ -1,0 +1,343 @@
+###################################################################################################
+## for application "Area 52 Research Facility"
+## Owner: Geena Green
+###################################################################################################
+dn: cn=app:area52-research-facility:personnel-door,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:area52-research-facility:personnel-door
+description: Access to main personnel door in Area 52 research facility.
+member: cn=dummy,o=whatever
+member: uid=geena,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rnelson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=opeterso,ou=users,{{ LDAP_BASE_DN }}
+member: uid=fusher,ou=users,{{ LDAP_BASE_DN }}
+member: uid=sbrown,ou=users,{{ LDAP_BASE_DN }}
+member: uid=oxander,ou=users,{{ LDAP_BASE_DN }}
+member: uid=abaker,ou=users,{{ LDAP_BASE_DN }}
+member: uid=diverson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=cwhitehe,ou=users,{{ LDAP_BASE_DN }}
+member: uid=fsmith,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Weather Control"
+## Owner: Olaf Peterson
+###################################################################################################
+dn: cn=app:weather-control:developers,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:weather-control:developers
+member: cn=dummy,o=whatever
+member: uid=rnelson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=opeterso,ou=users,{{ LDAP_BASE_DN }}
+member: uid=cwhitehe,ou=users,{{ LDAP_BASE_DN }}
+member: uid=fsmith,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Weather Control"
+## Owner: Geena Green
+###################################################################################################
+dn: cn=app:weather-control:users,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:weather-control:users
+member: cn=dummy,o=whatever
+member: uid=geena,ou=users,{{ LDAP_BASE_DN }}
+member: uid=vviolet,ou=users,{{ LDAP_BASE_DN }}
+member: uid=fusher,ou=users,{{ LDAP_BASE_DN }}
+member: uid=sbrown,ou=users,{{ LDAP_BASE_DN }}
+member: uid=oxander,ou=users,{{ LDAP_BASE_DN }}
+member: uid=abaker,ou=users,{{ LDAP_BASE_DN }}
+member: uid=bcarpenter,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rriley,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ejones27,ou=users,{{ LDAP_BASE_DN }}
+member: uid=panderson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=shoover,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Teleportation Device"
+## Owner: Geena Green
+###################################################################################################
+dn: cn=app:teleportation-device:users,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:teleportation-device:users
+description: Provides access to teleportation device.
+member: cn=dummy,o=whatever
+member: uid=geena,ou=users,{{ LDAP_BASE_DN }}
+member: uid=vviolet,ou=users,{{ LDAP_BASE_DN }}
+member: uid=fusher,ou=users,{{ LDAP_BASE_DN }}
+member: uid=sbrown,ou=users,{{ LDAP_BASE_DN }}
+member: uid=oxander,ou=users,{{ LDAP_BASE_DN }}
+member: uid=abaker,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rriley,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ejones27,ou=users,{{ LDAP_BASE_DN }}
+member: uid=mschmitt,ou=users,{{ LDAP_BASE_DN }}
+member: uid=panderson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=shoover,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Telekinesis Augmentation"
+## Owner: Geena Green
+###################################################################################################
+dn: cn=app:telekinesis-augmentation:developers,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:telekinesis-augmentation:developers
+description: Provides access to telekinesis augmentation for developers.
+member: cn=dummy,o=whatever
+member: uid=geena,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jsmith2,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Telekinesis Augmentation"
+## Owner: Geena Green
+###################################################################################################
+dn: cn=app:telekinesis-augmentation:users,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:telekinesis-augmentation:users
+description: Provides access to telekinesis augmentation for users of telekinesis.
+member: cn=dummy,o=whatever
+member: uid=geena,ou=users,{{ LDAP_BASE_DN }}
+member: uid=vviolet,ou=users,{{ LDAP_BASE_DN }}
+member: uid=fusher,ou=users,{{ LDAP_BASE_DN }}
+member: uid=sbrown,ou=users,{{ LDAP_BASE_DN }}
+member: uid=oxander,ou=users,{{ LDAP_BASE_DN }}
+member: uid=abaker,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rriley,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ejones27,ou=users,{{ LDAP_BASE_DN }}
+member: uid=mschmitt,ou=users,{{ LDAP_BASE_DN }}
+member: uid=panderson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=shoover,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Time Travel"
+## Owner: Olaf Peterson
+###################################################################################################
+dn: cn=app:time-travel:developers,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:time-travel:developers
+description: Provides lower-level access to time travel technology for developers.
+member: cn=dummy,o=whatever
+member: uid=ddavis,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rnelson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=opeterso,ou=users,{{ LDAP_BASE_DN }}
+member: uid=twalker,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jsmith2,ou=users,{{ LDAP_BASE_DN }}
+member: uid=adewries,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jjameson,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Time Travel"
+## Owner: Geena Green
+###################################################################################################
+dn: cn=app:time-travel:users,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:time-travel:users
+description: Provides access to time travel technology for users.
+member: cn=dummy,o=whatever
+member: uid=geena,ou=users,{{ LDAP_BASE_DN }}
+member: uid=vviolet,ou=users,{{ LDAP_BASE_DN }}
+member: uid=fusher,ou=users,{{ LDAP_BASE_DN }}
+member: uid=sbrown,ou=users,{{ LDAP_BASE_DN }}
+member: uid=oxander,ou=users,{{ LDAP_BASE_DN }}
+member: uid=abaker,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rriley,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ejones27,ou=users,{{ LDAP_BASE_DN }}
+member: uid=panderson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=shoover,ou=users,{{ LDAP_BASE_DN }}
+member: uid=mschmitt,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Invisibility Research"
+## Owner: Geena Green
+###################################################################################################
+dn: cn=app:invisibility-research:users,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:invisibility-research:users
+description: Allows access to invisibility research results, manuals and devices for users.
+member: cn=dummy,o=whatever
+member: uid=geena,ou=users,{{ LDAP_BASE_DN }}
+member: uid=vviolet,ou=users,{{ LDAP_BASE_DN }}
+member: uid=fusher,ou=users,{{ LDAP_BASE_DN }}
+member: uid=sbrown,ou=users,{{ LDAP_BASE_DN }}
+member: uid=oxander,ou=users,{{ LDAP_BASE_DN }}
+member: uid=abaker,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rriley,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ejones27,ou=users,{{ LDAP_BASE_DN }}
+member: uid=panderson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=shoover,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Invisibility Research"
+## Owner: Olaf Peterson
+###################################################################################################
+dn: cn=app:invisibility-research:developers,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:invisibility-research:developers
+description: Provides lower-level access to invisibility research and technology for developers.
+member: cn=dummy,o=whatever
+member: uid=opeterso,ou=users,{{ LDAP_BASE_DN }}
+member: uid=janderso,ou=users,{{ LDAP_BASE_DN }}
+member: uid=adewries,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jjameson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=emendez,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Customer Conversion"
+## Owner: Olaf Peterson
+###################################################################################################
+dn: cn=app:customer-conversion:specialists,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:customer-conversion:specialists
+member: cn=dummy,o=whatever
+member: uid=geena,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jzimmer,ou=users,{{ LDAP_BASE_DN }}
+member: uid=afreeman,ou=users,{{ LDAP_BASE_DN }}
+member: uid=vviolet,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jsmith,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rriley,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ejones27,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jtaylor2,ou=users,{{ LDAP_BASE_DN }}
+member: uid=panderson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=shoover,ou=users,{{ LDAP_BASE_DN }}
+member: uid=lshepher,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jsmithwa,ou=users,{{ LDAP_BASE_DN }}
+member: uid=opeterso,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Customer Conversion"
+## Owner: Olaf Peterson
+###################################################################################################
+dn: cn=app:customer-conversion:developers,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:customer-conversion:developers
+member: cn=dummy,o=whatever
+member: uid=opeterso,ou=users,{{ LDAP_BASE_DN }}
+member: uid=adewries,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jjameson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rpedroso,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Example Life Insurance"
+## Owner: Olaf Peterson
+###################################################################################################
+dn: cn=app:example-life-insurance:advisors,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:example-life-insurance:advisors
+member: cn=dummy,o=whatever
+member: uid=jzimmer,ou=users,{{ LDAP_BASE_DN }}
+member: uid=afreeman,ou=users,{{ LDAP_BASE_DN }}
+member: uid=vviolet,ou=users,{{ LDAP_BASE_DN }}
+member: uid=fusher,ou=users,{{ LDAP_BASE_DN }}
+member: uid=sbrown,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jsmith,ou=users,{{ LDAP_BASE_DN }}
+member: uid=oxander,ou=users,{{ LDAP_BASE_DN }}
+member: uid=abaker,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rriley,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ejones27,ou=users,{{ LDAP_BASE_DN }}
+member: uid=adewries,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jjameson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=panderson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=shoover,ou=users,{{ LDAP_BASE_DN }}
+member: uid=lshepher,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jsmithwa,ou=users,{{ LDAP_BASE_DN }}
+member: uid=opeterso,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Example Life Insurance"
+## Owner: Olaf Peterson
+###################################################################################################
+dn: cn=app:example-life-insurance:risk-actuaries,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:example-life-insurance:risk-actuaries
+member: cn=dummy,o=whatever
+member: uid=geena,ou=users,{{ LDAP_BASE_DN }}
+member: uid=alopez,ou=users,{{ LDAP_BASE_DN }}
+member: uid=mknight,ou=users,{{ LDAP_BASE_DN }}
+member: uid=opeterso,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rriley,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ejones27,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Example Life Insurance"
+## Owner: Olaf Peterson
+###################################################################################################
+dn: cn=app:example-life-insurance:claim-adjusters,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:example-life-insurance:claim-adjusters
+member: cn=dummy,o=whatever
+member: uid=fusher,ou=users,{{ LDAP_BASE_DN }}
+member: uid=sbrown,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jsmith,ou=users,{{ LDAP_BASE_DN }}
+member: uid=oxander,ou=users,{{ LDAP_BASE_DN }}
+member: uid=abaker,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ejones,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rriley,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ejones27,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ajackson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=opeterso,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Project XX-26"
+## Owner: Olaf Peterson
+###################################################################################################
+dn: cn=app:project-xx26:developers,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:project-xx26:developers
+member: cn=dummy,o=whatever
+member: uid=opeterso,ou=users,{{ LDAP_BASE_DN }}
+member: uid=diverson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jsmith2,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Project X-26"
+## Owner: Olaf Peterson
+###################################################################################################
+dn: cn=app:project-xx26:users,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:project-xx26:users
+member: cn=dummy,o=whatever
+member: uid=geena,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jzimmer,ou=users,{{ LDAP_BASE_DN }}
+member: uid=afreeman,ou=users,{{ LDAP_BASE_DN }}
+member: uid=vviolet,ou=users,{{ LDAP_BASE_DN }}
+member: uid=fusher,ou=users,{{ LDAP_BASE_DN }}
+member: uid=sbrown,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jsmith,ou=users,{{ LDAP_BASE_DN }}
+member: uid=oxander,ou=users,{{ LDAP_BASE_DN }}
+member: uid=abaker,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ejones,ou=users,{{ LDAP_BASE_DN }}
+member: uid=bcarpenter,ou=users,{{ LDAP_BASE_DN }}
+member: uid=rriley,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ejones27,ou=users,{{ LDAP_BASE_DN }}
+member: uid=ajackson,ou=users,{{ LDAP_BASE_DN }}
+member: uid=lshepher,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jsmithwa,ou=users,{{ LDAP_BASE_DN }}
+member: uid=opeterso,ou=users,{{ LDAP_BASE_DN }}
+
+###################################################################################################
+## for application "Project X-26"
+## Owner: Olaf Peterson
+###################################################################################################
+dn: cn=app:project-xx26:stage2-users,ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: groupOfNames
+objectClass: top
+cn: app:project-xx26:stage2-users
+member: cn=dummy,o=whatever
+member: uid=geena,ou=users,{{ LDAP_BASE_DN }}
+member: uid=jzimmer,ou=users,{{ LDAP_BASE_DN }}
+member: uid=afreeman,ou=users,{{ LDAP_BASE_DN }}
+

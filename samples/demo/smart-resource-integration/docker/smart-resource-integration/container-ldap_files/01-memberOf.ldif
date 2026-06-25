@@ -1,0 +1,19 @@
+# modified for groupOfNames and member attribute
+# Load memberof module
+#dn: cn=module{0},cn=config
+#changetype: modify
+#add: olcModuleLoad
+#olcModuleLoad: memberof
+
+# Backend memberOf overlay
+dn: olcOverlay=memberof,olcDatabase={1}{{ LDAP_BACKEND }},cn=config
+changetype: add
+objectClass: olcOverlayConfig
+objectClass: olcMemberOf
+olcOverlay: memberof
+olcMemberOfDangling: ignore
+olcMemberOfRefInt: TRUE
+olcMemberOfGroupOC: groupOfNames
+olcMemberOfMemberAD: member
+olcMemberOfMemberOfAD: memberOf
+

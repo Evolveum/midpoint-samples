@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+<h1 class="mb-4">Edit Employee</h1>
+<div class="form-container mb-4">
+    <form method="POST" class="col-lg-6 offset-lg-3">
+        {% for field in fields if field.displayed %}
+        <div class="mb-3">
+            <label for="{{ field.csv_name }}" class="form-label">{{ field.display_name }}</label>
+            {% if field.allowed_values %}
+            <select class="form-select" id="{{ field.csv_name }}" name="{{ field.csv_name }}" {% if field.get('required', False) %}required{% endif %}>
+                {% for value in field.allowed_values %}
+                <option value="{{ value }}" {% if employee[field.csv_name] == value %}selected{% endif %}>{{ value }}</option>
+                {% endfor %}
+            </select>
+            {% else %}
+            <input type="text" class="form-control" id="{{ field.csv_name }}" name="{{ field.csv_name }}" value="{{ employee[field.csv_name] }}" {% if field.get('disableUpdate', False) %}readonly{% endif %} {% if field.get('required', False) %}required{% endif %}>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+</div>
+
+{% endblock %}

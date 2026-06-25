@@ -1,0 +1,98 @@
+= Smart Resource Integration Demo
+
+Demo environment based on the *AI Assisted Integration of First Systems with MidPoint* workshop which was delivered on MidPoint Community Meetup 2026.
+
+More information can be found in link:https://docs.evolveum.com/midpoint/projects/midPilot/resources/smart-resource-integration.pdf[Try Me (Workshop): AI Assisted Integration of First Systems with MidPoint] presentation.
+
+== Prerequisites
+
+* Download and install link:https://www.docker.com/get-started/[Docker] for your operating system.
+You can install either:
+** Full Docker Desktop using the link above
+** (Linux only) link:https://docs.docker.com/engine/install[Docker Engine] and link:https://docs.docker.com/compose/install[Docker Compose Plugin]
+* We recommend at least 16 GB RAM as the environment contains multiple Docker containers
+* Please note: TCP port 80 must be available on your machine
+
+== Clone midpoint-samples Repository (GitHub)
+
+* Clone link:https://github.com/Evolveum/midpoint-samples.git[midpoint-samples] repository
+* Go to samples/demo/smart-resource-integration directory
+** Docker configuration is in `docker/smart-resource-integration` subdirectory
+
+== Configure LLM Gateway
+
+* *midpilot-smart-integration* service is configured to use OpenRouter as your LLM gateway in `docker-compose.yml`
+* get access API key for OpenRouter (please refer to OpenRouter documentation: https://openrouter.ai/docs/guides/overview/auth/management-api-keys[Management API Keys])
+* add API key using variable `OPENAI_API_KEY` in `.env` file, e.g.:
++
+[source]
+----
+OPENAI_API_KEY=sk-or-v1-abc...123
+----
+
+== Create and Start Docker Environment
+
+Run the following commands:
+
+[source,bash]
+----
+cd smart-resource-integration
+docker compose up -d
+----
+
+NOTE: "smart-resource-integration" directory is the one containing `docker-compose.yml` file.
+
+== Stop Docker Environment
+
+To stop (but keep) the environment for later, run the following commands:
+
+[source,bash]
+----
+cd smart-resource-integration
+docker compose down
+----
+
+== Stop and Remove Docker Environment
+
+To stop and remove the environment (containers, volumes, networks), run the following commands:
+
+[source,bash]
+----
+cd smart-resource-integration
+docker compose down -v
+----
+
+
+== Environment Access
+
+*Portal page*:
+
+* *URL*: http://localhost
+
+*MidPoint GUI*:
+
+* *URL*: http://localhost/midpoint/ or via link in Portal page
+* *Login*: `administrator`
+* *Password*: `T00secret!`
+
+*HRIS*:
+
+* *URL*: http://localhost/hris or via link in Portal page
+* (no authentication)
+
+*PHP LDAP Admin*:
+
+* *URL*: http://localhost/phpldapadmin/ or via link in Portal page
+* (no authentication, logged in as `cn=admin,dc=example,dc=com`)
+
+*AI Service Healthcheck*:
+
+* *URL*: http://localhost/midpilot-smart-integration/health or via link in Portal page
+* (no authentication)
+
+*LDAP service account(s) (for midPoint)*:
+
+* *DN*:
+** `cn=idm,ou=service-accounts,dc=example,dc=com` (dedicated admin), or
+** `cn=admin,dc=example,dc=com` (full admin)
+* *Password*: `secret`

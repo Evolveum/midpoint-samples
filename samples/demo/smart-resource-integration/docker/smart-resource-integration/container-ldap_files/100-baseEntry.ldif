@@ -1,0 +1,30 @@
+dn: ou=groups,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: groups
+
+dn: ou=appgroups,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: appgroups
+
+dn: ou=admin-groups,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: admin-groups
+
+dn: ou=users,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: users
+
+dn: ou=service-accounts,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: service-accounts
+
+dn: ou=administrators,{{ LDAP_BASE_DN }}
+objectClass: top
+objectClass: organizationalUnit
+ou: administrators
+

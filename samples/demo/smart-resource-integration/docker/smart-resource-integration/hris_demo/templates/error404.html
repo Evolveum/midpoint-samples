@@ -1,0 +1,8 @@
+
+{% extends "base.html" %}
+{% block title %}Internal Server Error{% endblock %}
+{% block content %}
+<h1>Page not found</h1>
+<p>If you search everywhere, yet cannot find what you are seeking, it is because what you seek is already in your possession. (Lao Tzu)</p>
+<p><a href="{{ url_for('index') }}">Go back to the application.</a>
+    {% endblock %}
