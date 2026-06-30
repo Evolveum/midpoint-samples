@@ -133,7 +133,7 @@
                 <reaction>
                     <situation>deleted</situation>
                     <actions>
-                        <unlink/>
+                        <synchronize/>
                     </actions>
                 </reaction>
                 <!-- intentionally no reaction for unmatched -->

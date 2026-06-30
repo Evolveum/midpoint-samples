@@ -87,7 +87,7 @@
                 <reaction>
                     <situation>deleted</situation>
                     <actions>
-                        <unlink/>
+                        <synchronize/>
                     </actions>
                 </reaction>
                 <reaction>

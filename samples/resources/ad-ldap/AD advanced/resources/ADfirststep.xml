@@ -1980,7 +1980,7 @@
                     <lifecycleState>active</lifecycleState>
                     <situation>deleted</situation>
                     <actions>
-                        <unlink/>
+                        <synchronize/>
                     </actions>
                 </reaction>
                 <reaction>
@@ -2342,7 +2342,7 @@
                     <lifecycleState>active</lifecycleState>
                     <situation>deleted</situation>
                     <actions>
-                        <unlink/>
+                        <synchronize/>
                     </actions>
                 </reaction>
                 <reaction>
@@ -2725,7 +2725,7 @@
                     <lifecycleState>active</lifecycleState>
                     <situation>deleted</situation>
                     <actions>
-                        <unlink/>
+                        <synchronize/>
                     </actions>
                 </reaction>
                 <reaction>
@@ -3082,7 +3082,7 @@
                     <lifecycleState>active</lifecycleState>
                     <situation>deleted</situation>
                     <actions>
-                        <unlink/>
+                        <synchronize/>
                     </actions>
                 </reaction>
                 <reaction>
@@ -3440,7 +3440,7 @@
                     <lifecycleState>active</lifecycleState>
                     <situation>deleted</situation>
                     <actions>
-                        <unlink/>
+                        <synchronize/>
                     </actions>
                 </reaction>
                 <reaction>
@@ -3797,7 +3797,7 @@
                     <lifecycleState>active</lifecycleState>
                     <situation>deleted</situation>
                     <actions>
-                        <unlink/>
+                        <synchronize/>
                     </actions>
                 </reaction>
                 <reaction>
@@ -4154,7 +4154,7 @@
                     <lifecycleState>active</lifecycleState>
                     <situation>deleted</situation>
                     <actions>
-                        <unlink/>
+                        <synchronize/>
                     </actions>
                 </reaction>
                 <reaction>
@@ -4512,7 +4512,7 @@
                     <lifecycleState>active</lifecycleState>
                     <situation>deleted</situation>
                     <actions>
-                        <unlink/>
+                        <synchronize/>
                     </actions>
                 </reaction>
                 <reaction>
