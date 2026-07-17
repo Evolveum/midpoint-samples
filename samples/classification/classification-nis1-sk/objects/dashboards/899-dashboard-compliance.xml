@@ -179,7 +179,7 @@
             <icon>
                 <cssClass>fa fa-circle-radiation</cssClass>
             </icon>
-            <color>var(--secondary)</color>
+            <color>var(--bs-secondary)</color>
         </display>
         <displayOrder>1010</displayOrder>
         <data>

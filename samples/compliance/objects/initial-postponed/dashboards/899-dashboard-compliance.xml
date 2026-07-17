@@ -36,7 +36,7 @@
             <icon>
                 <cssClass>fa fa-cloud</cssClass>
             </icon>
-            <color>var(--lightblue)</color>
+            <color>var(--bs-lightblue)</color>
         </display>
         <displayOrder>100</displayOrder>
         <data>
@@ -71,7 +71,7 @@
             <icon>
                 <cssClass>fa fa-user-xmark</cssClass>
             </icon>
-            <color>var(--success)</color>
+            <color>var(--bs-success)</color>
         </display>
         <displayOrder>110</displayOrder>
         <data>
@@ -96,7 +96,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--orange)</color>
+                    <color>var(--bs-orange)</color>
                 </display>
             </variation>
             <variation>
@@ -106,7 +106,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--danger)</color>
+                    <color>var(--bs-danger)</color>
                 </display>
             </variation>
         </presentation>
@@ -134,7 +134,7 @@
             <icon>
                 <cssClass>fa fa-times-circle</cssClass>
             </icon>
-            <color>var(--success)</color>
+            <color>var(--bs-success)</color>
         </display>
         <displayOrder>120</displayOrder>
         <data>
@@ -159,7 +159,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--orange)</color>
+                    <color>var(--bs-orange)</color>
                 </display>
             </variation>
             <variation>
@@ -169,7 +169,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--danger)</color>
+                    <color>var(--bs-danger)</color>
                 </display>
             </variation>
         </presentation>
@@ -189,7 +189,7 @@
             <icon>
                 <cssClass>fa fa-handcuffs</cssClass>
             </icon>
-            <color>var(--success)</color>
+            <color>var(--bs-success)</color>
         </display>
         <displayOrder>140</displayOrder>
         <data>
@@ -214,7 +214,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--orange)</color>
+                    <color>var(--bs-orange)</color>
                 </display>
             </variation>
             <variation>
@@ -224,7 +224,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--danger)</color>
+                    <color>var(--bs-danger)</color>
                 </display>
             </variation>
         </presentation>
@@ -245,7 +245,7 @@
             <icon>
                 <cssClass>fe fe-role</cssClass>
             </icon>
-            <color>var(--lightblue)</color>
+            <color>var(--bs-lightblue)</color>
         </display>
         <displayOrder>200</displayOrder>
         <data>
@@ -280,7 +280,7 @@
             <icon>
                 <cssClass>fa fa-user-xmark</cssClass>
             </icon>
-            <color>var(--success)</color>
+            <color>var(--bs-success)</color>
         </display>
         <displayOrder>210</displayOrder>
         <data>
@@ -305,7 +305,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--orange)</color>
+                    <color>var(--bs-orange)</color>
                 </display>
             </variation>
             <variation>
@@ -315,7 +315,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--danger)</color>
+                    <color>var(--bs-danger)</color>
                 </display>
             </variation>
         </presentation>
@@ -335,7 +335,7 @@
             <icon>
                 <cssClass>fa fa-circle-radiation</cssClass>
             </icon>
-            <color>var(--lightblue)</color>
+            <color>var(--bs-lightblue)</color>
         </display>
         <displayOrder>220</displayOrder>
         <data>
@@ -370,7 +370,7 @@
             <icon>
                 <cssClass>fa fa-handcuffs</cssClass>
             </icon>
-            <color>var(--success)</color>
+            <color>var(--bs-success)</color>
         </display>
         <displayOrder>230</displayOrder>
         <data>
@@ -395,7 +395,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--orange)</color>
+                    <color>var(--bs-orange)</color>
                 </display>
             </variation>
             <variation>
@@ -405,7 +405,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--danger)</color>
+                    <color>var(--bs-danger)</color>
                 </display>
             </variation>
         </presentation>
@@ -426,7 +426,7 @@
             <icon>
                 <cssClass>fa fa-user</cssClass>
             </icon>
-            <color>var(--lightblue)</color>
+            <color>var(--bs-lightblue)</color>
         </display>
         <displayOrder>300</displayOrder>
         <data>
@@ -459,7 +459,7 @@
                     <key>ComplianceDashboard.usersWithSodViolations</key>
                 </translation>
             </label>
-            <color>var(--success)</color>
+            <color>var(--bs-success)</color>
             <icon>
                 <cssClass>fa fa-people-arrows</cssClass>
             </icon>
@@ -497,7 +497,7 @@
             <icon>
                 <cssClass>fa fa-circle-radiation</cssClass>
             </icon>
-            <color>var(--lightblue)</color>
+            <color>var(--bs-lightblue)</color>
         </display>
         <displayOrder>320</displayOrder>
         <data>
@@ -532,7 +532,7 @@
             <icon>
                 <cssClass>fa fa-handcuffs</cssClass>
             </icon>
-            <color>var(--success)</color>
+            <color>var(--bs-success)</color>
         </display>
         <displayOrder>330</displayOrder>
         <data>
@@ -557,7 +557,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--orange)</color>
+                    <color>var(--bs-orange)</color>
                 </display>
             </variation>
             <variation>
@@ -567,7 +567,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--danger)</color>
+                    <color>var(--bs-danger)</color>
                 </display>
             </variation>
         </presentation>
@@ -588,7 +588,7 @@
             <icon>
                 <cssClass>fa fa-building-shield</cssClass>
             </icon>
-            <color>var(--lightblue)</color>
+            <color>var(--bs-lightblue)</color>
         </display>
         <displayOrder>900</displayOrder>
         <data>
@@ -625,7 +625,7 @@
                 <cssClass>fa fa-person-arrow-down-to-line</cssClass>
             </icon>
             <tooltip>Security roles that are not properly staffed.</tooltip>
-            <color>var(--success)</color>
+            <color>var(--bs-success)</color>
         </display>
         <displayOrder>910</displayOrder>
         <data>
@@ -650,7 +650,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--red)</color>
+                    <color>var(--bs-red)</color>
                 </display>
             </variation>
 

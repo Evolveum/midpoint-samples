@@ -30,7 +30,7 @@
             <icon>
                 <cssClass>fe fe-role</cssClass>
             </icon>
-            <color>var(--lightblue)</color>
+            <color>var(--bs-lightblue)</color>
         </display>
         <displayOrder>100</displayOrder>
         <data>
@@ -61,7 +61,7 @@
             <icon>
                 <cssClass>fe fe-role</cssClass>
             </icon>
-            <color>var(--lightblue)</color>
+            <color>var(--bs-lightblue)</color>
         </display>
         <displayOrder>110</displayOrder>
         <data>
@@ -92,7 +92,7 @@
             <icon>
                 <cssClass>fe fe-role</cssClass>
             </icon>
-            <color>var(--lightblue)</color>
+            <color>var(--bs-lightblue)</color>
         </display>
         <displayOrder>110</displayOrder>
         <data>
@@ -124,7 +124,7 @@
             <icon>
                 <cssClass>fe fe-role</cssClass>
             </icon>
-            <color>var(--gray)</color>
+            <color>var(--bs-gray)</color>
         </display>
         <displayOrder>130</displayOrder>
         <data>
@@ -159,7 +159,7 @@
             <icon>
                 <cssClass>fa fa-user-xmark</cssClass>
             </icon>
-            <color>var(--success)</color>
+            <color>var(--bs-success)</color>
         </display>
         <displayOrder>200</displayOrder>
         <data>
@@ -184,7 +184,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--orange)</color>
+                    <color>var(--bs-orange)</color>
                 </display>
             </variation>
             <variation>
@@ -194,7 +194,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--danger)</color>
+                    <color>var(--bs-danger)</color>
                 </display>
             </variation>
         </presentation>
@@ -211,7 +211,7 @@
             <icon>
                 <cssClass>fa fa-file-circle-xmark</cssClass>
             </icon>
-            <color>var(--success)</color>
+            <color>var(--bs-success)</color>
         </display>
         <displayOrder>210</displayOrder>
         <data>
@@ -236,7 +236,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--orange)</color>
+                    <color>var(--bs-orange)</color>
                 </display>
             </variation>
             <variation>
@@ -246,7 +246,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--danger)</color>
+                    <color>var(--bs-danger)</color>
                 </display>
             </variation>
         </presentation>
@@ -266,7 +266,7 @@
             <icon>
                 <cssClass>fa fa-circle-radiation</cssClass>
             </icon>
-            <color>var(--lightblue)</color>
+            <color>var(--bs-lightblue)</color>
         </display>
         <displayOrder>220</displayOrder>
         <data>
@@ -301,7 +301,7 @@
             <icon>
                 <cssClass>fa fa-handcuffs</cssClass>
             </icon>
-            <color>var(--success)</color>
+            <color>var(--bs-success)</color>
         </display>
         <displayOrder>230</displayOrder>
         <data>
@@ -326,7 +326,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--orange)</color>
+                    <color>var(--bs-orange)</color>
                 </display>
             </variation>
             <variation>
@@ -336,7 +336,7 @@
                     </script>
                 </condition>
                 <display>
-                    <color>var(--danger)</color>
+                    <color>var(--bs-danger)</color>
                 </display>
             </variation>
         </presentation>
