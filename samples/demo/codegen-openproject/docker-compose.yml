@@ -126,6 +126,7 @@ services:
       OPENPROJECT_SECRET_KEY_BASE: "op3nS*sam#"
       OPENPROJECT_HOST__NAME:  "localhost:8443"
       OPENPROJECT_HTTPS: "true"
+      OPENPROJECT_DISABLE__SECRET_KEY_BASE__CHECK: "true"
     expose:
         - "80"
     volumes:
