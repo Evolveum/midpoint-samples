@@ -1,0 +1,172 @@
+<inducement>
+        <policyRule>
+            <name>align-shadow-intent-when-group-classification-is-set</name>
+            <policyConstraints>
+                <and>
+                    <!-- Only when the classification item is modified -->
+                    <modification>
+                        <operation>modify</operation>
+                        <item>extension/classification</item>
+                    </modification>
+
+                    <!-- Only when classification transitions from "not set / not valid" to "valid" -->
+                    <transition>
+                        <name>classification-set-for-first-time</name>
+                        <stateBefore>false</stateBefore>
+                        <stateAfter>true</stateAfter>
+                        <constraints>
+                            <objectState>
+                                <filter>
+                                    <q:text>
+                                        extension/classification = "security"
+                                        or extension/classification = "privileged"
+                                        or extension/classification = "distribution"
+                                        or extension/classification = "resource"
+                                    </q:text>
+                                </filter>
+                            </objectState>
+                        </constraints>
+                    </transition>
+                </and>
+            </policyConstraints>
+            <policyActions>
+                <scriptExecution>
+                    <object>
+                        <currentObject/>
+                    </object>
+                    <executeScript>
+                        <s:execute>
+                            <s:script>
+                                <code><![CDATA[
+                                    import com.evolveum.midpoint.model.api.ModelExecuteOptions
+                                    import com.evolveum.midpoint.prism.path.ItemPath
+                                    import com.evolveum.midpoint.xml.ns._public.common.common_3.RoleType
+                                    import com.evolveum.midpoint.xml.ns._public.common.common_3.ShadowType
+                                    import com.evolveum.midpoint.xml.ns._public.common.common_3.ShadowKindType
+                                    import com.evolveum.midpoint.xml.ns._public.common.common_3.ResourceType
+
+                                    import javax.xml.namespace.QName
+
+                                    log.info("Migration ACTION started.")
+
+                                    log.info("Migration ACTION started. input={}, focus={}", input, focus)
+
+                                    final String AD_RESOURCE_OID = '6771ed9e-6523-4e8e-8879-e77afd2bda27'
+                                    ResourceType adResource = midpoint.getObject(ResourceType.class, AD_RESOURCE_OID)
+                                    def baseContextValue = basic.getResourceIcfConfigurationPropertyValue(adResource, 'baseContext')
+                                    if (baseContextValue == null) {
+                                        throw new IllegalStateException("Cannot resolve AD resource connector configuration property 'baseContext'")
+                                    }
+
+                                    String normalizeDn(String dn) {
+                                        return dn != null ? dn.trim().replaceAll(/\\s*,\\s*/, ',') : null
+                                    }
+
+                                    final String AD_BASE_CONTEXT = normalizeDn(baseContextValue.toString())
+
+                                    final String UNMANAGED_MARK_OID = '00000000-0000-0000-0000-000000000805'
+
+                                    final Set<String> LEGACY_INTENTS = [
+                                            'group-legacy',
+                                            'legacy',
+                                            'default'
+                                    ] as Set
+
+                                    final QName GROUP_CLASS_QNAME =
+                                            new QName('http://example.com/xml/ns/iam', 'classification')
+
+                                    final Map<String, String> TARGET_INTENT_BY_CLASS = [
+                                            'security'     : 'security',
+                                            'privileged'   : 'privileged',
+                                            'distribution' : 'distribution',
+                                            'resource'     : 'resource'
+                                    ]
+
+                                    def role = input as RoleType
+
+                                    def groupClass = basic.getExtensionPropertyValue(role, "classification")
+                                            ?.toString()
+                                            ?.trim()
+                                            ?.toLowerCase()
+
+                                    def targetIntent = TARGET_INTENT_BY_CLASS[groupClass]
+
+                                    log.info("Migration ACTION: role={}, classification={}, targetIntent={}", role.name, groupClass, targetIntent)
+
+                                    if (targetIntent == null) {
+                                        log.warn("Skipping role {} because classification '{}' is unsupported", role.name, groupClass)
+                                        return
+                                    }
+
+                                    def linkedShadows = []
+
+                                    role.linkRef?.each { ref ->
+                                        if (ref?.oid == null) {
+                                            return
+                                        }
+
+                                        ShadowType shadow = midpoint.getObject(ShadowType.class, ref.oid)
+
+                                        if (shadow?.resourceRef?.oid == AD_RESOURCE_OID
+                                                && shadow.objectClass?.localPart == 'group') {
+                                            linkedShadows.add(shadow)
+                                        }
+                                    }
+
+                                    def targetIntentShadows = linkedShadows.findAll {
+                                        it.kind == ShadowKindType.ENTITLEMENT && it.intent == targetIntent
+                                    }
+
+                                    def legacyShadows = linkedShadows.findAll {
+                                        it.intent == null || LEGACY_INTENTS.contains(it.intent)
+                                    }
+
+                                    if (!targetIntentShadows.isEmpty() && legacyShadows.isEmpty()) {
+                                        log.info("Role {} already has linked shadow with target intent {}", role.name, targetIntent)
+                                        return
+                                    }
+
+                                    if (!targetIntentShadows.isEmpty() && !legacyShadows.isEmpty()) {
+                                        throw new IllegalStateException("Role ${role.name} has both target-intent and legacy-intent shadows")
+                                    }
+
+                                    if (legacyShadows.size() != 1) {
+                                        throw new IllegalStateException("Role ${role.name} expected exactly one legacy AD group shadow, found ${legacyShadows.size()}")
+                                    }
+
+                                    ShadowType shadow = legacyShadows[0]
+
+                                    def dn = basic.getAttributeValue(shadow, 'dn')?.toString()
+                                    String normalizedDn = normalizeDn(dn)
+
+                                    if (shadow.pendingOperation != null && !shadow.pendingOperation.isEmpty()) {
+                                        throw new IllegalStateException("Shadow ${shadow.oid} has pending operations")
+                                    }
+
+                                    def delta = prismContext.deltaFor(ShadowType.class)
+                                            .item(ShadowType.F_KIND)
+                                            .replace(ShadowKindType.ENTITLEMENT)
+                                            .item(ShadowType.F_INTENT)
+                                            .replace(targetIntent)
+                                            .asObjectDelta(shadow.oid)
+
+                                    def rawOptions = ModelExecuteOptions.create().raw()
+
+                                    log.info("Migration: RAW update shadow {} from {}/{} to entitlement/{}",
+                                            shadow.oid, shadow.kind, shadow.intent, targetIntent)
+
+                                    midpoint.executeChanges([delta], rawOptions)
+
+                                    log.info("Migration: RAW update finished for shadow {}", shadow.oid)
+
+                                    log.info("Migration - Aligned shadow {} for role {} to entitlement/{} while role remains proposed",
+                                            shadow.oid, role.name, targetIntent)
+                                    ]]></code>
+                            </s:script>
+                        </s:execute>
+                    </executeScript>
+                </scriptExecution>
+            </policyActions>
+        </policyRule>
+        <focusType>RoleType</focusType>
+    </inducement>
