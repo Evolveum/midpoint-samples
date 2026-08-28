@@ -12,7 +12,7 @@ services:
      - ./init/postgres:/docker-entrypoint-initdb.d
 
   data_init:
-    image: evolveum/midpoint:${MP_VER:-devel}-alpine
+    image: evolveum/midpoint:alpine-${MP_VER:-nightly}
     command: >
       bash -c "
       cd /opt/midpoint ;
@@ -40,7 +40,7 @@ services:
      - ./midpoint_home:/opt/midpoint/var
 
   midpoint_server:
-    image: evolveum/midpoint:${MP_VER:-devel}-alpine
+    image: evolveum/midpoint:alpine-${MP_VER:-nightly}
     depends_on:
       data_init:
         condition: service_completed_successfully
