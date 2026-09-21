@@ -23,11 +23,7 @@ import org.xml.sax.SAXException;
 import com.evolveum.midpoint.common.validator.EventHandler;
 import com.evolveum.midpoint.common.validator.EventResult;
 import com.evolveum.midpoint.common.validator.LegacyValidator;
-import com.evolveum.midpoint.prism.Item;
-import com.evolveum.midpoint.prism.Objectable;
-import com.evolveum.midpoint.prism.PrismContext;
-import com.evolveum.midpoint.prism.PrismObject;
-import com.evolveum.midpoint.prism.PrismProperty;
+import com.evolveum.midpoint.prism.*;
 import com.evolveum.midpoint.prism.util.PrismTestUtil;
 import com.evolveum.midpoint.schema.MidPointPrismContextFactory;
 import com.evolveum.midpoint.schema.constants.MidPointConstants;
@@ -140,6 +136,9 @@ public class TestSamples extends AbstractSampleTest {
             if (item instanceof PrismProperty
                     && (item.getRealValue() instanceof ScriptingExpressionType
                     || item.getRealValue() instanceof ExecuteScriptType)) {
+                return;
+            }
+            if (!(item instanceof PrismObject<?>)) {
                 return;
             }
             //noinspection unused
